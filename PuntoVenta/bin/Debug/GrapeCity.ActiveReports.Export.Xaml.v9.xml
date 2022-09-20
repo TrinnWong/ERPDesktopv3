@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>GrapeCity.ActiveReports.Export.Xaml.v9</name>
+	</assembly>
+	<members>
+		<member name="T:GrapeCity.ActiveReports.Export.Xaml.DDR.IDelayedImages">
+			<summary>
+            Interface for delayed rendering of image items. For internal use only.
+            </summary>
+		</member>
+		<member name="T:GrapeCity.ActiveReports.Export.Xaml.DDR.XamlRenderingExtension">
+			<summary>
+            XAML export is for internal use and it is not designed to use in any other products. Can be changed without notification.
+            </summary>
+		</member>
+		<member name="M:GrapeCity.ActiveReports.Export.Xaml.DDR.XamlRenderingExtension.Dispose">
+			<summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+			<filterpriority>2</filterpriority>
+		</member>
+	</members>
+</doc>

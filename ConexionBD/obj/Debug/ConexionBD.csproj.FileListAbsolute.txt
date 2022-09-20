@@ -1,0 +1,986 @@
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\00\00_1 Create Table [sis_versiones].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\00\00_2 Create Table sis_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\00\00_3 fnSplitString.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\00\00_4 p_sis_versiones_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\00\00_5 p_sis_versiones_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\01 [cat_clientes_web].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\02 cat_productos_agrupados.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\03 cat_productos_agrupados_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\04 p_cliente_web_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\05 p_web_productos_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\06 Alter.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\06_1 Alters.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\07 p_productos_importacion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\08 p_BuscarProductos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.01\09 p_corte_caja_grd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00 [cat_tipos_direcciones].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_1 insert into direcciones.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_2 [cat_clientes_web].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_3 [cat_productos_imagenes].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_4 cat_productos_agrupados.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_5 p_cliente_web_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_6 ALTER TABLES.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\00_7 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\01 alter.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\01 crete table cat_clientes_direcciones.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\02 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\03 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\04 [p_web_productos_sel].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\05 insert into pais mexico.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\06 insert into cat_estados.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\07 create table [doc_web_carrito].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\07_1 alter table doc_web_carrito.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\08 create table [doc_web_carrito_detalle].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\08_1 alter table doc_web_carrito_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\09 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\0_5 cat_productos_agrupados_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\10 p_doc_web_carrito_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\11 alter tables.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\12 create [sis_bitacora_errores].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\13 p_sis_bitacora_errores_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\14 alter table cat_productos_imagenes.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\15 CREATE TABLE cat_web_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.10.02\16 create table cat_web_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\00 alter table doc_web_carrito.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\00_1 alter table cat_web_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\00_2 alter table cat_productos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\01 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\02 add Foreig Direcciones_Estados.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\03 update estados mayusculas.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\05 p_doc_web_carrito_pagar.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\06 CREATE cat_paqueterias.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\08 update cat_web_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\09 p_doc_web_carrito_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\10 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\11 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\12 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\13 [p_web_productos_sel].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\15 [p_productos_importacion].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\16 p_productos_importacion_validar.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\17 doc_corte_caja_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\18 doc_corte_caja_apartados_pagos_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\19 doc_corte_caja_denominaciones_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\20 doc_corte_caja_egresos_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\21 doc_corte_caja_fp_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\22 doc_corte_caja_fp_apartado_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\23 doc_corte_caja_ventas_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\24 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\25 p_rpt_corte_caja_apartados_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\26 p_rpt_corte_caja_apartados_det_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\27 p_rpt_corte_caja_cancelaciones_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\28 p_rpt_corte_caja_denom_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\29 p_rpt_corte_caja_descuentos_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\30 p_rpt_corte_caja_detallado_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\31 p_rpt_corte_caja_devoluciones_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\32 p_rpt_corte_caja_enc_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\33 p_rpt_corte_caja_fp_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\34 p_rpt_corte_caja_gastos_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\35 p_rpt_corte_caja_resumido_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\36 p_rpt_corte_caja_retiros_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\37 p_rpt_corte_caja_tpv_digito_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\38 p_rpt_corte_caja_vales_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\39 p_rpt_corte_productos_existencias_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\40 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.11.01\41 p_rpt_corte_caja_tpv_digito_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\01 p_cat_productos_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\02 p_cat_productos_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\03 alter table cat_productos_imagenes.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\04 importar imagenes de tablas.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\05 p_productos_imagenes_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\06 p_producto_imagen_principal_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\07 p_productos_clonar.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\08 p_web_productos_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\09 p_cat_productos_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\10 [p_doc_ventas_cancelacion].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\11 p_web_productos_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\12 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\13 alter table cat_familias.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\14 p_productos_agrupados_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\15 p_BuscarProductos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\16 alter table cat_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2018.12.01\17 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\01 doc_pedidos_configuracion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\02 doc_pedidos_configuracion_det.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\03 doc_pedidos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\04 alter table cat_productos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\05 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\06 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\07 p_web_productos_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\08 cat_sitios_entrega_pedido.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\08 _1 cat_estatus_pedido.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\09 doc_pedidos_clientes.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\10 doc_pedidos_clientes_det.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\11 p_web_pedido_cliente_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\12 alter table.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\13 p_web_pedido_producto_agrupado_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\14 [p_BuscarProductos].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\15 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\16 doc_productos_importacion_bitacora.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\17 [p_productos_importacion].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.01.01\18 p_rpt_productos_importacion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\01 cat_clientes_openpay.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\02 p_corte_caja_generacion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\03 alter table doc_web_carrito.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\04 p_doc_web_carrito_pagar.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\05 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\06 p_productos_importacion_bitacora_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\07 fn_GetDateTimeServer.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\08 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\10 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.02.01\11 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.03.01\01 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.03.01\02 p_producto_promocion_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\01 ALTER CONFIG.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\02 create table [cat_clientes_automovil].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\03 create table [cat_productos_base].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\04 [IX_cat_productos_base].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\05 alter table.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\06 p_cat_clientes_ins_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\07 p_rpt_venta_ticket.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\08 p_venta_afecta_inventario.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\09 alter table.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\10 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\11 p_rpt_ventas_resumen.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\12 p_cat_productos_grd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.05.01\13 p_cat_productos_grd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\01 [cat_rest_mesas].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\02 alter table rh_puestos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\03 Conf puestos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\04 rh_empleado_puestos.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\05 [cat_rest_comandas].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\06 p_cat_rest_comandas_gen.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\07 [cat_configuracion_restaurante].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\08 p_cat_configuracion_rest_ins_upd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\09 doc_pedidos_orden.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\10 doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\11 [cat_rest_platillo_adicionales].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\12 cat_rest_platillo_adicionales_sfam.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\13 p_doc_pedidos_orden_insupd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\15 [doc_pedidos_orden_ingre].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\16 [doc_pedidos_orden_adicional].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\17 [doc_pedidos_orden_ingre].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\18 p_doc_pedidos_orden_ingre_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\19 p_doc_pedidos_orden_adicional_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\20 doc_pedidos_orden_mesa.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\21 [doc_pedidos_orden_mesero].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\22 alter table doc_pedidos_orden.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\23 p_doc_pedidos_orden_insupd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\24 p_doc_pedidos_orden_ingre_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\25 p_doc_pedidos_orden_adic_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\26 p_doc_pedidos_orden_mesa_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\27 p_doc_pedidos_orden_mesa_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\28 p_doc_pedidos_orden_mesero_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\29 p_doc_pedidos_orden_mesero_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\30 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\31 alter table doc_ordenes_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\32 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\33 p_doc_pedidos_orden_ingre_ins.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\34 alter column doc_pedidos_orden.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\35 p_doc_pedidos_orden_buscar.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\36 alter table doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\37 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\38 fnGetComandaAdicionales.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\38_1 fnGetComandaMesas.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\39 p_rpt_Comanda.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\40 p_rpt_cuenta.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.06.01\41 [p_InsertarVenta].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\01 [p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\02 alter table.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\03 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\04 [p_rpt_Comanda].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\05 [p_venta_afecta_inventario].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\06 p_productos_existencia_sel.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\07 [p_InsertarVenta].sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\08 cat_impresoras.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\09 cat_cajas_impresora.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\10 IX_cat_cajas_impresora.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\11 alter doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\12 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\13 p_rpt_Comanda.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\14 alter table doc_pedidos_ordenes.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\2019.07.01\15 p_doc_pedidos_orden_cancelacion.sql
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Versiones\install.txt
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\ConexionBD.dll.config
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\ConexionBD.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\ConexionBD.pdb
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\ERP.Models.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.BatchParser.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.BatchParserClient.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\ERP.Models.pdb
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.csprojAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.Form1.resources
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.Forms.FormERP.resources
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.Forms.FormPV.resources
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.Properties.Resources.resources
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.csproj.GenerateResource.cache
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.csproj.CopyComplete
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.dll
+C:\Users\Administrator\Source\Repos\ERP2019donet\ConexionBD\obj\Debug\ConexionBD.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\SystemForms.txt
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master\00 CREATE DATABASE.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master\00_1 CREATE DATABASE OBJECTS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master\00_2 CREATE USER.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master_REC\00_1 CREATE DATABASE OBJECTS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master_REC\00_2 CREATE USER.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00Master_REC\00 CREATE DATABASE REC.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00\00_1 Create Table [sis_versiones].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00\00_2 Create Table sis_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00\00_3 fnSplitString.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00\00_4 p_sis_versiones_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\00\00_5 p_sis_versiones_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\01 [cat_clientes_web].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\02 cat_productos_agrupados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\03 cat_productos_agrupados_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\04 p_cliente_web_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\05 p_web_productos_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\06 Alter.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\06_1 Alters.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\07 p_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\08 p_BuscarProductos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.01\09 p_corte_caja_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00 [cat_tipos_direcciones].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_1 insert into direcciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_2 [cat_clientes_web].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_3 [cat_productos_imagenes].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_4 cat_productos_agrupados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_5 p_cliente_web_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_6 ALTER TABLES.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\00_7 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\01 alter.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\01 crete table cat_clientes_direcciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\02 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\03 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\04 [p_web_productos_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\05 insert into pais mexico.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\06 insert into cat_estados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\07 create table [doc_web_carrito].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\07_1 alter table doc_web_carrito.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\08 create table [doc_web_carrito_detalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\08_1 alter table doc_web_carrito_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\09 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\0_5 cat_productos_agrupados_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\10 p_doc_web_carrito_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\11 alter tables.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\12 create [sis_bitacora_errores].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\13 p_sis_bitacora_errores_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\14 alter table cat_productos_imagenes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\15 CREATE TABLE cat_web_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.10.02\16 create table cat_web_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\00 alter table doc_web_carrito.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\00_1 alter table cat_web_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\00_2 alter table cat_productos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\01 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\02 add Foreig Direcciones_Estados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\03 update estados mayusculas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\05 p_doc_web_carrito_pagar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\06 CREATE cat_paqueterias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\08 update cat_web_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\09 p_doc_web_carrito_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\10 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\11 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\12 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\13 [p_web_productos_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\15 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\16 p_productos_importacion_validar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\17 doc_corte_caja_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\18 doc_corte_caja_apartados_pagos_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\19 doc_corte_caja_denominaciones_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\20 doc_corte_caja_egresos_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\21 doc_corte_caja_fp_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\22 doc_corte_caja_fp_apartado_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\23 doc_corte_caja_ventas_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\24 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\25 p_rpt_corte_caja_apartados_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\26 p_rpt_corte_caja_apartados_det_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\27 p_rpt_corte_caja_cancelaciones_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\28 p_rpt_corte_caja_denom_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\29 p_rpt_corte_caja_descuentos_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\30 p_rpt_corte_caja_detallado_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\31 p_rpt_corte_caja_devoluciones_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\32 p_rpt_corte_caja_enc_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\33 p_rpt_corte_caja_fp_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\34 p_rpt_corte_caja_gastos_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\35 p_rpt_corte_caja_resumido_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\36 p_rpt_corte_caja_retiros_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\37 p_rpt_corte_caja_tpv_digito_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\38 p_rpt_corte_caja_vales_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\39 p_rpt_corte_productos_existencias_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\40 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.11.01\41 p_rpt_corte_caja_tpv_digito_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\01 p_cat_productos_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\02 p_cat_productos_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\03 alter table cat_productos_imagenes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\04 importar imagenes de tablas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\05 p_productos_imagenes_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\06 p_producto_imagen_principal_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\07 p_productos_clonar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\08 p_web_productos_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\09 p_cat_productos_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\10 [p_doc_ventas_cancelacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\11 p_web_productos_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\12 p_web_producto_agrupado_det_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\13 alter table cat_familias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\14 p_productos_agrupados_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\15 p_BuscarProductos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\16 alter table cat_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2018.12.01\17 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\01 doc_pedidos_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\02 doc_pedidos_configuracion_det.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\03 doc_pedidos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\04 alter table cat_productos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\05 p_cat_productos_agrupados_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\06 p_cat_productos_agrupados_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\07 p_web_productos_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\08 cat_sitios_entrega_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\08 _1 cat_estatus_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\09 doc_pedidos_clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\10 doc_pedidos_clientes_det.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\11 p_web_pedido_cliente_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\12 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\13 p_web_pedido_producto_agrupado_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\14 [p_BuscarProductos].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\15 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\16 doc_productos_importacion_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\17 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.01.01\18 p_rpt_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\01 cat_clientes_openpay.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\02 p_corte_caja_generacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\03 alter table doc_web_carrito.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\04 p_doc_web_carrito_pagar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\05 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\06 p_productos_importacion_bitacora_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\07 fn_GetDateTimeServer.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\08 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\10 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.02.01\11 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.03.01\01 p_corte_caja_generacion_previo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.03.01\02 p_producto_promocion_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\01 ALTER CONFIG.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\02 create table [cat_clientes_automovil].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\03 create table [cat_productos_base].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\04 [IX_cat_productos_base].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\05 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\06 p_cat_clientes_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\07 p_rpt_venta_ticket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\08 p_venta_afecta_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\09 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\10 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\11 p_rpt_ventas_resumen.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\12 p_cat_productos_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.05.01\13 p_cat_productos_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\01 [cat_rest_mesas].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\02 alter table rh_puestos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\03 Conf puestos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\04 rh_empleado_puestos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\05 [cat_rest_comandas].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\06 p_cat_rest_comandas_gen.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\07 [cat_configuracion_restaurante].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\08 p_cat_configuracion_rest_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\09 doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\10 doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\11 [cat_rest_platillo_adicionales].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\12 cat_rest_platillo_adicionales_sfam.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\13 p_doc_pedidos_orden_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\15 [doc_pedidos_orden_ingre].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\16 [doc_pedidos_orden_adicional].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\17 [doc_pedidos_orden_ingre].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\18 p_doc_pedidos_orden_ingre_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\19 p_doc_pedidos_orden_adicional_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\20 doc_pedidos_orden_mesa.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\21 [doc_pedidos_orden_mesero].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\22 alter table doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\23 p_doc_pedidos_orden_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\24 p_doc_pedidos_orden_ingre_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\25 p_doc_pedidos_orden_adic_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\26 p_doc_pedidos_orden_mesa_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\27 p_doc_pedidos_orden_mesa_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\28 p_doc_pedidos_orden_mesero_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\29 p_doc_pedidos_orden_mesero_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\30 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\31 alter table doc_ordenes_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\32 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\33 p_doc_pedidos_orden_ingre_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\34 alter column doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\35 p_doc_pedidos_orden_buscar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\36 alter table doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\37 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\38 fnGetComandaAdicionales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\38_1 fnGetComandaMesas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\39 p_rpt_Comanda.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\40 p_rpt_cuenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\41 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.06.01\42 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\01 [p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\02 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\03 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\04 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\05 [p_venta_afecta_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\06 p_productos_existencia_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\07 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\08 cat_impresoras.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\09 cat_cajas_impresora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\10 IX_cat_cajas_impresora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\10_1 doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\11 alter doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\12 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\13 p_rpt_Comanda.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\14 alter table doc_pedidos_ordenes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\15 p_doc_pedidos_orden_cancelacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\16 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\17 alter cat_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\17_1 [doc_ventas_temp].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\18 p_dov_ventas_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\19 p_doc_ventas_rec_sinc.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\20 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\21 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\22 cat_impresoras_comandas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\23 alter cat_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\24 [p_calcular_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\25 [p_productos_existencia_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\26 update disponible.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\27 cat_rec_configuracion_rangos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\28 p_cat_configuracion_rec_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\29 p_dov_ventas_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\30 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\31 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\32 [p_doc_ventas_rec].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\33 p_doc_pedidos_cargos_calculo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\35 alter table doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\36 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\37 p_api_clientes_registro_demo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\38 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\39 [p_rpt_cuenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\40 p_rpt_VentaTicket_Restaurante.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\41 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\42 INSERT cat_cargos_adicionales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\43 doc_pedidos_orden_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\44 p_pv_cargos_adicionales_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\00 p_api_clientes_registro_demo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\01 p_doc_clientes_licencia_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\02 doc_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\03 doc_cargos_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\04 alter table cat_clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\05 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\06 insert.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\07 ALTER CARGOS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\08 alter clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\09 alter table doc_Cargos_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\10 alter table doc_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\11 alter table clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\12 alter table doc_web_Cargos_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\13 p_doc_web_carrito_detalle_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\14 [p_doc_web_carrito_ins].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\15 alter table cat_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\16 p_InsertarVentaDetalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\17 alter table cat_clientes_web.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\18 familias sin definir.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\19 p_doc_web_carrito_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\20 [p_rpt_ventas_resumen].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\21 create table doc_productos_minimo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\22 alter cat_productos_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\23 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\24 p_doc_productos_compra_cancelar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\25 [p_rpt_productos_existencias_valuo].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\26 p_inv_movimiento_rpt.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\27 p_inv_movimiento_rpt.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\28 p_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\29 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\30 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\31 p_rpt_productos_existencias_valuo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\33 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\32 p_venta_afecta_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\41 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\34 p_inv_producto_kardex_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\35 doc_productos_compra_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\36 Insert cat_productos - CARGOS ADICIONALES.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\36_1 alter productos_compra_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\37 p_doc_productos_compra_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\38 p_doc_productos_compra_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\39 alter table doc_productos_compra_gastos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\40 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\41 [p_productos_compra_inv].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\42 p_doc_productos_compra_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\43 p_doc_productos_compra_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\44 [p_productos_compra_inv].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\45 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\46 p_inv_producto_kardex_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\47 p_inv_producto_kardex_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\48 [p_BuscarProductos].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\49 p_InsertarVentaDetalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\50 alter table cantidades.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\51 p_InsertarVentaDetalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\52 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\53 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\53_00 alter table doc_inv_movimiento_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\53_01 create function fnGetSubTotal.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\54 [p_productos_compra_inv].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\55 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\56 p_inv_producto_kardex_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\57 [p_inv_movimiento_detalle_ins].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\58 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\59 alter table doc_ventas_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\60 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\61 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\62 alter doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\63 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2020.08.01\64 [p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\00 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\01 alter proc [dbo].[p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\02 doc_pedidos_orden_programacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\03 alter doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\04  alter table cat_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\05 p_cat_configuracion_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\06 doc_pagos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\07 doc_pagos_cancelaciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\08 alter table doc_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\09 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\10 p_rpt_pedido_pago_ticket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\11 create table cat_politicas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\12 alter cat_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\13 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\14 p_rpt_pedido_pago_ticket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\16 alter table cat_productos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\17 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\18 [p_inv_carga_inicial_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.01.01\19 [p_rpt_productos_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\00.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\01 p_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\02 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\03 p_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\04 create table cat_guisos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\05 cat_empresas_config_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\06 cat_productos_guisos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\07 p_BuscarProductos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\08 alter ValidarExistenciaTraspaso.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\09 Insert sis_menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\10 Insert sis_menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\11 alter table sis_menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\12 INSERT ADMIN ROL.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\13 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\14 [p_calcular_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\15 [p_calcular_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\16 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\17 RECREATE sis_bitacora_errores.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\18 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\19 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\20 p_rpt_movimiento_cancela_inv.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\21 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\22 CREATE [cat_basculas].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\23 doc_basculas_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\23_1 cat_equipos_computo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\24 cat_basculas_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\25 p_rpt_pedido_pago_ticket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\26 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\27 sis_bitacora_general.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\28 doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\29 doc_produccion_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\30 doc_produccion_entrada.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\31.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\32 cat_estatus_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\33 alter doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\34 INSERT INTO [cat_tipos_movimiento_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\35 alter table doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\36 cat_tipo_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\37 insert into CAT_TIPO_BASCULA_MOVIMIENTO.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\38 doc_basculas_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\39 ALTER TABLE cat_basculas_configuracion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\40 DROP PRIMARY KEY PRODUCCION.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\41 PRIMARY KEY doc_produccion_entrada.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\42 PRIMARY KEY doc_produccion_salida.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\43 ALTER TABLE doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\44 [p_cat_productos_ins].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\45 p_rpt_ventas_producto_pct.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\46 doc_sucursales_productos_recepcion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\48 p_rpt_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\49 cat_productos_base_conceptos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\50 doc_produccion_conceptos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\51 doc_clientes_productos_precios.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\52 [p_rpt_productos_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\53 [p_rpt_productos_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\54 alter doc_inv_mov_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\55 [p_inv_movimiento_rpt].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\56 [p_doc_productos_compra_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\57 CREATE TABLE cat_tipos_cajas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\58 ALTER TABLE CAJAS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\59 INSERT CAT_TIPOS_CAJAS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\60 alter table  [dbo].cat_usuarios.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\61 DROP FK cat_cajas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\62 ALTER TABLE doc_basculas_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\63 ALTER TABLE doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\64 doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\65 CREATE [cat_productos_principales].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\66 ALTER TABLE sis_bitacora_general.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\67 [doc_declaracion_fondo_inicial].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\68 doc_declaracion_fondo_inicial_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\69 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\70 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\71 CREATE [cat_tipos_pedido].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\71 ALTER TABLE doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\71_1 ALTER TABLE doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\71_1 INSERT INTO cat_tipos_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\72 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\74 CREATE doc_corte_caja_pedidos_sin_cerrar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\75 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\76 INSERT INTO CAT_DENOMINACIONES.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\77 doc_pedidos_cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\78 CREATE cat_tipos_requisiciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\79 INSERT INTO cat_tipos_requisiciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\80 CREATE cat_estatus.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\81 INSERT INTO cat_estatus.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\82 CREATE doc_requisiciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\83 CREATE doc_requisiciones_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\84 CREATE TABLE doc_ventas_pagos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\85 Alter doc_pagos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\86 p_rpt_inventario_producto.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\87 p_rpt_inventario_valuado.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\88 p_rpt_salidas_analitico.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\89 p_rpt_salidas_sintetico.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\90 ALTER TABLE doc_sesiones_punto_venta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\91 doc_productos_sobrantes_config.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\92 doc_productos_sobrantes_registro.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\93 doc_productos_sobrantes_regitro_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\94 ALTER Table cat_productos_base.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\95 CREATE PROC doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\96 doc_produccion_solicitud_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\97 ALTER TABLE doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\98 CREATE TABLE doc_produccion_solicitud_requerido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99 CREATE PROC p_doc_produccion_solicitud_requerido_gen.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99_1 ALTER TABLE doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99_2 CREATE TABLE doc_produccion_solicitud_ajuste_unidad.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99_3 ALTER TABLE doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99_4 CREATE TABLE doc_produccion_solicitud_aceptacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.02.01\99_5 ALTER TABLE doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\00 CREATE SIS_APIS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\01 sis_cuenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\02 INSERT API.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\03 ALTER TABLE sis_cuenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\04 CREATE cat_departamentos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\05 CREATE TABLE cat_sucursales_departamentos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\06 ALTER TABLE doc_produccion_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\07 p_doc_solicitud_produccion_requerido_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\08 alter table doc_produccion_solicitud_aceptacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\09 ALTER TABLE cat_productos_base.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\10 ALTER TABLE sis_cuenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\11 ALTER TABLE cat_productos_base.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\12 p_doc_ventas_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\13 p_corte_caja_generacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\14 ALTER TABLE cat_tipos_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\15 INSERT INTO cat_tipos_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\17 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\18 UPDATE cat_tipos_pedido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\19 p_rpt_pedido_pago_ticket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\20 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\21 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\22 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\23 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\24 [cat_tipos_mermas].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\25 ALTER TABLE doc_inv_movimiento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\26 p_doc_inv_movimiento_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\27 [p_doc_inv_movimiento_upd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\28 [p_inv_movimiento_rpt].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\28_1 ALTER TABLE doc_ventas_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\29 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\30 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\31 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\32 ADD COLUMN FACTURAR.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\33 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\34 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\35 p_rpt_corte_caja_general.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\36 ALTER TABLE cat_productos_base.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\37 cat_produccion_productos_sucursal.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\38 p_rpt_corte_caja_cajero.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\39 p_doc_productos_sobrantes_registro_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\40 [p_venta_afecta_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\41 p_doc_produccion_abierta_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\42 p_rpt_estado_cuenta_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\43 p_rpt_produccion_rendimiento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\44 [p_productos_importacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\45 p_cat_productos_base_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\46 ALTER TABLE doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\46_1 ALTER TABLE doc_produccion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\47 p_doc_produccion_generar_por_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\48 p_doc_produccion_completar_por_solicitud.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\49 ALTER cat_productos_base.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\50 doc_inventario_registro.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\51 p_doc_inventario_registro_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\52 doc_cocimientos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\53 ALTER TABLE doc_cocimientos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\53 ALTER TABLE dpc_produccion_conceptos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\54 doc_cocimientos_grupos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\55 doc_cocimientos_grupos_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\56 doc_produccion_movs_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\57 doc_cocimientos_grupos_movs_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\58 p_doc_cocimiento_habilitar.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\59 doc_produccion_finalizada.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\60 doc_equipo_computo_bascula_registro.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\61 sis_preferencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\62 sis_preferencias_empresa.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\63 INSERT INTO sis_preferencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\64 doc_empleados_productos_descuentos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\65 doc_empleados_productos_descuentos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\66 INSERT cat_tipos_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\67 p_cat_usuarios_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\68 p_rpt_ventas_encript.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\69 p_empleados_productos_descuentos_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\70 p_rpt_produccion_molino.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\71 doc_rango_gramos_venta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\72 [doc_rango_gramos_venta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\73 p_rpt_gramos_favor_contra.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\74 [p_rpt_produccion_rendimiento].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\75 doc_aceptaciones_sucursal.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\76 doc_aceptaciones_sucursal_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\77 p_doc_aceptaciones_sucursal_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\78 INSERT INTO cat_tipos_movimiento_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\79 cat_tipos_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\80 p_doc_pedidos_ordenes_detalle_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\81 p_doc_pedidos_ordenes_detalle_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\82 p_doc_pedidos_ordenes_detalle_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\83 cat_tipos_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\84 doc_basculas_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\85 ALTER doc_pedidos_orden.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\86 ALTER doc_basculas_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\87 p_doc_inv_movimiento_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\88 cat_tipos_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\89 create doc_retiros_denominaciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\90 p_rpt_pedido_orden_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\91 p_calcular_existencias.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\92 p_rpt_productos_plantilla.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\93 INSERT INTO SIS_PREFERENCIAS ConectarConBascula.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\94 doc_inventario_captura.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\95 p_doc_inventario_captura_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\96 INSERT INTO SIS_PREFERENCIAS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\97 [p_rpt_productos_existencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\98 [p_rpt_productos_existencias_valuo].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99 p_rpt_productos_vendidos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_100 [p_inv_producto_kardex_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_101 p_inventario_cierre.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_102 p_doc_productos_compra_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_103 UtilizarBotonesProductosTouchPV.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_103_1 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_103_2 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_103_3 [p_InsertarVenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_103_4 [p_rpt_corte_caja_producto].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_104 HabilitarCambioPrecioEnVenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_104_1 doc_precios_especiales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_104_2 doc_precios_especiales_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_105 p_doc_precios_especiales_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_106 p_producto_precio_especial_vigente.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_107 INSERT INTO SoloEnviarEmailCorteCaja.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2021.12.01\99_108 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\00 INSERT INTO CorteCajaSubReporteVentasProd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\01 p_rpt_corte_caja_venta_por_producto.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\02 p_rpt_corte_caja_producto.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\03 INSERT INTO CorteCajaSubReporteVentasExistenciasProd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\04 p_producto_precio_especial_vigente.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\03_1 doc_precios_especiales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\03_2 doc_precios_especiales_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\05 p_doc_precios_especiales_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\06 HabilitarCambioPrecioEnVenta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\07 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\08 p_productos_sobrantes_grd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\09 [p_venta_afecta_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\10 [p_rpt_corte_caja_fp].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\11 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\12 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\13 [p_productos_sobrantes_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\14 [p_inventario_cierre].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\15 p_doc_sobrantes_ajustes_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\16 ALTER TABLE doc_productos_sobrantes_registro.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\17 [p_productos_sobrantes_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\17_1 ALTER TABLE doc_productos_sobrantes_config.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\18 p_doc_sobrantes_ajustes_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\19 [p_inv_producto_kardex_grd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\20 [p_rpt_corte_caja_fp].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\21 [p_rpt_estado_cuenta_detalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\22 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\23 [p_rpt_ventas_vendedor].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\24 [p_inventario_cierre].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\25 [p_doc_sobrantes_ajustes_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\26 [p_corte_caja_inventario_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\27 p_rpt_ventas_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\30 INSERT INTO PREFERENCIA SolicitarSobrantesPV.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\31 INSERT INTO cat_tipos_bascula_bitacora.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\32 [p_inv_movimiento_rpt].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\33 [p_rpt_estado_cuenta_detalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\34 [p_doc_ventas_rec_sinc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\35 [p_doc_ventas_rec].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\36 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\37 [p_doc_ventas_rec].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\38 p_corte_caja_generacion_temp.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\39 p_doc_ventas_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\40 [p_doc_ventas_rec].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\41 Disable Rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\42 [p_cat_configuracion_ins_upd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\43 [p_rpt_corte_caja_enc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\44 triiger 01.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\45 trigger 02.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\46 p_cat_configuracion_ini_exis.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\47 p_rpt_corte_ventas.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\48 p_punto_venta_validar_sesion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\49 p_producto_promocion_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.07.01\50 p_punto_venta_validar_sesion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\00 Create sis_notificaciones.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\00_1 create sis_correos_tipos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\00_2 update tipo correo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\00_3 alter table cat_clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\01 [doc_clientes_licencias].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\02 alter table.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\02_1 alter cat_productos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\03 create cat_clientes_contacto.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\03 p_doc_clientes_licencia_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\04 alter table cat_productos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\05 p_doc_cliente_licencia_gen.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\06 p_venta_afecta_inventario.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\06_1 alter table cat_clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\07 fn_ENCODE_TO_BASE64.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\08 fn_DECODE_FROM_BASE64.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\09 p_api_clientes_registro_demo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\10 p_productos_importacion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\11 p_api_registro_demo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\12 cat_tipos_descuento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\13 alter table cat_tipos_descuento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\14 insert tipos descuento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\15 alter table descuento.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\15_1 alter table cat_clientes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\16 [p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\17 alter table clientes_empleados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\18 p_rh_empleado_cliente_gen.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\19 alter doc_ventas_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\20 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\21 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\22 p_rpt_notas_venta_resumido.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\23 p_rpt_VentaTicket_Restaurante.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\24 doc_promociones_cm.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\25 doc_promociones_cm_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\26 IX_doc_promociones_cm_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\27 p_doc_promociones_cm_ins_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\28 p_doc_promociones_cm_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\29 Insert cat_productos - PROMOCIONES.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\30 ALTER TABLE doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\31 [p_producto_promocion_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\32 [p_doc_pedidos_orden_detalle_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\33 p_doc_pedido_promo_cm_ins.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\34 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\35 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\36 [p_rpt_cuenta].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\37 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\38 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\39 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\40 p_rpt_VentaTicket.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\41 p_doc_pedidos_orden_detalle_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\42 p_doc_pedidos_orden_detalle_del.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.10.02\43 generar clientes de empleados.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\01 sis_menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\01_1  sis_perfiles.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\02 sis_roles.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\03 Roles perfiles.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\04 [sis_usuarios_roles].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\05 [sis_perfiles_menu].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\06 insert Menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\07 cat_usuarios_sucursales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\08 insert perfiles.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\09 insert into perfiles-menu.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\10 insert sis_roles.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\11 inset into [sis_roles_perfiles].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\12 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\13 p_sis_permisos_menu_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\14 [cat_cargos_adicionales].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\15 INSERT INTO cat_cargos_adicionales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\16 doc_cargo_adicional_config.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\17 cat_cargos_tipos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\18 insert tipos cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\19 alter table cargos.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\20 doc_pedidos_orden UBEREATS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\21 p_doc_pedidos_cargos_calculo.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\22 Insert cat_productos - CARGOS ADICIONALES.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\23 p_doc_pedidos_orden_detalle_insupd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\24 [p_doc_pedidos_orden_insupd].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\25 alter table doc_ventas_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\26 [p_InsertarVentaDetalle].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\27 [p_rpt_VentaTicket].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\28 [p_rpt_corte_caja_resumido].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\29 [p_doc_ventas_rec_sinc].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\30 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\31 [p_doc_ventas_rec].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2019.12.01\32 p_rpt_corte_caja_enc_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\99_REC\00 p_corte_caja_generacion_rec.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\99_REC\01 [p_corte_caja_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\install.txt
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\Utilerias\00_BACKUP.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\ConexionBD.dll.config
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\ConexionBD.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\ConexionBD.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\ERP.Models.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\LinqToExcel.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.BatchParser.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.BatchParserClient.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Remotion.Data.Linq.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Remotion.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Remotion.Interfaces.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\ERP.Models.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\LinqToExcel.xml
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.Form1.resources
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.Forms.FormERP.resources
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.Forms.FormPV.resources
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.Properties.Resources.resources
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.csproj.CopyComplete
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\obj\Debug\ConexionBD.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\34 INSERT INTO PREFERENCIA TiradaKg.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\35 doc_corte_caja_datos_entrada.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\36 [p_corte_caja_inventario_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\37 p_cat_rest_mesas_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\38 p_rpt_gramos_favor_contra.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\39 p_rpt_materia_prima_consumo_venta.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\40 p_chart_ventas_mes.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\41 p_cat_rest_platillo_adicionales_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\42 [p_corte_caja_inventario_generacion].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\43 p_cat_subfamilias_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\44 doc_pedidos_orden_detalle_impresion.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\45 ALTER TABLE doc_precios_especiales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\46 p_producto_precio_especial_vigente.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\47 [p_doc_sobrantes_ajustes_inventario].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\48 p_rpt_ventas_gastos_sucursal.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\49 [p_rpt_corte_caja_producto].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\50 p_rh_empleado_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\51 [p_rpt_Comanda].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\52 [p_cat_rest_mesas_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\53 [p_cat_subfamilias_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\54 sis_preferencias_sucursales.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\55 INSERT INTO PREFERENCIAS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\56 p_sis_preferencia_aplica.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\57 ALTER TABLE doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\58 p_doc_pedidos_orden_detalle_cargo_upd.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\59 [p_cat_rest_platillo_adicionales_sel].sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\60 ALTER doc_pedidos_orden_detalle.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\61 p_rpt_pedido_orden_sel.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\62 doc_inventario_captura.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\63 INSERT INTO SIS_PREFERENCIAS.sql
+C:\Users\Administrator\source\repos\ERP2019donet2\ConexionBD\bin\Debug\Versiones\2022.06.01\64 p_doc_pedidos_ordenes_detalle_sel.sql

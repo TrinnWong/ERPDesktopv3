@@ -1,0 +1,11 @@
+﻿@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "uiProductoCmb";
+    settings.Width = 500;
+    settings.SelectedIndex = 0;
+    settings.CallbackRouteValues = new { Controller = "ComboBox", Action = "ProductoComboBox" };
+    settings.Properties.CallbackPageSize = 15;
+    settings.Properties.TextField = "descripcion";
+    settings.Properties.ValueField = "id";
+    settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.OnHover;
+}).BindList(Model).GetHtml()

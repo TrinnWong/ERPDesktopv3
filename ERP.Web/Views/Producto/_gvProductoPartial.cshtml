@@ -1,0 +1,61 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvProducto";
+        settings.CallbackRouteValues = new { Controller = "Producto", Action = "gvProductoPartial" };
+
+        settings.Columns.Add(c =>
+        {
+            c.Caption = "#";
+            c.SetDataItemTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Edit", "Edit", new { id = DataBinder.Eval(tc.DataItem, "productoId") })
+
+
+                );
+            });
+            c.SetHeaderTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Create", "Add", "Producto").ToHtmlString()
+                );
+            });
+            c.Settings.AllowDragDrop = DefaultBoolean.False;
+            c.Settings.AllowSort = DefaultBoolean.False;
+            c.Width = 70;
+        });
+
+        //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Producto", Action = "gvProductoPartialAddNew" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Producto", Action = "gvProductoPartialUpdate" };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Producto", Action = "gvProductoPartialDelete" };
+        //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        //settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.ShowNewButton = true;
+        // settings.CommandColumn.ShowDeleteButton = true;
+        // settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "productoId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        //settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Columns.Add("productoId");
+        settings.Columns.Add("clave");
+        settings.Columns.Add("descripcion");
+        settings.Columns.Add("activo");
+
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,9 @@
+delete cat_productos_licencias
+DELETE cat_productos_base
+DELETE cat_productos_config_sucursal
+DELETE doc_inv_carga_inicial
+DELETE doc_productos_importacion_bitacora
+delete cat_productos_impuestos
+delete cat_productos_existencias
+delete cat_productos_precios
+delete cat_productos

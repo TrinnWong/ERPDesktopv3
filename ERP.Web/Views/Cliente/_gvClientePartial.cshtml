@@ -1,0 +1,52 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvCliente";
+        settings.CallbackRouteValues = new { Controller = "Cliente", Action = "gvClientePartial" };
+
+        settings.Columns.Add(c =>
+        {
+            c.Caption = "#";
+            c.SetDataItemTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Edit", "Edit", new { id = DataBinder.Eval(tc.DataItem, "clienteId") })
+
+
+                );
+            });
+            c.SetHeaderTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Create", "Add", "Cliente").ToHtmlString()
+                );
+            });
+            c.Settings.AllowDragDrop = DefaultBoolean.False;
+            c.Settings.AllowSort = DefaultBoolean.False;
+            c.Width = 70;
+        });
+
+        settings.KeyFieldName = "clienteId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Width = new System.Web.UI.WebControls.Unit(100, System.Web.UI.WebControls.UnitType.Percentage);
+        settings.Columns.Add("clienteId");
+        settings.Columns.Add("clave");
+        settings.Columns.Add("nombre");
+        settings.Columns.Add("apellidoPaterno");
+        settings.Columns.Add("apellidoMaterno");
+        settings.Columns.Add("email");
+        settings.Columns.Add("sucursal");
+        settings.Columns.Add("activo");
+
+    });
+}
+@grid.Bind(Model).GetHtml()

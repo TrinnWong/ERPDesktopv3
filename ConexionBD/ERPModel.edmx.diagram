@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e76e7722abcd487681360c1679e4b56a" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="ERPProdModel.cat_abreviaturas_SAT" Width="1.5" PointX="9" PointY="72.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_almacenes" Width="1.5" PointX="3" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_anaqueles" Width="1.5" PointX="3" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_andenes" Width="1.5" PointX="3" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_antecedentes" Width="1.5" PointX="9" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_cajas" Width="1.5" PointX="3" PointY="87.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_centro_costos" Width="1.5" PointX="3" PointY="92.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clases_sat" Width="1.5" PointX="3" PointY="96.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clasificacion_impuestos" Width="1.5" PointX="9" PointY="74.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clientes" Width="1.5" PointX="11.25" PointY="114.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_conceptos" Width="1.5" PointX="6" PointY="103" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion_ticket_apartado" Width="1.5" PointX="6" PointY="174" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion_ticket_venta" Width="1.5" PointX="6" PointY="177.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_denominaciones" Width="1.5" PointX="3" PointY="103.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_divisiones_sat" Width="1.5" PointX="3" PointY="99.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_empresas" Width="1.5" PointX="0.75" PointY="105.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_estados" Width="1.5" PointX="9" PointY="143.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_familias" Width="1.5" PointX="3" PointY="111.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_formas_pago" Width="1.5" PointX="5.25" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_gastos" Width="1.5" PointX="8.25" PointY="104.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_giros" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_giros_neg" Width="1.5" PointX="3" PointY="116.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_grupos_sat" Width="1.5" PointX="3" PointY="120.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_impuestos" Width="1.5" PointX="11.25" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_lineas" Width="1.5" PointX="6" PointY="122.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_lotes" Width="1.5" PointX="3" PointY="128" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_marcas" Width="1.5" PointX="3" PointY="131.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_monedas" Width="1.5" PointX="11" PointY="122.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_monedas_abreviaturas" Width="1.5" PointX="8.75" PointY="155.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_municipios" Width="1.5" PointX="9" PointY="146.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_paises" Width="1.5" PointX="6.75" PointY="144" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_precios" Width="1.5" PointX="9" PointY="149.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos" Width="1.5" PointX="5.25" PointY="106.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_cambio_precio" Width="1.5" PointX="7.5" PointY="111.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_config_sucursal" Width="1.5" PointX="10.5" PointY="108.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_existencias" Width="1.5" PointX="13.5" PointY="112.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_impuestos" Width="1.5" PointX="13.5" PointY="108.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_precios" Width="1.5" PointX="13.5" PointY="116.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_proveedores" Width="1.5" PointX="8.25" PointY="120.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rubros" Width="1.5" PointX="3" PointY="140.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_subclases_sat" Width="1.5" PointX="3" PointY="143.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_subfamilias" Width="1.5" PointX="8.25" PointY="115.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_sucursales" Width="1.5" PointX="3.75" PointY="172.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipo_factor_SAT" Width="1.5" PointX="9" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_cliente" Width="1.5" PointX="9" PointY="152.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_devolucion" Width="1.5" PointX="14.25" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_documento" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_movimiento_inventario" Width="1.5" PointX="17.25" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_proveedor" Width="1.5" PointX="6" PointY="127" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_vale" Width="1.5" PointX="19.5" PointY="82.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_unidades_medida_SAT" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_unidadesmed" Width="1.5" PointX="3" PointY="147.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_usuarios" Width="1.5" PointX="7.5" PointY="133.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_apartados" Width="1.5" PointX="16.5" PointY="101" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_apartados_formas_pago" Width="1.5" PointX="7.5" PointY="83.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_apartados_pagos" Width="1.5" PointX="5.25" PointY="87.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_apartados_productos" Width="1.5" PointX="10.5" PointY="103.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja" Width="1.5" PointX="8.25" PointY="86.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_apartados_pagos" Width="1.5" PointX="13.5" PointY="88.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_denominaciones" Width="1.5" PointX="13.5" PointY="95.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_egresos" Width="1.5" PointX="10.5" PointY="95.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_fp" Width="1.5" PointX="10.5" PointY="97.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_fp_apartado" Width="1.5" PointX="10.5" PointY="100.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_ventas" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_devoluciones" Width="1.5" PointX="16.5" PointY="87.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_devoluciones_detalle" Width="1.5" PointX="21.75" PointY="109.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_entrada_directa_adicional" Width="1.5" PointX="18.75" PointY="112.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_gastos" Width="1.5" PointX="16.5" PointY="95.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_inv_carga_inicial" Width="1.5" PointX="13.5" PointY="104.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_inv_movimiento" Width="1.5" PointX="19.5" PointY="85" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_inv_movimiento_detalle" Width="1.5" PointX="16.5" PointY="111.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_compra" Width="1.5" PointX="10.5" PointY="126.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_compra_detalle" Width="1.5" PointX="13.5" PointY="120.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_promociones" Width="1.5" PointX="13.75" PointY="126.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_promociones_detalle" Width="1.5" PointX="16.5" PointY="117.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_promociones_excepcion" Width="1.5" PointX="16.5" PointY="122.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_reimpresion_ticket" Width="1.5" PointX="5.25" PointY="84" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_retiros" Width="1.5" PointX="5.25" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_ventas" Width="1.5" PointX="11.25" PointY="85" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_ventas_formas_pago" Width="1.5" PointX="13.5" PointY="91.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_ventas_formas_pago_vale" Width="1.5" PointX="21.75" PointY="88" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_departamentos" Width="1.5" PointX="3" PointY="152.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_empleados" Width="1.5" PointX="5.25" PointY="135" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_estatus_empleados" Width="1.5" PointX="3" PointY="156.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_formaspagonom" Width="1.5" PointX="3" PointY="159.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_puestos" Width="1.5" PointX="3" PointY="164.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_tipos_contrato" Width="1.5" PointX="3" PointY="168" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_impuestos_cat_abreviaturas_SAT" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_almac__Empre__3552E9B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_almac__Empre__36470DEF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_almac__Sucur__373B3228" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_almac__Sucur__382F5661" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__2022C2A6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anaqu__Empre__39237A9A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anaqu__Empre__3A179ED3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anaqu__Sucur__3B0BC30C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anaqu__Sucur__3BFFE745" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anden__Empre__3CF40B7E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anden__Empre__3DE82FB7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anden__Sucur__3EDC53F0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_anden__Sucur__3FD07829" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__178D7CA5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__2116E6DF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_antecedentes" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_cajas__Empre__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_cajas__Sucur__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__CajaI__7073AF84" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__CajaI__7167D3BD" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_pagos_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_cat_cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_reimpresion_ticket_cat_cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_cat_cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_VentasCaja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_centr__Empre__42ACE4D4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_centr__Empre__43A1090D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_centr__Sucur__44952D46" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_centr__Sucur__4589517F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Clave__725BF7F6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Clave__73501C2F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_centro_costos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_clase__Empre__467D75B8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_clase__Empre__477199F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_clase__Sucur__4865BE2A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_clase__Sucur__4959E263" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_impuestos_cat_clasificacion_impuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_estados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_giros" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_paises" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_precios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_cat_tipos_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_cat_clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_cat_clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Conce__74444068" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Conce__753864A1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_configuracion_ticket_apartado_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_configuracion_ticket_venta_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__52E34C9D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__53D770D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__54CB950F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__5555A4F4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__55BFB948" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__56B3DD81" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__57A801BA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__589C25F3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__59904A2C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__5A846E65" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__5B78929E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Empre__5C6CB6D7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__5649C92D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__5D60DB10" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__5E54FF49" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__5F492382" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__603D47BB" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__61316BF4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__6225902D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__6319B466" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__640DD89F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__6501FCD8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__65F62111" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_denom__Sucur__66EA454A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_denominaciones_cat_denominaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_divis__Empre__67DE6983" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_divis__Empre__68D28DBC" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_divis__Sucur__69C6B1F5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_divis__Sucur__6ABAD62E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_famil__Empre__6CA31EA0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_famil__Empre__6D9742D9" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_famil__Sucur__6E8B6712" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_famil__Sucur__6F7F8B4B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Empre__7720AD13" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Empre__7814D14C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_giros__Empre__7AF13DF7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_giros__Empre__7BE56230" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_giros__Sucur__7CD98669" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_giros__Sucur__7DCDAAA2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_grupo__Empre__7EC1CEDB" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_grupo__Empre__7FB5F314" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_grupo__Sucur__00AA174D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_grupo__Sucur__019E3B86" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_linea__Empre__056ECC6A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_linea__Empre__0662F0A3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_lotes__Empre__093F5D4E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_lotes__Empre__0A338187" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_lotes__Sucur__0B27A5C0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_lotes__Sucur__0C1BC9F9" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_marca__Empre__0D0FEE32" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_marca__Empre__0E04126B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_marca__Sucur__0EF836A4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_marca__Sucur__0FEC5ADD" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_moned__Empre__10E07F16" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_moned__Empre__11D4A34F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_moned__Sucur__12C8C788" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_moned__Sucur__13BCEBC1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Empre__29AC2CE0" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Empre__2AA05119" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_rubro__Empre__3EA749C6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_rubro__Empre__3F9B6DFF" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_rubro__Sucur__408F9238" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_rubro__Sucur__4183B671" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subcl__Empre__4277DAAA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subcl__Empre__436BFEE3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subcl__Sucur__4460231C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subcl__Sucur__45544755" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Empre__46486B8E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Empre__473C8FC7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Sucur__4A18FC72" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Sucur__4B0D20AB" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_unida__Empre__4DE98D56" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_unida__Empre__4EDDB18F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_unida__Sucur__4FD1D5C8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_unida__Sucur__50C5FA01" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_depart__Empre__34E8D562" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_depart__Empre__35DCF99B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_depart__Sucur__36D11DD4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_depart__Sucur__37C5420D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Empre__3AA1AEB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Empre__3B95D2F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Sucur__405A880E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Sucur__414EAC47" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_estatu__Empre__442B18F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_estatu__Empre__451F3D2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_estatu__Sucur__46136164" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_estatu__Sucur__4707859D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_formas__Empre__47FBA9D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_formas__Empre__48EFCE0F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_formas__Sucur__49E3F248" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_formas__Sucur__4AD81681" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_puesto__Empre__4BCC3ABA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_puesto__Empre__4CC05EF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_puesto__Sucur__4DB4832C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_puesto__Sucur__4EA8A765" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_tipos___Empre__4F9CCB9E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_tipos___Empre__5090EFD7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_tipos___Sucur__51851410" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_tipos___Sucur__52793849" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cat_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_estados_cat_paises" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_municipios_cat_estados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_estados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1A69E950" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__23F3538A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Famil__4830B400" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_subfa__Famil__4924D839" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_detalle_cat_familias" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_excepcion_cat_familias" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_formas_pago_cat_formas_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_formas_pago_cat_formas_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Cread__58671BC9" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Sucur__7908F585" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Sucur__79FD19BE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_gastos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_giros" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_impuestos_cat_tipo_factor_SAT" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_impuestos_cat_impuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_linea__Sucur__075714DC" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_linea__Sucur__084B3915" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1C5231C2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__25DB9BFC" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_detalle_cat_lineas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_excepcion_cat_lineas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1881A0DE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__220B0B18" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1975C517" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__22FF2F51" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_monedas_abreviaturas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_paises" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_precios_cat_productos_precios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_precios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1B5E0D89" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1D4655FB" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1E3A7A34" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__24E777C3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__26CFC035" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__27C3E46E" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Clave__28B808A7" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Sucur__2B947552" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_produ__Sucur__2C88998B" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_cambio_precio_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_config_sucursal_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_existencias_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_impuestos_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_precios_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_productos_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_carga_inicial_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_detalle_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_detalle_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_detalle_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_excepcion_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_cambio_precio_cat_precios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_config_sucursal_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_config_sucursal_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_config_sucursal_cat_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_existencias_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_tipos_proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cat_proveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_detalle_cat_subfamilias" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_excepcion_cat_subfamilias" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__00750D23" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__0169315C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__025D5595" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__035179CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__04459E07" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__7F80E8EA" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_carga_inicial_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_Productos_Compra_Suursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_VentasSucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_devol__TipoD__6A85CC04" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_devol__TipoD__6B79F03D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_tipos__TipoM__4C0144E4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_tipos__TipoM__4CF5691D" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_cat_tipos_movimiento_inventario" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_formas_pago_vale_cat_tipos_vale" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Autor__7BB05806" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Autor__7CA47C3F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_rh_empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_pagos_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_productos_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_productos_cat_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_cat_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_carga_inicial_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_cat_sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_detalle_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cat_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cat_usuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_detalle_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_cat_usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_formas_pago_cat_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_apartados_ventas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_pagos_doc_apartados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_productos_doc_apartados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_apartados_formas_pago_doc_apartados_pagos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_apartados_pagos_doc_apartados_pagos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_apartados_pagos_doc_corte_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_denominaciones_doc_corte_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_doc_ventas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_doc_ventas1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_egresos_doc_corte_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_fp_apartado_doc_corte_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_fp_doc_corte_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_devol__Devol__6E565CE8" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_devol__Devol__6F4A8121" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_doc_ventas1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_formas_pago_vale_doc_devoluciones" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_cat_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_doc_ventas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_entrada_directa_adicional_doc_inv_movimiento_detalle" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Produ__7D98A078" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Produ__7E8CC4B1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Venta__0539C240" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Venta__062DE679" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_cancelacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_detalle_doc_inv_movimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_detalle_doc_productos_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_detalle_doc_promociones" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_excepcion_doc_promociones" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_reimpresion_ticket_doc_ventas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_formas_pago_doc_ventas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Depar__38B96646" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Depar__39AD8A7F" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Forma__3C89F72A" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Forma__3D7E1B63" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Puest__3E723F9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__Puest__3F6663D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__TipoC__4242D080" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPProdModel.FK__rh_emplea__TipoC__4336F4B9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_versiones" Width="1.5" PointX="7.375" PointY="0.875" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_versiones_detalle" Width="1.5" PointX="9.625" PointY="1" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_versiones_detalle_sis_versiones" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_agrupados" Width="1.5" PointX="7.5" PointY="99.125" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_agrupados_detalle" Width="1.5" PointX="15.75" PointY="107.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_agrupados_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_productos_agrupados_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_agrupados_detalle_cat_productos_agrupados" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_imagenes" Width="1.5" PointX="7.5" PointY="129.5" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_imagenes_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_web_configuracion" Width="1.5" PointX="6" PointY="181" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_web_configuracion_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_familias_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_configuracion" Width="1.5" PointX="9.75" PointY="157.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_cat_usuarios1" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_configuracion_det" Width="1.5" PointX="12" PointY="134.125" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_det_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_det_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_configuracion_det_doc_pedidos_configuracion" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_previo" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clientes_automovil" Width="1.5" PointX="13.5" PointY="137.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_automovil_cat_clientes" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rest_mesas" Width="1.5" PointX="11.75" PointY="153.375" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_mesas_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_mesas_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_mesas_cat_usuarios1" />
+        <EntityTypeShape EntityType="ERPProdModel.rh_empleado_puestos" Width="1.5" PointX="11.5" PointY="150.375" />
+        <AssociationConnector Association="ERPProdModel.FK_rh_empleado_puestos_rh_empleados" />
+        <AssociationConnector Association="ERPProdModel.FK_rh_empleado_puestos_rh_puestos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rest_comandas" Width="1.5" PointX="12.75" PointY="157.75" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_comandas_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_comandas_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion_restaurante" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rest_platillo_adicionales" Width="1.5" PointX="9.75" PointY="137.625" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rest_platillo_adicionales_sfam" Width="1.5" PointX="16" PointY="127.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_platillo_adicionales_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_platillo_adicionales_sfam_cat_rest_platillo_adicionales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_platillo_adicionales_sfam_cat_subfamilias" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden" Width="1.5" PointX="15" PointY="146.25" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_detalle" Width="1.5" PointX="19.5" PointY="116.125" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_comandas_orden_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_rest_comandas_orden_cat_rest_comandas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_detalle_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_mesa" Width="1.5" PointX="17.25" PointY="150.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_mesa_cat_rest_mesas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_mesa_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_adicional" Width="1.5" PointX="21.75" PointY="129.125" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_ingre" Width="1.5" PointX="21.75" PointY="124.125" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_mesero" Width="1.5" PointX="17.25" PointY="142.25" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_ingre_cat_productos_base" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_adicional_cat_rest_platillo_adicionales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_adicional_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_ingre_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_mesero_doc_pedidos_orden" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_adicional_doc_pedidos_orden_detalle" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_ingre_doc_pedidos_orden_detalle" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_mesero_rh_empleados" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_detalle_cat_rest_comandas" />
+        <AssociationConnector Association="ERPProdModel.FK_Pedidos_Ventas" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_impresoras" Width="1.5" PointX="6" PointY="170.5" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_impresoras_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_cajas_impresora" Width="1.5" PointX="14.25" PointY="133" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_cajas_impresora_cat_cajas" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_cajas_impresora_cat_impresoras" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_impresoras_comandas" Width="1.5" PointX="8.25" PointY="171.125" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_impresoras_comandas_cat_impresoras" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_rec_configuracion_rangos" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_descuento" Width="1.5" PointX="9.375" PointY="3.75" />
+        <AssociationConnector Association="ERPProdModel.FK_pedidos_orden_detalle_Tipo_Descuento" />
+        <AssociationConnector Association="ERPProdModel.FK_Clientes_Empleados" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_ventas_detalle" Width="1.5" PointX="13.5" PointY="72" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_detalle_Tipo_Descuento" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_detalle_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_detalle_doc_ventas" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_promociones_cm" Width="1.5" PointX="9.75" PointY="163.125" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_promociones_cm_detalle" Width="1.5" PointX="16" PointY="138.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cm_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cm_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cm_detalle_doc_promociones_cm" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cm_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_pedid__Promo__61D155C9" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_venta__Promo__62C57A02" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_usuarios_roles" Width="1.5" PointX="9.75" PointY="134.375" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_usuarios_roles_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_usuarios_sucursales" Width="1.5" PointX="12.75" PointY="161.5" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_sucursales_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_sucursales_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_roles" Width="1.5" PointX="9.375" PointY="6.875" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_usuarios_roles_sis_roles" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_cargos_adicionales" Width="1.5" PointX="6.75" PointY="185.125" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_cargos_tipos" Width="1.5" PointX="9.375" PointY="9.875" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cargo_adicional_config" Width="1.5" PointX="9" PointY="178.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_cargo_adicional_cargo_tipo" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cargo_adicional_config_cat_cargos_adicionales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cargo_adicional_config_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_detalle_cat_cargos_Adicionales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_cargos" Width="1.5" PointX="17.25" PointY="166" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cargos_cat_cargos_adicionales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cargos_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clientes_contacto" Width="1.5" PointX="13.5" PointY="100.875" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_contacto_cat_clientes" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cargos_detalle" Width="1.5" PointX="21.75" PointY="105.125" />
+        <AssociationConnector Association="ERPProdModel.FK_Clientes_Sucursal" />
+        <AssociationConnector Association="ERPProdModel.FK_Ventas_CargoDetalle" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_web_carrito" Width="1.5" PointX="22.5" PointY="113.5" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_web_carrito_detalle" Width="1.5" PointX="19.5" PointY="104.875" />
+        <AssociationConnector Association="ERPProdModel.FK_Carrito_Cliente" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_web_carrito_cat_estados" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_web_carrito_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_Carrito_Ventas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_web_carrito_detalle_doc_web_carrito" />
+        <AssociationConnector Association="ERPProdModel.FK_Carrito_Cargo_Detalle" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clientes_direcciones" Width="1.5" PointX="16.5" PointY="130.5" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_clientes_web" Width="1.5" PointX="13.5" PointY="141" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_direcciones_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_clientes_web_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_clientes_direcciones_Estados" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_minimo" Width="1.5" PointX="11.5" PointY="145" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_minimo_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_minimo_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_compra_cargos" Width="1.5" PointX="18.75" PointY="123.25" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cargos_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_Productos_compra_cargos_proveedores" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_compra_cargos_doc_productos_compra" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_programacion" Width="1.5" PointX="19.25" PointY="134.25" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_programacion_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_programacion_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_programacion_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cargos" Width="1.5" PointX="24.5" PointY="121" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cargos_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cargos_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cargos_detalle_doc_cargos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_doc_cargos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_politicas" Width="1.5" PointX="11.375" PointY="3.75" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_confi__Pedid__25276EE5" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_guisos" Width="1.5" PointX="7.5" PointY="93.125" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_guisos_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_empresas_config_inventario" Width="1.5" PointX="3" PointY="124.25" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_empresas_config_inventario_cat_empresas" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_empresas_config_inventario_cat_empresas_config_inventario" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_guisos" Width="1.5" PointX="18.75" PointY="101.375" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_guisos_cat_guisos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_guisos_cat_productos1" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_perfiles" Width="1.5" PointX="11.375" PointY="12.5" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_perfiles_menu" Width="1.5" PointX="13.625" PointY="7.5" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_roles_perfiles" Width="1.5" PointX="13.625" PointY="10.625" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_perfiles_menu_sis_perfiles" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_roles_perfiles_sis_perfiles" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_roles_perfiles_sis_roles" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_menu" Width="1.5" PointX="7.375" PointY="13" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_menu_sis_menu" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_perfiles_menu_sis_menu" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_bitacora_errores" Width="1.5" PointX="9.75" PointY="174.25" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_bitacora_errores_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_basculas" Width="1.5" PointX="17.75" PointY="145.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_cat_empresas" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_cat_usuarios1" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_basculas_configuracion" Width="1.5" PointX="20" PointY="146.25" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_equipos_computo" Width="1.5" PointX="17.75" PointY="153.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_cajas_basculas_configuracion_cat_basculas" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_configuracion_cat_equipos_computo" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_basculas_bitacora" Width="1.5" PointX="20" PointY="163.75" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_basculas_bitacora_cat_basculas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_basculas_bitacora_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion" Width="2.375" PointX="16.125" PointY="157.625" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_bitacora" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_bitacora_general" Width="1.5" PointX="6.375" PointY="188.5" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_bitacora_general_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_bitacora_general_cat_sucursales1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_estatus_produccion" Width="1.5" PointX="0.75" PointY="13.875" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_produ__Estat__0BF1ACC7" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_bascula_bitacora" Width="1.5" PointX="13.375" PointY="13.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_basculas_bitacora_cat_tipos_bascula_bitacora" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_entrada" Width="1.5" PointX="22.25" PointY="135.625" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_salida" Width="1.5" PointX="19.25" PointY="130.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_entrada_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_salida_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_entrada_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_salida_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_entrada_doc_produccion" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_salida_doc_produccion" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_sucursales_productos_recepcion" Width="1.5" PointX="16.5" PointY="135.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_sucursales_productos_recepcion_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_sucursales_productos_recepcion_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_basculas_bitacora_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_base_conceptos" Width="1.5" PointX="19.25" PointY="109.5" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_base_conceptos_cat_conceptos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_base_conceptos_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_conceptos" Width="1.5" PointX="24.25" PointY="130.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_conceptos_cat_conceptos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_conceptos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_conceptos_cat_usuarios1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_conceptos_doc_produccion" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_clientes_productos_precios" Width="1.5" PointX="24.5" PointY="107.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_clientes_productos_precios_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_clientes_productos_precios_cat_productos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_cajas" Width="1.5" PointX="12.375" PointY="0.875" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_cajas_cat_tipos_cajas" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_cat_cajas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_basculas_bitacora_doc_pedidos_orden_detalle" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cat_cajas" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_declaracion_fondo_inicial" Width="1.5" PointX="18.5" PointY="138.75" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_declaracion_fondo_inicial_detalle" Width="1.5" PointX="24.75" PointY="126" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaracion_fondo_inicial_detalle_cat_denominaciones" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaraciones_fondo_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaracion_fondo_inicial_detalle_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaraciones_fondo_doc_corte_caja" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaracion_fondo_inicial_detalle_doc_declaracion_fondo_inicial" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_declaracion_fondo_inicial_cat_cajas" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_pedido" Width="1.5" PointX="13.375" PointY="3.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_cat_tipos_pedido" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_pedidos_sin_cerrar" Width="1.5" PointX="22.25" PointY="121" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_pedidos_sin_cerrar_doc_corte_caja" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_pedidos_sin_cerrar_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_cargos" Width="1.5" PointX="26.75" PointY="136.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_cargos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_cargos_doc_cargos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_cargos_doc_pedidos_orden" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_sesiones_punto_venta" Width="1.5" PointX="24.5" PointY="103.5" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_sesiones_punto_venta_cat_cajas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_sesiones_punto_venta_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_sesiones_punto_venta_doc_corte_caja" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pagos" Width="1.5" PointX="26.75" PointY="111.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pagos_cat_clientes" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pagos_cat_formas_pago" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pagos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pagos_doc_cargos" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_sobrantes_config" Width="1.5" PointX="20.75" PointY="139.75" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_sobrantes_registro" Width="1.5" PointX="20.75" PointY="150.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_config_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_config_cat_productos1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_registro_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_registro_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_config_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_registro_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_productos_sobrantes_regitro_inventario" Width="1.5" PointX="27" PointY="131.375" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_regitro_inventario_doc_inv_movimiento_detalle" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_productos_sobrantes_regitro_inventario_doc_productos_sobrantes_registro" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_solicitud" Width="1.5" PointX="12.75" PointY="165.125" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_solicitud_detalle" Width="1.5" PointX="23.5" PointY="139.125" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_cat_sucursales1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_detalle_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_detalle_doc_produccion_solicitud" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_solicitud_requerido" Width="1.5" PointX="27.75" PointY="127.125" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_requerido_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_requerido_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_requerido_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_requerido_doc_produccion_solicitud_detalle" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_solicitud_ajuste_unidad" Width="1.5" PointX="29.75" PointY="132.125" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_ajuste_unidad_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_ajuste_unidad_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_ajuste_unidad_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_ajuste_unidad_doc_produccion_solicitud_detalle" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_solicitud_aceptacion" Width="1.5" PointX="25.75" PointY="142" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_aceptacion_cat_unidadesmed" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_aceptacion_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_aceptacion_doc_produccion_solicitud_detalle" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_apis" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_departamentos" Width="1.5" PointX="9.75" PointY="182.125" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_sucursales_departamentos" Width="1.5" PointX="12" PointY="178.125" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_departamentos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_sucursales_departamentos_cat_departamentos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_sucursales_departamentos_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_cat_departamentos" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_base" Width="1.5" PointX="22.5" PointY="144.25" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_base_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_base_cat_productos1" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_base_cat_unidadesmed" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_cuenta" Width="1.5" PointX="3" PointY="136" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_cuenta_cat_empresas" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_tipos_mermas" Width="1.5" PointX="15.375" PointY="3.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_cat_tipos_merma" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_produccion_productos_sucursal" Width="1.5" PointX="19.5" PointY="157.375" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_produccion_productos_sucursal_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_produccion_productos_sucursal_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_solicitud_doc_produccion" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_doc_produccion_solicitud" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_inventario_registro" Width="1.5" PointX="21.75" PointY="155" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_registro_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_registro_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_registro_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_productos_principales" Width="1.5" PointX="7.5" PointY="158.625" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_principales_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_productos_principales_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cocimientos" Width="1.5" PointX="28.25" PointY="140.125" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_doc_produccion" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cocimientos_grupos" Width="1.5" PointX="15.75" PointY="169" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cocimientos_grupos_detalle" Width="1.5" PointX="30.5" PointY="140.75" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_detalle_doc_cocimientos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_detalle_doc_cocimientos_grupos" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_cocimientos_grupos_movs_inventario" Width="1.5" PointX="21.75" PointY="132.25" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_movs_inventario" Width="1.5" PointX="26.75" PointY="123" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_movs_inventario_doc_cocimientos_grupos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_cocimientos_grupos_movs_inventario_doc_inv_movimiento" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_movs_inventario_doc_inv_movimiento" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_movs_inventario_doc_produccion" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_produccion_finalizada" Width="1.5" PointX="6" PointY="167.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_produccion_finalizada_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_equipo_computo_bascula_registro" Width="1.5" PointX="20" PointY="160.875" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_equipos_computo" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_preferencias" Width="1.5" PointX="15.375" PointY="14" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_preferencias_empresa" Width="1.5" PointX="17.625" PointY="14" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_preferencias_empresa_sis_preferencias" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_empleados_productos_descuentos" Width="1.5" PointX="24.75" PointY="116.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_empleados_productos_descuentos_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_empleados_productos_descuentos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_empleados_productos_descuentos_cat_usuarios1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_empleados_productos_descuentos_rh_empleados" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_rango_gramos_venta" Width="1.5" PointX="3.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_aceptaciones_sucursal" Width="1.5" PointX="30.75" PointY="136.75" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_aceptaciones_sucursal_detalle" Width="1.5" PointX="29.75" PointY="123.25" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_detalle_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_detalle_doc_aceptaciones_sucursal" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_doc_inv_movimiento" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_detalle_doc_inv_movimiento_detalle" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_aceptaciones_sucursal_detalle_doc_inv_movimiento_detalle1" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_pedid__Sucur__2B9540A9" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_retiros_denominaciones" Width="1.5" PointX="26.75" PointY="107.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_denominaciones_cat_denominaciones" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_denominaciones_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_retiros_denominaciones_doc_retiros" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_inventario_captura" Width="1.5" PointX="23.75" PointY="149.625" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_captura_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_captura_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_inventario_captura_cat_usuarios" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_precios_especiales" Width="1.5" PointX="25.5" PointY="99.625" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_precios_especiales_detalle" Width="1.5" PointX="27.75" PointY="118" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_precios_especiales_detalle_cat_productos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_precios_especiales_detalle_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_precios_especiales_detalle_cat_usuarios1" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_precios_especiales_detalle_doc_precios_especiales" />
+        <AssociationConnector Association="ERPProdModel.FK__doc_produ__Cerra__5CC287E9" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_corte_caja_datos_entrada" Width="1.5" PointX="18.75" PointY="169.25" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_precios_especiales_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_pedidos_orden_detalle_impresion" Width="1.5" PointX="21.75" PointY="101.5" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_detalle_impresion_doc_pedidos_orden_detalle" />
+        <EntityTypeShape EntityType="ERPProdModel.sis_preferencias_sucursales" Width="1.5" PointX="19.625" PointY="97.875" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_preferencias_sucursales_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_sis_preferencias_sucursales_sis_preferencias" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

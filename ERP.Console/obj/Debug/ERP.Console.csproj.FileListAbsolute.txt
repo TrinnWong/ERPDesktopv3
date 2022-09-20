@@ -1,0 +1,10 @@
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\obj\Debug\ERP.Console.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\obj\Debug\ERP.Console.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\bin\Debug\ERP.Console.exe.config
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\bin\Debug\ERP.Console.exe
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\bin\Debug\ERP.Console.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\bin\Debug\ERP.Utils.dll
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\bin\Debug\ERP.Utils.pdb
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\obj\Debug\ERP.Console.csproj.CopyComplete
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\obj\Debug\ERP.Console.exe
+C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Console\obj\Debug\ERP.Console.pdb

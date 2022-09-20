@@ -1,0 +1,68 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvCargos";
+        settings.CallbackRouteValues = new { Controller = "Cargo", Action = "gvCargosPartial" };
+
+        settings.Columns.Add(c =>
+        {
+            c.Caption = "#";
+            c.SetDataItemTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Edit", "Edit", new { id = DataBinder.Eval(tc.DataItem, "cargoId") })
+
+
+                );
+            });
+            c.SetHeaderTemplateContent(tc =>
+            {
+                ViewContext.Writer.Write(
+                    Html.ActionLink("Create", "Add1", "Cargo").ToHtmlString()
+                );
+            });
+            c.Settings.AllowDragDrop = DefaultBoolean.False;
+            c.Settings.AllowSort = DefaultBoolean.False;
+            c.Width = 70;
+        });
+
+        settings.KeyFieldName = "cargoId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("cargoId");
+        settings.Columns.Add("claveCliente");
+        settings.Columns.Add("nombreCliente");
+        settings.Columns.Add("sucursalCliente");
+        settings.Columns.Add("producto","Concepto");
+        settings.Columns.Add(c =>
+        {
+            c.Caption = "Total";
+            c.FieldName = "total";
+            c.PropertiesEdit.DisplayFormatString = "{0:C}";
+        });
+        settings.Columns.Add(c =>
+        {
+            c.Caption = "Descuento";
+            c.FieldName = "descuento";
+            c.PropertiesEdit.DisplayFormatString = "{0:C}";
+        });
+        settings.Columns.Add(c=> {
+            c.Caption = "Saldo";
+            c.FieldName = "saldo";
+            c.PropertiesEdit.DisplayFormatString = "{0:C}";
+        });
+
+
+        settings.Columns.Add("activo");
+    });
+}
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,142 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Cargos por Cliente</h2>
+
+<script type="text/javascript">
+    function SelectionChanged(s, e) {
+        s.GetSelectedFieldValues("clienteId;clave;nombre", GetSelectedFieldValuesCallback);
+    }
+    function GetSelectedFieldValuesCallback(values) {
+        SelectedRows.BeginUpdate();
+        try {
+            SelectedRows.ClearItems();
+            for (var i = 0; i < values.length; i++) {
+                SelectedRows.AddItem("" + values[i][0] + "~" + values[i][1] + "~" + values[i][2]);
+
+            }
+        } finally {
+            SelectedRows.EndUpdate();
+        }
+        $("#count").html(gvClienteCargo.GetSelectedRowCount());
+
+    }
+</script>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">1. Selecciona los clientes para los que deseas configurar un cargo</div>
+    <div class="panel-body">
+
+
+        @Html.Action("gvClienteCargoPartial")
+
+
+        <table style="width:100%">
+            <tr>
+                <td style="vertical-align: top;min-width:110px">
+                    <div style="padding-right: 15px;">
+                        <div class="text">
+                            Clientes Seleccionados
+                        </div>
+                        @Html.DevExpress().ListBox(settings => {
+                       settings.Name = "SelectedRows";
+                       settings.Width = new System.Web.UI.WebControls.Unit(100, System.Web.UI.WebControls.UnitType.Percentage);
+                       settings.Height = 250;
+                       settings.Properties.EnableClientSideAPI = true;
+                       settings.Theme = "Moderno";
+                   }).GetHtml()
+                        <div class="text">
+                            Selected count:&nbsp;<strong id="count">0</strong>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">2. Selecciona el Concepto</div>
+    <div class="panel-body">
+
+        <div class="form-group">
+
+            @Html.DevExpress().ComboBox(settings =>
+            {
+                settings.Name = "uiProductoCmb";
+                settings.Width = 500;
+                settings.SelectedIndex = 0;
+                settings.CallbackRouteValues = new { Controller = "ComboBox", Action = "ProductoComboBox" };
+                settings.Properties.CallbackPageSize = 15;
+                settings.Properties.TextField = "descripcion";
+                settings.Properties.ValueField = "id";
+                settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.OnHover;
+            }).BindList(Model).GetHtml()
+            <small id="emailHelp" class="form-text text-muted">Escribe un concepto/producto</small>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">3. Configura las fechas de pago y totales</div>
+    <div class="panel-body">
+        @Html.Action("gvCargoDetalleEditPartial")
+    </div>
+</div>
+
+
+<button onclick="continuar();" class="btn-primary btn-lg">Guardar</button>
+<script>
+    function continuar() {
+
+        var claves = "";
+
+        for (var i = 0; i < SelectedRows.GetItemCount(); i++) {
+            var item = SelectedRows.GetItem(i).text;
+            var item_i = item.split('~');
+           
+            claves = claves + item_i[0] + ",";
+            //items.push(listBox.GetItem(i));
+        }
+        
+        var productoId = uiProductoCmb.GetValue() == null ? 0 : uiProductoCmb.GetValue();
+
+        $.ajax({
+                type: "POST",
+                url: '@Url.Action("SetClientesCargo","Cargo")',
+              data: '{clientesParam: ' + JSON.stringify(claves) + ',productoId:' + JSON.stringify(productoId)+'}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.ok == true) {
+                        window.location = '@Url.Action("List", "Cargo")';
+                    }
+                    else {
+                        alert(data.error);
+                    }
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+
+      
+
+    }
+
+    function a() {
+         
+    }
+</script>
+

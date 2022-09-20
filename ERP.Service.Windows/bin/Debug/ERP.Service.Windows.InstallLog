@@ -1,0 +1,896 @@
+﻿Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Service ServiceBascula has been successfully installed.
+Creating EventLog source ServiceBascula in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Creating EventLog source ServiceBascula in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Creating EventLog source ServiceBascula in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Creating EventLog source ServiceBascula in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Creating EventLog source ServiceBascula in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ServiceBascula.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ServiceBascula.
+Service ServiceBascula is being removed from the system...
+Service ServiceBascula was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Service ServiceBascula has been successfully installed.
+Creating EventLog source ServiceBascula in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ServiceBascula.
+Service ServiceBascula is being removed from the system...
+Service ServiceBascula was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Service ServiceBascula has been successfully installed.
+Creating EventLog source ServiceBascula in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ServiceBascula.
+Service ServiceBascula is being removed from the system...
+Service ServiceBascula was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Creating EventLog source ServiceBascula in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Service ServiceBascula has been successfully installed.
+Creating EventLog source ServiceBascula in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ServiceBascula.
+Service ServiceBascula is being removed from the system...
+Service ServiceBascula was successfully removed from the system.
+Attempt to stop service ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ServiceBascula...
+Service ServiceBascula has been successfully installed.
+Creating EventLog source ServiceBascula in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ServiceBascula.
+Service ServiceBascula is being removed from the system...
+Service ServiceBascula was successfully removed from the system.
+Attempt to stop service ServiceBascula.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+An exception occurred during the uninstallation of the System.ServiceProcess.ServiceInstaller installer.
+System.ComponentModel.Win32Exception: The specified service does not exist as an installed service
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+An exception occurred during the uninstallation of the System.ServiceProcess.ServiceInstaller installer.
+System.ComponentModel.Win32Exception: The specified service does not exist as an installed service
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Warning: The source ERPService is not registered on the local machine.
+Service ERPService is being removed from the system...
+An exception occurred during the uninstallation of the System.ServiceProcess.ServiceInstaller installer.
+System.ComponentModel.Win32Exception: The specified service does not exist as an installed service
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.
+Attempt to stop service ERPService.
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Installing service ERPService...
+Service ERPService has been successfully installed.
+Creating EventLog source ERPService in log Application...
+Committing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Installing assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Installing service ERPService...
+Creating EventLog source ERPService in log Application...
+Rolling back assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\erp.service.windows.InstallLog
+Restoring event log to previous state for source ERPService.
+Uninstalling assembly 'C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.exe
+   logfile = C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Service.Windows\bin\Debug\ERP.Service.Windows.InstallLog
+Removing EventLog source ERPService.
+Service ERPService is being removed from the system...
+Service ERPService was successfully removed from the system.

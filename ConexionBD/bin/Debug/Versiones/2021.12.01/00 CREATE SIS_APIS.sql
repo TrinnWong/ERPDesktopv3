@@ -1,0 +1,22 @@
+if NOT EXISTS (
+	SELECT 1
+	FROM SYSOBJECTS
+	WHERE name = 'sis_apis'
+)
+BEGIN
+
+	CREATE TABLE [dbo].[sis_apis](
+		[Id] [int] NOT NULL,
+		[Url] [varchar](500) NOT NULL,
+		[Tipo] [varchar](50) NOT NULL,
+		[Activo] [bit] NOT NULL,
+	 CONSTRAINT [PK_cat_apis] PRIMARY KEY CLUSTERED 
+	(
+		[Id] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+END
+GO
+
+

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Configuración de Pedidos</h2>
+
+
+<script >
+
+    function OnDblClick(s, e) {
+        var index = e.visibleIndex;
+        var key = s.GetRowKey(index);
+
+        if (key > 0)
+        {
+            window.location = '@Html.Raw(Url.Action("Upd","PedidoConfigDet", new { id="_id_"}))'
+            .replace("_id_", key);
+        }
+
+    }
+</script>
+
+@Html.Action("_PedidoConfigGridView")

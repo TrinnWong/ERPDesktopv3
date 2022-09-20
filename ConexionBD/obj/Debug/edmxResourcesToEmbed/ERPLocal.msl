@@ -1,0 +1,1973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPprodModelStoreContainer" CdmEntityContainer="ERPprodEntities">
+    <EntitySetMapping Name="cat_abreviaturas_SAT">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_abreviaturas_SAT">
+        <MappingFragment StoreEntitySet="cat_abreviaturas_SAT">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="AbreviaturaSAT" ColumnName="AbreviaturaSAT" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_almacenes">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_almacenes">
+        <MappingFragment StoreEntitySet="cat_almacenes">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_anaqueles">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_anaqueles">
+        <MappingFragment StoreEntitySet="cat_anaqueles">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_andenes">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_andenes">
+        <MappingFragment StoreEntitySet="cat_andenes">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_antecedentes">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_antecedentes">
+        <MappingFragment StoreEntitySet="cat_antecedentes">
+          <ScalarProperty Name="AntecedenteId" ColumnName="AntecedenteId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_cajas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_cajas">
+        <MappingFragment StoreEntitySet="cat_cajas">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_centro_costos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_centro_costos">
+        <MappingFragment StoreEntitySet="cat_centro_costos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_clases_sat">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_clases_sat">
+        <MappingFragment StoreEntitySet="cat_clases_sat">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_clasificacion_impuestos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_clasificacion_impuestos">
+        <MappingFragment StoreEntitySet="cat_clasificacion_impuestos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="NombreSAT" ColumnName="NombreSAT" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_clientes">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_clientes">
+        <MappingFragment StoreEntitySet="cat_clientes">
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="NumeroExt" ColumnName="NumeroExt" />
+          <ScalarProperty Name="NumeroInt" ColumnName="NumeroInt" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="TipoClienteId" ColumnName="TipoClienteId" />
+          <ScalarProperty Name="DiasCredito" ColumnName="DiasCredito" />
+          <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+          <ScalarProperty Name="AntecedenteId" ColumnName="AntecedenteId" />
+          <ScalarProperty Name="CreditoDisponible" ColumnName="CreditoDisponible" />
+          <ScalarProperty Name="SaldoGlobal" ColumnName="SaldoGlobal" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="ClienteEspecial" ColumnName="ClienteEspecial" />
+          <ScalarProperty Name="ClienteGral" ColumnName="ClienteGral" />
+          <ScalarProperty Name="PrecioId" ColumnName="PrecioId" />
+          <ScalarProperty Name="GiroId" ColumnName="GiroId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_conceptos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_conceptos">
+        <MappingFragment StoreEntitySet="cat_conceptos">
+          <ScalarProperty Name="ConceptoId" ColumnName="ConceptoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_configuracion_ticket_apartado">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_configuracion_ticket_apartado">
+        <MappingFragment StoreEntitySet="cat_configuracion_ticket_apartado">
+          <ScalarProperty Name="ConfiguracionTicketVentaId" ColumnName="ConfiguracionTicketVentaId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="TextoCabecera1" ColumnName="TextoCabecera1" />
+          <ScalarProperty Name="TextoCabecera2" ColumnName="TextoCabecera2" />
+          <ScalarProperty Name="TextoPie" ColumnName="TextoPie" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_configuracion_ticket_venta">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_configuracion_ticket_venta">
+        <MappingFragment StoreEntitySet="cat_configuracion_ticket_venta">
+          <ScalarProperty Name="ConfiguracionTicketVentaId" ColumnName="ConfiguracionTicketVentaId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="TextoCabecera1" ColumnName="TextoCabecera1" />
+          <ScalarProperty Name="TextoCabecera2" ColumnName="TextoCabecera2" />
+          <ScalarProperty Name="TextoPie" ColumnName="TextoPie" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_denominaciones">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_denominaciones">
+        <MappingFragment StoreEntitySet="cat_denominaciones">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_divisiones_sat">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_divisiones_sat">
+        <MappingFragment StoreEntitySet="cat_divisiones_sat">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="codigoSAT" ColumnName="codigoSAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_empresas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_empresas">
+        <MappingFragment StoreEntitySet="cat_empresas">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+          <ScalarProperty Name="RegimenFiscal" ColumnName="RegimenFiscal" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_estados">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_estados">
+        <MappingFragment StoreEntitySet="cat_estados">
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_familias">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_familias">
+        <MappingFragment StoreEntitySet="cat_familias">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_formas_pago">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_formas_pago">
+        <MappingFragment StoreEntitySet="cat_formas_pago">
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="RequiereDigVerificador" ColumnName="RequiereDigVerificador" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Signo" ColumnName="Signo" />
+          <ScalarProperty Name="NumeroHacienda" ColumnName="NumeroHacienda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_gastos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_gastos">
+        <MappingFragment StoreEntitySet="cat_gastos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ClaveCentroCosto" ColumnName="ClaveCentroCosto" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="ConceptoId" ColumnName="ConceptoId" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_giros">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_giros">
+        <MappingFragment StoreEntitySet="cat_giros">
+          <ScalarProperty Name="GiroId" ColumnName="GiroId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_giros_neg">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_giros_neg">
+        <MappingFragment StoreEntitySet="cat_giros_neg">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_grupos_sat">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_grupos_sat">
+        <MappingFragment StoreEntitySet="cat_grupos_sat">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_impuestos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_impuestos">
+        <MappingFragment StoreEntitySet="cat_impuestos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdAbreviatura" ColumnName="IdAbreviatura" />
+          <ScalarProperty Name="OrdenImpresion" ColumnName="OrdenImpresion" />
+          <ScalarProperty Name="IdClasificacionImpuesto" ColumnName="IdClasificacionImpuesto" />
+          <ScalarProperty Name="IdTipoFactor" ColumnName="IdTipoFactor" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+          <ScalarProperty Name="CuotaFija" ColumnName="CuotaFija" />
+          <ScalarProperty Name="DecimalesPorcCuota" ColumnName="DecimalesPorcCuota" />
+          <ScalarProperty Name="DesglosarImpPrecioVta" ColumnName="DesglosarImpPrecioVta" />
+          <ScalarProperty Name="AgregarImpPrecioVta" ColumnName="AgregarImpPrecioVta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_lineas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_lineas">
+        <MappingFragment StoreEntitySet="cat_lineas">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_lotes">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_lotes">
+        <MappingFragment StoreEntitySet="cat_lotes">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_marcas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_marcas">
+        <MappingFragment StoreEntitySet="cat_marcas">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_monedas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_monedas">
+        <MappingFragment StoreEntitySet="cat_monedas">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviacion" ColumnName="Abreviacion" />
+          <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="IdMonedaAbreviatura" ColumnName="IdMonedaAbreviatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_monedas_abreviaturas">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_monedas_abreviaturas">
+        <MappingFragment StoreEntitySet="cat_monedas_abreviaturas">
+          <ScalarProperty Name="IdMonedaAbreviatura" ColumnName="IdMonedaAbreviatura" />
+          <ScalarProperty Name="NombreMonedaSAT" ColumnName="NombreMonedaSAT" />
+          <ScalarProperty Name="ClaveSAT" ColumnName="ClaveSAT" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_municipios">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_municipios">
+        <MappingFragment StoreEntitySet="cat_municipios">
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_paises">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_paises">
+        <MappingFragment StoreEntitySet="cat_paises">
+          <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_precios">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_precios">
+        <MappingFragment StoreEntitySet="cat_precios">
+          <ScalarProperty Name="IdPrecio" ColumnName="IdPrecio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos">
+        <MappingFragment StoreEntitySet="cat_productos">
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="DescripcionCorta" ColumnName="DescripcionCorta" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="ClaveMarca" ColumnName="ClaveMarca" />
+          <ScalarProperty Name="ClaveFamilia" ColumnName="ClaveFamilia" />
+          <ScalarProperty Name="ClaveSubFamilia" ColumnName="ClaveSubFamilia" />
+          <ScalarProperty Name="ClaveLinea" ColumnName="ClaveLinea" />
+          <ScalarProperty Name="ClaveUnidadMedida" ColumnName="ClaveUnidadMedida" />
+          <ScalarProperty Name="ClaveInventariadoPor" ColumnName="ClaveInventariadoPor" />
+          <ScalarProperty Name="ClaveVendidaPor" ColumnName="ClaveVendidaPor" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="ProductoTerminado" ColumnName="ProductoTerminado" />
+          <ScalarProperty Name="Inventariable" ColumnName="Inventariable" />
+          <ScalarProperty Name="MateriaPrima" ColumnName="MateriaPrima" />
+          <ScalarProperty Name="ProdParaVenta" ColumnName="ProdParaVenta" />
+          <ScalarProperty Name="ProdVtaBascula" ColumnName="ProdVtaBascula" />
+          <ScalarProperty Name="Seriado" ColumnName="Seriado" />
+          <ScalarProperty Name="NumeroDecimales" ColumnName="NumeroDecimales" />
+          <ScalarProperty Name="PorcDescuentoEmpleado" ColumnName="PorcDescuentoEmpleado" />
+          <ScalarProperty Name="ContenidoCaja" ColumnName="ContenidoCaja" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="ClaveAlmacen" ColumnName="ClaveAlmacen" />
+          <ScalarProperty Name="ClaveAnden" ColumnName="ClaveAnden" />
+          <ScalarProperty Name="ClaveLote" ColumnName="ClaveLote" />
+          <ScalarProperty Name="FechaCaducidad" ColumnName="FechaCaducidad" />
+          <ScalarProperty Name="MinimoInventario" ColumnName="MinimoInventario" />
+          <ScalarProperty Name="MaximoInventario" ColumnName="MaximoInventario" />
+          <ScalarProperty Name="PorcUtilidad" ColumnName="PorcUtilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos_cambio_precio">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos_cambio_precio">
+        <MappingFragment StoreEntitySet="cat_productos_cambio_precio">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="PrecioId" ColumnName="PrecioId" />
+          <ScalarProperty Name="PrecioAnterior" ColumnName="PrecioAnterior" />
+          <ScalarProperty Name="PrecioNuevo" ColumnName="PrecioNuevo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="UsuarioRegistroId" ColumnName="UsuarioRegistroId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos_config_sucursal">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos_config_sucursal">
+        <MappingFragment StoreEntitySet="cat_productos_config_sucursal">
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="CalculaPrecioPorcUtilidad" ColumnName="CalculaPrecioPorcUtilidad" />
+          <ScalarProperty Name="CalculaPrecioIncUtilidad" ColumnName="CalculaPrecioIncUtilidad" />
+          <ScalarProperty Name="CalculaPrecioManual" ColumnName="CalculaPrecioManual" />
+          <ScalarProperty Name="PorcUtilidadValor" ColumnName="PorcUtilidadValor" />
+          <ScalarProperty Name="IncUtilidadValor" ColumnName="IncUtilidadValor" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos_existencias">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos_existencias">
+        <MappingFragment StoreEntitySet="cat_productos_existencias">
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="ExistenciaTeorica" ColumnName="ExistenciaTeorica" />
+          <ScalarProperty Name="CostoUltimaCompra" ColumnName="CostoUltimaCompra" />
+          <ScalarProperty Name="CostoPromedio" ColumnName="CostoPromedio" />
+          <ScalarProperty Name="ValCostoUltimaCompra" ColumnName="ValCostoUltimaCompra" />
+          <ScalarProperty Name="ValCostoPromedio" ColumnName="ValCostoPromedio" />
+          <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos_impuestos">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos_impuestos">
+        <MappingFragment StoreEntitySet="cat_productos_impuestos">
+          <ScalarProperty Name="ProductoImpuestoId" ColumnName="ProductoImpuestoId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="ImpuestoId" ColumnName="ImpuestoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_productos_precios">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_productos_precios">
+        <MappingFragment StoreEntitySet="cat_productos_precios">
+          <ScalarProperty Name="IdProductoPrecio" ColumnName="IdProductoPrecio" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdPrecio" ColumnName="IdPrecio" />
+          <ScalarProperty Name="PorcDescuento" ColumnName="PorcDescuento" />
+          <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_proveedores">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_proveedores">
+        <MappingFragment StoreEntitySet="cat_proveedores">
+          <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="NumeroExt" ColumnName="NumeroExt" />
+          <ScalarProperty Name="NumeroInt" ColumnName="NumeroInt" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="TipoProveedorId" ColumnName="TipoProveedorId" />
+          <ScalarProperty Name="DiasCredito" ColumnName="DiasCredito" />
+          <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+          <ScalarProperty Name="CreditoDisponible" ColumnName="CreditoDisponible" />
+          <ScalarProperty Name="SaldoGlobal" ColumnName="SaldoGlobal" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="ClienteEspecial" ColumnName="ClienteEspecial" />
+          <ScalarProperty Name="ClienteGral" ColumnName="ClienteGral" />
+          <ScalarProperty Name="PrecioId" ColumnName="PrecioId" />
+          <ScalarProperty Name="GiroId" ColumnName="GiroId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_rubros">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_rubros">
+        <MappingFragment StoreEntitySet="cat_rubros">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_subclases_sat">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_subclases_sat">
+        <MappingFragment StoreEntitySet="cat_subclases_sat">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_subfamilias">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_subfamilias">
+        <MappingFragment StoreEntitySet="cat_subfamilias">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_sucursales">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_sucursales">
+        <MappingFragment StoreEntitySet="cat_sucursales">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="ServidorMailSMTP" ColumnName="ServidorMailSMTP" />
+          <ScalarProperty Name="ServidorMailFrom" ColumnName="ServidorMailFrom" />
+          <ScalarProperty Name="ServidorMailPort" ColumnName="ServidorMailPort" />
+          <ScalarProperty Name="ServidorMailPassword" ColumnName="ServidorMailPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipo_factor_SAT">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipo_factor_SAT">
+        <MappingFragment StoreEntitySet="cat_tipo_factor_SAT">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="NombreFactorSAT" ColumnName="NombreFactorSAT" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_cliente">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_cliente">
+        <MappingFragment StoreEntitySet="cat_tipos_cliente">
+          <ScalarProperty Name="TipoClienteId" ColumnName="TipoClienteId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_devolucion">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_devolucion">
+        <MappingFragment StoreEntitySet="cat_tipos_devolucion">
+          <ScalarProperty Name="TipoDevolucionId" ColumnName="TipoDevolucionId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_documento">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_documento">
+        <MappingFragment StoreEntitySet="cat_tipos_documento">
+          <ScalarProperty Name="TipoDocumentoId" ColumnName="TipoDocumentoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="FolioInicial" ColumnName="FolioInicial" />
+          <ScalarProperty Name="RequiereClaveSuper" ColumnName="RequiereClaveSuper" />
+          <ScalarProperty Name="IntegrarCorteCaja" ColumnName="IntegrarCorteCaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_movimiento_inventario">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_movimiento_inventario">
+        <MappingFragment StoreEntitySet="cat_tipos_movimiento_inventario">
+          <ScalarProperty Name="TipoMovimientoInventarioId" ColumnName="TipoMovimientoInventarioId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="EsEntrada" ColumnName="EsEntrada" />
+          <ScalarProperty Name="TipoMovimientoCancelacionId" ColumnName="TipoMovimientoCancelacionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_proveedor">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_proveedor">
+        <MappingFragment StoreEntitySet="cat_tipos_proveedor">
+          <ScalarProperty Name="TipoProveedorId" ColumnName="TipoProveedorId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_tipos_vale">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_tipos_vale">
+        <MappingFragment StoreEntitySet="cat_tipos_vale">
+          <ScalarProperty Name="TipoValeId" ColumnName="TipoValeId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_unidades_medida_SAT">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_unidades_medida_SAT">
+        <MappingFragment StoreEntitySet="cat_unidades_medida_SAT">
+          <ScalarProperty Name="IdUnidadMedidaSAT" ColumnName="IdUnidadMedidaSAT" />
+          <ScalarProperty Name="ClaveSAT" ColumnName="ClaveSAT" />
+          <ScalarProperty Name="NombreSAT" ColumnName="NombreSAT" />
+          <ScalarProperty Name="DescripcionSAT" ColumnName="DescripcionSAT" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_unidadesmed">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_unidadesmed">
+        <MappingFragment StoreEntitySet="cat_unidadesmed">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="DescripcionCorta" ColumnName="DescripcionCorta" />
+          <ScalarProperty Name="Decimales" ColumnName="Decimales" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="IdCodigoSAT" ColumnName="IdCodigoSAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_usuarios">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_usuarios">
+        <MappingFragment StoreEntitySet="cat_usuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="EsSupervisor" ColumnName="EsSupervisor" />
+          <ScalarProperty Name="PasswordSupervisor" ColumnName="PasswordSupervisor" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="EsSupervisorCajero" ColumnName="EsSupervisorCajero" />
+          <ScalarProperty Name="PasswordSupervisorCajero" ColumnName="PasswordSupervisorCajero" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_apartados">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_apartados">
+        <MappingFragment StoreEntitySet="doc_apartados">
+          <ScalarProperty Name="ApartadoId" ColumnName="ApartadoId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="TotalApartado" ColumnName="TotalApartado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaLimite" ColumnName="FechaLimite" />
+          <ScalarProperty Name="FechaProrroga" ColumnName="FechaProrroga" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_apartados_formas_pago">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_apartados_formas_pago">
+        <MappingFragment StoreEntitySet="doc_apartados_formas_pago">
+          <ScalarProperty Name="ApartadoPagoId" ColumnName="ApartadoPagoId" />
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="DigitoVerificador" ColumnName="DigitoVerificador" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_apartados_pagos">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_apartados_pagos">
+        <MappingFragment StoreEntitySet="doc_apartados_pagos">
+          <ScalarProperty Name="ApartadoPagoId" ColumnName="ApartadoPagoId" />
+          <ScalarProperty Name="ApartadoId" ColumnName="ApartadoId" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_apartados_productos">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_apartados_productos">
+        <MappingFragment StoreEntitySet="doc_apartados_productos">
+          <ScalarProperty Name="ApartadoProductoId" ColumnName="ApartadoProductoId" />
+          <ScalarProperty Name="ApartadoId" ColumnName="ApartadoId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Descuentos" ColumnName="Descuentos" />
+          <ScalarProperty Name="POrcentajeDescuento" ColumnName="POrcentajeDescuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja">
+        <MappingFragment StoreEntitySet="doc_corte_caja">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="VentaIniId" ColumnName="VentaIniId" />
+          <ScalarProperty Name="VentaFinId" ColumnName="VentaFinId" />
+          <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+          <ScalarProperty Name="FechaCorte" ColumnName="FechaCorte" />
+          <ScalarProperty Name="TotalCorte" ColumnName="TotalCorte" />
+          <ScalarProperty Name="TotalIngresos" ColumnName="TotalIngresos" />
+          <ScalarProperty Name="TotalEgresos" ColumnName="TotalEgresos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_apartados_pagos">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_apartados_pagos">
+        <MappingFragment StoreEntitySet="doc_corte_caja_apartados_pagos">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="ApartadoPagoId" ColumnName="ApartadoPagoId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_denominaciones">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_denominaciones">
+        <MappingFragment StoreEntitySet="doc_corte_caja_denominaciones">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="DenominacionId" ColumnName="DenominacionId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_egresos">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_egresos">
+        <MappingFragment StoreEntitySet="doc_corte_caja_egresos">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="Gastos" ColumnName="Gastos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_fp">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_fp">
+        <MappingFragment StoreEntitySet="doc_corte_caja_fp">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_fp_apartado">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_fp_apartado">
+        <MappingFragment StoreEntitySet="doc_corte_caja_fp_apartado">
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_corte_caja_ventas">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_corte_caja_ventas">
+        <MappingFragment StoreEntitySet="doc_corte_caja_ventas">
+          <ScalarProperty Name="CorteId" ColumnName="CorteId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_devoluciones">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_devoluciones">
+        <MappingFragment StoreEntitySet="doc_devoluciones">
+          <ScalarProperty Name="DevolucionId" ColumnName="DevolucionId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="TipoDevolucionId" ColumnName="TipoDevolucionId" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_devoluciones_detalle">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_devoluciones_detalle">
+        <MappingFragment StoreEntitySet="doc_devoluciones_detalle">
+          <ScalarProperty Name="DevolucionDetId" ColumnName="DevolucionDetId" />
+          <ScalarProperty Name="DevolucionId" ColumnName="DevolucionId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_entrada_directa_adicional">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_entrada_directa_adicional">
+        <MappingFragment StoreEntitySet="doc_entrada_directa_adicional">
+          <ScalarProperty Name="MovimientoDetalleId" ColumnName="MovimientoDetalleId" />
+          <ScalarProperty Name="PrecioCompra" ColumnName="PrecioCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_gastos">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_gastos">
+        <MappingFragment StoreEntitySet="doc_gastos">
+          <ScalarProperty Name="GastoId" ColumnName="GastoId" />
+          <ScalarProperty Name="CentroCostoId" ColumnName="CentroCostoId" />
+          <ScalarProperty Name="GastoConceptoId" ColumnName="GastoConceptoId" />
+          <ScalarProperty Name="Obervaciones" ColumnName="Obervaciones" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_inv_carga_inicial">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_inv_carga_inicial">
+        <MappingFragment StoreEntitySet="doc_inv_carga_inicial">
+          <ScalarProperty Name="CargaInventarioId" ColumnName="CargaInventarioId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="CostoPromedio" ColumnName="CostoPromedio" />
+          <ScalarProperty Name="UltimoCosto" ColumnName="UltimoCosto" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_inv_movimiento">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_inv_movimiento">
+        <MappingFragment StoreEntitySet="doc_inv_movimiento">
+          <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="FolioMovimiento" ColumnName="FolioMovimiento" />
+          <ScalarProperty Name="TipoMovimientoId" ColumnName="TipoMovimientoId" />
+          <ScalarProperty Name="FechaMovimiento" ColumnName="FechaMovimiento" />
+          <ScalarProperty Name="HoraMovimiento" ColumnName="HoraMovimiento" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="ImporteTotal" ColumnName="ImporteTotal" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+          <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
+          <ScalarProperty Name="SucursalDestinoId" ColumnName="SucursalDestinoId" />
+          <ScalarProperty Name="AutorizadoPor" ColumnName="AutorizadoPor" />
+          <ScalarProperty Name="FechaCancelacion" ColumnName="FechaCancelacion" />
+          <ScalarProperty Name="ProductoCompraId" ColumnName="ProductoCompraId" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="SucursalOrigenId" ColumnName="SucursalOrigenId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="MovimientoRefId" ColumnName="MovimientoRefId" />
+          <ScalarProperty Name="Cancelado" ColumnName="Cancelado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_inv_movimiento_detalle">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_inv_movimiento_detalle">
+        <MappingFragment StoreEntitySet="doc_inv_movimiento_detalle">
+          <ScalarProperty Name="MovimientoDetalleId" ColumnName="MovimientoDetalleId" />
+          <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CostoUltimaCompra" ColumnName="CostoUltimaCompra" />
+          <ScalarProperty Name="CostoPromedio" ColumnName="CostoPromedio" />
+          <ScalarProperty Name="ValCostoUltimaCompra" ColumnName="ValCostoUltimaCompra" />
+          <ScalarProperty Name="ValCostoPromedio" ColumnName="ValCostoPromedio" />
+          <ScalarProperty Name="ValorMovimiento" ColumnName="ValorMovimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_productos_compra">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_productos_compra">
+        <MappingFragment StoreEntitySet="doc_productos_compra">
+          <ScalarProperty Name="ProductoCompraId" ColumnName="ProductoCompraId" />
+          <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="NumeroRemision" ColumnName="NumeroRemision" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaCancelacion" ColumnName="FechaCancelacion" />
+          <ScalarProperty Name="CanceladoPor" ColumnName="CanceladoPor" />
+          <ScalarProperty Name="FechaRemision" ColumnName="FechaRemision" />
+          <ScalarProperty Name="PrecioAfectado" ColumnName="PrecioAfectado" />
+          <ScalarProperty Name="PrecioConImpuestos" ColumnName="PrecioConImpuestos" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_productos_compra_detalle">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_productos_compra_detalle">
+        <MappingFragment StoreEntitySet="doc_productos_compra_detalle">
+          <ScalarProperty Name="ProductoCompraDetId" ColumnName="ProductoCompraDetId" />
+          <ScalarProperty Name="ProductoCompraId" ColumnName="ProductoCompraId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="PorcImpuestos" ColumnName="PorcImpuestos" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="PorcDescuentos" ColumnName="PorcDescuentos" />
+          <ScalarProperty Name="Descuentos" ColumnName="Descuentos" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="PrecioNeto" ColumnName="PrecioNeto" />
+          <ScalarProperty Name="PrecioCompra" ColumnName="PrecioCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_promociones">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_promociones">
+        <MappingFragment StoreEntitySet="doc_promociones">
+          <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="PorcentajeDescuento" ColumnName="PorcentajeDescuento" />
+          <ScalarProperty Name="FechaInicioVigencia" ColumnName="FechaInicioVigencia" />
+          <ScalarProperty Name="FechaFinVigencia" ColumnName="FechaFinVigencia" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="NombrePromocion" ColumnName="NombrePromocion" />
+          <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+          <ScalarProperty Name="Martes" ColumnName="Martes" />
+          <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+          <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+          <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+          <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+          <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+          <ScalarProperty Name="Permanente" ColumnName="Permanente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_promociones_detalle">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_promociones_detalle">
+        <MappingFragment StoreEntitySet="doc_promociones_detalle">
+          <ScalarProperty Name="PromocionDetalleId" ColumnName="PromocionDetalleId" />
+          <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
+          <ScalarProperty Name="LineaId" ColumnName="LineaId" />
+          <ScalarProperty Name="FamiliaId" ColumnName="FamiliaId" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_promociones_excepcion">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_promociones_excepcion">
+        <MappingFragment StoreEntitySet="doc_promociones_excepcion">
+          <ScalarProperty Name="PromocionExcepcionId" ColumnName="PromocionExcepcionId" />
+          <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
+          <ScalarProperty Name="LineaId" ColumnName="LineaId" />
+          <ScalarProperty Name="FamiliaId" ColumnName="FamiliaId" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_reimpresion_ticket">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_reimpresion_ticket">
+        <MappingFragment StoreEntitySet="doc_reimpresion_ticket">
+          <ScalarProperty Name="ReimpresionTicketId" ColumnName="ReimpresionTicketId" />
+          <ScalarProperty Name="FechaReimpresion" ColumnName="FechaReimpresion" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_retiros">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_retiros">
+        <MappingFragment StoreEntitySet="doc_retiros">
+          <ScalarProperty Name="RetiroId" ColumnName="RetiroId" />
+          <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
+          <ScalarProperty Name="MontoRetiro" ColumnName="MontoRetiro" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_sesiones_punto_venta">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_sesiones_punto_venta">
+        <MappingFragment StoreEntitySet="doc_sesiones_punto_venta">
+          <ScalarProperty Name="SesionId" ColumnName="SesionId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaUltimaConexion" ColumnName="FechaUltimaConexion" />
+          <ScalarProperty Name="CorteAplicado" ColumnName="CorteAplicado" />
+          <ScalarProperty Name="FechaCorte" ColumnName="FechaCorte" />
+          <ScalarProperty Name="Finalizada" ColumnName="Finalizada" />
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_ventas">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_ventas">
+        <MappingFragment StoreEntitySet="doc_ventas">
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="DescuentoVentaSiNo" ColumnName="DescuentoVentaSiNo" />
+          <ScalarProperty Name="PorcDescuentoVenta" ColumnName="PorcDescuentoVenta" />
+          <ScalarProperty Name="MontoDescuentoVenta" ColumnName="MontoDescuentoVenta" />
+          <ScalarProperty Name="DescuentoEnPartidas" ColumnName="DescuentoEnPartidas" />
+          <ScalarProperty Name="TotalDescuento" ColumnName="TotalDescuento" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TotalVenta" ColumnName="TotalVenta" />
+          <ScalarProperty Name="TotalRecibido" ColumnName="TotalRecibido" />
+          <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="UsuarioCreacionId" ColumnName="UsuarioCreacionId" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="UsuarioCancelacionId" ColumnName="UsuarioCancelacionId" />
+          <ScalarProperty Name="FechaCancelacion" ColumnName="FechaCancelacion" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+          <ScalarProperty Name="MotivoCancelacion" ColumnName="MotivoCancelacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_ventas_detalle">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_ventas_detalle">
+        <MappingFragment StoreEntitySet="doc_ventas_detalle">
+          <ScalarProperty Name="VentaDetalleId" ColumnName="VentaDetalleId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="PorcDescuneto" ColumnName="PorcDescuneto" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="UsuarioCreacionId" ColumnName="UsuarioCreacionId" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="TasaIVA" ColumnName="TasaIVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_ventas_formas_pago">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_ventas_formas_pago">
+        <MappingFragment StoreEntitySet="doc_ventas_formas_pago">
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="UsuarioCreacionId" ColumnName="UsuarioCreacionId" />
+          <ScalarProperty Name="digitoVerificador" ColumnName="digitoVerificador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doc_ventas_formas_pago_vale">
+      <EntityTypeMapping TypeName="ERPprodModel.doc_ventas_formas_pago_vale">
+        <MappingFragment StoreEntitySet="doc_ventas_formas_pago_vale">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="TipoValeId" ColumnName="TipoValeId" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="DevolucionId" ColumnName="DevolucionId" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_departamentos">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_departamentos">
+        <MappingFragment StoreEntitySet="rh_departamentos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_empleados">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_empleados">
+        <MappingFragment StoreEntitySet="rh_empleados">
+          <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="SueldoNeto" ColumnName="SueldoNeto" />
+          <ScalarProperty Name="SueldoDiario" ColumnName="SueldoDiario" />
+          <ScalarProperty Name="SueldoHra" ColumnName="SueldoHra" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+          <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaInicioLab" ColumnName="FechaInicioLab" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_estatus_empleados">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_estatus_empleados">
+        <MappingFragment StoreEntitySet="rh_estatus_empleados">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_formaspagonom">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_formaspagonom">
+        <MappingFragment StoreEntitySet="rh_formaspagonom">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="NumDias" ColumnName="NumDias" />
+          <ScalarProperty Name="HrasDia" ColumnName="HrasDia" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_puestos">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_puestos">
+        <MappingFragment StoreEntitySet="rh_puestos">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rh_tipos_contrato">
+      <EntityTypeMapping TypeName="ERPprodModel.rh_tipos_contrato">
+        <MappingFragment StoreEntitySet="rh_tipos_contrato">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cat_configuracion">
+      <EntityTypeMapping TypeName="ERPprodModel.cat_configuracion">
+        <MappingFragment StoreEntitySet="cat_configuracion">
+          <ScalarProperty Name="ConfiguradorId" ColumnName="ConfiguradorId" />
+          <ScalarProperty Name="UnaFormaPago" ColumnName="UnaFormaPago" />
+          <ScalarProperty Name="MasUnaFormaPago" ColumnName="MasUnaFormaPago" />
+          <ScalarProperty Name="CosteoUEPS" ColumnName="CosteoUEPS" />
+          <ScalarProperty Name="CosteoPEPS" ColumnName="CosteoPEPS" />
+          <ScalarProperty Name="CosteoPromedio" ColumnName="CosteoPromedio" />
+          <ScalarProperty Name="AfectarInventarioLinea" ColumnName="AfectarInventarioLinea" />
+          <ScalarProperty Name="AfectarInventarioManual" ColumnName="AfectarInventarioManual" />
+          <ScalarProperty Name="AfectarInventarioCorte" ColumnName="AfectarInventarioCorte" />
+          <ScalarProperty Name="EnlazarPuntoVentaInventario" ColumnName="EnlazarPuntoVentaInventario" />
+          <ScalarProperty Name="CajeroIncluirDetalleVenta" ColumnName="CajeroIncluirDetalleVenta" />
+          <ScalarProperty Name="CajeroReqClaveSupervisor" ColumnName="CajeroReqClaveSupervisor" />
+          <ScalarProperty Name="SuperIncluirDetalleVenta" ColumnName="SuperIncluirDetalleVenta" />
+          <ScalarProperty Name="SuperIncluirVentaTel" ColumnName="SuperIncluirVentaTel" />
+          <ScalarProperty Name="SuperIncluirDetGastos" ColumnName="SuperIncluirDetGastos" />
+          <ScalarProperty Name="SuperEmail1" ColumnName="SuperEmail1" />
+          <ScalarProperty Name="SuperEmail2" ColumnName="SuperEmail2" />
+          <ScalarProperty Name="SuperEmail3" ColumnName="SuperEmail3" />
+          <ScalarProperty Name="SuperEmail4" ColumnName="SuperEmail4" />
+          <ScalarProperty Name="RetiroMontoEfec" ColumnName="RetiroMontoEfec" />
+          <ScalarProperty Name="RetiroLectura" ColumnName="RetiroLectura" />
+          <ScalarProperty Name="RetiroEscritura" ColumnName="RetiroEscritura" />
+          <ScalarProperty Name="NombreImpresora" ColumnName="NombreImpresora" />
+          <ScalarProperty Name="HardwareCaracterCajon" ColumnName="HardwareCaracterCajon" />
+          <ScalarProperty Name="EmpleadoPorcDescuento" ColumnName="EmpleadoPorcDescuento" />
+          <ScalarProperty Name="EmpleadoGlobal" ColumnName="EmpleadoGlobal" />
+          <ScalarProperty Name="EmpleadoIndividual" ColumnName="EmpleadoIndividual" />
+          <ScalarProperty Name="MontoImpresionTicket" ColumnName="MontoImpresionTicket" />
+          <ScalarProperty Name="ApartadoAnticipo1" ColumnName="ApartadoAnticipo1" />
+          <ScalarProperty Name="ApartadoAnticipoHasta1" ColumnName="ApartadoAnticipoHasta1" />
+          <ScalarProperty Name="ApartadoAnticipo2" ColumnName="ApartadoAnticipo2" />
+          <ScalarProperty Name="ApatadoAnticipoEnAdelante2" ColumnName="ApatadoAnticipoEnAdelante2" />
+          <ScalarProperty Name="PorcentajeUtilidadProd" ColumnName="PorcentajeUtilidadProd" />
+          <ScalarProperty Name="DesgloceMontoTicket" ColumnName="DesgloceMontoTicket" />
+          <ScalarProperty Name="RetiroReqClaveSup" ColumnName="RetiroReqClaveSup" />
+          <ScalarProperty Name="CajDeclaracionFondoCorte" ColumnName="CajDeclaracionFondoCorte" />
+          <ScalarProperty Name="SupDeclaracionFondoCorte" ColumnName="SupDeclaracionFondoCorte" />
+          <ScalarProperty Name="vistaPreviaImpresion" ColumnName="vistaPreviaImpresion" />
+          <ScalarProperty Name="CajeroCorteDetGasto" ColumnName="CajeroCorteDetGasto" />
+          <ScalarProperty Name="SupCorteDetGasto" ColumnName="SupCorteDetGasto" />
+          <ScalarProperty Name="CajeroCorteCancelaciones" ColumnName="CajeroCorteCancelaciones" />
+          <ScalarProperty Name="SupCorteCancelaciones" ColumnName="SupCorteCancelaciones" />
+          <ScalarProperty Name="DevDiasVale" ColumnName="DevDiasVale" />
+          <ScalarProperty Name="DevDiasGarantia" ColumnName="DevDiasGarantia" />
+          <ScalarProperty Name="DevHorasGarantia" ColumnName="DevHorasGarantia" />
+          <ScalarProperty Name="ApartadoDiasLiq" ColumnName="ApartadoDiasLiq" />
+          <ScalarProperty Name="ApartadoDiasProrroga" ColumnName="ApartadoDiasProrroga" />
+          <ScalarProperty Name="ReqClaveSupReimpresionTicketPV" ColumnName="ReqClaveSupReimpresionTicketPV" />
+          <ScalarProperty Name="ReqClaveSupCancelaTicketPV" ColumnName="ReqClaveSupCancelaTicketPV" />
+          <ScalarProperty Name="ReqClaveSupGastosPV" ColumnName="ReqClaveSupGastosPV" />
+          <ScalarProperty Name="ReqClaveSupDevolucionPV" ColumnName="ReqClaveSupDevolucionPV" />
+          <ScalarProperty Name="ReqClaveSupApartadoPV" ColumnName="ReqClaveSupApartadoPV" />
+          <ScalarProperty Name="ReqClaveSupExistenciaPV" ColumnName="ReqClaveSupExistenciaPV" />
+          <ScalarProperty Name="SerieTicketVenta" ColumnName="SerieTicketVenta" />
+          <ScalarProperty Name="SerieTicketApartado" ColumnName="SerieTicketApartado" />
+          <ScalarProperty Name="CorteCajaIncluirExistencia" ColumnName="CorteCajaIncluirExistencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="doc_corte_caja_denominaciones_ins" FunctionName="ERPprodModel.Store.doc_corte_caja_denominaciones_ins" />
+    <FunctionImportMapping FunctionImportName="doc_inv_movimiento_detalle_ins" FunctionName="ERPprodModel.Store.doc_inv_movimiento_detalle_ins" />
+    <FunctionImportMapping FunctionImportName="p_Actualizar_CompraListaPrecios" FunctionName="ERPprodModel.Store.p_Actualizar_CompraListaPrecios" />
+    <FunctionImportMapping FunctionImportName="p_ActualizarListaPrecios" FunctionName="ERPprodModel.Store.p_ActualizarListaPrecios" />
+    <FunctionImportMapping FunctionImportName="p_BuscarProductos" FunctionName="ERPprodModel.Store.p_BuscarProductos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_BuscarProductos_Result">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+          <ScalarProperty Name="porcImpuestos" ColumnName="porcImpuestos" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_caja_efectivo_disponible_sel" FunctionName="ERPprodModel.Store.p_caja_efectivo_disponible_sel" />
+    <FunctionImportMapping FunctionImportName="p_calcular_existencias" FunctionName="ERPprodModel.Store.p_calcular_existencias" />
+    <FunctionImportMapping FunctionImportName="p_cat_configuracion_ins_upd" FunctionName="ERPprodModel.Store.p_cat_configuracion_ins_upd" />
+    <FunctionImportMapping FunctionImportName="p_cat_configuracion_ticket_apartado_ins_upd" FunctionName="ERPprodModel.Store.p_cat_configuracion_ticket_apartado_ins_upd" />
+    <FunctionImportMapping FunctionImportName="p_cat_configuracion_ticket_venta_ins_upd" FunctionName="ERPprodModel.Store.p_cat_configuracion_ticket_venta_ins_upd" />
+    <FunctionImportMapping FunctionImportName="p_cat_impuestos_grd" FunctionName="ERPprodModel.Store.p_cat_impuestos_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_cat_impuestos_grd_Result">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="CodigoSAT" ColumnName="CodigoSAT" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="OrdenImpresion" ColumnName="OrdenImpresion" />
+          <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+          <ScalarProperty Name="TipoFactor" ColumnName="TipoFactor" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+          <ScalarProperty Name="CuotaFija" ColumnName="CuotaFija" />
+          <ScalarProperty Name="DecimalesPorcCuota" ColumnName="DecimalesPorcCuota" />
+          <ScalarProperty Name="DesglosarImpPrecioVta" ColumnName="DesglosarImpPrecioVta" />
+          <ScalarProperty Name="AgregarImpPrecioVta" ColumnName="AgregarImpPrecioVta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_cat_productos_config_sucursal_ins_upd" FunctionName="ERPprodModel.Store.p_cat_productos_config_sucursal_ins_upd" />
+    <FunctionImportMapping FunctionImportName="p_cat_productos_ins" FunctionName="ERPprodModel.Store.p_cat_productos_ins" />
+    <FunctionImportMapping FunctionImportName="p_cat_productos_upd" FunctionName="ERPprodModel.Store.p_cat_productos_upd" />
+    <FunctionImportMapping FunctionImportName="p_cat_sucursales_grd" FunctionName="ERPprodModel.Store.p_cat_sucursales_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_cat_sucursales_grd_Result">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="ServidorMailSMTP" ColumnName="ServidorMailSMTP" />
+          <ScalarProperty Name="ServidorMailFrom" ColumnName="ServidorMailFrom" />
+          <ScalarProperty Name="ServidorMailPort" ColumnName="ServidorMailPort" />
+          <ScalarProperty Name="ServidorMailPassword" ColumnName="ServidorMailPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_cat_sucursales_ins" FunctionName="ERPprodModel.Store.p_cat_sucursales_ins" />
+    <FunctionImportMapping FunctionImportName="p_cat_sucursales_upd" FunctionName="ERPprodModel.Store.p_cat_sucursales_upd" />
+    <FunctionImportMapping FunctionImportName="p_corte_caja_generacion" FunctionName="ERPprodModel.Store.p_corte_caja_generacion" />
+    <FunctionImportMapping FunctionImportName="p_corte_caja_validaMovs" FunctionName="ERPprodModel.Store.p_corte_caja_validaMovs" />
+    <FunctionImportMapping FunctionImportName="p_doc_apartado_venta_generacion" FunctionName="ERPprodModel.Store.p_doc_apartado_venta_generacion" />
+    <FunctionImportMapping FunctionImportName="p_doc_apartados_consulta_grd" FunctionName="ERPprodModel.Store.p_doc_apartados_consulta_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_doc_apartados_consulta_grd_Result">
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_doc_apartados_ins" FunctionName="ERPprodModel.Store.p_doc_apartados_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_apartados_mov_inv" FunctionName="ERPprodModel.Store.p_doc_apartados_mov_inv" />
+    <FunctionImportMapping FunctionImportName="p_doc_apartados_pagos_ins" FunctionName="ERPprodModel.Store.p_doc_apartados_pagos_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_apartados_productos_ins" FunctionName="ERPprodModel.Store.p_doc_apartados_productos_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_corte_caja_grd" FunctionName="ERPprodModel.Store.p_doc_corte_caja_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_doc_corte_caja_grd_Result">
+          <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+          <ScalarProperty Name="TotalCorte" ColumnName="TotalCorte" />
+          <ScalarProperty Name="TotalEgresos" ColumnName="TotalEgresos" />
+          <ScalarProperty Name="TotalIngresos" ColumnName="TotalIngresos" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Caja" ColumnName="Caja" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_doc_devolucion_detalle_ins" FunctionName="ERPprodModel.Store.p_doc_devolucion_detalle_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_devolucion_ins" FunctionName="ERPprodModel.Store.p_doc_devolucion_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_devolucion_mov_inv_genera" FunctionName="ERPprodModel.Store.p_doc_devolucion_mov_inv_genera" />
+    <FunctionImportMapping FunctionImportName="p_doc_devoluciones_grid" FunctionName="ERPprodModel.Store.p_doc_devoluciones_grid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_doc_devoluciones_grid_Result">
+          <ScalarProperty Name="DevolucionId" ColumnName="DevolucionId" />
+          <ScalarProperty Name="DevolucionDetId" ColumnName="DevolucionDetId" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Seleccionar" ColumnName="Seleccionar" />
+          <ScalarProperty Name="CantidadTicket" ColumnName="CantidadTicket" />
+          <ScalarProperty Name="FechaTicket" ColumnName="FechaTicket" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_doc_gasto_del_valida" FunctionName="ERPprodModel.Store.p_doc_gasto_del_valida" />
+    <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_cancel" FunctionName="ERPprodModel.Store.p_doc_inv_movimiento_cancel" />
+    <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_ins" FunctionName="ERPprodModel.Store.p_doc_inv_movimiento_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_upd" FunctionName="ERPprodModel.Store.p_doc_inv_movimiento_upd" />
+    <FunctionImportMapping FunctionImportName="p_doc_productos_compra_cancelar" FunctionName="ERPprodModel.Store.p_doc_productos_compra_cancelar" />
+    <FunctionImportMapping FunctionImportName="p_doc_productos_compra_detalle_ins" FunctionName="ERPprodModel.Store.p_doc_productos_compra_detalle_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_productos_compra_ins" FunctionName="ERPprodModel.Store.p_doc_productos_compra_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_productos_compra_upd" FunctionName="ERPprodModel.Store.p_doc_productos_compra_upd" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_detalle" FunctionName="ERPprodModel.Store.p_doc_promociones_detalle" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_detalle_del" FunctionName="ERPprodModel.Store.p_doc_promociones_detalle_del" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_detalle_grd" FunctionName="ERPprodModel.Store.p_doc_promociones_detalle_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_doc_promociones_detalle_grd_Result">
+          <ScalarProperty Name="PromocionDetalleId" ColumnName="PromocionDetalleId" />
+          <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
+          <ScalarProperty Name="LineaId" ColumnName="LineaId" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="FamiliaId" ColumnName="FamiliaId" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="SubfamiliaId" ColumnName="SubfamiliaId" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_excepcion_del" FunctionName="ERPprodModel.Store.p_doc_promociones_excepcion_del" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_excepcion_grd" FunctionName="ERPprodModel.Store.p_doc_promociones_excepcion_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_doc_promociones_excepcion_grd_Result">
+          <ScalarProperty Name="PromocionExcepcionId" ColumnName="PromocionExcepcionId" />
+          <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
+          <ScalarProperty Name="LineaId" ColumnName="LineaId" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="FamiliaId" ColumnName="FamiliaId" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="SubfamiliaId" ColumnName="SubfamiliaId" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_excepcion_ins" FunctionName="ERPprodModel.Store.p_doc_promociones_excepcion_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_ins" FunctionName="ERPprodModel.Store.p_doc_promociones_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_promociones_upd" FunctionName="ERPprodModel.Store.p_doc_promociones_upd" />
+    <FunctionImportMapping FunctionImportName="p_doc_sesiones_punto_venta_ins" FunctionName="ERPprodModel.Store.p_doc_sesiones_punto_venta_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_venta_fp_vale_ins" FunctionName="ERPprodModel.Store.p_doc_venta_fp_vale_ins" />
+    <FunctionImportMapping FunctionImportName="p_doc_ventas_cancelacion" FunctionName="ERPprodModel.Store.p_doc_ventas_cancelacion" />
+    <FunctionImportMapping FunctionImportName="p_GetDateTimeServer" FunctionName="ERPprodModel.Store.p_GetDateTimeServer" />
+    <FunctionImportMapping FunctionImportName="p_InsertarVenta" FunctionName="ERPprodModel.Store.p_InsertarVenta" />
+    <FunctionImportMapping FunctionImportName="p_InsertarVentaDetalle" FunctionName="ERPprodModel.Store.p_InsertarVentaDetalle" />
+    <FunctionImportMapping FunctionImportName="p_InsertarVentaFormaPago" FunctionName="ERPprodModel.Store.p_InsertarVentaFormaPago" />
+    <FunctionImportMapping FunctionImportName="p_inv_carga_inicia_cancel_inv" FunctionName="ERPprodModel.Store.p_inv_carga_inicia_cancel_inv" />
+    <FunctionImportMapping FunctionImportName="p_inv_carga_inicial_cancel" FunctionName="ERPprodModel.Store.p_inv_carga_inicial_cancel" />
+    <FunctionImportMapping FunctionImportName="p_inv_carga_inicial_grd" FunctionName="ERPprodModel.Store.p_inv_carga_inicial_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_inv_carga_inicial_grd_Result">
+          <ScalarProperty Name="CargaInventarioId" ColumnName="CargaInventarioId" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CostoPromedio" ColumnName="CostoPromedio" />
+          <ScalarProperty Name="UltimoCosto" ColumnName="UltimoCosto" />
+          <ScalarProperty Name="InventarioFisico" ColumnName="InventarioFisico" />
+          <ScalarProperty Name="TieneCargaInicial" ColumnName="TieneCargaInicial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_inv_carga_inicial_ins" FunctionName="ERPprodModel.Store.p_inv_carga_inicial_ins" />
+    <FunctionImportMapping FunctionImportName="p_inv_carga_inicial_upd" FunctionName="ERPprodModel.Store.p_inv_carga_inicial_upd" />
+    <FunctionImportMapping FunctionImportName="p_inv_genera_mov_cancel" FunctionName="ERPprodModel.Store.p_inv_genera_mov_cancel" />
+    <FunctionImportMapping FunctionImportName="p_inv_movimiento_autoriza" FunctionName="ERPprodModel.Store.p_inv_movimiento_autoriza" />
+    <FunctionImportMapping FunctionImportName="p_inv_movimiento_detalle_ins" FunctionName="ERPprodModel.Store.p_inv_movimiento_detalle_ins" />
+    <FunctionImportMapping FunctionImportName="p_inv_movimiento_rpt" FunctionName="ERPprodModel.Store.p_inv_movimiento_rpt">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_inv_movimiento_rpt_Result">
+          <ScalarProperty Name="SucursalOrigen" ColumnName="SucursalOrigen" />
+          <ScalarProperty Name="SucursalDestino" ColumnName="SucursalDestino" />
+          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="FechaMovimiento" ColumnName="FechaMovimiento" />
+          <ScalarProperty Name="FechaAfectaInv" ColumnName="FechaAfectaInv" />
+          <ScalarProperty Name="ProductoClave" ColumnName="ProductoClave" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="CantidadMov" ColumnName="CantidadMov" />
+          <ScalarProperty Name="RegistradoPor" ColumnName="RegistradoPor" />
+          <ScalarProperty Name="AutorizadoPor" ColumnName="AutorizadoPor" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_inv_producto_kardex_grd" FunctionName="ERPprodModel.Store.p_inv_producto_kardex_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_inv_producto_kardex_grd_Result">
+          <ScalarProperty Name="FechaMov" ColumnName="FechaMov" />
+          <ScalarProperty Name="SucursalMov" ColumnName="SucursalMov" />
+          <ScalarProperty Name="SucursalOrigen" ColumnName="SucursalOrigen" />
+          <ScalarProperty Name="SucursalDestino" ColumnName="SucursalDestino" />
+          <ScalarProperty Name="FolioMov" ColumnName="FolioMov" />
+          <ScalarProperty Name="Movimiento" ColumnName="Movimiento" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="DescripcionCorta" ColumnName="DescripcionCorta" />
+          <ScalarProperty Name="CantidadEntrada" ColumnName="CantidadEntrada" />
+          <ScalarProperty Name="CantidadSalida" ColumnName="CantidadSalida" />
+          <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+          <ScalarProperty Name="CostoUltimaCompra" ColumnName="CostoUltimaCompra" />
+          <ScalarProperty Name="CostoPromedio" ColumnName="CostoPromedio" />
+          <ScalarProperty Name="ValCostoUltimaCompra" ColumnName="ValCostoUltimaCompra" />
+          <ScalarProperty Name="ValCostoPromedio" ColumnName="ValCostoPromedio" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="ValorMovimiento" ColumnName="ValorMovimiento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_producto_promocion_sel" FunctionName="ERPprodModel.Store.p_producto_promocion_sel" />
+    <FunctionImportMapping FunctionImportName="p_producto_ultima_compra" FunctionName="ERPprodModel.Store.p_producto_ultima_compra">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_producto_ultima_compra_Result">
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="PrecioNeto" ColumnName="PrecioNeto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_productos_compra_inv" FunctionName="ERPprodModel.Store.p_productos_compra_inv" />
+    <FunctionImportMapping FunctionImportName="p_productos_existencia_sel" FunctionName="ERPprodModel.Store.p_productos_existencia_sel" />
+    <FunctionImportMapping FunctionImportName="p_productos_importacion" FunctionName="ERPprodModel.Store.p_productos_importacion" />
+    <FunctionImportMapping FunctionImportName="p_productos_precio_grd" FunctionName="ERPprodModel.Store.p_productos_precio_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_productos_precio_grd_Result">
+          <ScalarProperty Name="IdProductoPrecio" ColumnName="IdProductoPrecio" />
+          <ScalarProperty Name="IdPrecio" ColumnName="IdPrecio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PorcDescuento" ColumnName="PorcDescuento" />
+          <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_punto_venta_validar_sesion" FunctionName="ERPprodModel.Store.p_punto_venta_validar_sesion" />
+    <FunctionImportMapping FunctionImportName="p_rpt_apartado_ticket" FunctionName="ERPprodModel.Store.p_rpt_apartado_ticket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_apartado_ticket_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="FechaApartado" ColumnName="FechaApartado" />
+          <ScalarProperty Name="PagoRealizado" ColumnName="PagoRealizado" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="TotalApartado" ColumnName="TotalApartado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="FechaLimite" ColumnName="FechaLimite" />
+          <ScalarProperty Name="ExpedidoEn" ColumnName="ExpedidoEn" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="ClaveProducto" ColumnName="ClaveProducto" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="TextoCabecera1" ColumnName="TextoCabecera1" />
+          <ScalarProperty Name="TextoCabecera2" ColumnName="TextoCabecera2" />
+          <ScalarProperty Name="TextoPie" ColumnName="TextoPie" />
+          <ScalarProperty Name="AnticipoAbono" ColumnName="AnticipoAbono" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+          <ScalarProperty Name="Atendio" ColumnName="Atendio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_apartados" FunctionName="ERPprodModel.Store.p_rpt_apartados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_apartados_Result">
+          <ScalarProperty Name="Del" ColumnName="Del" />
+          <ScalarProperty Name="Al" ColumnName="Al" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaApartado" ColumnName="FechaApartado" />
+          <ScalarProperty Name="FechaLimite" ColumnName="FechaLimite" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="SaldoPorVencer30" ColumnName="SaldoPorVencer30" />
+          <ScalarProperty Name="SaldoVencido30" ColumnName="SaldoVencido30" />
+          <ScalarProperty Name="SaldoTotal" ColumnName="SaldoTotal" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_clientes_apartados" FunctionName="ERPprodModel.Store.p_rpt_clientes_apartados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_clientes_apartados_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="FechaApartado" ColumnName="FechaApartado" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Apartadoid" ColumnName="Apartadoid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_apartados" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_apartados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_apartados_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="TotalApartado" ColumnName="TotalApartado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_apartados_det" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_apartados_det">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_apartados_det_Result">
+          <ScalarProperty Name="Pagos" ColumnName="Pagos" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_cancelaciones" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_cancelaciones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_cancelaciones_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="FechaCancelacion" ColumnName="FechaCancelacion" />
+          <ScalarProperty Name="TotalVenta" ColumnName="TotalVenta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_denom" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_denom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_denom_Result">
+          <ScalarProperty Name="Denominacion" ColumnName="Denominacion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_descuentos" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_descuentos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_descuentos_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_detallado" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_detallado" />
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_devoluciones" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_devoluciones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_devoluciones_Result">
+          <ScalarProperty Name="FolioDevolucion" ColumnName="FolioDevolucion" />
+          <ScalarProperty Name="FolioVenta" ColumnName="FolioVenta" />
+          <ScalarProperty Name="MontoDevolucion" ColumnName="MontoDevolucion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_enc" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_enc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_enc_Result">
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Apertura" ColumnName="Apertura" />
+          <ScalarProperty Name="Corte" ColumnName="Corte" />
+          <ScalarProperty Name="FolioIni" ColumnName="FolioIni" />
+          <ScalarProperty Name="FolioFin" ColumnName="FolioFin" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Caja" ColumnName="Caja" />
+          <ScalarProperty Name="TotalCorte" ColumnName="TotalCorte" />
+          <ScalarProperty Name="Egresos" ColumnName="Egresos" />
+          <ScalarProperty Name="FolioVenta" ColumnName="FolioVenta" />
+          <ScalarProperty Name="TotalVenta" ColumnName="TotalVenta" />
+          <ScalarProperty Name="TotalNV" ColumnName="TotalNV" />
+          <ScalarProperty Name="CorteCajaId" ColumnName="CorteCajaId" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="TotalApartado" ColumnName="TotalApartado" />
+          <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
+          <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+          <ScalarProperty Name="Tarjetas" ColumnName="Tarjetas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_fp" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_fp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_fp_Result">
+          <ScalarProperty Name="FormaPagoId" ColumnName="FormaPagoId" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_gastos" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_gastos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_gastos_Result">
+          <ScalarProperty Name="FolioGasto" ColumnName="FolioGasto" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="CentroCosto" ColumnName="CentroCosto" />
+          <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_resumido" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_resumido" />
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_retiros" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_retiros">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_retiros_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_tpv_digito" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_tpv_digito">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_tpv_digito_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Digito" ColumnName="Digito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_vales" FunctionName="ERPprodModel.Store.p_rpt_corte_caja_vales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_caja_vales_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="MontoTicket" ColumnName="MontoTicket" />
+          <ScalarProperty Name="FolioVale" ColumnName="FolioVale" />
+          <ScalarProperty Name="MontoVale" ColumnName="MontoVale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_productos_existencias" FunctionName="ERPprodModel.Store.p_rpt_corte_productos_existencias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_productos_existencias_Result">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ExistenciaTeorica" ColumnName="ExistenciaTeorica" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_corte_reimpresiones" FunctionName="ERPprodModel.Store.p_rpt_corte_reimpresiones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_corte_reimpresiones_Result">
+          <ScalarProperty Name="ReimpresionTicketId" ColumnName="ReimpresionTicketId" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="FechaReimpresion" ColumnName="FechaReimpresion" />
+          <ScalarProperty Name="ReimpresoPor" ColumnName="ReimpresoPor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_devolucion" FunctionName="ERPprodModel.Store.p_rpt_devolucion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_devolucion_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="RegistradoPor" ColumnName="RegistradoPor" />
+          <ScalarProperty Name="DevolucionId" ColumnName="DevolucionId" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="TipoDevolucion" ColumnName="TipoDevolucion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_existencias_agrupado" FunctionName="ERPprodModel.Store.p_rpt_existencias_agrupado" />
+    <FunctionImportMapping FunctionImportName="p_rpt_gasto_ticket" FunctionName="ERPprodModel.Store.p_rpt_gasto_ticket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_gasto_ticket_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Obervaciones" ColumnName="Obervaciones" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="CentroCosto" ColumnName="CentroCosto" />
+          <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+          <ScalarProperty Name="RegistradoPor" ColumnName="RegistradoPor" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_notas_venta_detalle" FunctionName="ERPprodModel.Store.p_rpt_notas_venta_detalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_notas_venta_detalle_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Del" ColumnName="Del" />
+          <ScalarProperty Name="Al" ColumnName="Al" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Caja" ColumnName="Caja" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Cajero" ColumnName="Cajero" />
+          <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_notas_venta_resumido" FunctionName="ERPprodModel.Store.p_rpt_notas_venta_resumido">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_notas_venta_resumido_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Del" ColumnName="Del" />
+          <ScalarProperty Name="Al" ColumnName="Al" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Caja" ColumnName="Caja" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="Cajero" ColumnName="Cajero" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_productos_existencias" FunctionName="ERPprodModel.Store.p_rpt_productos_existencias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_productos_existencias_Result">
+          <ScalarProperty Name="ClaveLinea" ColumnName="ClaveLinea" />
+          <ScalarProperty Name="ClaveFamilia" ColumnName="ClaveFamilia" />
+          <ScalarProperty Name="ClaveSubFamilia" ColumnName="ClaveSubFamilia" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ExistenciaTeorica" ColumnName="ExistenciaTeorica" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_productos_existencias_valuo" FunctionName="ERPprodModel.Store.p_rpt_productos_existencias_valuo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_productos_existencias_valuo_Result">
+          <ScalarProperty Name="ClaveLinea" ColumnName="ClaveLinea" />
+          <ScalarProperty Name="ClaveFamilia" ColumnName="ClaveFamilia" />
+          <ScalarProperty Name="ClaveSubFamilia" ColumnName="ClaveSubFamilia" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Subfamilia" ColumnName="Subfamilia" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ExistenciaTeorica" ColumnName="ExistenciaTeorica" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="ExistenciaValuada" ColumnName="ExistenciaValuada" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="PrecioConDescuento" ColumnName="PrecioConDescuento" />
+          <ScalarProperty Name="ExistenciaDescValuada" ColumnName="ExistenciaDescValuada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_productos_vendidos" FunctionName="ERPprodModel.Store.p_rpt_productos_vendidos" />
+    <FunctionImportMapping FunctionImportName="p_rpt_retiro_ticket" FunctionName="ERPprodModel.Store.p_rpt_retiro_ticket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_retiro_ticket_Result">
+          <ScalarProperty Name="RetiroId" ColumnName="RetiroId" />
+          <ScalarProperty Name="FEchaRetiro" ColumnName="FEchaRetiro" />
+          <ScalarProperty Name="MontoRetiro" ColumnName="MontoRetiro" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_venta_ticket_formaspago" FunctionName="ERPprodModel.Store.p_rpt_venta_ticket_formaspago">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_venta_ticket_formaspago_Result">
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_rpt_ventas_vendedor" FunctionName="ERPprodModel.Store.p_rpt_ventas_vendedor" />
+    <FunctionImportMapping FunctionImportName="p_rpt_VentaTicket" FunctionName="ERPprodModel.Store.p_rpt_VentaTicket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_rpt_VentaTicket_Result">
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FOLIO" ColumnName="FOLIO" />
+          <ScalarProperty Name="VentaDetalleId" ColumnName="VentaDetalleId" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="ImportePartida" ColumnName="ImportePartida" />
+          <ScalarProperty Name="TotalVenta" ColumnName="TotalVenta" />
+          <ScalarProperty Name="TotalDescuentoVenta" ColumnName="TotalDescuentoVenta" />
+          <ScalarProperty Name="SubTotalVenta" ColumnName="SubTotalVenta" />
+          <ScalarProperty Name="ImpuestosVenta" ColumnName="ImpuestosVenta" />
+          <ScalarProperty Name="TotalRecibido" ColumnName="TotalRecibido" />
+          <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+          <ScalarProperty Name="TextoCabecera1" ColumnName="TextoCabecera1" />
+          <ScalarProperty Name="TextoCabecera2" ColumnName="TextoCabecera2" />
+          <ScalarProperty Name="TextoPie" ColumnName="TextoPie" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+          <ScalarProperty Name="Atendio" ColumnName="Atendio" />
+          <ScalarProperty Name="MotivoCancelacion" ColumnName="MotivoCancelacion" />
+          <ScalarProperty Name="TasaIVA" ColumnName="TasaIVA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_salidas_traspaso_grd" FunctionName="ERPprodModel.Store.p_salidas_traspaso_grd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_salidas_traspaso_grd_Result">
+          <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="FolioMovimiento" ColumnName="FolioMovimiento" />
+          <ScalarProperty Name="TipoMovimientoId" ColumnName="TipoMovimientoId" />
+          <ScalarProperty Name="FechaMovimiento" ColumnName="FechaMovimiento" />
+          <ScalarProperty Name="HoraMovimiento" ColumnName="HoraMovimiento" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="ImporteTotal" ColumnName="ImporteTotal" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+          <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+          <ScalarProperty Name="FechaAutoriza" ColumnName="FechaAutoriza" />
+          <ScalarProperty Name="SucursalDestinoId" ColumnName="SucursalDestinoId" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_sucursales_usuario_sel" FunctionName="ERPprodModel.Store.p_sucursales_usuario_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ERPprodModel.p_sucursales_usuario_sel_Result">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_venta_afecta_inventario" FunctionName="ERPprodModel.Store.p_venta_afecta_inventario" />
+  </EntityContainerMapping>
+</Mapping>

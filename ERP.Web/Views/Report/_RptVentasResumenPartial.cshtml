@@ -1,0 +1,101 @@
+<script>
+    function exportXLS() {
+        window.open("@Url.Action("ExportToCSV","Report")", "_blank"); 
+    }
+</script>
+<button class="btn-primary" onclick="exportXLS();">Exportar CSV</button>
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "RptVentasResumen";
+        settings.CallbackRouteValues = new { Controller = "Report", Action = "RptVentasResumenPartial" };
+
+        //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Report", Action = "RptVentasResumenPartialAddNew" };
+        //    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Report", Action = "RptVentasResumenPartialUpdate" };
+        //    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Report", Action = "RptVentasResumenPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsExport.EnableClientSideExportAPI = true;
+        settings.SettingsExport.ExcelExportMode = DevExpress.Export.ExportType.DataAware;
+        settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.ShowNewButton = true;
+        //settings.CommandColumn.ShowDeleteButton = true;
+        //settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Folio";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+
+        //settings.Columns.Add("SucursalId");
+        settings.Columns.Add("Sucursal");
+        settings.Columns.Add("Serie");
+        settings.Columns.Add("Folio");
+        settings.Columns.Add("Clave");
+        settings.Columns.Add(
+            c=>
+            {
+                c.FieldName = "FechaHora";
+                c.PropertiesEdit.DisplayFormatString = "dd MM yyyy";
+                c.ColumnType = MVCxGridViewColumnType.DateEdit;
+                c.Caption = "Fecha";
+                ((DateEditProperties)c.PropertiesEdit).DisplayFormatString = "dd/MM/yyyy";
+            }
+           );
+        settings.Columns.Add(
+            c =>
+            {
+                c.FieldName = "FechaHora";
+                c.PropertiesEdit.DisplayFormatString = "HH:mm:ss";
+                c.ColumnType = MVCxGridViewColumnType.TimeEdit;
+            }
+           );
+
+        settings.Columns.Add("Descripcion");
+        settings.Columns.Add("Cantidad");
+        settings.Columns.Add("Descuento");
+        settings.Columns.Add("Cancelado").ColumnType = MVCxGridViewColumnType.CheckBox;
+        settings.Columns.Add("Total").PropertiesEdit.DisplayFormatString = "c2";
+        settings.Columns.Add("Cliente");
+        settings.Columns.Add("FolioPagoWeb");
+        settings.Columns.Add("Observaciones");
+
+        settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "Total").DisplayFormat = "c";
+        settings.Settings.ShowFooter = true;
+        settings.SettingsPager.PageSize = 100;
+
+        /*
+        settings.Toolbars.Add(t =>
+        {
+
+            t.EnableAdaptivity = true;
+
+            t.Items.Add(GridViewToolbarCommand.ExportToXlsx);
+            t.Items.Add(GridViewToolbarCommand.ExportToDocx);
+            t.Items.Add(GridViewToolbarCommand.ExportToRtf);
+            t.Items.Add(GridViewToolbarCommand.ExportToCsv);
+        });*/
+        settings.SettingsExport.RenderBrick = (sender, e) =>
+        {
+            if (e.RowType == GridViewRowType.Data && e.VisibleIndex % 2 == 0)
+                e.BrickStyle.BackColor = System.Drawing.Color.FromArgb(0xEE, 0xEE, 0xEE);
+        };
+        settings.PreRender = (sender, e) =>
+        {
+            ((MVCxGridView)sender).ExpandAll();
+        };
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

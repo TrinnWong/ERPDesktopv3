@@ -1,0 +1,85 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvCargoDetalleEdit";
+        settings.CallbackRouteValues = new { Controller = "Cargo", Action = "gvCargoDetalleEditPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Cargo", Action = "gvCargoDetalleEditPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Cargo", Action = "gvCargoDetalleEditPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Cargo", Action = "gvCargoDetalleEditPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "cargoDetalleId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.Width = new System.Web.UI.WebControls.Unit(100, System.Web.UI.WebControls.UnitType.Percentage);
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("cargoDetalleId","#");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fechaCargo";
+            c.Caption = "Fecha Vencimiento";
+            c.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+            c.EditorProperties().DateEdit(p =>
+
+            {
+
+                //p.AllowUserInput = true;  
+
+                p.TimeSectionProperties.Visible = true;
+
+                //p.TimeSectionProperties.Adaptive = true;  
+
+                p.TimeSectionProperties.TimeEditProperties.EditFormat = EditFormat.DateTime;
+
+                p.TimeSectionProperties.TimeEditProperties.EditFormatString = "dd/MM/yyyy";
+
+
+
+            });
+        }
+);
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "total";
+            c.Caption = "Total";
+
+            c.EditorProperties().SpinEdit(p =>
+
+            {
+
+                //p.AllowUserInput = true;  
+
+                p.AllowNull = false;
+
+                //p.TimeSectionProperties.Adaptive = true;  
+
+                p.DecimalPlaces = 2;
+
+
+            });
+        }
+);
+
+        settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "total").DisplayFormat = "c";
+        settings.Settings.ShowFooter = true;
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

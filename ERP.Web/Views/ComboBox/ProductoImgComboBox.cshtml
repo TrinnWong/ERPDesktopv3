@@ -1,0 +1,37 @@
+﻿@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "uiProductoImgCmb";
+    settings.Width = 285;
+    settings.SelectedIndex = 0;
+    settings.CallbackRouteValues = new { Controller = "ComboBox", Action = "ProductoImgComboBox" };
+    settings.SetButtonTemplateContent((container) =>
+    {
+        ViewContext.Writer.Write(
+            "<table>" +
+                "<tr>" +
+                    "<td rowspan='2'><div class='frame'><img class='photo' alt='photo' src='" + Url.Content(DataBinder.Eval(container.DataItem, "pathFoto").ToString()) + "' /></div></td>" +
+                    "<td class='name'>" +
+                        DataBinder.Eval(container.DataItem, "id") +
+                    "</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td class='description'>" +
+                        "<div class='contactInfo'>" +
+                            DataBinder.Eval(container.DataItem, "descripcion") + "<br />" +
+                            DataBinder.Eval(container.DataItem, "talla") +
+                        "</div>" +
+                        DataBinder.Eval(container.DataItem, "marca") +
+                    "</td>" +
+                "</tr>" +
+            "</table>"
+        );
+    });
+
+    var properties = settings.Properties;
+    properties.TextField = "descripcion";
+    properties.DropDownRows = 4;
+    properties.CallbackPageSize = 5;
+    // The selected and hovered styles are set in CSS classes defining the text color for the description section
+    properties.ItemStyle.SelectedStyle.CssClass = "selectedItem";
+    properties.ItemStyle.HoverStyle.CssClass = "hoveredItem";
+}).BindList(Model).GetHtml()

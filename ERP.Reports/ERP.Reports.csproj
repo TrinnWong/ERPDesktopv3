@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AEF8C95-AC9A-498A-9818-8B61C2F3561E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP.Reports</RootNamespace>
+    <AssemblyName>ERP.Reports</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Export, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Design.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Diagnostics.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Document.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Document.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Extensibility.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Interop.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=x86" />
+    <Reference Include="GrapeCity.ActiveReports.OracleClient.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Serializer.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Wpf.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.VisualStudio.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Web.Design.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.ActiveReports.Web.v9, Version=9.0.1678.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Print\XtraPrinter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptApartados.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptApartados.Designer.cs">
+      <DependentUpon>rptApartados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCajaCajero.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCajaCajero.Designer.cs">
+      <DependentUpon>rptCorteCajaCajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptDevolucionTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptDevolucionTicket.Designer.cs">
+      <DependentUpon>rptDevolucionTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptEntradaCompra_Carta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptEntradaCompra_Carta.Designer.cs">
+      <DependentUpon>rptEntradaCompra_Carta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptMovimientoInventarioCancelacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptMovimientoInventarioCancelacion.Designer.cs">
+      <DependentUpon>rptMovimientoInventarioCancelacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptPedidoDevolucion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPedidoDevolucion.Designer.cs">
+      <DependentUpon>rptPedidoDevolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptPedidoPagoTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPedidoPagoTicket.Designer.cs">
+      <DependentUpon>rptPedidoPagoTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptClientesApartados.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptClientesApartados.Designer.cs">
+      <DependentUpon>rptClientesApartados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptComanda.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptComanda.Designer.cs">
+      <DependentUpon>rptComanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCajaPrevio.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCajaPrevio.Designer.cs">
+      <DependentUpon>rptCorteCajaPrevio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCaja.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCaja.Designer.cs">
+      <DependentUpon>rptCorteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCajaDetallado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCajaDetallado.Designer.cs">
+      <DependentUpon>rptCorteCajaDetallado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCajaPrevioV2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCajaPrevioV2.Designer.cs">
+      <DependentUpon>rptCorteCajaPrevioV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCorteCajaResumido.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCorteCajaResumido.Designer.cs">
+      <DependentUpon>rptCorteCajaResumido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCuenta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptCuenta.Designer.cs">
+      <DependentUpon>rptCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptEntradaCompra.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptEntradaCompra.Designer.cs">
+      <DependentUpon>rptEntradaCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptExistenciasAgrupado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptExistenciasAgrupado.Designer.cs">
+      <DependentUpon>rptExistenciasAgrupado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptExistenciasValuoTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptExistenciasValuoTicket.Designer.cs">
+      <DependentUpon>rptExistenciasValuoTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptExistenciasValuoCarta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptExistenciasValuoCarta.Designer.cs">
+      <DependentUpon>rptExistenciasValuoCarta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptExistenciasTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptExistenciasTicket.Designer.cs">
+      <DependentUpon>rptExistenciasTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptExistenciasCarta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptExistenciasCarta.Designer.cs">
+      <DependentUpon>rptExistenciasCarta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptGastoTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptGastoTicket.Designer.cs">
+      <DependentUpon>rptGastoTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptTraspasoInventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptTraspasoInventario.Designer.cs">
+      <DependentUpon>rptTraspasoInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptNotasVentaDetallado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptNotasVentaDetallado.Designer.cs">
+      <DependentUpon>rptNotasVentaDetallado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptNotasVentaResumido_Mesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptNotasVentaResumido_Mesa.Designer.cs">
+      <DependentUpon>rptNotasVentaResumido_Mesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptProductoImportacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptProductoImportacion.Designer.cs">
+      <DependentUpon>rptProductoImportacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptProductosVendidos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptProductosVendidos.Designer.cs">
+      <DependentUpon>rptProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptRetiroTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptRetiroTicket.Designer.cs">
+      <DependentUpon>rptRetiroTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptVentasVendedor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptVentasVendedor.Designer.cs">
+      <DependentUpon>rptVentasVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptNotasVentaResumido.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptNotasVentaResumido.Designer.cs">
+      <DependentUpon>rptNotasVentaResumido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptPedido.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPedido.Designer.cs">
+      <DependentUpon>rptPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptVentaTicket55MM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptVentaTicket55MM.Designer.cs">
+      <DependentUpon>rptVentaTicket55MM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptVentaTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptVentaTicket.Designer.cs">
+      <DependentUpon>rptVentaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptVentaTicket_CartaM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptVentaTicket_CartaM.Designer.cs">
+      <DependentUpon>rptVentaTicket_CartaM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCancelaciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCancelaciones.Designer.cs">
+      <DependentUpon>subRptCancelaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaApartado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaApartado.Designer.cs">
+      <DependentUpon>subRptCorteCajaApartado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaApartadoDet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaApartadoDet.Designer.cs">
+      <DependentUpon>subRptCorteCajaApartadoDet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaDigitoTpv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaDigitoTpv.Designer.cs">
+      <DependentUpon>subRptCorteCajaDigitoTpv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaVales.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaVales.Designer.cs">
+      <DependentUpon>subRptCorteCajaVales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaVentaExisPorProducto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaVentaExisPorProducto.Designer.cs">
+      <DependentUpon>subRptCorteCajaVentaExisPorProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteDenominacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteDenominacion.Designer.cs">
+      <DependentUpon>subRptCorteDenominacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptCorteCajaVentaPorProducto.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptCorteCajaVentaPorProducto.Designer.cs">
+      <DependentUpon>subRptCorteCajaVentaPorProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptPedidosSinCerrar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptPedidosSinCerrar.Designer.cs">
+      <DependentUpon>subRptPedidosSinCerrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptDescuentos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptDescuentos.Designer.cs">
+      <DependentUpon>subRptDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptDevoluciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptDevoluciones.Designer.cs">
+      <DependentUpon>subRptDevoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptGastos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptGastos.Designer.cs">
+      <DependentUpon>subRptGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptVentaTicket_Rest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptVentaTicket_Rest.Designer.cs">
+      <DependentUpon>subRptVentaTicket_Rest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptLogo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptLogo.Designer.cs">
+      <DependentUpon>subRptLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptProductoExistencias.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptProductoExistencias.Designer.cs">
+      <DependentUpon>subRptProductoExistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptReimpresionTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptReimpresionTicket.Designer.cs">
+      <DependentUpon>subRptReimpresionTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptRetirosList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptRetirosList.Designer.cs">
+      <DependentUpon>subRptRetirosList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="subRptVentaFormasPago.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptVentaFormasPago.Designer.cs">
+      <DependentUpon>subRptVentaFormasPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacosAna\rptCorteCaja.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptCorteCaja.Designer.cs">
+      <DependentUpon>rptCorteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacosAna\rptCorteCajaCajero1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptCorteCajaCajero1.Designer.cs">
+      <DependentUpon>rptCorteCajaCajero1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacosAna\rptComanda.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptComanda.Designer.cs">
+      <DependentUpon>rptComanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacosAna\rptInventarioReal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptInventarioReal.Designer.cs">
+      <DependentUpon>rptInventarioReal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacosAna\rptVentaTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptVentaTicket.Designer.cs">
+      <DependentUpon>rptVentaTicket.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="rptApartados.resx">
+      <DependentUpon>rptApartados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCajaCajero.resx">
+      <DependentUpon>rptCorteCajaCajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptDevolucionTicket.resx">
+      <DependentUpon>rptDevolucionTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptEntradaCompra_Carta.resx">
+      <DependentUpon>rptEntradaCompra_Carta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptMovimientoInventarioCancelacion.resx">
+      <DependentUpon>rptMovimientoInventarioCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPedidoDevolucion.resx">
+      <DependentUpon>rptPedidoDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPedidoPagoTicket.resx">
+      <DependentUpon>rptPedidoPagoTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptClientesApartados.resx">
+      <DependentUpon>rptClientesApartados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptComanda.resx">
+      <DependentUpon>rptComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCajaPrevio.resx">
+      <DependentUpon>rptCorteCajaPrevio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCaja.resx">
+      <DependentUpon>rptCorteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCajaDetallado.resx">
+      <DependentUpon>rptCorteCajaDetallado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCajaPrevioV2.resx">
+      <DependentUpon>rptCorteCajaPrevioV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCorteCajaResumido.resx">
+      <DependentUpon>rptCorteCajaResumido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCuenta.resx">
+      <DependentUpon>rptCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptEntradaCompra.resx">
+      <DependentUpon>rptEntradaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExistenciasAgrupado.resx">
+      <DependentUpon>rptExistenciasAgrupado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExistenciasValuoTicket.resx">
+      <DependentUpon>rptExistenciasValuoTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExistenciasValuoCarta.resx">
+      <DependentUpon>rptExistenciasValuoCarta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExistenciasTicket.resx">
+      <DependentUpon>rptExistenciasTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExistenciasCarta.resx">
+      <DependentUpon>rptExistenciasCarta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptGastoTicket.resx">
+      <DependentUpon>rptGastoTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptTraspasoInventario.resx">
+      <DependentUpon>rptTraspasoInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptNotasVentaDetallado.resx">
+      <DependentUpon>rptNotasVentaDetallado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptNotasVentaResumido_Mesa.resx">
+      <DependentUpon>rptNotasVentaResumido_Mesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptProductoImportacion.resx">
+      <DependentUpon>rptProductoImportacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptProductosVendidos.resx">
+      <DependentUpon>rptProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRetiroTicket.resx">
+      <DependentUpon>rptRetiroTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptVentasVendedor.resx">
+      <DependentUpon>rptVentasVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptNotasVentaResumido.resx">
+      <DependentUpon>rptNotasVentaResumido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPedido.resx">
+      <DependentUpon>rptPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptVentaTicket55MM.resx">
+      <DependentUpon>rptVentaTicket55MM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptVentaTicket.resx">
+      <DependentUpon>rptVentaTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptVentaTicket_CartaM.resx">
+      <DependentUpon>rptVentaTicket_CartaM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCancelaciones.resx">
+      <DependentUpon>subRptCancelaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaApartado.resx">
+      <DependentUpon>subRptCorteCajaApartado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaApartadoDet.resx">
+      <DependentUpon>subRptCorteCajaApartadoDet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaDigitoTpv.resx">
+      <DependentUpon>subRptCorteCajaDigitoTpv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaVales.resx">
+      <DependentUpon>subRptCorteCajaVales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaVentaExisPorProducto.resx">
+      <DependentUpon>subRptCorteCajaVentaExisPorProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteDenominacion.resx">
+      <DependentUpon>subRptCorteDenominacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptCorteCajaVentaPorProducto.resx">
+      <DependentUpon>subRptCorteCajaVentaPorProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptPedidosSinCerrar.resx">
+      <DependentUpon>subRptPedidosSinCerrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptDescuentos.resx">
+      <DependentUpon>subRptDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptDevoluciones.resx">
+      <DependentUpon>subRptDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptGastos.resx">
+      <DependentUpon>subRptGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptVentaTicket_Rest.resx">
+      <DependentUpon>subRptVentaTicket_Rest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptLogo.resx">
+      <DependentUpon>subRptLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptProductoExistencias.resx">
+      <DependentUpon>subRptProductoExistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptReimpresionTicket.resx">
+      <DependentUpon>subRptReimpresionTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptRetirosList.resx">
+      <DependentUpon>subRptRetirosList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptVentaFormasPago.resx">
+      <DependentUpon>subRptVentaFormasPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptCorteCaja.resx">
+      <DependentUpon>rptCorteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptCorteCajaCajero1.resx">
+      <DependentUpon>rptCorteCajaCajero1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptComanda.resx">
+      <DependentUpon>rptComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptInventarioReal.resx">
+      <DependentUpon>rptInventarioReal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptVentaTicket.resx">
+      <DependentUpon>rptVentaTicket.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConexionBD\ConexionBD.csproj">
+      <Project>{11f22752-3a8a-4946-bd14-e4f2fa4f9307}</Project>
+      <Name>ConexionBD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,32 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvClienteCargo";
+        settings.CallbackRouteValues = new { Controller = "Cargo", Action = "gvClienteCargoPartial" };
+
+
+        settings.KeyFieldName = "clienteId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.Columns.Add("clienteId");
+        settings.Columns.Add("clave");
+        settings.Columns.Add("nombre");
+        settings.Columns.Add("apellidoPaterno");
+        settings.Columns.Add("apellidoMaterno");
+
+        settings.ClientSideEvents.SelectionChanged = "SelectionChanged";
+    });
+}
+@grid.Bind(Model).GetHtml()
+

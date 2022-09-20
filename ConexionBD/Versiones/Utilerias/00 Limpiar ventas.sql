@@ -1,0 +1,20 @@
+DELETE doc_retiros
+DELETE doc_gastos
+delete doc_pedidos_orden_ingre
+delete doc_pedidos_orden_adicional
+delete doc_pedidos_orden_detalle
+delete doc_pedidos_orden_mesa
+delete doc_pedidos_orden_mesero
+delete doc_pedidos_orden
+
+delete doc_sesiones_punto_venta
+delete doc_corte_caja_egresos
+delete doc_corte_caja_fp
+delete doc_corte_caja
+
+delete doc_ventas_detalle
+delete doc_ventas_formas_pago
+delete [dbo].[doc_inv_movimiento_detalle]
+delete [dbo].[doc_inv_movimiento]
+delete doc_reimpresion_ticket
+delete doc_ventas 
