@@ -73,6 +73,7 @@
     <Compile Include="Pedidos\PedidoConfiguracionViewModel.cs" />
     <Compile Include="Pedidos\PedidoDetalleModel.cs" />
     <Compile Include="Platillos\PlatilloPVModel.cs" />
+    <Compile Include="Precios\ProductoPrecioModel.cs" />
     <Compile Include="ProduccionSolicitud\ProduccionSolicitudAceptacionGrd.cs" />
     <Compile Include="ProduccionSolicitud\ProduccionSolicitudGridModel.cs" />
     <Compile Include="Produccion\ProduccionDetalleModel.cs" />

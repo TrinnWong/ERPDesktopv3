@@ -35,34 +35,42 @@ namespace ERPv1
         private void iniciarSesion()
         {
 
-            
-
-            string usuario = txtUsuario.Text.Trim();
-            string contraseña = txtContraseña.Text.Trim();
-            PuntoVentaContext oerpContext = new PuntoVentaContext();
-
-            string error = oLogin.validar(usuario, contraseña, ref oerpContext);
-
-            if (error.Length == 0)
+            try
             {
-                oerpContext.sucursalId = int.Parse(uiSucursal.SelectedValue.ToString());
-                this.Hide();
-               
-                frmMenu frmo = frmMenu.GetInstance();
+                string usuario = txtUsuario.Text.Trim();
+                string contraseña = txtContraseña.Text.Trim();
+                PuntoVentaContext oerpContext = new PuntoVentaContext();
 
-                if (!frmo.Visible)
+                string error = oLogin.validar(usuario, contraseña, ref oerpContext);
+
+                if (error.Length == 0)
                 {
-                   
-                    frmo.puntoVentaContext = oerpContext;
-                    frmo.Text = "SISTEMA ERP [" + uiSucursal.Text.Trim() + "][" + usuario.Trim() + "]";
-                    frmo.Show();
+                    oerpContext.sucursalId = int.Parse(uiSucursal.SelectedValue.ToString());
+                    this.Hide();
 
+                    frmMenu frmo = frmMenu.GetInstance();
+
+                    if (!frmo.Visible)
+                    {
+
+                        frmo.puntoVentaContext = oerpContext;
+                        frmo.Text = "SISTEMA ERP [" + uiSucursal.Text.Trim() + "][" + usuario.Trim() + "]";
+                        frmo.Show();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(error, "Error");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(error, "Error");
+
+                ERP.Utils.MessageBoxUtil.ShowError("Información incorrecta, verificar el usuario y contraseña");
             }
+
+           
 
         }
 

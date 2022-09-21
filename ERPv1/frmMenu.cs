@@ -1442,5 +1442,41 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void cambioDePrecioIndividualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductoInventarioForm oForm = new frmProductoInventarioForm();
+            oForm.esParaCambioPrecio = true;
+            oForm.puntoVentaContext = this.puntoVentaContext;
+            oForm.ShowDialog();
+        }
+
+        private void gruposDePreciosEspecialesConVigenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPreciosEspeciales frmo = frmPreciosEspeciales.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
+
+        private void cambioDePreciosListadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambioPrecioList frmo = frmCambioPrecioList.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
     }
 }

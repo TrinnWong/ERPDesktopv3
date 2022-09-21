@@ -557,6 +557,12 @@
     <Compile Include="Productos\frmBuscarProducto.Designer.cs">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\frmCambioPrecioList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frmCambioPrecioList.Designer.cs">
+      <DependentUpon>frmCambioPrecioList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\frmCambioPrecios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -919,6 +925,9 @@
     <EmbeddedResource Include="Productos\frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frmCambioPrecioList.resx">
+      <DependentUpon>frmCambioPrecioList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmCambioPrecios.resx">
       <DependentUpon>frmCambioPrecios.cs</DependentUpon>
     </EmbeddedResource>
@@ -1068,6 +1077,7 @@
     <None Include="Properties\DataSources\ConexionBD.sis_roles.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_usuarios_roles.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Empleados.EmpleadosDescuentosGrd.datasource" />
+    <None Include="Properties\DataSources\ERP.Models.Precios.ProductoPrecioModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Producto.ProductoMinMaxModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Sucursal.SucursalProductoModel.datasource" />
     <None Include="Properties\Settings.settings">
