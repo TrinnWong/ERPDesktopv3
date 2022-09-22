@@ -1,4 +1,5 @@
-﻿using ERP.Common.Base;
+﻿using ConexionBD;
+using ERP.Common.Base;
 using ERP.Models.Precios;
 using System;
 using System.Collections.Generic;
@@ -90,19 +91,27 @@ namespace ERPv1.Productos
 
         private void uiGuardar_Click(object sender, EventArgs e)
         {
-
+            Guardar();
         }
 
         private void Guardar()
         {
             try
             {
+                oContext = new ERPProdEntities();
                 List<ProductoPrecioModel> lstData = (List<ProductoPrecioModel>)uiGrid.DataSource;
 
                 foreach (ProductoPrecioModel item in lstData.Where(w=> w.modificado))
                 {
+                    cat_productos_precios oProductoPrecio = oContext.cat_productos_precios
+                        .Where(w=> w.IdProductoPrecio == item.precioId).FirstOrDefault();
 
+                    oProductoPrecio.Precio = item.precio;
+                    oContext.SaveChanges();
                 }
+
+                ERP.Utils.MessageBoxUtil.ShowOk();
+                llenarGrid();
             }
             catch (Exception ex)
             {

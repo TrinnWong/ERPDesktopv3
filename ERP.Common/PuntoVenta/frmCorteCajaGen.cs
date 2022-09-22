@@ -67,7 +67,7 @@ namespace ERP.Common.PuntoVenta
             llenarGrid();
         }
 
-        public bool generarCorteCaja(bool imprimirCorte)
+        public bool generarCorteCaja(bool imprimirCorte,bool cerrarSistema=true)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace ERP.Common.PuntoVenta
 
                 }
 
-                if (MessageBox.Show("¿Está seguro de continuar?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro(a) de generar el CORTE DE CAJA?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     oContext = new ERPProdEntities();
                     cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
@@ -154,6 +154,7 @@ namespace ERP.Common.PuntoVenta
                                 frm.puntoVentaContext = this.puntoVentaContext;
                                 frm.tipo = "corteCaja";
                                 frm.imprimirCorte = imprimirCorte;
+                                frm.cerrarSistema = cerrarSistema;
                                 frm.ShowDialog();
                                 return true;
                             }
@@ -165,7 +166,7 @@ namespace ERP.Common.PuntoVenta
                                     .Where(w=> w.sis_preferencias.Preferencia == "SoloEnviarEmailCorteCaja").Count() > 0) {
                                     imprimirCorte = false;
                                 }
-                                frmMenuRest.GetInstance().CorteCaja(null, permitirCorteCeros,imprimirCorte);
+                                frmMenuRest.GetInstance().CorteCaja(null, permitirCorteCeros,imprimirCorte,cerrarSistema);
                                 return true;
                             }
 

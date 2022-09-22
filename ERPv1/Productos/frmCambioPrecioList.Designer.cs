@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambioPrecioList));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.uiCancelar = new DevExpress.XtraEditors.SimpleButton();
+            this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
             this.productoPrecioModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,6 +40,7 @@
             this.colproducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecioId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprecio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colmodificado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -47,27 +50,26 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.catproductospreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.uiCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.catproductospreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoPrecioModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiBuscar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -86,12 +88,38 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // uiCancelar
+            // 
+            this.uiCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCancelar.ImageOptions.Image")));
+            this.uiCancelar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiCancelar.Location = new System.Drawing.Point(397, 493);
+            this.uiCancelar.Name = "uiCancelar";
+            this.uiCancelar.Size = new System.Drawing.Size(321, 40);
+            this.uiCancelar.StyleController = this.layoutControl1;
+            this.uiCancelar.TabIndex = 9;
+            this.uiCancelar.Text = "Salir";
+            this.uiCancelar.Click += new System.EventHandler(this.uiCancelar_Click);
+            // 
+            // uiGuardar
+            // 
+            this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiGuardar.ImageOptions.Image")));
+            this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiGuardar.Location = new System.Drawing.Point(16, 493);
+            this.uiGuardar.Name = "uiGuardar";
+            this.uiGuardar.Size = new System.Drawing.Size(375, 40);
+            this.uiGuardar.StyleController = this.layoutControl1;
+            this.uiGuardar.TabIndex = 8;
+            this.uiGuardar.Text = "Guardar";
+            this.uiGuardar.Click += new System.EventHandler(this.uiGuardar_Click);
+            // 
             // uiGrid
             // 
             this.uiGrid.DataSource = this.productoPrecioModelBindingSource;
             this.uiGrid.Location = new System.Drawing.Point(16, 74);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
+            this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemSpinEdit1});
             this.uiGrid.Size = new System.Drawing.Size(885, 413);
             this.uiGrid.TabIndex = 7;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -117,45 +145,66 @@
             // 
             this.colproductoId.FieldName = "productoId";
             this.colproductoId.Name = "colproductoId";
+            this.colproductoId.OptionsColumn.AllowEdit = false;
             // 
             // colproducto
             // 
+            this.colproducto.Caption = "Producto";
             this.colproducto.FieldName = "producto";
             this.colproducto.Name = "colproducto";
+            this.colproducto.OptionsColumn.AllowEdit = false;
             this.colproducto.Visible = true;
             this.colproducto.VisibleIndex = 2;
-            this.colproducto.Width = 256;
+            this.colproducto.Width = 489;
             // 
             // colprecioId
             // 
             this.colprecioId.Caption = "Id";
             this.colprecioId.FieldName = "precioId";
             this.colprecioId.Name = "colprecioId";
+            this.colprecioId.OptionsColumn.AllowEdit = false;
             this.colprecioId.Visible = true;
             this.colprecioId.VisibleIndex = 0;
-            this.colprecioId.Width = 109;
+            this.colprecioId.Width = 68;
             // 
             // colprecio
             // 
+            this.colprecio.Caption = "Precio";
+            this.colprecio.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.colprecio.DisplayFormat.FormatString = "c2";
+            this.colprecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colprecio.FieldName = "precio";
             this.colprecio.Name = "colprecio";
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 3;
-            this.colprecio.Width = 262;
+            this.colprecio.Width = 202;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatString = "c2";
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatString = "c2";
+            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
             // 
             // colmodificado
             // 
             this.colmodificado.FieldName = "modificado";
             this.colmodificado.Name = "colmodificado";
+            this.colmodificado.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Clave";
             this.gridColumn1.FieldName = "clave";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 144;
+            this.gridColumn1.Width = 106;
             // 
             // labelControl1
             // 
@@ -229,22 +278,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // catproductospreciosBindingSource
-            // 
-            this.catproductospreciosBindingSource.DataSource = typeof(ConexionBD.cat_productos_precios);
-            // 
-            // uiGuardar
-            // 
-            this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiGuardar.Location = new System.Drawing.Point(16, 493);
-            this.uiGuardar.Name = "uiGuardar";
-            this.uiGuardar.Size = new System.Drawing.Size(375, 40);
-            this.uiGuardar.StyleController = this.layoutControl1;
-            this.uiGuardar.TabIndex = 8;
-            this.uiGuardar.Text = "Guardar";
-            this.uiGuardar.Click += new System.EventHandler(this.uiGuardar_Click);
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.uiGuardar;
@@ -262,18 +295,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(183, 46);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // uiCancelar
-            // 
-            this.uiCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCancelar.ImageOptions.Image")));
-            this.uiCancelar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiCancelar.Location = new System.Drawing.Point(397, 493);
-            this.uiCancelar.Name = "uiCancelar";
-            this.uiCancelar.Size = new System.Drawing.Size(321, 40);
-            this.uiCancelar.StyleController = this.layoutControl1;
-            this.uiCancelar.TabIndex = 9;
-            this.uiCancelar.Text = "Salir";
-            this.uiCancelar.Click += new System.EventHandler(this.uiCancelar_Click);
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.uiCancelar;
@@ -282,6 +303,10 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(327, 46);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // catproductospreciosBindingSource
+            // 
+            this.catproductospreciosBindingSource.DataSource = typeof(ConexionBD.cat_productos_precios);
             // 
             // frmCambioPrecioList
             // 
@@ -298,16 +323,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoPrecioModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiBuscar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -337,5 +363,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
     }
 }

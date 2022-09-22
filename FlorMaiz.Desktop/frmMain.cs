@@ -1,6 +1,8 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+
 using ERP.Common.Basculas;
 using ERP.Common.Catalogos;
 using ERP.Common.Inventarios;
@@ -25,6 +27,7 @@ namespace FlorMaiz.Desktop
 {
     public partial class frmMain : XtraForm
     {
+        string error = "";
         ERPProdEntities oContext;
         public PuntoVentaContext puntoVentaContext;
         private static frmMain _instance;
@@ -318,35 +321,52 @@ namespace FlorMaiz.Desktop
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //#region validar captura de productos sobrantes
-            //oContext = new ERPProdEntities();
-            //if (oContext.p_doc_productos_sobrantes_registro_sel(puntoVentaContext.sucursalId, DateTime.Now).Count() == 0)
-            //{
-            //    ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario ingresar la información de PRODUCTOS SOBRANTES antes de continuar");
-            //    return;
-            //}
-            //#endregion
-
-            //#region validar captura de desperdicios
-
-            //if (oContext.p_doc_inv_movimiento_sel(this.puntoVentaContext.sucursalId, DateTime.Now,
-            //    (int)Enumerados.tipoMovsInventario.desperdicioInventario).Count() == 0)
-            //{
-            //    ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario registrar los DESPERDICIOS antes de continuar");
-            //    return;
-            //}
-            //#endregion
-            frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
-
-            if (!frmo.Visible)
+            if (!ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                this.puntoVentaContext.sucursalId,
+                "PVCorteCajaOcultarDetalleCajero",this.puntoVentaContext.usuarioId))
             {
-                //frmo = new frmPuntoVenta();
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.MdiParent = this;
-                frmo.Show();
+                frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.MdiParent = this;
+                    frmo.Show();
+                }
             }
+            else
+            {
+                frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.MdiParent = this;
+                    if (frmo.generarCorteCaja(false,false))
+                    {
+                        error = ERP.Business.CorteCajaBusiness.imprimirCorteCajero(puntoVentaContext.sucursalId,puntoVentaContext.cajaId,puntoVentaContext.usuarioId);
+                        
+                        if (error.Length > 0)
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowError(error);
+                        }
+                        else
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowWarning("SE REINICIARÁ EL SISTEMA");
+                            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+                            Application.Exit();
+                            this.Close();
+                        }
+                        
+                    }
+                }
+            }
+            
         }
 
+   
         private void timerClearMemoryData_Tick(object sender, EventArgs e)
         {
             //ERP.Business.DataMemory.DataBucket.ClearData();

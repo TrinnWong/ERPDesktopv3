@@ -385,7 +385,8 @@ namespace PuntoVenta
 
         public void CorteCaja(List<DeclaracionFondoModel> denominaciones, 
             bool permitirCorteCero,
-            bool imprimirCorte)
+            bool imprimirCorte,
+            bool cerrarSistema =true)
         {
             try
             {
@@ -498,30 +499,7 @@ namespace PuntoVenta
 
                 #endregion
 
-                #region obtener reporte notas venta
-
-                rptNotasVentaResumido oReportventa = new rptNotasVentaResumido();
-
-                int sucursal = this.puntoVentaContext.sucursalId;
-                int caja = this.puntoVentaContext.cajaId;
-                DateTime fecha = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
-
-                oReportventa.DataSource = oContext.p_rpt_notas_venta_resumido(
-                    sucursal,
-                    caja,
-                    0,
-                    fecha,
-                    fecha).ToList();
-
-                pdfStream = new System.IO.MemoryStream();
-                oReportventa.Document.Printer.PrinterName = "";
-                pdfStream = exportTool.ToPDF(oReportventa);
-
-
-
-                attachment = new System.Net.Mail.Attachment(pdfStream, "Notas_Venta_Resumido.pdf", "application/pdf");
-                attachmentList.Add(attachment);
-                #endregion
+           
 
 
 
@@ -545,10 +523,13 @@ namespace PuntoVenta
 
                     if (entityConf != null)
                     {
-                        emailEnvio = entityConf.SuperEmail1 != null ? entityConf.SuperEmail1 + ";" : "";
-                        emailEnvio = emailEnvio + (entityConf.SuperEmail2 != null ? entityConf.SuperEmail2 + ";" : "");
-                        emailEnvio = emailEnvio + (entityConf.SuperEmail3 != null ? entityConf.SuperEmail3 + ";" : "");
-                        emailEnvio = emailEnvio + (entityConf.SuperEmail4 != null ? entityConf.SuperEmail4 + ";" : "");
+                        ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId,
+                            "CorteCajaEmail", this.puntoVentaContext.usuarioId,ref emailEnvio);
+
+                        //emailEnvio = entityConf.SuperEmail1 != null ? entityConf.SuperEmail1 + ";" : "";
+                        //emailEnvio = emailEnvio + (entityConf.SuperEmail2 != null ? entityConf.SuperEmail2 + ";" : "");
+                        //emailEnvio = emailEnvio + (entityConf.SuperEmail3 != null ? entityConf.SuperEmail3 + ";" : "");
+                        //emailEnvio = emailEnvio + (entityConf.SuperEmail4 != null ? entityConf.SuperEmail4 + ";" : "");
 
                         if (emailEnvio.Length > 0)
                         {
@@ -556,7 +537,7 @@ namespace PuntoVenta
                         }
                         else
                         {
-                            MessageBox.Show("No hay usuarios de tipo supervisrp con un email registrado. No fue posible enviar el corte de caja por correo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No hay usuarios de tipo supervisOr con un email registrado. No fue posible enviar el corte de caja por correo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -577,12 +558,15 @@ namespace PuntoVenta
 
 
                 #endregion
+                if (cerrarSistema)
+                {
+                    MessageBox.Show("*****EL SISTEMA SE REINICIARÁ AL DAR CLICK*******", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                MessageBox.Show("*****EL SISTEMA SE REINICIARÁ AL DAR CLICK*******", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                
-                System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
-                Application.Exit();
-                this.Close();
+                    System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+                    Application.Exit();
+                    this.Close();
+                }
+              
 
 
 

@@ -19,6 +19,7 @@ namespace ERP.Common.PuntoVenta
         public string error = "";
         public string tipo = "fondoInicial";
         public bool imprimirCorte = true;
+        public bool cerrarSistema = true;
         ERPProdEntities oCOntext;
         public PuntoVentaContext puntoVentaContext;
         List<DeclaracionFondoModel> model1;
@@ -277,7 +278,7 @@ namespace ERP.Common.PuntoVenta
                     {
                         frmMenuRest oForm = frmMenuRest.GetInstance();
                         oForm.puntoVentaContext = this.puntoVentaContext;
-                        oForm.CorteCaja(model1, false,imprimirCorte);
+                        oForm.CorteCaja(model1, false,imprimirCorte,cerrarSistema);
                         this.Close();
                     }
                     

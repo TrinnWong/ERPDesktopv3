@@ -939,7 +939,7 @@ namespace TacosAna.Desktop
                 oContext = new ERPProdEntities();
                 ImpresorasBusiness oImpresora = new ImpresorasBusiness();
                 cat_impresoras entityImpresora;
-                entityImpresora = oImpresora.ObtenerCajaImpresora(this.puntoVentaContext.sucursalId);
+                entityImpresora = oImpresora.ObtenerCajaImpresora(this.puntoVentaContext.cajaId);
                 ERP.Reports.TacosAna.rptCorteCaja oReport = new ERP.Reports.TacosAna.rptCorteCaja();
                 oReport.DataSource = oContext.p_rpt_corte_caja_general(this.puntoVentaContext.sucursalId,DateTime.Now.AddDays(-1)).ToList();
                 oReport.CreateDocument();

@@ -14,6 +14,6 @@ namespace ERP.Models.Precios
         public int precioId { get; set; }
         public decimal precio { get; set; }
         public decimal precioOriginal { get; set; }
-        public bool modificado { get { return precio != precioOriginal ? true : false } }
+        public bool modificado { get { return precio != precioOriginal ? true : false; } }
     }
 }
