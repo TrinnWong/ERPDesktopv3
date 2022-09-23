@@ -1478,5 +1478,25 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void configuraciónProducciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProduccionUpd frmo = frmProduccionUpd.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.MdiParent = this;
+                frmo.accion = ConexionBD.Enumerados.accionForm.actualizar;
+                frmo.id = 0;
+                frmo.habilitarCambioProducto = true;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
     }
 }

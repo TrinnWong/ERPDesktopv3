@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +152,11 @@
             this.bitácoraDeExcepcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.configuraciónProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -183,33 +184,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1167, 91);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "Reportes";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 585);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1167, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // timerMinimos
-            // 
-            this.timerMinimos.Interval = 6000;
-            this.timerMinimos.Tick += new System.EventHandler(this.timerMinimos_Tick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ERPv1.Properties.Resources.ERP_Cloud_not_Cloud__F;
-            this.pictureBox2.Location = new System.Drawing.Point(9, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(1);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(10, 19);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
             // 
             // tsCatalogos
             // 
@@ -664,6 +638,7 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCatProductos,
             this.preciosToolStripMenuItem,
+            this.configuraciónProducciónToolStripMenuItem,
             this.promocionesToolStripMenuItem,
             this.promocionesCompraMínimaToolStripMenuItem,
             this.importarExcelToolStripMenuItem,
@@ -1270,6 +1245,33 @@
             this.cambiarSucursalToolStripMenuItem.Text = "Cambiar Sucursal";
             this.cambiarSucursalToolStripMenuItem.Click += new System.EventHandler(this.cambiarSucursalToolStripMenuItem_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 585);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1167, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // timerMinimos
+            // 
+            this.timerMinimos.Interval = 6000;
+            this.timerMinimos.Tick += new System.EventHandler(this.timerMinimos_Tick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ERPv1.Properties.Resources.ERP_Cloud_not_Cloud__F;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(10, 19);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1281,6 +1283,13 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
+            // 
+            // configuraciónProducciónToolStripMenuItem
+            // 
+            this.configuraciónProducciónToolStripMenuItem.Name = "configuraciónProducciónToolStripMenuItem";
+            this.configuraciónProducciónToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
+            this.configuraciónProducciónToolStripMenuItem.Text = "Configuración Producción";
+            this.configuraciónProducciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónProducciónToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1439,6 +1448,7 @@
         private System.Windows.Forms.ToolStripMenuItem cambioDePrecioIndividualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gruposDePreciosEspecialesConVigenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambioDePreciosListadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónProducciónToolStripMenuItem;
     }
 }
 

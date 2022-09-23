@@ -138,6 +138,18 @@ namespace ERP.Business
                     }
                     #endregion
 
+                    #region producción salida de inventario
+                    ObjectParameter pError = new ObjectParameter("pError", "");
+                    oContext.p_doc_produccion_venta_salida(int.Parse(pVentaId.Value.ToString()), pError);
+
+                    if(pError.Value.ToString().Length  > 0)
+                    {
+                        error = pError.Value.ToString();
+                        scope.Dispose();
+                        return error;
+                    }
+                    #endregion
+
                     //oContext.SaveChanges();
                     scope.Complete();
 

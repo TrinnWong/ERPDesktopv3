@@ -26,6 +26,7 @@ namespace ConexionBD
         public Nullable<decimal> Apartado { get; set; }
         public Nullable<decimal> Disponible { get; set; }
         public Nullable<decimal> CostoPromedioInicial { get; set; }
+        public Nullable<decimal> CostoCapturaUsuario { get; set; }
     
         public virtual cat_productos cat_productos { get; set; }
         public virtual cat_sucursales cat_sucursales { get; set; }

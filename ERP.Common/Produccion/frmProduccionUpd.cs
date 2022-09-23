@@ -25,6 +25,7 @@ namespace ERP.Common.Produccion
         public  accionForm accion;
         public int id;
         public int ProductoMateriaPrimaId;
+        public bool habilitarCambioProducto { get; set; }
         public static frmProduccionUpd GetInstance()
         {
 
@@ -42,6 +43,7 @@ namespace ERP.Common.Produccion
         private void frmProduccionUpd_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dB_A2ABCA_ERPDevDataSet.cat_productos' table. You can move, or remove it, as needed.
+            limpiarForm();
             llenarCombos();
 
 
@@ -51,6 +53,10 @@ namespace ERP.Common.Produccion
                 lkpProducto.Enabled = false;
             }
             else {
+                lkpProducto.Enabled = true;
+            }
+
+            if (this.habilitarCambioProducto) {
                 lkpProducto.Enabled = true;
             }
 
@@ -109,7 +115,9 @@ namespace ERP.Common.Produccion
 
         private void lkpProducto_EditValueChanged(object sender, EventArgs e)
         {
-
+            limpiarForm();
+            llenarGrid();
+            llenarGridConceptos();
 
         }
 
@@ -284,7 +292,7 @@ namespace ERP.Common.Produccion
             uiCocina.Checked = false;
             uiRequerido.Checked = false;
             uiOrden.EditValue = 0;
-            uiGenerarSalida.Checked = false;
+            uiGenerarSalida.Checked = true;
          
         }
 

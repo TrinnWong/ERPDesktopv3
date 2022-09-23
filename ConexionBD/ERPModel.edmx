@@ -785,6 +785,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Apartado" Type="decimal" Precision="14" Scale="2" />
           <Property Name="Disponible" Type="decimal" Precision="16" Scale="5" />
           <Property Name="CostoPromedioInicial" Type="money" />
+          <Property Name="CostoCapturaUsuario" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="cat_productos_guisos">
           <Key>
@@ -9510,6 +9511,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pProduccionSolicitudId" Type="int" Mode="In" />
           <Parameter Name="pCreadoPor" Type="int" Mode="In" />
         </Function>
+        <Function Name="p_doc_produccion_venta_salida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pVentaId" Type="int" Mode="In" />
+          <Parameter Name="pError" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="p_doc_productos_compra_cancelar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pProductoCompraId" Type="int" Mode="In" />
           <Parameter Name="pUsuarioId" Type="int" Mode="In" />
@@ -13470,6 +13475,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="Apartado" Type="Decimal" Precision="14" Scale="2" />
           <Property Name="Disponible" Type="Decimal" Precision="16" Scale="5" />
           <Property Name="CostoPromedioInicial" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CostoCapturaUsuario" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="cat_productos_impuestos">
           <Key>
@@ -21875,6 +21881,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pFechaIni" Mode="In" Type="DateTime" />
             <Parameter Name="pFechaFin" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="p_doc_produccion_venta_salida">
+            <Parameter Name="pVentaId" Mode="In" Type="Int32" />
+            <Parameter Name="pError" Mode="InOut" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -28067,6 +28077,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="cat_productos_existencias">
             <EntityTypeMapping TypeName="ERPProdModel.cat_productos_existencias">
               <MappingFragment StoreEntitySet="cat_productos_existencias">
+                <ScalarProperty Name="CostoCapturaUsuario" ColumnName="CostoCapturaUsuario" />
                 <ScalarProperty Name="CostoPromedioInicial" ColumnName="CostoPromedioInicial" />
                 <ScalarProperty Name="Disponible" ColumnName="Disponible" />
                 <ScalarProperty Name="Apartado" ColumnName="Apartado" />
@@ -31813,6 +31824,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p_doc_produccion_venta_salida" FunctionName="ERPProdModel.Store.p_doc_produccion_venta_salida" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

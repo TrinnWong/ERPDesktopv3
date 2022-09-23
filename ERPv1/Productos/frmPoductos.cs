@@ -1726,6 +1726,7 @@ namespace ERPv1.Productos
                     frmo.WindowState = FormWindowState.Normal;
                     frmo.accion = ConexionBD.Enumerados.accionForm.actualizar;
                     frmo.id = this.productoId;
+                    frmo.habilitarCambioProducto = false;
                     frmo.ShowDialog();
 
                 }

@@ -21,6 +21,7 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
+
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
@@ -4828,6 +4829,15 @@ namespace ConexionBD
                 new ObjectParameter("pFechaFin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_corte_caja_inventario_generacion_Result>("p_corte_caja_inventario_generacion", pSucursalIdParameter, pFechaIniParameter, pFechaFinParameter);
+        }
+    
+        public virtual int p_doc_produccion_venta_salida(Nullable<int> pVentaId, ObjectParameter pError)
+        {
+            var pVentaIdParameter = pVentaId.HasValue ?
+                new ObjectParameter("pVentaId", pVentaId) :
+                new ObjectParameter("pVentaId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_produccion_venta_salida", pVentaIdParameter, pError);
         }
     }
 }
