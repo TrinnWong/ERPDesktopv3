@@ -23489,6 +23489,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Type="String" Name="Para" Nullable="true" MaxLength="11" />
           <Property Type="String" Name="Notas" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="Recibe" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Mesero" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="p_rpt_cuenta_Result">
           <Property Type="Int32" Name="Folio" Nullable="false" />
@@ -30258,6 +30259,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="Para" ColumnName="Para" />
                 <ScalarProperty Name="Notas" ColumnName="Notas" />
                 <ScalarProperty Name="Recibe" ColumnName="Recibe" />
+                <ScalarProperty Name="Mesero" ColumnName="Mesero" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -22,5 +22,6 @@ namespace ConexionBD
         public string Para { get; set; }
         public string Notas { get; set; }
         public string Recibe { get; set; }
+        public string Mesero { get; set; }
     }
 }

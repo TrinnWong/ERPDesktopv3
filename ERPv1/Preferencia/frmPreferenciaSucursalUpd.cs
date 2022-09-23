@@ -171,6 +171,7 @@ namespace ERPv1.Preferencia
                 }
 
                 Limpiar();
+                uiSucursal.EditValue = oEntityUpd.SucursalId;
                 LoadGrid();
                 
 

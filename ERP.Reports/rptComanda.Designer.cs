@@ -63,6 +63,8 @@
             this.xrPageBreak1 = new DevExpress.XtraReports.UI.XRPageBreak();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -116,6 +118,8 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel17,
+            this.xrLabel16,
             this.xrLabel15,
             this.xrLabel14,
             this.xrLabel12,
@@ -208,10 +212,10 @@
             // 
             this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Fecha]")});
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(65.7917F, 35.58335F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(65.7917F, 35.58334F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(224.2083F, 14.66667F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(87.54163F, 14.66667F);
             this.xrLabel3.Text = "xrLabel3";
             this.xrLabel3.TextFormatString = "{0:dd/MM/yyyy hh:mm:ss}";
             // 
@@ -348,6 +352,29 @@
             this.xrLine2.Name = "xrLine2";
             this.xrLine2.SizeF = new System.Drawing.SizeF(285F, 2F);
             // 
+            // xrLabel16
+            // 
+            this.xrLabel16.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(153.3333F, 35.58334F);
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(69.58328F, 14.66667F);
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            this.xrLabel16.Text = "MESERO:";
+            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel17
+            // 
+            this.xrLabel17.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Mesero]")});
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(222.9166F, 35.58334F);
+            this.xrLabel17.Name = "xrLabel17";
+            this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(67.08339F, 14.66667F);
+            this.xrLabel17.Text = "xrLabel3";
+            this.xrLabel17.TextFormatString = "{0:dd/MM/yyyy hh:mm:ss}";
+            // 
             // rptComanda
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -399,5 +426,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel17;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
     }
 }
