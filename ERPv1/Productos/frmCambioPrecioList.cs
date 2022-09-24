@@ -54,7 +54,15 @@ namespace ERPv1.Productos
                                precio = s.Precio,
                                 precioId = s.IdProductoPrecio,
                                  producto = s.cat_productos.Descripcion,
-                                  productoId = s.IdProducto
+                                  productoId = s.IdProducto,
+                                  costo = s.cat_productos.cat_productos_existencias
+                                  .Where(w=> w.SucursalId == puntoVentaContext.sucursalId).Count() > 0 ?
+                                  s.cat_productos.cat_productos_existencias
+                                  .Where(w => w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault().CostoCapturaUsuario ?? 0: 0,
+                                  costoOriginal = s.cat_productos.cat_productos_existencias
+                                  .Where(w => w.SucursalId == puntoVentaContext.sucursalId).Count() > 0 ?
+                                  s.cat_productos.cat_productos_existencias
+                                  .Where(w => w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault().CostoCapturaUsuario ?? 0 : 0
                         }
                     )
                     .ToList();
@@ -108,6 +116,15 @@ namespace ERPv1.Productos
 
                     oProductoPrecio.Precio = item.precio;
                     oContext.SaveChanges();
+
+                    cat_productos_existencias oProductoExistencia = oContext.cat_productos_existencias
+                        .Where(w => w.ProductoId == item.productoId && w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault();
+
+                    if(oProductoExistencia != null)
+                    {
+                        oProductoExistencia.CostoCapturaUsuario = item.costo;
+                        oContext.SaveChanges();
+                    }
                 }
 
                 ERP.Utils.MessageBoxUtil.ShowOk();
@@ -122,6 +139,11 @@ namespace ERPv1.Productos
                                      ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            llenarGrid();
         }
     }
 }

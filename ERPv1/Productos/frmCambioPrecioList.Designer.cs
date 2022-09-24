@@ -54,6 +54,9 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.catproductospreciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
@@ -70,10 +73,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.uiCancelar);
             this.layoutControl1.Controls.Add(this.uiGuardar);
             this.layoutControl1.Controls.Add(this.uiGrid);
@@ -115,12 +120,12 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.productoPrecioModelBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(16, 74);
+            this.uiGrid.Location = new System.Drawing.Point(16, 92);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemSpinEdit1});
-            this.uiGrid.Size = new System.Drawing.Size(885, 413);
+            this.uiGrid.Size = new System.Drawing.Size(885, 395);
             this.uiGrid.TabIndex = 7;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -137,7 +142,8 @@
             this.colprecioId,
             this.colprecio,
             this.colmodificado,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn2});
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
             // 
@@ -155,7 +161,7 @@
             this.colproducto.OptionsColumn.AllowEdit = false;
             this.colproducto.Visible = true;
             this.colproducto.VisibleIndex = 2;
-            this.colproducto.Width = 489;
+            this.colproducto.Width = 471;
             // 
             // colprecioId
             // 
@@ -165,7 +171,7 @@
             this.colprecioId.OptionsColumn.AllowEdit = false;
             this.colprecioId.Visible = true;
             this.colprecioId.VisibleIndex = 0;
-            this.colprecioId.Width = 68;
+            this.colprecioId.Width = 54;
             // 
             // colprecio
             // 
@@ -177,7 +183,7 @@
             this.colprecio.Name = "colprecio";
             this.colprecio.Visible = true;
             this.colprecio.VisibleIndex = 3;
-            this.colprecio.Width = 202;
+            this.colprecio.Width = 193;
             // 
             // repositoryItemSpinEdit1
             // 
@@ -204,7 +210,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 106;
+            this.gridColumn1.Width = 68;
             // 
             // labelControl1
             // 
@@ -237,7 +243,8 @@
             this.layoutControlItem1,
             this.layoutControlItem4,
             this.emptySpaceItem2,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
             this.layoutControlGroup1.Size = new System.Drawing.Size(917, 549);
@@ -248,7 +255,7 @@
             this.layoutControlItem2.Control = this.uiBuscar;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(662, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(662, 46);
             this.layoutControlItem2.Text = "Buscar";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(32, 13);
             // 
@@ -264,17 +271,17 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(662, 30);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(776, 30);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(229, 28);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(115, 46);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.uiGrid;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 76);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(891, 419);
+            this.layoutControlItem1.Size = new System.Drawing.Size(891, 401);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -308,6 +315,38 @@
             // 
             this.catproductospreciosBindingSource.DataSource = typeof(ConexionBD.cat_productos_precios);
             // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Costo";
+            this.gridColumn2.DisplayFormat.FormatString = "c2";
+            this.gridColumn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn2.FieldName = "costo";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 79;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.Location = new System.Drawing.Point(678, 46);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(108, 40);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 10;
+            this.simpleButton1.Text = "Buscar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.simpleButton1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(662, 30);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(114, 46);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
             // frmCambioPrecioList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catproductospreciosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,5 +404,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

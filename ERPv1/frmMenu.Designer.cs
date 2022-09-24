@@ -85,6 +85,7 @@
             this.cambioDePreciosListadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambioDePrecioIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposDePreciosEspecialesConVigenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promocionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promocionesCompraMínimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,7 +157,6 @@
             this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.configuraciónProducciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -678,7 +678,7 @@
             // 
             this.cambioDePreciosListadoToolStripMenuItem.Name = "cambioDePreciosListadoToolStripMenuItem";
             this.cambioDePreciosListadoToolStripMenuItem.Size = new System.Drawing.Size(453, 26);
-            this.cambioDePreciosListadoToolStripMenuItem.Text = "Cambio de Precios (Listado)";
+            this.cambioDePreciosListadoToolStripMenuItem.Text = "Cambio de Precios/Costos (Listado)";
             this.cambioDePreciosListadoToolStripMenuItem.Click += new System.EventHandler(this.cambioDePreciosListadoToolStripMenuItem_Click);
             // 
             // cambioDePrecioIndividualToolStripMenuItem
@@ -694,6 +694,13 @@
             this.gruposDePreciosEspecialesConVigenciaToolStripMenuItem.Size = new System.Drawing.Size(453, 26);
             this.gruposDePreciosEspecialesConVigenciaToolStripMenuItem.Text = "Grupos de Precios Especiales con Vigencia";
             this.gruposDePreciosEspecialesConVigenciaToolStripMenuItem.Click += new System.EventHandler(this.gruposDePreciosEspecialesConVigenciaToolStripMenuItem_Click);
+            // 
+            // configuraciónProducciónToolStripMenuItem
+            // 
+            this.configuraciónProducciónToolStripMenuItem.Name = "configuraciónProducciónToolStripMenuItem";
+            this.configuraciónProducciónToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
+            this.configuraciónProducciónToolStripMenuItem.Text = "Configuración Producción";
+            this.configuraciónProducciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónProducciónToolStripMenuItem_Click);
             // 
             // promocionesToolStripMenuItem
             // 
@@ -1283,13 +1290,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // configuraciónProducciónToolStripMenuItem
-            // 
-            this.configuraciónProducciónToolStripMenuItem.Name = "configuraciónProducciónToolStripMenuItem";
-            this.configuraciónProducciónToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
-            this.configuraciónProducciónToolStripMenuItem.Text = "Configuración Producción";
-            this.configuraciónProducciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónProducciónToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

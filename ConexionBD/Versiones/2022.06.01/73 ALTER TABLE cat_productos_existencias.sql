@@ -5,7 +5,7 @@ BEGIN
 
 	
 	ALTER TABLE cat_productos_existencias
-	ADD CostoCapturaUsuario decimal NULL
+	ADD CostoCapturaUsuario decimal(14,2) NULL
 
 		
 END
