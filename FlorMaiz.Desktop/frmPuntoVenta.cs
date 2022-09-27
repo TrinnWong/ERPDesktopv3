@@ -1820,7 +1820,7 @@ namespace FlorMaiz.Desktop
 
         private void uiBotonPedidosApp_Click(object sender, EventArgs e)
         {
-            frmBasculaExpress frmo = new frmBasculaExpress();
+            frmBasculaExpressVenta frmo = new frmBasculaExpressVenta();
             frmo.habilitarRedireccionarPV = true;
             frmo.puntoVentaContext = this.puntoVentaContext;
             frmo.ShowDialog();

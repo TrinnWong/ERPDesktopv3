@@ -579,6 +579,12 @@
     <Compile Include="PuntoVenta\frmAutorizacion.Designer.cs">
       <DependentUpon>frmAutorizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PuntoVenta\frmBasculaExpressVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PuntoVenta\frmBasculaExpressVenta.Designer.cs">
+      <DependentUpon>frmBasculaExpressVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="PuntoVenta\frmBasculaExpress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1035,6 +1041,9 @@
     </Compile>
     <EmbeddedResource Include="PuntoVenta\frmAutorizacion.resx">
       <DependentUpon>frmAutorizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PuntoVenta\frmBasculaExpressVenta.resx">
+      <DependentUpon>frmBasculaExpressVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PuntoVenta\frmBasculaExpress.resx">
       <DependentUpon>frmBasculaExpress.cs</DependentUpon>

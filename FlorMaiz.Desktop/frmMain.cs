@@ -61,17 +61,36 @@ namespace FlorMaiz.Desktop
             {
                 uiEntradaDirecta.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
-            frmPuntoVenta frmo = frmPuntoVenta.GetInstance();
 
-            if (!frmo.Visible)
+            if(ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                this.puntoVentaContext.sucursalId, "PVBotonRegistroBasculaPedidosApp", this.puntoVentaContext.usuarioId))
             {
-                //frmo = new frmPuntoVenta();
-                frmo.MdiParent = this;
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.WindowState = FormWindowState.Maximized;
-                frmo.Show();
+                frmBasculaExpressVenta frmo = frmBasculaExpressVenta.GetInstance();
 
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.MdiParent = this;
+                    frmo.WindowState = FormWindowState.Maximized;
+                    frmo.Show();
+                }
             }
+            else
+            {
+                frmPuntoVenta frmo = frmPuntoVenta.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.MdiParent = this;
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.WindowState = FormWindowState.Maximized;
+                    frmo.Show();
+
+                }
+            }
+            
         }
 
         private void uiMenuNuevaVenta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -374,7 +393,8 @@ namespace FlorMaiz.Desktop
 
         private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmPedidoPagoCajaList frmo = frmPedidoPagoCajaList.GetInstance();
+           
+            frmBasculaExpressVenta frmo = frmBasculaExpressVenta.GetInstance();
 
             if (!frmo.Visible)
             {
