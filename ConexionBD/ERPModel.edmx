@@ -785,7 +785,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Apartado" Type="decimal" Precision="14" Scale="2" />
           <Property Name="Disponible" Type="decimal" Precision="16" Scale="5" />
           <Property Name="CostoPromedioInicial" Type="money" />
-          <Property Name="CostoCapturaUsuario" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CostoCapturaUsuario" Type="decimal" Precision="14" Scale="2" />
         </EntityType>
         <EntityType Name="cat_productos_guisos">
           <Key>
@@ -9488,6 +9488,9 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pPedidoOrdenId" Type="int" Mode="In" />
           <Parameter Name="pEmpleadoId" Type="int" Mode="In" />
         </Function>
+        <Function Name="p_doc_pedidos_orden_total_upd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pPedidoId" Type="int" Mode="In" />
+        </Function>
         <Function Name="p_doc_pedidos_ordenes_detalle_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
           <Parameter Name="pFechaProgIni" Type="datetime" Mode="In" />
@@ -13475,7 +13478,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="Apartado" Type="Decimal" Precision="14" Scale="2" />
           <Property Name="Disponible" Type="Decimal" Precision="16" Scale="5" />
           <Property Name="CostoPromedioInicial" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="CostoCapturaUsuario" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CostoCapturaUsuario" Type="Decimal" Precision="14" Scale="2" />
         </EntityType>
         <EntityType Name="cat_productos_impuestos">
           <Key>
@@ -21885,6 +21888,9 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pVentaId" Mode="In" Type="Int32" />
             <Parameter Name="pError" Mode="InOut" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="p_doc_pedidos_orden_total_upd">
+            <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -27156,6 +27162,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Type="Int64" Name="VentaId" Nullable="false" />
           <Property Type="String" Name="TipoCaja" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="RequiereBascula" Nullable="true" />
+          <Property Type="Decimal" Name="TotalDetalle" Nullable="false" Precision="19" />
         </ComplexType>
         <Association Name="FK__doc_pedid__Sucur__2B9540A9">
           <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="0..1" />
@@ -31584,6 +31591,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="VentaId" ColumnName="VentaId" />
                 <ScalarProperty Name="TipoCaja" ColumnName="TipoCaja" />
                 <ScalarProperty Name="RequiereBascula" ColumnName="RequiereBascula" />
+                <ScalarProperty Name="TotalDetalle" ColumnName="TotalDetalle" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -31825,6 +31833,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="p_doc_produccion_venta_salida" FunctionName="ERPProdModel.Store.p_doc_produccion_venta_salida" />
+          <FunctionImportMapping FunctionImportName="p_doc_pedidos_orden_total_upd" FunctionName="ERPProdModel.Store.p_doc_pedidos_orden_total_upd" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

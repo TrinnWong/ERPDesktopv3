@@ -43,5 +43,6 @@ namespace ERP.Models.Pedidos
         public TimeSpan horaEntrega { get; set; }
         public long ventaId { get; set; }
         public string TipoCaja { get; set; }
+        public decimal totalDetalle { get; set; }
     }
 }

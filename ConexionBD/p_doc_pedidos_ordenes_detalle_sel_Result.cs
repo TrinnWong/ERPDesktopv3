@@ -30,5 +30,6 @@ namespace ConexionBD
         public long VentaId { get; set; }
         public string TipoCaja { get; set; }
         public Nullable<bool> RequiereBascula { get; set; }
+        public decimal TotalDetalle { get; set; }
     }
 }

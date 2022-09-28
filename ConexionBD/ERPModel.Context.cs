@@ -21,7 +21,6 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
-
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
@@ -4838,6 +4837,15 @@ namespace ConexionBD
                 new ObjectParameter("pVentaId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_produccion_venta_salida", pVentaIdParameter, pError);
+        }
+    
+        public virtual int p_doc_pedidos_orden_total_upd(Nullable<int> pPedidoId)
+        {
+            var pPedidoIdParameter = pPedidoId.HasValue ?
+                new ObjectParameter("pPedidoId", pPedidoId) :
+                new ObjectParameter("pPedidoId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_pedidos_orden_total_upd", pPedidoIdParameter);
         }
     }
 }

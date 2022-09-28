@@ -512,6 +512,7 @@ namespace ERP.Common.Productos
                     resultForm.clave = productoSeleccionado.Clave;
                     resultForm.unidadId = productoSeleccionado.ClaveUnidadMedida??0;
                     resultForm.unidad = productoSeleccionado.cat_unidadesmed.DescripcionCorta;
+                    resultForm.requiereBascula = productoSeleccionado.ProdVtaBascula ?? false;
                 }
                 else
                 {

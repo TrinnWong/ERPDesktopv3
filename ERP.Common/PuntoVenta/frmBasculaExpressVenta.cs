@@ -28,6 +28,7 @@ namespace ERP.Common.PuntoVenta
         public bool habilitarRedireccionarPV { get; set; }//Si está activa, se habilitará un botónpara un vez registrada la báscula, redireccionar al PV
         public string tipoForm { get; set; }
         public cat_productos productoNuevo { get; set; }
+        public bool listoAgregarProducto { get; set; }
         public static frmBasculaExpressVenta GetInstance()
         {
             if (_instance == null) _instance = new frmBasculaExpressVenta();
@@ -43,13 +44,14 @@ namespace ERP.Common.PuntoVenta
         }
         #region metodos
 
-        private List<Models.Pedidos.PedidoDetalleModel> GetPedidosPendientes(bool soloPedidosMayoreo=false)
+        private List<Models.Pedidos.PedidoDetalleModel> GetPedidosPendientes(bool soloPedidosMayoreo = false, int pedidoId = 0)
         {
             try
             {
-                List<Models.Pedidos.PedidoDetalleModel> result =  oContext.p_doc_pedidos_ordenes_detalle_sel(puntoVentaContext.sucursalId, DateTime.Now, DateTime.Now,
+                List<Models.Pedidos.PedidoDetalleModel> result = oContext.p_doc_pedidos_ordenes_detalle_sel(puntoVentaContext.sucursalId, DateTime.Now, DateTime.Now,
                     soloPedidosMayoreo ? (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo : 3)
-                    .Select(s=> new Models.Pedidos.PedidoDetalleModel() {
+                    .Select(s => new Models.Pedidos.PedidoDetalleModel()
+                    {
                         folio = s.PedidoId.ToString(),
                         pedidoDetalleId = s.PedidoDetalleId,
                         cantidad = s.Cantidad,
@@ -61,20 +63,23 @@ namespace ERP.Common.PuntoVenta
                         productoId = s.ProductoId,
                         registradoPor = s.RegistradoPor,
                         cliente = s.Cliente,
-                        cantidadPendienteBascula = s.CantidadPendienteBascula ??0,
-                        tipoPedidoId = s.TipoPedidoId ??0,
+                        cantidadPendienteBascula = s.CantidadPendienteBascula ?? 0,
+                        tipoPedidoId = s.TipoPedidoId ?? 0,
                         fechaEntrega = s.FechaProgramada ?? DateTime.MinValue,
                         horaEntrega = s.HoraProgramada ?? new TimeSpan(),
-                        basculaPendiente = s.CantidadPendienteBascula > 0 ? true:false,
-                        ventaId = s.VentaId ,
+                        basculaPendiente = s.CantidadPendienteBascula > 0 ? true : false,
+                        ventaId = s.VentaId,
                         TipoCaja = s.TipoCaja,
-                        requiereBascula = s.RequiereBascula ?? false
-                       
+                        requiereBascula = s.RequiereBascula ?? false,
+                        totalDetalle = s.TotalDetalle
+
                     }).ToList();
 
-                
-                return result.Where(w=> ((w.basculaPendiente && !uiMostrarPedidoSinVenta.Checked) || 
-                (uiMostrarPedidoSinVenta.Checked && (w.ventaId) == 0 )) && w.TipoCaja.ToUpper().Contains("MOVIL") 
+
+                return result.Where(w =>
+                (pedidoId == 0 || w.pedidoId == pedidoId) &&
+                ((w.basculaPendiente && !uiMostrarPedidoSinVenta.Checked) ||
+                (uiMostrarPedidoSinVenta.Checked && (w.ventaId) == 0)) && w.TipoCaja.ToUpper().Contains("MOVIL")
                 ).ToList();
 
 
@@ -90,22 +95,24 @@ namespace ERP.Common.PuntoVenta
 
             return null;
         }
-        public void LoadPedidos()
+        public void LoadPedidos(int pedidoId = 0)
         {
             try
             {
                 oContext = new ConexionBD.ERPProdEntities();
 
-                if(tipoForm == "PRODUCCION")
+                if (tipoForm == "PRODUCCION")
                 {
-                    uiGridPedidos.DataSource = GetPedidosPendientes(true);
+                    uiGridPedidos.DataSource = GetPedidosPendientes(true, pedidoId);
                 }
                 else
                 {
-                    uiGridPedidos.DataSource = GetPedidosPendientes(false);
+                    uiGridPedidos.DataSource = GetPedidosPendientes(false, pedidoId);
                 }
 
-           
+                uiGridView.ExpandAllGroups();
+
+
             }
             catch (Exception ex)
             {
@@ -121,34 +128,37 @@ namespace ERP.Common.PuntoVenta
 
 
 
-        private void PrepararSiguienteProductoBascula(int PedidoDetalleId=0)
+        private void PrepararSiguienteProductoBascula(int PedidoDetalleId = 0)
         {
             try
             {
                 List<Models.Pedidos.PedidoDetalleModel> lstPedidos = (List<Models.Pedidos.PedidoDetalleModel>)uiGridPedidos.DataSource;
 
-                if(lstPedidos.Count> 0)
+                if (lstPedidos.Count > 0)
                 {
-                    if(PedidoDetalleId == 0)
+                    if (PedidoDetalleId == 0)
                     {
-                        pedidoSeleccionado = lstPedidos.OrderBy(o => o.pedidoId).FirstOrDefault();
+                        pedidoSeleccionado = lstPedidos.Where(w => w.cantidadPendienteBascula > 0).OrderBy(o => o.pedidoId)
+                            .FirstOrDefault();
                     }
                     else
                     {
-                        pedidoSeleccionado = lstPedidos.Where(w=> w.pedidoDetalleId == PedidoDetalleId).OrderBy(o => o.pedidoId).FirstOrDefault();
+                        pedidoSeleccionado = lstPedidos.Where(w => w.pedidoDetalleId == PedidoDetalleId).OrderBy(o => o.pedidoId).FirstOrDefault();
                     }
-                   
-                    if(pedidoSeleccionado != null)
+
+                    if (pedidoSeleccionado != null)
                     {
-                        if(pedidoSeleccionado.requiereBascula == true)
+                        if (pedidoSeleccionado.requiereBascula == true)
                         {
                             timerBascula.Enabled = false;
+                            uiClaveProducto.EditValue = pedidoSeleccionado.clave;
                             uiPedido.Text = pedidoSeleccionado.pedidoId.ToString();
                             uiProducto.Text = String.Format("{0}-{1}", pedidoSeleccionado.clave, pedidoSeleccionado.descripcion);
                             uiCantidad.EditValue = pedidoSeleccionado.cantidad;
                             uiTotal.EditValue = pedidoSeleccionado.total;
                             uiCantidadPendiente.EditValue = pedidoSeleccionado.cantidadPendienteBascula;
                             uiCliente.Text = pedidoSeleccionado.cliente;
+                            uiPrecio.EditValue = pedidoSeleccionado.precioUnitario;
 
                             if (pedidoSeleccionado.pedidoDetalleId > 0)
                             {
@@ -160,14 +170,14 @@ namespace ERP.Common.PuntoVenta
                                 timerBascula.Enabled = true;
                             }
                         }
-                        
+
                     }
 
-                    
+
                 }
 
-               
-                
+
+
             }
             catch (Exception ex)
             {
@@ -184,15 +194,16 @@ namespace ERP.Common.PuntoVenta
 
         private void frmBasculaExpress_Load(object sender, EventArgs e)
         {
+            ERP.Business.DataMemory.DataBucket.GetProductosMemory(true);
             basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
             basculaControlador = new BasculaLectura(this.puntoVentaContext);
 
             LoadPedidos();
             PrepararSiguienteProductoBascula();
-            
+
             colCobrarPV.Visible = false;
-            
-            
+
+
         }
 
         private void labelControl3_Click(object sender, EventArgs e)
@@ -211,13 +222,13 @@ namespace ERP.Common.PuntoVenta
                 }
                 else
                 {
-                    if(basculaControlador == null)
+                    if (basculaControlador == null)
                     {
                         basculaControlador = new BasculaLectura(this.puntoVentaContext);
                     }
                     uiPeso.EditValue = basculaControlador.ObtenPesoBD();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -235,7 +246,7 @@ namespace ERP.Common.PuntoVenta
         {
             var lstPedidos = (List<PedidoDetalleModel>)uiGridPedidos.DataSource;
 
-            if(pedidoSeleccionado == null)
+            if (pedidoSeleccionado == null)
             {
                 pedidoSeleccionado = new PedidoDetalleModel();
             }
@@ -248,13 +259,13 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-                uiGuardar.Enabled = false;
+                //uiGuardar.Enabled = false;
                 timerBascula.Enabled = false;
                 if (puntoVentaContext.conectarConBascula)
                 {
                     basculaControlador.cerrarBascula();
                 }
-                
+
                 if (pedidoSeleccionado != null)
                 {
 
@@ -282,7 +293,7 @@ namespace ERP.Common.PuntoVenta
                     //    return;
                     //}
 
-                    if(uiPeso.Value == 0)
+                    if (uiPeso.Value == 0)
                     {
                         ERP.Utils.MessageBoxUtil.ShowWarning("El peso debe de ser mayor a cero");
                         uiGuardar.Enabled = true;
@@ -295,31 +306,33 @@ namespace ERP.Common.PuntoVenta
                         uiGuardar.Enabled = true;
                         return;
                     }
-                    
+
 
                     doc_basculas_bitacora resultBitacora = Business.BasculasBusiness.InsertBitacora(basculaConfiguracion.BasculaId, puntoVentaContext.sucursalId,
-                   puntoVentaContext.usuarioId, Convert.ToDecimal(uiPeso.EditValue), 
+                   puntoVentaContext.usuarioId, Convert.ToDecimal(uiPeso.EditValue),
                    (int)pedidoSeleccionado.tipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo ? (int)Business.Enumerados.tipoBasculaBitacora.VentaPedidoMayoreo : (int)Business.Enumerados.tipoBasculaBitacora.VentaMostrador,
                    pedidoSeleccionado.productoId, pedidoSeleccionado.pedidoDetalleId);
 
                     if (resultBitacora.Id > 0)
                     {
-                        
+
                         //Si el Ultimo Pedido ya no tiene pendientes, entonces ir a cobrar automáticamente
                         LoadPedidos();
                         if (!tienePendienteBascula())
                         {
+                            lblMensaje.Text = "PAGANDO...";
                             uiGuardar.Enabled = false;
                             pagar();
+
                         }
                         else
                         {
-                            
-                            
+
+
                             PrepararSiguienteProductoBascula();
                         }
 
-                        
+
                     }
                     else
                     {
@@ -351,7 +364,7 @@ namespace ERP.Common.PuntoVenta
             Guardar();
         }
 
-        
+
 
         private void Limpiar()
         {
@@ -366,11 +379,16 @@ namespace ERP.Common.PuntoVenta
             listoParaPagar = false;
             lyMensaje.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lblMensaje.Text = "";
+            productoNuevo = null;
+            uiPrecio.EditValue = 0;
+            uiClaveProducto.Text = "";
+            listoAgregarProducto = false;
+            timerBascula.Enabled = false;
         }
 
         private void frmBasculaExpress_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
             basculaControlador.cerrarBascula();
             _instance = null;
         }
@@ -378,7 +396,7 @@ namespace ERP.Common.PuntoVenta
         private void uiActualizar_Click(object sender, EventArgs e)
         {
             LoadPedidos();
-           
+
         }
 
         private void repBtnSeleccion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -390,15 +408,15 @@ namespace ERP.Common.PuntoVenta
 
                 if (itemGrid != null)
                 {
-                    
-                   PrepararSiguienteProductoBascula(itemGrid.pedidoDetalleId);
-                    
+
+                    PrepararSiguienteProductoBascula(itemGrid.pedidoDetalleId);
+
                     if (!tienePendienteBascula())
                     {
                         listoParaPagar = false;
                         pagar();
                     }
-                   
+
 
 
                 }
@@ -407,12 +425,12 @@ namespace ERP.Common.PuntoVenta
                     ERP.Utils.MessageBoxUtil.ShowError("Ocurrió un poblema al intentar obtener el registro");
                 }
 
-                
-                
 
-               
 
-               
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -433,11 +451,11 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-                if(pedidoSeleccionado != null)
+                if (pedidoSeleccionado != null)
                 {
                     uiTotalBascula.EditValue = uiPeso.Value * pedidoSeleccionado.precioUnitario;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -453,7 +471,7 @@ namespace ERP.Common.PuntoVenta
         private void uiPeso_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
 
-            
+
         }
 
         private void uiPeso_Leave(object sender, EventArgs e)
@@ -463,9 +481,10 @@ namespace ERP.Common.PuntoVenta
 
         private void timerLoadPedidos_Tick(object sender, EventArgs e)
         {
-            if((pedidoSeleccionado == null ? new Models.Pedidos.PedidoDetalleModel() : pedidoSeleccionado).pedidoDetalleId == 0 && timerBascula.Enabled == false)
+            if ((pedidoSeleccionado == null ? new Models.Pedidos.PedidoDetalleModel() : pedidoSeleccionado).pedidoDetalleId == 0 && timerBascula.Enabled == false)
             {
                 LoadPedidos();
+                PrepararSiguienteProductoBascula();
             }
         }
 
@@ -478,13 +497,13 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-              
+
 
                 if (Convert.ToString(uiGridView.GetRowCellValue(e.RowHandle, "cliente")).Length > 0)
                 {
                     e.Appearance.BackColor = Color.Yellow;
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -499,7 +518,7 @@ namespace ERP.Common.PuntoVenta
 
         private void frmBasculaExpress_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F5)
             {
                 LoadPedidos();
             }
@@ -521,19 +540,19 @@ namespace ERP.Common.PuntoVenta
             {
                 Models.Pedidos.PedidoDetalleModel pedidoGridSelect = (Models.Pedidos.PedidoDetalleModel)uiGridView.GetRow(uiGridView.FocusedRowHandle);
 
-                if(pedidoGridSelect != null)
+                if (pedidoGridSelect != null)
                 {
                     List<Models.Pedidos.PedidoDetalleModel> lstPedidoGridSelect = (List<Models.Pedidos.PedidoDetalleModel>)uiGridView.DataSource;
 
-                    if(lstPedidoGridSelect.Where(w=> w.pedidoId == pedidoGridSelect.pedidoId && w.cantidadPendienteBascula  > 0).Count() > 0)
+                    if (lstPedidoGridSelect.Where(w => w.pedidoId == pedidoGridSelect.pedidoId && w.cantidadPendienteBascula > 0).Count() > 0)
                     {
                         ERP.Utils.MessageBoxUtil.ShowWarning("Hay productos que requieren báscula aún pendientes");
                         return false;
                     }
-                    
+
                 }
 
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -623,6 +642,7 @@ namespace ERP.Common.PuntoVenta
 
         private void uiPagar_Click(object sender, EventArgs e)
         {
+            lblMensaje.Text = "PAGANDO....";
             pagar();
         }
 
@@ -689,36 +709,87 @@ namespace ERP.Common.PuntoVenta
             {
                 uiGuardar.Enabled = false;
                 ERP.Utils.MessageBoxUtil.ShowError(error);
-                
+
                 return;
             }
             else
-            {
-                LoadPedidos();
-                PrepararSiguienteProductoBascula();
-                uiTotal2.EditValue = 0;
-                uiCambio.EditValue = 0;
-                uiRecibi.EditValue = 0;
+
                 Limpiar();
-                uiGuardar.Enabled = true;
-                return;
+            LoadPedidos();
+            PrepararSiguienteProductoBascula();
+            uiTotal2.EditValue = 0;
+            uiCambio.EditValue = 0;
+            uiRecibi.EditValue = 0;
 
-            }
-
+            uiGuardar.Enabled = true;
+            return;
 
         }
 
-       
 
+
+
+        public void seleccionarProducto(string clave, decimal cantidad)
+        {
+            try
+            {
+                if (productoNuevo != null)
+                {
+                    uiProducto.Text = productoNuevo.Descripcion;
+                    uiCantidad.EditValue = cantidad;
+                    uiClaveProducto.EditValue = clave;
+                    uiPrecio.EditValue = ERP.Business.ProductoBusiness.ObtenerPrecio(productoNuevo.ProductoId,
+                         Business.Enumerados.tipoPrecioProducto.PublicoGeneral, puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
+                    uiTotal.EditValue = cantidad * uiPrecio.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                 "ERP",
+                                 this.Name,
+                                 ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
         public void agregarProducto()
         {
             try
             {
+                DateTime date = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 doc_pedidos_orden_detalle oPedidoDetalle = new doc_pedidos_orden_detalle();
 
                 oPedidoDetalle.PedidoId = pedidoSeleccionado.pedidoId;
                 oPedidoDetalle.PedidoDetalleId = (oContext.doc_pedidos_orden_detalle.Max(m => (int?)m.PedidoDetalleId) ?? 0) + 1;
-                oPedidoDetalle.
+                oPedidoDetalle.Cantidad = Convert.ToDecimal(uiCantidad.Text);
+                oPedidoDetalle.CreadoEl = date;
+                oPedidoDetalle.CreadoPor = this.puntoVentaContext.usuarioId;
+                oPedidoDetalle.Descripcion = uiProducto.Text;
+                oPedidoDetalle.PrecioUnitario = ERP.Business.ProductoBusiness.ObtenerPrecio(productoNuevo.ProductoId, Business.Enumerados.tipoPrecioProducto.PublicoGeneral,
+                    puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
+                oPedidoDetalle.Total = oPedidoDetalle.Cantidad * oPedidoDetalle.PrecioUnitario;
+                oPedidoDetalle.Impuestos = 0;
+                oPedidoDetalle.ProductoId = productoNuevo.ProductoId;
+                oContext.doc_pedidos_orden_detalle.Add(oPedidoDetalle);
+                oContext.SaveChanges();
+
+                oContext.p_doc_pedidos_orden_total_upd(oPedidoDetalle.PedidoId);
+
+                if(productoNuevo.ProdVtaBascula == true)
+                {
+                    Business.BasculasBusiness.InsertBitacora(basculaConfiguracion.BasculaId, puntoVentaContext.sucursalId,
+                   puntoVentaContext.usuarioId, oPedidoDetalle.Cantidad,
+                   (int)pedidoSeleccionado.tipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo ? (int)Business.Enumerados.tipoBasculaBitacora.VentaPedidoMayoreo : (int)Business.Enumerados.tipoBasculaBitacora.VentaMostrador,
+                   oPedidoDetalle.ProductoId, oPedidoDetalle.PedidoDetalleId);
+                }
+
+                Limpiar();
+                LoadPedidos(oPedidoDetalle.PedidoId);
+                PrepararSiguienteProductoBascula();
+
+
+
             }
             catch (Exception ex)
             {
@@ -736,11 +807,13 @@ namespace ERP.Common.PuntoVenta
         {
 
             frmProductosMosaico oForm = new frmProductosMosaico(this.puntoVentaContext, Business.Enumerados.tipoModalProducto.venta);
+            oForm.StartPosition = FormStartPosition.CenterScreen;
             DialogResult result = oForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
                 var producto = oForm.resultForm;
+
                 productoNuevo = new cat_productos()
                 {
                     ProductoId = producto.productoId,
@@ -752,18 +825,34 @@ namespace ERP.Common.PuntoVenta
                         Clave = producto.unidadId,
                         Descripcion = producto.unidad,
                         DescripcionCorta = producto.unidad
-                    }
+                    },
+                    ProdVtaBascula = producto.requiereBascula
 
                 };
-                uiProducto.Text = producto.descripcion;
-                uiCantidad.EditValue = producto.cantidad;
+                seleccionarProducto(producto.clave, producto.cantidad);
+                agregarProducto();
 
             }
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            Guardar();
+            if (listoAgregarProducto)
+            {
+                agregarProducto();
+            }
+            else
+            {
+                Guardar();
+            }
+
+        }
+        private void habilitarEdicionCantidad(bool enable)
+        {
+            uiCantidad.Enabled = enable;
+            uiClaveProducto.Enabled = enable;
+            uiCantidad.ReadOnly = !enable;
+            uiClaveProducto.Enabled = !enable;
         }
 
         private void uiBuscarProducto_Click(object sender, EventArgs e)
@@ -779,11 +868,81 @@ namespace ERP.Common.PuntoVenta
             {
                 if (frmBuscar.response != null)
                 {
-                   string clave= frmBuscar.response.CodigoBarras;
+                    string clave = frmBuscar.response.CodigoBarras;
+
+                    uiClaveProducto.EditValue = clave;
+
+                    productoNuevo = ERP.Business.DataMemory.DataBucket.GetProductosMemory(false)
+                        .Where(w => w.Clave == clave).FirstOrDefault();
+
+                    seleccionarProducto("", 1);
+                    habilitarEdicionCantidad(true);
+                    uiCantidad.Focus();
+                    listoAgregarProducto = true;
 
                 }
 
 
+            }
+        }
+
+        private void eliminarDetalle()
+        {
+            try
+            {
+                PedidoDetalleModel row = (PedidoDetalleModel)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+
+                if (row != null)
+                {
+                    doc_pedidos_orden_detalle oDelete = oContext.doc_pedidos_orden_detalle
+                        .Where(w => w.PedidoDetalleId == row.pedidoDetalleId).FirstOrDefault();
+
+                    oContext.doc_pedidos_orden_detalle.Remove(oDelete);
+                    oContext.SaveChanges();
+
+                    oContext.p_doc_pedidos_orden_total_upd(oDelete.PedidoId);
+
+                    LoadPedidos(oDelete.PedidoId);
+                    PrepararSiguienteProductoBascula();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                  "ERP",
+                                  this.Name,
+                                  ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void repDelete_Click(object sender, EventArgs e)
+        {
+            eliminarDetalle();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            LoadPedidos();
+            PrepararSiguienteProductoBascula();
+        }
+
+        private void uiRecibi_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                lblMensaje.Text = "PAGANDO....";
+                pagar();
+            }
+        }
+
+        private void uiCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                agregarProducto();
             }
         }
     }
