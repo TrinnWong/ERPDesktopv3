@@ -88,10 +88,24 @@ namespace PuntoVenta
             //frmPuntoVentaRest.GetInstance().Close();
            // frmPuntoVentaRest.GetInstance().nuevaCuenta(0);
 
-            frmComandaNueva frmo = new frmComandaNueva();
-            frmo.puntoVentaContext = this.puntoVentaContext;
-            frmo.StartPosition = FormStartPosition.CenterParent;
-            frmo.ShowDialog();
+            //frmComandaNueva frmo = new frmComandaNueva();
+            //frmo.puntoVentaContext = this.puntoVentaContext;
+            //frmo.StartPosition = FormStartPosition.CenterParent;
+            //frmo.ShowDialog();
+
+            frmComandaNueva frmo = frmComandaNueva.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterParent;
+                frmo.WindowState = FormWindowState.Normal;
+                frmo.Show();
+
+
+            }
 
 
 

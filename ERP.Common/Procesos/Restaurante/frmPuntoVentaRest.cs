@@ -1772,9 +1772,9 @@ namespace ERP.Common.Procesos.Restaurante
 
                     
 
-                    this.Close();
+                    //this.Close();
 
-                    frmMenuRest.GetInstance().AbrirComanda();
+                    //frmMenuRest.GetInstance().AbrirComanda();
 
                    
                 }
@@ -1985,12 +1985,21 @@ namespace ERP.Common.Procesos.Restaurante
                     MessageBox.Show("Ocurrió un error al intentar imprimir el ticket." + ex.Message, "ERROR");
                 }
 
-               
 
-                frmComandaNueva frmo = new frmComandaNueva();
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.StartPosition = FormStartPosition.CenterParent;
-                frmo.ShowDialog();
+
+                frmComandaNueva frmo = frmComandaNueva.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.MdiParent = frmMenuRest.GetInstance();
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.StartPosition = FormStartPosition.CenterParent;
+                    frmo.WindowState = FormWindowState.Normal;
+                    frmo.Show();
+
+
+                }
                 //nuevaCuenta();
 
                 this.Close();

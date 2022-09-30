@@ -130,7 +130,7 @@
             this.rbImpresora,
             this.rbSesion});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(989, 52);
+            this.ribbonControl1.Size = new System.Drawing.Size(989, 65);
             // 
             // uiMenuNuevaCuenta
             // 
@@ -344,7 +344,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 642);
             this.Controls.Add(this.ribbonControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "frmMenuRest";
             this.Text = "frmMenuRest";

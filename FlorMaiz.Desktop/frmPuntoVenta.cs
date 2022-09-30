@@ -116,8 +116,8 @@ namespace FlorMaiz.Desktop
                     uiLayoutBotonPedidosApp.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                    
                 }
-              
-               
+
+                HabilitarBasculaSiNo();
                 
 
             }
@@ -1825,6 +1825,46 @@ namespace FlorMaiz.Desktop
             frmo.puntoVentaContext = this.puntoVentaContext;
             frmo.ShowDialog();
             
+        }
+
+        private void uiCliente_EditValueChanged(object sender, EventArgs e)
+        {
+            if(Convert.ToInt32(uiCliente.EditValue) > 0 &&
+                ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
+                       puntoVentaContext.sucursalId, "PVExcluirBasculaPedidos", puntoVentaContext.usuarioId))
+            {
+                puntoVentaContext.conectarConBascula = false;
+                puntoVentaContext.usarTareaBascula = false;
+            }
+            else
+            {
+                HabilitarBasculaSiNo();
+            }
+        }
+
+        private void HabilitarBasculaSiNo()
+        {
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
+                       puntoVentaContext.sucursalId, "ConectarConBascula", puntoVentaContext.usuarioId))
+            {
+                puntoVentaContext.conectarConBascula = true;
+
+            }
+            else
+            {
+                puntoVentaContext.conectarConBascula = false;
+            }
+
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
+                puntoVentaContext.sucursalId, "UsarPesoInteligente", puntoVentaContext.usuarioId))
+            {
+                puntoVentaContext.usarTareaBascula = true;
+            }
+            else
+            {
+                puntoVentaContext.usarTareaBascula = false;
+            }
+
         }
     }
 }

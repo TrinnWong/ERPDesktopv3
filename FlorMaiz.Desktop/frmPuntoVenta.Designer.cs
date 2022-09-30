@@ -899,6 +899,7 @@
             this.uiCliente.Size = new System.Drawing.Size(487, 22);
             this.uiCliente.StyleController = this.layoutControl1;
             this.uiCliente.TabIndex = 50;
+            this.uiCliente.EditValueChanged += new System.EventHandler(this.uiCliente_EditValueChanged);
             // 
             // uiBuscar
             // 

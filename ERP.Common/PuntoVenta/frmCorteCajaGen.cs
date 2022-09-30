@@ -280,10 +280,9 @@ namespace ERP.Common.PuntoVenta
 
                         if (entityConf != null)
                         {
-                            emailEnvio = entityConf.SuperEmail1 != null ? entityConf.SuperEmail1 + ";" : "";
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail2 != null ? entityConf.SuperEmail2 + ";" : "");
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail3 != null ? entityConf.SuperEmail3 + ";" : "");
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail4 != null ? entityConf.SuperEmail4 + ";" : "");
+                            ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId,
+                                "CorteCajaEmail", this.puntoVentaContext.usuarioId, ref emailEnvio);
+                            
 
                             if (emailEnvio.Length > 0)
                             {

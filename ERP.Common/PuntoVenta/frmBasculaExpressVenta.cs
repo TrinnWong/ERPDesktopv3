@@ -897,9 +897,18 @@ namespace ERP.Common.PuntoVenta
                     doc_pedidos_orden_detalle oDelete = oContext.doc_pedidos_orden_detalle
                         .Where(w => w.PedidoDetalleId == row.pedidoDetalleId).FirstOrDefault();
 
+                    #region eliminar Bitacora
+                    oContext.Database.ExecuteSqlCommand(@"
+                                UPDATE doc_basculas_bitacora
+                                SET PedidoDetalleId = NULL
+                                Where PedidoDetalleId = {0}", oDelete.PedidoDetalleId);
+                    #endregion
+
                     oContext.doc_pedidos_orden_detalle.Remove(oDelete);
                     oContext.SaveChanges();
 
+
+                    oContext = new ERPProdEntities();
                     oContext.p_doc_pedidos_orden_total_upd(oDelete.PedidoId);
 
                     LoadPedidos(oDelete.PedidoId);

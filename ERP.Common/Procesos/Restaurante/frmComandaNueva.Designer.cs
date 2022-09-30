@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmComandaNueva));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.uiContinuar = new DevExpress.XtraEditors.SimpleButton();
@@ -40,7 +39,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiMesa.Properties)).BeginInit();
@@ -160,6 +159,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -173,6 +173,7 @@
             this.MinimizeBox = false;
             this.Name = "frmComandaNueva";
             this.Text = "Nueva Comanda";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComandaNueva_FormClosing);
             this.Load += new System.EventHandler(this.frmComandaNueva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

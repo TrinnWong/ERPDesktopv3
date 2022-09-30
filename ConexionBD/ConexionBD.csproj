@@ -3091,6 +3091,24 @@
     <Content Include="Versiones\2022.06.01\77 [p_calcular_existencias].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\78 p_doc_pedidos_orden_total_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\79 [p_rpt_Comanda].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\80 ALTER TABLE sis_preferencias_empresa.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\81 [p_calcular_existencias].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\82 [p_rpt_Comanda].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\83 PVExcluirBasculaPedidos.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

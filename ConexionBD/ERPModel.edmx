@@ -2543,7 +2543,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PreferenciaId" Type="int" Nullable="false" />
           <Property Name="EmpresaId" Type="int" Nullable="false" />
-          <Property Name="Valor" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Valor" Type="varchar" MaxLength="1000" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="sis_preferencias_sucursales">
@@ -2553,7 +2553,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="SucursalId" Type="int" Nullable="false" />
           <Property Name="PreferenciaId" Type="int" Nullable="false" />
-          <Property Name="Valor" Type="varchar" MaxLength="50" />
+          <Property Name="Valor" Type="varchar" MaxLength="1000" />
           <Property Name="CreadoEl" Type="datetime" />
         </EntityType>
         <EntityType Name="sis_roles">
@@ -21889,7 +21889,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pError" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="p_doc_pedidos_orden_total_upd">
-            <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
+          <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
@@ -26921,7 +26921,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PreferenciaId" Type="Int32" Nullable="false" />
           <Property Name="EmpresaId" Type="Int32" Nullable="false" />
-          <Property Name="Valor" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="sis_preferencias" Relationship="ERPProdModel.FK_sis_preferencias_empresa_sis_preferencias" FromRole="sis_preferencias_empresa" ToRole="sis_preferencias" />
         </EntityType>
@@ -27547,7 +27547,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="SucursalId" Type="Int32" Nullable="false" />
           <Property Name="PreferenciaId" Type="Int32" Nullable="false" />
-          <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="CreadoEl" Type="DateTime" Precision="3" />
           <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_sis_preferencias_sucursales_cat_sucursales" FromRole="sis_preferencias_sucursales" ToRole="cat_sucursales" />
           <NavigationProperty Name="sis_preferencias" Relationship="ERPProdModel.FK_sis_preferencias_sucursales_sis_preferencias" FromRole="sis_preferencias_sucursales" ToRole="sis_preferencias" />

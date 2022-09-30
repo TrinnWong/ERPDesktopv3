@@ -236,5 +236,10 @@ namespace ERP.Common.Procesos.Restaurante
 
             }
         }
+
+        private void frmComandaNueva_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _instance = null;
+        }
     }
 }
