@@ -7,6 +7,7 @@ using ERP.Common.Catalogos;
 using ERP.Common.Configuracion;
 using ERP.Common.Inventarios;
 using ERP.Common.Procesos.Restaurante;
+using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Reports;
 using ERP.Common.Seguridad;
@@ -963,6 +964,18 @@ namespace TacosAna.Desktop
                               ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+        private void mnuProductoSobrante_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            frmSobrantesRegistro oForm = new frmSobrantesRegistro();
+            oContext = new ERPProdEntities();
+            oForm.dtProcess = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
+            oForm.habilitarFecha = false;
+            oForm.puntoVentaContext = this.puntoVentaContext;
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+            oForm.ShowDialog();
         }
     }
 }

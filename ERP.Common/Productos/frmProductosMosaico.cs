@@ -89,14 +89,19 @@ namespace ERP.Common.Productos
           
             resultForm = new Models.Pedidos.PedidoDetalleModel();
             basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
-            if (puntoVentaContext.conectarConBascula)
+
+            if(basculaConfiguracion != null)
             {
-                basculaControlador = new BasculaLectura(this.puntoVentaContext);
+                if (puntoVentaContext.conectarConBascula)
+                {
+                    basculaControlador = new BasculaLectura(this.puntoVentaContext);
+                }
+                else
+                {
+                    basculaControlador = new BasculaLectura(basculaConfiguracion);
+                }
             }
-            else
-            {
-                basculaControlador = new BasculaLectura(basculaConfiguracion);
-            }
+           
             
             ConfigurarColoresBotones();
 

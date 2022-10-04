@@ -62,8 +62,8 @@ namespace ERP.Common.Procesos.Restaurante
         public List<doc_pedidos_orden_cargos> lstCargos; 
 
         ERP.Common.Procesos.frmVentaFormasPago fpForm;
-
-
+        cat_configuracion entityConfiguracion;
+        int copiasImpresion = 0;
 
 
 
@@ -1178,6 +1178,12 @@ namespace ERP.Common.Procesos.Restaurante
 
         private void frmPuntoVentaRest_Load(object sender, EventArgs e)
         {
+            oContext = new ERPProdEntities();
+            string copiasImpresionRef=null;
+            entityConfiguracion = oContext.cat_configuracion.FirstOrDefault();
+            ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId,
+                "PVTicketCopias", this.puntoVentaContext.usuarioId, ref copiasImpresionRef);
+            int.TryParse(copiasImpresionRef, out copiasImpresion);
             _Load();
 
           
@@ -1485,6 +1491,7 @@ namespace ERP.Common.Procesos.Restaurante
 
         public void _Load()
         {
+            HabilitarTimerImpresion(true);
             ingredientesId_orig = new List<int>();
             adicionalesId = new List<int>();
             uiApertura.EditValue = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
@@ -1822,6 +1829,7 @@ namespace ERP.Common.Procesos.Restaurante
 
         public void abrirFormasPago()
         {
+            HabilitarTimerImpresion(false);
             int cuentaid = int.Parse(uiCuenta.Value.ToString());
 
 
@@ -1866,20 +1874,19 @@ namespace ERP.Common.Procesos.Restaurante
             fpForm.StartPosition = FormStartPosition.CenterParent;
             fpForm.totalVenta = total;
             fpForm.ShowDialog();
+
+            HabilitarTimerImpresion(true);
         }
 
 
         public void pagar(List<FormaPagoModel> _formasPago, List<ValeFPModel> _vales, decimal totalRecibido, decimal cambio)
         {
+           
             fpForm.Close();
             fpForm.Dispose();
 
             int _cuentaid = int.Parse(uiCuenta.Value.ToString());
             ConexionBD.PuntoVenta oData = new ConexionBD.PuntoVenta();
-
-          
-
-            
 
             List<doc_pedidos_orden_detalle> detalleVenta = oContext.doc_pedidos_orden_detalle.Where(w => w.PedidoId == _cuentaid && (w.Cancelado??false) == false).ToList();
             List<ProductoModel0> lstProductos = detalleVenta
@@ -1945,7 +1952,7 @@ namespace ERP.Common.Procesos.Restaurante
                         error = "";
                     }
 
-                    cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+                    cat_configuracion entity = entityConfiguracion;
 
                     if (total >= (entity.MontoImpresionTicket ?? 0))
                     {
@@ -1967,9 +1974,23 @@ namespace ERP.Common.Procesos.Restaurante
 
                             ReportViewer oViewer = new ReportViewer(this.puntoVentaContext, false);
 
-                            oTicket2.DataSource = oContext.p_rpt_VentaTicket(int.Parse(ventaId.ToString())).ToList();
+                            var resultRpt = oContext.p_rpt_VentaTicket(int.Parse(ventaId.ToString())).ToList();
 
+                            oTicket2.DataSource = resultRpt;                            
                             oViewer.ShowTicket(oTicket2);
+
+                            if(copiasImpresion >1)
+                            {
+                                for (int i = 1; i < copiasImpresion; i++)
+                                {
+                                    oTicket2 = new rptVentaTicket();
+                                    oViewer = new ReportViewer(this.puntoVentaContext, false);
+                                    oTicket2.DataSource = resultRpt;
+                                    oViewer.ShowTicket(oTicket2);
+                                }
+                            }
+
+                            
                         }
 
 
@@ -1985,8 +2006,7 @@ namespace ERP.Common.Procesos.Restaurante
                     MessageBox.Show("Ocurrió un error al intentar imprimir el ticket." + ex.Message, "ERROR");
                 }
 
-
-
+               
                 frmComandaNueva frmo = frmComandaNueva.GetInstance();
 
                 if (!frmo.Visible)
@@ -2345,6 +2365,11 @@ namespace ERP.Common.Procesos.Restaurante
                     this.puntoVentaContext.cajaId);
 
             }
+        }
+
+        public void HabilitarTimerImpresion(bool enable)
+        {
+            timer_Impresion.Enabled = enable;
         }
 
         private void uCargoTarjeta_CheckedChanged(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -112,7 +111,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkPrecioEmpleado = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repCantidad = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
-            this.pedidoDetalleModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pedidoDetalleModelBindingSource = new System.Windows.Forms.BindingSource();
             this.button49 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.button51 = new System.Windows.Forms.Button();
@@ -582,7 +581,7 @@
             this.uiMesa.Properties.Appearance.Options.UseFont = true;
             this.uiMesa.Properties.Appearance.Options.UseForeColor = true;
             this.uiMesa.Properties.Caption = "MESA";
-            this.uiMesa.Size = new System.Drawing.Size(75, 19);
+            this.uiMesa.Size = new System.Drawing.Size(75, 21);
             this.uiMesa.TabIndex = 36;
             this.uiMesa.CheckedChanged += new System.EventHandler(this.uiMesa_CheckedChanged);
             // 
@@ -595,7 +594,7 @@
             this.uiLlevar.Properties.Appearance.Options.UseFont = true;
             this.uiLlevar.Properties.Appearance.Options.UseForeColor = true;
             this.uiLlevar.Properties.Caption = "LLEVAR";
-            this.uiLlevar.Size = new System.Drawing.Size(75, 19);
+            this.uiLlevar.Size = new System.Drawing.Size(75, 21);
             this.uiLlevar.TabIndex = 37;
             this.uiLlevar.CheckedChanged += new System.EventHandler(this.uiLlevar_CheckedChanged);
             // 
@@ -608,7 +607,7 @@
             this.uiCortesia.Properties.Appearance.Options.UseFont = true;
             this.uiCortesia.Properties.Appearance.Options.UseForeColor = true;
             this.uiCortesia.Properties.Caption = "CORTESIA";
-            this.uiCortesia.Size = new System.Drawing.Size(75, 19);
+            this.uiCortesia.Size = new System.Drawing.Size(75, 21);
             this.uiCortesia.TabIndex = 38;
             this.uiCortesia.CheckedChanged += new System.EventHandler(this.uiCortesia_CheckedChanged);
             this.uiCortesia.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiCortesia_EditValueChanging);
@@ -622,7 +621,7 @@
             this.uiPrecioEmp.Properties.Appearance.Options.UseFont = true;
             this.uiPrecioEmp.Properties.Appearance.Options.UseForeColor = true;
             this.uiPrecioEmp.Properties.Caption = "PRECIO EMPLEADO";
-            this.uiPrecioEmp.Size = new System.Drawing.Size(134, 19);
+            this.uiPrecioEmp.Size = new System.Drawing.Size(134, 21);
             this.uiPrecioEmp.TabIndex = 40;
             this.uiPrecioEmp.CheckedChanged += new System.EventHandler(this.uiPrecioEmp_CheckedChanged);
             this.uiPrecioEmp.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiPrecioEmp_EditValueChanging);
@@ -808,7 +807,7 @@
             this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit1.Size = new System.Drawing.Size(132, 22);
+            this.textEdit1.Size = new System.Drawing.Size(132, 28);
             this.textEdit1.TabIndex = 55;
             // 
             // uiTotal
@@ -825,7 +824,7 @@
             this.uiTotal.Properties.Appearance.Options.UseForeColor = true;
             this.uiTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.uiTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiTotal.Size = new System.Drawing.Size(132, 32);
+            this.uiTotal.Size = new System.Drawing.Size(132, 40);
             this.uiTotal.TabIndex = 56;
             // 
             // uiRecibi
@@ -842,7 +841,7 @@
             this.uiRecibi.Properties.Appearance.Options.UseForeColor = true;
             this.uiRecibi.Properties.Appearance.Options.UseTextOptions = true;
             this.uiRecibi.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiRecibi.Size = new System.Drawing.Size(132, 32);
+            this.uiRecibi.Size = new System.Drawing.Size(132, 40);
             this.uiRecibi.TabIndex = 58;
             // 
             // textEdit4
@@ -858,7 +857,7 @@
             this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit4.Size = new System.Drawing.Size(132, 22);
+            this.textEdit4.Size = new System.Drawing.Size(132, 28);
             this.textEdit4.TabIndex = 57;
             // 
             // uiCambio
@@ -875,7 +874,7 @@
             this.uiCambio.Properties.Appearance.Options.UseForeColor = true;
             this.uiCambio.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCambio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiCambio.Size = new System.Drawing.Size(132, 32);
+            this.uiCambio.Size = new System.Drawing.Size(132, 40);
             this.uiCambio.TabIndex = 60;
             // 
             // textEdit6
@@ -891,7 +890,7 @@
             this.textEdit6.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit6.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit6.Size = new System.Drawing.Size(132, 22);
+            this.textEdit6.Size = new System.Drawing.Size(132, 28);
             this.textEdit6.TabIndex = 59;
             // 
             // uiFaltan
@@ -908,7 +907,7 @@
             this.uiFaltan.Properties.Appearance.Options.UseForeColor = true;
             this.uiFaltan.Properties.Appearance.Options.UseTextOptions = true;
             this.uiFaltan.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiFaltan.Size = new System.Drawing.Size(132, 32);
+            this.uiFaltan.Size = new System.Drawing.Size(132, 40);
             this.uiFaltan.TabIndex = 62;
             // 
             // textEdit8
@@ -924,7 +923,7 @@
             this.textEdit8.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit8.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit8.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit8.Size = new System.Drawing.Size(132, 22);
+            this.textEdit8.Size = new System.Drawing.Size(132, 28);
             this.textEdit8.TabIndex = 61;
             // 
             // grProducto
@@ -1229,7 +1228,7 @@
             this.uiCalculadora.Name = "uiCalculadora";
             this.uiCalculadora.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCalculadora.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.uiCalculadora.Size = new System.Drawing.Size(106, 20);
+            this.uiCalculadora.Size = new System.Drawing.Size(106, 22);
             this.uiCalculadora.TabIndex = 77;
             this.uiCalculadora.EditValueChanged += new System.EventHandler(this.uiCalculadora_EditValueChanged);
             // 
@@ -1259,7 +1258,7 @@
             this.uiEmpleado.Properties.DisplayMember = "Nombre";
             this.uiEmpleado.Properties.NullText = "(SELECCIONA UN EMPLEADO)";
             this.uiEmpleado.Properties.ValueMember = "NumEmpleado";
-            this.uiEmpleado.Size = new System.Drawing.Size(355, 20);
+            this.uiEmpleado.Size = new System.Drawing.Size(355, 22);
             this.uiEmpleado.TabIndex = 79;
             this.uiEmpleado.Visible = false;
             this.uiEmpleado.EditValueChanged += new System.EventHandler(this.uiEmpleado_EditValueChanged);
@@ -1270,7 +1269,7 @@
             this.btnProd7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd7.ForeColor = System.Drawing.Color.White;
-            this.btnProd7.Location = new System.Drawing.Point(94, 6);
+            this.btnProd7.Location = new System.Drawing.Point(93, 5);
             this.btnProd7.Name = "btnProd7";
             this.btnProd7.Size = new System.Drawing.Size(82, 35);
             this.btnProd7.TabIndex = 80;
@@ -1322,7 +1321,7 @@
             this.btnProdMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdMas.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProdMas.ForeColor = System.Drawing.Color.White;
-            this.btnProdMas.Location = new System.Drawing.Point(94, 194);
+            this.btnProdMas.Location = new System.Drawing.Point(94, 195);
             this.btnProdMas.Name = "btnProdMas";
             this.btnProdMas.Size = new System.Drawing.Size(82, 35);
             this.btnProdMas.TabIndex = 84;
@@ -1533,7 +1532,7 @@
             this.lblNotas.ForeColor = System.Drawing.Color.White;
             this.lblNotas.Location = new System.Drawing.Point(754, 448);
             this.lblNotas.Name = "lblNotas";
-            this.lblNotas.Size = new System.Drawing.Size(0, 13);
+            this.lblNotas.Size = new System.Drawing.Size(0, 17);
             this.lblNotas.TabIndex = 110;
             // 
             // uiAnticipo
@@ -1720,7 +1719,7 @@
             this.uiConsumo.Properties.Appearance.Options.UseFont = true;
             this.uiConsumo.Properties.Appearance.Options.UseForeColor = true;
             this.uiConsumo.Properties.Caption = "CONSUMO";
-            this.uiConsumo.Size = new System.Drawing.Size(75, 19);
+            this.uiConsumo.Size = new System.Drawing.Size(75, 21);
             this.uiConsumo.TabIndex = 39;
             this.uiConsumo.CheckedChanged += new System.EventHandler(this.uiConsumo_CheckedChanged);
             this.uiConsumo.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiConsumo_EditValueChanging);
@@ -1734,7 +1733,7 @@
             this.uiFactura.Properties.Appearance.Options.UseFont = true;
             this.uiFactura.Properties.Appearance.Options.UseForeColor = true;
             this.uiFactura.Properties.Caption = "FACTURA";
-            this.uiFactura.Size = new System.Drawing.Size(75, 19);
+            this.uiFactura.Size = new System.Drawing.Size(75, 21);
             this.uiFactura.TabIndex = 132;
             // 
             // frmPuntoVenta

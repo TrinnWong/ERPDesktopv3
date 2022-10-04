@@ -120,7 +120,7 @@ namespace TacosAna.Desktop
         private bool limiteMaxGuisoSeleccionValidar = false;
         string error;
         decimal descuentoEmpleado { get; set; }
-
+        cat_configuracion entityConfiguracion;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -146,11 +146,12 @@ namespace TacosAna.Desktop
              btnG2_3.Click += btnG2_1_Click;
              btnG2_4.Click += btnG2_1_Click;
              */
+            entityConfiguracion = oContext.cat_configuracion.FirstOrDefault();
 
-            porcAnticipoPedido = oContext.cat_configuracion.FirstOrDefault().PedidoAnticipoPorc??0;
+            porcAnticipoPedido = entityConfiguracion.PedidoAnticipoPorc??0;
             Inicializar();
 
-            cat_configuracion conf = oContext.cat_configuracion.FirstOrDefault();
+           
         }
 
         private void PVTacosAna_FormClosing(object sender, FormClosingEventArgs e)
@@ -1463,7 +1464,7 @@ namespace TacosAna.Desktop
                 bool consumo;
                 bool precioEmpleado;
                 decimal precioOriginal = Convert.ToDecimal(gvProducto.GetRowCellValue(rowHandle, "precioOriginal"));
-                decimal porcDescEmpleado=oContext.cat_configuracion.FirstOrDefault().EmpleadoPorcDescuento ?? 0;
+                decimal porcDescEmpleado=entityConfiguracion.EmpleadoPorcDescuento ?? 0;
                 
                 cortesia =Convert.ToBoolean( gvProducto.GetRowCellValue(rowHandle, "cortesia"));
                 consumo = Convert.ToBoolean(gvProducto.GetRowCellValue(rowHandle, "consumoInterno"));
@@ -2103,7 +2104,7 @@ namespace TacosAna.Desktop
                            
 
                             #region imprimir ticket de venta
-                            cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+                            cat_configuracion entity = entityConfiguracion;
 
                             if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
                             {
@@ -2948,7 +2949,7 @@ namespace TacosAna.Desktop
                         {
                             if(lstPaqueteDetalle.Count() != limiteMaxGuisoSeleccion)
                             {
-                                ERP.Utils.MessageBoxUtil.ShowError("El paquete está incompleto");
+                                ERP.Utils.MessageBoxUtil.ShowError(String.Format("El paquete debe de ser de {0}",limiteMaxGuisoSeleccion));
                                 return;
                             }
                         }
@@ -3218,20 +3219,22 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-                    Inicializar();
+                    
 
-                    cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+                    cat_configuracion entity =entityConfiguracion;
 
                     if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
                     {
                         imprimirTicket((int)ventaId);
 
-                        if (pedido.TipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo)
+                        if (pedido.TipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo || pedido.TipoPedidoId == null)
                         {
                             imprimirComanda(pedidoId);
                         }
 
                     }
+
+                    Inicializar();
                 }
 
 
@@ -3271,7 +3274,7 @@ namespace TacosAna.Desktop
                 rptComanda oReport = new rptComanda();
                 oReport.DataSource = oContext.p_rpt_Comanda(pedidoId, 0, true, "").ToList();
                 oReport.CreateDocument();
-                conf = oContext.cat_configuracion.FirstOrDefault();
+                conf = entityConfiguracion;
                 if (conf.vistaPreviaImpresion == true)
                 {
                     oReport.ShowPreview();
@@ -3581,6 +3584,7 @@ namespace TacosAna.Desktop
         private void btnProd9_Click(object sender, EventArgs e)
         {
             SolicitaCantidadCortesia(10);
+            limiteCarneChicharron = 10;
             limiteMaxGuisoSeleccionValidar = true;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             EnableBtnG2(false, false, true, false);
@@ -3594,6 +3598,7 @@ namespace TacosAna.Desktop
         {
             SolicitaCantidadCortesia(5);
             limiteMaxGuisoSeleccionValidar = true;
+            limiteCarneChicharron = 5;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             EnableBtnG2(false, false, true, false);
             EnableBtnG3(false);

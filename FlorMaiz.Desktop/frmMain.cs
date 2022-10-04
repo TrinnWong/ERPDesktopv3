@@ -406,16 +406,7 @@ namespace FlorMaiz.Desktop
         }
 
         private void uiProductoSobrante_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ERP.Common.PuntoVenta.frmProductoSobranteUpd frmo = ERP.Common.PuntoVenta.frmProductoSobranteUpd.GetInstance();
-
-            //if (!frmo.Visible)
-            //{
-            //    //frmo = new frmPuntoVenta();
-            //    frmo.puntoVentaContext = this.puntoVentaContext;
-            //    frmo.MdiParent = this;
-            //    frmo.Show();
-            //}
+        {           
 
             frmSobrantesRegistro oForm = new frmSobrantesRegistro();
 

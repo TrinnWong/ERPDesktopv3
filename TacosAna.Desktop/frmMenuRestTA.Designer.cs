@@ -57,6 +57,8 @@
             this.uiPedido = new DevExpress.XtraBars.BarButtonItem();
             this.uiBuscarPedido = new DevExpress.XtraBars.BarButtonItem();
             this.uiInvRecepcionProd = new DevExpress.XtraBars.BarButtonItem();
+            this.uiCorteCajaSupervisor = new DevExpress.XtraBars.BarButtonItem();
+            this.mnuProductoSobrante = new DevExpress.XtraBars.BarButtonItem();
             this.rbComanda = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbCuentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCuenta = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,7 +74,6 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.uiCorteCajaSupervisor = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -138,9 +139,10 @@
             this.uiPedido,
             this.uiBuscarPedido,
             this.uiInvRecepcionProd,
-            this.uiCorteCajaSupervisor});
+            this.uiCorteCajaSupervisor,
+            this.mnuProductoSobrante});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 30;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -152,7 +154,7 @@
             this.ribbonPage2,
             this.rbSesion});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(989, 52);
+            this.ribbonControl1.Size = new System.Drawing.Size(989, 65);
             // 
             // uiMenuNuevaCuenta
             // 
@@ -344,6 +346,21 @@
             this.uiInvRecepcionProd.Name = "uiInvRecepcionProd";
             this.uiInvRecepcionProd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiInvRecepcionProd_ItemClick);
             // 
+            // uiCorteCajaSupervisor
+            // 
+            this.uiCorteCajaSupervisor.Caption = "Corte Supervisor";
+            this.uiCorteCajaSupervisor.Id = 28;
+            this.uiCorteCajaSupervisor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCorteCajaSupervisor.ImageOptions.Image")));
+            this.uiCorteCajaSupervisor.Name = "uiCorteCajaSupervisor";
+            this.uiCorteCajaSupervisor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiCorteCajaSupervisor_ItemClick);
+            // 
+            // mnuProductoSobrante
+            // 
+            this.mnuProductoSobrante.Caption = "Producto Sobrante";
+            this.mnuProductoSobrante.Id = 29;
+            this.mnuProductoSobrante.Name = "mnuProductoSobrante";
+            this.mnuProductoSobrante.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuProductoSobrante_ItemClick);
+            // 
             // rbComanda
             // 
             this.rbComanda.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -445,6 +462,7 @@
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.uiInvRecepcionProd);
+            this.ribbonPageGroup3.ItemLinks.Add(this.mnuProductoSobrante);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -460,14 +478,6 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCerrarSesion);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
-            // 
-            // uiCorteCajaSupervisor
-            // 
-            this.uiCorteCajaSupervisor.Caption = "Corte Supervisor";
-            this.uiCorteCajaSupervisor.Id = 28;
-            this.uiCorteCajaSupervisor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCorteCajaSupervisor.ImageOptions.Image")));
-            this.uiCorteCajaSupervisor.Name = "uiCorteCajaSupervisor";
-            this.uiCorteCajaSupervisor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiCorteCajaSupervisor_ItemClick);
             // 
             // frmMenuRestTA
             // 
@@ -533,5 +543,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem uiCorteCajaSupervisor;
+        private DevExpress.XtraBars.BarButtonItem mnuProductoSobrante;
     }
 }

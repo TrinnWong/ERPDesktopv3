@@ -180,6 +180,11 @@ namespace ERP.Common.Reports
                     //for (int i = 0; i < copias; i++)
                     //{
                         this.viewer1.Document.Printer.PrinterName = printerName;
+                    if(copias > 0)
+                    {
+                        this.viewer1.Document.Printer.PrinterSettings.Copies = copias;
+                    }
+                    
                         //this.viewer1.Document.Printer.PrinterSettings.Copies = copias;
                         this.viewer1.Print(false, false, true);
                    // }
@@ -445,6 +450,7 @@ namespace ERP.Common.Reports
                 setNUllPrint();
 
                 oReport.Document.Printer.PrinterName = "";
+                oReport.Document.Printer.PrinterSettings.Copies = copias;
 
                 this.viewer1.Document = oReport.Document;
                 oReport.Document.Printer.PrinterName = "";
