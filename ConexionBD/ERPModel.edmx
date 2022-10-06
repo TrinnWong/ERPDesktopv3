@@ -985,6 +985,15 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="CreadoPor" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="cat_sucursales_productos">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="CreadoEl" Type="datetime" />
+        </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
             <PropertyRef Name="Clave" />
@@ -5664,6 +5673,30 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_cat_sucursales_productos_cat_productos">
+          <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="1" />
+          <End Role="cat_sucursales_productos" Type="Self.cat_sucursales_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_productos">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="cat_sucursales_productos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_sucursales_productos_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
+          <End Role="cat_sucursales_productos" Type="Self.cat_sucursales_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_sucursales_productos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_cat_usuarios_cat_cajas">
           <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="0..1" />
           <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="*" />
@@ -10143,6 +10176,16 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
         <Function Name="p_rpt_gasto_ticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pGastoId" Type="int" Mode="In" />
         </Function>
+        <Function Name="p_rpt_gramos_favor_contra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+          <Parameter Name="pDel" Type="datetime" Mode="In" />
+          <Parameter Name="pAl" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="p_rpt_gramos_favor_contra_agrupado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+          <Parameter Name="pDel" Type="datetime" Mode="In" />
+          <Parameter Name="pAl" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="p_rpt_movimiento_cancela_inv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pMovimientoId" Type="int" Mode="In" />
           <Parameter Name="pProductoCompraId" Type="int" Mode="In" />
@@ -10319,6 +10362,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="cat_subfamilias" EntityType="Self.cat_subfamilias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_sucursales" EntityType="Self.cat_sucursales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_sucursales_departamentos" EntityType="Self.cat_sucursales_departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cat_sucursales_productos" EntityType="Self.cat_sucursales_productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_tipo_factor_SAT" EntityType="Self.cat_tipo_factor_SAT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_tipos_bascula_bitacora" EntityType="Self.cat_tipos_bascula_bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_tipos_cajas" EntityType="Self.cat_tipos_cajas" Schema="dbo" store:Type="Tables" />
@@ -11534,6 +11578,14 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_cat_sucursales_departamentos_cat_sucursales" Association="Self.FK_cat_sucursales_departamentos_cat_sucursales">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_sucursales_departamentos" EntitySet="cat_sucursales_departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_sucursales_productos_cat_productos" Association="Self.FK_cat_sucursales_productos_cat_productos">
+            <End Role="cat_productos" EntitySet="cat_productos" />
+            <End Role="cat_sucursales_productos" EntitySet="cat_sucursales_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_sucursales_productos_cat_sucursales" Association="Self.FK_cat_sucursales_productos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_sucursales_productos" EntitySet="cat_sucursales_productos" />
           </AssociationSet>
           <AssociationSet Name="FK_cat_usuarios_cat_cajas" Association="Self.FK_cat_usuarios_cat_cajas">
             <End Role="cat_cajas" EntitySet="cat_cajas" />
@@ -13423,6 +13475,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_empleados_productos_descuentos" Relationship="ERPProdModel.FK_doc_empleados_productos_descuentos_cat_productos" FromRole="cat_productos" ToRole="doc_empleados_productos_descuentos" />
           <NavigationProperty Name="doc_inventario_captura" Relationship="ERPProdModel.FK_doc_inventario_captura_cat_productos" FromRole="cat_productos" ToRole="doc_inventario_captura" />
           <NavigationProperty Name="doc_precios_especiales_detalle" Relationship="ERPProdModel.FK_doc_precios_especiales_detalle_cat_productos" FromRole="cat_productos" ToRole="doc_precios_especiales_detalle" />
+          <NavigationProperty Name="cat_sucursales_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_productos" FromRole="cat_productos" ToRole="cat_sucursales_productos" />
         </EntityType>
         <EntityType Name="cat_productos_cambio_precio">
           <Key>
@@ -13670,6 +13723,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_corte_caja_datos_entrada" Relationship="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_corte_caja_datos_entrada" />
           <NavigationProperty Name="doc_precios_especiales" Relationship="ERPProdModel.FK_doc_precios_especiales_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_precios_especiales" />
           <NavigationProperty Name="sis_preferencias_sucursales" Relationship="ERPProdModel.FK_sis_preferencias_sucursales_cat_sucursales" FromRole="cat_sucursales" ToRole="sis_preferencias_sucursales" />
+          <NavigationProperty Name="cat_sucursales_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_sucursales_productos" />
         </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
@@ -21891,6 +21945,25 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <FunctionImport Name="p_doc_pedidos_orden_total_upd">
           <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="cat_sucursales_productos" EntityType="ERPProdModel.cat_sucursales_productos" />
+          <AssociationSet Name="FK_cat_sucursales_productos_cat_productos" Association="ERPProdModel.FK_cat_sucursales_productos_cat_productos">
+            <End Role="cat_productos" EntitySet="cat_productos" />
+            <End Role="cat_sucursales_productos" EntitySet="cat_sucursales_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_sucursales_productos_cat_sucursales" Association="ERPProdModel.FK_cat_sucursales_productos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_sucursales_productos" EntitySet="cat_sucursales_productos" />
+          </AssociationSet>
+          <FunctionImport Name="p_rpt_gramos_favor_contra" ReturnType="Collection(ERPProdModel.p_rpt_gramos_favor_contra_Result)">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pDel" Mode="In" Type="DateTime" />
+            <Parameter Name="pAl" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="p_rpt_gramos_favor_contra_agrupado" ReturnType="Collection(ERPProdModel.p_rpt_gramos_favor_contra_agrupado_Result)">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pDel" Mode="In" Type="DateTime" />
+            <Parameter Name="pAl" Mode="In" Type="DateTime" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -27589,6 +27662,52 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Type="Decimal" Name="TotalEntregadoSucursal" Nullable="false" />
           <Property Type="Decimal" Name="Diferencia" Nullable="false" />
         </ComplexType>
+        <EntityType Name="cat_sucursales_productos">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="CreadoEl" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="cat_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_productos" FromRole="cat_sucursales_productos" ToRole="cat_productos" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_sucursales" FromRole="cat_sucursales_productos" ToRole="cat_sucursales" />
+        </EntityType>
+        <Association Name="FK_cat_sucursales_productos_cat_productos">
+          <End Type="ERPProdModel.cat_productos" Role="cat_productos" Multiplicity="1" />
+          <End Type="ERPProdModel.cat_sucursales_productos" Role="cat_sucursales_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_productos">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="cat_sucursales_productos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_sucursales_productos_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="1" />
+          <End Type="ERPProdModel.cat_sucursales_productos" Role="cat_sucursales_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_sucursales_productos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="p_rpt_gramos_favor_contra_Result">
+          <Property Type="String" Name="NombreSucursal" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="GramosFavorContra" Nullable="true" Precision="21" Scale="5" />
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="FolioVenta" Nullable="true" MaxLength="25" />
+          <Property Type="Decimal" Name="Importe" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="p_rpt_gramos_favor_contra_agrupado_Result" >
+          <Property Type="String" Name="Tipo" Nullable="false" />
+          <Property Type="Decimal" Name="Total" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -31834,6 +31953,34 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="p_doc_produccion_venta_salida" FunctionName="ERPProdModel.Store.p_doc_produccion_venta_salida" />
           <FunctionImportMapping FunctionImportName="p_doc_pedidos_orden_total_upd" FunctionName="ERPProdModel.Store.p_doc_pedidos_orden_total_upd" />
+          <EntitySetMapping Name="cat_sucursales_productos">
+            <EntityTypeMapping TypeName="ERPProdModel.cat_sucursales_productos">
+              <MappingFragment StoreEntitySet="cat_sucursales_productos">
+                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_rpt_gramos_favor_contra" FunctionName="ERPProdModel.Store.p_rpt_gramos_favor_contra">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_rpt_gramos_favor_contra_Result">
+                <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+                <ScalarProperty Name="GramosFavorContra" ColumnName="GramosFavorContra" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="FolioVenta" ColumnName="FolioVenta" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p_rpt_gramos_favor_contra_agrupado" FunctionName="ERPProdModel.Store.p_rpt_gramos_favor_contra_agrupado" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_rpt_gramos_favor_contra_agrupado_Result">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

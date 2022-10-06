@@ -64,6 +64,7 @@ namespace ConexionBD
             this.doc_empleados_productos_descuentos = new HashSet<doc_empleados_productos_descuentos>();
             this.doc_inventario_captura = new HashSet<doc_inventario_captura>();
             this.doc_precios_especiales_detalle = new HashSet<doc_precios_especiales_detalle>();
+            this.cat_sucursales_productos = new HashSet<cat_sucursales_productos>();
         }
     
         public int ProductoId { get; set; }
@@ -227,5 +228,7 @@ namespace ConexionBD
         public virtual ICollection<doc_inventario_captura> doc_inventario_captura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_precios_especiales_detalle> doc_precios_especiales_detalle { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cat_sucursales_productos> cat_sucursales_productos { get; set; }
     }
 }

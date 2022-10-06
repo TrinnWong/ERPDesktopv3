@@ -37,6 +37,7 @@ using ERP.Common.Productos;
 using ERP.Common.Precios;
 using ERPv1.Reportes;
 using ERP.Common.CorteCaja;
+using ERP.Common.Sucursales;
 
 namespace ERPv1
 {
@@ -1492,6 +1493,24 @@ namespace ERPv1
                 frmo.accion = ConexionBD.Enumerados.accionForm.actualizar;
                 frmo.id = 0;
                 frmo.habilitarCambioProducto = true;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
+
+        private void productosPorSucursalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSucursalesProductos frmo = frmSucursalesProductos.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.MdiParent = this;             
+                
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();

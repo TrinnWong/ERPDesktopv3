@@ -216,7 +216,7 @@ namespace ERP.Common.PuntoVenta
                 {
                     int corteId = int.Parse(uiGrid.Rows[i].Cells["ID"].Value.ToString());
 
-                    rptCorteCaja oCorte = new rptCorteCaja();
+                    rptCorteCaja oCorte = new rptCorteCaja(this.puntoVentaContext.sucursalId);
                     ReportViewer oViewer = new ReportViewer(this.puntoVentaContext.cajaId);
 
                     oCorte.DataSource = oContext.p_rpt_corte_caja_enc(corteId).ToList();

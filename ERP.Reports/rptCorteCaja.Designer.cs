@@ -90,6 +90,7 @@
             this.subVales = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subRetiros = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subReport1 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).BeginInit();
@@ -239,8 +240,9 @@
             this.label18,
             this.textBox11,
             this.subReport2,
-            this.subReport3});
-            this.groupHeader1.Height = 4.648111F;
+            this.subReport3,
+            this.subReport4});
+            this.groupHeader1.Height = 5.415F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
             // 
@@ -248,11 +250,11 @@
             // 
             this.subFormasPago.CloseBorder = false;
             this.subFormasPago.Height = 0.438F;
-            this.subFormasPago.Left = 0.063F;
+            this.subFormasPago.Left = 0.062F;
             this.subFormasPago.Name = "subFormasPago";
             this.subFormasPago.Report = null;
             this.subFormasPago.ReportName = "subReport1";
-            this.subFormasPago.Top = 2.938F;
+            this.subFormasPago.Top = 3.562F;
             this.subFormasPago.Width = 2.833F;
             // 
             // label1
@@ -455,22 +457,22 @@
             // 
             this.uiEnc1.Height = 0.1689999F;
             this.uiEnc1.HyperLink = null;
-            this.uiEnc1.Left = 0.2310001F;
+            this.uiEnc1.Left = 0.2320001F;
             this.uiEnc1.Name = "uiEnc1";
             this.uiEnc1.Style = "font-size: 8.25pt; font-weight: bold; text-align: right; ddo-char-set: 0";
             this.uiEnc1.Text = "FOLIO VENTA";
-            this.uiEnc1.Top = 4.375F;
+            this.uiEnc1.Top = 5.246F;
             this.uiEnc1.Width = 0.8809999F;
             // 
             // uiEnc2
             // 
             this.uiEnc2.Height = 0.1689999F;
             this.uiEnc2.HyperLink = null;
-            this.uiEnc2.Left = 1.187F;
+            this.uiEnc2.Left = 1.188F;
             this.uiEnc2.Name = "uiEnc2";
             this.uiEnc2.Style = "font-size: 8.25pt; font-weight: bold; text-align: right; ddo-char-set: 0";
             this.uiEnc2.Text = "TOTAL VENTA";
-            this.uiEnc2.Top = 4.375F;
+            this.uiEnc2.Top = 5.246F;
             this.uiEnc2.Width = 0.958F;
             // 
             // line1
@@ -651,18 +653,18 @@
             this.subReport2.Name = "subReport2";
             this.subReport2.Report = null;
             this.subReport2.ReportName = "subReport1";
-            this.subReport2.Top = 3.375F;
+            this.subReport2.Top = 4.062F;
             this.subReport2.Width = 2.833F;
             // 
             // subReport3
             // 
             this.subReport3.CloseBorder = false;
-            this.subReport3.Height = 0.438F;
-            this.subReport3.Left = 0.075F;
+            this.subReport3.Height = 0.6840003F;
+            this.subReport3.Left = 0.07600001F;
             this.subReport3.Name = "subReport3";
             this.subReport3.Report = null;
             this.subReport3.ReportName = "subRptCorteCajaVentasExisProducto";
-            this.subReport3.Top = 3.937F;
+            this.subReport3.Top = 4.562F;
             this.subReport3.Width = 2.833F;
             // 
             // groupFooter1
@@ -887,6 +889,17 @@
             this.subReport1.Visible = false;
             this.subReport1.Width = 2.894F;
             // 
+            // subReport4
+            // 
+            this.subReport4.CloseBorder = false;
+            this.subReport4.Height = 0.5157783F;
+            this.subReport4.Left = 0.09350002F;
+            this.subReport4.Name = "subReport4";
+            this.subReport4.Report = null;
+            this.subReport4.ReportName = "subReport1";
+            this.subReport4.Top = 2.984222F;
+            this.subReport4.Width = 2.833F;
+            // 
             // rptCorteCaja
             // 
             this.MasterReport = false;
@@ -1012,5 +1025,6 @@
         private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport1;
         private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport2;
         private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport3;
+        private GrapeCity.ActiveReports.SectionReportModel.SubReport subReport4;
     }
 }

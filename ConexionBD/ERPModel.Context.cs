@@ -21,6 +21,7 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
+
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
@@ -235,6 +236,7 @@ namespace ConexionBD
         public virtual DbSet<doc_corte_caja_datos_entrada> doc_corte_caja_datos_entrada { get; set; }
         public virtual DbSet<doc_pedidos_orden_detalle_impresion> doc_pedidos_orden_detalle_impresion { get; set; }
         public virtual DbSet<sis_preferencias_sucursales> sis_preferencias_sucursales { get; set; }
+        public virtual DbSet<cat_sucursales_productos> cat_sucursales_productos { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {
@@ -4846,6 +4848,40 @@ namespace ConexionBD
                 new ObjectParameter("pPedidoId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_pedidos_orden_total_upd", pPedidoIdParameter);
+        }
+    
+        public virtual ObjectResult<p_rpt_gramos_favor_contra_Result> p_rpt_gramos_favor_contra(Nullable<int> pSucursalId, Nullable<System.DateTime> pDel, Nullable<System.DateTime> pAl)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pDelParameter = pDel.HasValue ?
+                new ObjectParameter("pDel", pDel) :
+                new ObjectParameter("pDel", typeof(System.DateTime));
+    
+            var pAlParameter = pAl.HasValue ?
+                new ObjectParameter("pAl", pAl) :
+                new ObjectParameter("pAl", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_gramos_favor_contra_Result>("p_rpt_gramos_favor_contra", pSucursalIdParameter, pDelParameter, pAlParameter);
+        }
+    
+        public virtual ObjectResult<p_rpt_gramos_favor_contra_agrupado_Result> p_rpt_gramos_favor_contra_agrupado(Nullable<int> pSucursalId, Nullable<System.DateTime> pDel, Nullable<System.DateTime> pAl)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pDelParameter = pDel.HasValue ?
+                new ObjectParameter("pDel", pDel) :
+                new ObjectParameter("pDel", typeof(System.DateTime));
+    
+            var pAlParameter = pAl.HasValue ?
+                new ObjectParameter("pAl", pAl) :
+                new ObjectParameter("pAl", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_gramos_favor_contra_agrupado_Result>("p_rpt_gramos_favor_contra_agrupado", pSucursalIdParameter, pDelParameter, pAlParameter);
         }
     }
 }

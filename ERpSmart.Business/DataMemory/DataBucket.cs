@@ -29,6 +29,30 @@ namespace ERP.Business.DataMemory
 
             return lstProductos;
         }
+        public static List<cat_productos> GetProductosMemory(int sucursalId,bool refresh)
+        {
+
+            if (lstProductos == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+
+                if(oContext.cat_sucursales_productos.Where(w=> w.SucursalId == sucursalId).Count() > 0)
+                {
+                    lstProductos = oContext.cat_productos.Where(w => w.Estatus == true && w.cat_sucursales_productos
+                    .Where(s1 => s1.SucursalId == sucursalId).Count() > 0).ToList();
+                }
+                else
+                {
+                    lstProductos = oContext.cat_productos.Where(w => w.Estatus == true).ToList();
+                }
+
+                
+
+            }
+
+            return lstProductos;
+        }
+
 
         public static List<cat_productos> GetProductosProduccionMemory(bool refresh, tipoProductoProduccion tipo)
         {

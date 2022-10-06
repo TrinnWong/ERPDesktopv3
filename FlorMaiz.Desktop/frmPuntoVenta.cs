@@ -920,13 +920,13 @@ namespace FlorMaiz.Desktop
 
                 if(FamiliaId > 0)
                 {
-                    lstProds = DataBucket.GetProductosMemory(false).Where(w => w.Estatus == true && w.ProdParaVenta == true &&
+                    lstProds = DataBucket.GetProductosMemory(this.puntoVentaContext.sucursalId,false).Where(w => w.Estatus == true && w.ProdParaVenta == true &&
                     w.ClaveFamilia == FamiliaId).OrderBy(o => o.DescripcionCorta).ToList();
                     
                 }
                 else
                 {
-                    lstProds = DataBucket.GetProductosMemory(false).Where(w => w.Estatus == true && 
+                    lstProds = DataBucket.GetProductosMemory(this.puntoVentaContext.sucursalId, false).Where(w => w.Estatus == true && 
                     w.ProdParaVenta == true &&
                     w.cat_productos_principales.Count() > 0
                     ).OrderBy(o => o.DescripcionCorta).ToList();

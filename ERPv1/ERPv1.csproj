@@ -361,12 +361,6 @@
     <Compile Include="Catalogos\frmSucursalesDepartamentos.Designer.cs">
       <DependentUpon>frmSucursalesDepartamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\frmSucursalesProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalogos\frmSucursalesProductos.Designer.cs">
-      <DependentUpon>frmSucursalesProductos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Catalogos\frmTipoFactorSAT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -831,9 +825,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\frmSucursalesDepartamentos.resx">
       <DependentUpon>frmSucursalesDepartamentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalogos\frmSucursalesProductos.resx">
-      <DependentUpon>frmSucursalesProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\frmTipoFactorSAT.resx">
       <DependentUpon>frmTipoFactorSAT.cs</DependentUpon>

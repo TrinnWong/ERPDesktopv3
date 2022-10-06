@@ -73,6 +73,7 @@ namespace ConexionBD
             this.doc_corte_caja_datos_entrada = new HashSet<doc_corte_caja_datos_entrada>();
             this.doc_precios_especiales = new HashSet<doc_precios_especiales>();
             this.sis_preferencias_sucursales = new HashSet<sis_preferencias_sucursales>();
+            this.cat_sucursales_productos = new HashSet<cat_sucursales_productos>();
         }
     
         public int Clave { get; set; }
@@ -208,5 +209,7 @@ namespace ConexionBD
         public virtual ICollection<doc_precios_especiales> doc_precios_especiales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sis_preferencias_sucursales> sis_preferencias_sucursales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cat_sucursales_productos> cat_sucursales_productos { get; set; }
     }
 }

@@ -367,6 +367,9 @@
     <Compile Include="cat_sucursales_departamentos.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="cat_sucursales_productos.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="cat_tipos_bascula_bitacora.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -1004,6 +1007,12 @@
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_rpt_gasto_ticket_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_rpt_gramos_favor_contra_agrupado_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_rpt_gramos_favor_contra_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_rpt_movimiento_cancela_inv_Result.cs">
@@ -3113,6 +3122,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\85 Preferencia PVTicketCopias.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\86  cat_sucursales_productos.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\87 [p_rpt_gramos_favor_contra].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\88 p_rpt_gramos_favor_contra_agrupado.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">

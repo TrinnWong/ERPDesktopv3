@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -154,9 +153,10 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
+            this.timerMinimos = new System.Windows.Forms.Timer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.productosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -646,7 +646,8 @@
             this.agruparProductosToolStripMenuItem,
             this.preciosPorClienteToolStripMenuItem,
             this.pedidosPorClienteToolStripMenuItem,
-            this.registroExpressToolStripMenuItem});
+            this.registroExpressToolStripMenuItem,
+            this.productosPorSucursalToolStripMenuItem});
             this.toolStripDropDownButton1.Image = global::ERPv1.Properties.Resources.Product_documentation_icon48x48;
             this.toolStripDropDownButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -1291,6 +1292,13 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // productosPorSucursalToolStripMenuItem
+            // 
+            this.productosPorSucursalToolStripMenuItem.Name = "productosPorSucursalToolStripMenuItem";
+            this.productosPorSucursalToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
+            this.productosPorSucursalToolStripMenuItem.Text = "Productos por Sucursal";
+            this.productosPorSucursalToolStripMenuItem.Click += new System.EventHandler(this.productosPorSucursalToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1449,6 +1457,7 @@
         private System.Windows.Forms.ToolStripMenuItem gruposDePreciosEspecialesConVigenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambioDePreciosListadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónProducciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosPorSucursalToolStripMenuItem;
     }
 }
 

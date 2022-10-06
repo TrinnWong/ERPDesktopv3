@@ -14,6 +14,7 @@ namespace ERP.Reports
     /// </summary>
     public partial class rptCorteCaja : GrapeCity.ActiveReports.SectionReport
     {
+        int sucursalId;
         public bool esAdmin{get;set;}
         ERPProdEntities oContext;
         public rptCorteCaja()
@@ -28,7 +29,21 @@ namespace ERP.Reports
             
         }
 
-       
+        public rptCorteCaja(int _sucursalId)
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
+            oContext = new ERPProdEntities();
+            this.Document.PrintOptions.Margin = new GrapeCity.ActiveReports.Extensibility.Printing.Margin(0, 0, 0, 0);
+            this.Document.PrintOptions.PrintPageBorder = false;
+
+            sucursalId = _sucursalId;
+
+        }
+
+
         private void detail_Format(object sender, EventArgs e)
         {
             cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
@@ -208,7 +223,8 @@ namespace ERP.Reports
 
             #endregion
 
-           
+            
+
 
         }
 
@@ -261,6 +277,14 @@ namespace ERP.Reports
             {
                 this.subReport3.Visible = true;
             }
+            #endregion
+
+            #region gramos a favor en contra
+            var oCorte = oContext.doc_corte_caja.Where(w => w.CorteCajaId == folio).FirstOrDefault();
+            subRptGramosFavorContra oReportGFC = new subRptGramosFavorContra();
+            this.subReport4.Report = oReportGFC;
+            this.subReport4.Visible = true;
+            this.subReport4.Report.DataSource = oContext.p_rpt_gramos_favor_contra_agrupado(sucursalId, oCorte.FechaCorte, oCorte.FechaCorte).ToList();
             #endregion
         }
 

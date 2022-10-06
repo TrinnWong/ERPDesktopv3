@@ -357,6 +357,12 @@
     <Compile Include="subRptGastos.Designer.cs">
       <DependentUpon>subRptGastos.cs</DependentUpon>
     </Compile>
+    <Compile Include="subRptGramosFavorContra.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="subRptGramosFavorContra.Designer.cs">
+      <DependentUpon>subRptGramosFavorContra.cs</DependentUpon>
+    </Compile>
     <Compile Include="subRptVentaTicket_Rest.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -563,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subRptGastos.resx">
       <DependentUpon>subRptGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subRptGramosFavorContra.resx">
+      <DependentUpon>subRptGramosFavorContra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="subRptVentaTicket_Rest.resx">
       <DependentUpon>subRptVentaTicket_Rest.cs</DependentUpon>

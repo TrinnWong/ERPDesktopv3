@@ -781,6 +781,12 @@
       <DependentUpon>frmCuentaConfigSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema\Licencia.cs" />
+    <Compile Include="Sucursales\frmSucursalesProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucursales\frmSucursalesProductos.Designer.cs">
+      <DependentUpon>frmSucursalesProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="Traspasos\frmTraspasosSalidaExpressUpd.cs">
       <SubType>Form</SubType>
@@ -1141,6 +1147,9 @@
     <EmbeddedResource Include="Sistema\frmCuentaConfigSistema.resx">
       <DependentUpon>frmCuentaConfigSistema.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sucursales\frmSucursalesProductos.resx">
+      <DependentUpon>frmSucursalesProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Traspasos\frmTraspasosSalidaExpressUpd.resx">
       <DependentUpon>frmTraspasosSalidaExpressUpd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1184,6 +1193,7 @@
     <None Include="Properties\DataSources\ConexionBD.cat_rest_platillo_adicionales.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_rest_platillo_adicionales_sfam.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_sucursales.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_sucursales_productos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_tipos_descuento.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_unidadesmed.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_corte_caja_datos_entrada.datasource" />

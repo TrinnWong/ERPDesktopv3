@@ -123,6 +123,12 @@
   <data name="textBox6.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
+  <data name="textBox2.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
+  </data>
+  <data name="textBox6.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
+  </data>
   <data name="textBox5.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
@@ -139,6 +145,9 @@
     <value>$#,##0.00</value>
   </data>
   <data name="textBox11.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
+  </data>
+  <data name="textBox9.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
   <data name="textBox9.OutputFormat" xml:space="preserve">
