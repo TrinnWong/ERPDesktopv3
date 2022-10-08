@@ -60,6 +60,7 @@
             this.rpgImpresoras = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -118,9 +119,10 @@
             this.uiImpresoraTicketPV,
             this.uiImpresoraComanda,
             this.uiCancelarTicket,
-            this.uiAbrirCajon});
+            this.uiAbrirCajon,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 20;
+            this.ribbonControl1.MaxItemId = 21;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -268,6 +270,7 @@
             this.rbCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rbCuentas.ImageOptions.Image")));
             this.rbCuentas.ItemLinks.Add(this.uiMenuNuevaComanda);
             this.rbCuentas.ItemLinks.Add(this.uiMenuImprimirComanda);
+            this.rbCuentas.ItemLinks.Add(this.barButtonItem1);
             this.rbCuentas.Name = "rbCuentas";
             this.rbCuentas.Text = "Comandas";
             // 
@@ -338,6 +341,13 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Inicar Tarea Impresión Comandas";
+            this.barButtonItem1.Id = 20;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // frmMenuRest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,5 +398,6 @@
         private DevExpress.XtraBars.BarButtonItem uiImpresoraComanda;
         private DevExpress.XtraBars.BarButtonItem uiCancelarTicket;
         private DevExpress.XtraBars.BarButtonItem uiAbrirCajon;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

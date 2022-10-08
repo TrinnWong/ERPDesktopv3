@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblError = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lblError
@@ -66,7 +67,8 @@
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.labelControl1);
             this.Name = "frmImpresionAutomatica";
-            this.Text = "frmImpresionAutomatica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Imrpesión Automática de Comandas";
             this.ResumeLayout(false);
             this.PerformLayout();
 

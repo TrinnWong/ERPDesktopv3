@@ -78,7 +78,7 @@ namespace ERPv1.Reportes
             {
                 oContext = new ERPProdEntities();
 
-                uiSucursal.Properties.DataSource = oContext.cat_sucursales.ToList();
+                uiSucursal.Properties.DataSource = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,this.puntoVentaContext.usuarioId);
 
             }
             catch (Exception ex)

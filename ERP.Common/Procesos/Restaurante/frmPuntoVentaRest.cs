@@ -2369,7 +2369,7 @@ namespace ERP.Common.Procesos.Restaurante
 
         public void HabilitarTimerImpresion(bool enable)
         {
-            timer_Impresion.Enabled = enable;
+            //timer_Impresion.Enabled = enable;
         }
 
         private void uCargoTarjeta_CheckedChanged(object sender, EventArgs e)
@@ -2384,7 +2384,7 @@ namespace ERP.Common.Procesos.Restaurante
             }
             else
             {
-                obtenerCuenta(this.cuentaId);
+                llenarGridDetalle();
             }
         }
     }

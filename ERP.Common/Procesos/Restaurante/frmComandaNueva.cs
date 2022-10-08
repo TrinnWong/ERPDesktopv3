@@ -241,5 +241,16 @@ namespace ERP.Common.Procesos.Restaurante
         {
             _instance = null;
         }
+
+        private void uiActualizar_Click(object sender, EventArgs e)
+        {
+            
+            
+            llenarLkpMesas();
+            llenarLkpComanda();
+            llenarLkpMeseros();
+            uiMesa.EditValue = null;
+            uiMesa.Text = "";
+        }
     }
 }

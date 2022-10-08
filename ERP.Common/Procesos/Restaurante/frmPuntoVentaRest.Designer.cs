@@ -229,7 +229,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.catcargosadicionalesBindingSource = new System.Windows.Forms.BindingSource();
-            this.timer_Impresion = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.uiLayout)).BeginInit();
             this.uiLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -2806,12 +2805,6 @@
             // 
             this.catcargosadicionalesBindingSource.DataSource = typeof(ConexionBD.cat_cargos_adicionales);
             // 
-            // timer_Impresion
-            // 
-            this.timer_Impresion.Enabled = true;
-            this.timer_Impresion.Interval = 10000;
-            this.timer_Impresion.Tick += new System.EventHandler(this.timer_Impresion_Tick);
-            // 
             // frmPuntoVentaRest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3172,7 +3165,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraEditors.CheckEdit uiUberEats;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem49;
-        private System.Windows.Forms.Timer timer_Impresion;
         private DevExpress.XtraEditors.CheckEdit uCargoTarjeta;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem67;
     }

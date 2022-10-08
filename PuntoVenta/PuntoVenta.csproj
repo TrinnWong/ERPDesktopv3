@@ -502,6 +502,10 @@
       <Project>{11f22752-3a8a-4946-bd14-e4f2fa4f9307}</Project>
       <Name>ConexionBD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP.Background.Task\ERP.Background.Task.csproj">
+      <Project>{7875e6a0-d514-404c-b64b-6e5de6aa24e4}</Project>
+      <Name>ERP.Background.Task</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP.Common\ERP.Common.csproj">
       <Project>{3bc7f610-334b-4bfd-95da-58cabebccf8a}</Project>
       <Name>ERP.Common</Name>

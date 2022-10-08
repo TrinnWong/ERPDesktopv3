@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Objects;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -720,6 +721,22 @@ namespace PuntoVenta
             }
         }
 
-       
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           if( Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Ya exista una instanacia de la tarea abierta");
+            }
+            else
+            {
+                Process p = new Process();
+                ProcessStartInfo psi = new ProcessStartInfo("ERP.Background.Task.exe");
+
+                p.StartInfo = psi;
+                p.Start();
+            }
+                
+            
+        }
     }
 }

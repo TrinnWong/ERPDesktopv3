@@ -102,7 +102,7 @@
             this.ribbonPage2,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1083, 52);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1083, 65);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -363,7 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 450);
+            this.ClientSize = new System.Drawing.Size(1083, 509);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
             this.Name = "frmMain";

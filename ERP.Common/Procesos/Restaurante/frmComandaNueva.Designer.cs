@@ -40,6 +40,8 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.timer1 = new System.Windows.Forms.Timer();
+            this.uiActualizar = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiMesa.Properties)).BeginInit();
@@ -48,10 +50,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.uiActualizar);
             this.layoutControl1.Controls.Add(this.uiContinuar);
             this.layoutControl1.Controls.Add(this.uiMesa);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -69,7 +73,7 @@
             this.uiContinuar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.uiContinuar.Location = new System.Drawing.Point(447, 16);
             this.uiContinuar.Name = "uiContinuar";
-            this.uiContinuar.Size = new System.Drawing.Size(352, 40);
+            this.uiContinuar.Size = new System.Drawing.Size(172, 40);
             this.uiContinuar.StyleController = this.layoutControl1;
             this.uiContinuar.TabIndex = 17;
             this.uiContinuar.Text = "CONTINUAR";
@@ -133,7 +137,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem13,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(815, 77);
             this.layoutControlGroup1.TextVisible = false;
@@ -153,15 +158,35 @@
             this.layoutControlItem1.Control = this.uiContinuar;
             this.layoutControlItem1.Location = new System.Drawing.Point(431, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(358, 51);
+            this.layoutControlItem1.Size = new System.Drawing.Size(178, 51);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uiActualizar
+            // 
+            this.uiActualizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiActualizar.ImageOptions.Image")));
+            this.uiActualizar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiActualizar.Location = new System.Drawing.Point(625, 16);
+            this.uiActualizar.Name = "uiActualizar";
+            this.uiActualizar.Size = new System.Drawing.Size(174, 40);
+            this.uiActualizar.StyleController = this.layoutControl1;
+            this.uiActualizar.TabIndex = 18;
+            this.uiActualizar.Text = "Actualizar";
+            this.uiActualizar.Click += new System.EventHandler(this.uiActualizar_Click);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.uiActualizar;
+            this.layoutControlItem2.Location = new System.Drawing.Point(609, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(180, 51);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // frmComandaNueva
             // 
@@ -183,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,5 +226,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraEditors.SimpleButton uiActualizar;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }
