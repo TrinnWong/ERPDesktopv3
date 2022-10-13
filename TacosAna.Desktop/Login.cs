@@ -292,7 +292,7 @@ namespace TacosAna.Desktop
                         if(XtraMessageBox.Show("¿Deseas imprimir corte caja de supervisor?","Aviso",
                             MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            imprimirCorteGeneral(puntoVentaContext.sucursalId);
+                            imprimirCorteGeneral(puntoVentaContext.sucursalId,puntoVentaContext.cajaId);
                         }
                     }
                    
@@ -402,14 +402,14 @@ namespace TacosAna.Desktop
 
         }
 
-        private void imprimirCorteGeneral(int sucursalId)
+        private void imprimirCorteGeneral(int sucursalId,int cajaId)
         {
             try
             {
                 oContext = new ERPProdEntities();
                 ImpresorasBusiness oImpresora = new ImpresorasBusiness();
                 cat_impresoras entityImpresora;
-                entityImpresora = oImpresora.ObtenerCajaImpresora(sucursalId);
+                entityImpresora = oImpresora.ObtenerCajaImpresora(cajaId);
                 ERP.Reports.TacosAna.rptCorteCaja oReport = new ERP.Reports.TacosAna.rptCorteCaja();
                 oReport.DataSource = oContext.p_rpt_corte_caja_general(sucursalId, TimeTools.ConvertToTimeZoneDefault()).ToList();
                 oReport.CreateDocument();

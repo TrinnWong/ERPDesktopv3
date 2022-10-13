@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -93,6 +94,7 @@
             this.preciosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton6 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -153,10 +155,9 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer();
+            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.productosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -181,7 +182,7 @@
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1167, 91);
+            this.toolStrip1.Size = new System.Drawing.Size(1230, 91);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "Reportes";
             // 
@@ -759,6 +760,13 @@
             this.registroExpressToolStripMenuItem.Text = "Registro Express";
             this.registroExpressToolStripMenuItem.Click += new System.EventHandler(this.registroExpressToolStripMenuItem_Click);
             // 
+            // productosPorSucursalToolStripMenuItem
+            // 
+            this.productosPorSucursalToolStripMenuItem.Name = "productosPorSucursalToolStripMenuItem";
+            this.productosPorSucursalToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
+            this.productosPorSucursalToolStripMenuItem.Text = "Productos por Sucursal";
+            this.productosPorSucursalToolStripMenuItem.Click += new System.EventHandler(this.productosPorSucursalToolStripMenuItem_Click);
+            // 
             // toolStripDropDownButton6
             // 
             this.toolStripDropDownButton6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1256,10 +1264,10 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 585);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 628);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1167, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1230, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1286,25 +1294,18 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1167, 607);
+            this.pictureBox1.Size = new System.Drawing.Size(1230, 650);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // productosPorSucursalToolStripMenuItem
-            // 
-            this.productosPorSucursalToolStripMenuItem.Name = "productosPorSucursalToolStripMenuItem";
-            this.productosPorSucursalToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
-            this.productosPorSucursalToolStripMenuItem.Text = "Productos por Sucursal";
-            this.productosPorSucursalToolStripMenuItem.Click += new System.EventHandler(this.productosPorSucursalToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(1167, 607);
+            this.ClientSize = new System.Drawing.Size(1230, 650);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);

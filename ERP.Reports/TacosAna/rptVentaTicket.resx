@@ -126,6 +126,15 @@
   <data name="textBox14.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
+  <data name="textBox10.OutputFormat" xml:space="preserve">
+    <value>#,##0.00</value>
+  </data>
+  <data name="textBox12.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
+  </data>
+  <data name="textBox14.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
+  </data>
   <data name="textBox13.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>

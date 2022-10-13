@@ -266,19 +266,12 @@ namespace ERPv1
 
         private void tsiUsuarioSistema_Click(object sender, EventArgs e)
         {
-            //Seguridad.frmUsuarios frm = new Seguridad.frmUsuarios();
-            //frm.WindowState = FormWindowState.Maximized;
-            //frm.Show();
-
             frmUsuarios frmo = frmUsuarios.GetInstance();
 
             if (!frmo.Visible)
             {
-                //frmo = new frmPuntoVenta();
-                //frmo.MdiParent = this;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.ShowDialog();
-
             }
         }
 

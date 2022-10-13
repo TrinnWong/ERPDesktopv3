@@ -379,10 +379,12 @@ namespace TacosAna.Desktop
         {
             frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
             frmo.puntoVentaContext = this.puntoVentaContext;
-            if (frmo.generarCorteCaja(false))
+            if (frmo.generarCorteCaja(false,false))
             {
                 imprimirCorteCajero();
+                System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
                 Application.Exit();
+                this.Close();
             }
             
         }
@@ -901,7 +903,7 @@ namespace TacosAna.Desktop
                 oContext = new ERPProdEntities();
                 ImpresorasBusiness oImpresora = new ImpresorasBusiness();
                 cat_impresoras entityImpresora;
-                entityImpresora = oImpresora.ObtenerCajaImpresora(this.puntoVentaContext.sucursalId);
+                entityImpresora = oImpresora.ObtenerCajaImpresora(this.puntoVentaContext.cajaId);
                 ERP.Reports.TacosAna.rptCorteCajaCajero1 oReport = new ERP.Reports.TacosAna.rptCorteCajaCajero1();
                 DateTime fechaCorte = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 oReport.DataSource = oContext.p_rpt_corte_caja_cajero(this.puntoVentaContext.sucursalId,
