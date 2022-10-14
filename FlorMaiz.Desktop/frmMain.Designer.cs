@@ -62,6 +62,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.uiMnuBascula = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,9 +92,10 @@
             this.uiDevoluciones,
             this.uiEntradaDirecta,
             this.uiSalidaDirecta,
-            this.uiSincronizar});
+            this.uiSincronizar,
+            this.uiMnuBascula});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 23;
+            this.uiRibbonControl.MaxItemId = 24;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -295,6 +297,7 @@
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem9);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiProductoSobrante);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiMnuBascula);
             this.uiRibbonPageControl.Name = "uiRibbonPageControl";
             this.uiRibbonPageControl.Text = "ribbonPageGroup1";
             // 
@@ -359,6 +362,14 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
+            // uiMnuBascula
+            // 
+            this.uiMnuBascula.Caption = "Lector Báscula";
+            this.uiMnuBascula.Id = 23;
+            this.uiMnuBascula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMnuBascula.ImageOptions.Image")));
+            this.uiMnuBascula.Name = "uiMnuBascula";
+            this.uiMnuBascula.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMnuBascula_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,5 +423,6 @@
         private DevExpress.XtraBars.BarButtonItem uiEntradaDirecta;
         private DevExpress.XtraBars.BarButtonItem uiSalidaDirecta;
         private DevExpress.XtraBars.BarButtonItem uiSincronizar;
+        private DevExpress.XtraBars.BarButtonItem uiMnuBascula;
     }
 }

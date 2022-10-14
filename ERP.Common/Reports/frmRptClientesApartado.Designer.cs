@@ -50,7 +50,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(55, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sucursal";
             // 
@@ -86,6 +86,7 @@
             this.Name = "frmRptClientesApartado";
             this.Text = "Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRptVentasVendedor_FormClosing);
+            this.Load += new System.EventHandler(this.frmRptClientesApartado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

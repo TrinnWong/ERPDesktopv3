@@ -87,6 +87,23 @@ namespace ERPv1
                 }
             }
 
+            HabilitarDeshabilitarMenu();
+
+        }
+
+        private void HabilitarDeshabilitarMenu()
+        {
+            if(puntoVentaContext.usuarioId != 1)
+            {
+                tsCatalogos.Visible = false;
+                tsRH.Visible = false;
+                tsContabilidad.Visible = false;
+                tsConfiguracion.Visible = false;
+                cambioDePreciosListadoToolStripMenuItem.Visible = false;
+                cambioDePrecioIndividualToolStripMenuItem.Visible = false;
+
+            }
+            
         }
 
         private void frmMenu_FormClosed(object sender, FormClosedEventArgs e)
@@ -1509,6 +1526,16 @@ namespace ERPv1
                 frmo.Show();
 
             }
+        }
+
+        private void salidasPorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void corteDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

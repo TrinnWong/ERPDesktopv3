@@ -725,7 +725,7 @@ namespace PuntoVenta
         {
            if( Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
             {
-                ERP.Utils.MessageBoxUtil.ShowWarning("Ya exista una instanacia de la tarea abierta");
+                ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
             }
             else
             {

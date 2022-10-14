@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -540,6 +541,22 @@ namespace FlorMaiz.Desktop
             ERP.Business.DataMemory.DataBucket.GetClientesProductosPrecios(true);
             ERP.Business.DataMemory.DataBucket.GetFamiliasMemory(true);
             ERP.Business.DataMemory.DataBucket.GetProductosProduccionMemory(true, ERP.Business.Enumerados.tipoProductoProduccion.TODO);
+        }
+
+        private void uiMnuBascula_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
+            }
+            else
+            {
+                Process p = new Process();
+                ProcessStartInfo psi = new ProcessStartInfo("ERP.Background.Task.exe");
+
+                p.StartInfo = psi;
+                p.Start();
+            }
         }
     }
 }

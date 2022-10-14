@@ -178,7 +178,8 @@ namespace ERPv1.Inventarios
         public void CargarCombos()
         {
             //uiSucursalDestino.DataSource = oContext.cat_sucursales.Where(w => w.Estatus == true).ToList();
-            uiSucursalOrigen.DataSource = oContext.cat_sucursales.Where(w => w.Estatus == true).ToList();
+            uiSucursalOrigen.DataSource = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.usuarioId);
             LoadTipoMerma();
         }
 

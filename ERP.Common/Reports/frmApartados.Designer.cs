@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(55, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sucursal";
             // 
@@ -66,7 +66,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(53, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.Size = new System.Drawing.Size(26, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Del";
             // 
@@ -82,7 +82,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(53, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 13);
+            this.label4.Size = new System.Drawing.Size(17, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Al";
             // 
@@ -108,7 +108,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cliente";
             // 
@@ -127,7 +127,7 @@
             this.uiSoloVencido.AutoSize = true;
             this.uiSoloVencido.Location = new System.Drawing.Point(312, 87);
             this.uiSoloVencido.Name = "uiSoloVencido";
-            this.uiSoloVencido.Size = new System.Drawing.Size(94, 17);
+            this.uiSoloVencido.Size = new System.Drawing.Size(107, 19);
             this.uiSoloVencido.TabIndex = 11;
             this.uiSoloVencido.Text = "Solo Vencidos";
             this.uiSoloVencido.UseVisualStyleBackColor = true;
@@ -162,6 +162,7 @@
             this.Name = "frmApartados";
             this.Text = "Apartados";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRptCorteCajaResumido_FormClosing);
+            this.Load += new System.EventHandler(this.frmApartados_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

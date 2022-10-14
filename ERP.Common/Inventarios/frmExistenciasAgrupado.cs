@@ -55,7 +55,8 @@ namespace ERP.Common.Inventarios
 
             // int empresaId = puntoVentaContext.empresaId;
 
-            uiSucursal.DataSource = oContext.cat_sucursales.Where(w => w.Empresa == 1).ToList();
+            uiSucursal.DataSource = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.usuarioId);
 
             uiLinea.SelectedValue = 0;
             uiFamilia.SelectedValue = 0;

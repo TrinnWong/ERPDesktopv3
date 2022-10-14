@@ -1,6 +1,6 @@
 ﻿namespace ERP.Background.Task
 {
-    partial class Form1
+    partial class frmBasculaLector
     {
         /// <summary>
         /// Required designer variable.
@@ -94,7 +94,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Flor de Maiz...";
+            this.Text = "Lector de Báscula";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);

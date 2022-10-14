@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace ERP.Background.Task
 {
-    public partial class Form1 : Form
+    public partial class frmBasculaLector : Form
     {
         int err = 0;
         BasculaLectura basculaControlador;
@@ -27,7 +27,7 @@ namespace ERP.Background.Task
         decimal ultimoPesoOcupadoPorApp = 0;
         decimal ultimoIndefinido = 0;
         decimal ultimoPeso = 0;
-        public Form1()
+        public frmBasculaLector()
         {
             InitializeComponent();
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -70,7 +69,7 @@
             this.unidadesDeMedidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCajas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiRubros = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsRH = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsiDepartamentos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiEstatusEmpleado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiTipoContrato = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +94,7 @@
             this.pedidosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton6 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsContabilidad = new System.Windows.Forms.ToolStripDropDownButton();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.sucursalesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +116,7 @@
             this.corteDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDiarioDeTiradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroSobrantesConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsConfiguracion = new System.Windows.Forms.ToolStripDropDownButton();
             this.configuradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuradorTicketVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuradorTicketApartadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +154,7 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
+            this.timerMinimos = new System.Windows.Forms.Timer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
@@ -170,11 +169,11 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsCatalogos,
-            this.toolStripButton1,
+            this.tsRH,
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton6,
+            this.tsContabilidad,
             this.toolStripDropDownButton3,
-            this.toolStripDropDownButton2,
+            this.tsConfiguracion,
             this.toolStripDropDownButton4,
             this.uiMenuRestaurante,
             this.toolStripDropDownButton5,
@@ -543,9 +542,9 @@
             this.tsiRubros.Text = "Rubros";
             this.tsiRubros.Click += new System.EventHandler(this.tsiRubros_Click);
             // 
-            // toolStripButton1
+            // tsRH
             // 
-            this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsRH.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiDepartamentos,
             this.tsiEstatusEmpleado,
             this.tsiTipoContrato,
@@ -554,15 +553,15 @@
             this.tsiPuestos,
             this.tsiFormaPago,
             this.descuentosEmpleadoToolStripMenuItem});
-            this.toolStripButton1.Image = global::ERPv1.Properties.Resources.User_Files_icon48x48;
-            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(62, 88);
-            this.toolStripButton1.Text = "R.H.";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.tsRH.Image = global::ERPv1.Properties.Resources.User_Files_icon48x48;
+            this.tsRH.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsRH.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsRH.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsRH.Name = "tsRH";
+            this.tsRH.Size = new System.Drawing.Size(62, 88);
+            this.tsRH.Text = "R.H.";
+            this.tsRH.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsRH.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // tsiDepartamentos
             // 
@@ -767,17 +766,17 @@
             this.productosPorSucursalToolStripMenuItem.Text = "Productos por Sucursal";
             this.productosPorSucursalToolStripMenuItem.Click += new System.EventHandler(this.productosPorSucursalToolStripMenuItem_Click);
             // 
-            // toolStripDropDownButton6
+            // tsContabilidad
             // 
-            this.toolStripDropDownButton6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsContabilidad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargosToolStripMenuItem});
-            this.toolStripDropDownButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton6.Image")));
-            this.toolStripDropDownButton6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton6.Name = "toolStripDropDownButton6";
-            this.toolStripDropDownButton6.Size = new System.Drawing.Size(127, 88);
-            this.toolStripDropDownButton6.Text = "Contabilidad";
-            this.toolStripDropDownButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.tsContabilidad.Image = ((System.Drawing.Image)(resources.GetObject("tsContabilidad.Image")));
+            this.tsContabilidad.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsContabilidad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsContabilidad.Name = "tsContabilidad";
+            this.tsContabilidad.Size = new System.Drawing.Size(127, 88);
+            this.tsContabilidad.Text = "Contabilidad";
+            this.tsContabilidad.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // cargosToolStripMenuItem
             // 
@@ -871,6 +870,7 @@
             this.salidasPorToolStripMenuItem.Name = "salidasPorToolStripMenuItem";
             this.salidasPorToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
             this.salidasPorToolStripMenuItem.Text = "Salida Por";
+            this.salidasPorToolStripMenuItem.Click += new System.EventHandler(this.salidasPorToolStripMenuItem_Click);
             // 
             // salidasPorTraspasoToolStripMenuItem
             // 
@@ -935,6 +935,7 @@
             this.corteDeCajaToolStripMenuItem.Name = "corteDeCajaToolStripMenuItem";
             this.corteDeCajaToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
             this.corteDeCajaToolStripMenuItem.Text = "Corte de Caja";
+            this.corteDeCajaToolStripMenuItem.Click += new System.EventHandler(this.corteDeCajaToolStripMenuItem_Click);
             // 
             // registroDiarioDeTiradasToolStripMenuItem
             // 
@@ -950,9 +951,9 @@
             this.registroSobrantesConsultaToolStripMenuItem.Text = "Registro Sobrantes - Consulta";
             this.registroSobrantesConsultaToolStripMenuItem.Click += new System.EventHandler(this.registroSobrantesConsultaToolStripMenuItem_Click);
             // 
-            // toolStripDropDownButton2
+            // tsConfiguracion
             // 
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsConfiguracion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configuradorToolStripMenuItem,
             this.configuradorTicketVentaToolStripMenuItem,
             this.configuradorTicketApartadoToolStripMenuItem,
@@ -962,13 +963,13 @@
             this.cargosAdicionalesConfiguraciónToolStripMenuItem,
             this.configuracionBasculaToolStripMenuItem,
             this.preferenciasToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = global::ERPv1.Properties.Resources.Apps_system_software_update_icon24x24;
-            this.toolStripDropDownButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(139, 88);
-            this.toolStripDropDownButton2.Text = "Configuración";
-            this.toolStripDropDownButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.tsConfiguracion.Image = global::ERPv1.Properties.Resources.Apps_system_software_update_icon24x24;
+            this.tsConfiguracion.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsConfiguracion.Name = "tsConfiguracion";
+            this.tsConfiguracion.Size = new System.Drawing.Size(139, 88);
+            this.tsConfiguracion.Text = "Configuración";
+            this.tsConfiguracion.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // configuradorToolStripMenuItem
             // 
@@ -1348,7 +1349,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiRubros;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripButton1;
+        private System.Windows.Forms.ToolStripDropDownButton tsRH;
         private System.Windows.Forms.ToolStripMenuItem tsiDepartamentos;
         private System.Windows.Forms.ToolStripMenuItem tsiEstatusEmpleado;
         private System.Windows.Forms.ToolStripMenuItem tsiTipoContrato;
@@ -1376,7 +1377,7 @@
         private System.Windows.Forms.ToolStripMenuItem centroDeCostosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem promocionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripDropDownButton tsConfiguracion;
         private System.Windows.Forms.ToolStripMenuItem configuradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
         private System.Windows.Forms.ToolStripMenuItem entradaPorTraspasoToolStripMenuItem;
@@ -1435,7 +1436,7 @@
         private System.Windows.Forms.ToolStripMenuItem productosRecepciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preciosPorClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosPorClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton6;
+        private System.Windows.Forms.ToolStripDropDownButton tsContabilidad;
         private System.Windows.Forms.ToolStripMenuItem cargosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sucursalesDepartamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;

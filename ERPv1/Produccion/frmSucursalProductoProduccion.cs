@@ -122,9 +122,8 @@ namespace ERPv1.Inventarios
             try
             {
                 oContext = new ERPProdEntities();
-                uiSucursal.Properties.DataSource = oContext
-                    .cat_sucursales
-                    .Where(w => w.Estatus == true).ToList();
+                uiSucursal.Properties.DataSource = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.usuarioId);
             }
             catch (Exception ex)
             {

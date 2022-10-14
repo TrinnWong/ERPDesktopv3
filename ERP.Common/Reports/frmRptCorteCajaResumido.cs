@@ -28,12 +28,13 @@ namespace ERP.Common.Reports
         {
             InitializeComponent();
             oContext = new ERPProdEntities();
-            cargarCombos();
+           
         }
 
         public void cargarCombos()
         {
-            List<cat_sucursales> lstSucursales = oContext.cat_sucursales.ToList();
+            List<cat_sucursales> lstSucursales = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.usuarioId);
 
             uiSucursal.DataSource = lstSucursales.ToList();
         }
@@ -108,6 +109,11 @@ namespace ERP.Common.Reports
         private void button2_Click(object sender, EventArgs e)
         {
             showReport(true);
+        }
+
+        private void frmRptCorteCajaResumido_Load(object sender, EventArgs e)
+        {
+            cargarCombos();
         }
     }
 }
