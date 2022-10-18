@@ -3136,6 +3136,15 @@
     <Content Include="Versiones\2022.06.01\89 p_productos_importacion.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\90 [p_corte_caja_inventario_generacion].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\91 [p_rpt_Comanda].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\91_1 INSERT PVRetirosQuitarMontoDisponible.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

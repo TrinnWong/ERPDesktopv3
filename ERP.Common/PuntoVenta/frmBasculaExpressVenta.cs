@@ -20,6 +20,7 @@ namespace ERP.Common.PuntoVenta
     public partial class frmBasculaExpressVenta : FormBaseXtraForm
     {
         int err = 0;
+        public bool esNuevaVenta;
         bool listoParaPagar = false;
         private static frmBasculaExpressVenta _instance;
         Models.Pedidos.PedidoDetalleModel pedidoSeleccionado;
@@ -79,7 +80,8 @@ namespace ERP.Common.PuntoVenta
                 return result.Where(w =>
                 (pedidoId == 0 || w.pedidoId == pedidoId) &&
                 ((w.basculaPendiente && !uiMostrarPedidoSinVenta.Checked) ||
-                (uiMostrarPedidoSinVenta.Checked && (w.ventaId) == 0)) && w.TipoCaja.ToUpper().Contains("MOVIL")
+                (uiMostrarPedidoSinVenta.Checked && (w.ventaId) == 0)) && 
+                (w.TipoCaja.ToUpper().Contains("MOVIL") || w.TipoCaja.ToUpper().Contains("EN SUCURSAL"))
                 ).ToList();
 
 
@@ -261,6 +263,7 @@ namespace ERP.Common.PuntoVenta
             {
                 //uiGuardar.Enabled = false;
                 timerBascula.Enabled = false;
+                timerBascula2.Enabled = false;
                 if (puntoVentaContext.conectarConBascula)
                 {
                     basculaControlador.cerrarBascula();
@@ -369,6 +372,7 @@ namespace ERP.Common.PuntoVenta
         private void Limpiar()
         {
             pedidoSeleccionado = null;
+            uiCantidad.EditValue = 0;
             uiPeso.EditValue = 0;
             uiPedido.Text = "";
             uiProducto.Text = "";
@@ -384,6 +388,9 @@ namespace ERP.Common.PuntoVenta
             uiClaveProducto.Text = "";
             listoAgregarProducto = false;
             timerBascula.Enabled = false;
+            timerBascula2.Enabled = false;
+            
+            esNuevaVenta = false;
         }
 
         private void frmBasculaExpress_FormClosing(object sender, FormClosingEventArgs e)
@@ -399,7 +406,7 @@ namespace ERP.Common.PuntoVenta
 
         }
 
-        private void repBtnSeleccion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void SeleccionarGridFila()
         {
             try
             {
@@ -441,6 +448,10 @@ namespace ERP.Common.PuntoVenta
                                     ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+        private void repBtnSeleccion_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            SeleccionarGridFila();
         }
 
         private void uiPeso_Properties_ValueChanged(object sender, EventArgs e)
@@ -503,6 +514,16 @@ namespace ERP.Common.PuntoVenta
                 {
                     e.Appearance.BackColor = Color.Yellow;
                 }
+                if(Convert.ToString(uiGridView.GetRowCellValue(e.RowHandle, "TipoCaja"))!= "")
+                {
+                    if (Convert.ToString(uiGridView.GetRowCellValue(e.RowHandle, "TipoCaja")).ToUpper() != "MOVIL")
+                    {
+                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.ForeColor = Color.White;
+
+                    }
+                }
+               
 
             }
             catch (Exception ex)
@@ -757,6 +778,37 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
+                if(pedidoSeleccionado == null && !esNuevaVenta)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Necesita especificar si es nueva venta o seleccionar algún pedido");
+                    return;
+                }
+                
+                if (pedidoSeleccionado.pedidoId == 0)
+                {
+                    doc_pedidos_orden entityNew = new doc_pedidos_orden();
+                    entityNew.PedidoId = (oContext.doc_pedidos_orden.Max(m => (int?)m.PedidoId) ?? 0)+1;
+                    entityNew.Activo = true;
+                    entityNew.CajaId = this.puntoVentaContext.cajaId;
+                    entityNew.Cancelada = false;
+                    entityNew.CreadoEl = DateTime.Now;
+                    entityNew.CreadoPor = this.puntoVentaContext.usuarioId;
+                    entityNew.FechaApertura = DateTime.Now;
+                    entityNew.Folio = ConexionBD.PedidoOrdenBusiness.ObtenerFolioPorTipo(Business.Enumerados.tipoPedido.PedidoVentaCaja, this.puntoVentaContext.sucursalId);
+                    entityNew.Impuestos = 0;
+                    entityNew.Subtotal = 0;
+                    entityNew.Total = 0;
+                    entityNew.FechaCierre = DateTime.Now;
+                    entityNew.TipoPedidoId = (int)Business.Enumerados.tipoPedido.PedidoVentaCaja;
+                    entityNew.SucursalId = this.puntoVentaContext.sucursalId;
+
+                    oContext.doc_pedidos_orden.Add(entityNew);
+
+                    oContext.SaveChanges();
+                    pedidoSeleccionado.pedidoId = entityNew.PedidoId;
+                   
+                }
+
                 DateTime date = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 doc_pedidos_orden_detalle oPedidoDetalle = new doc_pedidos_orden_detalle();
 
@@ -776,7 +828,7 @@ namespace ERP.Common.PuntoVenta
 
                 oContext.p_doc_pedidos_orden_total_upd(oPedidoDetalle.PedidoId);
 
-                if(productoNuevo.ProdVtaBascula == true)
+                if (productoNuevo.ProdVtaBascula == true)
                 {
                     Business.BasculasBusiness.InsertBitacora(basculaConfiguracion.BasculaId, puntoVentaContext.sucursalId,
                    puntoVentaContext.usuarioId, oPedidoDetalle.Cantidad,
@@ -786,6 +838,7 @@ namespace ERP.Common.PuntoVenta
 
                 Limpiar();
                 LoadPedidos(oPedidoDetalle.PedidoId);
+              
                 PrepararSiguienteProductoBascula();
 
 
@@ -805,6 +858,19 @@ namespace ERP.Common.PuntoVenta
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            if(pedidoSeleccionado == null)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario seleccionar un pedido para continuar o seleccionar nueva venta");
+                return;
+            }
+            else
+            {
+                if(pedidoSeleccionado.pedidoId == 0 && !esNuevaVenta)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario seleccionar un pedido para continuar o seleccionar nueva venta");
+                    return;
+                }
+            }
 
             frmProductosMosaico oForm = new frmProductosMosaico(this.puntoVentaContext, Business.Enumerados.tipoModalProducto.venta);
             oForm.StartPosition = FormStartPosition.CenterScreen;
@@ -857,6 +923,19 @@ namespace ERP.Common.PuntoVenta
 
         private void uiBuscarProducto_Click(object sender, EventArgs e)
         {
+            if (pedidoSeleccionado == null)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario seleccionar un pedido para continuar o seleccionar nueva venta");
+                return;
+            }
+            else
+            {
+                if (pedidoSeleccionado.pedidoId == 0 && !esNuevaVenta )
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario seleccionar un pedido para continuar o seleccionar nueva venta");
+                    return;
+                }
+            }
 
             frmProductosBusqueda frmBuscar = new frmProductosBusqueda();
             frmBuscar.soloParaVenta = true;
@@ -875,8 +954,14 @@ namespace ERP.Common.PuntoVenta
                     productoNuevo = ERP.Business.DataMemory.DataBucket.GetProductosMemory(false)
                         .Where(w => w.Clave == clave).FirstOrDefault();
 
+                    
+
                     seleccionarProducto("", 1);
                     habilitarEdicionCantidad(true);
+                    if(productoNuevo.ProdVtaBascula == true)
+                    {
+                        timerBascula2.Enabled = true;
+                    }
                     uiCantidad.Focus();
                     listoAgregarProducto = true;
 
@@ -952,6 +1037,54 @@ namespace ERP.Common.PuntoVenta
             if(e.KeyCode == Keys.Enter)
             {
                 agregarProducto();
+            }
+        }
+
+        private void uiNuevaVenta_Click(object sender, EventArgs e)
+        {
+            esNuevaVenta = true;
+            pedidoSeleccionado = new PedidoDetalleModel();  
+            this.lblMensaje.Text = "NUEVA VENTA (AGREGA LOS PRODUCTOS)";
+            lyMensaje.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void uiGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            SeleccionarGridFila();
+        }
+
+        private void timerBascula2_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.puntoVentaContext.conectarConBascula)
+                {
+                    uiPeso.EditValue = basculaControlador.ObtenPesoSinDefault();
+                }
+                else
+                {
+                    if (basculaControlador == null)
+                    {
+                        basculaControlador = new BasculaLectura(this.puntoVentaContext);
+                    }
+                    uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                timerBascula.Enabled = false;
+
+                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                    "ERP",
+                                    this.Name,
+                                    ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
     }

@@ -1640,6 +1640,17 @@ namespace ConexionBD
            return folio;
         }
 
+        public static string ObtenerFolioPorTipo(ERP.Business.Enumerados.tipoPedido tipoPedido, int sucursalId)
+        {
+            string folio = "";
+            ERPProdEntities oContext = new ERPProdEntities();
+            folio = (oContext.doc_pedidos_orden
+                .Where(w => w.SucursalId == sucursalId && w.TipoPedidoId == (int)tipoPedido).Count() + 1).ToString();
+
+
+            return folio;
+        }
+
         public doc_pedidos_orden GuardarPedido(
             doc_pedidos_orden pedidoParam,             
             ERP.Business.Enumerados.tipoPedido tipoPedido,
