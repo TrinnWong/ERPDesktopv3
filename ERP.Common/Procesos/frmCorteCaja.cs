@@ -232,12 +232,17 @@ namespace ERP.Procesos
 
                         string emailEnvio = "";
 
-                        if (entityConf != null)
+                        ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                            this.puntoVentaContext.sucursalId, "CorteCajaEmail",this.puntoVentaContext.usuarioId, ref emailEnvio);
+
+                        if(emailEnvio.Length == 0)
                         {
-                            emailEnvio = entityConf.SuperEmail1 != null ? entityConf.SuperEmail1 + ";" : "";
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail2 != null ? entityConf.SuperEmail2 + ";" : "");
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail3 != null ? entityConf.SuperEmail3 + ";" : "");
-                            emailEnvio = emailEnvio + (entityConf.SuperEmail4 != null ? entityConf.SuperEmail4 + ";" : "");
+                            ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario configurar la preferencia CorteCajaEmail");
+                            return;
+                        }
+
+                        if (entityConf != null)
+                        {                            
 
                             if (emailEnvio.Length > 0)
                             {

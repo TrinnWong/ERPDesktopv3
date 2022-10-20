@@ -134,7 +134,10 @@ namespace ERP.Common.PuntoVenta
                     oContext = new ERPProdEntities();
                     cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
-                    bool requiereDeclaracion = this.puntoVentaContext.esSupervisor ? (entity.SupDeclaracionFondoCorte ?? false) : (entity.CajDeclaracionFondoCorte ?? false);
+                    bool requiereDeclaracion = (this.puntoVentaContext.esSupervisor ? (entity.SupDeclaracionFondoCorte ?? false) : (entity.CajDeclaracionFondoCorte ?? false)) 
+                        || ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                this.puntoVentaContext.sucursalId,
+                "PVCorteCajaOcultarDetalleCajero", this.puntoVentaContext.usuarioId);
 
                     //bool reqClave = oContext.cat_configuracion.FirstOrDefault().CajeroReqClaveSupervisor ?? false;
                     if (entity != null)

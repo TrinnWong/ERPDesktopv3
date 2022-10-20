@@ -27,6 +27,7 @@ namespace FlorMaiz.Desktop
 {
     public partial class frmPuntoVenta : FormBaseXtraForm
     {
+        int productoDefaultId = 0;
         SerialPort portBascula;
         List<ProductoModel0> lstProductos;
         bool desactivarBotonesTouch=false;
@@ -116,6 +117,15 @@ namespace FlorMaiz.Desktop
                     uiLayoutBotonPedidosApp.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                    
                 }
+                
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                   this.puntoVentaContext.sucursalId, "PVProductoDefault", this.puntoVentaContext.usuarioId,ref error))
+                {
+                    if(error.Length > 0)
+                    {
+                       productoDefaultId=  DataBucket.GetProductosMemory(false).Where(w => w.Clave == error).FirstOrDefault().ProductoId;
+                    }
+                }
 
                 HabilitarBasculaSiNo();
                 
@@ -168,6 +178,10 @@ namespace FlorMaiz.Desktop
                 uiCliente.EditValue = null;
                 uiClave.Select();
                 uiClave.SelectAll();
+
+                
+
+               
             }
             catch (Exception ex)
             {
@@ -407,6 +421,10 @@ namespace FlorMaiz.Desktop
                 uiClave.Focus();
                 calcularTotales();
                 LlenarBotonesProducto("uiFamilia1");
+                if (productoDefaultId > 0)
+                {
+                    SeleccionProducto("", productoDefaultId);
+                }
             }
             catch (Exception ex)
             {
@@ -781,6 +799,12 @@ namespace FlorMaiz.Desktop
 
                     inicializar();
                     limpiar();
+
+                    if (productoDefaultId > 0)
+                    {
+                        SeleccionProducto("", productoDefaultId);
+                    }
+
 
             }
 
@@ -1358,8 +1382,8 @@ namespace FlorMaiz.Desktop
 
         private void uiClave_Leave(object sender, EventArgs e)
         {
-            idProductoSel = 0;
-            SeleccionProducto("", 0);
+            idProductoSel = uiClave.Text.Length >0 ? 0 : productoDefaultId;
+            SeleccionProducto("", idProductoSel);
         }
 
         private void uiProducto13_Click(object sender, EventArgs e)

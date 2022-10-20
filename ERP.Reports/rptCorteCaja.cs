@@ -284,7 +284,7 @@ namespace ERP.Reports
             subRptGramosFavorContra oReportGFC = new subRptGramosFavorContra();
             this.subReport4.Report = oReportGFC;
             this.subReport4.Visible = true;
-            this.subReport4.Report.DataSource = oContext.p_rpt_gramos_favor_contra_agrupado(sucursalId, oCorte.FechaCorte, oCorte.FechaCorte).ToList();
+            this.subReport4.Report.DataSource = oContext.p_rpt_gramos_favor_contra_agrupado(corte.doc_ventas.SucursalId, oCorte.FechaCorte, oCorte.FechaCorte).ToList();
             #endregion
         }
 

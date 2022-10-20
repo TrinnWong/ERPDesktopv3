@@ -54,9 +54,20 @@ namespace ERPv1.Clientes
         {
             try
             {
-                uiCliente.Properties.DataSource = oContext
+                if(puntoVentaContext.usuarioId == 1)
+                {
+                    uiCliente.Properties.DataSource = oContext
                     .cat_clientes
                     .Where(w => w.Activo == true).ToList();
+                }
+                else
+                {
+                    uiCliente.Properties.DataSource = oContext
+                    .cat_clientes
+                    .Where(w => w.Activo == true && w.SucursalBaseId == puntoVentaContext.sucursalId).ToList();
+                }
+            
+                
             }
             catch (Exception ex)
             {

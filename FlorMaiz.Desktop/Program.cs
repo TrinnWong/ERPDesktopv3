@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TacosAna.Desktop;
 
-namespace FlorMaiz.Desktop
+namespace PuntoVenta.Desktop
 {
     static class Program
     {

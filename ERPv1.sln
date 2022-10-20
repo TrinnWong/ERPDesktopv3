@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TacosAna.Desktop", "TacosAn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Service.Windows", "ERP.Service.Windows\ERP.Service.Windows.csproj", "{739D4178-751D-4BB7-B4B3-8F646F1CB3DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlorMaiz.Desktop", "FlorMaiz.Desktop\FlorMaiz.Desktop.csproj", "{1F335804-219A-4A62-82AA-A2EC3DCE72C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoVenta.Desktop", "FlorMaiz.Desktop\PuntoVenta.Desktop.csproj", "{1F335804-219A-4A62-82AA-A2EC3DCE72C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Produccion.Desktop", "ERP.Produccion.Desktop\ERP.Produccion.Desktop.csproj", "{8C0A0B8D-7D67-439D-BB98-AA4C1287B2D0}"
 EndProject
