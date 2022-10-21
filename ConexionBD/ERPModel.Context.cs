@@ -23,7 +23,7 @@ namespace ConexionBD
         }
 
         public ERPProdEntities(string sc)
-            : base("name=ERPProdEntities")
+           : base("name=ERPProdEntities")
         {
         }
 

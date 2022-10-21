@@ -82,6 +82,7 @@
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="CreadoPor" Type="int" Nullable="false" />
           <Property Name="PesoDefault" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="SucursalId" Type="int" />
         </EntityType>
         <EntityType Name="cat_cajas">
           <Key>
@@ -423,6 +424,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="PCName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="ModificadoEl" Type="datetime" />
+          <Property Name="SucursalId" Type="int" />
         </EntityType>
         <EntityType Name="cat_estados">
           <Key>
@@ -1532,6 +1534,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Peso" Type="float" Nullable="false" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="OcupadaPorApp" Type="bit" />
+          <Property Name="SucursalId" Type="int" />
         </EntityType>
         <EntityType Name="doc_gastos">
           <Key>
@@ -4797,6 +4800,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_cat_basculas_configuracion_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
+          <End Role="cat_basculas_configuracion" Type="Self.cat_basculas_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_basculas_configuracion">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_cat_cajas_basculas_configuracion_cat_basculas">
           <End Role="cat_basculas" Type="Self.cat_basculas" Multiplicity="1" />
           <End Role="cat_basculas_configuracion" Type="Self.cat_basculas_configuracion" Multiplicity="*" />
@@ -5046,6 +5061,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Principal>
             <Dependent Role="cat_empresas_config_inventario1">
               <PropertyRef Name="EmpresaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_equipos_computo_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
+          <End Role="cat_equipos_computo" Type="Self.cat_equipos_computo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_equipos_computo">
+              <PropertyRef Name="SucursalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6654,6 +6681,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Principal>
             <Dependent Role="doc_equipo_computo_bascula_registro">
               <PropertyRef Name="EquipoConputoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_equipo_computo_bascula_registro_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
+          <End Role="doc_equipo_computo_bascula_registro" Type="Self.doc_equipo_computo_bascula_registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_equipo_computo_bascula_registro">
+              <PropertyRef Name="SucursalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -11287,6 +11326,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_equipos_computo" EntitySet="cat_equipos_computo" />
             <End Role="cat_basculas_configuracion" EntitySet="cat_basculas_configuracion" />
           </AssociationSet>
+          <AssociationSet Name="FK_cat_basculas_configuracion_cat_sucursales" Association="Self.FK_cat_basculas_configuracion_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_basculas_configuracion" EntitySet="cat_basculas_configuracion" />
+          </AssociationSet>
           <AssociationSet Name="FK_cat_cajas_basculas_configuracion_cat_basculas" Association="Self.FK_cat_cajas_basculas_configuracion_cat_basculas">
             <End Role="cat_basculas" EntitySet="cat_basculas" />
             <End Role="cat_basculas_configuracion" EntitySet="cat_basculas_configuracion" />
@@ -11370,6 +11413,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_cat_empresas_config_inventario_cat_empresas_config_inventario" Association="Self.FK_cat_empresas_config_inventario_cat_empresas_config_inventario">
             <End Role="cat_empresas_config_inventario" EntitySet="cat_empresas_config_inventario" />
             <End Role="cat_empresas_config_inventario1" EntitySet="cat_empresas_config_inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_equipos_computo_cat_sucursales" Association="Self.FK_cat_equipos_computo_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_equipos_computo" EntitySet="cat_equipos_computo" />
           </AssociationSet>
           <AssociationSet Name="FK_cat_estados_cat_paises" Association="Self.FK_cat_estados_cat_paises">
             <End Role="cat_paises" EntitySet="cat_paises" />
@@ -11905,6 +11952,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           </AssociationSet>
           <AssociationSet Name="FK_doc_equipo_computo_bascula_registro_cat_equipos_computo" Association="Self.FK_doc_equipo_computo_bascula_registro_cat_equipos_computo">
             <End Role="cat_equipos_computo" EntitySet="cat_equipos_computo" />
+            <End Role="doc_equipo_computo_bascula_registro" EntitySet="doc_equipo_computo_bascula_registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_equipo_computo_bascula_registro_cat_sucursales" Association="Self.FK_doc_equipo_computo_bascula_registro_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_equipo_computo_bascula_registro" EntitySet="doc_equipo_computo_bascula_registro" />
           </AssociationSet>
           <AssociationSet Name="FK_doc_gastos_cat_cajas" Association="Self.FK_doc_gastos_cat_cajas">
@@ -13724,6 +13775,9 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_precios_especiales" Relationship="ERPProdModel.FK_doc_precios_especiales_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_precios_especiales" />
           <NavigationProperty Name="sis_preferencias_sucursales" Relationship="ERPProdModel.FK_sis_preferencias_sucursales_cat_sucursales" FromRole="cat_sucursales" ToRole="sis_preferencias_sucursales" />
           <NavigationProperty Name="cat_sucursales_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_sucursales_productos" />
+          <NavigationProperty Name="doc_equipo_computo_bascula_registro" Relationship="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_equipo_computo_bascula_registro" />
+          <NavigationProperty Name="cat_equipos_computo" Relationship="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_equipos_computo" />
+          <NavigationProperty Name="cat_basculas_configuracion" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_basculas_configuracion" />
         </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
@@ -21964,6 +22018,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pDel" Mode="In" Type="DateTime" />
             <Parameter Name="pAl" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <AssociationSet Name="FK_doc_equipo_computo_bascula_registro_cat_sucursales" Association="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_equipo_computo_bascula_registro" EntitySet="doc_equipo_computo_bascula_registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_equipos_computo_cat_sucursales" Association="ERPProdModel.FK_cat_equipos_computo_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_equipos_computo" EntitySet="cat_equipos_computo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_basculas_configuracion_cat_sucursales" Association="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_basculas_configuracion" EntitySet="cat_basculas_configuracion" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -24982,6 +25048,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="cat_basculas" Relationship="ERPProdModel.FK_cat_cajas_basculas_configuracion_cat_basculas" FromRole="cat_basculas_configuracion" ToRole="cat_basculas" />
           <NavigationProperty Name="cat_equipos_computo" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_equipos_computo" FromRole="cat_basculas_configuracion" ToRole="cat_equipos_computo" />
           <Property Name="PesoDefault" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="SucursalId" Type="Int32" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" FromRole="cat_basculas_configuracion" ToRole="cat_sucursales" />
         </EntityType>
         <EntityType Name="cat_equipos_computo">
           <Key>
@@ -24995,6 +25063,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="ModificadoEl" Type="DateTime" Precision="3" />
           <NavigationProperty Name="cat_basculas_configuracion" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_equipos_computo" FromRole="cat_equipos_computo" ToRole="cat_basculas_configuracion" />
           <NavigationProperty Name="doc_equipo_computo_bascula_registro" Relationship="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_equipos_computo" FromRole="cat_equipos_computo" ToRole="doc_equipo_computo_bascula_registro" />
+          <Property Name="SucursalId" Type="Int32" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" FromRole="cat_equipos_computo" ToRole="cat_sucursales" />
         </EntityType>
         <Association Name="FK_cat_cajas_basculas_configuracion_cat_basculas">
           <End Type="ERPProdModel.cat_basculas" Role="cat_basculas" Multiplicity="1" />
@@ -26961,6 +27031,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="cat_equipos_computo" Relationship="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_equipos_computo" FromRole="doc_equipo_computo_bascula_registro" ToRole="cat_equipos_computo" />
           <Property Name="OcupadaPorApp" Type="Boolean" />
+          <Property Name="SucursalId" Type="Int32" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales" FromRole="doc_equipo_computo_bascula_registro" ToRole="cat_sucursales" />
         </EntityType>
         <Association Name="FK_doc_equipo_computo_bascula_registro_cat_equipos_computo">
           <End Type="ERPProdModel.cat_equipos_computo" Role="cat_equipos_computo" Multiplicity="1" />
@@ -27708,6 +27780,42 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Type="String" Name="Tipo" Nullable="false" />
           <Property Type="Decimal" Name="Total" Nullable="false" />
         </ComplexType>
+        <Association Name="FK_doc_equipo_computo_bascula_registro_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="0..1" />
+          <End Type="ERPProdModel.doc_equipo_computo_bascula_registro" Role="doc_equipo_computo_bascula_registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_equipo_computo_bascula_registro">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_equipos_computo_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="0..1" />
+          <End Type="ERPProdModel.cat_equipos_computo" Role="cat_equipos_computo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_equipos_computo">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_basculas_configuracion_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="0..1" />
+          <End Type="ERPProdModel.cat_basculas_configuracion" Role="cat_basculas_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_basculas_configuracion">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -30948,6 +31056,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="cat_basculas_configuracion">
             <EntityTypeMapping TypeName="ERPProdModel.cat_basculas_configuracion">
               <MappingFragment StoreEntitySet="cat_basculas_configuracion">
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="PesoDefault" ColumnName="PesoDefault" />
                 <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
                 <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
@@ -30963,6 +31072,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="cat_equipos_computo">
             <EntityTypeMapping TypeName="ERPProdModel.cat_equipos_computo">
               <MappingFragment StoreEntitySet="cat_equipos_computo">
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
                 <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
                 <ScalarProperty Name="PCName" ColumnName="PCName" />
@@ -31584,6 +31694,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="doc_equipo_computo_bascula_registro">
             <EntityTypeMapping TypeName="ERPProdModel.doc_equipo_computo_bascula_registro">
               <MappingFragment StoreEntitySet="doc_equipo_computo_bascula_registro">
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="OcupadaPorApp" ColumnName="OcupadaPorApp" />
                 <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
                 <ScalarProperty Name="Peso" ColumnName="Peso" />

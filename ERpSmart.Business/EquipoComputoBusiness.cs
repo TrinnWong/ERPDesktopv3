@@ -12,7 +12,7 @@ namespace ERP.Business
     public class EquipoComputoBusiness : BusinessObject
     {
         
-        public static ResultAPIModel RegistrarEquipo()
+        public static ResultAPIModel RegistrarEquipo(int sucursalId)
         {
             ResultAPIModel result = new ResultAPIModel();
             string PCId = string.Empty;
@@ -37,7 +37,7 @@ namespace ERP.Business
                     oContext = new ERPProdEntities();
 
                     cat_equipos_computo equipo = oContext.cat_equipos_computo
-                        .Where(w => w.HardwareID == PCId).FirstOrDefault();
+                        .Where(w => w.HardwareID == PCId && w.SucursalId == sucursalId).FirstOrDefault();
 
                     if(equipo == null)
                     {
@@ -48,7 +48,7 @@ namespace ERP.Business
                         equipo.PCName = Environment.MachineName;
                         equipo.IPPublica = "";
                         equipo.CreadoEl = DateTime.Now;
-
+                        equipo.SucursalId = sucursalId;
                         oContext.cat_equipos_computo.Add(equipo);
 
                         oContext.SaveChanges();

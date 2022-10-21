@@ -539,7 +539,7 @@ namespace ERP.Business
             ResultAPIModel result = new ResultAPIModel();
             try
             {
-                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId,entity.SucursalId);
                 using (TransactionScope scope = new TransactionScope())
                 {
                     try

@@ -328,7 +328,7 @@ namespace TacosAna.Desktop
                         }
                     #endregion
 
-                   
+                    EquipoComputoBusiness.RegistrarEquipo(puntoVentaContext.sucursalId);
 
                     frmMain oMenu = frmMain.GetInstance();
                     oMenu.puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
@@ -403,7 +403,7 @@ namespace TacosAna.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
-            EquipoComputoBusiness.RegistrarEquipo();
+            
         }
 
         private void uiSucursal_SelectedValueChanged(object sender, EventArgs e)

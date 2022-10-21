@@ -23,7 +23,7 @@ namespace ERP.Business
                     {
                         try
                         {
-                            var basculaConfig = BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                            var basculaConfig = BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                             #region movimiento Salida Encabezado
                             doc_inv_movimiento movimientoSalida = new doc_inv_movimiento();

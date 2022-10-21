@@ -94,7 +94,7 @@ namespace ERP.Business
 
                     #region Báscula Bitácora
                     cat_basculas_configuracion configBascula = null;
-                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
                     if (productos.Where(w => w.tieneBascula).Count() > 0)
                     {
                         
@@ -268,7 +268,7 @@ namespace ERP.Business
 
                             if (configBascula == null)
                             {
-                                configBascula = BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                                configBascula = BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
                             }
                             if(configBascula!= null)
                             {

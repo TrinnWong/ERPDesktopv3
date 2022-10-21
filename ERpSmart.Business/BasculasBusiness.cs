@@ -16,10 +16,13 @@ namespace ERP.Business
         cat_basculas_configuracion conf = null;
         int contadorBitacora = 0;
         public bool vaciando = false;
-        public BasculasBusiness()
+        int sucursalId;
+
+        public BasculasBusiness(int _sucursalId)
         {
             bitacora = new List<doc_basculas_bitacora>();
-            conf = GetConfiguracionPCLocal(0);
+            conf = GetConfiguracionPCLocal_NoStatic(0);
+            sucursalId = _sucursalId;
         }
         public ResultAPIModel Insert(ref cat_basculas entity,int usuarioId)
         {
@@ -107,7 +110,7 @@ namespace ERP.Business
         }
 
 
-        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId)
+        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId,int sucursalId)
         {
             cat_basculas_configuracion result = null;
             try
@@ -117,8 +120,38 @@ namespace ERP.Business
 
                 string hardwareId = EquipoComputoBusiness.GetProcessorID();
 
-                result = oContext.cat_basculas_configuracion.Where(w=> w.cat_equipos_computo.HardwareID == hardwareId).FirstOrDefault();
+                result = oContext.cat_basculas_configuracion
+                    .Where(w=> w.cat_equipos_computo.HardwareID == hardwareId && w.SucursalId == sucursalId).FirstOrDefault();
                     
+
+            }
+            catch (Exception ex)
+            {
+
+                int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                      "ERP",
+                                      "BasculasBusiness",
+                                      ex);
+
+                ConstantesBusiness.messageErrorBitacora.Replace("{id}", err.ToString());
+            }
+
+            return result;
+        }
+
+        public  cat_basculas_configuracion GetConfiguracionPCLocal_NoStatic(int usuarioId)
+        {
+            cat_basculas_configuracion result = null;
+            try
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+
+
+                string hardwareId = EquipoComputoBusiness.GetProcessorID();
+
+                result = oContext.cat_basculas_configuracion
+                    .Where(w => w.cat_equipos_computo.HardwareID == hardwareId && w.cat_equipos_computo.SucursalId == sucursalId).FirstOrDefault();
+
 
             }
             catch (Exception ex)
@@ -165,7 +198,7 @@ namespace ERP.Business
                 ERPProdEntities oContext = new ERPProdEntities();
 
                 cat_equipos_computo entityEquipoComputo = oContext.cat_equipos_computo
-                    .Where(w => w.HardwareID == HardwareId).FirstOrDefault();               
+                    .Where(w => w.HardwareID == HardwareId && w.SucursalId == entity.SucursalId).FirstOrDefault();               
                
 
                 if(entityEquipoComputo.cat_basculas_configuracion != null)
@@ -184,6 +217,7 @@ namespace ERP.Business
                     entityUpd.ReadBufferSize = entity.ReadBufferSize;
                     entityUpd.WriteBufferSize = entity.WriteBufferSize;
                     entityUpd.PesoDefault = entity.PesoDefault;
+                    entityUpd.SucursalId = entity.SucursalId;
                     oContext.SaveChanges();
                 }
                 else
@@ -199,6 +233,7 @@ namespace ERP.Business
                     entityIns.ReadBufferSize = entity.ReadBufferSize;
                     entityIns.WriteBufferSize = entity.WriteBufferSize;
                     entityIns.PesoDefault = entity.PesoDefault;
+                    entityIns.SucursalId = entity.SucursalId;
                     oContext.cat_basculas_configuracion.Add(entityIns);
 
                     oContext.SaveChanges();
@@ -294,7 +329,7 @@ namespace ERP.Business
 
             if(contadorBitacora >= 10 && !vaciando)
             {
-                BasculasBusiness oRegistroBascula = new BasculasBusiness();
+                BasculasBusiness oRegistroBascula = new BasculasBusiness(sucursalId);
                ResultAPIModel task = oRegistroBascula.VaciarRegistrarBitacora(bitacora);
 
                 if (!task.ok)

@@ -125,8 +125,8 @@ namespace ERP.Produccion.Desktop
                     puntoVentaContext.giroPuntoVenta = configPV != null ? configPV.Giro : ConexionBD.Enumerados.systemGiro.ESTANDAR.ToString();
                     puntoVentaContext.solicitarComanda = configPV.SolicitarComanda ?? false;
                     puntoVentaContext.tieneRec = configPV.TieneRec??false;
-                   
-                   
+
+                    EquipoComputoBusiness.RegistrarEquipo(puntoVentaContext.sucursalId);
 
                     /***Insertar Sesion***/
                     ObjectParameter pSesionId = new ObjectParameter("pSesionId", "");
@@ -222,7 +222,7 @@ namespace ERP.Produccion.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
-            EquipoComputoBusiness.RegistrarEquipo();
+            
         }
     }
 }

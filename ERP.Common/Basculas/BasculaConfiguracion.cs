@@ -43,7 +43,7 @@ namespace ERP.Common.Basculas
                 oContext = new ERPProdEntities();
                 LoadComboBasculas();
                 LoadPuertos();
-                entity = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                entity = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,this.puntoVentaContext.sucursalId);
 
                 if(entity != null)
                 {
@@ -79,6 +79,7 @@ namespace ERP.Common.Basculas
                 entity.ReadBufferSize = Convert.ToInt32(uiReadBufferSize.EditValue);
                 entity.WriteBufferSize = Convert.ToInt32(uiWriteBufferSize.EditValue);
                 entity.PesoDefault = Convert.ToDecimal( uiPesoDefault.EditValue);
+                entity.SucursalId = puntoVentaContext.sucursalId;
                 ResultAPIModel result = BasculasBusiness.InsertUpdateLocalConfig(entity, puntoVentaContext.usuarioId);
 
                 if (!result.ok)

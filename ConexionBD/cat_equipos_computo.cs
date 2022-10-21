@@ -26,9 +26,11 @@ namespace ConexionBD
         public string PCName { get; set; }
         public System.DateTime CreadoEl { get; set; }
         public Nullable<System.DateTime> ModificadoEl { get; set; }
+        public Nullable<int> SucursalId { get; set; }
     
         public virtual cat_basculas_configuracion cat_basculas_configuracion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_equipo_computo_bascula_registro> doc_equipo_computo_bascula_registro { get; set; }
+        public virtual cat_sucursales cat_sucursales { get; set; }
     }
 }

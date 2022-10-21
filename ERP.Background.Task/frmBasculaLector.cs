@@ -32,7 +32,7 @@ namespace ERP.Background.Task
             InitializeComponent();
 
             puntoVentaContext = new PuntoVentaContext();
-            oBascula = new BasculasBusiness();
+            
            
 
         }
@@ -44,6 +44,7 @@ namespace ERP.Background.Task
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            oBascula = new BasculasBusiness(puntoVentaContext.sucursalId);
             PlaceLowerRight();
             Hide();
             configApp();
@@ -75,7 +76,7 @@ namespace ERP.Background.Task
                 puntoVentaContext.empresaId = Convert.ToInt32(fileValues[0]);
                 puntoVentaContext.sucursalId = Convert.ToInt32(fileValues[1]);
                 puntoVentaContext.usuarioId = 1;
-                basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
                 
                 basculaControlador = new BasculaLectura(basculaConfiguracion);
                this.TXThdid.Text = EquipoComputoBusiness.GetProcessorID();
@@ -114,7 +115,7 @@ namespace ERP.Background.Task
                         uiPeso.Value = peso;                        
 
                         doc_equipo_computo_bascula_registro registro = oContext.doc_equipo_computo_bascula_registro
-                                .Where(w => w.EquipoConputoId == basculaConfiguracion.EquipoComputoId).FirstOrDefault();
+                                .Where(w => w.EquipoConputoId == basculaConfiguracion.EquipoComputoId && w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault();
 
                         if(registro != null)
                         {
@@ -130,6 +131,7 @@ namespace ERP.Background.Task
                                 registro.CreadoEl = DateTime.Now;
                                 registro.Peso = (double)peso;
                                 registro.EquipoConputoId = basculaConfiguracion.EquipoComputoId;
+                                registro.SucursalId = puntoVentaContext.sucursalId;
                                 oContext.doc_equipo_computo_bascula_registro.Add(registro);
                                 oContext.SaveChanges();
                         }

@@ -1872,7 +1872,7 @@ namespace ConexionBD
 
                             #region Báscula Bitácora
                             cat_basculas_configuracion configBascula = null;
-                            configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                            configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
                             if (lstProductos.Where(w => w.tieneBascula).Count() > 0)
                             {
 

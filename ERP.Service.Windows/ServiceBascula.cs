@@ -23,7 +23,7 @@ namespace ERP.Service.Windows
         public ServiceBascula()
         {
             InitializeComponent();
-            oBascula = new BasculasBusiness();
+            oBascula = new BasculasBusiness(0);
             eventLog1 = new System.Diagnostics.EventLog();
             if (!System.Diagnostics.EventLog.SourceExists("ERPLogSource"))
             {
@@ -35,7 +35,7 @@ namespace ERP.Service.Windows
             configBascula = null;
             try
             {
-                configBascula = BasculasBusiness.GetConfiguracionPCLocal(1);
+                configBascula = BasculasBusiness.GetConfiguracionPCLocal(1,0);
 
                 if (configBascula != null)
                 {

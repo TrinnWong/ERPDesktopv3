@@ -114,7 +114,7 @@ namespace ERP.Business
 
                             if (configBascula == null)
                             {
-                                configBascula = BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                                configBascula = BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
                             }
                             //Bitácora Báscula
                             foreach (var itemBascula in lstProductos.Where(w => w.tieneBascula))

@@ -36,7 +36,7 @@ namespace ERP.Business.Tools
         private void ConfigurarBascula()
         {
                 if(configBascula == null)
-                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
 
                 if (configBascula != null)
                 {

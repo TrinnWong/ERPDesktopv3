@@ -23,8 +23,10 @@ namespace ConexionBD
         public System.DateTime CreadoEl { get; set; }
         public int CreadoPor { get; set; }
         public Nullable<decimal> PesoDefault { get; set; }
+        public Nullable<int> SucursalId { get; set; }
     
         public virtual cat_basculas cat_basculas { get; set; }
         public virtual cat_equipos_computo cat_equipos_computo { get; set; }
+        public virtual cat_sucursales cat_sucursales { get; set; }
     }
 }

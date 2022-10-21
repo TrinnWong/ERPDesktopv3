@@ -44,7 +44,7 @@ namespace PuntoVenta
 
                 return;
             }
-            EquipoComputoBusiness.RegistrarEquipo();
+            
             oContext = new ERPProdEntities();
             oLogin = new ConexionBD.LoginCaja();
             uiCaja.DataSource = oContext.cat_cajas.ToList();
@@ -261,8 +261,8 @@ namespace PuntoVenta
                     puntoVentaContext.giroPuntoVenta = configPV != null ? configPV.Giro : ConexionBD.Enumerados.systemGiro.ESTANDAR.ToString();
                     puntoVentaContext.solicitarComanda = configPV.SolicitarComanda ?? false;
                     puntoVentaContext.tieneRec = configPV.TieneRec??false;
-                   
-                   
+
+                    EquipoComputoBusiness.RegistrarEquipo(sucursalId);
 
                     /***Insertar Sesion***/
                     ObjectParameter pSesionId = new ObjectParameter("pSesionId", "");

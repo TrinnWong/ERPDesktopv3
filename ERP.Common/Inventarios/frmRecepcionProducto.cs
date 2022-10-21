@@ -373,7 +373,7 @@ namespace ERP.Common.Inventarios
         {
             try
             {
-                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
 
                 if(configBascula == null)
                 {
@@ -477,7 +477,8 @@ namespace ERP.Common.Inventarios
             try
             {
                 
-                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,
+                    puntoVentaContext.sucursalId);
                 doc_inv_movimiento entityMov = new doc_inv_movimiento();
 
                 entityMov.Activo = true;

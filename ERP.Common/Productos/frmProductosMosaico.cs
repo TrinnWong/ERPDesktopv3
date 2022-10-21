@@ -88,7 +88,8 @@ namespace ERP.Common.Productos
 
           
             resultForm = new Models.Pedidos.PedidoDetalleModel();
-            basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+            basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,
+                puntoVentaContext.sucursalId);
 
             if(basculaConfiguracion != null)
             {

@@ -180,7 +180,8 @@ namespace ERP.Common.PuntoVenta
 
         private void frmBasculaExpress_Load(object sender, EventArgs e)
         {
-            basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+            basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,
+                puntoVentaContext.sucursalId);
             basculaControlador = new BasculaLectura(this.puntoVentaContext);
 
             LoadPedidos();

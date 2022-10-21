@@ -753,6 +753,9 @@
         <EntityTypeShape EntityType="ERPProdModel.cat_sucursales_productos" Width="1.5" PointX="7.5" PointY="161.5" />
         <AssociationConnector Association="ERPProdModel.FK_cat_sucursales_productos_cat_productos" />
         <AssociationConnector Association="ERPProdModel.FK_cat_sucursales_productos_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

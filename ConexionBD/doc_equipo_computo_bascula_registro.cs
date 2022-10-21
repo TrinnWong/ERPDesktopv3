@@ -19,7 +19,9 @@ namespace ConexionBD
         public double Peso { get; set; }
         public System.DateTime CreadoEl { get; set; }
         public Nullable<bool> OcupadaPorApp { get; set; }
+        public Nullable<int> SucursalId { get; set; }
     
         public virtual cat_equipos_computo cat_equipos_computo { get; set; }
+        public virtual cat_sucursales cat_sucursales { get; set; }
     }
 }

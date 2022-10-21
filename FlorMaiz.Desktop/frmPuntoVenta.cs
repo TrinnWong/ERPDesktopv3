@@ -148,7 +148,7 @@ namespace FlorMaiz.Desktop
             {
                 if (puntoVentaContext.conectarConBascula)
                 {
-                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
                     if (configBascula != null)
                     {
                         portBascula = new SerialPort(configBascula.PortName);
@@ -1515,7 +1515,7 @@ namespace FlorMaiz.Desktop
             {
                 if (configBascula == null)
                 {
-                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                    configBascula = BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
                 }
                 if (configBascula != null)
                 {

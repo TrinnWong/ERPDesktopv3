@@ -32,7 +32,7 @@ namespace ERP.Common.Catalogos
         public frmBasculaUpd()
         {
             InitializeComponent();
-            oBasculas = new BasculasBusiness();
+            
         }
 
         private void uiGuardar_Click(object sender, EventArgs e)
@@ -87,6 +87,7 @@ namespace ERP.Common.Catalogos
         {
             try
             {
+                oBasculas = new BasculasBusiness(puntoVentaContext.sucursalId);
                 LoadComboSucursales();
                 if (idForm == 0)
                 {

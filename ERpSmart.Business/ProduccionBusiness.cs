@@ -29,7 +29,7 @@ namespace ERP.Business
                 cat_basculas_configuracion configBascula = null;
                 if (lstEntradas.Where(w=> w.UsoBascula).Count() > 0)
                 {
-                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
                     if (configBascula == null)
                     {
                         result.error = "No existe configuración de Báscula";
@@ -257,7 +257,7 @@ namespace ERP.Business
 
                 if(lstSalidas.Where(w=> w.UsoBascula).Count() > 0)
                 {
-                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId);
+                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId, puntoVentaContext.sucursalId);
 
                     if (configBascula == null)
                     {
@@ -659,7 +659,7 @@ namespace ERP.Business
 
                     if (usoBascula)
                     {
-                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                         if (configBascula == null)
                         {
@@ -782,7 +782,7 @@ namespace ERP.Business
 
                     if (usoBascula)
                     {
-                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                         if (configBascula == null)
                         {
@@ -1303,7 +1303,7 @@ namespace ERP.Business
 
                     if (usoBascula)
                     {
-                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                         if (configBascula == null)
                         {
@@ -1401,7 +1401,7 @@ namespace ERP.Business
 
                     if (usoBascula)
                     {
-                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                        configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                         if (configBascula == null)
                         {
@@ -1502,7 +1502,7 @@ namespace ERP.Business
 
                         if (usoBascula)
                         {
-                            configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId);
+                            configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
 
                             if (configBascula == null)
                             {

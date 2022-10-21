@@ -74,6 +74,9 @@ namespace ConexionBD
             this.doc_precios_especiales = new HashSet<doc_precios_especiales>();
             this.sis_preferencias_sucursales = new HashSet<sis_preferencias_sucursales>();
             this.cat_sucursales_productos = new HashSet<cat_sucursales_productos>();
+            this.doc_equipo_computo_bascula_registro = new HashSet<doc_equipo_computo_bascula_registro>();
+            this.cat_equipos_computo = new HashSet<cat_equipos_computo>();
+            this.cat_basculas_configuracion = new HashSet<cat_basculas_configuracion>();
         }
     
         public int Clave { get; set; }
@@ -211,5 +214,11 @@ namespace ConexionBD
         public virtual ICollection<sis_preferencias_sucursales> sis_preferencias_sucursales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cat_sucursales_productos> cat_sucursales_productos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_equipo_computo_bascula_registro> doc_equipo_computo_bascula_registro { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cat_equipos_computo> cat_equipos_computo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cat_basculas_configuracion> cat_basculas_configuracion { get; set; }
     }
 }
