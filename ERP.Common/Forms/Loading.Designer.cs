@@ -37,9 +37,9 @@
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.Location = new System.Drawing.Point(21, 24);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(495, 36);
+            this.lblMensaje.Size = new System.Drawing.Size(421, 29);
             this.lblMensaje.TabIndex = 0;
-            this.lblMensaje.Text = "Procesando, por favoe espere......";
+            this.lblMensaje.Text = "Procesando, por favor espere......";
             // 
             // LoadingForm
             // 
@@ -51,7 +51,7 @@
             this.MinimizeBox = false;
             this.Name = "LoadingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Procesando";
+            this.Text = "Procesando........";
             this.Load += new System.EventHandler(this.LoadingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

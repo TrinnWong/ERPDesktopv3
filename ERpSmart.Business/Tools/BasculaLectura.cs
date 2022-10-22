@@ -30,6 +30,12 @@ namespace ERP.Business.Tools
 
             ConfigurarBascula();
         }
+        public BasculaLectura(cat_basculas_configuracion _configBascula, PuntoVentaContext _puntoVentaContext)
+        {
+            configBascula = _configBascula;
+            puntoVentaContext = _puntoVentaContext;
+            ConfigurarBascula();
+        }
 
 
 

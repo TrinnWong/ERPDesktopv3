@@ -21,7 +21,7 @@ namespace ERP.Business
         public BasculasBusiness(int _sucursalId)
         {
             bitacora = new List<doc_basculas_bitacora>();
-            conf = GetConfiguracionPCLocal_NoStatic(0);
+            conf = GetConfiguracionPCLocal_NoStatic(1);
             sucursalId = _sucursalId;
         }
         public ResultAPIModel Insert(ref cat_basculas entity,int usuarioId)

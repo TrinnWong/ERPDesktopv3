@@ -7,6 +7,7 @@ using ERP.Business.Tools;
 using ERP.Common.Base;
 using ERP.Common.Catalogos;
 using ERP.Common.Dialogos;
+using ERP.Common.Forms;
 using ERP.Common.Pedido;
 using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
@@ -27,6 +28,7 @@ namespace FlorMaiz.Desktop
 {
     public partial class frmPuntoVenta : FormBaseXtraForm
     {
+        LoadingForm oFormLoading;
         int productoDefaultId = 0;
         SerialPort portBascula;
         List<ProductoModel0> lstProductos;
@@ -70,6 +72,7 @@ namespace FlorMaiz.Desktop
         {
             try
             {
+                oFormLoading = new LoadingForm("Procesando...");
                 LoadClientes();
                 entityConfig = oContext.cat_configuracion.FirstOrDefault();
                 oPedido = new PedidoOrdenBusiness();
@@ -618,6 +621,7 @@ namespace FlorMaiz.Desktop
         {
             try
             {
+              
                 //Si es un pedido con reparto, verificar si se debe de registrar devolución de reparto
                 if (pedido != null)
                 {
@@ -1185,7 +1189,9 @@ namespace FlorMaiz.Desktop
 
         private void uiPagar_Click(object sender, EventArgs e)
         {
+            oFormLoading.Show();
             pagar();
+            oFormLoading.Hide();
         }
 
         private void uiRecibi_EditValueChanged(object sender, EventArgs e)
@@ -1713,7 +1719,7 @@ namespace FlorMaiz.Desktop
 
         private void frmPuntoVenta_KeyDown(object sender, KeyEventArgs e)
         {
-
+           
         }
 
         private void uiPesoVal_KeyUp(object sender, KeyEventArgs e)
@@ -1730,6 +1736,12 @@ namespace FlorMaiz.Desktop
                     uiClave.SelectAll();
                 }
                 
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                oFormLoading.Show();
+                pagar();
+                oFormLoading.Hide();
             }
         }
 

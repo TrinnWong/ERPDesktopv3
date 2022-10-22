@@ -44,7 +44,7 @@ namespace ERP.Background.Task
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            oBascula = new BasculasBusiness(puntoVentaContext.sucursalId);
+            
             PlaceLowerRight();
             Hide();
             configApp();
@@ -77,8 +77,8 @@ namespace ERP.Background.Task
                 puntoVentaContext.sucursalId = Convert.ToInt32(fileValues[1]);
                 puntoVentaContext.usuarioId = 1;
                 basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
-                
-                basculaControlador = new BasculaLectura(basculaConfiguracion);
+                oBascula = new BasculasBusiness(puntoVentaContext.sucursalId);
+                basculaControlador = new BasculaLectura(basculaConfiguracion,puntoVentaContext);
                this.TXThdid.Text = EquipoComputoBusiness.GetProcessorID();
 
             }
@@ -223,7 +223,11 @@ namespace ERP.Background.Task
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            basculaControlador.cerrarBasculaTarea();
+            if(basculaControlador != null)
+            {
+                basculaControlador.cerrarBasculaTarea();
+            }
+          
             //Application.Restart();
             //Environment.Exit(0);
         }
