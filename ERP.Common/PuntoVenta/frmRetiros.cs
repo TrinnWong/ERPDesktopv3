@@ -75,20 +75,24 @@ namespace ERP.Common.PuntoVenta
 
                 decimal? disponibleEfectivo = oContext.p_caja_efectivo_disponible_sel(this.puntoVentaContext.cajaId, fechaActual).FirstOrDefault().Value;
 
-                if (uiMonto.Value > disponibleEfectivo)
+                if(!ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PVRetiroQuitarValDisponible", this.puntoVentaContext.usuarioId))
                 {
-                    if(ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,this.puntoVentaContext.sucursalId, "PVRetirosQuitarMontoDisponible",this.puntoVentaContext.usuarioId))
+                    if (uiMonto.Value > disponibleEfectivo)
                     {
-                        ERP.Utils.MessageBoxUtil.ShowWarning("No hay fondos suficientes para realizar el retiro");
-                        return;
+                        if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PVRetirosQuitarMontoDisponible", this.puntoVentaContext.usuarioId))
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowWarning("No hay fondos suficientes para realizar el retiro");
+                            return;
+                        }
+                        else
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowWarning("Aún no se dispone del efectivo solicitado, efectivo disponible $" + string.Format("{0:C}", disponibleEfectivo));
+                            return;
+                        }
+
                     }
-                    else
-                    {
-                        ERP.Utils.MessageBoxUtil.ShowWarning("Aún no se dispone del efectivo solicitado, efectivo disponible $" + string.Format("{0:C}", disponibleEfectivo));
-                        return;
-                    }
-                  
                 }
+                
 
                 doc_retiros entity = new doc_retiros();
                 entity.CajaId = this.puntoVentaContext.cajaId;

@@ -26,7 +26,16 @@ namespace ERP.Reports
             oContext = new ERPProdEntities();
             this.Document.PrintOptions.Margin = new GrapeCity.ActiveReports.Extensibility.Printing.Margin(0, 0, 0, 0);
             this.Document.PrintOptions.PrintPageBorder = false;
-            
+
+            cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+
+            if (entity != null)
+            {
+
+                detail.Visible = entity.CajeroIncluirDetalleVenta ?? false;
+
+            }
+
         }
 
         public rptCorteCaja(int _sucursalId)
@@ -41,19 +50,21 @@ namespace ERP.Reports
 
             sucursalId = _sucursalId;
 
-        }
-
-
-        private void detail_Format(object sender, EventArgs e)
-        {
             cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
             if (entity != null)
             {
 
                 detail.Visible = entity.CajeroIncluirDetalleVenta ?? false;
-                
+
             }
+
+        }
+
+
+        private void detail_Format(object sender, EventArgs e)
+        {
+            
         }
 
         private void pageHeader_Format(object sender, EventArgs e)

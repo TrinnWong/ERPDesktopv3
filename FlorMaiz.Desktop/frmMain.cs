@@ -552,7 +552,7 @@ namespace FlorMaiz.Desktop
             else
             {
                 Process p = new Process();
-                ProcessStartInfo psi = new ProcessStartInfo("ERP.Background.Task.exe");
+                ProcessStartInfo psi = new ProcessStartInfo(@"Bascula\ERP.Background.Task.exe");
 
                 p.StartInfo = psi;
                 p.Start();

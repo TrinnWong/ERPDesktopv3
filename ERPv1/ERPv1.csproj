@@ -425,6 +425,12 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gastos\frmGastosNegocioList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos\frmGastosNegocioList.Designer.cs">
+      <DependentUpon>frmGastosNegocioList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventarios\CargaInicialUpd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -853,6 +859,9 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gastos\frmGastosNegocioList.resx">
+      <DependentUpon>frmGastosNegocioList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\CargaInicialUpd.resx">
       <DependentUpon>CargaInicialUpd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1055,6 +1064,7 @@
     <None Include="Properties\DataSources\ConexionBD.doc_cargo_adicional_config.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_clientes_productos_precios.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_empleados_productos_descuentos.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.doc_gastos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_pagos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_pedidos_orden_detalle.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_promociones_cm.datasource" />
