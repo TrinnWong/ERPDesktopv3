@@ -75,8 +75,9 @@ namespace ERPv1.Gastos
             try
             {
                 oContext = new ConexionBD.ERPProdEntities();
-                uiSucursal.Properties.DataSource = ERP.Business.SucursalBusiness.ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
-                    this.puntoVentaContext.sucursalId);
+                uiSucursal.Properties.DataSource = ERP.Business.SucursalBusiness
+                    .ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.usuarioId);
             }
             catch (Exception ex)
             {
@@ -91,9 +92,12 @@ namespace ERPv1.Gastos
 
         private void frmGastosNegocioList_Load(object sender, EventArgs e)
         {
+            uiFecha.DateTime = DateTime.Now;
             oContext = new ConexionBD.ERPProdEntities();
             entityGasto = new doc_gastos();
-            
+            uiDel.DateTime = DateTime.Now;
+            uiAl.DateTime = DateTime.Now;
+            uiLayoutCaptura.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             LoadSucursales();
             LoadCentroCostos();
             LoadConceptos();
@@ -107,6 +111,7 @@ namespace ERPv1.Gastos
 
         private void Limpiar()
         {
+            uiFecha.DateTime = DateTime.Now;
             entityGasto = new doc_gastos();
             uiSucursal.EditValue = puntoVentaContext.sucursalId;
             uiCentroCosto.EditValue = null;
@@ -132,8 +137,10 @@ namespace ERPv1.Gastos
 
         private void Guardar()
         {
+            bool esNuevo = false;
             try
             {
+                
                 if(uiSucursal.EditValue == null || uiCentroCosto.EditValue == null
                     || uiConcepto.EditValue == null || uiMonto.Value == 0 || uiObservaciones.Text == "")
                 {
@@ -145,34 +152,36 @@ namespace ERPv1.Gastos
                 {
                     if(entityGasto.GastoId == 0)
                     {
-                        entityGasto = new doc_gastos();
+                        esNuevo = true;
+                        doc_gastos entityGastoNuevo = new doc_gastos();
 
-                        entityGasto.GastoId = (oContext.doc_gastos.Max(m => (int?)m.GastoId) ?? 0) + 1;
-                        entityGasto.Activo = true;
-                        entityGasto.CajaId = 0;
-                        entityGasto.CentroCostoId = Convert.ToInt32(uiCentroCosto.EditValue);
-                        entityGasto.CreadoEl = DateTime.Now;
-                        entityGasto.CreadoPor = puntoVentaContext.usuarioId;
-                        entityGasto.GastoConceptoId = Convert.ToInt32(uiConcepto.EditValue);
-                        entityGasto.Monto = Convert.ToDecimal(uiMonto.EditValue);
-                        entityGasto.Obervaciones = uiObservaciones.Text;
-                        entityGasto.SucursalId = puntoVentaContext.sucursalId;
+                        entityGastoNuevo.GastoId = (oContext.doc_gastos.Max(m => (int?)m.GastoId) ?? 0) + 1;
+                        entityGastoNuevo.Activo = true;
+                        entityGastoNuevo.CajaId = null;
+                        entityGastoNuevo.CentroCostoId = Convert.ToInt32(uiCentroCosto.EditValue);
+                        entityGastoNuevo.CreadoEl = uiFecha.DateTime;
+                        entityGastoNuevo.CreadoPor = puntoVentaContext.usuarioId;
+                        entityGastoNuevo.GastoConceptoId = Convert.ToInt32(uiConcepto.EditValue);
+                        entityGastoNuevo.Monto = Convert.ToDecimal(uiMonto.EditValue);
+                        entityGastoNuevo.Obervaciones = uiObservaciones.Text;
+                        entityGastoNuevo.SucursalId = puntoVentaContext.sucursalId;
 
-                        oContext.doc_gastos.Add(entityGasto);
+                        oContext.doc_gastos.Add(entityGastoNuevo);
                         oContext.SaveChanges();
 
 
-                        imprimir(entityGasto.GastoId);
+                        imprimir(entityGastoNuevo.GastoId);
                     }
                     else
                     {
+                        esNuevo = false;
                         doc_gastos entityUpd = oContext.doc_gastos
                             .Where(w => w.GastoId == entityGasto.GastoId).FirstOrDefault();
 
+                        entityUpd.CreadoEl = uiFecha.DateTime;
                         entityUpd.Activo = true;
-                        entityUpd.CajaId = 0;
-                        entityUpd.CentroCostoId = Convert.ToInt32(uiCentroCosto.EditValue);
-                        entityUpd.CreadoEl = DateTime.Now;
+                        entityUpd.CajaId = null;
+                        entityUpd.CentroCostoId = Convert.ToInt32(uiCentroCosto.EditValue);                       
                         entityUpd.CreadoPor = puntoVentaContext.usuarioId;
                         entityUpd.GastoConceptoId = Convert.ToInt32(uiConcepto.EditValue);
                         entityUpd.Monto = Convert.ToDecimal(uiMonto.EditValue);
@@ -191,7 +200,8 @@ namespace ERPv1.Gastos
             }
             catch (Exception ex)
             {
-
+                
+                entityGasto = new doc_gastos();
                 err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                   "ERP",
                                   this.Name,
@@ -204,9 +214,15 @@ namespace ERPv1.Gastos
         {
             try
             {
+                int anioMesDiaIni = (uiDel.DateTime.Year * 10000) + (uiDel.DateTime.Year * 100) + uiDel.DateTime.Day;
+                int anioMesDiaFin = (uiAl.DateTime.Year * 10000) + (uiAl.DateTime.Year * 100) + uiAl.DateTime.Day;
                 uiGrid.DataSource = oContext.doc_gastos
-                    .Where(w => w.SucursalId == puntoVentaContext.sucursalId)
+                    .Where(w => w.SucursalId == puntoVentaContext.sucursalId 
+                    && ((w.CreadoEl.Year * 10000) + (w.CreadoEl.Year * 100) + w.CreadoEl.Day) >= anioMesDiaIni &&
+                    ((w.CreadoEl.Year * 10000) + (w.CreadoEl.Year * 100) + w.CreadoEl.Day) <= anioMesDiaFin)
                     .ToList();
+
+                uiTotal.EditValue = ((List<doc_gastos>)uiGrid.DataSource).Sum(s => s.Monto);
             }
             catch (Exception ex)
             {
@@ -226,7 +242,7 @@ namespace ERPv1.Gastos
 
         private void repBtnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            SeleccionarGasto();
         }
 
         private void SeleccionarGasto()
@@ -235,8 +251,10 @@ namespace ERPv1.Gastos
             {
                 if(uiGridView.FocusedRowHandle >= 0)
                 {
-                    entityGasto = (doc_gastos)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+                    uiLayoutCaptura.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
+                    entityGasto = (doc_gastos)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+                    uiFecha.EditValue = entityGasto.CreadoEl;
                     uiSucursal.EditValue = entityGasto.SucursalId;
                     uiCentroCosto.EditValue = entityGasto.CentroCostoId;
                     uiConcepto.EditValue = entityGasto.GastoConceptoId;
@@ -257,16 +275,76 @@ namespace ERPv1.Gastos
         }
 
 
+        private void SeleccionarEImprimir()
+        {
+            try
+            {
+                if (uiGridView.FocusedRowHandle >= 0)
+                {
+                   
+                    entityGasto = (doc_gastos)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+
+                    imprimir(entityGasto.GastoId);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                  "ERP",
+                                  this.Name,
+                                  ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+
         private void imprimir(int id)
         {
             rptGastoTicket oTicket = new rptGastoTicket();
 
-            ReportViewer oViewer = new ReportViewer(puntoVentaContext.cajaId);
+            ReportViewer oViewer = new ReportViewer();
 
             oTicket.DataSource = oContext.p_rpt_gasto_ticket(id).ToList();
 
             oViewer.ShowTicket(oTicket);
             //oViewer.Show();
+        }
+
+        private void uiNuevo_Click(object sender, EventArgs e)
+        {
+            uiLayoutCaptura.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+        }
+
+        private void uiOcultar_Click(object sender, EventArgs e)
+        {
+            uiLayoutCaptura.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+        }
+
+        private void uiBuscar_Click(object sender, EventArgs e)
+        {
+            LoadGrid();
+        }
+
+        private void uiGuardar_Click_1(object sender, EventArgs e)
+        {
+            Guardar();
+        }
+
+        private void uiLimpiar_Click_1(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void uiCentroCosto_EditValueChanged_1(object sender, EventArgs e)
+        {
+            LoadConceptos();
+        }
+
+        private void repBtnPrint_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            SeleccionarEImprimir();
         }
     }
 }

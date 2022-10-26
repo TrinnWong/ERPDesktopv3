@@ -52,6 +52,8 @@
             this.uiEntradaDirecta = new DevExpress.XtraBars.BarButtonItem();
             this.uiSalidaDirecta = new DevExpress.XtraBars.BarButtonItem();
             this.uiSincronizar = new DevExpress.XtraBars.BarButtonItem();
+            this.uiMnuBascula = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReimprimirUltimoCorteCajero = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPedidos = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -62,7 +64,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.uiMnuBascula = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,9 +94,10 @@
             this.uiEntradaDirecta,
             this.uiSalidaDirecta,
             this.uiSincronizar,
-            this.uiMnuBascula});
+            this.uiMnuBascula,
+            this.btnReimprimirUltimoCorteCajero});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 24;
+            this.uiRibbonControl.MaxItemId = 25;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -148,7 +150,7 @@
             // 
             // barButtonItem4
             // 
-            this.barButtonItem4.Caption = "Gastos";
+            this.barButtonItem4.Caption = "Gastos Caja";
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
             this.barButtonItem4.Name = "barButtonItem4";
@@ -281,6 +283,22 @@
             this.uiSincronizar.Name = "uiSincronizar";
             this.uiSincronizar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiSincronizar_ItemClick);
             // 
+            // uiMnuBascula
+            // 
+            this.uiMnuBascula.Caption = "Lector Báscula";
+            this.uiMnuBascula.Id = 23;
+            this.uiMnuBascula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMnuBascula.ImageOptions.Image")));
+            this.uiMnuBascula.Name = "uiMnuBascula";
+            this.uiMnuBascula.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMnuBascula_ItemClick);
+            // 
+            // btnReimprimirUltimoCorteCajero
+            // 
+            this.btnReimprimirUltimoCorteCajero.Caption = "Reimprimir C. Caja Cajero";
+            this.btnReimprimirUltimoCorteCajero.Id = 24;
+            this.btnReimprimirUltimoCorteCajero.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReimprimirUltimoCorteCajero.ImageOptions.Image")));
+            this.btnReimprimirUltimoCorteCajero.Name = "btnReimprimirUltimoCorteCajero";
+            this.btnReimprimirUltimoCorteCajero.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReimprimirUltimoCorteCajero_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -296,6 +314,7 @@
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem9);
+            this.uiRibbonPageControl.ItemLinks.Add(this.btnReimprimirUltimoCorteCajero);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiProductoSobrante);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMnuBascula);
             this.uiRibbonPageControl.Name = "uiRibbonPageControl";
@@ -362,14 +381,6 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
-            // uiMnuBascula
-            // 
-            this.uiMnuBascula.Caption = "Lector Báscula";
-            this.uiMnuBascula.Id = 23;
-            this.uiMnuBascula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMnuBascula.ImageOptions.Image")));
-            this.uiMnuBascula.Name = "uiMnuBascula";
-            this.uiMnuBascula.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMnuBascula_ItemClick);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +391,8 @@
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA-FLOR DE MAIZ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.frmMain_HelpButtonClicked);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).EndInit();
@@ -424,5 +437,6 @@
         private DevExpress.XtraBars.BarButtonItem uiSalidaDirecta;
         private DevExpress.XtraBars.BarButtonItem uiSincronizar;
         private DevExpress.XtraBars.BarButtonItem uiMnuBascula;
+        private DevExpress.XtraBars.BarButtonItem btnReimprimirUltimoCorteCajero;
     }
 }

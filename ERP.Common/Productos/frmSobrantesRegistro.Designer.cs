@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSobrantesRegistro));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.uiFecha = new DevExpress.XtraEditors.DateEdit();
             this.uiTerminar = new DevExpress.XtraEditors.SimpleButton();
             this.uiSalir = new DevExpress.XtraEditors.SimpleButton();
@@ -54,6 +55,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties.CalendarTimeProperties)).BeginInit();
@@ -69,10 +71,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControl2);
             this.layoutControl1.Controls.Add(this.uiFecha);
             this.layoutControl1.Controls.Add(this.uiTerminar);
             this.layoutControl1.Controls.Add(this.uiSalir);
@@ -87,6 +91,21 @@
             this.layoutControl1.Size = new System.Drawing.Size(837, 450);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Yellow;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl2.Appearance.Options.UseBackColor = true;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.Location = new System.Drawing.Point(5, 63);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(457, 18);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 10;
+            this.labelControl2.Text = "Para abrir la báscula dar clic en el check de Requiere Báscula";
             // 
             // uiFecha
             // 
@@ -140,10 +159,10 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.pproductossobrantesgrdResultBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(5, 63);
+            this.uiGrid.Location = new System.Drawing.Point(5, 87);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
-            this.uiGrid.Size = new System.Drawing.Size(827, 336);
+            this.uiGrid.Size = new System.Drawing.Size(827, 312);
             this.uiGrid.TabIndex = 5;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -165,6 +184,8 @@
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
             this.uiGridView.OptionsView.ShowGroupPanel = false;
+            this.uiGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.uiGridView_RowClick);
+            this.uiGridView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.uiGridView_ShowingEditor);
             // 
             // colProductoId
             // 
@@ -249,7 +270,8 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem6,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -268,9 +290,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.uiGrid;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 82);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(833, 342);
+            this.layoutControlItem2.Size = new System.Drawing.Size(833, 318);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -318,6 +340,15 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(417, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.labelControl2;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(833, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
             // frmSobrantesRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +404,7 @@
         private DevExpress.XtraEditors.DateEdit uiFecha;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

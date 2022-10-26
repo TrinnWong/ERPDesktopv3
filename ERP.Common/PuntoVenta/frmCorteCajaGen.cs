@@ -158,8 +158,12 @@ namespace ERP.Common.PuntoVenta
                                 frm.tipo = "corteCaja";
                                 frm.imprimirCorte = imprimirCorte;
                                 frm.cerrarSistema = cerrarSistema;
-                                frm.ShowDialog();
-                                return true;
+                                var resultDF = frm.ShowDialog();
+                                if(resultDF == DialogResult.OK)
+                                {
+                                    return true;
+                                }
+                               
                             }
                             else
                             {

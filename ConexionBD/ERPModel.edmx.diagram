@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e76e7722abcd487681360c1679e4b56a" Name="Diagram1" ZoomLevel="102">
+      <Diagram DiagramId="e76e7722abcd487681360c1679e4b56a" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="ERPProdModel.cat_abreviaturas_SAT" Width="1.5" PointX="9" PointY="72.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.cat_almacenes" Width="1.5" PointX="3" PointY="75.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.cat_anaqueles" Width="1.5" PointX="3" PointY="79.75" IsExpanded="true" />
@@ -72,7 +72,6 @@
         <EntityTypeShape EntityType="ERPProdModel.doc_devoluciones" Width="1.5" PointX="16.5" PointY="87.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.doc_devoluciones_detalle" Width="1.5" PointX="21.75" PointY="109.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.doc_entrada_directa_adicional" Width="1.5" PointX="18.75" PointY="112.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERPProdModel.doc_gastos" Width="1.5" PointX="16.5" PointY="95.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.doc_inv_carga_inicial" Width="1.5" PointX="13.5" PointY="104.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.doc_inv_movimiento" Width="1.5" PointX="19.5" PointY="85" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.doc_inv_movimiento_detalle" Width="1.5" PointX="16.5" PointY="111.375" IsExpanded="true" />
@@ -117,7 +116,6 @@
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__CajaI__7167D3BD" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_apartados_pagos_caja" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_cat_cajas" ManuallyRouted="false" />
-        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_cajas" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_reimpresion_ticket_cat_cajas" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_retiros_cat_cajas" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_VentasCaja" ManuallyRouted="false" />
@@ -127,7 +125,6 @@
         <AssociationConnector Association="ERPProdModel.FK__cat_centr__Sucur__4589517F" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Clave__725BF7F6" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Clave__73501C2F" ManuallyRouted="false" />
-        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_centro_costos" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_clase__Empre__467D75B8" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_clase__Empre__477199F1" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_clase__Sucur__4865BE2A" ManuallyRouted="false" />
@@ -259,7 +256,6 @@
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Cread__58671BC9" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Sucur__7908F585" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_gasto__Sucur__79FD19BE" ManuallyRouted="false" />
-        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_gastos" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_cat_proveedores_cat_giros" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_cat_impuestos_cat_tipo_factor_SAT" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_cat_productos_impuestos_cat_impuestos" ManuallyRouted="false" />
@@ -316,7 +312,6 @@
         <AssociationConnector Association="ERPProdModel.FK__doc_inv_m__Sucur__7F80E8EA" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_cat_usuarios_cat_sucursales" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_apartados_cat_sucursales" ManuallyRouted="false" />
-        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_sucursales" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_inv_carga_inicial_cat_sucursales" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_promociones_cat_sucursales" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_retiros_cat_sucursales" ManuallyRouted="false" />
@@ -338,7 +333,6 @@
         <AssociationConnector Association="ERPProdModel.FK_doc_corte_caja_cat_usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_cat_usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_devoluciones_cat_usuarios1" ManuallyRouted="false" />
-        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_inv_carga_inicial_cat_usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_cat_sucursales" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK_doc_inv_movimiento_detalle_cat_usuarios" ManuallyRouted="false" />
@@ -756,6 +750,12 @@
         <AssociationConnector Association="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales" />
         <AssociationConnector Association="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" />
         <AssociationConnector Association="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_gastos" Width="1.5" PointX="26.5" PointY="146" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_cajas" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_centro_costos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_gastos" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_usuarios" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

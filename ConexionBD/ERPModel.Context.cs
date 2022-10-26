@@ -21,9 +21,8 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
-
         public ERPProdEntities(string sc)
-           : base("name=ERPProdEntities")
+            : base("name=ERPProdEntities")
         {
         }
 
@@ -99,7 +98,6 @@ namespace ConexionBD
         public virtual DbSet<doc_devoluciones> doc_devoluciones { get; set; }
         public virtual DbSet<doc_devoluciones_detalle> doc_devoluciones_detalle { get; set; }
         public virtual DbSet<doc_entrada_directa_adicional> doc_entrada_directa_adicional { get; set; }
-        public virtual DbSet<doc_gastos> doc_gastos { get; set; }
         public virtual DbSet<doc_inv_carga_inicial> doc_inv_carga_inicial { get; set; }
         public virtual DbSet<doc_inv_movimiento> doc_inv_movimiento { get; set; }
         public virtual DbSet<doc_inv_movimiento_detalle> doc_inv_movimiento_detalle { get; set; }
@@ -237,6 +235,7 @@ namespace ConexionBD
         public virtual DbSet<doc_pedidos_orden_detalle_impresion> doc_pedidos_orden_detalle_impresion { get; set; }
         public virtual DbSet<sis_preferencias_sucursales> sis_preferencias_sucursales { get; set; }
         public virtual DbSet<cat_sucursales_productos> cat_sucursales_productos { get; set; }
+        public virtual DbSet<doc_gastos> doc_gastos { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {

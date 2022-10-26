@@ -558,5 +558,30 @@ namespace FlorMaiz.Desktop
                 p.Start();
             }
         }
+
+        private void btnReimprimirUltimoCorteCajero_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Business.CorteCajaBusiness.imprimirCorteCajero(puntoVentaContext.sucursalId, puntoVentaContext.cajaId, puntoVentaContext.usuarioId);
+        }
+
+        private void frmMain_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            oContext = new ERPProdEntities();
+
+            int sesionId = puntoVentaContext.sesionId;
+            doc_sesiones_punto_venta entity = oContext.doc_sesiones_punto_venta
+                .Where(w => w.SesionId == sesionId).FirstOrDefault();
+
+            entity.Finalizada = true;
+            entity.FechaUltimaConexion = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
+
+            oContext.SaveChanges();
+
+        }
     }
 }

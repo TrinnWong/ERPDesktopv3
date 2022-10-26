@@ -30,7 +30,6 @@ namespace ConexionBD
             this.doc_corte_caja = new HashSet<doc_corte_caja>();
             this.doc_devoluciones_detalle = new HashSet<doc_devoluciones_detalle>();
             this.doc_devoluciones = new HashSet<doc_devoluciones>();
-            this.doc_gastos = new HashSet<doc_gastos>();
             this.doc_inv_carga_inicial = new HashSet<doc_inv_carga_inicial>();
             this.doc_inv_movimiento2 = new HashSet<doc_inv_movimiento>();
             this.doc_inv_movimiento_detalle = new HashSet<doc_inv_movimiento_detalle>();
@@ -88,6 +87,7 @@ namespace ConexionBD
             this.doc_precios_especiales_detalle1 = new HashSet<doc_precios_especiales_detalle>();
             this.doc_productos_sobrantes_registro1 = new HashSet<doc_productos_sobrantes_registro>();
             this.doc_corte_caja_datos_entrada = new HashSet<doc_corte_caja_datos_entrada>();
+            this.doc_gastos = new HashSet<doc_gastos>();
         }
     
         public int IdUsuario { get; set; }
@@ -132,8 +132,6 @@ namespace ConexionBD
         public virtual ICollection<doc_devoluciones_detalle> doc_devoluciones_detalle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_devoluciones> doc_devoluciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_inv_carga_inicial> doc_inv_carga_inicial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -249,5 +247,7 @@ namespace ConexionBD
         public virtual ICollection<doc_productos_sobrantes_registro> doc_productos_sobrantes_registro1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_corte_caja_datos_entrada> doc_corte_caja_datos_entrada { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
     }
 }

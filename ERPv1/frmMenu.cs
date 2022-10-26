@@ -38,6 +38,7 @@ using ERP.Common.Precios;
 using ERPv1.Reportes;
 using ERP.Common.CorteCaja;
 using ERP.Common.Sucursales;
+using ERPv1.Gastos;
 
 namespace ERPv1
 {
@@ -97,7 +98,7 @@ namespace ERPv1
             {
                 tsCatalogos.Visible = false;
                 tsRH.Visible = false;
-                tsContabilidad.Visible = false;
+                cargosToolStripMenuItem.Visible = false;
                 tsConfiguracion.Visible = false;
                 cambioDePreciosListadoToolStripMenuItem.Visible = false;
                 cambioDePrecioIndividualToolStripMenuItem.Visible = false;
@@ -1536,6 +1537,37 @@ namespace ERPv1
         private void corteDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void gastosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmGastosNegocioList frmo = frmGastosNegocioList.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.MdiParent = this;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
+
+        private void estadoDeCuentaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmEstadoCuenta frmo = frmEstadoCuenta.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
         }
     }
 }

@@ -1046,8 +1046,10 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ConexionBD.cat_cajas.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_centro_costos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_clientes.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_departamentos.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_gastos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_politicas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_productos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_productos_precios.datasource" />

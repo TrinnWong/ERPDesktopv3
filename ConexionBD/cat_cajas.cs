@@ -21,7 +21,6 @@ namespace ConexionBD
             this.cat_gastos1 = new HashSet<cat_gastos>();
             this.doc_apartados_pagos = new HashSet<doc_apartados_pagos>();
             this.doc_corte_caja = new HashSet<doc_corte_caja>();
-            this.doc_gastos = new HashSet<doc_gastos>();
             this.doc_reimpresion_ticket = new HashSet<doc_reimpresion_ticket>();
             this.doc_retiros = new HashSet<doc_retiros>();
             this.doc_ventas = new HashSet<doc_ventas>();
@@ -30,6 +29,7 @@ namespace ConexionBD
             this.doc_pedidos_orden = new HashSet<doc_pedidos_orden>();
             this.doc_declaracion_fondo_inicial = new HashSet<doc_declaracion_fondo_inicial>();
             this.doc_sesiones_punto_venta = new HashSet<doc_sesiones_punto_venta>();
+            this.doc_gastos = new HashSet<doc_gastos>();
         }
     
         public int Clave { get; set; }
@@ -51,8 +51,6 @@ namespace ConexionBD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_corte_caja> doc_corte_caja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_reimpresion_ticket> doc_reimpresion_ticket { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_retiros> doc_retiros { get; set; }
@@ -69,5 +67,7 @@ namespace ConexionBD
         public virtual ICollection<doc_declaracion_fondo_inicial> doc_declaracion_fondo_inicial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_sesiones_punto_venta> doc_sesiones_punto_venta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
     }
 }

@@ -115,6 +115,12 @@
     <Compile Include="Basculas\BasculaConfiguracion.Designer.cs">
       <DependentUpon>BasculaConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bascula\frmBasculaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bascula\frmBasculaDialog.Designer.cs">
+      <DependentUpon>frmBasculaDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Base\FormBaseWinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -815,6 +821,9 @@
     </Compile>
     <EmbeddedResource Include="Basculas\BasculaConfiguracion.resx">
       <DependentUpon>BasculaConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bascula\frmBasculaDialog.resx">
+      <DependentUpon>frmBasculaDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FormBaseXtraForm.resx">
       <DependentUpon>FormBaseXtraForm.cs</DependentUpon>

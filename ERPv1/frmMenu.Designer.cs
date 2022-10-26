@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -96,6 +97,7 @@
             this.productosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsContabilidad = new System.Windows.Forms.ToolStripDropDownButton();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gastosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.sucursalesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productosRecepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,7 +140,6 @@
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.apartadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitácoraBásculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estadoDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.corteDeCajaParaTortilleriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiMenuRestaurante = new System.Windows.Forms.ToolStripDropDownButton();
             this.mesasToolStripMesas = new System.Windows.Forms.ToolStripMenuItem();
@@ -154,9 +155,10 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer();
+            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.estadoDeCuentaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -769,7 +771,9 @@
             // tsContabilidad
             // 
             this.tsContabilidad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargosToolStripMenuItem});
+            this.cargosToolStripMenuItem,
+            this.gastosToolStripMenuItem1,
+            this.estadoDeCuentaToolStripMenuItem1});
             this.tsContabilidad.Image = ((System.Drawing.Image)(resources.GetObject("tsContabilidad.Image")));
             this.tsContabilidad.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsContabilidad.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -781,9 +785,16 @@
             // cargosToolStripMenuItem
             // 
             this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.cargosToolStripMenuItem.Text = "Cargos";
             this.cargosToolStripMenuItem.Click += new System.EventHandler(this.cargosToolStripMenuItem_Click);
+            // 
+            // gastosToolStripMenuItem1
+            // 
+            this.gastosToolStripMenuItem1.Name = "gastosToolStripMenuItem1";
+            this.gastosToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
+            this.gastosToolStripMenuItem1.Text = "Gastos Negocio";
+            this.gastosToolStripMenuItem1.Click += new System.EventHandler(this.gastosToolStripMenuItem1_Click);
             // 
             // toolStripDropDownButton3
             // 
@@ -1055,7 +1066,6 @@
             this.clientesToolStripMenuItem1,
             this.apartadosToolStripMenuItem,
             this.bitácoraBásculasToolStripMenuItem,
-            this.estadoDeCuentaToolStripMenuItem,
             this.corteDeCajaParaTortilleriaToolStripMenuItem});
             this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
             this.toolStripDropDownButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -1134,13 +1144,6 @@
             this.bitácoraBásculasToolStripMenuItem.Size = new System.Drawing.Size(330, 26);
             this.bitácoraBásculasToolStripMenuItem.Text = "Bitácora Básculas";
             this.bitácoraBásculasToolStripMenuItem.Click += new System.EventHandler(this.bitácoraBásculasToolStripMenuItem_Click);
-            // 
-            // estadoDeCuentaToolStripMenuItem
-            // 
-            this.estadoDeCuentaToolStripMenuItem.Name = "estadoDeCuentaToolStripMenuItem";
-            this.estadoDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(330, 26);
-            this.estadoDeCuentaToolStripMenuItem.Text = "Estado de Cuenta";
-            this.estadoDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.estadoDeCuentaToolStripMenuItem_Click);
             // 
             // corteDeCajaParaTortilleriaToolStripMenuItem
             // 
@@ -1301,6 +1304,13 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // estadoDeCuentaToolStripMenuItem1
+            // 
+            this.estadoDeCuentaToolStripMenuItem1.Name = "estadoDeCuentaToolStripMenuItem1";
+            this.estadoDeCuentaToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
+            this.estadoDeCuentaToolStripMenuItem1.Text = "Estado de Cuenta";
+            this.estadoDeCuentaToolStripMenuItem1.Click += new System.EventHandler(this.estadoDeCuentaToolStripMenuItem1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1447,7 +1457,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroExpressToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeInevntarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salidaDirectaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem corteDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDiarioDeTiradasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroSobrantesConsultaToolStripMenuItem;
@@ -1460,6 +1469,8 @@
         private System.Windows.Forms.ToolStripMenuItem cambioDePreciosListadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónProducciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosPorSucursalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem1;
     }
 }
 

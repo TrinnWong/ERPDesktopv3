@@ -19,7 +19,7 @@ namespace ConexionBD
         public int GastoConceptoId { get; set; }
         public string Obervaciones { get; set; }
         public decimal Monto { get; set; }
-        public int CajaId { get; set; }
+        public Nullable<int> CajaId { get; set; }
         public System.DateTime CreadoEl { get; set; }
         public int CreadoPor { get; set; }
         public int SucursalId { get; set; }

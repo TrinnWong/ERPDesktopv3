@@ -225,10 +225,15 @@ namespace FlorMaiz.Desktop
                         SimpleButton btnFam = (SimpleButton)controlA;
 
                         btnFam.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                        btnFam.Font = new Font("Arial", 13, FontStyle.Bold);
+                        btnFam.ForeColor = Color.Black;
+                        
                         btnFam.LookAndFeel.UseDefaultLookAndFeel = false;
-                        btnFam.BackColor = Color.LightSalmon;
+                        //btnFam.BackColor = Color.Black;
                         btnFam.Padding = new Padding(5);
                         btnFam.Text = "";
+                        
+                       
                     }
                 }
 
@@ -1308,22 +1313,26 @@ namespace FlorMaiz.Desktop
             CalcularMontoProducto();
         }
 
-        
+        private void BuscarProductoDialog()
+        {
+            frmProductosBusqueda frmBuscar = new frmProductosBusqueda();
+            frmBuscar.soloParaVenta = true;
+            frmBuscar.puntoVentaContext = this.puntoVentaContext;
+
+            var result = frmBuscar.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                SeleccionProducto("", frmBuscar.response.ProductoId);
+            }
+        }
 
         private void uiBuscar_Click(object sender, EventArgs e)
         {
-           
-                frmProductosBusqueda frmBuscar = new frmProductosBusqueda();
-                frmBuscar.soloParaVenta = true;
-                frmBuscar.puntoVentaContext = this.puntoVentaContext;
 
-                var result = frmBuscar.ShowDialog();
+            BuscarProductoDialog();
 
-                if (result == DialogResult.OK)
-                {
-                    SeleccionProducto("", frmBuscar.response.ProductoId);
-                }
-           
+
         }
 
         private void uiPesoVal_Leave(object sender, EventArgs e)
@@ -1743,6 +1752,13 @@ namespace FlorMaiz.Desktop
                 pagar();
                 oFormLoading.Hide();
             }
+
+            if (e.KeyCode == Keys.F3)
+            {
+               
+                BuscarProductoDialog();
+                
+            }
         }
 
         private void uiClave_KeyUp(object sender, KeyEventArgs e)
@@ -1753,6 +1769,19 @@ namespace FlorMaiz.Desktop
             {
                 SeleccionProducto("", 0);
             }
+            if (e.KeyCode == Keys.F2)
+            {
+                oFormLoading.Show();
+                pagar();
+                oFormLoading.Hide();
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                
+                BuscarProductoDialog();
+                
+            }
+
         }
 
         private void uiRepCambioPrecio_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

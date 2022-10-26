@@ -1,6 +1,7 @@
 ﻿using ConexionBD;
 using DevExpress.XtraEditors;
 using ERP.Business.Tools;
+using ERP.Common.Bascula;
 using ERP.Common.Base;
 using ERP.Utils;
 using System;
@@ -162,5 +163,49 @@ namespace ERP.Common.Productos
             }
             
         }
+
+        private void uiGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if(uiGridView.FocusedRowHandle >= 0)
+            {
+                p_productos_sobrantes_grd_Result row = (p_productos_sobrantes_grd_Result)uiGridView
+                    .GetRow(uiGridView.FocusedRowHandle);
+
+                if(row!= null)
+                {
+                    if (row.RequiereBascula)
+                    {
+                        frmBasculaDialog oForm = new frmBasculaDialog();
+
+                        oForm.puntoVentaContext = this.puntoVentaContext;
+                        oForm.productoDescripcion = row.Descripcion;
+                        var result = oForm.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            uiGridView.SetRowCellValue(uiGridView.FocusedRowHandle,
+                                   "CantidadSobrante", oForm.cantidad);
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        private void uiGridView_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            if (uiGridView.FocusedRowHandle >= 0)
+            {
+                p_productos_sobrantes_grd_Result row = (p_productos_sobrantes_grd_Result)uiGridView
+                    .GetRow(uiGridView.FocusedRowHandle);
+
+                if (row.RequiereBascula)
+                {
+                    e.Cancel = true;
+                }
+
+            }
+        }
+
     }
 }

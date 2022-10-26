@@ -35,7 +35,6 @@ namespace ConexionBD
             this.doc_inv_movimiento5 = new HashSet<doc_inv_movimiento>();
             this.cat_usuarios = new HashSet<cat_usuarios>();
             this.doc_apartados = new HashSet<doc_apartados>();
-            this.doc_gastos = new HashSet<doc_gastos>();
             this.doc_inv_carga_inicial = new HashSet<doc_inv_carga_inicial>();
             this.doc_promociones = new HashSet<doc_promociones>();
             this.doc_retiros = new HashSet<doc_retiros>();
@@ -77,6 +76,7 @@ namespace ConexionBD
             this.doc_equipo_computo_bascula_registro = new HashSet<doc_equipo_computo_bascula_registro>();
             this.cat_equipos_computo = new HashSet<cat_equipos_computo>();
             this.cat_basculas_configuracion = new HashSet<cat_basculas_configuracion>();
+            this.doc_gastos = new HashSet<doc_gastos>();
         }
     
         public int Clave { get; set; }
@@ -135,8 +135,6 @@ namespace ConexionBD
         public virtual ICollection<cat_usuarios> cat_usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_apartados> doc_apartados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_inv_carga_inicial> doc_inv_carga_inicial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -220,5 +218,7 @@ namespace ConexionBD
         public virtual ICollection<cat_equipos_computo> cat_equipos_computo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cat_basculas_configuracion> cat_basculas_configuracion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_gastos> doc_gastos { get; set; }
     }
 }

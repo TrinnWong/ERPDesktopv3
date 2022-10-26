@@ -1545,7 +1545,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="GastoConceptoId" Type="int" Nullable="false" />
           <Property Name="Obervaciones" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="Monto" Type="money" Nullable="false" />
-          <Property Name="CajaId" Type="int" Nullable="false" />
+          <Property Name="CajaId" Type="int" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="CreadoPor" Type="int" Nullable="false" />
           <Property Name="SucursalId" Type="int" Nullable="false" />
@@ -6697,7 +6697,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_doc_gastos_cat_cajas">
-          <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="1" />
+          <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="0..1" />
           <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cat_cajas">
@@ -12804,7 +12804,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="cat_gastos1" Relationship="Self.FK__cat_gasto__CajaI__7167D3BD" FromRole="cat_cajas" ToRole="cat_gastos" />
           <NavigationProperty Name="doc_apartados_pagos" Relationship="Self.FK_doc_apartados_pagos_caja" FromRole="cat_cajas" ToRole="doc_apartados_pagos" />
           <NavigationProperty Name="doc_corte_caja" Relationship="Self.FK_doc_corte_caja_cat_cajas" FromRole="cat_cajas" ToRole="doc_corte_caja" />
-          <NavigationProperty Name="doc_gastos" Relationship="Self.FK_doc_gastos_cat_cajas" FromRole="cat_cajas" ToRole="doc_gastos" />
           <NavigationProperty Name="doc_reimpresion_ticket" Relationship="Self.FK_doc_reimpresion_ticket_cat_cajas" FromRole="cat_cajas" ToRole="doc_reimpresion_ticket" />
           <NavigationProperty Name="doc_retiros" Relationship="Self.FK_doc_retiros_cat_cajas" FromRole="cat_cajas" ToRole="doc_retiros" />
           <NavigationProperty Name="doc_ventas" Relationship="Self.FK_VentasCaja" FromRole="cat_cajas" ToRole="doc_ventas" />
@@ -12815,6 +12814,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_pedidos_orden" Relationship="ERPProdModel.FK_doc_pedidos_orden_cat_cajas" FromRole="cat_cajas" ToRole="doc_pedidos_orden" />
           <NavigationProperty Name="doc_declaracion_fondo_inicial" Relationship="ERPProdModel.FK_doc_declaracion_fondo_inicial_cat_cajas" FromRole="cat_cajas" ToRole="doc_declaracion_fondo_inicial" />
           <NavigationProperty Name="doc_sesiones_punto_venta" Relationship="ERPProdModel.FK_doc_sesiones_punto_venta_cat_cajas" FromRole="cat_cajas" ToRole="doc_sesiones_punto_venta" />
+          <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_cajas" FromRole="cat_cajas" ToRole="doc_gastos" />
         </EntityType>
         <EntityType Name="cat_centro_costos">
           <Key>
@@ -12831,7 +12831,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="cat_empresas3" Relationship="Self.FK__cat_centr__Sucur__4589517F" FromRole="cat_centro_costos" ToRole="cat_empresas" />
           <NavigationProperty Name="cat_gastos" Relationship="Self.FK__cat_gasto__Clave__725BF7F6" FromRole="cat_centro_costos" ToRole="cat_gastos" />
           <NavigationProperty Name="cat_gastos1" Relationship="Self.FK__cat_gasto__Clave__73501C2F" FromRole="cat_centro_costos" ToRole="cat_gastos" />
-          <NavigationProperty Name="doc_gastos" Relationship="Self.FK_doc_gastos_cat_centro_costos" FromRole="cat_centro_costos" ToRole="doc_gastos" />
+          <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_centro_costos" FromRole="cat_centro_costos" ToRole="doc_gastos" />
         </EntityType>
         <EntityType Name="cat_clases_sat">
           <Key>
@@ -13239,7 +13239,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="cat_usuarios" Relationship="Self.FK__cat_gasto__Cread__58671BC9" FromRole="cat_gastos" ToRole="cat_usuarios" />
           <NavigationProperty Name="cat_sucursales" Relationship="Self.FK__cat_gasto__Sucur__7908F585" FromRole="cat_gastos" ToRole="cat_sucursales" />
           <NavigationProperty Name="cat_sucursales1" Relationship="Self.FK__cat_gasto__Sucur__79FD19BE" FromRole="cat_gastos" ToRole="cat_sucursales" />
-          <NavigationProperty Name="doc_gastos" Relationship="Self.FK_doc_gastos_cat_gastos" FromRole="cat_gastos" ToRole="doc_gastos" />
+          <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_gastos" FromRole="cat_gastos" ToRole="doc_gastos" />
         </EntityType>
         <EntityType Name="cat_giros">
           <Key>
@@ -13735,7 +13735,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_inv_movimiento5" Relationship="Self.FK__doc_inv_m__Sucur__7F80E8EA" FromRole="cat_sucursales" ToRole="doc_inv_movimiento" />
           <NavigationProperty Name="cat_usuarios" Relationship="Self.FK_cat_usuarios_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_usuarios" />
           <NavigationProperty Name="doc_apartados" Relationship="Self.FK_doc_apartados_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_apartados" />
-          <NavigationProperty Name="doc_gastos" Relationship="Self.FK_doc_gastos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_gastos" />
           <NavigationProperty Name="doc_inv_carga_inicial" Relationship="Self.FK_doc_inv_carga_inicial_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_inv_carga_inicial" />
           <NavigationProperty Name="doc_promociones" Relationship="Self.FK_doc_promociones_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_promociones" />
           <NavigationProperty Name="doc_retiros" Relationship="Self.FK_doc_retiros_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_retiros" />
@@ -13778,6 +13777,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_equipo_computo_bascula_registro" Relationship="ERPProdModel.FK_doc_equipo_computo_bascula_registro_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_equipo_computo_bascula_registro" />
           <NavigationProperty Name="cat_equipos_computo" Relationship="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_equipos_computo" />
           <NavigationProperty Name="cat_basculas_configuracion" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_basculas_configuracion" />
+          <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_gastos" />
         </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
@@ -13919,7 +13919,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_corte_caja" Relationship="Self.FK_doc_corte_caja_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_corte_caja" />
           <NavigationProperty Name="doc_devoluciones_detalle" Relationship="Self.FK_doc_devoluciones_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_devoluciones_detalle" />
           <NavigationProperty Name="doc_devoluciones" Relationship="Self.FK_doc_devoluciones_cat_usuarios1" FromRole="cat_usuarios" ToRole="doc_devoluciones" />
-          <NavigationProperty Name="doc_gastos" Relationship="Self.FK_doc_gastos_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_gastos" />
           <NavigationProperty Name="doc_inv_carga_inicial" Relationship="Self.FK_doc_inv_carga_inicial_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_inv_carga_inicial" />
           <NavigationProperty Name="doc_inv_movimiento2" Relationship="Self.FK_doc_inv_movimiento_cat_sucursales" FromRole="cat_usuarios" ToRole="doc_inv_movimiento" />
           <NavigationProperty Name="doc_inv_movimiento_detalle" Relationship="Self.FK_doc_inv_movimiento_detalle_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_inv_movimiento_detalle" />
@@ -13979,6 +13978,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_precios_especiales_detalle1" Relationship="ERPProdModel.FK_doc_precios_especiales_detalle_cat_usuarios1" FromRole="cat_usuarios" ToRole="doc_precios_especiales_detalle" />
           <NavigationProperty Name="doc_productos_sobrantes_registro1" Relationship="ERPProdModel.FK__doc_produ__Cerra__5CC287E9" FromRole="cat_usuarios" ToRole="doc_productos_sobrantes_registro" />
           <NavigationProperty Name="doc_corte_caja_datos_entrada" Relationship="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_corte_caja_datos_entrada" />
+          <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_gastos" />
           </EntityType>
         <EntityType Name="doc_apartados">
           <Key>
@@ -14193,26 +14193,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="MovimientoDetalleId" Type="Int32" Nullable="false" />
           <Property Name="PrecioCompra" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="doc_inv_movimiento_detalle" Relationship="Self.FK_doc_entrada_directa_adicional_doc_inv_movimiento_detalle" FromRole="doc_entrada_directa_adicional" ToRole="doc_inv_movimiento_detalle" />
-        </EntityType>
-        <EntityType Name="doc_gastos">
-          <Key>
-            <PropertyRef Name="GastoId" />
-          </Key>
-          <Property Name="GastoId" Type="Int32" Nullable="false" />
-          <Property Name="CentroCostoId" Type="Int32" Nullable="false" />
-          <Property Name="GastoConceptoId" Type="Int32" Nullable="false" />
-          <Property Name="Obervaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="CajaId" Type="Int32" Nullable="false" />
-          <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreadoPor" Type="Int32" Nullable="false" />
-          <Property Name="SucursalId" Type="Int32" Nullable="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="cat_cajas" Relationship="Self.FK_doc_gastos_cat_cajas" FromRole="doc_gastos" ToRole="cat_cajas" />
-          <NavigationProperty Name="cat_centro_costos" Relationship="Self.FK_doc_gastos_cat_centro_costos" FromRole="doc_gastos" ToRole="cat_centro_costos" />
-          <NavigationProperty Name="cat_gastos" Relationship="Self.FK_doc_gastos_cat_gastos" FromRole="doc_gastos" ToRole="cat_gastos" />
-          <NavigationProperty Name="cat_sucursales" Relationship="Self.FK_doc_gastos_cat_sucursales" FromRole="doc_gastos" ToRole="cat_sucursales" />
-          <NavigationProperty Name="cat_usuarios" Relationship="Self.FK_doc_gastos_cat_usuarios" FromRole="doc_gastos" ToRole="cat_usuarios" />
         </EntityType>
         <EntityType Name="doc_inv_carga_inicial">
           <Key>
@@ -15013,18 +14993,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_doc_gastos_cat_cajas">
-          <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="1" />
-          <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_cajas">
-              <PropertyRef Name="Clave" />
-            </Principal>
-            <Dependent Role="doc_gastos">
-              <PropertyRef Name="CajaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_doc_reimpresion_ticket_cat_cajas">
           <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="1" />
           <End Role="doc_reimpresion_ticket" Type="Self.doc_reimpresion_ticket" Multiplicity="*" />
@@ -15130,18 +15098,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Principal>
             <Dependent Role="cat_gastos">
               <PropertyRef Name="ClaveCentroCosto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_doc_gastos_cat_centro_costos">
-          <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="1" />
-          <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_centro_costos">
-              <PropertyRef Name="Clave" />
-            </Principal>
-            <Dependent Role="doc_gastos">
-              <PropertyRef Name="CentroCostoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -16717,18 +16673,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_doc_gastos_cat_gastos">
-          <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="1" />
-          <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_gastos">
-              <PropertyRef Name="Clave" />
-            </Principal>
-            <Dependent Role="doc_gastos">
-              <PropertyRef Name="GastoConceptoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_cat_proveedores_cat_giros">
           <End Role="cat_giros_neg" Type="Self.cat_giros_neg" Multiplicity="0..1" />
           <End Role="cat_proveedores" Type="Self.cat_proveedores" Multiplicity="*" />
@@ -17403,18 +17347,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_doc_gastos_cat_sucursales">
-          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
-          <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_sucursales">
-              <PropertyRef Name="Clave" />
-            </Principal>
-            <Dependent Role="doc_gastos">
-              <PropertyRef Name="SucursalId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_doc_inv_carga_inicial_cat_sucursales">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
           <End Role="doc_inv_carga_inicial" Type="Self.doc_inv_carga_inicial" Multiplicity="*" />
@@ -17663,18 +17595,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
               <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="doc_devoluciones">
-              <PropertyRef Name="CreadoPor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_doc_gastos_cat_usuarios">
-          <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="1" />
-          <End Role="doc_gastos" Type="Self.doc_gastos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_usuarios">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="doc_gastos">
               <PropertyRef Name="CreadoPor" />
             </Dependent>
           </ReferentialConstraint>
@@ -18347,7 +18267,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="doc_devoluciones" EntityType="Self.doc_devoluciones" />
           <EntitySet Name="doc_devoluciones_detalle" EntityType="Self.doc_devoluciones_detalle" />
           <EntitySet Name="doc_entrada_directa_adicional" EntityType="Self.doc_entrada_directa_adicional" />
-          <EntitySet Name="doc_gastos" EntityType="Self.doc_gastos" />
           <EntitySet Name="doc_inv_carga_inicial" EntityType="Self.doc_inv_carga_inicial" />
           <EntitySet Name="doc_inv_movimiento" EntityType="Self.doc_inv_movimiento" />
           <EntitySet Name="doc_inv_movimiento_detalle" EntityType="Self.doc_inv_movimiento_detalle" />
@@ -18464,10 +18383,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_cajas" EntitySet="cat_cajas" />
             <End Role="doc_corte_caja" EntitySet="doc_corte_caja" />
           </AssociationSet>
-          <AssociationSet Name="FK_doc_gastos_cat_cajas" Association="Self.FK_doc_gastos_cat_cajas">
-            <End Role="cat_cajas" EntitySet="cat_cajas" />
-            <End Role="doc_gastos" EntitySet="doc_gastos" />
-          </AssociationSet>
           <AssociationSet Name="FK_doc_reimpresion_ticket_cat_cajas" Association="Self.FK_doc_reimpresion_ticket_cat_cajas">
             <End Role="cat_cajas" EntitySet="cat_cajas" />
             <End Role="doc_reimpresion_ticket" EntitySet="doc_reimpresion_ticket" />
@@ -18503,10 +18418,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK__cat_gasto__Clave__73501C2F" Association="Self.FK__cat_gasto__Clave__73501C2F">
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_doc_gastos_cat_centro_costos" Association="Self.FK_doc_gastos_cat_centro_costos">
-            <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
-            <End Role="doc_gastos" EntitySet="doc_gastos" />
           </AssociationSet>
           <AssociationSet Name="FK__cat_clase__Empre__467D75B8" Association="Self.FK__cat_clase__Empre__467D75B8">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
@@ -19032,10 +18943,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK_doc_gastos_cat_gastos" Association="Self.FK_doc_gastos_cat_gastos">
-            <End Role="cat_gastos" EntitySet="cat_gastos" />
-            <End Role="doc_gastos" EntitySet="doc_gastos" />
-          </AssociationSet>
           <AssociationSet Name="FK_cat_proveedores_cat_giros" Association="Self.FK_cat_proveedores_cat_giros">
             <End Role="cat_giros_neg" EntitySet="cat_giros_neg" />
             <End Role="cat_proveedores" EntitySet="cat_proveedores" />
@@ -19260,10 +19167,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_apartados" EntitySet="doc_apartados" />
           </AssociationSet>
-          <AssociationSet Name="FK_doc_gastos_cat_sucursales" Association="Self.FK_doc_gastos_cat_sucursales">
-            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
-            <End Role="doc_gastos" EntitySet="doc_gastos" />
-          </AssociationSet>
           <AssociationSet Name="FK_doc_inv_carga_inicial_cat_sucursales" Association="Self.FK_doc_inv_carga_inicial_cat_sucursales">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_inv_carga_inicial" EntitySet="doc_inv_carga_inicial" />
@@ -19347,10 +19250,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_doc_devoluciones_cat_usuarios1" Association="Self.FK_doc_devoluciones_cat_usuarios1">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_doc_gastos_cat_usuarios" Association="Self.FK_doc_gastos_cat_usuarios">
-            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
-            <End Role="doc_gastos" EntitySet="doc_gastos" />
           </AssociationSet>
           <AssociationSet Name="FK_doc_inv_carga_inicial_cat_usuarios" Association="Self.FK_doc_inv_carga_inicial_cat_usuarios">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
@@ -22029,6 +21928,27 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_cat_basculas_configuracion_cat_sucursales" Association="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_basculas_configuracion" EntitySet="cat_basculas_configuracion" />
+          </AssociationSet>
+          <EntitySet Name="doc_gastos" EntityType="ERPProdModel.doc_gastos" />
+          <AssociationSet Name="FK_doc_gastos_cat_cajas" Association="ERPProdModel.FK_doc_gastos_cat_cajas">
+            <End Role="cat_cajas" EntitySet="cat_cajas" />
+            <End Role="doc_gastos" EntitySet="doc_gastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_gastos_cat_centro_costos" Association="ERPProdModel.FK_doc_gastos_cat_centro_costos">
+            <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
+            <End Role="doc_gastos" EntitySet="doc_gastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_gastos_cat_gastos" Association="ERPProdModel.FK_doc_gastos_cat_gastos">
+            <End Role="cat_gastos" EntitySet="cat_gastos" />
+            <End Role="doc_gastos" EntitySet="doc_gastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_gastos_cat_sucursales" Association="ERPProdModel.FK_doc_gastos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_gastos" EntitySet="doc_gastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_gastos_cat_usuarios" Association="ERPProdModel.FK_doc_gastos_cat_usuarios">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="doc_gastos" EntitySet="doc_gastos" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
@@ -27816,6 +27736,86 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="doc_gastos">
+          <Key>
+            <PropertyRef Name="GastoId" />
+          </Key>
+          <Property Name="GastoId" Type="Int32" Nullable="false" />
+          <Property Name="CentroCostoId" Type="Int32" Nullable="false" />
+          <Property Name="GastoConceptoId" Type="Int32" Nullable="false" />
+          <Property Name="Obervaciones" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="CajaId" Type="Int32" />
+          <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreadoPor" Type="Int32" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="cat_cajas" Relationship="ERPProdModel.FK_doc_gastos_cat_cajas" FromRole="doc_gastos" ToRole="cat_cajas" />
+          <NavigationProperty Name="cat_centro_costos" Relationship="ERPProdModel.FK_doc_gastos_cat_centro_costos" FromRole="doc_gastos" ToRole="cat_centro_costos" />
+          <NavigationProperty Name="cat_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_gastos" FromRole="doc_gastos" ToRole="cat_gastos" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_doc_gastos_cat_sucursales" FromRole="doc_gastos" ToRole="cat_sucursales" />
+          <NavigationProperty Name="cat_usuarios" Relationship="ERPProdModel.FK_doc_gastos_cat_usuarios" FromRole="doc_gastos" ToRole="cat_usuarios" />
+        </EntityType>
+        <Association Name="FK_doc_gastos_cat_cajas">
+          <End Type="ERPProdModel.cat_cajas" Role="cat_cajas" Multiplicity="0..1" />
+          <End Type="ERPProdModel.doc_gastos" Role="doc_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_cajas">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_gastos">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_gastos_cat_centro_costos">
+          <End Type="ERPProdModel.cat_centro_costos" Role="cat_centro_costos" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_gastos" Role="doc_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_centro_costos">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_gastos">
+              <PropertyRef Name="CentroCostoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_gastos_cat_gastos">
+          <End Type="ERPProdModel.cat_gastos" Role="cat_gastos" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_gastos" Role="doc_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_gastos">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_gastos">
+              <PropertyRef Name="GastoConceptoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_gastos_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_gastos" Role="doc_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_gastos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_gastos_cat_usuarios">
+          <End Type="ERPProdModel.cat_usuarios" Role="cat_usuarios" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_gastos" Role="doc_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="doc_gastos">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -28716,22 +28716,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
               <MappingFragment StoreEntitySet="doc_entrada_directa_adicional">
                 <ScalarProperty Name="MovimientoDetalleId" ColumnName="MovimientoDetalleId" />
                 <ScalarProperty Name="PrecioCompra" ColumnName="PrecioCompra" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="doc_gastos">
-            <EntityTypeMapping TypeName="ERPProdModel.doc_gastos">
-              <MappingFragment StoreEntitySet="doc_gastos">
-                <ScalarProperty Name="GastoId" ColumnName="GastoId" />
-                <ScalarProperty Name="CentroCostoId" ColumnName="CentroCostoId" />
-                <ScalarProperty Name="GastoConceptoId" ColumnName="GastoConceptoId" />
-                <ScalarProperty Name="Obervaciones" ColumnName="Obervaciones" />
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
-                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
-                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
-                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -32092,6 +32076,22 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="doc_gastos">
+            <EntityTypeMapping TypeName="ERPProdModel.doc_gastos">
+              <MappingFragment StoreEntitySet="doc_gastos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Obervaciones" ColumnName="Obervaciones" />
+                <ScalarProperty Name="GastoConceptoId" ColumnName="GastoConceptoId" />
+                <ScalarProperty Name="CentroCostoId" ColumnName="CentroCostoId" />
+                <ScalarProperty Name="GastoId" ColumnName="GastoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
