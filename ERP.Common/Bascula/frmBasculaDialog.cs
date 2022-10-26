@@ -66,22 +66,25 @@ namespace ERP.Common.Bascula
             Random rd = new Random();
             if (basculaControlador == null)
                 return;
-            
-
-                //basculaControlador.cerrarBascula();
 
 
+            if (puntoVentaContext.conectarConBascula)
+            {
                 basculaControlador.abrirBascula();
 
                 if (basculaControlador.isOpen())
-                {
-                    //peso = rd.Next(100, 200);// basculaControlador.ObtenPeso();
+                {                  
 
-                    uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
-                    //peso = .120M;
+                    uiCantidad.EditValue = basculaControlador.ObtenPeso();
 
-                   
                 }
+            }
+            else
+            {
+                uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+            }
+
+                
 
 
             
@@ -105,12 +108,16 @@ namespace ERP.Common.Bascula
         private void frmBasculaDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Enabled = false;
-            if (basculaControlador.isOpen())
+            if (puntoVentaContext.conectarConBascula)
             {
-                basculaControlador.cerrarBascula();
+                if (basculaControlador.isOpen())
+                {
+                    basculaControlador.cerrarBascula();
 
 
+                }
             }
+            
             
         }
     }

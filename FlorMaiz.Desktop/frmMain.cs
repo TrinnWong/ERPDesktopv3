@@ -545,18 +545,31 @@ namespace FlorMaiz.Desktop
 
         private void uiMnuBascula_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+            try
             {
-                ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
-            }
-            else
-            {
-                Process p = new Process();
-                ProcessStartInfo psi = new ProcessStartInfo(@"Bascula\ERP.Background.Task.exe");
+                if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
+                }
+                else
+                {
+                    Process p = new Process();
+                    ProcessStartInfo psi = new ProcessStartInfo(@"Bascula\ERP.Background.Task.exe");
 
-                p.StartInfo = psi;
-                p.Start();
+                    p.StartInfo = psi;
+                    p.Start();
+                }
             }
+            catch (Exception ex)
+            {
+
+                int err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
+                                       "ERP",
+                                       this.Name,
+                                       ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+            
         }
 
         private void btnReimprimirUltimoCorteCajero_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
