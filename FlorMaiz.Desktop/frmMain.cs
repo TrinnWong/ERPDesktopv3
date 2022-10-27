@@ -596,5 +596,27 @@ namespace FlorMaiz.Desktop
             oContext.SaveChanges();
 
         }
+
+        private void uiMenuReimprimirCorteSupervisor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmAdminPass oForm = new frmAdminPass();
+
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+            oForm.ShowDialog();
+
+            if (oForm.DialogResult == DialogResult.OK)
+            {
+                frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.MdiParent = this;
+                    frmo.Show();
+                }
+            }
+            
+        }
     }
 }

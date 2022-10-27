@@ -1723,12 +1723,15 @@ namespace FlorMaiz.Desktop
 
         private void frmPuntoVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+           
         }
 
         private void frmPuntoVenta_KeyDown(object sender, KeyEventArgs e)
         {
-           
+            if (e.KeyCode == Keys.F10)
+            {
+                pagar();
+            }
         }
 
         private void uiPesoVal_KeyUp(object sender, KeyEventArgs e)

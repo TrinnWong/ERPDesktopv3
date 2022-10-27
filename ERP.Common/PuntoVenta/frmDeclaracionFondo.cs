@@ -280,6 +280,8 @@ namespace ERP.Common.PuntoVenta
                         oForm.puntoVentaContext = this.puntoVentaContext;
                         oForm.CorteCaja(model1, false,imprimirCorte,cerrarSistema);
                         this.Close();
+
+                        this.DialogResult = DialogResult.OK;
                     }
                     
                 }
