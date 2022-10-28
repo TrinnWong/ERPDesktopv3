@@ -282,7 +282,7 @@ namespace ERP.Reports
                 subRptCorteCajaVentaExisPorProducto oReporteVentasPorProducto = new subRptCorteCajaVentaExisPorProducto();
                 this.subReport3.Report = oReporteVentasPorProducto;               
 
-                subReport3.Report.DataSource = oContext.p_rpt_corte_caja_producto(corte.doc_ventas.SucursalId, corte.FechaApertura,corte.FechaCorte).ToList();
+                subReport3.Report.DataSource = oContext.p_rpt_corte_caja_producto(corte.doc_ventas.SucursalId, corte.FechaCorte, corte.FechaCorte).ToList();
             }
             else
             {

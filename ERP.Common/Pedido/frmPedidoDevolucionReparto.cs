@@ -188,14 +188,7 @@ namespace ERP.Common.Pedido
 
                 }
 
-                ERP.Reports.rptPedidoDevolucion oTicketPedido = new ERP.Reports.rptPedidoDevolucion();
-
-
-                ERP.Common.Reports.ReportViewer oViewerPedido = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
-                oContext = new ERPProdEntities();
-                oTicketPedido.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
-
-                oViewerPedido.ShowTicket(oTicketPedido);
+                
                 #endregion
 
                 List<FormaPagoModel> formasPago = new List<FormaPagoModel>();
@@ -228,6 +221,46 @@ namespace ERP.Common.Pedido
                 }
                 else
                 {
+                    oContext = new ERPProdEntities();   
+                    //ASEGURARSE QUE EL PEDIDO TENGA VENTA LIGADA
+                    if(oContext.doc_pedidos_orden.Where(w=> w.PedidoId == pedido.PedidoId).FirstOrDefault().VentaId == null)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowError("Ocurrió un error al intentar registrar le venta, por favor contacte a soporte técnico. SERÁ NECESARIO REVISAR LAS CANTIDADES DEL PEDIDO");
+
+                        #region Actualizar Pedido
+                        foreach (var itemPedido in lstProductos)
+                        {
+                            doc_pedidos_orden_detalle oPedidoDetalle = oContext.doc_pedidos_orden_detalle
+                                .Where(w => w.PedidoDetalleId == itemPedido.pedidoDetalleId).FirstOrDefault();
+
+                            oPedidoDetalle.CantidadDevolucion = 0;                            
+                            oPedidoDetalle.Cantidad = oPedidoDetalle.CantidadOriginal??0;
+                            oPedidoDetalle.Total = itemPedido.cantidad * itemPedido.precioUnitario;
+                            oContext.SaveChanges();
+
+                            doc_pedidos_orden oPedido = oContext.doc_pedidos_orden
+                                .Where(w => w.PedidoId == this.pedido.PedidoId).FirstOrDefault();
+
+                            oPedido.Total = lstProductos.Sum(s => s.cantidad * s.precioUnitario);
+                            oContext.SaveChanges();
+
+                        }
+                        #endregion
+
+
+
+                        this.Close();
+                        return;
+                    }
+                    ERP.Reports.rptPedidoDevolucion oTicketPedido = new ERP.Reports.rptPedidoDevolucion();
+
+
+                    ERP.Common.Reports.ReportViewer oViewerPedido = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
+                    oContext = new ERPProdEntities();
+                    oTicketPedido.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
+
+                    oViewerPedido.ShowTicket(oTicketPedido);
+
                     #region registrar mov Bascula
 
                     #endregion

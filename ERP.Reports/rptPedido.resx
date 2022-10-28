@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox10.OutputFormat" xml:space="preserve">
-    <value>#,##0</value>
+    <value>#,##0.00</value>
   </data>
   <data name="textBox2.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
@@ -128,9 +128,6 @@
   </data>
   <data name="textBox1.OutputFormat" xml:space="preserve">
     <value>dd/MM/yyyy h:mm</value>
-  </data>
-  <data name="textBox8.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
   </data>
   <data name="textBox8.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>

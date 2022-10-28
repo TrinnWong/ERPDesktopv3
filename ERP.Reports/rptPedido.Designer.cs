@@ -33,8 +33,13 @@
             this.detail = new GrapeCity.ActiveReports.SectionReportModel.Detail();
             this.textBox10 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox11 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.groupHeader1 = new GrapeCity.ActiveReports.SectionReportModel.GroupHeader();
+            this.textBox15 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox6 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
@@ -42,28 +47,23 @@
             this.line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.textBox15 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -121,6 +121,32 @@
             this.textBox11.Top = 0F;
             this.textBox11.Width = 1.187F;
             // 
+            // textBox2
+            // 
+            this.textBox2.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
+            this.textBox2.DataField = "Precio";
+            this.textBox2.Height = 0.148F;
+            this.textBox2.Left = 1.75F;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.OutputFormat = resources.GetString("textBox2.OutputFormat");
+            this.textBox2.Style = "font-size: 6.75pt; ddo-char-set: 0";
+            this.textBox2.Text = "textBox10";
+            this.textBox2.Top = 0F;
+            this.textBox2.Width = 0.5619998F;
+            // 
+            // textBox3
+            // 
+            this.textBox3.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
+            this.textBox3.DataField = "Total";
+            this.textBox3.Height = 0.148F;
+            this.textBox3.Left = 2.315F;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.OutputFormat = resources.GetString("textBox3.OutputFormat");
+            this.textBox3.Style = "font-size: 6.75pt; text-align: right; ddo-char-set: 0";
+            this.textBox3.Text = "textBox10";
+            this.textBox3.Top = 0F;
+            this.textBox3.Width = 0.497F;
+            // 
             // pageFooter
             // 
             this.pageFooter.Height = 0F;
@@ -144,6 +170,39 @@
             this.groupHeader1.Height = 1.091028F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
+            // 
+            // textBox15
+            // 
+            this.textBox15.DataField = "Direccion";
+            this.textBox15.Height = 0.2F;
+            this.textBox15.Left = 0.082F;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
+            this.textBox15.Text = null;
+            this.textBox15.Top = 0.637F;
+            this.textBox15.Width = 2.843F;
+            // 
+            // label4
+            // 
+            this.label4.Height = 0.138F;
+            this.label4.HyperLink = null;
+            this.label4.Left = 2.312F;
+            this.label4.Name = "label4";
+            this.label4.Style = "font-size: 8.25pt; ddo-char-set: 0";
+            this.label4.Text = "TOTAL";
+            this.label4.Top = 0.937F;
+            this.label4.Width = 0.54F;
+            // 
+            // label3
+            // 
+            this.label3.Height = 0.138F;
+            this.label3.HyperLink = null;
+            this.label3.Left = 1.75F;
+            this.label3.Name = "label3";
+            this.label3.Style = "font-size: 8.25pt; ddo-char-set: 0";
+            this.label3.Text = "P.U.";
+            this.label3.Top = 0.937F;
+            this.label3.Width = 0.415F;
             // 
             // textBox4
             // 
@@ -225,17 +284,6 @@
             this.textBox5.Top = 0.486F;
             this.textBox5.Width = 2.199F;
             // 
-            // textBox15
-            // 
-            this.textBox15.DataField = "Direccion";
-            this.textBox15.Height = 0.2F;
-            this.textBox15.Left = 0.082F;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
-            this.textBox15.Text = null;
-            this.textBox15.Top = 0.637F;
-            this.textBox15.Width = 2.843F;
-            // 
             // textBox1
             // 
             this.textBox1.DataField = "FechaPedido";
@@ -248,63 +296,6 @@
             this.textBox1.Top = 0.25F;
             this.textBox1.Width = 1.125F;
             // 
-            // groupFooter1
-            // 
-            this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
-            this.textBox8});
-            this.groupFooter1.Height = 0.1790835F;
-            this.groupFooter1.Name = "groupFooter1";
-            this.groupFooter1.Format += new System.EventHandler(this.groupFooter1_Format);
-            this.groupFooter1.BeforePrint += new System.EventHandler(this.groupFooter1_BeforePrint);
-            // 
-            // label3
-            // 
-            this.label3.Height = 0.138F;
-            this.label3.HyperLink = null;
-            this.label3.Left = 1.75F;
-            this.label3.Name = "label3";
-            this.label3.Style = "font-size: 8.25pt; ddo-char-set: 0";
-            this.label3.Text = "P.U.";
-            this.label3.Top = 0.937F;
-            this.label3.Width = 0.415F;
-            // 
-            // label4
-            // 
-            this.label4.Height = 0.138F;
-            this.label4.HyperLink = null;
-            this.label4.Left = 2.312F;
-            this.label4.Name = "label4";
-            this.label4.Style = "font-size: 8.25pt; ddo-char-set: 0";
-            this.label4.Text = "TOTAL";
-            this.label4.Top = 0.937F;
-            this.label4.Width = 0.54F;
-            // 
-            // textBox2
-            // 
-            this.textBox2.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
-            this.textBox2.DataField = "Precio";
-            this.textBox2.Height = 0.148F;
-            this.textBox2.Left = 1.75F;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.OutputFormat = resources.GetString("textBox2.OutputFormat");
-            this.textBox2.Style = "font-size: 6.75pt; ddo-char-set: 0";
-            this.textBox2.Text = "textBox10";
-            this.textBox2.Top = 0F;
-            this.textBox2.Width = 0.5619998F;
-            // 
-            // textBox3
-            // 
-            this.textBox3.CurrencyCulture = new System.Globalization.CultureInfo("en-US");
-            this.textBox3.DataField = "Total";
-            this.textBox3.Height = 0.148F;
-            this.textBox3.Left = 2.315F;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.OutputFormat = resources.GetString("textBox3.OutputFormat");
-            this.textBox3.Style = "font-size: 6.75pt; text-align: right; ddo-char-set: 0";
-            this.textBox3.Text = "textBox10";
-            this.textBox3.Top = 0F;
-            this.textBox3.Width = 0.497F;
-            // 
             // textBox7
             // 
             this.textBox7.Height = 0.151F;
@@ -314,6 +305,15 @@
             this.textBox7.Text = "CLIENTE:";
             this.textBox7.Top = 0.486F;
             this.textBox7.Width = 0.6070001F;
+            // 
+            // groupFooter1
+            // 
+            this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
+            this.textBox8});
+            this.groupFooter1.Height = 0.1790835F;
+            this.groupFooter1.Name = "groupFooter1";
+            this.groupFooter1.Format += new System.EventHandler(this.groupFooter1_Format);
+            this.groupFooter1.BeforePrint += new System.EventHandler(this.groupFooter1_BeforePrint);
             // 
             // textBox8
             // 
@@ -359,17 +359,17 @@
             this.ReportStart += new System.EventHandler(this.rptVentaTicket_ReportStart);
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
