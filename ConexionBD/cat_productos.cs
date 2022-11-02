@@ -108,6 +108,7 @@ namespace ConexionBD
         public Nullable<bool> Liquidacion { get; set; }
         public string Version { get; set; }
         public string CodigoBarras { get; set; }
+        public Nullable<int> Orden { get; set; }
     
         public virtual cat_almacenes cat_almacenes { get; set; }
         public virtual cat_almacenes cat_almacenes1 { get; set; }

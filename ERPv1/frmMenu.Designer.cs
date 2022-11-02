@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -98,6 +97,7 @@
             this.tsContabilidad = new System.Windows.Forms.ToolStripDropDownButton();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gastosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoDeCuentaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.sucursalesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productosRecepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,10 +155,10 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
+            this.timerMinimos = new System.Windows.Forms.Timer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.estadoDeCuentaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosEdiciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -639,6 +639,7 @@
             // 
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCatProductos,
+            this.productosEdiciónToolStripMenuItem,
             this.preciosToolStripMenuItem,
             this.configuraciónProducciónToolStripMenuItem,
             this.promocionesToolStripMenuItem,
@@ -795,6 +796,13 @@
             this.gastosToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
             this.gastosToolStripMenuItem1.Text = "Gastos Negocio";
             this.gastosToolStripMenuItem1.Click += new System.EventHandler(this.gastosToolStripMenuItem1_Click);
+            // 
+            // estadoDeCuentaToolStripMenuItem1
+            // 
+            this.estadoDeCuentaToolStripMenuItem1.Name = "estadoDeCuentaToolStripMenuItem1";
+            this.estadoDeCuentaToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
+            this.estadoDeCuentaToolStripMenuItem1.Text = "Estado de Cuenta";
+            this.estadoDeCuentaToolStripMenuItem1.Click += new System.EventHandler(this.estadoDeCuentaToolStripMenuItem1_Click);
             // 
             // toolStripDropDownButton3
             // 
@@ -1304,12 +1312,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // estadoDeCuentaToolStripMenuItem1
+            // productosEdiciónToolStripMenuItem
             // 
-            this.estadoDeCuentaToolStripMenuItem1.Name = "estadoDeCuentaToolStripMenuItem1";
-            this.estadoDeCuentaToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
-            this.estadoDeCuentaToolStripMenuItem1.Text = "Estado de Cuenta";
-            this.estadoDeCuentaToolStripMenuItem1.Click += new System.EventHandler(this.estadoDeCuentaToolStripMenuItem1_Click);
+            this.productosEdiciónToolStripMenuItem.Name = "productosEdiciónToolStripMenuItem";
+            this.productosEdiciónToolStripMenuItem.Size = new System.Drawing.Size(347, 30);
+            this.productosEdiciónToolStripMenuItem.Text = "Productos Edición";
+            this.productosEdiciónToolStripMenuItem.Click += new System.EventHandler(this.productosEdiciónToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1471,6 +1479,7 @@
         private System.Windows.Forms.ToolStripMenuItem productosPorSucursalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem productosEdiciónToolStripMenuItem;
     }
 }
 

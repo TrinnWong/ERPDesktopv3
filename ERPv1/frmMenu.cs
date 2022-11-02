@@ -1569,5 +1569,19 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void productosEdiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductoListEdit frmo = frmProductoListEdit.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
     }
 }

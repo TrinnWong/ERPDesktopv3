@@ -569,6 +569,12 @@
     <Compile Include="Productos\frmCambioPrecios.Designer.cs">
       <DependentUpon>frmCambioPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\frmProductoListEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frmProductoListEdit.Designer.cs">
+      <DependentUpon>frmProductoListEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\frmProductosGuisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -930,6 +936,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmCambioPrecios.resx">
       <DependentUpon>frmCambioPrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frmProductoListEdit.resx">
+      <DependentUpon>frmProductoListEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmProductosGuisos.resx">
       <DependentUpon>frmProductosGuisos.cs</DependentUpon>

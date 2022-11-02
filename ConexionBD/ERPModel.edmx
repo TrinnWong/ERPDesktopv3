@@ -691,6 +691,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="Liquidacion" Type="bit" />
           <Property Name="Version" Type="varchar" MaxLength="20" />
           <Property Name="CodigoBarras" Type="varchar" MaxLength="25" />
+          <Property Name="Orden" Type="int" />
         </EntityType>
         <EntityType Name="cat_productos_agrupados">
           <Key>
@@ -13527,6 +13528,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_inventario_captura" Relationship="ERPProdModel.FK_doc_inventario_captura_cat_productos" FromRole="cat_productos" ToRole="doc_inventario_captura" />
           <NavigationProperty Name="doc_precios_especiales_detalle" Relationship="ERPProdModel.FK_doc_precios_especiales_detalle_cat_productos" FromRole="cat_productos" ToRole="doc_precios_especiales_detalle" />
           <NavigationProperty Name="cat_sucursales_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_productos" FromRole="cat_productos" ToRole="cat_sucursales_productos" />
+          <Property Name="Orden" Type="Int32" />
         </EntityType>
         <EntityType Name="cat_productos_cambio_precio">
           <Key>
@@ -28234,6 +28236,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="cat_productos">
             <EntityTypeMapping TypeName="ERPProdModel.cat_productos">
               <MappingFragment StoreEntitySet="cat_productos">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
                 <ScalarProperty Name="CodigoBarras" ColumnName="CodigoBarras" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="Liquidacion" ColumnName="Liquidacion" />
