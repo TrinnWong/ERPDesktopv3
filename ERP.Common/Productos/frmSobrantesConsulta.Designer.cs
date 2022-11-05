@@ -40,6 +40,7 @@
             this.colcantidadSobrante = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidadInventarioTeorico = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcantidadDiferencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.uiFecha = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -48,7 +49,6 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.docproductossobrantesregistroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
@@ -107,6 +107,7 @@
             this.gridColumn1});
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
+            this.uiGridView.OptionsFind.AlwaysVisible = true;
             this.uiGridView.OptionsView.ShowGroupPanel = false;
             // 
             // colsucursalId
@@ -166,6 +167,17 @@
             this.colcantidadDiferencia.OptionsColumn.AllowEdit = false;
             this.colcantidadDiferencia.Visible = true;
             this.colcantidadDiferencia.VisibleIndex = 5;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Fecha";
+            this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn1.FieldName = "fecha";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
             // 
             // labelControl1
             // 
@@ -245,24 +257,13 @@
             // 
             this.docproductossobrantesregistroBindingSource.DataSource = typeof(ConexionBD.doc_productos_sobrantes_registro);
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Fecha";
-            this.gridColumn1.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn1.FieldName = "fecha";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            // 
-            // frmSobrantesConsulta
+            // frmPreferenciaSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 566);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "frmSobrantesConsulta";
+            this.Name = "frmPreferenciaSucursal";
             this.Text = "Productos Sobrantes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSobrantesConsulta_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

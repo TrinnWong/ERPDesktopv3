@@ -29,59 +29,7 @@ namespace ERPv1.Inventarios
 
         private void uiAgregar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                oContext = new ConexionBD.ERPProdEntities();
-
-                cat_produccion_productos_sucursal entityNew = new cat_produccion_productos_sucursal();
-                int productoId = Convert.ToInt32(uiProducto.EditValue == null ? 0 : uiProducto.EditValue);
-                int sucursalId = Convert.ToInt32(uiSucursal.EditValue == null ? 0 : uiSucursal.EditValue);
-
-
-                if (productoId > 0 && sucursalId > 0)
-                {
-
-                    entityNew = oContext.cat_produccion_productos_sucursal
-                        .Where(w => w.SucursalId == sucursalId &&
-                        w.ProductoId == productoId).FirstOrDefault();
-
-                    if (entityNew != null)
-                    {
-                        ERP.Utils.MessageBoxUtil.ShowWarning("El producto ya existe para la Sucursal Seleccionada");
-                    }
-                    else
-                    {
-                        entityNew = new cat_produccion_productos_sucursal();
-                        entityNew.ProductoId = productoId;
-                        entityNew.SucursalId = sucursalId;
-                        entityNew.CreadoEl = DateTime.Now;
-                        entityNew.Id = (oContext.cat_produccion_productos_sucursal.Max(m => (int?)m.Id) ?? 0) + 1;
-                        oContext.cat_produccion_productos_sucursal.Add(entityNew);
-                        oContext.SaveChanges();
-
-                        LoadGrid();
-                    }
-
-
-                }
-                else
-                {
-                    ERP.Utils.MessageBoxUtil.ShowWarning("Selecciona una Sucursal y un Producto");
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-                int err = ERP.Business.SisBitacoraBusiness.Insert(
-                   this.puntoVentaContext.usuarioId,
-                          "ERP",
-                          this.Name,
-                          ex);
-                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
-            }
+            
         }
 
 
@@ -209,6 +157,68 @@ namespace ERPv1.Inventarios
                                          "ERP",
                                          this.Name,
                                          ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void uiSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                oContext = new ConexionBD.ERPProdEntities();
+
+                cat_produccion_productos_sucursal entityNew = new cat_produccion_productos_sucursal();
+                int productoId = Convert.ToInt32(uiProducto.EditValue == null ? 0 : uiProducto.EditValue);
+                int sucursalId = Convert.ToInt32(uiSucursal.EditValue == null ? 0 : uiSucursal.EditValue);
+
+
+                if (productoId > 0 && sucursalId > 0)
+                {
+
+                    entityNew = oContext.cat_produccion_productos_sucursal
+                        .Where(w => w.SucursalId == sucursalId &&
+                        w.ProductoId == productoId).FirstOrDefault();
+
+                    if (entityNew != null)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("El producto ya existe para la Sucursal Seleccionada");
+                    }
+                    else
+                    {
+                        entityNew = new cat_produccion_productos_sucursal();
+                        entityNew.ProductoId = productoId;
+                        entityNew.SucursalId = sucursalId;
+                        entityNew.CreadoEl = DateTime.Now;
+                        entityNew.Id = (oContext.cat_produccion_productos_sucursal.Max(m => (int?)m.Id) ?? 0) + 1;
+                        oContext.cat_produccion_productos_sucursal.Add(entityNew);
+                        oContext.SaveChanges();
+
+                        LoadGrid();
+                    }
+
+
+                }
+                else
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Selecciona una Sucursal y un Producto");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                int err = ERP.Business.SisBitacoraBusiness.Insert(
+                   this.puntoVentaContext.usuarioId,
+                          "ERP",
+                          this.Name,
+                          ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }

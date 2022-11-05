@@ -96,7 +96,11 @@ namespace ERP.Common.Pedido
 
         private void uiGuardar1_Click(object sender, EventArgs e)
         {
+            uiGuardar.Enabled = false;
+            uiContinuar.Enabled = false;    
             registrarVenta(false);
+            uiGuardar.Enabled = true;
+            uiContinuar.Enabled = true;
         }
 
         private void uiContinuar_Click(object sender, EventArgs e)
@@ -104,7 +108,13 @@ namespace ERP.Common.Pedido
             if(XtraMessageBox.Show("Está seguro(a) de continuar?, se registrará la venta sin devouciones de reparto","Aviso", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                uiGuardar.Enabled = false;
+                uiContinuar.Enabled = false;
+
                 registrarVenta(true);
+
+                uiGuardar.Enabled = true;
+                uiContinuar.Enabled = true;
             }
         }
 

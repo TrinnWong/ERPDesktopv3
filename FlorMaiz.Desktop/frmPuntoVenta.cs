@@ -626,7 +626,8 @@ namespace FlorMaiz.Desktop
         {
             try
             {
-              
+
+                uiPagar.Enabled = false;
                 //Si es un pedido con reparto, verificar si se debe de registrar devolución de reparto
                 if (pedido != null)
                 {
@@ -693,11 +694,12 @@ namespace FlorMaiz.Desktop
                             return;
                         }
                     }
-                                
 
+                uiPagar.Enabled = true;
             }
             catch (Exception ex)
             {
+                uiPagar.Enabled = true;
 
                 int err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
                                       "ERP",
@@ -1580,6 +1582,7 @@ namespace FlorMaiz.Desktop
 
         private void uiGuardar_Click(object sender, EventArgs e)
         {
+            uiGuardar.Enabled = false;
             try
             {
                 if(pedido == null)
@@ -1610,11 +1613,12 @@ namespace FlorMaiz.Desktop
                     inicializar();
                 }
 
+                uiGuardar.Enabled = true;
 
             }
             catch (Exception ex) 
             {
-
+                uiGuardar.Enabled = true;
                 err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
                                     "ERP",
                                     this.Name,

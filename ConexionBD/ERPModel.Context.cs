@@ -20,10 +20,13 @@ namespace ConexionBD
         public ERPProdEntities()
             : base("name=ERPProdEntities")
         {
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 360;
+
         }
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 360;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
