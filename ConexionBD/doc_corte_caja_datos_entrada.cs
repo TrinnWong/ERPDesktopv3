@@ -21,6 +21,9 @@ namespace ConexionBD
         public decimal TiradaTortillaKg { get; set; }
         public int CreadoPor { get; set; }
         public System.DateTime CreadoEl { get; set; }
+        public Nullable<decimal> MaizKg { get; set; }
+        public Nullable<System.DateTime> ModificadoEl { get; set; }
+        public Nullable<int> ModificadoPor { get; set; }
     
         public virtual cat_sucursales cat_sucursales { get; set; }
         public virtual cat_usuarios cat_usuarios { get; set; }

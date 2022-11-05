@@ -241,6 +241,12 @@
     <Compile Include="Configuracion\frmConfigImpresora.Designer.cs">
       <DependentUpon>frmConfigImpresora.cs</DependentUpon>
     </Compile>
+    <Compile Include="CorteCaja\frmCorteCajaMaizDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorteCaja\frmCorteCajaMaizDiario.Designer.cs">
+      <DependentUpon>frmCorteCajaMaizDiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CorteCaja\frmCorteCajaTortilleriaDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -884,6 +890,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\frmConfigImpresora.resx">
       <DependentUpon>frmConfigImpresora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorteCaja\frmCorteCajaMaizDiario.resx">
+      <DependentUpon>frmCorteCajaMaizDiario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CorteCaja\frmCorteCajaTortilleriaDatos.resx">
       <DependentUpon>frmCorteCajaTortilleriaDatos.cs</DependentUpon>

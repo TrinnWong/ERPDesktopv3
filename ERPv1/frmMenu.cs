@@ -1583,5 +1583,19 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void registroDiarioMaizMolinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCorteCajaMaizDiario frmo = frmCorteCajaMaizDiario.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
     }
 }

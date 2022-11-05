@@ -3202,6 +3202,12 @@
     <Content Include="Versiones\2022.06.01\95_2  [p_productos_sobrantes_grd].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\95_3 ALTER TABLE doc_corte_caja_datos_entrada.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\95_4 INSERT PREFERENCIA PROD-EquivalenciaMaizMasa.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

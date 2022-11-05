@@ -1382,6 +1382,9 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="TiradaTortillaKg" Type="decimal" Precision="14" Scale="3" Nullable="false" />
           <Property Name="CreadoPor" Type="int" Nullable="false" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
+          <Property Name="MaizKg" Type="decimal" Precision="14" Scale="3" />
+          <Property Name="ModificadoEl" Type="datetime" />
+          <Property Name="ModificadoPor" Type="int" />
         </EntityType>
         <EntityType Name="doc_corte_caja_denominaciones">
           <Key>
@@ -27548,6 +27551,9 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_sucursales" FromRole="doc_corte_caja_datos_entrada" ToRole="cat_sucursales" />
           <NavigationProperty Name="cat_usuarios" Relationship="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_usuarios" FromRole="doc_corte_caja_datos_entrada" ToRole="cat_usuarios" />
+          <Property Name="MaizKg" Type="Decimal" Precision="14" Scale="3" />
+          <Property Name="ModificadoEl" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="Int32" />
         </EntityType>
         <Association Name="FK_doc_corte_caja_datos_entrada_cat_sucursales">
           <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="1" />
@@ -31999,6 +32005,9 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="doc_corte_caja_datos_entrada">
             <EntityTypeMapping TypeName="ERPProdModel.doc_corte_caja_datos_entrada">
               <MappingFragment StoreEntitySet="doc_corte_caja_datos_entrada">
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+                <ScalarProperty Name="MaizKg" ColumnName="MaizKg" />
                 <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
                 <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
                 <ScalarProperty Name="TiradaTortillaKg" ColumnName="TiradaTortillaKg" />
