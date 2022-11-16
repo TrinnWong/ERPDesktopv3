@@ -553,6 +553,12 @@
     <Compile Include="Produccion\frmProduccionUpd.Designer.cs">
       <DependentUpon>frmProduccionUpd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\frmMaximosMinimos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frmMaximosMinimos.Designer.cs">
+      <DependentUpon>frmMaximosMinimos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\frmProductoInventarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1037,6 +1043,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Produccion\frmProduccionUpd.resx">
       <DependentUpon>frmProduccionUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frmMaximosMinimos.resx">
+      <DependentUpon>frmMaximosMinimos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmProductoInventarioForm.resx">
       <DependentUpon>frmProductoInventarioForm.cs</DependentUpon>

@@ -979,5 +979,20 @@ namespace TacosAna.Desktop
             oForm.StartPosition = FormStartPosition.CenterScreen;
             oForm.ShowDialog();
         }
+
+        private void mneMaxMin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmMaximosMinimos frmo = frmMaximosMinimos.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
     }
 }

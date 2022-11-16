@@ -8,6 +8,7 @@ using ERP.Common.Procesos.Restaurante;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
 using ERP.Models.Pedidos;
+using ERP.Models.Producto;
 using ERP.Reports.TacosAna;
 using System;
 using System.Collections.Generic;
@@ -217,6 +218,8 @@ namespace TacosAna.Desktop
             uiFactura.Checked = false;
             refrescarAvisoVentaTelefono();
             frmMenuRestTA.GetInstance().EnableMenu(true, true, true, true, true);
+
+            validarMaxMinimos();
 
         }
         private void Getproductos()
@@ -501,7 +504,7 @@ namespace TacosAna.Desktop
                     }
                     if (itemCon.Count > 0)
                     {
-                        uiPedido.Text = uiPedido.Text + " ";
+                        uiPedido.Text = uiPedido.Text.Length == 0 ? uiPedido.Text + " " : uiPedido.Text + " C/ ";
                         if (uiPedido.Text.Contains("LIBRE"))
                         {
                             foreach (var i in itemCon)
@@ -788,7 +791,7 @@ namespace TacosAna.Desktop
             {
                 string descripcionPartida = uiPedido.Text + " ";
 
-                if(botonSeleccionado == "SUR")
+                if(botonSeleccionado == "SUR" && !descripcionPartida.Contains("S/"))
                 {
                     if (descripcionPartida.Contains(" C ") && descripcionPartida.Contains(" CH "))
                     {
@@ -861,14 +864,22 @@ namespace TacosAna.Desktop
                
             }
 
-            if(itemSin.Count()> this.limiteMaxGuisoSeleccion)
+            if (botonSeleccionado.Contains("ESP"))
             {
                 EnableBtnG2(false, false, false, false);
             }
             else
             {
-                EnableBtnG2(false, true, false, false);
+                if (itemSin.Count() > this.limiteMaxGuisoSeleccion)
+                {
+                    EnableBtnG2(false, false, false, false);
+                }
+                else
+                {
+                    EnableBtnG2(false, true, false, false);
+                }
             }
+            
 
             PedidoActualUpd(0,btn.Text);
             EnableBtnG4(false);
@@ -995,6 +1006,11 @@ namespace TacosAna.Desktop
             uiCalculadora.Text = "";
 
             PedidoActualUpd(cantidad,btn.Text);
+            if(botonSeleccionado.Contains("ESP") && !uiPedido.Text.Contains("S/"))
+            {
+                EnableBtnG2(true, false, false, false);
+            }
+            
             EnableBtnG4(false);
             EnableBtnG5(false);
 
@@ -2603,10 +2619,22 @@ namespace TacosAna.Desktop
 
         #region eventos
 
+        
+
         private void btnProd1_Click(object sender, EventArgs e)
         {
+            
 
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
+
             EnableBtnProd(false);
             EnableBtnG2(true, false, true, false);
 
@@ -2623,12 +2651,12 @@ namespace TacosAna.Desktop
 
         }
 
-       
-
-        private void btnG3_1_Click(object sender, EventArgs e)
+        private void ClicProducto(object sender)
         {
+            
+        
             if (btnSin)
-            { 
+            {
 
                 Sin((Button)sender);
             }
@@ -2638,21 +2666,44 @@ namespace TacosAna.Desktop
             }
             if (btnCon)
             {
+                if (botonSeleccionado.Contains("ESP"))
+                {
+                    if (((Button)sender).Text != "C" && ((Button)sender).Text != "CH" && uiPedido.Text.Replace(botonSeleccionado, "") == "")
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("PRIMERO SELECCIONE CARNE O CHICHARRON");
+                        return;
+                    }
+                }
                 Con(((Button)sender));
             }
             if (btnMitad)
             {
                 Mitad(((Button)sender));
             }
+        }
 
-           
+        private void btnG3_1_Click(object sender, EventArgs e)
+        {
+
+            ClicProducto(sender);
+
+
         }
 
         private void btnProd3_Click(object sender, EventArgs e)
         {
-            limiteMaxGuisoSeleccion = 2;
+            
+            limiteMaxGuisoSeleccion = 3;
             limiteMaxGuisoSeleccionValidar = false;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnProd(false);
             EnableBtnG2(false,false,true,false);
             EnableBtnG3(false);
@@ -2665,7 +2716,16 @@ namespace TacosAna.Desktop
 
         private void btnProd4_Click(object sender, EventArgs e)
         {
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnProd(false);
             EnableBtnG2(true, false, true, false);
             EnableBtnG3(false);
@@ -2677,7 +2737,17 @@ namespace TacosAna.Desktop
 
         private void btnProd5_Click(object sender, EventArgs e)
         {
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
+
             EnableBtnProd(false);
             EnableBtnG2(true, false, true, true);
             EnableBtnG3(false);
@@ -2695,7 +2765,16 @@ namespace TacosAna.Desktop
 
         private void btnProd6_Click(object sender, EventArgs e)
         {
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnG2(false, false, false, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
@@ -2708,6 +2787,15 @@ namespace TacosAna.Desktop
             
             limiteMaxGuisoSeleccionValidar = false;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
+
             EnableBtnProd(false);
             EnableBtnG2(false, false, true, false);
             EnableBtnG3(false);
@@ -2802,111 +2890,27 @@ namespace TacosAna.Desktop
 
         private void btnG3_2_Click(object sender, EventArgs e)
         {
-            if(btnSin)
-            {
-                Sin(((Button)sender));
-            }
-            if(btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
-
-            //if (botonSeleccionado == "ESP")
-            //{
-            //    EnableBtnG3(true);
-            //}
+            ClicProducto(sender);
         }
 
         private void btnG3_3_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_4_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_5_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_6_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
         
         private void button8_Click(object sender, EventArgs e)
@@ -3537,10 +3541,18 @@ namespace TacosAna.Desktop
 
         private void btnProd7_Click(object sender, EventArgs e)
         {
-      
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnProd(false);
-            EnableBtnG2(false, false, false, false);
+            EnableBtnG2(false, false, true, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
             EnableBtnG5(false);
@@ -3549,7 +3561,17 @@ namespace TacosAna.Desktop
 
         private void btnProd8_Click(object sender, EventArgs e)
         {
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
+
             EnableBtnG2(false, false, false, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
@@ -3583,10 +3605,19 @@ namespace TacosAna.Desktop
 
         private void btnProd9_Click(object sender, EventArgs e)
         {
+            
             SolicitaCantidadCortesia(10);
             limiteCarneChicharron = 10;
             limiteMaxGuisoSeleccionValidar = true;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnG2(false, false, true, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
@@ -3596,10 +3627,19 @@ namespace TacosAna.Desktop
 
         private void btnProd10_Click(object sender, EventArgs e)
         {
+            
             SolicitaCantidadCortesia(5);
             limiteMaxGuisoSeleccionValidar = true;
             limiteCarneChicharron = 5;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnG2(false, false, true, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
@@ -3609,7 +3649,16 @@ namespace TacosAna.Desktop
 
         private void btnProd11_Click(object sender, EventArgs e)
         {
+            
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+            if (uiConsumo.Checked)
+            {
+                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                    return;
+                }
+            }
             EnableBtnG2(false, false, false, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
@@ -3619,212 +3668,52 @@ namespace TacosAna.Desktop
 
         private void btnG3_8_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_8_Click_1(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_9_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_10_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_11_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_12_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_13_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_14_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG3_16_Click(object sender, EventArgs e)
         {
-            if (btnSin)
-            {
-
-                Sin((Button)sender);
-            }
-            if (btnPor)
-            {
-                Por(((Button)sender));
-            }
-            if (btnCon)
-            {
-                Con(((Button)sender));
-            }
-            if (btnMitad)
-            {
-                Mitad(((Button)sender));
-            }
+            ClicProducto(sender);
         }
 
         private void btnG5_4_Click(object sender, EventArgs e)
@@ -4282,6 +4171,30 @@ namespace TacosAna.Desktop
             }
 
             return true;
+        }
+
+        private void validarMaxMinimos()
+        {
+            try
+            {
+                ERP.Business.ProductoBusiness oProducto = new ERP.Business.ProductoBusiness();
+
+                ProductoMinMaxListModel result = oProducto.GetMaxMinResumen(this.puntoVentaContext.sucursalId);
+
+                if(result.lstProductos.Where(w=> w.solicitar > 0).Count() >0)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("*******REVISAR MAXIMOS Y MINIMOS*********");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
+                               "ERP",
+                               this.Name,
+                               ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
         }
     }
 }

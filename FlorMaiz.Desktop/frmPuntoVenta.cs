@@ -775,11 +775,13 @@ namespace FlorMaiz.Desktop
                 return;
             }
             else
-            {              
+            {
+                error = "";
 
-                
-
-                    if (uiTotal.Value >= (entityConfig.MontoImpresionTicket ?? 0))
+                if(ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,this.puntoVentaContext.sucursalId,
+                        "PV-ImprimirTicket", this.puntoVentaContext.usuarioId, ref error))
+                {
+                    if(uiTotal.Value >= Convert.ToInt32(error))
                     {
                         if (entityConfig.ImprimirTicketMediaCarta == true)
                         {
@@ -805,16 +807,15 @@ namespace FlorMaiz.Desktop
                         }
 
 
-                        //oViewer.Show();
                     }
+                }
+                inicializar();
+                limpiar();
 
-                    inicializar();
-                    limpiar();
-
-                    if (productoDefaultId > 0)
-                    {
+                 if (productoDefaultId > 0)
+                 {
                         SeleccionProducto("", productoDefaultId);
-                    }
+                 }
 
 
             }

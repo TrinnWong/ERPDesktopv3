@@ -248,6 +248,7 @@ namespace ERP.Common.Inventarios
 
                     uiGrid.DataSource = lstProductosTraspaso;
                     uiGridView.RefreshData();
+                    uiGridView.ExpandAllGroups();
 
                     uiProductoSeleccion.Text = "";
                     uiCantidad.EditValue = 0;

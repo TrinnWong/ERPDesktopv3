@@ -74,6 +74,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.mneMaxMin = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -140,9 +141,10 @@
             this.uiBuscarPedido,
             this.uiInvRecepcionProd,
             this.uiCorteCajaSupervisor,
-            this.mnuProductoSobrante});
+            this.mnuProductoSobrante,
+            this.mneMaxMin});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 30;
+            this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -463,6 +465,7 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.uiInvRecepcionProd);
             this.ribbonPageGroup3.ItemLinks.Add(this.mnuProductoSobrante);
+            this.ribbonPageGroup3.ItemLinks.Add(this.mneMaxMin);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -478,6 +481,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCerrarSesion);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
+            // 
+            // mneMaxMin
+            // 
+            this.mneMaxMin.Caption = "Maximos y Mínimos";
+            this.mneMaxMin.Id = 30;
+            this.mneMaxMin.Name = "mneMaxMin";
+            this.mneMaxMin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mneMaxMin_ItemClick);
             // 
             // frmMenuRestTA
             // 
@@ -544,5 +554,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem uiCorteCajaSupervisor;
         private DevExpress.XtraBars.BarButtonItem mnuProductoSobrante;
+        private DevExpress.XtraBars.BarButtonItem mneMaxMin;
     }
 }
