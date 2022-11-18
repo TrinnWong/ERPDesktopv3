@@ -22,6 +22,7 @@ namespace ConexionBD
             this.doc_pedidos_orden_mesero = new HashSet<doc_pedidos_orden_mesero>();
             this.cat_clientes = new HashSet<cat_clientes>();
             this.doc_empleados_productos_descuentos = new HashSet<doc_empleados_productos_descuentos>();
+            this.doc_ventas = new HashSet<doc_ventas>();
         }
     
         public int NumEmpleado { get; set; }
@@ -62,5 +63,7 @@ namespace ConexionBD
         public virtual ICollection<cat_clientes> cat_clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_empleados_productos_descuentos> doc_empleados_productos_descuentos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_ventas> doc_ventas { get; set; }
     }
 }

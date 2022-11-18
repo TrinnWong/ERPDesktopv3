@@ -2290,6 +2290,7 @@ warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have 
           <Property Name="MotivoCancelacion" Type="varchar" MaxLength="150" />
           <Property Name="Rec" Type="bit" />
           <Property Name="Facturar" Type="bit" />
+          <Property Name="EmpleadoId" Type="int" />
         </EntityType>
         <EntityType Name="doc_ventas_detalle">
           <Key>
@@ -8620,6 +8621,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_doc_ventas_rh_empleados">
+          <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="0..1" />
+          <End Role="doc_ventas" Type="Self.doc_ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rh_empleados">
+              <PropertyRef Name="NumEmpleado" />
+            </Principal>
+            <Dependent Role="doc_ventas">
+              <PropertyRef Name="EmpleadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_doc_web_carrito_cat_estados">
           <End Role="cat_estados" Type="Self.cat_estados" Multiplicity="1" />
           <End Role="doc_web_carrito" Type="Self.doc_web_carrito" Multiplicity="*" />
@@ -12602,6 +12615,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
             <End Role="doc_ventas_formas_pago_vale" EntitySet="doc_ventas_formas_pago_vale" />
           </AssociationSet>
+          <AssociationSet Name="FK_doc_ventas_rh_empleados" Association="Self.FK_doc_ventas_rh_empleados">
+            <End Role="rh_empleados" EntitySet="rh_empleados" />
+            <End Role="doc_ventas" EntitySet="doc_ventas" />
+          </AssociationSet>
           <AssociationSet Name="FK_doc_web_carrito_cat_estados" Association="Self.FK_doc_web_carrito_cat_estados">
             <End Role="cat_estados" EntitySet="cat_estados" />
             <End Role="doc_web_carrito" EntitySet="doc_web_carrito" />
@@ -14491,6 +14508,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_ventas_detalle" Relationship="ERPProdModel.FK_doc_ventas_detalle_doc_ventas" FromRole="doc_ventas" ToRole="doc_ventas_detalle" />
           <NavigationProperty Name="doc_web_carrito" Relationship="ERPProdModel.FK_Carrito_Ventas" FromRole="doc_ventas" ToRole="doc_web_carrito" />
           <Property Name="Facturar" Type="Boolean" />
+          <Property Name="EmpleadoId" Type="Int32" />
+          <NavigationProperty Name="rh_empleados" Relationship="ERPProdModel.FK_doc_ventas_rh_empleados" FromRole="doc_ventas" ToRole="rh_empleados" />
         </EntityType>
         <EntityType Name="doc_ventas_formas_pago">
           <Key>
@@ -14572,6 +14591,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_pedidos_orden_mesero" Relationship="ERPProdModel.FK_doc_pedidos_orden_mesero_rh_empleados" FromRole="rh_empleados" ToRole="doc_pedidos_orden_mesero" />
           <NavigationProperty Name="cat_clientes" Relationship="ERPProdModel.FK_Clientes_Empleados" FromRole="rh_empleados" ToRole="cat_clientes" />
           <NavigationProperty Name="doc_empleados_productos_descuentos" Relationship="ERPProdModel.FK_doc_empleados_productos_descuentos_rh_empleados" FromRole="rh_empleados" ToRole="doc_empleados_productos_descuentos" />
+          <NavigationProperty Name="doc_ventas" Relationship="ERPProdModel.FK_doc_ventas_rh_empleados" FromRole="rh_empleados" ToRole="doc_ventas" />
         </EntityType>
         <EntityType Name="rh_estatus_empleados">
           <Key>
@@ -21955,6 +21975,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_gastos" EntitySet="doc_gastos" />
           </AssociationSet>
+          <AssociationSet Name="FK_doc_ventas_rh_empleados" Association="ERPProdModel.FK_doc_ventas_rh_empleados">
+            <End Role="rh_empleados" EntitySet="rh_empleados" />
+            <End Role="doc_ventas" EntitySet="doc_ventas" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -27824,6 +27848,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_doc_ventas_rh_empleados">
+          <End Type="ERPProdModel.rh_empleados" Role="rh_empleados" Multiplicity="0..1" />
+          <End Type="ERPProdModel.doc_ventas" Role="doc_ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rh_empleados">
+              <PropertyRef Name="NumEmpleado" />
+            </Principal>
+            <Dependent Role="doc_ventas">
+              <PropertyRef Name="EmpleadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -28922,6 +28958,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="doc_ventas">
             <EntityTypeMapping TypeName="ERPProdModel.doc_ventas">
               <MappingFragment StoreEntitySet="doc_ventas">
+                <ScalarProperty Name="EmpleadoId" ColumnName="EmpleadoId" />
                 <ScalarProperty Name="Facturar" ColumnName="Facturar" />
                 <ScalarProperty Name="Rec" ColumnName="Rec" />
                 <ScalarProperty Name="VentaId" ColumnName="VentaId" />

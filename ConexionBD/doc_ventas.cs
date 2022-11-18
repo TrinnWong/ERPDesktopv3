@@ -57,6 +57,7 @@ namespace ConexionBD
         public string MotivoCancelacion { get; set; }
         public Nullable<bool> Rec { get; set; }
         public Nullable<bool> Facturar { get; set; }
+        public Nullable<int> EmpleadoId { get; set; }
     
         public virtual cat_cajas cat_cajas { get; set; }
         public virtual cat_clientes cat_clientes { get; set; }
@@ -89,5 +90,6 @@ namespace ConexionBD
         public virtual ICollection<doc_ventas_detalle> doc_ventas_detalle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_web_carrito> doc_web_carrito { get; set; }
+        public virtual rh_empleados rh_empleados { get; set; }
     }
 }

@@ -482,8 +482,26 @@ namespace TacosAna.Desktop
                     {
                         uiPedido.Text = itemProd.DescripcionCorta;
                     }
+                if (itemCon.Count > 0)
+                {
+                    uiPedido.Text = uiPedido.Text.Length == 0 ? uiPedido.Text + " " : uiPedido.Text + " ";
+                    if (uiPedido.Text.Contains("LIBRE"))
+                    {
+                        foreach (var i in itemCon)
+                        {
+                            uiPedido.Text = uiPedido.Text + " " + (i.ClaveLote > 0 ? (i.ClaveLote.ToString()) : "") + i.Descripcion;
+                        }
+                    }
+                    else
+                    {
+                        foreach (var i in itemCon)
+                        {
+                            uiPedido.Text = uiPedido.Text + " " + (i.ClaveLote > 1 ? (i.ClaveLote.ToString()) : "") + i.Descripcion;
+                        }
+                    }
 
-                    if (itemSin.Count > 0)
+                }
+                if (itemSin.Count > 0)
                     {
                         uiPedido.Text = uiPedido.Text + " S/";
 
@@ -502,25 +520,7 @@ namespace TacosAna.Desktop
                             uiPedido.Text = uiPedido.Text + " " + i.Descripcion;
                         }
                     }
-                    if (itemCon.Count > 0)
-                    {
-                        uiPedido.Text = uiPedido.Text.Length == 0 ? uiPedido.Text + " " : uiPedido.Text + " C/ ";
-                        if (uiPedido.Text.Contains("LIBRE"))
-                        {
-                            foreach (var i in itemCon)
-                            {
-                                uiPedido.Text = uiPedido.Text + " " + (i.ClaveLote > 0 ? (i.ClaveLote.ToString() ) : "") + i.Descripcion;
-                            }
-                        }
-                        else
-                        {
-                            foreach (var i in itemCon)
-                            {
-                                uiPedido.Text = uiPedido.Text + " " + (i.ClaveLote > 1 ? (i.ClaveLote.ToString() ) : "") + i.Descripcion;
-                            }
-                        }
-                   
-                    }
+                    
                     if (itemMitad.Count > 0)
                     {
                         uiPedido.Text = uiPedido.Text + " //";
@@ -809,7 +809,8 @@ namespace TacosAna.Desktop
 
                 }
 
-                if (botonSeleccionado == "CARNE")
+                if (botonSeleccionado == "CARNE" &&
+                    descripcionPartida.Trim().Length <= 11)
                 {
                     if (descripcionPartida.Contains(" C ") && descripcionPartida.Contains(" CH "))
                     {
@@ -866,7 +867,7 @@ namespace TacosAna.Desktop
 
             if (botonSeleccionado.Contains("ESP"))
             {
-                EnableBtnG2(false, false, false, false);
+                EnableBtnG2(false, true, false, false);
             }
             else
             {
@@ -936,7 +937,8 @@ namespace TacosAna.Desktop
             
             EnableBtnG4(false);
             EnableBtnG5(false);
-
+            btnG3_1.Enabled = false;
+            btnG3_2.Enabled = false;
             //btnPor = false;
         }
         private void Con(Button btn)
@@ -1543,7 +1545,11 @@ namespace TacosAna.Desktop
         {
             try
             {
-
+                if (uiConsumo.Checked && uiEmpleado.EditValue == null)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("EL EMPLEADO ES REQUERIDO");
+                    return;
+                }
                 #region marcar para Llevar si es pedido
                 if (esPedidoConAnticipo)
                 {
@@ -2680,6 +2686,15 @@ namespace TacosAna.Desktop
             {
                 Mitad(((Button)sender));
             }
+            if (botonSeleccionado.Contains("ESP") && uiPedido.Text == "ESP")
+            {
+                uiPedido.Text = uiPedido.Text + " "+ ((Button)sender).Text;
+                EnableBtnG2(true, false, true, false);
+                btnG3_1.Enabled = false;
+                btnG3_2.Enabled = false;
+                itemCon.Add(new cat_productos() { Descripcion = ((Button)sender).Text ,DescripcionCorta = ((Button)sender).Text });
+            }
+            
         }
 
         private void btnG3_1_Click(object sender, EventArgs e)
@@ -2797,7 +2812,7 @@ namespace TacosAna.Desktop
             }
 
             EnableBtnProd(false);
-            EnableBtnG2(false, false, true, false);
+            EnableBtnG2(false, false, false, false);
             EnableBtnG3(false);
             EnableBtnG4(false);
             EnableBtnG5(false);
@@ -2805,15 +2820,19 @@ namespace TacosAna.Desktop
             limiteMaxGuisoSeleccion = 6;
             limiteCarneChicharron = 6;
             cantidadPaquete = 10;
+            btnG3_1.Enabled = true;
+            btnG3_2.Enabled = true;
 
         }
 
         private void btnG2_1_Click_1(object sender, EventArgs e)
         {
             btnSin = true;
-            
+            btnCon = false;
+
+
             PedidoActualUpd(0,((Button)sender).Text);
-            EnableBtnG2(false, false, false, false);
+            EnableBtnG2(false, true, false, false);
             EnableBtnG3(true);
 
             if (productoIdSel == (int)productosTacosAna.ESPECIAL ||
@@ -2821,6 +2840,11 @@ namespace TacosAna.Desktop
                 )
             {
                 btnG3_1.Enabled = false;
+            }
+            if(botonSeleccionado == "ESP")
+            {
+                btnG3_1.Enabled = false;
+                btnG3_2.Enabled = false;
             }
         }
 
@@ -2855,6 +2879,13 @@ namespace TacosAna.Desktop
                 EnableBtnG2(false, false, false, false);
                 EnableBtnG3(true);
             }
+
+            if (botonSeleccionado.Contains("SUR"))
+            {
+                btnG3_1.Enabled = false;
+                btnG3_2.Enabled = false;
+            }
+            
             
            
         }
@@ -2862,11 +2893,21 @@ namespace TacosAna.Desktop
         private void btnG2_3_Click(object sender, EventArgs e)
         {
             btnCon = true;
-            PedidoActualUpd(0,((Button)sender).Text);
+            
             EnableBtnG2(false, false, false, false);
             EnableBtnG3(true);
             EnableBtnG4(false);
             EnableBtnG5(false);
+
+            if(this.botonSeleccionado == "ESP")
+            {
+                btnG3_1.Enabled = false;
+                btnG3_2.Enabled = false;
+            }
+            else
+            {
+                PedidoActualUpd(0, ((Button)sender).Text);
+            }
            
         }
 
@@ -3040,6 +3081,11 @@ namespace TacosAna.Desktop
 
         private void ConfirmarPago()
         {
+            int empleadoId = Convert.ToInt32(uiEmpleado.EditValue);
+
+            int? clienteId = empleadoId > 0 ? null : (int?)oContext.rh_empleados
+                .Where(w => w.NumEmpleado == empleadoId).FirstOrDefault().cat_clientes.FirstOrDefault().ClienteId;
+
             if (valorFaltan > 0)
             {
                 XtraMessageBox.Show("No se ha recibido el total de la venta", "AVISO",
@@ -3204,7 +3250,7 @@ namespace TacosAna.Desktop
 
 
 
-                error = puntoVenta.pagar(ref ventaId, null, "", 0, 0, lstPedido.Sum(s => s.totalDescuento), lstPedido.Sum(s => s.totalImpuestos),
+                error = puntoVenta.pagar(ref ventaId, clienteId, "", 0, 0, lstPedido.Sum(s => s.totalDescuento), lstPedido.Sum(s => s.totalImpuestos),
                    lstPedido.Sum(s => s.total) - lstPedido.Sum(s => s.totalImpuestos),
                    lstPedido.Sum(s => s.total),
                    valorRecibi, valorCambio, false,
@@ -4133,6 +4179,7 @@ namespace TacosAna.Desktop
             try
             {
                 int productoLibreId = 0;
+                
 
                 //Consumo Interno
                 if(this.lstPedido.Where(w=> w.consumoInterno).Count() > 0 || esConsumoInterno)
@@ -4140,7 +4187,7 @@ namespace TacosAna.Desktop
                     productoLibreId = ERP.Business.DataMemory.DataBucket.GetProductosMemory(false)
                         .Where(W => W.DescripcionCorta == "LIBRE").FirstOrDefault().ProductoId;
 
-                    if(lstPedido.Where(w=> w.productoId != productoLibreId).Count() > 0)
+                    if(lstPedido.Where(w=> w.productoId != productoLibreId && !w.descripcion.Contains("SUR")).Count() > 0)
                     {
                         ERP.Utils.MessageBoxUtil.ShowWarning("Solo se permite seleccionar paquete Libre para consumo Interno");
                         return false;

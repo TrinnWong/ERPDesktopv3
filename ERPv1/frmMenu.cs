@@ -1033,7 +1033,7 @@ namespace ERPv1
 
         private void máximosYMInimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMaximosMinimos frmo = frmMaximosMinimos.GetInstance();
+            ERP.Common.Productos.frmMaximosMinimos frmo = ERP.Common.Productos.frmMaximosMinimos.GetInstance();
 
             if (!frmo.Visible)
             {

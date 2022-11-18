@@ -756,6 +756,7 @@
         <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_gastos" />
         <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_sucursales" />
         <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_ventas_rh_empleados" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
