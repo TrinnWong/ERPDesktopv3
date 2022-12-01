@@ -82,6 +82,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBasculaLectorLocal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBasculaLectorLocal.Designer.cs">
+      <DependentUpon>frmBasculaLectorLocal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBasculaLector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBasculaLectorLocal.resx">
+      <DependentUpon>frmBasculaLectorLocal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBasculaLector.resx">
       <DependentUpon>frmBasculaLector.cs</DependentUpon>
     </EmbeddedResource>

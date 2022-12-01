@@ -773,6 +773,7 @@
     <Compile Include="Reports\frmRptNotasVentaResumido.Designer.cs">
       <DependentUpon>frmRptNotasVentaResumido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportPrint.cs" />
     <Compile Include="Reports\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>

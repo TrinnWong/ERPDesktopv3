@@ -50,6 +50,8 @@ namespace FlorMaiz.Desktop
         string error = "";
         private bool solicitarRecibido=true;
         cat_configuracion entityConfig = null;
+        decimal valorImrpesionTicket = 0;
+        bool imprimirTicket = false;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -127,6 +129,15 @@ namespace FlorMaiz.Desktop
                     if(error.Length > 0)
                     {
                        productoDefaultId=  DataBucket.GetProductosMemory(false).Where(w => w.Clave == error).FirstOrDefault().ProductoId;
+                    }
+                }
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                   this.puntoVentaContext.sucursalId, "PV-ImprimirTicket", this.puntoVentaContext.usuarioId, ref error))
+                {
+                    imprimirTicket = true;
+                    if (error.Length > 0)
+                    {
+                        valorImrpesionTicket = Convert.ToInt32(error);
                     }
                 }
 
@@ -337,7 +348,7 @@ namespace FlorMaiz.Desktop
                 {
                     if (puntoVentaContext.usarTareaBascula)
                     {
-                        uiPesoVal.EditValue = basculaControlador.ObtenPesoBD();
+                        uiPesoVal.EditValue = basculaControlador.ObtenPesoBDLocal();
                     }
                     
                 }
@@ -778,10 +789,9 @@ namespace FlorMaiz.Desktop
             {
                 error = "";
 
-                if(ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,this.puntoVentaContext.sucursalId,
-                        "PV-ImprimirTicket", this.puntoVentaContext.usuarioId, ref error))
+                if(imprimirTicket)
                 {
-                    if(uiTotal.Value >= Convert.ToInt32(error))
+                    if(uiTotal.Value >= valorImrpesionTicket)
                     {
                         if (entityConfig.ImprimirTicketMediaCarta == true)
                         {

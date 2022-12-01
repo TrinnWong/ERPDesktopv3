@@ -245,8 +245,6 @@
           <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ERPProd_data.dbo.cat_configuracion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="cat_configuracion">
           <Key>
             <PropertyRef Name="ConfiguradorId" />
@@ -9866,6 +9864,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pCajaId" Type="int" Mode="In" />
           <Parameter Name="pPedidoId" Type="int" Mode="In" />
           <Parameter Name="pFacturar" Type="bit" Mode="In" />
+          <Parameter Name="pEmpleadoId" Type="int" Mode="In" />
         </Function>
         <Function Name="p_InsertarVentaDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pVentaDetalleId" Type="bigint" Mode="In" />
@@ -10363,6 +10362,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="cat_clientes_direcciones" EntityType="Self.cat_clientes_direcciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_clientes_web" EntityType="Self.cat_clientes_web" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_conceptos" EntityType="Self.cat_conceptos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cat_configuracion" EntityType="Self.cat_configuracion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_restaurante" EntityType="Self.cat_configuracion_restaurante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_ticket_apartado" EntityType="Self.cat_configuracion_ticket_apartado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_ticket_venta" EntityType="Self.cat_configuracion_ticket_venta" Schema="dbo" store:Type="Tables" />
@@ -10547,74 +10547,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="sis_usuarios_roles" EntityType="Self.sis_usuarios_roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sis_versiones" EntityType="Self.sis_versiones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sis_versiones_detalle" EntityType="Self.sis_versiones_detalle" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cat_configuracion" EntityType="Self.cat_configuracion" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [cat_configuracion].[ConfiguradorId] AS [ConfiguradorId], 
-    [cat_configuracion].[UnaFormaPago] AS [UnaFormaPago], 
-    [cat_configuracion].[MasUnaFormaPago] AS [MasUnaFormaPago], 
-    [cat_configuracion].[CosteoUEPS] AS [CosteoUEPS], 
-    [cat_configuracion].[CosteoPEPS] AS [CosteoPEPS], 
-    [cat_configuracion].[CosteoPromedio] AS [CosteoPromedio], 
-    [cat_configuracion].[AfectarInventarioLinea] AS [AfectarInventarioLinea], 
-    [cat_configuracion].[AfectarInventarioManual] AS [AfectarInventarioManual], 
-    [cat_configuracion].[AfectarInventarioCorte] AS [AfectarInventarioCorte], 
-    [cat_configuracion].[EnlazarPuntoVentaInventario] AS [EnlazarPuntoVentaInventario], 
-    [cat_configuracion].[CajeroIncluirDetalleVenta] AS [CajeroIncluirDetalleVenta], 
-    [cat_configuracion].[CajeroReqClaveSupervisor] AS [CajeroReqClaveSupervisor], 
-    [cat_configuracion].[SuperIncluirDetalleVenta] AS [SuperIncluirDetalleVenta], 
-    [cat_configuracion].[SuperIncluirVentaTel] AS [SuperIncluirVentaTel], 
-    [cat_configuracion].[SuperIncluirDetGastos] AS [SuperIncluirDetGastos], 
-    [cat_configuracion].[SuperEmail1] AS [SuperEmail1], 
-    [cat_configuracion].[SuperEmail2] AS [SuperEmail2], 
-    [cat_configuracion].[SuperEmail3] AS [SuperEmail3], 
-    [cat_configuracion].[SuperEmail4] AS [SuperEmail4], 
-    [cat_configuracion].[RetiroMontoEfec] AS [RetiroMontoEfec], 
-    [cat_configuracion].[RetiroLectura] AS [RetiroLectura], 
-    [cat_configuracion].[RetiroEscritura] AS [RetiroEscritura], 
-    [cat_configuracion].[NombreImpresora] AS [NombreImpresora], 
-    [cat_configuracion].[HardwareCaracterCajon] AS [HardwareCaracterCajon], 
-    [cat_configuracion].[EmpleadoPorcDescuento] AS [EmpleadoPorcDescuento], 
-    [cat_configuracion].[EmpleadoGlobal] AS [EmpleadoGlobal], 
-    [cat_configuracion].[EmpleadoIndividual] AS [EmpleadoIndividual], 
-    [cat_configuracion].[MontoImpresionTicket] AS [MontoImpresionTicket], 
-    [cat_configuracion].[ApartadoAnticipo1] AS [ApartadoAnticipo1], 
-    [cat_configuracion].[ApartadoAnticipoHasta1] AS [ApartadoAnticipoHasta1], 
-    [cat_configuracion].[ApartadoAnticipo2] AS [ApartadoAnticipo2], 
-    [cat_configuracion].[ApatadoAnticipoEnAdelante2] AS [ApatadoAnticipoEnAdelante2], 
-    [cat_configuracion].[PorcentajeUtilidadProd] AS [PorcentajeUtilidadProd], 
-    [cat_configuracion].[DesgloceMontoTicket] AS [DesgloceMontoTicket], 
-    [cat_configuracion].[RetiroReqClaveSup] AS [RetiroReqClaveSup], 
-    [cat_configuracion].[CajDeclaracionFondoCorte] AS [CajDeclaracionFondoCorte], 
-    [cat_configuracion].[SupDeclaracionFondoCorte] AS [SupDeclaracionFondoCorte], 
-    [cat_configuracion].[vistaPreviaImpresion] AS [vistaPreviaImpresion], 
-    [cat_configuracion].[CajeroCorteDetGasto] AS [CajeroCorteDetGasto], 
-    [cat_configuracion].[SupCorteDetGasto] AS [SupCorteDetGasto], 
-    [cat_configuracion].[CajeroCorteCancelaciones] AS [CajeroCorteCancelaciones], 
-    [cat_configuracion].[SupCorteCancelaciones] AS [SupCorteCancelaciones], 
-    [cat_configuracion].[DevDiasVale] AS [DevDiasVale], 
-    [cat_configuracion].[DevDiasGarantia] AS [DevDiasGarantia], 
-    [cat_configuracion].[DevHorasGarantia] AS [DevHorasGarantia], 
-    [cat_configuracion].[ApartadoDiasLiq] AS [ApartadoDiasLiq], 
-    [cat_configuracion].[ApartadoDiasProrroga] AS [ApartadoDiasProrroga], 
-    [cat_configuracion].[ReqClaveSupReimpresionTicketPV] AS [ReqClaveSupReimpresionTicketPV], 
-    [cat_configuracion].[ReqClaveSupCancelaTicketPV] AS [ReqClaveSupCancelaTicketPV], 
-    [cat_configuracion].[ReqClaveSupGastosPV] AS [ReqClaveSupGastosPV], 
-    [cat_configuracion].[ReqClaveSupDevolucionPV] AS [ReqClaveSupDevolucionPV], 
-    [cat_configuracion].[ReqClaveSupApartadoPV] AS [ReqClaveSupApartadoPV], 
-    [cat_configuracion].[ReqClaveSupExistenciaPV] AS [ReqClaveSupExistenciaPV], 
-    [cat_configuracion].[SerieTicketVenta] AS [SerieTicketVenta], 
-    [cat_configuracion].[SerieTicketApartado] AS [SerieTicketApartado], 
-    [cat_configuracion].[CorteCajaIncluirExistencia] AS [CorteCajaIncluirExistencia], 
-    [cat_configuracion].[ImprimirTicketMediaCarta] AS [ImprimirTicketMediaCarta], 
-    [cat_configuracion].[Giro] AS [Giro], 
-    [cat_configuracion].[SolicitarComanda] AS [SolicitarComanda], 
-    [cat_configuracion].[TieneRec] AS [TieneRec], 
-    [cat_configuracion].[PorcRec] AS [PorcRec], 
-    [cat_configuracion].[MontoRecargoDiario] AS [MontoRecargoDiario], 
-    [cat_configuracion].[PedidoAnticipoPorc] AS [PedidoAnticipoPorc], 
-    [cat_configuracion].[PedidoPoliticaId] AS [PedidoPoliticaId]
-    FROM [dbo].[cat_configuracion] AS [cat_configuracion]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__cat_almac__Empre__43A1090D" Association="Self.FK__cat_almac__Empre__43A1090D">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
@@ -20053,6 +19985,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pCajaId" Mode="In" Type="Int32" />
             <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
             <Parameter Name="pFacturar" Mode="In" Type="Boolean" />
+            <Parameter Name="pEmpleadoId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="p_InsertarVentaDetalle">
             <Parameter Name="pVentaDetalleId" Mode="In" Type="Int64" />
@@ -26565,6 +26498,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Property Type="Decimal" Name="Faltante" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="Excedente" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="VentasTelefono" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="FPEfectivo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="FPTCredito" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="FPTDebito" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="FPOtros" Nullable="true" Precision="19" />
         </ComplexType>
         <EntityType Name="cat_produccion_productos_sucursal">
           <Key>
@@ -31567,6 +31504,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="Faltante" ColumnName="Faltante" />
                 <ScalarProperty Name="Excedente" ColumnName="Excedente" />
                 <ScalarProperty Name="VentasTelefono" ColumnName="VentasTelefono" />
+                <ScalarProperty Name="FPEfectivo" ColumnName="FPEfectivo" />
+                <ScalarProperty Name="FPTCredito" ColumnName="FPTCredito" />
+                <ScalarProperty Name="FPTDebito" ColumnName="FPTDebito" />
+                <ScalarProperty Name="FPOtros" ColumnName="FPOtros" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

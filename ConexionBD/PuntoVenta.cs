@@ -39,7 +39,8 @@ namespace ConexionBD
             List<FormaPagoModel> formasPago,
         List<ValeFPModel> vales,
         int pedidoOrdenId,
-        bool Facturar
+        bool Facturar,
+        int? empleadoId = null
         )
         {
             string error = "";
@@ -69,7 +70,7 @@ namespace ConexionBD
                     }
 
                     oContext.p_InsertarVenta(pVentaId, folio, fechaActual, clienteId, descuentoVentaSiNo, porcDescuentoVenta, montoDescuentoVenta, descuentoEnPartidas,
-                       montoDescuentoVenta + descuentoEnPartidas, impuestos, subTotal, totalVenta, totalRecibido, cambio, true, usuarioId, DateTime.Now, null, null,sucursalId,cajaId,pedidoOrdenId,Facturar);
+                       montoDescuentoVenta + descuentoEnPartidas, impuestos, subTotal, totalVenta, totalRecibido, cambio, true, usuarioId, DateTime.Now, null, null,sucursalId,cajaId,pedidoOrdenId,Facturar,empleadoId);
 
                     ventaId = long.Parse(pVentaId.Value.ToString());
                     foreach (ProductoModel0 itemProducto in productos)

@@ -228,6 +228,7 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
+
                 error = "";
                 for (int i = 0; i < model1.Count; i++)
                 {

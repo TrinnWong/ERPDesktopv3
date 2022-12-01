@@ -293,6 +293,8 @@ namespace TacosAna.Desktop
                             MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             imprimirCorteGeneral(puntoVentaContext.sucursalId,puntoVentaContext.cajaId);
+                            ERP.Common.Reports.ReportPrint.imprimirProductoSobrante(puntoVentaContext.sucursalId, DateTime.Now,
+                                puntoVentaContext.usuarioId, puntoVentaContext.cajaId);
                         }
                     }
                    
@@ -401,6 +403,9 @@ namespace TacosAna.Desktop
             }
 
         }
+
+        
+
 
         private void imprimirCorteGeneral(int sucursalId,int cajaId)
         {

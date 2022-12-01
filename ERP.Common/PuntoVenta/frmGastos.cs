@@ -104,6 +104,8 @@ namespace ERP.Common.PuntoVenta
 
         private void guardar()
         {
+            this.uiGuardar.Enabled = false;
+            uiCancelar.Enabled = false;
             try
             {
                 oContext = new ERPProdEntities();
@@ -131,6 +133,7 @@ namespace ERP.Common.PuntoVenta
                 if (error.Length > 0)
                 {
                     MessageBox.Show( error,"ERROR");
+                    this.uiGuardar.Enabled = true;
                     return;
                 }
 
@@ -204,6 +207,8 @@ namespace ERP.Common.PuntoVenta
                         if (resultVal.Length > 0)
                         {
                             MessageBox.Show(resultVal.ToString(), "ERROR");
+                            this.uiGuardar.Enabled = true;
+                            uiCancelar.Enabled = true;
                             return;
                         }
                        
@@ -215,13 +220,15 @@ namespace ERP.Common.PuntoVenta
                         oContext.SaveChanges();
                     }
                     else {
+                        this.uiGuardar.Enabled = true;
+                        uiCancelar.Enabled = true;
                         return;
                     }
                     
                 }
 
-
-
+                this.uiGuardar.Enabled = true;
+                uiCancelar.Enabled = true;
                 if (error.Length > 0)
                 {
                     MessageBox.Show(error, "ERROR");
@@ -240,6 +247,8 @@ namespace ERP.Common.PuntoVenta
             {
 
                 MessageBox.Show(ex.Message, "ERROR");
+                this.uiGuardar.Enabled = true;
+                uiCancelar.Enabled = true;
                 this.Close();
             }
         }

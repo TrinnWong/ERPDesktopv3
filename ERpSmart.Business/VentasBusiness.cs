@@ -35,7 +35,8 @@ namespace ERP.Business
             List<ValeFPModel> vales,
        int pedidoOrdenId,
        bool cortesia=false,
-       bool precioEmpleado = false
+       bool precioEmpleado = false,
+       int? empleadoId=null
        )
         {
             string error = "";
@@ -67,7 +68,8 @@ namespace ERP.Business
                     //}
 
                     oContext.p_InsertarVenta(pVentaId, folio, fechaActual, clienteId, descuentoVentaSiNo, porcDescuentoVenta, montoDescuentoVenta, descuentoEnPartidas,
-                       montoDescuentoVenta + descuentoEnPartidas, impuestos, subTotal, totalVenta, totalRecibido, cambio, true, usuarioId, DateTime.Now, null, null, sucursalId, cajaId, pedidoOrdenId,false);
+                       montoDescuentoVenta + descuentoEnPartidas, impuestos, subTotal, totalVenta, totalRecibido, cambio, true, usuarioId, DateTime.Now, null, null, sucursalId, 
+                       cajaId, pedidoOrdenId,false,empleadoId);
 
                     ventaId = long.Parse(pVentaId.Value.ToString());
                     foreach (ProductoModel0 itemProducto in productos)

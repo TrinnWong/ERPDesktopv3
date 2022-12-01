@@ -12,6 +12,7 @@ namespace ERP.Business.Tools
     public class BasculaLectura
     {
         private PuntoVentaContext puntoVentaContext;
+        string localString = @"data source=(LocalDB)\localdb2014;attachdbfilename=c:\ERP\ERPProd_data.mdf;user id=pv;password=PV2018$;MultipleActiveResultSets=True;App=EntityFramework&quot;";
 
         int ceroCount = 0;
         decimal ultimoValor=0;
@@ -241,6 +242,63 @@ namespace ERP.Business.Tools
             }
 
             return descontarTara ? peso- (configBascula.PesoDefault??0) : peso;
+        }
+
+        public decimal ObtenPesoBDLocal(bool descontarTara = false)
+        {
+            decimal peso = 0;
+            try
+            {
+
+                ERPProdEntities oContext = new ERPProdEntities(localString);
+
+                cat_configuracion oConfig = oContext.cat_configuracion.FirstOrDefault();
+
+                peso = Convert.ToDecimal(oConfig.SuperEmail4);
+
+                
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            return descontarTara ? peso - (configBascula.PesoDefault ?? 0) : peso;
+        }
+
+
+        public decimal ObtenPesoLocal(bool descontarTara = false)
+        {
+            decimal peso = 0;
+            try
+            {
+
+                ERPProdEntities oContext = new ERPProdEntities(@"metadata = res://*/ERPModel.csdl|res://*/ERPModel.ssdl|res://*/ERPModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\localdb2014;attachdbfilename=c:\ERP\ERPProd_data.mdf;user id=pv;password=PV2018$;MultipleActiveResultSets=True;App=EntityFramework&quot;");
+
+                doc_equipo_computo_bascula_registro registro = oContext.doc_equipo_computo_bascula_registro
+                    .Where(w => w.EquipoConputoId == this.configBascula.EquipoComputoId)
+                    .OrderByDescending(o => o.Id).FirstOrDefault();
+
+                peso = Convert.ToDecimal(registro.Peso);
+
+                if ((registro.OcupadaPorApp ?? false) == false)
+                {
+                    registro.OcupadaPorApp = true;
+                    oContext.SaveChanges();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            return descontarTara ? peso - (configBascula.PesoDefault ?? 0) : peso;
         }
     }
 }

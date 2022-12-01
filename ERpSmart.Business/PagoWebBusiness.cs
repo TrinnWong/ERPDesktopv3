@@ -53,7 +53,7 @@ namespace ERP.Business
                             ObjectParameter pVentaId = new ObjectParameter("pVentaId", 0);
                             //Generar la venta
                             oContext.p_InsertarVenta(pVentaId, "", DateTime.Now, entityCarrito.ClienteId, false, 0, 0, 0, 0, entityCarrito.Impuestos, entityCarrito.Subtotal, entityCarrito.Total, entityCarrito.Total,
-                                0, true, (int)ERP.Business.Enumerados.UserDefault.UserDefault, DateTime.Now, null, null, ERP.Business.Enumerados.sucursalWEB, ERP.Business.Enumerados.cajaWeb, null,false);
+                                0, true, (int)ERP.Business.Enumerados.UserDefault.UserDefault, DateTime.Now, null, null, ERP.Business.Enumerados.sucursalWEB, ERP.Business.Enumerados.cajaWeb, null,false,null);
 
                             foreach (var itemDet in entityCarrito.doc_web_carrito_detalle)
                             {

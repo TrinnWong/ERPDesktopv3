@@ -29,5 +29,9 @@ namespace ConexionBD
         public Nullable<decimal> Faltante { get; set; }
         public Nullable<decimal> Excedente { get; set; }
         public decimal VentasTelefono { get; set; }
+        public Nullable<decimal> FPEfectivo { get; set; }
+        public Nullable<decimal> FPTCredito { get; set; }
+        public Nullable<decimal> FPTDebito { get; set; }
+        public Nullable<decimal> FPOtros { get; set; }
     }
 }

@@ -229,6 +229,19 @@ namespace ERP.Common.Reports
 
         }
 
+        public void ShowTicket(ERP.Reports.rptProductoSobranteDia oReport)
+        {
+            setNUllPrint();
+            this.viewer1.Document = oReport.Document;
+            oReport.Document.Printer.PrinterName = "";
+            oReport.Run();
+            for (int i = 0; i < copias; i++)
+            {
+                showTicket2();
+            }
+
+        }
+
         public void ShowTicket(ERP.Reports.rptPedidoDevolucion oReport)
         {
             setNUllPrint();

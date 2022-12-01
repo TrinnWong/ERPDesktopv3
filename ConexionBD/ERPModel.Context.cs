@@ -25,6 +25,7 @@ namespace ConexionBD
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
+            this.Database.Connection.ConnectionString = sc;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -2204,7 +2205,7 @@ namespace ConexionBD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("p_GetDateTimeServer");
         }
     
-        public virtual int p_InsertarVenta(ObjectParameter pVentaId, string pFolio, Nullable<System.DateTime> pFecha, Nullable<int> pClienteId, Nullable<bool> pDescuentoVentaSiNo, Nullable<decimal> pPorcDescuentoVenta, Nullable<decimal> pMontoDescuentoVenta, Nullable<decimal> pDescuentoEnPartidas, Nullable<decimal> pTotalDescuento, Nullable<decimal> pImpuestos, Nullable<decimal> pSubTotal, Nullable<decimal> pTotalVenta, Nullable<decimal> pTotalRecibido, Nullable<decimal> pCambio, Nullable<bool> pActivo, Nullable<int> pUsuarioCreacionId, Nullable<System.DateTime> pFechaCreacion, Nullable<int> pUsuarioCancelacionId, Nullable<System.DateTime> pFechaCancelacion, Nullable<int> pSucursalId, Nullable<int> pCajaId, Nullable<int> pPedidoId, Nullable<bool> pFacturar)
+        public virtual int p_InsertarVenta(ObjectParameter pVentaId, string pFolio, Nullable<System.DateTime> pFecha, Nullable<int> pClienteId, Nullable<bool> pDescuentoVentaSiNo, Nullable<decimal> pPorcDescuentoVenta, Nullable<decimal> pMontoDescuentoVenta, Nullable<decimal> pDescuentoEnPartidas, Nullable<decimal> pTotalDescuento, Nullable<decimal> pImpuestos, Nullable<decimal> pSubTotal, Nullable<decimal> pTotalVenta, Nullable<decimal> pTotalRecibido, Nullable<decimal> pCambio, Nullable<bool> pActivo, Nullable<int> pUsuarioCreacionId, Nullable<System.DateTime> pFechaCreacion, Nullable<int> pUsuarioCancelacionId, Nullable<System.DateTime> pFechaCancelacion, Nullable<int> pSucursalId, Nullable<int> pCajaId, Nullable<int> pPedidoId, Nullable<bool> pFacturar, Nullable<int> pEmpleadoId)
         {
             var pFolioParameter = pFolio != null ?
                 new ObjectParameter("pFolio", pFolio) :
@@ -2294,7 +2295,11 @@ namespace ConexionBD
                 new ObjectParameter("pFacturar", pFacturar) :
                 new ObjectParameter("pFacturar", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_InsertarVenta", pVentaId, pFolioParameter, pFechaParameter, pClienteIdParameter, pDescuentoVentaSiNoParameter, pPorcDescuentoVentaParameter, pMontoDescuentoVentaParameter, pDescuentoEnPartidasParameter, pTotalDescuentoParameter, pImpuestosParameter, pSubTotalParameter, pTotalVentaParameter, pTotalRecibidoParameter, pCambioParameter, pActivoParameter, pUsuarioCreacionIdParameter, pFechaCreacionParameter, pUsuarioCancelacionIdParameter, pFechaCancelacionParameter, pSucursalIdParameter, pCajaIdParameter, pPedidoIdParameter, pFacturarParameter);
+            var pEmpleadoIdParameter = pEmpleadoId.HasValue ?
+                new ObjectParameter("pEmpleadoId", pEmpleadoId) :
+                new ObjectParameter("pEmpleadoId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_InsertarVenta", pVentaId, pFolioParameter, pFechaParameter, pClienteIdParameter, pDescuentoVentaSiNoParameter, pPorcDescuentoVentaParameter, pMontoDescuentoVentaParameter, pDescuentoEnPartidasParameter, pTotalDescuentoParameter, pImpuestosParameter, pSubTotalParameter, pTotalVentaParameter, pTotalRecibidoParameter, pCambioParameter, pActivoParameter, pUsuarioCreacionIdParameter, pFechaCreacionParameter, pUsuarioCancelacionIdParameter, pFechaCancelacionParameter, pSucursalIdParameter, pCajaIdParameter, pPedidoIdParameter, pFacturarParameter, pEmpleadoIdParameter);
         }
     
         public virtual int p_InsertarVentaDetalle(Nullable<long> pVentaDetalleId, Nullable<long> pVentaId, Nullable<int> pProductoId, Nullable<decimal> pCantidad, string pDescripcion, Nullable<decimal> pPrecioUnitario, Nullable<decimal> pPorcDescuneto, Nullable<decimal> pDescuento, Nullable<decimal> pImpuestos, Nullable<decimal> pTotal, Nullable<int> pUsuarioCreacionId, Nullable<System.DateTime> pFechaCreacion, Nullable<int> pTipoDescuentoId, Nullable<int> pPromocionCMId, Nullable<int> pCargoAdicionalId, Nullable<int> pCargoDetalleId, Nullable<bool> pParaLlevar, Nullable<bool> pParaMesa)

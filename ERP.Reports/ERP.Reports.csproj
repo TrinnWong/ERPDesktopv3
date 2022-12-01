@@ -111,6 +111,12 @@
     <Compile Include="rptMovimientoInventarioCancelacion.Designer.cs">
       <DependentUpon>rptMovimientoInventarioCancelacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptProductoSobranteDia.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptProductoSobranteDia.Designer.cs">
+      <DependentUpon>rptProductoSobranteDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptPedidoDevolucion.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptMovimientoInventarioCancelacion.resx">
       <DependentUpon>rptMovimientoInventarioCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptProductoSobranteDia.resx">
+      <DependentUpon>rptProductoSobranteDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptPedidoDevolucion.resx">
       <DependentUpon>rptPedidoDevolucion.cs</DependentUpon>

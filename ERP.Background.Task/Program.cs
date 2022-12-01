@@ -17,7 +17,7 @@ namespace ERP.Background.Task
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            Application.Run(new frmBasculaLector());
+            Application.Run(new frmBasculaLectorLocal());
         }
 
        

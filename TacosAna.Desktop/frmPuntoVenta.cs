@@ -3083,7 +3083,7 @@ namespace TacosAna.Desktop
         {
             int empleadoId = Convert.ToInt32(uiEmpleado.EditValue);
 
-            int? clienteId = empleadoId > 0 ? null : (int?)oContext.rh_empleados
+            int? clienteId = empleadoId == 0 ? null : (int?)oContext.rh_empleados
                 .Where(w => w.NumEmpleado == empleadoId).FirstOrDefault().cat_clientes.FirstOrDefault().ClienteId;
 
             if (valorFaltan > 0)

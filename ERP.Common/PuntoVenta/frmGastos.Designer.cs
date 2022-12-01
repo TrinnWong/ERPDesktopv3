@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.uiObservaciones = new System.Windows.Forms.TextBox();
             this.uiGuardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.uiCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uiMonto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,22 +130,22 @@
             this.uiGuardar.UseVisualStyleBackColor = true;
             this.uiGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // uiCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(249, 184);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "CANCELAR";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.uiCancelar.Location = new System.Drawing.Point(249, 184);
+            this.uiCancelar.Name = "uiCancelar";
+            this.uiCancelar.Size = new System.Drawing.Size(120, 23);
+            this.uiCancelar.TabIndex = 9;
+            this.uiCancelar.Text = "CANCELAR";
+            this.uiCancelar.UseVisualStyleBackColor = true;
+            this.uiCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 207);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.uiCancelar);
             this.Controls.Add(this.uiGuardar);
             this.Controls.Add(this.uiObservaciones);
             this.Controls.Add(this.label4);
@@ -179,6 +179,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox uiObservaciones;
         private System.Windows.Forms.Button uiGuardar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button uiCancelar;
     }
 }
