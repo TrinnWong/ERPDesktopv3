@@ -3229,6 +3229,27 @@
     <Content Include="Versiones\2022.06.01\96_2 p_rpt_corte_caja_general.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\96_3 V.Activo = 1.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_4 IX_Doc_ventas.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_5 [p_InsertarVenta].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_6 PV-QuitarCalculoInventarioEnVenta.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_7 [p_venta_afecta_inventario].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_8 p_venta_afecta_inventario_corte.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\96_9 p_corte_caja_generacion.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

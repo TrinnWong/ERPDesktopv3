@@ -337,7 +337,24 @@ namespace ERP.Business
             return result;
         }
 
+        public static string NumeroPaquetesPorEmpleadoSemana(int EmpleadoId,int usuarioId)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception ex)
+            {
 
+
+                int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                    "ERP",
+                                    "ProductoBusiness.NumeroPaquetesPorEmpleadoSemana",
+                                    ex);
+
+                return String.Format("Ocurrió un error inesperado, revise la bitácora numero [{0}]",err);
+            }
+        }
     }
 
 }
