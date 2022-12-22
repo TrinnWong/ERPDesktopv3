@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DevExpress.XtraReports.UI;
 namespace ERP.Common.Reports
 {
     public class ReportPrint
@@ -53,6 +53,49 @@ namespace ERP.Common.Reports
                                ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+
+        public static string imprimirRptCorteCajaPedidosPagos(int sucursalId, int cajaId, int usuarioId)
+        {
+            int err = 0;
+            try
+            {
+
+                ERPProdEntities oContext = new ERPProdEntities();
+                ImpresorasBusiness oImpresora = new ImpresorasBusiness();
+                cat_impresoras entityImpresora;
+                entityImpresora = oImpresora.ObtenerCajaImpresora(cajaId);
+                ERP.Reports.TacosAna.rptCorteCajaPedidoPagos oReport = new ERP.Reports.TacosAna.rptCorteCajaPedidoPagos();
+                DateTime fechaCorte = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
+                oReport.DataSource = oContext.p_rpt_corte_caja_pedidos_pagos(sucursalId,
+                    fechaCorte).ToList();
+                oReport.CreateDocument();
+
+                if (entityImpresora != null)
+                {
+                    if (entityImpresora.NombreRed != "")
+                    {
+                        oReport.Print(entityImpresora.NombreRed);
+                    }
+
+
+                }
+
+                return "";
+
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                               "ERP",
+                              "ERP.Business.ReportesBusiness",
+                               ex);
+
+                return String.Format("Ocurrió un problema con tu solicitud. Bitácora Num[{0}]", err);
+            }
+
         }
     }
 }

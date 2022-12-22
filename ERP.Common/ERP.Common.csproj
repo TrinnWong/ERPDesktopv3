@@ -402,6 +402,12 @@
     <Compile Include="Inventarios\frmRecepcionProducto.Designer.cs">
       <DependentUpon>frmRecepcionProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventarios\frmRegistroMaizMaseca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios\frmRegistroMaizMaseca.Designer.cs">
+      <DependentUpon>frmRegistroMaizMaseca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mail.cs" />
     <Compile Include="Pagos\frmPagoRegistro.cs">
       <SubType>Form</SubType>
@@ -970,6 +976,9 @@
     <EmbeddedResource Include="Inventarios\frmRecepcionProducto.resx">
       <DependentUpon>frmRecepcionProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios\frmRegistroMaizMaseca.resx">
+      <DependentUpon>frmRegistroMaizMaseca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagos\frmPagoRegistro.resx">
       <DependentUpon>frmPagoRegistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -1228,6 +1237,7 @@
     <None Include="Properties\DataSources\ConexionBD.doc_inventario_captura.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_inventario_registro.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_inv_movimiento.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.doc_maiz_maseca_rendimiento.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_pedidos_orden.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_pedidos_orden_detalle.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_precios_especiales.datasource" />

@@ -25,7 +25,6 @@ namespace ConexionBD
         public ERPProdEntities(string sc)
             : base("name=ERPProdEntities")
         {
-            this.Database.Connection.ConnectionString = sc;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -238,6 +237,7 @@ namespace ConexionBD
         public virtual DbSet<sis_preferencias_sucursales> sis_preferencias_sucursales { get; set; }
         public virtual DbSet<cat_sucursales_productos> cat_sucursales_productos { get; set; }
         public virtual DbSet<doc_gastos> doc_gastos { get; set; }
+        public virtual DbSet<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {
@@ -4887,6 +4887,19 @@ namespace ConexionBD
                 new ObjectParameter("pAl", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_gramos_favor_contra_agrupado_Result>("p_rpt_gramos_favor_contra_agrupado", pSucursalIdParameter, pDelParameter, pAlParameter);
+        }
+    
+        public virtual ObjectResult<p_rpt_corte_caja_pedidos_pagos_Result> p_rpt_corte_caja_pedidos_pagos(Nullable<int> pSucursalId, Nullable<System.DateTime> pFecha)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pFechaParameter = pFecha.HasValue ?
+                new ObjectParameter("pFecha", pFecha) :
+                new ObjectParameter("pFecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_corte_caja_pedidos_pagos_Result>("p_rpt_corte_caja_pedidos_pagos", pSucursalIdParameter, pFechaParameter);
         }
     }
 }

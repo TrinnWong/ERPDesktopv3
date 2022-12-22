@@ -118,7 +118,6 @@
             this.salidaDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.corteDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDiarioDeTiradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroDiarioMaizMolinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroSobrantesConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsConfiguracion = new System.Windows.Forms.ToolStripDropDownButton();
             this.configuradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -958,8 +957,7 @@
             // corteDeCajaToolStripMenuItem
             // 
             this.corteDeCajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroDiarioDeTiradasToolStripMenuItem,
-            this.registroDiarioMaizMolinoToolStripMenuItem});
+            this.registroDiarioDeTiradasToolStripMenuItem});
             this.corteDeCajaToolStripMenuItem.Name = "corteDeCajaToolStripMenuItem";
             this.corteDeCajaToolStripMenuItem.Size = new System.Drawing.Size(339, 26);
             this.corteDeCajaToolStripMenuItem.Text = "Corte de Caja - Tortillería";
@@ -971,13 +969,6 @@
             this.registroDiarioDeTiradasToolStripMenuItem.Size = new System.Drawing.Size(372, 26);
             this.registroDiarioDeTiradasToolStripMenuItem.Text = "Registro Diario de Tiradas Tortilla";
             this.registroDiarioDeTiradasToolStripMenuItem.Click += new System.EventHandler(this.registroDiarioDeTiradasToolStripMenuItem_Click);
-            // 
-            // registroDiarioMaizMolinoToolStripMenuItem
-            // 
-            this.registroDiarioMaizMolinoToolStripMenuItem.Name = "registroDiarioMaizMolinoToolStripMenuItem";
-            this.registroDiarioMaizMolinoToolStripMenuItem.Size = new System.Drawing.Size(372, 26);
-            this.registroDiarioMaizMolinoToolStripMenuItem.Text = "Registro Diario Maiz Molino";
-            this.registroDiarioMaizMolinoToolStripMenuItem.Click += new System.EventHandler(this.registroDiarioMaizMolinoToolStripMenuItem_Click);
             // 
             // registroSobrantesConsultaToolStripMenuItem
             // 
@@ -1489,7 +1480,6 @@
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem productosEdiciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDiarioMaizMolinoToolStripMenuItem;
     }
 }
 

@@ -1277,6 +1277,7 @@
           <Property Name="Activo" Type="bit" />
           <Property Name="Descuento" Type="money" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="SucursalId" Type="int" />
         </EntityType>
         <EntityType Name="doc_cargos_detalle">
           <Key>
@@ -1642,6 +1643,23 @@
           <Property Name="Diferencia" Type="decimal" Precision="14" Scale="4" Nullable="false" />
           <Property Name="CreadoEl" Type="datetime" Nullable="false" />
           <Property Name="CreadoPor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doc_maiz_maseca_rendimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="MaizSacos" Type="float" Nullable="false" />
+          <Property Name="MasecaSacos" Type="float" Nullable="false" />
+          <Property Name="TortillaMaizRendimiento" Type="float" Nullable="false" />
+          <Property Name="TortillaMasecaRendimiento" Type="float" Nullable="false" />
+          <Property Name="TortillaTotalRendimiento" Type="float" Nullable="false" />
+          <Property Name="CreadoEl" Type="datetime" Nullable="false" />
+          <Property Name="CreadoPor" Type="int" Nullable="false" />
+          <Property Name="ModificadoEl" Type="datetime" />
+          <Property Name="ModificadoPor" Type="int" />
         </EntityType>
         <EntityType Name="doc_pagos">
           <Key>
@@ -6159,6 +6177,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_doc_Cargos_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
+          <End Role="doc_cargos" Type="Self.doc_cargos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_cargos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_doc_cargos_detalle_doc_cargos">
           <End Role="doc_cargos" Type="Self.doc_cargos" Multiplicity="1" />
           <End Role="doc_cargos_detalle" Type="Self.doc_cargos_detalle" Multiplicity="*" />
@@ -6948,6 +6978,42 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Principal>
             <Dependent Role="doc_inventario_registro">
               <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
+          <End Role="doc_maiz_maseca_rendimiento" Type="Self.doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios">
+          <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="1" />
+          <End Role="doc_maiz_maseca_rendimiento" Type="Self.doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios1">
+          <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="0..1" />
+          <End Role="doc_maiz_maseca_rendimiento" Type="Self.doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="ModificadoPor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -10156,6 +10222,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
           <Parameter Name="pFecha" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="p_rpt_corte_caja_pedidos_pagos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+          <Parameter Name="pFecha" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="p_rpt_corte_caja_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
           <Parameter Name="pDel" Type="datetime" Mode="In" />
@@ -10474,6 +10544,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="doc_inv_movimiento_detalle" EntityType="Self.doc_inv_movimiento_detalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_inventario_captura" EntityType="Self.doc_inventario_captura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_inventario_registro" EntityType="Self.doc_inventario_registro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doc_maiz_maseca_rendimiento" EntityType="Self.doc_maiz_maseca_rendimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_pagos" EntityType="Self.doc_pagos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_pedidos_cargos" EntityType="Self.doc_pedidos_cargos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_pedidos_configuracion" EntityType="Self.doc_pedidos_configuracion" Schema="dbo" store:Type="Tables" />
@@ -11727,6 +11798,10 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_productos" EntitySet="cat_productos" />
             <End Role="doc_cargos" EntitySet="doc_cargos" />
           </AssociationSet>
+          <AssociationSet Name="FK_doc_Cargos_cat_sucursales" Association="Self.FK_doc_Cargos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_cargos" EntitySet="doc_cargos" />
+          </AssociationSet>
           <AssociationSet Name="FK_doc_cargos_detalle_doc_cargos" Association="Self.FK_doc_cargos_detalle_doc_cargos">
             <End Role="doc_cargos" EntitySet="doc_cargos" />
             <End Role="doc_cargos_detalle" EntitySet="doc_cargos_detalle" />
@@ -11990,6 +12065,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_doc_inventario_registro_cat_usuarios" Association="Self.FK_doc_inventario_registro_cat_usuarios">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_inventario_registro" EntitySet="doc_inventario_registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_sucursales" Association="Self.FK_doc_maiz_maseca_rendimiento_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios" Association="Self.FK_doc_maiz_maseca_rendimiento_cat_usuarios">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios1" Association="Self.FK_doc_maiz_maseca_rendimiento_cat_usuarios1">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
           </AssociationSet>
           <AssociationSet Name="FK_doc_pagos_cat_clientes" Association="Self.FK_doc_pagos_cat_clientes">
             <End Role="cat_clientes" EntitySet="cat_clientes" />
@@ -13732,6 +13819,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="cat_equipos_computo" Relationship="ERPProdModel.FK_cat_equipos_computo_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_equipos_computo" />
           <NavigationProperty Name="cat_basculas_configuracion" Relationship="ERPProdModel.FK_cat_basculas_configuracion_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_basculas_configuracion" />
           <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_gastos" />
+          <NavigationProperty Name="doc_cargos" Relationship="ERPProdModel.FK_doc_Cargos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_cargos" />
+          <NavigationProperty Name="doc_maiz_maseca_rendimiento" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_maiz_maseca_rendimiento" />
         </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
@@ -13933,6 +14022,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_productos_sobrantes_registro1" Relationship="ERPProdModel.FK__doc_produ__Cerra__5CC287E9" FromRole="cat_usuarios" ToRole="doc_productos_sobrantes_registro" />
           <NavigationProperty Name="doc_corte_caja_datos_entrada" Relationship="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_corte_caja_datos_entrada" />
           <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_gastos" />
+          <NavigationProperty Name="doc_maiz_maseca_rendimiento" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_maiz_maseca_rendimiento" />
+          <NavigationProperty Name="doc_maiz_maseca_rendimiento1" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1" FromRole="cat_usuarios" ToRole="doc_maiz_maseca_rendimiento" />
           </EntityType>
         <EntityType Name="doc_apartados">
           <Key>
@@ -21912,6 +22003,27 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="rh_empleados" EntitySet="rh_empleados" />
             <End Role="doc_ventas" EntitySet="doc_ventas" />
           </AssociationSet>
+          <AssociationSet Name="FK_doc_Cargos_cat_sucursales" Association="ERPProdModel.FK_doc_Cargos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_cargos" EntitySet="doc_cargos" />
+          </AssociationSet>
+          <FunctionImport Name="p_rpt_corte_caja_pedidos_pagos" ReturnType="Collection(ERPProdModel.p_rpt_corte_caja_pedidos_pagos_Result)">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pFecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="doc_maiz_maseca_rendimiento" EntityType="ERPProdModel.doc_maiz_maseca_rendimiento" />
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_sucursales" Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios" Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios1" Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -24507,6 +24619,8 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_pedidos_orden" Relationship="ERPProdModel.FK_doc_pedidos_orden_doc_cargos" FromRole="doc_cargos" ToRole="doc_pedidos_orden" />
           <NavigationProperty Name="doc_pedidos_cargos" Relationship="ERPProdModel.FK_doc_pedidos_cargos_doc_cargos" FromRole="doc_cargos" ToRole="doc_pedidos_cargos" />
           <NavigationProperty Name="doc_pagos" Relationship="ERPProdModel.FK_doc_pagos_doc_cargos" FromRole="doc_cargos" ToRole="doc_pagos" />
+          <Property Name="SucursalId" Type="Int32" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_doc_Cargos_cat_sucursales" FromRole="doc_cargos" ToRole="cat_sucursales" />
         </EntityType>
         <Association Name="FK_doc_cargos_cat_clientes">
           <End Type="ERPProdModel.cat_clientes" Role="cat_clientes" Multiplicity="1" />
@@ -27797,6 +27911,80 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_doc_Cargos_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="0..1" />
+          <End Type="ERPProdModel.doc_cargos" Role="doc_cargos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_cargos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="p_rpt_corte_caja_pedidos_pagos_Result">
+          <Property Type="String" Name="Cliente" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="FechaPago" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="Monto" Nullable="false" Precision="19" />
+          <Property Type="String" Name="PedidoFolio" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="doc_maiz_maseca_rendimiento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaizSacos" Type="Double" Nullable="false" />
+          <Property Name="MasecaSacos" Type="Double" Nullable="false" />
+          <Property Name="TortillaMaizRendimiento" Type="Double" Nullable="false" />
+          <Property Name="TortillaMasecaRendimiento" Type="Double" Nullable="false" />
+          <Property Name="TortillaTotalRendimiento" Type="Double" Nullable="false" />
+          <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreadoPor" Type="Int32" Nullable="false" />
+          <Property Name="ModificadoEl" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="Int32" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_sucursales" FromRole="doc_maiz_maseca_rendimiento" ToRole="cat_sucursales" />
+          <NavigationProperty Name="cat_usuarios" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios" FromRole="doc_maiz_maseca_rendimiento" ToRole="cat_usuarios" />
+          <NavigationProperty Name="cat_usuarios1" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1" FromRole="doc_maiz_maseca_rendimiento" ToRole="cat_usuarios" />
+        </EntityType>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_maiz_maseca_rendimiento" Role="doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios">
+          <End Type="ERPProdModel.cat_usuarios" Role="cat_usuarios" Multiplicity="1" />
+          <End Type="ERPProdModel.doc_maiz_maseca_rendimiento" Role="doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios1">
+          <End Type="ERPProdModel.cat_usuarios" Role="cat_usuarios" Multiplicity="0..1" />
+          <End Type="ERPProdModel.doc_maiz_maseca_rendimiento" Role="doc_maiz_maseca_rendimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="doc_maiz_maseca_rendimiento">
+              <PropertyRef Name="ModificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -30849,6 +31037,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="doc_cargos">
             <EntityTypeMapping TypeName="ERPProdModel.doc_cargos">
               <MappingFragment StoreEntitySet="doc_cargos">
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Descuento" ColumnName="Descuento" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -32079,6 +32268,34 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="GastoConceptoId" ColumnName="GastoConceptoId" />
                 <ScalarProperty Name="CentroCostoId" ColumnName="CentroCostoId" />
                 <ScalarProperty Name="GastoId" ColumnName="GastoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_rpt_corte_caja_pedidos_pagos" FunctionName="ERPProdModel.Store.p_rpt_corte_caja_pedidos_pagos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_rpt_corte_caja_pedidos_pagos_Result">
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="PedidoFolio" ColumnName="PedidoFolio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="doc_maiz_maseca_rendimiento">
+            <EntityTypeMapping TypeName="ERPProdModel.doc_maiz_maseca_rendimiento">
+              <MappingFragment StoreEntitySet="doc_maiz_maseca_rendimiento">
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+                <ScalarProperty Name="TortillaTotalRendimiento" ColumnName="TortillaTotalRendimiento" />
+                <ScalarProperty Name="TortillaMasecaRendimiento" ColumnName="TortillaMasecaRendimiento" />
+                <ScalarProperty Name="TortillaMaizRendimiento" ColumnName="TortillaMaizRendimiento" />
+                <ScalarProperty Name="MasecaSacos" ColumnName="MasecaSacos" />
+                <ScalarProperty Name="MaizSacos" ColumnName="MaizSacos" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

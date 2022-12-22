@@ -948,6 +948,7 @@ namespace ConexionBD
                         cargoEntity.Saldo = ordenDetalle.Sum(s => s.Total) - montoAnticipo;
                         cargoEntity.Total = ordenDetalle.Sum(s => s.Total);
                         cargoEntity.Descripcion = "PEDIDO PARA:"+fechaActual.ToShortDateString();
+                        cargoEntity.SucursalId = context.sucursalId;
                         oContext.doc_cargos.Add(cargoEntity);
                         oContext.SaveChanges();
 

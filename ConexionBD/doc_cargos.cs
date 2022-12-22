@@ -33,6 +33,7 @@ namespace ConexionBD
         public Nullable<bool> Activo { get; set; }
         public Nullable<decimal> Descuento { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<int> SucursalId { get; set; }
     
         public virtual cat_clientes cat_clientes { get; set; }
         public virtual cat_productos cat_productos { get; set; }
@@ -44,5 +45,6 @@ namespace ConexionBD
         public virtual ICollection<doc_pedidos_cargos> doc_pedidos_cargos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_pagos> doc_pagos { get; set; }
+        public virtual cat_sucursales cat_sucursales { get; set; }
     }
 }

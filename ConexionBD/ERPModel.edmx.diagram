@@ -757,6 +757,11 @@
         <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_sucursales" />
         <AssociationConnector Association="ERPProdModel.FK_doc_gastos_cat_usuarios" />
         <AssociationConnector Association="ERPProdModel.FK_doc_ventas_rh_empleados" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_Cargos_cat_sucursales" />
+        <EntityTypeShape EntityType="ERPProdModel.doc_maiz_maseca_rendimiento" Width="1.5" PointX="12.75" PointY="171.5" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_sucursales" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios" />
+        <AssociationConnector Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

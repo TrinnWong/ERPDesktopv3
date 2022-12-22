@@ -77,6 +77,8 @@ namespace ConexionBD
             this.cat_equipos_computo = new HashSet<cat_equipos_computo>();
             this.cat_basculas_configuracion = new HashSet<cat_basculas_configuracion>();
             this.doc_gastos = new HashSet<doc_gastos>();
+            this.doc_cargos = new HashSet<doc_cargos>();
+            this.doc_maiz_maseca_rendimiento = new HashSet<doc_maiz_maseca_rendimiento>();
         }
     
         public int Clave { get; set; }
@@ -220,5 +222,9 @@ namespace ConexionBD
         public virtual ICollection<cat_basculas_configuracion> cat_basculas_configuracion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_gastos> doc_gastos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_cargos> doc_cargos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
     }
 }

@@ -1579,7 +1579,7 @@ namespace FlorMaiz.Desktop
         private void uiClienteAgregar_Click(object sender, EventArgs e)
         {
             frmClienteForm oForm = new frmClienteForm();
-            oForm.clienteId = Convert.ToInt32(uiCliente.EditValue);
+            oForm.clienteId = 0;
             oForm.puntoVentaContext = puntoVentaContext;
             var result = oForm.ShowDialog();
 
@@ -1948,6 +1948,30 @@ namespace FlorMaiz.Desktop
                 puntoVentaContext.usarTareaBascula = false;
             }
 
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+
+            if(Convert.ToInt32(uiCliente.EditValue) == 0)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario seleccionar un cliente para continuar");
+            }
+            else
+            {
+                frmClienteForm oForm = new frmClienteForm();
+                oForm.clienteId = Convert.ToInt32(uiCliente.EditValue);
+                oForm.puntoVentaContext = puntoVentaContext;
+                var result = oForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    LoadClientes();
+
+                    uiCliente.EditValue = oForm.cliente.ClienteId;
+                }
+            }
+            
         }
     }
 }

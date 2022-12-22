@@ -88,6 +88,8 @@ namespace ConexionBD
             this.doc_productos_sobrantes_registro1 = new HashSet<doc_productos_sobrantes_registro>();
             this.doc_corte_caja_datos_entrada = new HashSet<doc_corte_caja_datos_entrada>();
             this.doc_gastos = new HashSet<doc_gastos>();
+            this.doc_maiz_maseca_rendimiento = new HashSet<doc_maiz_maseca_rendimiento>();
+            this.doc_maiz_maseca_rendimiento1 = new HashSet<doc_maiz_maseca_rendimiento>();
         }
     
         public int IdUsuario { get; set; }
@@ -249,5 +251,9 @@ namespace ConexionBD
         public virtual ICollection<doc_corte_caja_datos_entrada> doc_corte_caja_datos_entrada { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_gastos> doc_gastos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento1 { get; set; }
     }
 }

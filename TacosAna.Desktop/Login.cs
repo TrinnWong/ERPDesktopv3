@@ -295,6 +295,9 @@ namespace TacosAna.Desktop
                             imprimirCorteGeneral(puntoVentaContext.sucursalId,puntoVentaContext.cajaId);
                             ERP.Common.Reports.ReportPrint.imprimirProductoSobrante(puntoVentaContext.sucursalId, DateTime.Now,
                                 puntoVentaContext.usuarioId, puntoVentaContext.cajaId);
+
+                            ERP.Common.Reports.ReportPrint.imprimirRptCorteCajaPedidosPagos(puntoVentaContext.sucursalId, puntoVentaContext.cajaId,
+                                puntoVentaContext.usuarioId);
                         }
                     }
                    

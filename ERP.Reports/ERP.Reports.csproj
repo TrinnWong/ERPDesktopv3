@@ -405,6 +405,12 @@
     <Compile Include="subRptVentaFormasPago.Designer.cs">
       <DependentUpon>subRptVentaFormasPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="TacosAna\rptCorteCajaPedidoPagos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TacosAna\rptCorteCajaPedidoPagos.Designer.cs">
+      <DependentUpon>rptCorteCajaPedidoPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="TacosAna\rptCorteCaja.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -599,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="subRptVentaFormasPago.resx">
       <DependentUpon>subRptVentaFormasPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacosAna\rptCorteCajaPedidoPagos.resx">
+      <DependentUpon>rptCorteCajaPedidoPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TacosAna\rptCorteCaja.resx">
       <DependentUpon>rptCorteCaja.cs</DependentUpon>

@@ -544,6 +544,9 @@
     <Compile Include="doc_inv_movimiento_detalle.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="doc_maiz_maseca_rendimiento.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="doc_pagos.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -959,6 +962,9 @@
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_rpt_corte_caja_general_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_rpt_corte_caja_pedidos_pagos_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_rpt_corte_caja_producto_Result.cs">
@@ -3248,6 +3254,36 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\96_9 p_corte_caja_generacion.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_1 [p_venta_afecta_inventario_corte].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_2 [p_corte_caja_generacion].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_3 ALTER TABLE doc_cargos.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_4 p_rpt_corte_caja_pedidos_pagos.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_5 p_rpt_ventas_gastos_sucursal.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_6 fnUsuarioSucursales.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_7 p_rpt_corte_caja_producto.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_8 [p_rpt_estado_cuenta_detalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\97_9 [p_rpt_ventas_producto_pct].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\98 p_rpt_bascula_bitacora.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
