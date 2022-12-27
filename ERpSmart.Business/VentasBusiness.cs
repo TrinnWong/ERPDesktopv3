@@ -113,7 +113,9 @@ namespace ERP.Business
                                     (precioEmpleado ? (int)ERP.Business.Enumerados.tipoBasculaBitacora.PrecioEmpleado : (int)ERP.Business.Enumerados.tipoBasculaBitacora.VentaMostrador),
                                     itemProducto.productoId,
                                     null,
-                                    oContext);
+                                    oContext,
+                                    int.Parse(pVentaId.Value.ToString())
+                                    );
                             }
                         }
                         

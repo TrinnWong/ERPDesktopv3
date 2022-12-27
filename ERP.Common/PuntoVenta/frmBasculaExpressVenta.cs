@@ -229,7 +229,7 @@ namespace ERP.Common.PuntoVenta
                     {
                         basculaControlador = new BasculaLectura(this.puntoVentaContext);
                     }
-                    uiPeso.EditValue = basculaControlador.ObtenPesoBD();
+                    uiPeso.EditValue = basculaControlador.ObtenPesoBDLocal();
                 }
 
             }
@@ -1073,7 +1073,7 @@ namespace ERP.Common.PuntoVenta
                     {
                         basculaControlador = new BasculaLectura(this.puntoVentaContext);
                     }
-                    uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+                    uiCantidad.EditValue = basculaControlador.ObtenPesoBDLocal();
                 }
 
             }

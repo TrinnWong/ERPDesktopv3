@@ -245,6 +245,8 @@
           <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ERPProd_data.dbo.cat_configuracion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="cat_configuracion">
           <Key>
             <PropertyRef Name="ConfiguradorId" />
@@ -1250,6 +1252,7 @@
           <Property Name="PedidoDetalleId" Type="int" />
           <Property Name="Detalle" Type="varchar" MaxLength="500" />
           <Property Name="Credito" Type="bit" />
+          <Property Name="VentaId" Type="int" />
         </EntityType>
         <EntityType Name="doc_cargo_adicional_config">
           <Key>
@@ -1648,7 +1651,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SucursalId" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
           <Property Name="MaizSacos" Type="float" Nullable="false" />
@@ -2526,8 +2529,6 @@
           <Property Name="Password" Type="varchar" MaxLength="2000" Nullable="false" />
           <Property Name="URLValidacion" Type="varchar" MaxLength="1000" />
           <Property Name="ClaveSucursal" Type="int" />
-          <Property Name="TieneRec" Type="bit" />
-          <Property Name="PorcRec" Type="decimal" Precision="14" Scale="2" />
         </EntityType>
         <EntityType Name="sis_menu">
           <Key>
@@ -2634,7 +2635,7 @@
           <Property Name="ScriptName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Completado" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__cat_almac__Empre__43A1090D">
+        <Association Name="FK__cat_almac__Empre__4A18FC72">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_almacenes" Type="Self.cat_almacenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2646,7 +2647,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_almac__Empre__44952D46">
+        <Association Name="FK__cat_almac__Empre__4B0D20AB">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_almacenes" Type="Self.cat_almacenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2658,7 +2659,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_almac__Sucur__4589517F">
+        <Association Name="FK__cat_almac__Sucur__4C0144E4">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_almacenes" Type="Self.cat_almacenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2670,7 +2671,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_almac__Sucur__467D75B8">
+        <Association Name="FK__cat_almac__Sucur__4CF5691D">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_almacenes" Type="Self.cat_almacenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2682,7 +2683,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anaqu__Empre__477199F1">
+        <Association Name="FK__cat_anaqu__Empre__4DE98D56">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_anaqueles" Type="Self.cat_anaqueles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2694,7 +2695,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anaqu__Empre__4865BE2A">
+        <Association Name="FK__cat_anaqu__Empre__4EDDB18F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_anaqueles" Type="Self.cat_anaqueles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2706,7 +2707,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anaqu__Sucur__4959E263">
+        <Association Name="FK__cat_anaqu__Sucur__4FD1D5C8">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_anaqueles" Type="Self.cat_anaqueles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2718,7 +2719,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anaqu__Sucur__4A4E069C">
+        <Association Name="FK__cat_anaqu__Sucur__50C5FA01">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_anaqueles" Type="Self.cat_anaqueles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2730,7 +2731,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anden__Empre__4B422AD5">
+        <Association Name="FK__cat_anden__Empre__51BA1E3A">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_andenes" Type="Self.cat_andenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2742,7 +2743,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anden__Empre__4C364F0E">
+        <Association Name="FK__cat_anden__Empre__52AE4273">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_andenes" Type="Self.cat_andenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2754,7 +2755,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anden__Sucur__4D2A7347">
+        <Association Name="FK__cat_anden__Sucur__53A266AC">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_andenes" Type="Self.cat_andenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2766,7 +2767,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_anden__Sucur__4E1E9780">
+        <Association Name="FK__cat_anden__Sucur__54968AE5">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_andenes" Type="Self.cat_andenes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2802,7 +2803,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_centr__Empre__52E34C9D">
+        <Association Name="FK__cat_centr__Empre__60FC61CA">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2814,7 +2815,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_centr__Empre__53D770D6">
+        <Association Name="FK__cat_centr__Empre__61F08603">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2826,7 +2827,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_centr__Sucur__54CB950F">
+        <Association Name="FK__cat_centr__Sucur__62E4AA3C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2838,7 +2839,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_centr__Sucur__55BFB948">
+        <Association Name="FK__cat_centr__Sucur__63D8CE75">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2850,7 +2851,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_clase__Empre__56B3DD81">
+        <Association Name="FK__cat_clase__Empre__64CCF2AE">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_clases_sat" Type="Self.cat_clases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2862,7 +2863,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_clase__Empre__57A801BA">
+        <Association Name="FK__cat_clase__Empre__65C116E7">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_clases_sat" Type="Self.cat_clases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2874,7 +2875,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_clase__Sucur__589C25F3">
+        <Association Name="FK__cat_clase__Sucur__66B53B20">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_clases_sat" Type="Self.cat_clases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2886,7 +2887,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_clase__Sucur__59904A2C">
+        <Association Name="FK__cat_clase__Sucur__67A95F59">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_clases_sat" Type="Self.cat_clases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2898,7 +2899,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_clien__Emple__086B34A6">
+        <Association Name="FK__cat_clien__Emple__689D8392">
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="0..1" />
           <End Role="cat_clientes" Type="Self.cat_clientes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2910,7 +2911,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_confi__Pedid__25276EE5">
+        <Association Name="FK__cat_confi__Pedid__77DFC722">
           <End Role="cat_politicas" Type="Self.cat_politicas" Multiplicity="0..1" />
           <End Role="cat_configuracion" Type="Self.cat_configuracion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2922,7 +2923,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__68D28DBC">
+        <Association Name="FK__cat_denom__Empre__00750D23">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2934,7 +2935,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__69C6B1F5">
+        <Association Name="FK__cat_denom__Empre__0169315C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2946,7 +2947,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6ABAD62E">
+        <Association Name="FK__cat_denom__Empre__025D5595">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2958,7 +2959,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6BAEFA67">
+        <Association Name="FK__cat_denom__Empre__035179CE">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2970,7 +2971,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6CA31EA0">
+        <Association Name="FK__cat_denom__Empre__04459E07">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2982,7 +2983,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6D9742D9">
+        <Association Name="FK__cat_denom__Empre__0539C240">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2994,7 +2995,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6E8B6712">
+        <Association Name="FK__cat_denom__Empre__7ABC33CD">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3006,7 +3007,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__6F7F8B4B">
+        <Association Name="FK__cat_denom__Empre__7BB05806">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3018,7 +3019,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__7073AF84">
+        <Association Name="FK__cat_denom__Empre__7CA47C3F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3030,7 +3031,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__7167D3BD">
+        <Association Name="FK__cat_denom__Empre__7D98A078">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3042,7 +3043,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__725BF7F6">
+        <Association Name="FK__cat_denom__Empre__7E8CC4B1">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3054,7 +3055,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Empre__73501C2F">
+        <Association Name="FK__cat_denom__Empre__7F80E8EA">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3066,7 +3067,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__74444068">
+        <Association Name="FK__cat_denom__Sucur__062DE679">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3078,7 +3079,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__753864A1">
+        <Association Name="FK__cat_denom__Sucur__07220AB2">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3090,7 +3091,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__762C88DA">
+        <Association Name="FK__cat_denom__Sucur__08162EEB">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3102,7 +3103,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7720AD13">
+        <Association Name="FK__cat_denom__Sucur__090A5324">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3114,7 +3115,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7814D14C">
+        <Association Name="FK__cat_denom__Sucur__09FE775D">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3126,7 +3127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7908F585">
+        <Association Name="FK__cat_denom__Sucur__0AF29B96">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3138,7 +3139,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__79FD19BE">
+        <Association Name="FK__cat_denom__Sucur__0BE6BFCF">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3150,7 +3151,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7AF13DF7">
+        <Association Name="FK__cat_denom__Sucur__0CDAE408">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3162,7 +3163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7BE56230">
+        <Association Name="FK__cat_denom__Sucur__0DCF0841">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3174,7 +3175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7CD98669">
+        <Association Name="FK__cat_denom__Sucur__0EC32C7A">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3186,7 +3187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7DCDAAA2">
+        <Association Name="FK__cat_denom__Sucur__0FB750B3">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3198,7 +3199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_denom__Sucur__7EC1CEDB">
+        <Association Name="FK__cat_denom__Sucur__10AB74EC">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_denominaciones" Type="Self.cat_denominaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3210,7 +3211,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_divis__Empre__00AA174D">
+        <Association Name="FK__cat_divis__Empre__1293BD5E">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_divisiones_sat" Type="Self.cat_divisiones_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3222,7 +3223,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_divis__Empre__7FB5F314">
+        <Association Name="FK__cat_divis__Empre__1387E197">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_divisiones_sat" Type="Self.cat_divisiones_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3234,7 +3235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_divis__Sucur__019E3B86">
+        <Association Name="FK__cat_divis__Sucur__147C05D0">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_divisiones_sat" Type="Self.cat_divisiones_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3246,7 +3247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_divis__Sucur__02925FBF">
+        <Association Name="FK__cat_divis__Sucur__15702A09">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_divisiones_sat" Type="Self.cat_divisiones_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3258,7 +3259,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_famil__Empre__047AA831">
+        <Association Name="FK__cat_famil__Empre__1940BAED">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3270,7 +3271,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_famil__Empre__056ECC6A">
+        <Association Name="FK__cat_famil__Empre__1A34DF26">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3282,7 +3283,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_famil__Sucur__0662F0A3">
+        <Association Name="FK__cat_famil__Sucur__1B29035F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3294,7 +3295,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_famil__Sucur__075714DC">
+        <Association Name="FK__cat_famil__Sucur__1C1D2798">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3306,7 +3307,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__CajaI__093F5D4E">
+        <Association Name="FK__cat_gasto__CajaI__1E05700A">
           <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3318,7 +3319,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__CajaI__0A338187">
+        <Association Name="FK__cat_gasto__CajaI__1EF99443">
           <End Role="cat_cajas" Type="Self.cat_cajas" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3330,7 +3331,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Clave__0B27A5C0">
+        <Association Name="FK__cat_gasto__Clave__1FEDB87C">
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3342,7 +3343,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Clave__0C1BC9F9">
+        <Association Name="FK__cat_gasto__Clave__20E1DCB5">
           <End Role="cat_centro_costos" Type="Self.cat_centro_costos" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3354,7 +3355,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Conce__0D0FEE32">
+        <Association Name="FK__cat_gasto__Conce__21D600EE">
           <End Role="cat_conceptos" Type="Self.cat_conceptos" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3366,7 +3367,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Conce__0E04126B">
+        <Association Name="FK__cat_gasto__Conce__22CA2527">
           <End Role="cat_conceptos" Type="Self.cat_conceptos" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3390,7 +3391,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Empre__0FEC5ADD">
+        <Association Name="FK__cat_gasto__Empre__24B26D99">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3402,7 +3403,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Empre__10E07F16">
+        <Association Name="FK__cat_gasto__Empre__25A691D2">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3414,7 +3415,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Sucur__11D4A34F">
+        <Association Name="FK__cat_gasto__Sucur__269AB60B">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3426,7 +3427,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_gasto__Sucur__12C8C788">
+        <Association Name="FK__cat_gasto__Sucur__278EDA44">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="cat_gastos" Type="Self.cat_gastos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3438,7 +3439,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_giros__Empre__13BCEBC1">
+        <Association Name="FK__cat_giros__Empre__2882FE7D">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_giros_neg" Type="Self.cat_giros_neg" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3450,7 +3451,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_giros__Empre__14B10FFA">
+        <Association Name="FK__cat_giros__Empre__297722B6">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_giros_neg" Type="Self.cat_giros_neg" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3462,7 +3463,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_giros__Sucur__15A53433">
+        <Association Name="FK__cat_giros__Sucur__2A6B46EF">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_giros_neg" Type="Self.cat_giros_neg" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3474,7 +3475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_giros__Sucur__1699586C">
+        <Association Name="FK__cat_giros__Sucur__2B5F6B28">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_giros_neg" Type="Self.cat_giros_neg" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3486,7 +3487,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_grupo__Empre__178D7CA5">
+        <Association Name="FK__cat_grupo__Empre__2C538F61">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_grupos_sat" Type="Self.cat_grupos_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3498,7 +3499,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_grupo__Empre__1881A0DE">
+        <Association Name="FK__cat_grupo__Empre__2D47B39A">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_grupos_sat" Type="Self.cat_grupos_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3510,7 +3511,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_grupo__Sucur__1975C517">
+        <Association Name="FK__cat_grupo__Sucur__2E3BD7D3">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_grupos_sat" Type="Self.cat_grupos_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3522,7 +3523,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_grupo__Sucur__1A69E950">
+        <Association Name="FK__cat_grupo__Sucur__2F2FFC0C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_grupos_sat" Type="Self.cat_grupos_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3534,7 +3535,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_linea__Empre__2022C2A6">
+        <Association Name="FK__cat_linea__Empre__35DCF99B">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lineas" Type="Self.cat_lineas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3546,7 +3547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_linea__Empre__2116E6DF">
+        <Association Name="FK__cat_linea__Empre__36D11DD4">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lineas" Type="Self.cat_lineas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3558,7 +3559,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_linea__Sucur__220B0B18">
+        <Association Name="FK__cat_linea__Sucur__37C5420D">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="cat_lineas" Type="Self.cat_lineas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3570,7 +3571,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_linea__Sucur__22FF2F51">
+        <Association Name="FK__cat_linea__Sucur__38B96646">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="cat_lineas" Type="Self.cat_lineas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3582,7 +3583,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_lotes__Empre__23F3538A">
+        <Association Name="FK__cat_lotes__Empre__39AD8A7F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lotes" Type="Self.cat_lotes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3594,7 +3595,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_lotes__Empre__24E777C3">
+        <Association Name="FK__cat_lotes__Empre__3AA1AEB8">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lotes" Type="Self.cat_lotes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3606,7 +3607,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_lotes__Sucur__25DB9BFC">
+        <Association Name="FK__cat_lotes__Sucur__3B95D2F1">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lotes" Type="Self.cat_lotes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3618,7 +3619,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_lotes__Sucur__26CFC035">
+        <Association Name="FK__cat_lotes__Sucur__3C89F72A">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_lotes" Type="Self.cat_lotes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3630,7 +3631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_marca__Empre__27C3E46E">
+        <Association Name="FK__cat_marca__Empre__3D7E1B63">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_marcas" Type="Self.cat_marcas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3642,7 +3643,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_marca__Empre__28B808A7">
+        <Association Name="FK__cat_marca__Empre__3E723F9C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_marcas" Type="Self.cat_marcas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3654,7 +3655,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_marca__Sucur__29AC2CE0">
+        <Association Name="FK__cat_marca__Sucur__3F6663D5">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_marcas" Type="Self.cat_marcas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3666,7 +3667,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_marca__Sucur__2AA05119">
+        <Association Name="FK__cat_marca__Sucur__405A880E">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_marcas" Type="Self.cat_marcas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3678,7 +3679,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_moned__Empre__2B947552">
+        <Association Name="FK__cat_moned__Empre__414EAC47">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_monedas" Type="Self.cat_monedas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3690,7 +3691,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_moned__Empre__2C88998B">
+        <Association Name="FK__cat_moned__Empre__4242D080">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_monedas" Type="Self.cat_monedas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3702,7 +3703,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_moned__Sucur__2D7CBDC4">
+        <Association Name="FK__cat_moned__Sucur__4336F4B9">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_monedas" Type="Self.cat_monedas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3714,7 +3715,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_moned__Sucur__2E70E1FD">
+        <Association Name="FK__cat_moned__Sucur__442B18F2">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_monedas" Type="Self.cat_monedas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3726,7 +3727,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__314D4EA8">
+        <Association Name="FK__cat_produ__Clave__48EFCE0F">
           <End Role="cat_almacenes" Type="Self.cat_almacenes" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3738,7 +3739,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__324172E1">
+        <Association Name="FK__cat_produ__Clave__49E3F248">
           <End Role="cat_andenes" Type="Self.cat_andenes" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3750,7 +3751,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__3335971A">
+        <Association Name="FK__cat_produ__Clave__4AD81681">
           <End Role="cat_lotes" Type="Self.cat_lotes" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3762,7 +3763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__3429BB53">
+        <Association Name="FK__cat_produ__Clave__4BCC3ABA">
           <End Role="cat_marcas" Type="Self.cat_marcas" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3774,7 +3775,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__351DDF8C">
+        <Association Name="FK__cat_produ__Clave__4CC05EF3">
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3786,7 +3787,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__361203C5">
+        <Association Name="FK__cat_produ__Clave__4DB4832C">
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3798,7 +3799,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__370627FE">
+        <Association Name="FK__cat_produ__Clave__4EA8A765">
           <End Role="cat_lineas" Type="Self.cat_lineas" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3810,7 +3811,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__37FA4C37">
+        <Association Name="FK__cat_produ__Clave__4F9CCB9E">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3822,7 +3823,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__38EE7070">
+        <Association Name="FK__cat_produ__Clave__5090EFD7">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3834,7 +3835,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__39E294A9">
+        <Association Name="FK__cat_produ__Clave__51851410">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3846,7 +3847,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__4183B671">
+        <Association Name="FK__cat_produ__Clave__52793849">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3858,7 +3859,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__4277DAAA">
+        <Association Name="FK__cat_produ__Clave__536D5C82">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3870,7 +3871,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Clave__436BFEE3">
+        <Association Name="FK__cat_produ__Clave__546180BB">
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3882,7 +3883,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Empre__4460231C">
+        <Association Name="FK__cat_produ__Empre__5555A4F4">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3894,7 +3895,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_produ__Sucur__46486B8E">
+        <Association Name="FK__cat_produ__Sucur__5649C92D">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3906,7 +3907,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_rubro__Empre__66B53B20">
+        <Association Name="FK__cat_rubro__Empre__7D63964E">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_rubros" Type="Self.cat_rubros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3918,7 +3919,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_rubro__Empre__67A95F59">
+        <Association Name="FK__cat_rubro__Empre__7E57BA87">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_rubros" Type="Self.cat_rubros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3930,7 +3931,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_rubro__Sucur__689D8392">
+        <Association Name="FK__cat_rubro__Sucur__004002F9">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_rubros" Type="Self.cat_rubros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3942,7 +3943,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_rubro__Sucur__6991A7CB">
+        <Association Name="FK__cat_rubro__Sucur__7F4BDEC0">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_rubros" Type="Self.cat_rubros" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3954,7 +3955,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subcl__Empre__6B79F03D">
+        <Association Name="FK__cat_subcl__Empre__02284B6B">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subclases_sat" Type="Self.cat_subclases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3966,7 +3967,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subcl__Empre__6C6E1476">
+        <Association Name="FK__cat_subcl__Empre__031C6FA4">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subclases_sat" Type="Self.cat_subclases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3978,7 +3979,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subcl__Sucur__6D6238AF">
+        <Association Name="FK__cat_subcl__Sucur__041093DD">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subclases_sat" Type="Self.cat_subclases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3990,7 +3991,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subcl__Sucur__6E565CE8">
+        <Association Name="FK__cat_subcl__Sucur__0504B816">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subclases_sat" Type="Self.cat_subclases_sat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4002,7 +4003,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Empre__6F4A8121">
+        <Association Name="FK__cat_subfa__Empre__05F8DC4F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4014,7 +4015,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Empre__703EA55A">
+        <Association Name="FK__cat_subfa__Empre__06ED0088">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4026,7 +4027,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Famil__7132C993">
+        <Association Name="FK__cat_subfa__Famil__07E124C1">
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4038,7 +4039,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Famil__7226EDCC">
+        <Association Name="FK__cat_subfa__Famil__08D548FA">
           <End Role="cat_familias" Type="Self.cat_familias" Multiplicity="1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4050,7 +4051,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Sucur__731B1205">
+        <Association Name="FK__cat_subfa__Sucur__09C96D33">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4062,7 +4063,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_subfa__Sucur__740F363E">
+        <Association Name="FK__cat_subfa__Sucur__0ABD916C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_subfamilias" Type="Self.cat_subfamilias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4074,7 +4075,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_tipos__TipoM__75F77EB0">
+        <Association Name="FK__cat_tipos__TipoM__0D99FE17">
           <End Role="cat_tipos_movimiento_inventario" Type="Self.cat_tipos_movimiento_inventario" Multiplicity="0..1" />
           <End Role="cat_tipos_movimiento_inventario1" Type="Self.cat_tipos_movimiento_inventario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4086,7 +4087,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_unida__Empre__76EBA2E9">
+        <Association Name="FK__cat_unida__Empre__0E8E2250">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4098,7 +4099,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_unida__Empre__77DFC722">
+        <Association Name="FK__cat_unida__Empre__0F824689">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4110,7 +4111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_unida__Sucur__78D3EB5B">
+        <Association Name="FK__cat_unida__Sucur__10766AC2">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4122,7 +4123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cat_unida__Sucur__79C80F94">
+        <Association Name="FK__cat_unida__Sucur__116A8EFB">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="cat_unidadesmed" Type="Self.cat_unidadesmed" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4134,7 +4135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_devol__Devol__184C96B4">
+        <Association Name="FK__doc_devol__Devol__5708E33C">
           <End Role="doc_devoluciones" Type="Self.doc_devoluciones" Multiplicity="1" />
           <End Role="doc_devoluciones_detalle" Type="Self.doc_devoluciones_detalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4146,7 +4147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_devol__Devol__1940BAED">
+        <Association Name="FK__doc_devol__Devol__57FD0775">
           <End Role="doc_devoluciones" Type="Self.doc_devoluciones" Multiplicity="1" />
           <End Role="doc_devoluciones_detalle" Type="Self.doc_devoluciones_detalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4158,7 +4159,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_devol__TipoD__147C05D0">
+        <Association Name="FK__doc_devol__TipoD__53385258">
           <End Role="cat_tipos_devolucion" Type="Self.cat_tipos_devolucion" Multiplicity="0..1" />
           <End Role="doc_devoluciones" Type="Self.doc_devoluciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4170,7 +4171,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_devol__TipoD__15702A09">
+        <Association Name="FK__doc_devol__TipoD__542C7691">
           <End Role="cat_tipos_devolucion" Type="Self.cat_tipos_devolucion" Multiplicity="0..1" />
           <End Role="doc_devoluciones" Type="Self.doc_devoluciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4182,7 +4183,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Autor__269AB60B">
+        <Association Name="FK__doc_inv_m__Autor__69279377">
           <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="0..1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4194,7 +4195,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Produ__2882FE7D">
+        <Association Name="FK__doc_inv_m__Produ__6A1BB7B0">
           <End Role="doc_productos_compra" Type="Self.doc_productos_compra" Multiplicity="0..1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4206,7 +4207,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Sucur__297722B6">
+        <Association Name="FK__doc_inv_m__Sucur__6B0FDBE9">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4218,7 +4219,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Sucur__2A6B46EF">
+        <Association Name="FK__doc_inv_m__Sucur__6C040022">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4230,7 +4231,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Sucur__2B5F6B28">
+        <Association Name="FK__doc_inv_m__Sucur__6CF8245B">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4242,7 +4243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_inv_m__Venta__30242045">
+        <Association Name="FK__doc_inv_m__Venta__6DEC4894">
           <End Role="doc_ventas" Type="Self.doc_ventas" Multiplicity="0..1" />
           <End Role="doc_inv_movimiento" Type="Self.doc_inv_movimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4254,7 +4255,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_pedid__Promo__14D10B8B">
+        <Association Name="FK__doc_pedid__Promo__226010D3">
           <End Role="doc_promociones_cm" Type="Self.doc_promociones_cm" Multiplicity="0..1" />
           <End Role="doc_pedidos_orden_detalle" Type="Self.doc_pedidos_orden_detalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4266,7 +4267,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_pedid__Sucur__2B9540A9">
+        <Association Name="FK__doc_pedid__Sucur__150615B5">
           <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="0..1" />
           <End Role="doc_pedidos_orden" Type="Self.doc_pedidos_orden" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4278,7 +4279,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_produ__Cerra__5CC287E9">
+        <Association Name="FK__doc_produ__Cerra__69E6AD86">
           <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="0..1" />
           <End Role="doc_productos_sobrantes_registro" Type="Self.doc_productos_sobrantes_registro" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4290,7 +4291,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_produ__Estat__0BF1ACC7">
+        <Association Name="FK__doc_produ__Estat__347EC10E">
           <End Role="cat_estatus_produccion" Type="Self.cat_estatus_produccion" Multiplicity="1" />
           <End Role="doc_produccion" Type="Self.doc_produccion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4302,7 +4303,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_venta__Promo__15C52FC4">
+        <Association Name="FK__doc_venta__Promo__17AD7836">
           <End Role="doc_promociones_cm" Type="Self.doc_promociones_cm" Multiplicity="0..1" />
           <End Role="doc_ventas_detalle" Type="Self.doc_ventas_detalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4314,7 +4315,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__doc_venta__TipoD__0682EC34">
+        <Association Name="FK__doc_venta__TipoD__18A19C6F">
           <End Role="cat_tipos_descuento" Type="Self.cat_tipos_descuento" Multiplicity="0..1" />
           <End Role="doc_ventas_detalle" Type="Self.doc_ventas_detalle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4326,7 +4327,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_depart__Empre__09C96D33">
+        <Association Name="FK__rh_depart__Empre__2BB470E3">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4338,7 +4339,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_depart__Empre__0ABD916C">
+        <Association Name="FK__rh_depart__Empre__2CA8951C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4350,7 +4351,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_depart__Sucur__0BB1B5A5">
+        <Association Name="FK__rh_depart__Sucur__2D9CB955">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4362,7 +4363,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_depart__Sucur__0CA5D9DE">
+        <Association Name="FK__rh_depart__Sucur__2E90DD8E">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4374,7 +4375,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Depar__0F824689">
+        <Association Name="FK__rh_emplea__Depar__316D4A39">
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4386,7 +4387,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Depar__10766AC2">
+        <Association Name="FK__rh_emplea__Depar__32616E72">
           <End Role="rh_departamentos" Type="Self.rh_departamentos" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4398,7 +4399,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Empre__116A8EFB">
+        <Association Name="FK__rh_emplea__Empre__335592AB">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4410,7 +4411,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Empre__125EB334">
+        <Association Name="FK__rh_emplea__Empre__3449B6E4">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4422,7 +4423,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Forma__1352D76D">
+        <Association Name="FK__rh_emplea__Forma__353DDB1D">
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4434,7 +4435,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Forma__1446FBA6">
+        <Association Name="FK__rh_emplea__Forma__3631FF56">
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4446,7 +4447,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Puest__153B1FDF">
+        <Association Name="FK__rh_emplea__Puest__3726238F">
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4458,7 +4459,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Puest__162F4418">
+        <Association Name="FK__rh_emplea__Puest__381A47C8">
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4470,7 +4471,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Sucur__17236851">
+        <Association Name="FK__rh_emplea__Sucur__390E6C01">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4482,7 +4483,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__Sucur__18178C8A">
+        <Association Name="FK__rh_emplea__Sucur__3A02903A">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4494,7 +4495,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__TipoC__190BB0C3">
+        <Association Name="FK__rh_emplea__TipoC__3AF6B473">
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4506,7 +4507,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_emplea__TipoC__19FFD4FC">
+        <Association Name="FK__rh_emplea__TipoC__3BEAD8AC">
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="0..1" />
           <End Role="rh_empleados" Type="Self.rh_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4518,7 +4519,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_estatu__Empre__1AF3F935">
+        <Association Name="FK__rh_estatu__Empre__3CDEFCE5">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_estatus_empleados" Type="Self.rh_estatus_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4530,7 +4531,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_estatu__Empre__1BE81D6E">
+        <Association Name="FK__rh_estatu__Empre__3DD3211E">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_estatus_empleados" Type="Self.rh_estatus_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4542,7 +4543,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_estatu__Sucur__1CDC41A7">
+        <Association Name="FK__rh_estatu__Sucur__3EC74557">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_estatus_empleados" Type="Self.rh_estatus_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4554,7 +4555,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_estatu__Sucur__1DD065E0">
+        <Association Name="FK__rh_estatu__Sucur__3FBB6990">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_estatus_empleados" Type="Self.rh_estatus_empleados" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4566,7 +4567,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_formas__Empre__1EC48A19">
+        <Association Name="FK__rh_formas__Empre__40AF8DC9">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4578,7 +4579,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_formas__Empre__1FB8AE52">
+        <Association Name="FK__rh_formas__Empre__41A3B202">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4590,7 +4591,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_formas__Sucur__20ACD28B">
+        <Association Name="FK__rh_formas__Sucur__4297D63B">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4602,7 +4603,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_formas__Sucur__21A0F6C4">
+        <Association Name="FK__rh_formas__Sucur__438BFA74">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_formaspagonom" Type="Self.rh_formaspagonom" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4614,7 +4615,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_puesto__Empre__22951AFD">
+        <Association Name="FK__rh_puesto__Empre__44801EAD">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4626,7 +4627,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_puesto__Empre__23893F36">
+        <Association Name="FK__rh_puesto__Empre__457442E6">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4638,7 +4639,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_puesto__Sucur__247D636F">
+        <Association Name="FK__rh_puesto__Sucur__4668671F">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4650,7 +4651,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_puesto__Sucur__257187A8">
+        <Association Name="FK__rh_puesto__Sucur__475C8B58">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_puestos" Type="Self.rh_puestos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4662,7 +4663,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_tipos___Empre__2665ABE1">
+        <Association Name="FK__rh_tipos___Empre__4850AF91">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4674,7 +4675,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_tipos___Empre__2759D01A">
+        <Association Name="FK__rh_tipos___Empre__4944D3CA">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4686,7 +4687,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_tipos___Sucur__284DF453">
+        <Association Name="FK__rh_tipos___Sucur__4A38F803">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4698,7 +4699,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rh_tipos___Sucur__2942188C">
+        <Association Name="FK__rh_tipos___Sucur__4B2D1C3C">
           <End Role="cat_empresas" Type="Self.cat_empresas" Multiplicity="0..1" />
           <End Role="rh_tipos_contrato" Type="Self.rh_tipos_contrato" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4734,8 +4735,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <!--Errores durante la generación:
+advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
         <Association Name="FK_Carrito_CarritoDetalle" />-->
         <Association Name="FK_Carrito_Cliente">
           <End Role="cat_clientes" Type="Self.cat_clientes" Multiplicity="0..1" />
@@ -10230,6 +10231,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
           <Parameter Name="pDel" Type="datetime" Mode="In" />
           <Parameter Name="pAl" Type="datetime" Mode="In" />
+          <Parameter Name="pUsuarioId" Type="int" Mode="In" />
         </Function>
         <Function Name="p_rpt_corte_caja_resumido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursal" Type="int" Mode="In" />
@@ -10287,6 +10289,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pTipo" Type="varchar" Mode="In" />
           <Parameter Name="pDel" Type="datetime" Mode="In" />
           <Parameter Name="pAl" Type="datetime" Mode="In" />
+          <Parameter Name="pUsuarioId" Type="int" Mode="In" />
         </Function>
         <Function Name="p_rpt_existencias_agrupado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
@@ -10390,13 +10393,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <Parameter Name="pDel" Type="datetime" Mode="In" />
           <Parameter Name="pAl" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="p_sis_bitacora_errores_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="pIdError" Type="int" Mode="InOut" />
-          <Parameter Name="pSistema" Type="varchar" Mode="In" />
-          <Parameter Name="pClase" Type="varchar" Mode="In" />
-          <Parameter Name="pMetodo" Type="varchar" Mode="In" />
-          <Parameter Name="pError" Type="varchar" Mode="In" />
-        </Function>
         <Function Name="p_sis_versiones_detalle_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pVersion" Type="varchar" Mode="In" />
           <Parameter Name="pScriptName" Type="varchar" Mode="In" />
@@ -10432,7 +10428,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="cat_clientes_direcciones" EntityType="Self.cat_clientes_direcciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_clientes_web" EntityType="Self.cat_clientes_web" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_conceptos" EntityType="Self.cat_conceptos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cat_configuracion" EntityType="Self.cat_configuracion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_restaurante" EntityType="Self.cat_configuracion_restaurante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_ticket_apartado" EntityType="Self.cat_configuracion_ticket_apartado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_configuracion_ticket_venta" EntityType="Self.cat_configuracion_ticket_venta" Schema="dbo" store:Type="Tables" />
@@ -10618,51 +10613,119 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySet Name="sis_usuarios_roles" EntityType="Self.sis_usuarios_roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sis_versiones" EntityType="Self.sis_versiones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sis_versiones_detalle" EntityType="Self.sis_versiones_detalle" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__cat_almac__Empre__43A1090D" Association="Self.FK__cat_almac__Empre__43A1090D">
+          <EntitySet Name="cat_configuracion" EntityType="Self.cat_configuracion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cat_configuracion].[ConfiguradorId] AS [ConfiguradorId], 
+    [cat_configuracion].[UnaFormaPago] AS [UnaFormaPago], 
+    [cat_configuracion].[MasUnaFormaPago] AS [MasUnaFormaPago], 
+    [cat_configuracion].[CosteoUEPS] AS [CosteoUEPS], 
+    [cat_configuracion].[CosteoPEPS] AS [CosteoPEPS], 
+    [cat_configuracion].[CosteoPromedio] AS [CosteoPromedio], 
+    [cat_configuracion].[AfectarInventarioLinea] AS [AfectarInventarioLinea], 
+    [cat_configuracion].[AfectarInventarioManual] AS [AfectarInventarioManual], 
+    [cat_configuracion].[AfectarInventarioCorte] AS [AfectarInventarioCorte], 
+    [cat_configuracion].[EnlazarPuntoVentaInventario] AS [EnlazarPuntoVentaInventario], 
+    [cat_configuracion].[CajeroIncluirDetalleVenta] AS [CajeroIncluirDetalleVenta], 
+    [cat_configuracion].[CajeroReqClaveSupervisor] AS [CajeroReqClaveSupervisor], 
+    [cat_configuracion].[SuperIncluirDetalleVenta] AS [SuperIncluirDetalleVenta], 
+    [cat_configuracion].[SuperIncluirVentaTel] AS [SuperIncluirVentaTel], 
+    [cat_configuracion].[SuperIncluirDetGastos] AS [SuperIncluirDetGastos], 
+    [cat_configuracion].[SuperEmail1] AS [SuperEmail1], 
+    [cat_configuracion].[SuperEmail2] AS [SuperEmail2], 
+    [cat_configuracion].[SuperEmail3] AS [SuperEmail3], 
+    [cat_configuracion].[SuperEmail4] AS [SuperEmail4], 
+    [cat_configuracion].[RetiroMontoEfec] AS [RetiroMontoEfec], 
+    [cat_configuracion].[RetiroLectura] AS [RetiroLectura], 
+    [cat_configuracion].[RetiroEscritura] AS [RetiroEscritura], 
+    [cat_configuracion].[NombreImpresora] AS [NombreImpresora], 
+    [cat_configuracion].[HardwareCaracterCajon] AS [HardwareCaracterCajon], 
+    [cat_configuracion].[EmpleadoPorcDescuento] AS [EmpleadoPorcDescuento], 
+    [cat_configuracion].[EmpleadoGlobal] AS [EmpleadoGlobal], 
+    [cat_configuracion].[EmpleadoIndividual] AS [EmpleadoIndividual], 
+    [cat_configuracion].[MontoImpresionTicket] AS [MontoImpresionTicket], 
+    [cat_configuracion].[ApartadoAnticipo1] AS [ApartadoAnticipo1], 
+    [cat_configuracion].[ApartadoAnticipoHasta1] AS [ApartadoAnticipoHasta1], 
+    [cat_configuracion].[ApartadoAnticipo2] AS [ApartadoAnticipo2], 
+    [cat_configuracion].[ApatadoAnticipoEnAdelante2] AS [ApatadoAnticipoEnAdelante2], 
+    [cat_configuracion].[PorcentajeUtilidadProd] AS [PorcentajeUtilidadProd], 
+    [cat_configuracion].[DesgloceMontoTicket] AS [DesgloceMontoTicket], 
+    [cat_configuracion].[RetiroReqClaveSup] AS [RetiroReqClaveSup], 
+    [cat_configuracion].[CajDeclaracionFondoCorte] AS [CajDeclaracionFondoCorte], 
+    [cat_configuracion].[SupDeclaracionFondoCorte] AS [SupDeclaracionFondoCorte], 
+    [cat_configuracion].[vistaPreviaImpresion] AS [vistaPreviaImpresion], 
+    [cat_configuracion].[CajeroCorteDetGasto] AS [CajeroCorteDetGasto], 
+    [cat_configuracion].[SupCorteDetGasto] AS [SupCorteDetGasto], 
+    [cat_configuracion].[CajeroCorteCancelaciones] AS [CajeroCorteCancelaciones], 
+    [cat_configuracion].[SupCorteCancelaciones] AS [SupCorteCancelaciones], 
+    [cat_configuracion].[DevDiasVale] AS [DevDiasVale], 
+    [cat_configuracion].[DevDiasGarantia] AS [DevDiasGarantia], 
+    [cat_configuracion].[DevHorasGarantia] AS [DevHorasGarantia], 
+    [cat_configuracion].[ApartadoDiasLiq] AS [ApartadoDiasLiq], 
+    [cat_configuracion].[ApartadoDiasProrroga] AS [ApartadoDiasProrroga], 
+    [cat_configuracion].[ReqClaveSupReimpresionTicketPV] AS [ReqClaveSupReimpresionTicketPV], 
+    [cat_configuracion].[ReqClaveSupCancelaTicketPV] AS [ReqClaveSupCancelaTicketPV], 
+    [cat_configuracion].[ReqClaveSupGastosPV] AS [ReqClaveSupGastosPV], 
+    [cat_configuracion].[ReqClaveSupDevolucionPV] AS [ReqClaveSupDevolucionPV], 
+    [cat_configuracion].[ReqClaveSupApartadoPV] AS [ReqClaveSupApartadoPV], 
+    [cat_configuracion].[ReqClaveSupExistenciaPV] AS [ReqClaveSupExistenciaPV], 
+    [cat_configuracion].[SerieTicketVenta] AS [SerieTicketVenta], 
+    [cat_configuracion].[SerieTicketApartado] AS [SerieTicketApartado], 
+    [cat_configuracion].[CorteCajaIncluirExistencia] AS [CorteCajaIncluirExistencia], 
+    [cat_configuracion].[ImprimirTicketMediaCarta] AS [ImprimirTicketMediaCarta], 
+    [cat_configuracion].[Giro] AS [Giro], 
+    [cat_configuracion].[SolicitarComanda] AS [SolicitarComanda], 
+    [cat_configuracion].[TieneRec] AS [TieneRec], 
+    [cat_configuracion].[PorcRec] AS [PorcRec], 
+    [cat_configuracion].[MontoRecargoDiario] AS [MontoRecargoDiario], 
+    [cat_configuracion].[PedidoAnticipoPorc] AS [PedidoAnticipoPorc], 
+    [cat_configuracion].[PedidoPoliticaId] AS [PedidoPoliticaId]
+    FROM [dbo].[cat_configuracion] AS [cat_configuracion]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__cat_almac__Empre__4A18FC72" Association="Self.FK__cat_almac__Empre__4A18FC72">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_almac__Empre__44952D46" Association="Self.FK__cat_almac__Empre__44952D46">
+          <AssociationSet Name="FK__cat_almac__Empre__4B0D20AB" Association="Self.FK__cat_almac__Empre__4B0D20AB">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_almac__Sucur__4589517F" Association="Self.FK__cat_almac__Sucur__4589517F">
+          <AssociationSet Name="FK__cat_almac__Sucur__4C0144E4" Association="Self.FK__cat_almac__Sucur__4C0144E4">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_almac__Sucur__467D75B8" Association="Self.FK__cat_almac__Sucur__467D75B8">
+          <AssociationSet Name="FK__cat_almac__Sucur__4CF5691D" Association="Self.FK__cat_almac__Sucur__4CF5691D">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anaqu__Empre__477199F1" Association="Self.FK__cat_anaqu__Empre__477199F1">
+          <AssociationSet Name="FK__cat_anaqu__Empre__4DE98D56" Association="Self.FK__cat_anaqu__Empre__4DE98D56">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_anaqueles" EntitySet="cat_anaqueles" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anaqu__Empre__4865BE2A" Association="Self.FK__cat_anaqu__Empre__4865BE2A">
+          <AssociationSet Name="FK__cat_anaqu__Empre__4EDDB18F" Association="Self.FK__cat_anaqu__Empre__4EDDB18F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_anaqueles" EntitySet="cat_anaqueles" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anaqu__Sucur__4959E263" Association="Self.FK__cat_anaqu__Sucur__4959E263">
+          <AssociationSet Name="FK__cat_anaqu__Sucur__4FD1D5C8" Association="Self.FK__cat_anaqu__Sucur__4FD1D5C8">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_anaqueles" EntitySet="cat_anaqueles" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anaqu__Sucur__4A4E069C" Association="Self.FK__cat_anaqu__Sucur__4A4E069C">
+          <AssociationSet Name="FK__cat_anaqu__Sucur__50C5FA01" Association="Self.FK__cat_anaqu__Sucur__50C5FA01">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_anaqueles" EntitySet="cat_anaqueles" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anden__Empre__4B422AD5" Association="Self.FK__cat_anden__Empre__4B422AD5">
+          <AssociationSet Name="FK__cat_anden__Empre__51BA1E3A" Association="Self.FK__cat_anden__Empre__51BA1E3A">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_andenes" EntitySet="cat_andenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anden__Empre__4C364F0E" Association="Self.FK__cat_anden__Empre__4C364F0E">
+          <AssociationSet Name="FK__cat_anden__Empre__52AE4273" Association="Self.FK__cat_anden__Empre__52AE4273">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_andenes" EntitySet="cat_andenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anden__Sucur__4D2A7347" Association="Self.FK__cat_anden__Sucur__4D2A7347">
+          <AssociationSet Name="FK__cat_anden__Sucur__53A266AC" Association="Self.FK__cat_anden__Sucur__53A266AC">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_andenes" EntitySet="cat_andenes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_anden__Sucur__4E1E9780" Association="Self.FK__cat_anden__Sucur__4E1E9780">
+          <AssociationSet Name="FK__cat_anden__Sucur__54968AE5" Association="Self.FK__cat_anden__Sucur__54968AE5">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_andenes" EntitySet="cat_andenes" />
           </AssociationSet>
@@ -10674,195 +10737,195 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_cajas" EntitySet="cat_cajas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_centr__Empre__52E34C9D" Association="Self.FK__cat_centr__Empre__52E34C9D">
+          <AssociationSet Name="FK__cat_centr__Empre__60FC61CA" Association="Self.FK__cat_centr__Empre__60FC61CA">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_centr__Empre__53D770D6" Association="Self.FK__cat_centr__Empre__53D770D6">
+          <AssociationSet Name="FK__cat_centr__Empre__61F08603" Association="Self.FK__cat_centr__Empre__61F08603">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_centr__Sucur__54CB950F" Association="Self.FK__cat_centr__Sucur__54CB950F">
+          <AssociationSet Name="FK__cat_centr__Sucur__62E4AA3C" Association="Self.FK__cat_centr__Sucur__62E4AA3C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_centr__Sucur__55BFB948" Association="Self.FK__cat_centr__Sucur__55BFB948">
+          <AssociationSet Name="FK__cat_centr__Sucur__63D8CE75" Association="Self.FK__cat_centr__Sucur__63D8CE75">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_clase__Empre__56B3DD81" Association="Self.FK__cat_clase__Empre__56B3DD81">
+          <AssociationSet Name="FK__cat_clase__Empre__64CCF2AE" Association="Self.FK__cat_clase__Empre__64CCF2AE">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_clases_sat" EntitySet="cat_clases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_clase__Empre__57A801BA" Association="Self.FK__cat_clase__Empre__57A801BA">
+          <AssociationSet Name="FK__cat_clase__Empre__65C116E7" Association="Self.FK__cat_clase__Empre__65C116E7">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_clases_sat" EntitySet="cat_clases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_clase__Sucur__589C25F3" Association="Self.FK__cat_clase__Sucur__589C25F3">
+          <AssociationSet Name="FK__cat_clase__Sucur__66B53B20" Association="Self.FK__cat_clase__Sucur__66B53B20">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_clases_sat" EntitySet="cat_clases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_clase__Sucur__59904A2C" Association="Self.FK__cat_clase__Sucur__59904A2C">
+          <AssociationSet Name="FK__cat_clase__Sucur__67A95F59" Association="Self.FK__cat_clase__Sucur__67A95F59">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_clases_sat" EntitySet="cat_clases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_clien__Emple__086B34A6" Association="Self.FK__cat_clien__Emple__086B34A6">
+          <AssociationSet Name="FK__cat_clien__Emple__689D8392" Association="Self.FK__cat_clien__Emple__689D8392">
             <End Role="rh_empleados" EntitySet="rh_empleados" />
             <End Role="cat_clientes" EntitySet="cat_clientes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_confi__Pedid__25276EE5" Association="Self.FK__cat_confi__Pedid__25276EE5">
+          <AssociationSet Name="FK__cat_confi__Pedid__77DFC722" Association="Self.FK__cat_confi__Pedid__77DFC722">
             <End Role="cat_politicas" EntitySet="cat_politicas" />
             <End Role="cat_configuracion" EntitySet="cat_configuracion" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__68D28DBC" Association="Self.FK__cat_denom__Empre__68D28DBC">
+          <AssociationSet Name="FK__cat_denom__Empre__00750D23" Association="Self.FK__cat_denom__Empre__00750D23">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__69C6B1F5" Association="Self.FK__cat_denom__Empre__69C6B1F5">
+          <AssociationSet Name="FK__cat_denom__Empre__0169315C" Association="Self.FK__cat_denom__Empre__0169315C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6ABAD62E" Association="Self.FK__cat_denom__Empre__6ABAD62E">
+          <AssociationSet Name="FK__cat_denom__Empre__025D5595" Association="Self.FK__cat_denom__Empre__025D5595">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6BAEFA67" Association="Self.FK__cat_denom__Empre__6BAEFA67">
+          <AssociationSet Name="FK__cat_denom__Empre__035179CE" Association="Self.FK__cat_denom__Empre__035179CE">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6CA31EA0" Association="Self.FK__cat_denom__Empre__6CA31EA0">
+          <AssociationSet Name="FK__cat_denom__Empre__04459E07" Association="Self.FK__cat_denom__Empre__04459E07">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6D9742D9" Association="Self.FK__cat_denom__Empre__6D9742D9">
+          <AssociationSet Name="FK__cat_denom__Empre__0539C240" Association="Self.FK__cat_denom__Empre__0539C240">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6E8B6712" Association="Self.FK__cat_denom__Empre__6E8B6712">
+          <AssociationSet Name="FK__cat_denom__Empre__7ABC33CD" Association="Self.FK__cat_denom__Empre__7ABC33CD">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__6F7F8B4B" Association="Self.FK__cat_denom__Empre__6F7F8B4B">
+          <AssociationSet Name="FK__cat_denom__Empre__7BB05806" Association="Self.FK__cat_denom__Empre__7BB05806">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__7073AF84" Association="Self.FK__cat_denom__Empre__7073AF84">
+          <AssociationSet Name="FK__cat_denom__Empre__7CA47C3F" Association="Self.FK__cat_denom__Empre__7CA47C3F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__7167D3BD" Association="Self.FK__cat_denom__Empre__7167D3BD">
+          <AssociationSet Name="FK__cat_denom__Empre__7D98A078" Association="Self.FK__cat_denom__Empre__7D98A078">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__725BF7F6" Association="Self.FK__cat_denom__Empre__725BF7F6">
+          <AssociationSet Name="FK__cat_denom__Empre__7E8CC4B1" Association="Self.FK__cat_denom__Empre__7E8CC4B1">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Empre__73501C2F" Association="Self.FK__cat_denom__Empre__73501C2F">
+          <AssociationSet Name="FK__cat_denom__Empre__7F80E8EA" Association="Self.FK__cat_denom__Empre__7F80E8EA">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__74444068" Association="Self.FK__cat_denom__Sucur__74444068">
+          <AssociationSet Name="FK__cat_denom__Sucur__062DE679" Association="Self.FK__cat_denom__Sucur__062DE679">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__753864A1" Association="Self.FK__cat_denom__Sucur__753864A1">
+          <AssociationSet Name="FK__cat_denom__Sucur__07220AB2" Association="Self.FK__cat_denom__Sucur__07220AB2">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__762C88DA" Association="Self.FK__cat_denom__Sucur__762C88DA">
+          <AssociationSet Name="FK__cat_denom__Sucur__08162EEB" Association="Self.FK__cat_denom__Sucur__08162EEB">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7720AD13" Association="Self.FK__cat_denom__Sucur__7720AD13">
+          <AssociationSet Name="FK__cat_denom__Sucur__090A5324" Association="Self.FK__cat_denom__Sucur__090A5324">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7814D14C" Association="Self.FK__cat_denom__Sucur__7814D14C">
+          <AssociationSet Name="FK__cat_denom__Sucur__09FE775D" Association="Self.FK__cat_denom__Sucur__09FE775D">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7908F585" Association="Self.FK__cat_denom__Sucur__7908F585">
+          <AssociationSet Name="FK__cat_denom__Sucur__0AF29B96" Association="Self.FK__cat_denom__Sucur__0AF29B96">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__79FD19BE" Association="Self.FK__cat_denom__Sucur__79FD19BE">
+          <AssociationSet Name="FK__cat_denom__Sucur__0BE6BFCF" Association="Self.FK__cat_denom__Sucur__0BE6BFCF">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7AF13DF7" Association="Self.FK__cat_denom__Sucur__7AF13DF7">
+          <AssociationSet Name="FK__cat_denom__Sucur__0CDAE408" Association="Self.FK__cat_denom__Sucur__0CDAE408">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7BE56230" Association="Self.FK__cat_denom__Sucur__7BE56230">
+          <AssociationSet Name="FK__cat_denom__Sucur__0DCF0841" Association="Self.FK__cat_denom__Sucur__0DCF0841">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7CD98669" Association="Self.FK__cat_denom__Sucur__7CD98669">
+          <AssociationSet Name="FK__cat_denom__Sucur__0EC32C7A" Association="Self.FK__cat_denom__Sucur__0EC32C7A">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7DCDAAA2" Association="Self.FK__cat_denom__Sucur__7DCDAAA2">
+          <AssociationSet Name="FK__cat_denom__Sucur__0FB750B3" Association="Self.FK__cat_denom__Sucur__0FB750B3">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_denom__Sucur__7EC1CEDB" Association="Self.FK__cat_denom__Sucur__7EC1CEDB">
+          <AssociationSet Name="FK__cat_denom__Sucur__10AB74EC" Association="Self.FK__cat_denom__Sucur__10AB74EC">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_denominaciones" EntitySet="cat_denominaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_divis__Empre__00AA174D" Association="Self.FK__cat_divis__Empre__00AA174D">
+          <AssociationSet Name="FK__cat_divis__Empre__1293BD5E" Association="Self.FK__cat_divis__Empre__1293BD5E">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_divisiones_sat" EntitySet="cat_divisiones_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_divis__Empre__7FB5F314" Association="Self.FK__cat_divis__Empre__7FB5F314">
+          <AssociationSet Name="FK__cat_divis__Empre__1387E197" Association="Self.FK__cat_divis__Empre__1387E197">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_divisiones_sat" EntitySet="cat_divisiones_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_divis__Sucur__019E3B86" Association="Self.FK__cat_divis__Sucur__019E3B86">
+          <AssociationSet Name="FK__cat_divis__Sucur__147C05D0" Association="Self.FK__cat_divis__Sucur__147C05D0">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_divisiones_sat" EntitySet="cat_divisiones_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_divis__Sucur__02925FBF" Association="Self.FK__cat_divis__Sucur__02925FBF">
+          <AssociationSet Name="FK__cat_divis__Sucur__15702A09" Association="Self.FK__cat_divis__Sucur__15702A09">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_divisiones_sat" EntitySet="cat_divisiones_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_famil__Empre__047AA831" Association="Self.FK__cat_famil__Empre__047AA831">
+          <AssociationSet Name="FK__cat_famil__Empre__1940BAED" Association="Self.FK__cat_famil__Empre__1940BAED">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_familias" EntitySet="cat_familias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_famil__Empre__056ECC6A" Association="Self.FK__cat_famil__Empre__056ECC6A">
+          <AssociationSet Name="FK__cat_famil__Empre__1A34DF26" Association="Self.FK__cat_famil__Empre__1A34DF26">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_familias" EntitySet="cat_familias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_famil__Sucur__0662F0A3" Association="Self.FK__cat_famil__Sucur__0662F0A3">
+          <AssociationSet Name="FK__cat_famil__Sucur__1B29035F" Association="Self.FK__cat_famil__Sucur__1B29035F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_familias" EntitySet="cat_familias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_famil__Sucur__075714DC" Association="Self.FK__cat_famil__Sucur__075714DC">
+          <AssociationSet Name="FK__cat_famil__Sucur__1C1D2798" Association="Self.FK__cat_famil__Sucur__1C1D2798">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_familias" EntitySet="cat_familias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__CajaI__093F5D4E" Association="Self.FK__cat_gasto__CajaI__093F5D4E">
+          <AssociationSet Name="FK__cat_gasto__CajaI__1E05700A" Association="Self.FK__cat_gasto__CajaI__1E05700A">
             <End Role="cat_cajas" EntitySet="cat_cajas" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__CajaI__0A338187" Association="Self.FK__cat_gasto__CajaI__0A338187">
+          <AssociationSet Name="FK__cat_gasto__CajaI__1EF99443" Association="Self.FK__cat_gasto__CajaI__1EF99443">
             <End Role="cat_cajas" EntitySet="cat_cajas" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Clave__0B27A5C0" Association="Self.FK__cat_gasto__Clave__0B27A5C0">
+          <AssociationSet Name="FK__cat_gasto__Clave__1FEDB87C" Association="Self.FK__cat_gasto__Clave__1FEDB87C">
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Clave__0C1BC9F9" Association="Self.FK__cat_gasto__Clave__0C1BC9F9">
+          <AssociationSet Name="FK__cat_gasto__Clave__20E1DCB5" Association="Self.FK__cat_gasto__Clave__20E1DCB5">
             <End Role="cat_centro_costos" EntitySet="cat_centro_costos" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Conce__0D0FEE32" Association="Self.FK__cat_gasto__Conce__0D0FEE32">
+          <AssociationSet Name="FK__cat_gasto__Conce__21D600EE" Association="Self.FK__cat_gasto__Conce__21D600EE">
             <End Role="cat_conceptos" EntitySet="cat_conceptos" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Conce__0E04126B" Association="Self.FK__cat_gasto__Conce__0E04126B">
+          <AssociationSet Name="FK__cat_gasto__Conce__22CA2527" Association="Self.FK__cat_gasto__Conce__22CA2527">
             <End Role="cat_conceptos" EntitySet="cat_conceptos" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
@@ -10870,443 +10933,443 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Empre__0FEC5ADD" Association="Self.FK__cat_gasto__Empre__0FEC5ADD">
+          <AssociationSet Name="FK__cat_gasto__Empre__24B26D99" Association="Self.FK__cat_gasto__Empre__24B26D99">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Empre__10E07F16" Association="Self.FK__cat_gasto__Empre__10E07F16">
+          <AssociationSet Name="FK__cat_gasto__Empre__25A691D2" Association="Self.FK__cat_gasto__Empre__25A691D2">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Sucur__11D4A34F" Association="Self.FK__cat_gasto__Sucur__11D4A34F">
+          <AssociationSet Name="FK__cat_gasto__Sucur__269AB60B" Association="Self.FK__cat_gasto__Sucur__269AB60B">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_gasto__Sucur__12C8C788" Association="Self.FK__cat_gasto__Sucur__12C8C788">
+          <AssociationSet Name="FK__cat_gasto__Sucur__278EDA44" Association="Self.FK__cat_gasto__Sucur__278EDA44">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_gastos" EntitySet="cat_gastos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_giros__Empre__13BCEBC1" Association="Self.FK__cat_giros__Empre__13BCEBC1">
+          <AssociationSet Name="FK__cat_giros__Empre__2882FE7D" Association="Self.FK__cat_giros__Empre__2882FE7D">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_giros_neg" EntitySet="cat_giros_neg" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_giros__Empre__14B10FFA" Association="Self.FK__cat_giros__Empre__14B10FFA">
+          <AssociationSet Name="FK__cat_giros__Empre__297722B6" Association="Self.FK__cat_giros__Empre__297722B6">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_giros_neg" EntitySet="cat_giros_neg" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_giros__Sucur__15A53433" Association="Self.FK__cat_giros__Sucur__15A53433">
+          <AssociationSet Name="FK__cat_giros__Sucur__2A6B46EF" Association="Self.FK__cat_giros__Sucur__2A6B46EF">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_giros_neg" EntitySet="cat_giros_neg" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_giros__Sucur__1699586C" Association="Self.FK__cat_giros__Sucur__1699586C">
+          <AssociationSet Name="FK__cat_giros__Sucur__2B5F6B28" Association="Self.FK__cat_giros__Sucur__2B5F6B28">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_giros_neg" EntitySet="cat_giros_neg" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_grupo__Empre__178D7CA5" Association="Self.FK__cat_grupo__Empre__178D7CA5">
+          <AssociationSet Name="FK__cat_grupo__Empre__2C538F61" Association="Self.FK__cat_grupo__Empre__2C538F61">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_grupos_sat" EntitySet="cat_grupos_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_grupo__Empre__1881A0DE" Association="Self.FK__cat_grupo__Empre__1881A0DE">
+          <AssociationSet Name="FK__cat_grupo__Empre__2D47B39A" Association="Self.FK__cat_grupo__Empre__2D47B39A">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_grupos_sat" EntitySet="cat_grupos_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_grupo__Sucur__1975C517" Association="Self.FK__cat_grupo__Sucur__1975C517">
+          <AssociationSet Name="FK__cat_grupo__Sucur__2E3BD7D3" Association="Self.FK__cat_grupo__Sucur__2E3BD7D3">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_grupos_sat" EntitySet="cat_grupos_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_grupo__Sucur__1A69E950" Association="Self.FK__cat_grupo__Sucur__1A69E950">
+          <AssociationSet Name="FK__cat_grupo__Sucur__2F2FFC0C" Association="Self.FK__cat_grupo__Sucur__2F2FFC0C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_grupos_sat" EntitySet="cat_grupos_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_linea__Empre__2022C2A6" Association="Self.FK__cat_linea__Empre__2022C2A6">
+          <AssociationSet Name="FK__cat_linea__Empre__35DCF99B" Association="Self.FK__cat_linea__Empre__35DCF99B">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lineas" EntitySet="cat_lineas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_linea__Empre__2116E6DF" Association="Self.FK__cat_linea__Empre__2116E6DF">
+          <AssociationSet Name="FK__cat_linea__Empre__36D11DD4" Association="Self.FK__cat_linea__Empre__36D11DD4">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lineas" EntitySet="cat_lineas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_linea__Sucur__220B0B18" Association="Self.FK__cat_linea__Sucur__220B0B18">
+          <AssociationSet Name="FK__cat_linea__Sucur__37C5420D" Association="Self.FK__cat_linea__Sucur__37C5420D">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_lineas" EntitySet="cat_lineas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_linea__Sucur__22FF2F51" Association="Self.FK__cat_linea__Sucur__22FF2F51">
+          <AssociationSet Name="FK__cat_linea__Sucur__38B96646" Association="Self.FK__cat_linea__Sucur__38B96646">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_lineas" EntitySet="cat_lineas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_lotes__Empre__23F3538A" Association="Self.FK__cat_lotes__Empre__23F3538A">
+          <AssociationSet Name="FK__cat_lotes__Empre__39AD8A7F" Association="Self.FK__cat_lotes__Empre__39AD8A7F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lotes" EntitySet="cat_lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_lotes__Empre__24E777C3" Association="Self.FK__cat_lotes__Empre__24E777C3">
+          <AssociationSet Name="FK__cat_lotes__Empre__3AA1AEB8" Association="Self.FK__cat_lotes__Empre__3AA1AEB8">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lotes" EntitySet="cat_lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_lotes__Sucur__25DB9BFC" Association="Self.FK__cat_lotes__Sucur__25DB9BFC">
+          <AssociationSet Name="FK__cat_lotes__Sucur__3B95D2F1" Association="Self.FK__cat_lotes__Sucur__3B95D2F1">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lotes" EntitySet="cat_lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_lotes__Sucur__26CFC035" Association="Self.FK__cat_lotes__Sucur__26CFC035">
+          <AssociationSet Name="FK__cat_lotes__Sucur__3C89F72A" Association="Self.FK__cat_lotes__Sucur__3C89F72A">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_lotes" EntitySet="cat_lotes" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_marca__Empre__27C3E46E" Association="Self.FK__cat_marca__Empre__27C3E46E">
+          <AssociationSet Name="FK__cat_marca__Empre__3D7E1B63" Association="Self.FK__cat_marca__Empre__3D7E1B63">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_marcas" EntitySet="cat_marcas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_marca__Empre__28B808A7" Association="Self.FK__cat_marca__Empre__28B808A7">
+          <AssociationSet Name="FK__cat_marca__Empre__3E723F9C" Association="Self.FK__cat_marca__Empre__3E723F9C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_marcas" EntitySet="cat_marcas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_marca__Sucur__29AC2CE0" Association="Self.FK__cat_marca__Sucur__29AC2CE0">
+          <AssociationSet Name="FK__cat_marca__Sucur__3F6663D5" Association="Self.FK__cat_marca__Sucur__3F6663D5">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_marcas" EntitySet="cat_marcas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_marca__Sucur__2AA05119" Association="Self.FK__cat_marca__Sucur__2AA05119">
+          <AssociationSet Name="FK__cat_marca__Sucur__405A880E" Association="Self.FK__cat_marca__Sucur__405A880E">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_marcas" EntitySet="cat_marcas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_moned__Empre__2B947552" Association="Self.FK__cat_moned__Empre__2B947552">
+          <AssociationSet Name="FK__cat_moned__Empre__414EAC47" Association="Self.FK__cat_moned__Empre__414EAC47">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_monedas" EntitySet="cat_monedas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_moned__Empre__2C88998B" Association="Self.FK__cat_moned__Empre__2C88998B">
+          <AssociationSet Name="FK__cat_moned__Empre__4242D080" Association="Self.FK__cat_moned__Empre__4242D080">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_monedas" EntitySet="cat_monedas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_moned__Sucur__2D7CBDC4" Association="Self.FK__cat_moned__Sucur__2D7CBDC4">
+          <AssociationSet Name="FK__cat_moned__Sucur__4336F4B9" Association="Self.FK__cat_moned__Sucur__4336F4B9">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_monedas" EntitySet="cat_monedas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_moned__Sucur__2E70E1FD" Association="Self.FK__cat_moned__Sucur__2E70E1FD">
+          <AssociationSet Name="FK__cat_moned__Sucur__442B18F2" Association="Self.FK__cat_moned__Sucur__442B18F2">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_monedas" EntitySet="cat_monedas" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__314D4EA8" Association="Self.FK__cat_produ__Clave__314D4EA8">
+          <AssociationSet Name="FK__cat_produ__Clave__48EFCE0F" Association="Self.FK__cat_produ__Clave__48EFCE0F">
             <End Role="cat_almacenes" EntitySet="cat_almacenes" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__324172E1" Association="Self.FK__cat_produ__Clave__324172E1">
+          <AssociationSet Name="FK__cat_produ__Clave__49E3F248" Association="Self.FK__cat_produ__Clave__49E3F248">
             <End Role="cat_andenes" EntitySet="cat_andenes" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__3335971A" Association="Self.FK__cat_produ__Clave__3335971A">
+          <AssociationSet Name="FK__cat_produ__Clave__4AD81681" Association="Self.FK__cat_produ__Clave__4AD81681">
             <End Role="cat_lotes" EntitySet="cat_lotes" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__3429BB53" Association="Self.FK__cat_produ__Clave__3429BB53">
+          <AssociationSet Name="FK__cat_produ__Clave__4BCC3ABA" Association="Self.FK__cat_produ__Clave__4BCC3ABA">
             <End Role="cat_marcas" EntitySet="cat_marcas" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__351DDF8C" Association="Self.FK__cat_produ__Clave__351DDF8C">
+          <AssociationSet Name="FK__cat_produ__Clave__4CC05EF3" Association="Self.FK__cat_produ__Clave__4CC05EF3">
             <End Role="cat_familias" EntitySet="cat_familias" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__361203C5" Association="Self.FK__cat_produ__Clave__361203C5">
+          <AssociationSet Name="FK__cat_produ__Clave__4DB4832C" Association="Self.FK__cat_produ__Clave__4DB4832C">
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__370627FE" Association="Self.FK__cat_produ__Clave__370627FE">
+          <AssociationSet Name="FK__cat_produ__Clave__4EA8A765" Association="Self.FK__cat_produ__Clave__4EA8A765">
             <End Role="cat_lineas" EntitySet="cat_lineas" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__37FA4C37" Association="Self.FK__cat_produ__Clave__37FA4C37">
+          <AssociationSet Name="FK__cat_produ__Clave__4F9CCB9E" Association="Self.FK__cat_produ__Clave__4F9CCB9E">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__38EE7070" Association="Self.FK__cat_produ__Clave__38EE7070">
+          <AssociationSet Name="FK__cat_produ__Clave__5090EFD7" Association="Self.FK__cat_produ__Clave__5090EFD7">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__39E294A9" Association="Self.FK__cat_produ__Clave__39E294A9">
+          <AssociationSet Name="FK__cat_produ__Clave__51851410" Association="Self.FK__cat_produ__Clave__51851410">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__4183B671" Association="Self.FK__cat_produ__Clave__4183B671">
+          <AssociationSet Name="FK__cat_produ__Clave__52793849" Association="Self.FK__cat_produ__Clave__52793849">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__4277DAAA" Association="Self.FK__cat_produ__Clave__4277DAAA">
+          <AssociationSet Name="FK__cat_produ__Clave__536D5C82" Association="Self.FK__cat_produ__Clave__536D5C82">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Clave__436BFEE3" Association="Self.FK__cat_produ__Clave__436BFEE3">
+          <AssociationSet Name="FK__cat_produ__Clave__546180BB" Association="Self.FK__cat_produ__Clave__546180BB">
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Empre__4460231C" Association="Self.FK__cat_produ__Empre__4460231C">
+          <AssociationSet Name="FK__cat_produ__Empre__5555A4F4" Association="Self.FK__cat_produ__Empre__5555A4F4">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_produ__Sucur__46486B8E" Association="Self.FK__cat_produ__Sucur__46486B8E">
+          <AssociationSet Name="FK__cat_produ__Sucur__5649C92D" Association="Self.FK__cat_produ__Sucur__5649C92D">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="cat_productos" EntitySet="cat_productos" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_rubro__Empre__66B53B20" Association="Self.FK__cat_rubro__Empre__66B53B20">
+          <AssociationSet Name="FK__cat_rubro__Empre__7D63964E" Association="Self.FK__cat_rubro__Empre__7D63964E">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_rubros" EntitySet="cat_rubros" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_rubro__Empre__67A95F59" Association="Self.FK__cat_rubro__Empre__67A95F59">
+          <AssociationSet Name="FK__cat_rubro__Empre__7E57BA87" Association="Self.FK__cat_rubro__Empre__7E57BA87">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_rubros" EntitySet="cat_rubros" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_rubro__Sucur__689D8392" Association="Self.FK__cat_rubro__Sucur__689D8392">
+          <AssociationSet Name="FK__cat_rubro__Sucur__004002F9" Association="Self.FK__cat_rubro__Sucur__004002F9">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_rubros" EntitySet="cat_rubros" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_rubro__Sucur__6991A7CB" Association="Self.FK__cat_rubro__Sucur__6991A7CB">
+          <AssociationSet Name="FK__cat_rubro__Sucur__7F4BDEC0" Association="Self.FK__cat_rubro__Sucur__7F4BDEC0">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_rubros" EntitySet="cat_rubros" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subcl__Empre__6B79F03D" Association="Self.FK__cat_subcl__Empre__6B79F03D">
+          <AssociationSet Name="FK__cat_subcl__Empre__02284B6B" Association="Self.FK__cat_subcl__Empre__02284B6B">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subclases_sat" EntitySet="cat_subclases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subcl__Empre__6C6E1476" Association="Self.FK__cat_subcl__Empre__6C6E1476">
+          <AssociationSet Name="FK__cat_subcl__Empre__031C6FA4" Association="Self.FK__cat_subcl__Empre__031C6FA4">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subclases_sat" EntitySet="cat_subclases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subcl__Sucur__6D6238AF" Association="Self.FK__cat_subcl__Sucur__6D6238AF">
+          <AssociationSet Name="FK__cat_subcl__Sucur__041093DD" Association="Self.FK__cat_subcl__Sucur__041093DD">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subclases_sat" EntitySet="cat_subclases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subcl__Sucur__6E565CE8" Association="Self.FK__cat_subcl__Sucur__6E565CE8">
+          <AssociationSet Name="FK__cat_subcl__Sucur__0504B816" Association="Self.FK__cat_subcl__Sucur__0504B816">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subclases_sat" EntitySet="cat_subclases_sat" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Empre__6F4A8121" Association="Self.FK__cat_subfa__Empre__6F4A8121">
+          <AssociationSet Name="FK__cat_subfa__Empre__05F8DC4F" Association="Self.FK__cat_subfa__Empre__05F8DC4F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Empre__703EA55A" Association="Self.FK__cat_subfa__Empre__703EA55A">
+          <AssociationSet Name="FK__cat_subfa__Empre__06ED0088" Association="Self.FK__cat_subfa__Empre__06ED0088">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Famil__7132C993" Association="Self.FK__cat_subfa__Famil__7132C993">
+          <AssociationSet Name="FK__cat_subfa__Famil__07E124C1" Association="Self.FK__cat_subfa__Famil__07E124C1">
             <End Role="cat_familias" EntitySet="cat_familias" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Famil__7226EDCC" Association="Self.FK__cat_subfa__Famil__7226EDCC">
+          <AssociationSet Name="FK__cat_subfa__Famil__08D548FA" Association="Self.FK__cat_subfa__Famil__08D548FA">
             <End Role="cat_familias" EntitySet="cat_familias" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Sucur__731B1205" Association="Self.FK__cat_subfa__Sucur__731B1205">
+          <AssociationSet Name="FK__cat_subfa__Sucur__09C96D33" Association="Self.FK__cat_subfa__Sucur__09C96D33">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_subfa__Sucur__740F363E" Association="Self.FK__cat_subfa__Sucur__740F363E">
+          <AssociationSet Name="FK__cat_subfa__Sucur__0ABD916C" Association="Self.FK__cat_subfa__Sucur__0ABD916C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_subfamilias" EntitySet="cat_subfamilias" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_tipos__TipoM__75F77EB0" Association="Self.FK__cat_tipos__TipoM__75F77EB0">
+          <AssociationSet Name="FK__cat_tipos__TipoM__0D99FE17" Association="Self.FK__cat_tipos__TipoM__0D99FE17">
             <End Role="cat_tipos_movimiento_inventario" EntitySet="cat_tipos_movimiento_inventario" />
             <End Role="cat_tipos_movimiento_inventario1" EntitySet="cat_tipos_movimiento_inventario" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_unida__Empre__76EBA2E9" Association="Self.FK__cat_unida__Empre__76EBA2E9">
+          <AssociationSet Name="FK__cat_unida__Empre__0E8E2250" Association="Self.FK__cat_unida__Empre__0E8E2250">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_unida__Empre__77DFC722" Association="Self.FK__cat_unida__Empre__77DFC722">
+          <AssociationSet Name="FK__cat_unida__Empre__0F824689" Association="Self.FK__cat_unida__Empre__0F824689">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_unida__Sucur__78D3EB5B" Association="Self.FK__cat_unida__Sucur__78D3EB5B">
+          <AssociationSet Name="FK__cat_unida__Sucur__10766AC2" Association="Self.FK__cat_unida__Sucur__10766AC2">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
           </AssociationSet>
-          <AssociationSet Name="FK__cat_unida__Sucur__79C80F94" Association="Self.FK__cat_unida__Sucur__79C80F94">
+          <AssociationSet Name="FK__cat_unida__Sucur__116A8EFB" Association="Self.FK__cat_unida__Sucur__116A8EFB">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_devol__Devol__184C96B4" Association="Self.FK__doc_devol__Devol__184C96B4">
+          <AssociationSet Name="FK__doc_devol__Devol__5708E33C" Association="Self.FK__doc_devol__Devol__5708E33C">
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
             <End Role="doc_devoluciones_detalle" EntitySet="doc_devoluciones_detalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_devol__Devol__1940BAED" Association="Self.FK__doc_devol__Devol__1940BAED">
+          <AssociationSet Name="FK__doc_devol__Devol__57FD0775" Association="Self.FK__doc_devol__Devol__57FD0775">
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
             <End Role="doc_devoluciones_detalle" EntitySet="doc_devoluciones_detalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_devol__TipoD__147C05D0" Association="Self.FK__doc_devol__TipoD__147C05D0">
+          <AssociationSet Name="FK__doc_devol__TipoD__53385258" Association="Self.FK__doc_devol__TipoD__53385258">
             <End Role="cat_tipos_devolucion" EntitySet="cat_tipos_devolucion" />
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_devol__TipoD__15702A09" Association="Self.FK__doc_devol__TipoD__15702A09">
+          <AssociationSet Name="FK__doc_devol__TipoD__542C7691" Association="Self.FK__doc_devol__TipoD__542C7691">
             <End Role="cat_tipos_devolucion" EntitySet="cat_tipos_devolucion" />
             <End Role="doc_devoluciones" EntitySet="doc_devoluciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Autor__269AB60B" Association="Self.FK__doc_inv_m__Autor__269AB60B">
+          <AssociationSet Name="FK__doc_inv_m__Autor__69279377" Association="Self.FK__doc_inv_m__Autor__69279377">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Produ__2882FE7D" Association="Self.FK__doc_inv_m__Produ__2882FE7D">
+          <AssociationSet Name="FK__doc_inv_m__Produ__6A1BB7B0" Association="Self.FK__doc_inv_m__Produ__6A1BB7B0">
             <End Role="doc_productos_compra" EntitySet="doc_productos_compra" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Sucur__297722B6" Association="Self.FK__doc_inv_m__Sucur__297722B6">
+          <AssociationSet Name="FK__doc_inv_m__Sucur__6B0FDBE9" Association="Self.FK__doc_inv_m__Sucur__6B0FDBE9">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Sucur__2A6B46EF" Association="Self.FK__doc_inv_m__Sucur__2A6B46EF">
+          <AssociationSet Name="FK__doc_inv_m__Sucur__6C040022" Association="Self.FK__doc_inv_m__Sucur__6C040022">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Sucur__2B5F6B28" Association="Self.FK__doc_inv_m__Sucur__2B5F6B28">
+          <AssociationSet Name="FK__doc_inv_m__Sucur__6CF8245B" Association="Self.FK__doc_inv_m__Sucur__6CF8245B">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_inv_m__Venta__30242045" Association="Self.FK__doc_inv_m__Venta__30242045">
+          <AssociationSet Name="FK__doc_inv_m__Venta__6DEC4894" Association="Self.FK__doc_inv_m__Venta__6DEC4894">
             <End Role="doc_ventas" EntitySet="doc_ventas" />
             <End Role="doc_inv_movimiento" EntitySet="doc_inv_movimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_pedid__Promo__14D10B8B" Association="Self.FK__doc_pedid__Promo__14D10B8B">
+          <AssociationSet Name="FK__doc_pedid__Promo__226010D3" Association="Self.FK__doc_pedid__Promo__226010D3">
             <End Role="doc_promociones_cm" EntitySet="doc_promociones_cm" />
             <End Role="doc_pedidos_orden_detalle" EntitySet="doc_pedidos_orden_detalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_pedid__Sucur__2B9540A9" Association="Self.FK__doc_pedid__Sucur__2B9540A9">
+          <AssociationSet Name="FK__doc_pedid__Sucur__150615B5" Association="Self.FK__doc_pedid__Sucur__150615B5">
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_pedidos_orden" EntitySet="doc_pedidos_orden" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_produ__Cerra__5CC287E9" Association="Self.FK__doc_produ__Cerra__5CC287E9">
+          <AssociationSet Name="FK__doc_produ__Cerra__69E6AD86" Association="Self.FK__doc_produ__Cerra__69E6AD86">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_productos_sobrantes_registro" EntitySet="doc_productos_sobrantes_registro" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_produ__Estat__0BF1ACC7" Association="Self.FK__doc_produ__Estat__0BF1ACC7">
+          <AssociationSet Name="FK__doc_produ__Estat__347EC10E" Association="Self.FK__doc_produ__Estat__347EC10E">
             <End Role="cat_estatus_produccion" EntitySet="cat_estatus_produccion" />
             <End Role="doc_produccion" EntitySet="doc_produccion" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_venta__Promo__15C52FC4" Association="Self.FK__doc_venta__Promo__15C52FC4">
+          <AssociationSet Name="FK__doc_venta__Promo__17AD7836" Association="Self.FK__doc_venta__Promo__17AD7836">
             <End Role="doc_promociones_cm" EntitySet="doc_promociones_cm" />
             <End Role="doc_ventas_detalle" EntitySet="doc_ventas_detalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__doc_venta__TipoD__0682EC34" Association="Self.FK__doc_venta__TipoD__0682EC34">
+          <AssociationSet Name="FK__doc_venta__TipoD__18A19C6F" Association="Self.FK__doc_venta__TipoD__18A19C6F">
             <End Role="cat_tipos_descuento" EntitySet="cat_tipos_descuento" />
             <End Role="doc_ventas_detalle" EntitySet="doc_ventas_detalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_depart__Empre__09C96D33" Association="Self.FK__rh_depart__Empre__09C96D33">
+          <AssociationSet Name="FK__rh_depart__Empre__2BB470E3" Association="Self.FK__rh_depart__Empre__2BB470E3">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_departamentos" EntitySet="rh_departamentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_depart__Empre__0ABD916C" Association="Self.FK__rh_depart__Empre__0ABD916C">
+          <AssociationSet Name="FK__rh_depart__Empre__2CA8951C" Association="Self.FK__rh_depart__Empre__2CA8951C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_departamentos" EntitySet="rh_departamentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_depart__Sucur__0BB1B5A5" Association="Self.FK__rh_depart__Sucur__0BB1B5A5">
+          <AssociationSet Name="FK__rh_depart__Sucur__2D9CB955" Association="Self.FK__rh_depart__Sucur__2D9CB955">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_departamentos" EntitySet="rh_departamentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_depart__Sucur__0CA5D9DE" Association="Self.FK__rh_depart__Sucur__0CA5D9DE">
+          <AssociationSet Name="FK__rh_depart__Sucur__2E90DD8E" Association="Self.FK__rh_depart__Sucur__2E90DD8E">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_departamentos" EntitySet="rh_departamentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Depar__0F824689" Association="Self.FK__rh_emplea__Depar__0F824689">
-            <End Role="rh_departamentos" EntitySet="rh_departamentos" />
-            <End Role="rh_empleados" EntitySet="rh_empleados" />
-          </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Depar__10766AC2" Association="Self.FK__rh_emplea__Depar__10766AC2">
+          <AssociationSet Name="FK__rh_emplea__Depar__316D4A39" Association="Self.FK__rh_emplea__Depar__316D4A39">
             <End Role="rh_departamentos" EntitySet="rh_departamentos" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Empre__116A8EFB" Association="Self.FK__rh_emplea__Empre__116A8EFB">
+          <AssociationSet Name="FK__rh_emplea__Depar__32616E72" Association="Self.FK__rh_emplea__Depar__32616E72">
+            <End Role="rh_departamentos" EntitySet="rh_departamentos" />
+            <End Role="rh_empleados" EntitySet="rh_empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rh_emplea__Empre__335592AB" Association="Self.FK__rh_emplea__Empre__335592AB">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Empre__125EB334" Association="Self.FK__rh_emplea__Empre__125EB334">
+          <AssociationSet Name="FK__rh_emplea__Empre__3449B6E4" Association="Self.FK__rh_emplea__Empre__3449B6E4">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Forma__1352D76D" Association="Self.FK__rh_emplea__Forma__1352D76D">
+          <AssociationSet Name="FK__rh_emplea__Forma__353DDB1D" Association="Self.FK__rh_emplea__Forma__353DDB1D">
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Forma__1446FBA6" Association="Self.FK__rh_emplea__Forma__1446FBA6">
+          <AssociationSet Name="FK__rh_emplea__Forma__3631FF56" Association="Self.FK__rh_emplea__Forma__3631FF56">
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Puest__153B1FDF" Association="Self.FK__rh_emplea__Puest__153B1FDF">
+          <AssociationSet Name="FK__rh_emplea__Puest__3726238F" Association="Self.FK__rh_emplea__Puest__3726238F">
             <End Role="rh_puestos" EntitySet="rh_puestos" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Puest__162F4418" Association="Self.FK__rh_emplea__Puest__162F4418">
+          <AssociationSet Name="FK__rh_emplea__Puest__381A47C8" Association="Self.FK__rh_emplea__Puest__381A47C8">
             <End Role="rh_puestos" EntitySet="rh_puestos" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Sucur__17236851" Association="Self.FK__rh_emplea__Sucur__17236851">
+          <AssociationSet Name="FK__rh_emplea__Sucur__390E6C01" Association="Self.FK__rh_emplea__Sucur__390E6C01">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__Sucur__18178C8A" Association="Self.FK__rh_emplea__Sucur__18178C8A">
+          <AssociationSet Name="FK__rh_emplea__Sucur__3A02903A" Association="Self.FK__rh_emplea__Sucur__3A02903A">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__TipoC__190BB0C3" Association="Self.FK__rh_emplea__TipoC__190BB0C3">
+          <AssociationSet Name="FK__rh_emplea__TipoC__3AF6B473" Association="Self.FK__rh_emplea__TipoC__3AF6B473">
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_emplea__TipoC__19FFD4FC" Association="Self.FK__rh_emplea__TipoC__19FFD4FC">
+          <AssociationSet Name="FK__rh_emplea__TipoC__3BEAD8AC" Association="Self.FK__rh_emplea__TipoC__3BEAD8AC">
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
             <End Role="rh_empleados" EntitySet="rh_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_estatu__Empre__1AF3F935" Association="Self.FK__rh_estatu__Empre__1AF3F935">
+          <AssociationSet Name="FK__rh_estatu__Empre__3CDEFCE5" Association="Self.FK__rh_estatu__Empre__3CDEFCE5">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_estatus_empleados" EntitySet="rh_estatus_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_estatu__Empre__1BE81D6E" Association="Self.FK__rh_estatu__Empre__1BE81D6E">
+          <AssociationSet Name="FK__rh_estatu__Empre__3DD3211E" Association="Self.FK__rh_estatu__Empre__3DD3211E">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_estatus_empleados" EntitySet="rh_estatus_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_estatu__Sucur__1CDC41A7" Association="Self.FK__rh_estatu__Sucur__1CDC41A7">
+          <AssociationSet Name="FK__rh_estatu__Sucur__3EC74557" Association="Self.FK__rh_estatu__Sucur__3EC74557">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_estatus_empleados" EntitySet="rh_estatus_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_estatu__Sucur__1DD065E0" Association="Self.FK__rh_estatu__Sucur__1DD065E0">
+          <AssociationSet Name="FK__rh_estatu__Sucur__3FBB6990" Association="Self.FK__rh_estatu__Sucur__3FBB6990">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_estatus_empleados" EntitySet="rh_estatus_empleados" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_formas__Empre__1EC48A19" Association="Self.FK__rh_formas__Empre__1EC48A19">
+          <AssociationSet Name="FK__rh_formas__Empre__40AF8DC9" Association="Self.FK__rh_formas__Empre__40AF8DC9">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_formas__Empre__1FB8AE52" Association="Self.FK__rh_formas__Empre__1FB8AE52">
+          <AssociationSet Name="FK__rh_formas__Empre__41A3B202" Association="Self.FK__rh_formas__Empre__41A3B202">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_formas__Sucur__20ACD28B" Association="Self.FK__rh_formas__Sucur__20ACD28B">
+          <AssociationSet Name="FK__rh_formas__Sucur__4297D63B" Association="Self.FK__rh_formas__Sucur__4297D63B">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_formas__Sucur__21A0F6C4" Association="Self.FK__rh_formas__Sucur__21A0F6C4">
+          <AssociationSet Name="FK__rh_formas__Sucur__438BFA74" Association="Self.FK__rh_formas__Sucur__438BFA74">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_formaspagonom" EntitySet="rh_formaspagonom" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_puesto__Empre__22951AFD" Association="Self.FK__rh_puesto__Empre__22951AFD">
+          <AssociationSet Name="FK__rh_puesto__Empre__44801EAD" Association="Self.FK__rh_puesto__Empre__44801EAD">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_puestos" EntitySet="rh_puestos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_puesto__Empre__23893F36" Association="Self.FK__rh_puesto__Empre__23893F36">
+          <AssociationSet Name="FK__rh_puesto__Empre__457442E6" Association="Self.FK__rh_puesto__Empre__457442E6">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_puestos" EntitySet="rh_puestos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_puesto__Sucur__247D636F" Association="Self.FK__rh_puesto__Sucur__247D636F">
+          <AssociationSet Name="FK__rh_puesto__Sucur__4668671F" Association="Self.FK__rh_puesto__Sucur__4668671F">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_puestos" EntitySet="rh_puestos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_puesto__Sucur__257187A8" Association="Self.FK__rh_puesto__Sucur__257187A8">
+          <AssociationSet Name="FK__rh_puesto__Sucur__475C8B58" Association="Self.FK__rh_puesto__Sucur__475C8B58">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_puestos" EntitySet="rh_puestos" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_tipos___Empre__2665ABE1" Association="Self.FK__rh_tipos___Empre__2665ABE1">
+          <AssociationSet Name="FK__rh_tipos___Empre__4850AF91" Association="Self.FK__rh_tipos___Empre__4850AF91">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_tipos___Empre__2759D01A" Association="Self.FK__rh_tipos___Empre__2759D01A">
+          <AssociationSet Name="FK__rh_tipos___Empre__4944D3CA" Association="Self.FK__rh_tipos___Empre__4944D3CA">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_tipos___Sucur__284DF453" Association="Self.FK__rh_tipos___Sucur__284DF453">
+          <AssociationSet Name="FK__rh_tipos___Sucur__4A38F803" Association="Self.FK__rh_tipos___Sucur__4A38F803">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
           </AssociationSet>
-          <AssociationSet Name="FK__rh_tipos___Sucur__2942188C" Association="Self.FK__rh_tipos___Sucur__2942188C">
+          <AssociationSet Name="FK__rh_tipos___Sucur__4B2D1C3C" Association="Self.FK__rh_tipos___Sucur__4B2D1C3C">
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="rh_tipos_contrato" EntitySet="rh_tipos_contrato" />
           </AssociationSet>
@@ -21600,11 +21663,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <End Role="cat_unidadesmed" EntitySet="cat_unidadesmed" />
             <End Role="cat_productos_base" EntitySet="cat_productos_base" />
           </AssociationSet>
-          <EntitySet Name="sis_cuenta" EntityType="ERPProdModel.sis_cuenta" />
-          <AssociationSet Name="FK_sis_cuenta_cat_empresas" Association="ERPProdModel.FK_sis_cuenta_cat_empresas">
-            <End Role="cat_empresas" EntitySet="cat_empresas" />
-            <End Role="sis_cuenta" EntitySet="sis_cuenta" />
-          </AssociationSet>
           <FunctionImport Name="p_doc_ventas_rec">
             <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
             <Parameter Name="pError" Mode="InOut" Type="String" />
@@ -21879,6 +21937,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
             <Parameter Name="pDel" Mode="In" Type="DateTime" />
             <Parameter Name="pAl" Mode="In" Type="DateTime" />
+            <Parameter Name="pUsuarioId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="p_productos_sobrantes_grd" ReturnType="Collection(ERPProdModel.p_productos_sobrantes_grd_Result)">
             <Parameter Name="SucursalId" Mode="In" Type="Int32" />
@@ -21899,6 +21958,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             <Parameter Name="pTipo" Mode="In" Type="String" />
             <Parameter Name="pDel" Mode="In" Type="DateTime" />
             <Parameter Name="pAl" Mode="In" Type="DateTime" />
+            <Parameter Name="pUsuarioId" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="doc_corte_caja_datos_entrada" EntityType="ERPProdModel.doc_corte_caja_datos_entrada" />
           <AssociationSet Name="FK_doc_corte_caja_datos_entrada_cat_sucursales" Association="ERPProdModel.FK_doc_corte_caja_datos_entrada_cat_sucursales">
@@ -22023,6 +22083,11 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <AssociationSet Name="FK_doc_maiz_maseca_rendimiento_cat_usuarios1" Association="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1">
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="doc_maiz_maseca_rendimiento" EntitySet="doc_maiz_maseca_rendimiento" />
+          </AssociationSet>
+          <EntitySet Name="sis_cuenta" EntityType="ERPProdModel.sis_cuenta" />
+          <AssociationSet Name="FK_sis_cuenta_cat_empresas" Association="ERPProdModel.FK_sis_cuenta_cat_empresas">
+            <End Role="cat_empresas" EntitySet="cat_empresas" />
+            <End Role="sis_cuenta" EntitySet="sis_cuenta" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
@@ -25105,6 +25170,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <NavigationProperty Name="doc_pedidos_orden_detalle" Relationship="ERPProdModel.FK_doc_basculas_bitacora_doc_pedidos_orden_detalle" FromRole="doc_basculas_bitacora" ToRole="doc_pedidos_orden_detalle" />
           <Property Name="Detalle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Credito" Type="Boolean" />
+          <Property Name="VentaId" Type="Int32" />
         </EntityType>
         <Association Name="FK_doc_basculas_bitacora_cat_basculas">
           <End Type="ERPProdModel.cat_basculas" Role="cat_basculas" Multiplicity="1" />
@@ -26548,32 +26614,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sis_cuenta">
-          <Key>
-            <PropertyRef Name="EmpresaId" />
-          </Key>
-          <Property Name="EmpresaId" Type="Int32" Nullable="false" />
-          <Property Name="ClienteKey" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="URLValidacion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="ClaveSucursal" Type="Int32" />
-          <Property Name="TieneRec" Type="Boolean" />
-          <Property Name="PorcRec" Type="Decimal" Precision="14" Scale="2" />
-          <NavigationProperty Name="cat_empresas" Relationship="ERPProdModel.FK_sis_cuenta_cat_empresas" FromRole="sis_cuenta" ToRole="cat_empresas" />
-        </EntityType>
-        <Association Name="FK_sis_cuenta_cat_empresas">
-          <End Type="ERPProdModel.cat_empresas" Role="cat_empresas" Multiplicity="1" />
-          <End Type="ERPProdModel.sis_cuenta" Role="sis_cuenta" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="cat_empresas">
-              <PropertyRef Name="Clave" />
-            </Principal>
-            <Dependent Role="sis_cuenta">
-              <PropertyRef Name="EmpresaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="cat_tipos_mermas">
           <Key>
             <PropertyRef Name="TipoMermaId" />
@@ -27982,6 +28022,30 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
             </Principal>
             <Dependent Role="doc_maiz_maseca_rendimiento">
               <PropertyRef Name="ModificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sis_cuenta">
+          <Key>
+            <PropertyRef Name="EmpresaId" />
+          </Key>
+          <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+          <Property Name="ClienteKey" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="URLValidacion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ClaveSucursal" Type="Int32" />
+          <NavigationProperty Name="cat_empresas" Relationship="ERPProdModel.FK_sis_cuenta_cat_empresas" FromRole="sis_cuenta" ToRole="cat_empresas" />
+        </EntityType>
+        <Association Name="FK_sis_cuenta_cat_empresas">
+          <End Type="ERPProdModel.cat_empresas" Role="cat_empresas" Multiplicity="1" />
+          <End Type="ERPProdModel.sis_cuenta" Role="sis_cuenta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cat_empresas">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="sis_cuenta">
+              <PropertyRef Name="EmpresaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -30966,7 +31030,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <FunctionImportMapping FunctionImportName="p_doc_web_carrito_detalle_ins" FunctionName="ERPProdModel.Store.p_doc_web_carrito_detalle_ins" />
           <FunctionImportMapping FunctionImportName="p_doc_web_carrito_ins" FunctionName="ERPProdModel.Store.p_doc_web_carrito_ins" />
           <FunctionImportMapping FunctionImportName="p_doc_web_carrito_pagar" FunctionName="ERPProdModel.Store.p_doc_web_carrito_pagar" />
-          <FunctionImportMapping FunctionImportName="p_sis_bitacora_errores_ins" FunctionName="ERPProdModel.Store.p_sis_bitacora_errores_ins" />
           <EntitySetMapping Name="cat_clientes_direcciones">
             <EntityTypeMapping TypeName="ERPProdModel.cat_clientes_direcciones">
               <MappingFragment StoreEntitySet="cat_clientes_direcciones">
@@ -31241,6 +31304,7 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
           <EntitySetMapping Name="doc_basculas_bitacora">
             <EntityTypeMapping TypeName="ERPProdModel.doc_basculas_bitacora">
               <MappingFragment StoreEntitySet="doc_basculas_bitacora">
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
                 <ScalarProperty Name="Credito" ColumnName="Credito" />
                 <ScalarProperty Name="Detalle" ColumnName="Detalle" />
                 <ScalarProperty Name="PedidoDetalleId" ColumnName="PedidoDetalleId" />
@@ -31647,20 +31711,6 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="ProductoBaseId" ColumnName="ProductoBaseId" />
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
                 <ScalarProperty Name="ProductoMateriaPrimaId" ColumnName="ProductoMateriaPrimaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sis_cuenta">
-            <EntityTypeMapping TypeName="ERPProdModel.sis_cuenta">
-              <MappingFragment StoreEntitySet="sis_cuenta">
-                <ScalarProperty Name="PorcRec" ColumnName="PorcRec" />
-                <ScalarProperty Name="TieneRec" ColumnName="TieneRec" />
-                <ScalarProperty Name="ClaveSucursal" ColumnName="ClaveSucursal" />
-                <ScalarProperty Name="URLValidacion" ColumnName="URLValidacion" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ClienteKey" ColumnName="ClienteKey" />
-                <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -32296,6 +32346,18 @@ warning 6035: The relationship 'FK_Carrito_CarritoDetalle' has columns that are 
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sis_cuenta">
+            <EntityTypeMapping TypeName="ERPProdModel.sis_cuenta">
+              <MappingFragment StoreEntitySet="sis_cuenta">
+                <ScalarProperty Name="ClaveSucursal" ColumnName="ClaveSucursal" />
+                <ScalarProperty Name="URLValidacion" ColumnName="URLValidacion" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ClienteKey" ColumnName="ClienteKey" />
+                <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

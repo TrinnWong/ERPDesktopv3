@@ -412,7 +412,7 @@ namespace ERP.Business
 
         public static doc_basculas_bitacora InsertBitacora(int BasculaId,int SucursalId,
             int UsuarioId,decimal Cantidad,
-            int? TipoBasculaBitacoraId,int? productoId,int? pedidoDetalleId, ERPProdEntities oContext)
+            int? TipoBasculaBitacoraId,int? productoId,int? pedidoDetalleId, ERPProdEntities oContext, int? ventaId=null)
         {
             doc_basculas_bitacora entityNew = new doc_basculas_bitacora();
             try
@@ -427,6 +427,7 @@ namespace ERP.Business
                 entityNew.TipoBasculaBitacoraId = TipoBasculaBitacoraId;
                 entityNew.ProductoId = productoId;
                 entityNew.PedidoDetalleId = pedidoDetalleId;
+                entityNew.VentaId = ventaId;
                 oContext.doc_basculas_bitacora.Add(entityNew);
 
                 oContext.SaveChanges();

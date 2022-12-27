@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroMaizMaseca));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -35,24 +36,9 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.uiFecha = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.uiMaizSacos = new DevExpress.XtraEditors.SpinEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.uiMasecaSacos = new DevExpress.XtraEditors.SpinEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
+            this.docmaizmasecarendimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.docmaizmasecarendimientoBindingSource = new System.Windows.Forms.BindingSource();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSucursalId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,25 +56,40 @@
             this.colcat_usuarios1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repBtnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
+            this.uiMasecaSacos = new DevExpress.XtraEditors.SpinEdit();
+            this.uiMaizSacos = new DevExpress.XtraEditors.SpinEdit();
+            this.uiFecha = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -102,182 +103,32 @@
             this.layoutControl1.Controls.Add(this.uiFecha);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1000, 504);
+            this.layoutControl1.Size = new System.Drawing.Size(1167, 620);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1000, 504);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 436);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(974, 42);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // uiFecha
-            // 
-            this.uiFecha.EditValue = null;
-            this.uiFecha.Location = new System.Drawing.Point(96, 50);
-            this.uiFecha.Name = "uiFecha";
-            this.uiFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiFecha.Size = new System.Drawing.Size(163, 22);
-            this.uiFecha.StyleController = this.layoutControl1;
-            this.uiFecha.TabIndex = 4;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.uiFecha;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(249, 46);
-            this.layoutControlItem1.Text = "Fecha";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(75, 13);
-            // 
-            // uiMaizSacos
-            // 
-            this.uiMaizSacos.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uiMaizSacos.Location = new System.Drawing.Point(345, 50);
-            this.uiMaizSacos.Name = "uiMaizSacos";
-            this.uiMaizSacos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiMaizSacos.Size = new System.Drawing.Size(179, 22);
-            this.uiMaizSacos.StyleController = this.layoutControl1;
-            this.uiMaizSacos.TabIndex = 5;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.uiMaizSacos;
-            this.layoutControlItem2.Location = new System.Drawing.Point(249, 34);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(265, 46);
-            this.layoutControlItem2.Text = "Miaz (Sacos)";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(75, 13);
-            // 
-            // uiMasecaSacos
-            // 
-            this.uiMasecaSacos.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.uiMasecaSacos.Location = new System.Drawing.Point(610, 50);
-            this.uiMasecaSacos.Name = "uiMasecaSacos";
-            this.uiMasecaSacos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiMasecaSacos.Size = new System.Drawing.Size(121, 22);
-            this.uiMasecaSacos.StyleController = this.layoutControl1;
-            this.uiMasecaSacos.TabIndex = 6;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.uiMasecaSacos;
-            this.layoutControlItem3.Location = new System.Drawing.Point(514, 34);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(207, 46);
-            this.layoutControlItem3.Text = "Maseca (Sacos)";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(75, 13);
-            // 
-            // uiGuardar
-            // 
-            this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiGuardar.ImageOptions.Image")));
-            this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiGuardar.Location = new System.Drawing.Point(737, 50);
-            this.uiGuardar.Name = "uiGuardar";
-            this.uiGuardar.Size = new System.Drawing.Size(120, 40);
-            this.uiGuardar.StyleController = this.layoutControl1;
-            this.uiGuardar.TabIndex = 7;
-            this.uiGuardar.Text = "Guardar";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.uiGuardar;
-            this.layoutControlItem4.Location = new System.Drawing.Point(721, 34);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(126, 46);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(863, 50);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(121, 40);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Limpiar";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.simpleButton1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(847, 34);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(127, 46);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(16, 16);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(384, 28);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 9;
-            this.labelControl1.Text = "Registro Diario de Maiz y Maseca";
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.labelControl1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(974, 34);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
             // 
             // uiGrid
             // 
             this.uiGrid.DataSource = this.docmaizmasecarendimientoBindingSource;
+            this.uiGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.uiGrid.Location = new System.Drawing.Point(16, 96);
             this.uiGrid.MainView = this.uiGridView;
+            this.uiGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repBtnEdit});
-            this.uiGrid.Size = new System.Drawing.Size(968, 350);
+            this.uiGrid.Size = new System.Drawing.Size(1135, 455);
             this.uiGrid.TabIndex = 10;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
+            // 
+            // docmaizmasecarendimientoBindingSource
+            // 
+            this.docmaizmasecarendimientoBindingSource.DataSource = typeof(ConexionBD.doc_maiz_maseca_rendimiento);
             // 
             // uiGridView
             // 
@@ -301,19 +152,6 @@
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
             this.uiGridView.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.uiGrid;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 80);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(974, 356);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // docmaizmasecarendimientoBindingSource
-            // 
-            this.docmaizmasecarendimientoBindingSource.DataSource = typeof(ConexionBD.doc_maiz_maseca_rendimiento);
             // 
             // colId
             // 
@@ -430,34 +268,208 @@
             this.repBtnEdit.Name = "repBtnEdit";
             this.repBtnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(16, 16);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(384, 28);
+            this.labelControl1.StyleController = this.layoutControl1;
+            this.labelControl1.TabIndex = 9;
+            this.labelControl1.Text = "Registro Diario de Maiz y Maseca";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.Location = new System.Drawing.Point(1008, 50);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(143, 40);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Limpiar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // uiGuardar
+            // 
+            this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiGuardar.ImageOptions.Image")));
+            this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiGuardar.Location = new System.Drawing.Point(861, 50);
+            this.uiGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiGuardar.Name = "uiGuardar";
+            this.uiGuardar.Size = new System.Drawing.Size(141, 40);
+            this.uiGuardar.StyleController = this.layoutControl1;
+            this.uiGuardar.TabIndex = 7;
+            this.uiGuardar.Text = "Guardar";
+            this.uiGuardar.Click += new System.EventHandler(this.uiGuardar_Click);
+            // 
+            // uiMasecaSacos
+            // 
+            this.uiMasecaSacos.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uiMasecaSacos.Location = new System.Drawing.Point(713, 50);
+            this.uiMasecaSacos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiMasecaSacos.Name = "uiMasecaSacos";
+            this.uiMasecaSacos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.uiMasecaSacos.Size = new System.Drawing.Size(142, 22);
+            this.uiMasecaSacos.StyleController = this.layoutControl1;
+            this.uiMasecaSacos.TabIndex = 6;
+            // 
+            // uiMaizSacos
+            // 
+            this.uiMaizSacos.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uiMaizSacos.Location = new System.Drawing.Point(403, 50);
+            this.uiMaizSacos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiMaizSacos.Name = "uiMaizSacos";
+            this.uiMaizSacos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.uiMaizSacos.Size = new System.Drawing.Size(209, 22);
+            this.uiMaizSacos.StyleController = this.layoutControl1;
+            this.uiMaizSacos.TabIndex = 5;
+            // 
+            // uiFecha
+            // 
+            this.uiFecha.EditValue = null;
+            this.uiFecha.Location = new System.Drawing.Point(111, 50);
+            this.uiFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiFecha.Name = "uiFecha";
+            this.uiFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.uiFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.uiFecha.Size = new System.Drawing.Size(191, 22);
+            this.uiFecha.StyleController = this.layoutControl1;
+            this.uiFecha.TabIndex = 4;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem1,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.layoutControlItem7});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1167, 620);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 541);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1141, 53);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.uiFecha;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(292, 46);
+            this.layoutControlItem1.Text = "Fecha";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(91, 16);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.uiMaizSacos;
+            this.layoutControlItem2.Location = new System.Drawing.Point(292, 34);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(310, 46);
+            this.layoutControlItem2.Text = "Miaz (Sacos)";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(91, 16);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.uiMasecaSacos;
+            this.layoutControlItem3.Location = new System.Drawing.Point(602, 34);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(243, 46);
+            this.layoutControlItem3.Text = "Maseca (Sacos)";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(91, 16);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.uiGuardar;
+            this.layoutControlItem4.Location = new System.Drawing.Point(845, 34);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(147, 46);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.simpleButton1;
+            this.layoutControlItem5.Location = new System.Drawing.Point(992, 34);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(149, 46);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.labelControl1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(1141, 34);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.uiGrid;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 80);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(1141, 461);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
             // frmRegistroMaizMaseca
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 504);
+            this.ClientSize = new System.Drawing.Size(1167, 620);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRegistroMaizMaseca";
             this.Text = "Registro de Maiz y Maseca";
             this.Load += new System.EventHandler(this.frmRegistroMaizMaseca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
