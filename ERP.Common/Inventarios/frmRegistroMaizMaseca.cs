@@ -1,4 +1,5 @@
 ﻿using ConexionBD;
+using DevExpress.XtraEditors;
 using ERP.Common.Base;
 using System;
 using System.Collections.Generic;
@@ -127,6 +128,62 @@ namespace ERP.Common.Inventarios
         private void uiGuardar_Click(object sender, EventArgs e)
         {
             Guardar();
+        }
+
+        private void repBtnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(uiGridView.FocusedRowHandle >= 0)
+                {
+                    entitySelect = (doc_maiz_maseca_rendimiento)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+
+                    uiMaizSacos.EditValue = entitySelect.MaizSacos;
+                    uiMasecaSacos.EditValue = entitySelect.MasecaSacos;
+                    uiFecha.EditValue = entitySelect.Fecha;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(
+                     puntoVentaContext.usuarioId,
+                            "ERP",
+                            this.Name,
+                            ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void repBtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (uiGridView.FocusedRowHandle >= 0)
+                {
+                    if(XtraMessageBox.Show("¿Está seguro(a) de continuar?","Aviso",
+                        MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        entitySelect = (doc_maiz_maseca_rendimiento)uiGridView.GetRow(uiGridView.FocusedRowHandle);
+
+                        doc_maiz_maseca_rendimiento entityDel = oContext.doc_maiz_maseca_rendimiento
+                            .Where(w => w.Id == entitySelect.Id).FirstOrDefault();
+
+                        oContext.doc_maiz_maseca_rendimiento.Remove(entityDel);
+                        oContext.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(
+                   puntoVentaContext.usuarioId,
+                          "ERP",
+                          this.Name,
+                          ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
         }
     }
 }
