@@ -30,6 +30,8 @@ namespace ERP.Common.PuntoVenta
         public string tipoForm { get; set; }
         public cat_productos productoNuevo { get; set; }
         public bool listoAgregarProducto { get; set; }
+        string error = "";
+        bool pesoInteligenteLecturaLocal = false;
         public static frmBasculaExpressVenta GetInstance()
         {
             if (_instance == null) _instance = new frmBasculaExpressVenta();
@@ -206,6 +208,20 @@ namespace ERP.Common.PuntoVenta
 
             colCobrarPV.Visible = false;
 
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
+               puntoVentaContext.sucursalId, "UsarPesoInteligente", puntoVentaContext.usuarioId, ref error))
+            {
+                if (error.ToUpper() == "LOCAL")
+                {
+                    pesoInteligenteLecturaLocal = true;
+                }
+                puntoVentaContext.usarTareaBascula = true;
+            }
+            else
+            {
+                puntoVentaContext.usarTareaBascula = false;
+            }
+
 
         }
 
@@ -229,7 +245,15 @@ namespace ERP.Common.PuntoVenta
                     {
                         basculaControlador = new BasculaLectura(this.puntoVentaContext);
                     }
-                    uiPeso.EditValue = basculaControlador.ObtenPesoBDLocal();
+                    if (pesoInteligenteLecturaLocal)
+                    {
+                        uiPeso.EditValue = basculaControlador.ObtenPesoBDLocal();
+                    }
+                    else
+                    {
+                        uiPeso.EditValue = basculaControlador.ObtenPesoBD();
+                    }
+                    
                 }
 
             }
@@ -1073,7 +1097,16 @@ namespace ERP.Common.PuntoVenta
                     {
                         basculaControlador = new BasculaLectura(this.puntoVentaContext);
                     }
-                    uiCantidad.EditValue = basculaControlador.ObtenPesoBDLocal();
+
+                    if (pesoInteligenteLecturaLocal)
+                    {
+                        uiCantidad.EditValue = basculaControlador.ObtenPesoBDLocal();
+                    }
+                    else
+                    {
+                        uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+                    }
+                  
                 }
 
             }

@@ -15,6 +15,14 @@ namespace ERP.Common.Inventarios
 {
     public partial class frmRegistroMaizMaseca : FormBaseXtraForm
     {
+
+        private static frmRegistroMaizMaseca _instance;
+        public static frmRegistroMaizMaseca GetInstance()
+        {
+            if (_instance == null) _instance = new frmRegistroMaizMaseca();
+            else _instance.BringToFront();
+            return _instance;
+        }
         string error = "";
         ConexionBD.doc_maiz_maseca_rendimiento entitySelect;
         int err = 0;
@@ -54,7 +62,7 @@ namespace ERP.Common.Inventarios
         {
             try
             {
-
+                oContext = new ERPProdEntities();
                 double kgTortillaMaiz = 0;
                 double KgTortillaMaseca = 0;
 
@@ -82,6 +90,7 @@ namespace ERP.Common.Inventarios
                 {
                     entityUpd.Id = (oContext.doc_maiz_maseca_rendimiento
                         .Max(m => (int?)m.Id) ?? 0) + 1;
+                    entityUpd.SucursalId = puntoVentaContext.sucursalId;
                     entityUpd.MaizSacos = Convert.ToDouble(uiMaizSacos.EditValue);
                     entityUpd.MasecaSacos = Convert.ToDouble(uiMasecaSacos.EditValue);
                     entityUpd.TortillaMaizRendimiento = kgTortillaMaiz * Convert.ToDouble(uiMaizSacos.EditValue);
@@ -89,7 +98,11 @@ namespace ERP.Common.Inventarios
                     entityUpd.TortillaTotalRendimiento = entityUpd.TortillaMaizRendimiento + entityUpd.TortillaMasecaRendimiento;
                     entityUpd.CreadoEl = DateTime.Now;
                     entityUpd.CreadoPor = puntoVentaContext.usuarioId;
+                    entityUpd.Fecha = uiFecha.DateTime;
+                    entityUpd.ModificadoEl = DateTime.Now;
+                    entityUpd.ModificadoPor = puntoVentaContext.usuarioId;
                     oContext.doc_maiz_maseca_rendimiento.Add(entityUpd);
+                    oContext.SaveChanges();
 
                 }
                 else
@@ -104,9 +117,11 @@ namespace ERP.Common.Inventarios
                     entityUpd.TortillaMaizRendimiento = kgTortillaMaiz * Convert.ToDouble(uiMaizSacos.EditValue);
                     entityUpd.TortillaMasecaRendimiento = KgTortillaMaseca * Convert.ToDouble(uiMasecaSacos.EditValue);
                     entityUpd.TortillaTotalRendimiento = entityUpd.TortillaMaizRendimiento + entityUpd.TortillaMasecaRendimiento;
-
+                    entityUpd.Fecha = uiFecha.DateTime;
                     oContext.SaveChanges();
                 }
+                Limpiar();
+                LoadGrid();
             }
             catch (Exception ex)
             {
@@ -123,6 +138,8 @@ namespace ERP.Common.Inventarios
         private void frmRegistroMaizMaseca_Load(object sender, EventArgs e)
         {
             entitySelect = new ConexionBD.doc_maiz_maseca_rendimiento();
+            Limpiar();
+            LoadGrid();
         }
 
         private void uiGuardar_Click(object sender, EventArgs e)
@@ -137,7 +154,7 @@ namespace ERP.Common.Inventarios
                 if(uiGridView.FocusedRowHandle >= 0)
                 {
                     entitySelect = (doc_maiz_maseca_rendimiento)uiGridView.GetRow(uiGridView.FocusedRowHandle);
-
+                    
                     uiMaizSacos.EditValue = entitySelect.MaizSacos;
                     uiMasecaSacos.EditValue = entitySelect.MasecaSacos;
                     uiFecha.EditValue = entitySelect.Fecha;
@@ -171,6 +188,8 @@ namespace ERP.Common.Inventarios
 
                         oContext.doc_maiz_maseca_rendimiento.Remove(entityDel);
                         oContext.SaveChanges();
+
+                        Limpiar();
                     }
                 }
             }
@@ -184,6 +203,31 @@ namespace ERP.Common.Inventarios
                           ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+        private void LoadGrid()
+        {
+            try
+            {
+                oContext = new ERPProdEntities();
+                uiGrid.DataSource = oContext.doc_maiz_maseca_rendimiento
+                    .Where(w => w.SucursalId == puntoVentaContext.sucursalId).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(
+                      puntoVentaContext.usuarioId,
+                             "ERP",
+                             this.Name,
+                             ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void frmRegistroMaizMaseca_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

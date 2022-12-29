@@ -140,6 +140,7 @@ namespace ERP.Background.Task
                         {
                             ultimoPesoOcupadoPorApp = 0;                          
 
+
                             
 
                             if(peso != ultimoIndefinido && Math.Abs((peso-ultimoIndefinido)) > .01M )

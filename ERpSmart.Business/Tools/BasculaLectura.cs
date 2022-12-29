@@ -225,13 +225,18 @@ namespace ERP.Business.Tools
                     .Where(w => w.EquipoConputoId == this.configBascula.EquipoComputoId)
                     .OrderByDescending(o => o.Id).FirstOrDefault();
 
-                peso = Convert.ToDecimal(registro.Peso);
-
-                if ((registro.OcupadaPorApp??false) == false)
+                if(registro != null)
                 {
-                    registro.OcupadaPorApp = true;
-                    oContext.SaveChanges();
+                    peso = Convert.ToDecimal(registro.Peso);
+
+                    if ((registro.OcupadaPorApp ?? false) == false)
+                    {
+                        registro.OcupadaPorApp = true;
+                        oContext.SaveChanges();
+                    }
                 }
+
+               
                 
                 
             }

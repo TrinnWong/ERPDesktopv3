@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroMaizMaseca));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -42,7 +41,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
-            this.docmaizmasecarendimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.docmaizmasecarendimientoBindingSource = new System.Windows.Forms.BindingSource();
             this.uiGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSucursalId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,6 +60,8 @@
             this.colcat_usuarios1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repBtnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repBtnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -76,14 +77,13 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repBtnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties.CalendarTimeProperties)).BeginInit();
@@ -97,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repBtnDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -288,6 +287,25 @@
             this.repBtnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repBtnEdit.Click += new System.EventHandler(this.repBtnEdit_Click);
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "#";
+            this.gridColumn1.ColumnEdit = this.repBtnDelete;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 57;
+            // 
+            // repBtnDelete
+            // 
+            this.repBtnDelete.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.repBtnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repBtnDelete.Name = "repBtnDelete";
+            this.repBtnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repBtnDelete.Click += new System.EventHandler(this.repBtnDelete_Click);
+            // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -461,25 +479,6 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "#";
-            this.gridColumn1.ColumnEdit = this.repBtnDelete;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 57;
-            // 
-            // repBtnDelete
-            // 
-            this.repBtnDelete.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.repBtnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repBtnDelete.Name = "repBtnDelete";
-            this.repBtnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.repBtnDelete.Click += new System.EventHandler(this.repBtnDelete_Click);
-            // 
             // frmRegistroMaizMaseca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -489,6 +488,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegistroMaizMaseca";
             this.Text = "Registro de Maiz y Maseca";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistroMaizMaseca_FormClosing);
             this.Load += new System.EventHandler(this.frmRegistroMaizMaseca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -496,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.docmaizmasecarendimientoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repBtnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiMasecaSacos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiMaizSacos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFecha.Properties.CalendarTimeProperties)).EndInit();
@@ -509,7 +510,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repBtnDelete)).EndInit();
             this.ResumeLayout(false);
 
         }

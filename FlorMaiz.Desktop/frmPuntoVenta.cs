@@ -52,6 +52,7 @@ namespace FlorMaiz.Desktop
         cat_configuracion entityConfig = null;
         decimal valorImrpesionTicket = 0;
         bool imprimirTicket = false;
+        bool pesoInteligenteLecturaLocal = false;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -192,7 +193,7 @@ namespace FlorMaiz.Desktop
                 uiCliente.EditValue = null;
                 uiClave.Select();
                 uiClave.SelectAll();
-
+                uiPagar.Enabled = true;
                 
 
                
@@ -348,7 +349,15 @@ namespace FlorMaiz.Desktop
                 {
                     if (puntoVentaContext.usarTareaBascula)
                     {
-                        uiPesoVal.EditValue = basculaControlador.ObtenPesoBDLocal();
+                        if (pesoInteligenteLecturaLocal)
+                        {
+                            uiPesoVal.EditValue = basculaControlador.ObtenPesoBDLocal();
+                        }
+                        else
+                        {
+                            uiPesoVal.EditValue = basculaControlador.ObtenPesoBD();
+                        }
+                        
                     }
                     
                 }
@@ -1939,8 +1948,12 @@ namespace FlorMaiz.Desktop
             }
 
             if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
-                puntoVentaContext.sucursalId, "UsarPesoInteligente", puntoVentaContext.usuarioId))
+                puntoVentaContext.sucursalId, "UsarPesoInteligente", puntoVentaContext.usuarioId,ref error))
             {
+                if(error.ToUpper() == "LOCAL")
+                {
+                    pesoInteligenteLecturaLocal = true;
+                }
                 puntoVentaContext.usarTareaBascula = true;
             }
             else

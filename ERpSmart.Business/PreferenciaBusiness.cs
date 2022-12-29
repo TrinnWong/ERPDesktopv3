@@ -84,6 +84,8 @@ namespace ERP.Business
                     {
                         valor = oContext.sis_preferencias_sucursales.Where(w => w.SucursalId == sucursalId &&
                     w.sis_preferencias.Preferencia == nombrePreferencia).FirstOrDefault().Valor;
+
+                        valor = valor == null ? "" : valor;
                         return true;
                     }
                     else

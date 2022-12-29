@@ -1597,5 +1597,19 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistroMaizMaseca frmo = frmRegistroMaizMaseca.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
     }
 }
