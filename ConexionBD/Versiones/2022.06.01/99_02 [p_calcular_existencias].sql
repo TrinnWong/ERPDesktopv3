@@ -247,6 +247,8 @@ BEGIN
 	where ProductoId = @pProductoId and
 	SucursalId = @pSucursalId
 
+	
+
 END
 
 	

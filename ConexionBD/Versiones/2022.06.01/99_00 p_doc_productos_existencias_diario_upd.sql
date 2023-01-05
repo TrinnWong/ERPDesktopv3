@@ -28,7 +28,7 @@ as
 
 		--MARCAR MOVIMIENTOS DE INVENTARIO PARA YA NO TOMARSE EN CUENTA
 		update doc_inv_movimiento
-		set FechaCorteExistencia = GETDATE()
+		set FechaCorteExistencia = [dbo].[fn_GetDateTimeServer]()
 		where SucursalId = @pSucursalId AND
 		FechaCorteExistencia IS NULL
 
@@ -37,7 +37,7 @@ as
 		FROM cat_productos_existencias PE
 		WHERE PE.SucursalId = @pSucursalId
 
-		SET @FechaExistenciaMov = GETDATE()
+		SET @FechaExistenciaMov = [dbo].[fn_GetDateTimeServer]()
 
 		
 		--ACTUALIZAR EXISTENCIAS QUE YA TENGAN REGISTRO DEL DÍA
