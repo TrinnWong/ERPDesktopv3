@@ -1786,6 +1786,14 @@ namespace FlorMaiz.Desktop
                 BuscarProductoDialog();
                 
             }
+            if (e.KeyCode == Keys.F10)
+            {
+                SeleccionProducto("", 1);
+            }
+            if (e.KeyCode == Keys.F11)
+            {
+                SeleccionProducto("", 2);
+            }
         }
 
         private void uiClave_KeyUp(object sender, KeyEventArgs e)
@@ -1803,10 +1811,17 @@ namespace FlorMaiz.Desktop
                 oFormLoading.Hide();
             }
             if (e.KeyCode == Keys.F3)
-            {
-                
+            {                
                 BuscarProductoDialog();
                 
+            }
+            if (e.KeyCode == Keys.F10)
+            {
+                SeleccionProducto("",1);
+            }
+            if (e.KeyCode == Keys.F11)
+            {
+                SeleccionProducto("", 2);
             }
 
         }
