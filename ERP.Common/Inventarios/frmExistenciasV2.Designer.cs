@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.uiSoloExistencias = new DevExpress.XtraEditors.CheckEdit();
             this.uiExistencias = new DevExpress.XtraGrid.GridControl();
-            this.pproductosexistenciaselResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pproductosexistenciaselResultBindingSource = new System.Windows.Forms.BindingSource();
             this.uiViewExistencias = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSucursalId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colClaveLinea = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,50 +50,48 @@
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colApartado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDisponible = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.uiSoloExistencias = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.uiSucursal = new System.Windows.Forms.TextBox();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiSoloExistencias.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiExistencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pproductosexistenciaselResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiViewExistencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSoloExistencias.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.uiSucursal);
             this.layoutControl1.Controls.Add(this.uiExistencias);
             this.layoutControl1.Controls.Add(this.uiSoloExistencias);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1083, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(1444, 554);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // uiSoloExistencias
-            // 
-            this.uiSoloExistencias.Location = new System.Drawing.Point(12, 12);
-            this.uiSoloExistencias.Name = "uiSoloExistencias";
-            this.uiSoloExistencias.Properties.Caption = "Solo con Existencias";
-            this.uiSoloExistencias.Size = new System.Drawing.Size(1059, 19);
-            this.uiSoloExistencias.StyleController = this.layoutControl1;
-            this.uiSoloExistencias.TabIndex = 5;
-            this.uiSoloExistencias.CheckedChanged += new System.EventHandler(this.uiSoloExistencias_CheckedChanged);
             // 
             // uiExistencias
             // 
             this.uiExistencias.DataSource = this.pproductosexistenciaselResultBindingSource;
-            this.uiExistencias.Location = new System.Drawing.Point(12, 35);
+            this.uiExistencias.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiExistencias.Location = new System.Drawing.Point(16, 73);
             this.uiExistencias.MainView = this.uiViewExistencias;
+            this.uiExistencias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uiExistencias.Name = "uiExistencias";
-            this.uiExistencias.Size = new System.Drawing.Size(1059, 403);
+            this.uiExistencias.Size = new System.Drawing.Size(1412, 465);
             this.uiExistencias.TabIndex = 4;
             this.uiExistencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiViewExistencias});
@@ -268,23 +264,35 @@
             this.colDisponible.Visible = true;
             this.colDisponible.VisibleIndex = 9;
             // 
+            // uiSoloExistencias
+            // 
+            this.uiSoloExistencias.Location = new System.Drawing.Point(16, 16);
+            this.uiSoloExistencias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiSoloExistencias.Name = "uiSoloExistencias";
+            this.uiSoloExistencias.Properties.Caption = "Solo con Existencias";
+            this.uiSoloExistencias.Size = new System.Drawing.Size(1412, 20);
+            this.uiSoloExistencias.StyleController = this.layoutControl1;
+            this.uiSoloExistencias.TabIndex = 5;
+            this.uiSoloExistencias.CheckedChanged += new System.EventHandler(this.uiSoloExistencias_CheckedChanged);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1083, 450);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1444, 554);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.uiExistencias;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 23);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 57);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1063, 407);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1418, 471);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -293,16 +301,34 @@
             this.layoutControlItem2.Control = this.uiSoloExistencias;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1063, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1418, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // uiSucursal
+            // 
+            this.uiSucursal.Enabled = false;
+            this.uiSucursal.Location = new System.Drawing.Point(68, 42);
+            this.uiSucursal.Name = "uiSucursal";
+            this.uiSucursal.Size = new System.Drawing.Size(1360, 25);
+            this.uiSucursal.TabIndex = 6;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.uiSucursal;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(1418, 31);
+            this.layoutControlItem3.Text = "Sucursal";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(49, 16);
+            // 
             // frmExistenciasV2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 450);
+            this.ClientSize = new System.Drawing.Size(1444, 554);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmExistenciasV2";
             this.Text = "Existencias";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -310,13 +336,14 @@
             this.Load += new System.EventHandler(this.frmExistenciasV2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uiSoloExistencias.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiExistencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pproductosexistenciaselResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiViewExistencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSoloExistencias.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,5 +376,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Columns.GridColumn colApartado;
         private DevExpress.XtraGrid.Columns.GridColumn colDisponible;
+        private System.Windows.Forms.TextBox uiSucursal;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

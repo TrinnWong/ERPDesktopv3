@@ -2,6 +2,7 @@
 using ConexionBD.Forms;
 using ConexionBD.Models;
 using ERP.Business;
+using ERP.Common.Inventarios;
 using ERP.Models;
 using ERP.Reports;
 using ERPv1.rpt;
@@ -769,19 +770,25 @@ namespace ERPv1.Inventarios
         {
             if (e.KeyCode == Keys.F3)
             {
-                frmBuscarProducto f = new frmBuscarProducto();
-                f.opcionERP = (int)ConexionBD.Enumerados.opcionesERP.entradaTraspaso;
-                f.StartPosition = FormStartPosition.CenterParent;
-                f.sucursalId = Convert.ToInt32(this.uiSucursalOrigen.SelectedValue);
-                if(f.sucursalId <= 0
-                    || f.sucursalId == Convert.ToInt32(this.uiSucursalDestino.SelectedValue)
+             
+                if (Convert.ToInt32(this.uiSucursalOrigen.SelectedValue) <= 0
+                    || Convert.ToInt32(this.uiSucursalOrigen.SelectedValue) == Convert.ToInt32(this.uiSucursalDestino.SelectedValue)
                     )
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("Es necesario especificar la sucursal Origen/Destino");
                     return;
                 }
-                f.soloConExistencia = true;
-                f.ShowDialog(this);
+                
+
+                ERP.Common.Productos.frmProductosBusqueda oForm = new ERP.Common.Productos.frmProductosBusqueda();
+
+                var resultDialog = oForm.ShowDialog();
+
+                if(resultDialog == DialogResult.OK)
+                {
+
+                    buscarProductoF3(oForm.response.Clave);
+                }
             }
         }
 
@@ -811,6 +818,17 @@ namespace ERPv1.Inventarios
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnMovimiento_Click(object sender, EventArgs e)
+        {
+            frmExistenciasV2 frmo = new frmExistenciasV2();
+            frmo.sucursalIdParam = Convert.ToInt32(uiSucursalDestino.SelectedValue);
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.WindowState = FormWindowState.Normal;
+            frmo.ShowDialog();
+
+            
         }
     }
 }

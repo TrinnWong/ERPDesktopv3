@@ -14,6 +14,7 @@ namespace ERP.Common.Inventarios
 {
     public partial class frmExistenciasV2 : Form
     {
+        public int sucursalIdParam = 0;
         public PuntoVentaContext puntoVentaContext;
         public static frmExistenciasV2 GetInstance()
         {
@@ -32,13 +33,17 @@ namespace ERP.Common.Inventarios
 
         private void LlenarGrid()
         {
-            int sucursalId = puntoVentaContext.sucursalId;
+            int sucursalId = sucursalIdParam >0 ? sucursalIdParam : puntoVentaContext.sucursalId;
 
             uiExistencias.DataSource = oContext.p_productos_existencia_sel(sucursalId, 0, 0, 0, 0, uiSoloExistencias.Checked);
         }
 
         private void frmExistenciasV2_Load(object sender, EventArgs e)
         {
+            cat_sucursales entitySucursal = oContext.cat_sucursales
+                .Where(w=> w.Clave == (sucursalIdParam>0 ? sucursalIdParam : puntoVentaContext.sucursalId) ).FirstOrDefault();
+
+            uiSucursal.Text = entitySucursal.NombreSucursal;
             uiSoloExistencias.Checked = true;
             LlenarGrid();
         }

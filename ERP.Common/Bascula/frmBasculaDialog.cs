@@ -23,7 +23,8 @@ namespace ERP.Common.Bascula
         cat_basculas_configuracion basculaConfiguracion;
         public decimal cantidad { get; set; }
         private static frmBasculaDialog _instance;
-
+        bool pesoInteligenteLecturaLocal = false;
+        string error = "";
         public static frmBasculaDialog GetInstance()
         {
             if (_instance == null) _instance = new frmBasculaDialog();
@@ -81,7 +82,15 @@ namespace ERP.Common.Bascula
             }
             else
             {
-                uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+                if (pesoInteligenteLecturaLocal)
+                {
+                    uiCantidad.EditValue = basculaControlador.ObtenPesoBDLocal();
+                }
+                else
+                {
+                    uiCantidad.EditValue = basculaControlador.ObtenPesoBD();
+                }
+                
             }
 
                 
@@ -98,6 +107,20 @@ namespace ERP.Common.Bascula
             basculaControlador = new BasculaLectura(basculaConfiguracion, puntoVentaContext);
 
             timer1.Enabled = true;
+
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,
+               puntoVentaContext.sucursalId, "UsarPesoInteligente", puntoVentaContext.usuarioId, ref error))
+            {
+                if (error.ToUpper() == "LOCAL")
+                {
+                    pesoInteligenteLecturaLocal = true;
+                }
+                
+            }
+            else
+            {
+                
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

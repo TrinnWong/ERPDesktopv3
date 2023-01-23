@@ -182,7 +182,7 @@ namespace ERPv1.Inventarios
 
             uiGrid.AutoGenerateColumns = false;
             uiGrid.DataSource = null;
-            uiGrid.DataSource = lstMovs;
+            uiGrid.DataSource = lstMovs.ToList();  
             uiGrid.Refresh();
         }
 
@@ -201,27 +201,38 @@ namespace ERPv1.Inventarios
 
         private void eliminarProducto()
         {
-            int rowIndex = uiGrid.CurrentCell.RowIndex;
-            if (rowIndex >= 0)
+            try
             {
-
-                if (uiGrid.Rows[rowIndex].Cells["partida"].Value != null)
+                int rowIndex = uiGrid.CurrentCell.RowIndex;
+                if (rowIndex >= 0)
                 {
-                    //Eliminar del grid
-                    int partida = int.Parse(uiGrid.Rows[rowIndex].Cells["partida"].Value.ToString());
-                    //DataGridViewRow dr = uiGridProducto.Rows[rowIndex];
-                    //uiGridProducto.Rows.Remove(dr);
 
-                    //Eliminar del arreglo
-                    MovimientoInventarioProductoModel producto = lstMovs.Where(w => w.partida == partida).FirstOrDefault();
-                    lstMovs.Remove(producto);
+                    if (uiGrid.Rows[rowIndex].Cells["partida"].Value != null)
+                    {
+                        //Eliminar del grid
+                        int partida = int.Parse(uiGrid.Rows[rowIndex].Cells["partida"].Value.ToString());
+                        //DataGridViewRow dr = uiGridProducto.Rows[rowIndex];
+                        //uiGridProducto.Rows.Remove(dr);
 
+                        //Eliminar del arreglo
+                        MovimientoInventarioProductoModel producto = lstMovs.Where(w => w.partida == partida).FirstOrDefault();
+                        lstMovs.Remove(producto);
 
-                    uiGrid.DataSource = lstMovs.ToList();                   
+                        uiGrid.DataSource = null;
+                        uiGrid.DataSource = lstMovs;
+                        uiGrid.Refresh();
+                        uiGrid.Parent.Refresh();
+
+                    }
 
                 }
-
             }
+            catch (Exception ex)
+            {
+
+                ERP.Utils.MessageBoxUtil.ShowError("Ocurrió un error inesperado");
+            }
+            
         }
 
         private void guardar(bool autorizar)
@@ -392,8 +403,10 @@ namespace ERPv1.Inventarios
                 }
 
                 uiGrid.AutoGenerateColumns = false;
-                uiGrid.DataSource = lstMovs;
 
+                
+                uiGrid.DataSource = lstMovs.ToList();
+                uiGrid.Refresh();
                 
 
             }
@@ -651,10 +664,15 @@ namespace ERPv1.Inventarios
         {
             if (e.KeyCode == Keys.F3)
             {
-                frmBuscarProducto f = new frmBuscarProducto();
-                f.opcionERP = (int)Enumerados.opcionesERP.entradaDirecta;
-                f.StartPosition = FormStartPosition.CenterParent;
-                f.ShowDialog(this);
+                ERP.Common.Productos.frmProductosBusqueda oForm = new ERP.Common.Productos.frmProductosBusqueda();
+
+                var resultDialog = oForm.ShowDialog();
+
+                if (resultDialog == DialogResult.OK)
+                {
+
+                    buscarProductoF3(oForm.response.Clave);
+                }
             }
         }
 

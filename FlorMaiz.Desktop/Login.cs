@@ -267,7 +267,8 @@ namespace TacosAna.Desktop
                     /****VALIDAR SOBRANTES****/
                     if (!ERP.Business.ProductoSobranteBusiness.ExistenSobrantes(puntoVentaContext.sucursalId, oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1),
                        puntoVentaContext.usuarioId) &&
-                       oContext.sis_preferencias_empresa.Where(w => w.sis_preferencias.Preferencia == "SolicitarSobrantesPV").Count() > 0
+                       ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,puntoVentaContext.sucursalId, "SolicitarSobrantesPV", puntoVentaContext.usuarioId)
+                      
                        )
                     {
                         ERP.Utils.MessageBoxUtil.ShowError("ES NECESARIO CAPTURAR LOS SOBRANTES DEL DÍA "+ oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1).ToShortDateString());

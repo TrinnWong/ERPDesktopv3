@@ -193,15 +193,19 @@ namespace ERPv1.Inventarios
                 {
                     //Eliminar del grid
                     int partida = int.Parse(uiGrid.Rows[rowIndex].Cells["partida"].Value.ToString());
-                    //DataGridViewRow dr = uiGridProducto.Rows[rowIndex];
-                    //uiGridProducto.Rows.Remove(dr);
+                    //DataGridViewRow dr = uiGrid.Rows[rowIndex];
+                    //uiGrid.Rows.Remove(dr);
 
                     //Eliminar del arreglo
                     MovimientoInventarioProductoModel producto = lstMovs.Where(w => w.partida == partida).FirstOrDefault();
                     lstMovs.Remove(producto);
+                    //lstMovs.Where(w=> w.partida == partida).ToList().ForEach(f=> f.cantidadMov = 0  );
+                   
 
-
-                    uiGrid.DataSource = lstMovs.ToList();                   
+                    
+                    uiGrid.DataSource = lstMovs.ToList();
+                    
+                   
 
                 }
 
@@ -381,7 +385,7 @@ namespace ERPv1.Inventarios
                     lstMovs[i].partida = i + 1;
                 }
 
-                uiGrid.AutoGenerateColumns = false;
+                //uiGrid.AutoGenerateColumns = false;
                 uiGrid.DataSource = lstMovs;
 
                 
@@ -664,10 +668,15 @@ namespace ERPv1.Inventarios
         {
             if (e.KeyCode == Keys.F3)
             {
-                frmBuscarProducto f = new frmBuscarProducto();
-                f.opcionERP = (int)Enumerados.opcionesERP.ajusteEntrada;
-                f.StartPosition = FormStartPosition.CenterParent;
-                f.ShowDialog(this);
+                ERP.Common.Productos.frmProductosBusqueda oForm = new ERP.Common.Productos.frmProductosBusqueda();
+
+                var resultDialog = oForm.ShowDialog();
+
+                if (resultDialog == DialogResult.OK)
+                {
+
+                    buscarProductoF3(oForm.response.Clave);
+                }
             }
         }
 

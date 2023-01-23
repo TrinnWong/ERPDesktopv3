@@ -569,7 +569,7 @@ namespace ERPv1
             {
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
-
+                frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
 
             }
@@ -588,7 +588,7 @@ namespace ERPv1
             {
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
-
+                frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
 
             }
@@ -1074,7 +1074,7 @@ namespace ERPv1
             {
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
-
+                frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
 
             }

@@ -62,7 +62,8 @@ namespace ERPv1.Inventarios
 
             uiGrid.DataSource = oContext.doc_inv_movimiento
                 .Where(
-                    w => w.TipoMovimientoId == tipoMov
+                    w => w.SucursalId == this.puntoVentaContext.sucursalId &&
+                    w.TipoMovimientoId == tipoMov
                     && (
                         (uiPorFolio.Checked && (w.FolioMovimiento == folio || folio == ""))
                         ||
