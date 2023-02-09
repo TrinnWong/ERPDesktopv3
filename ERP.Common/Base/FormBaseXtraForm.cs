@@ -13,6 +13,7 @@ namespace ERP.Common.Base
 {
     public class FormBaseXtraForm:XtraForm
     {
+        
 
         public ERPProdEntities oContext;
         public PuntoVentaContext puntoVentaContext;

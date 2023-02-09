@@ -563,15 +563,26 @@ namespace ERPv1
 
         private void ajustesPorEntradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAjusteEntradaList frmo = frmAjusteEntradaList.GetInstance();
+            //frmAjusteEntradaList frmo = frmAjusteEntradaList.GetInstance();
 
+            //if (!frmo.Visible)
+            //{
+            //    //frmo = new frmPuntoVenta();
+            //    frmo.MdiParent = this;
+            //    frmo.puntoVentaContext = this.puntoVentaContext;
+            //    frmo.Show();
+
+            //}
+
+            frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
             if (!frmo.Visible)
             {
-                //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimientoInv = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorEntrada;
                 frmo.Show();
-
             }
         }
 
@@ -1054,29 +1065,52 @@ namespace ERPv1
 
         private void salidasPorTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalidaTraspasoList frmo = frmSalidaTraspasoList.GetInstance();
 
+            frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
             if (!frmo.Visible)
             {
-                //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimientoInv = ERP.Business.Enumerados.tipoMovimientoInventario.SalidaPorTraspaso;
                 frmo.Show();
-
             }
+            //frmSalidaTraspasoList frmo = frmSalidaTraspasoList.GetInstance();
+
+            //if (!frmo.Visible)
+            //{
+            //    //frmo = new frmPuntoVenta();
+            //    frmo.MdiParent = this;
+            //    frmo.puntoVentaContext = this.puntoVentaContext;
+            //    frmo.Show();
+
+            //}
         }
 
         private void salidaPorAjusteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAjusteSalidaList frmo = frmAjusteSalidaList.GetInstance();
+            //frmAjusteSalidaList frmo = frmAjusteSalidaList.GetInstance();
 
+            //if (!frmo.Visible)
+            //{
+            //    //frmo = new frmPuntoVenta();
+            //    frmo.MdiParent = this;
+            //    frmo.puntoVentaContext = this.puntoVentaContext;
+            //    frmo.Show();
+
+            //}
+
+
+            frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
             if (!frmo.Visible)
             {
-                //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimientoInv = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorSalida;
                 frmo.Show();
-
             }
         }
 
@@ -1608,6 +1642,20 @@ namespace ERPv1
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
 
+                frmo.Show();
+            }
+        }
+
+        private void entradaPorDevolucionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimientoInv = ERP.Business.Enumerados.tipoMovimientoInventario.SalidaPorTraspasoDev;
                 frmo.Show();
             }
         }

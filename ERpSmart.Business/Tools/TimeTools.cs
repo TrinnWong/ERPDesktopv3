@@ -43,5 +43,12 @@ namespace ERP.Business.Tools
 
         }
 
+        public static int ConvertDateToInt(DateTime fecha)
+        {
+            int result=0;
+
+            return result;
+        }
+
     }
 }

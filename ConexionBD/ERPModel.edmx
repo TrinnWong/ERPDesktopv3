@@ -819,6 +819,20 @@ advertencia 6002: La tabla o vista 'ERPProd_data.dbo.cat_configuracion' no tiene
           <Property Name="ProductoId" Type="int" Nullable="false" />
           <Property Name="ImpuestoId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="cat_productos_maximos_minimos">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="ProductoId" Type="int" Nullable="false" />
+          <Property Name="Maximo" Type="float" Nullable="false" />
+          <Property Name="Minimo" Type="float" Nullable="false" />
+          <Property Name="CreadoEl" Type="datetime" Nullable="false" />
+          <Property Name="CreadoPor" Type="int" Nullable="false" />
+          <Property Name="ModificadoEl" Type="datetime" />
+          <Property Name="ModificadoPor" Type="int" />
+        </EntityType>
         <EntityType Name="cat_productos_precios">
           <Key>
             <PropertyRef Name="IdProductoPrecio" />
@@ -1597,6 +1611,7 @@ advertencia 6002: La tabla o vista 'ERPProd_data.dbo.cat_configuracion' no tiene
           <Property Name="MovimientoRefId" Type="int" />
           <Property Name="Cancelado" Type="bit" />
           <Property Name="TipoMermaId" Type="smallint" />
+          <Property Name="FechaCorteExistencia" Type="datetime" />
         </EntityType>
         <EntityType Name="doc_inv_movimiento_detalle">
           <Key>
@@ -5455,6 +5470,54 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </Principal>
             <Dependent Role="cat_productos_impuestos">
               <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_productos">
+          <End Role="cat_productos" Type="Self.cat_productos" Multiplicity="1" />
+          <End Role="cat_productos_maximos_minimos" Type="Self.cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_productos">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_sucursales">
+          <End Role="cat_sucursales" Type="Self.cat_sucursales" Multiplicity="1" />
+          <End Role="cat_productos_maximos_minimos" Type="Self.cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_usuarios">
+          <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="1" />
+          <End Role="cat_productos_maximos_minimos" Type="Self.cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_usuarios1">
+          <End Role="cat_usuarios" Type="Self.cat_usuarios" Multiplicity="0..1" />
+          <End Role="cat_productos_maximos_minimos" Type="Self.cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="ModificadoPor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -10470,6 +10533,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <EntitySet Name="cat_productos_guisos" EntityType="Self.cat_productos_guisos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_productos_imagenes" EntityType="Self.cat_productos_imagenes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_productos_impuestos" EntityType="Self.cat_productos_impuestos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cat_productos_maximos_minimos" EntityType="Self.cat_productos_maximos_minimos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_productos_precios" EntityType="Self.cat_productos_precios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_productos_principales" EntityType="Self.cat_productos_principales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cat_proveedores" EntityType="Self.cat_proveedores" Schema="dbo" store:Type="Tables" />
@@ -11620,6 +11684,22 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <AssociationSet Name="FK_cat_productos_impuestos_cat_productos" Association="Self.FK_cat_productos_impuestos_cat_productos">
             <End Role="cat_productos" EntitySet="cat_productos" />
             <End Role="cat_productos_impuestos" EntitySet="cat_productos_impuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_productos" Association="Self.FK_cat_productos_maximos_minimos_cat_productos">
+            <End Role="cat_productos" EntitySet="cat_productos" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_sucursales" Association="Self.FK_cat_productos_maximos_minimos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_usuarios" Association="Self.FK_cat_productos_maximos_minimos_cat_usuarios">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_usuarios1" Association="Self.FK_cat_productos_maximos_minimos_cat_usuarios1">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
           </AssociationSet>
           <AssociationSet Name="FK_cat_productos_precios_cat_productos" Association="Self.FK_cat_productos_precios_cat_productos">
             <End Role="cat_productos" EntitySet="cat_productos" />
@@ -13631,6 +13711,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <NavigationProperty Name="doc_precios_especiales_detalle" Relationship="ERPProdModel.FK_doc_precios_especiales_detalle_cat_productos" FromRole="cat_productos" ToRole="doc_precios_especiales_detalle" />
           <NavigationProperty Name="cat_sucursales_productos" Relationship="ERPProdModel.FK_cat_sucursales_productos_cat_productos" FromRole="cat_productos" ToRole="cat_sucursales_productos" />
           <Property Name="Orden" Type="Int32" />
+          <NavigationProperty Name="cat_productos_maximos_minimos" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_productos" FromRole="cat_productos" ToRole="cat_productos_maximos_minimos" />
         </EntityType>
         <EntityType Name="cat_productos_cambio_precio">
           <Key>
@@ -13884,6 +13965,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_gastos" />
           <NavigationProperty Name="doc_cargos" Relationship="ERPProdModel.FK_doc_Cargos_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_cargos" />
           <NavigationProperty Name="doc_maiz_maseca_rendimiento" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_sucursales" FromRole="cat_sucursales" ToRole="doc_maiz_maseca_rendimiento" />
+          <NavigationProperty Name="cat_productos_maximos_minimos" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_sucursales" FromRole="cat_sucursales" ToRole="cat_productos_maximos_minimos" />
         </EntityType>
         <EntityType Name="cat_tipo_factor_SAT">
           <Key>
@@ -14087,6 +14169,8 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <NavigationProperty Name="doc_gastos" Relationship="ERPProdModel.FK_doc_gastos_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_gastos" />
           <NavigationProperty Name="doc_maiz_maseca_rendimiento" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios" FromRole="cat_usuarios" ToRole="doc_maiz_maseca_rendimiento" />
           <NavigationProperty Name="doc_maiz_maseca_rendimiento1" Relationship="ERPProdModel.FK_doc_maiz_maseca_rendimiento_cat_usuarios1" FromRole="cat_usuarios" ToRole="doc_maiz_maseca_rendimiento" />
+          <NavigationProperty Name="cat_productos_maximos_minimos" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios" FromRole="cat_usuarios" ToRole="cat_productos_maximos_minimos" />
+          <NavigationProperty Name="cat_productos_maximos_minimos1" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios1" FromRole="cat_usuarios" ToRole="cat_productos_maximos_minimos" />
           </EntityType>
         <EntityType Name="doc_apartados">
           <Key>
@@ -14366,6 +14450,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <NavigationProperty Name="doc_cocimientos_grupos_movs_inventario" Relationship="ERPProdModel.FK_doc_cocimientos_grupos_movs_inventario_doc_inv_movimiento" FromRole="doc_inv_movimiento" ToRole="doc_cocimientos_grupos_movs_inventario" />
           <NavigationProperty Name="doc_produccion_movs_inventario" Relationship="ERPProdModel.FK_doc_produccion_movs_inventario_doc_inv_movimiento" FromRole="doc_inv_movimiento" ToRole="doc_produccion_movs_inventario" />
           <NavigationProperty Name="doc_aceptaciones_sucursal" Relationship="ERPProdModel.FK_doc_aceptaciones_sucursal_doc_inv_movimiento" FromRole="doc_inv_movimiento" ToRole="doc_aceptaciones_sucursal" />
+          <Property Name="FechaCorteExistencia" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="doc_inv_movimiento_detalle">
           <Key>
@@ -22089,6 +22174,23 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <End Role="cat_empresas" EntitySet="cat_empresas" />
             <End Role="sis_cuenta" EntitySet="sis_cuenta" />
           </AssociationSet>
+          <EntitySet Name="cat_productos_maximos_minimos" EntityType="ERPProdModel.cat_productos_maximos_minimos" />
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_productos" Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_productos">
+            <End Role="cat_productos" EntitySet="cat_productos" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_sucursales" Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_usuarios" Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cat_productos_maximos_minimos_cat_usuarios1" Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios1">
+            <End Role="cat_usuarios" EntitySet="cat_usuarios" />
+            <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -28049,6 +28151,72 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="cat_productos_maximos_minimos">
+          <Key>
+            <PropertyRef Name="SucursalId" />
+            <PropertyRef Name="ProductoId" />
+          </Key>
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="ProductoId" Type="Int32" Nullable="false" />
+          <Property Name="Maximo" Type="Double" Nullable="false" />
+          <Property Name="Minimo" Type="Double" Nullable="false" />
+          <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreadoPor" Type="Int32" Nullable="false" />
+          <Property Name="ModificadoEl" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="Int32" />
+          <NavigationProperty Name="cat_productos" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_productos" FromRole="cat_productos_maximos_minimos" ToRole="cat_productos" />
+          <NavigationProperty Name="cat_sucursales" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_sucursales" FromRole="cat_productos_maximos_minimos" ToRole="cat_sucursales" />
+          <NavigationProperty Name="cat_usuarios" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios" FromRole="cat_productos_maximos_minimos" ToRole="cat_usuarios" />
+          <NavigationProperty Name="cat_usuarios1" Relationship="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios1" FromRole="cat_productos_maximos_minimos" ToRole="cat_usuarios" />
+        </EntityType>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_productos">
+          <End Type="ERPProdModel.cat_productos" Role="cat_productos" Multiplicity="1" />
+          <End Type="ERPProdModel.cat_productos_maximos_minimos" Role="cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_productos">
+              <PropertyRef Name="ProductoId" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_sucursales">
+          <End Type="ERPProdModel.cat_sucursales" Role="cat_sucursales" Multiplicity="1" />
+          <End Type="ERPProdModel.cat_productos_maximos_minimos" Role="cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_sucursales">
+              <PropertyRef Name="Clave" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_usuarios">
+          <End Type="ERPProdModel.cat_usuarios" Role="cat_usuarios" Multiplicity="1" />
+          <End Type="ERPProdModel.cat_productos_maximos_minimos" Role="cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cat_productos_maximos_minimos_cat_usuarios1">
+          <End Type="ERPProdModel.cat_usuarios" Role="cat_usuarios" Multiplicity="0..1" />
+          <End Type="ERPProdModel.cat_productos_maximos_minimos" Role="cat_productos_maximos_minimos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="cat_productos_maximos_minimos">
+              <PropertyRef Name="ModificadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -28970,6 +29138,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <EntitySetMapping Name="doc_inv_movimiento">
             <EntityTypeMapping TypeName="ERPProdModel.doc_inv_movimiento">
               <MappingFragment StoreEntitySet="doc_inv_movimiento">
+                <ScalarProperty Name="FechaCorteExistencia" ColumnName="FechaCorteExistencia" />
                 <ScalarProperty Name="TipoMermaId" ColumnName="TipoMermaId" />
                 <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
                 <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
@@ -32358,6 +32527,20 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="ClienteKey" ColumnName="ClienteKey" />
                 <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cat_productos_maximos_minimos">
+            <EntityTypeMapping TypeName="ERPProdModel.cat_productos_maximos_minimos">
+              <MappingFragment StoreEntitySet="cat_productos_maximos_minimos">
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="ModificadoEl" ColumnName="ModificadoEl" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+                <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+                <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

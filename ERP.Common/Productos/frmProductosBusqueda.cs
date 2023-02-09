@@ -15,6 +15,8 @@ namespace ERP.Common.Productos
 {
     public partial class frmProductosBusqueda : FormBaseXtraForm
     {
+        public bool soloProductosSucursal { get; set; }
+        public int sucursalId { get; set; }
         public bool soloParaVenta { get; set; }
         public bool? cargarEnInicio { get; set; }
         public bool cargado { get; set; }
@@ -29,16 +31,27 @@ namespace ERP.Common.Productos
         {
             try
             {
+                int sucursalFiltro = sucursalId == 0 ? puntoVentaContext.sucursalId : sucursalId;
+
                 string texto = uiBuscarTexto.Text.ToUpper().Trim();
                 if (!(cargarEnInicio==null ? false: (bool)cargarEnInicio) && !cargado)
                     return;
 
-                uiGrid.DataSource = DataBucket.GetProductosMemory(false)
-                    .Where(w=> 
-                    (w.Descripcion.Contains(texto)|| w.CodigoBarras == texto || w.Clave == texto) &&
-                    w.ProductoId > 0 && w.Estatus == true && 
-                (  w.ProdParaVenta == soloParaVenta || !soloParaVenta))
-                    .OrderBy(o=> o.Descripcion);
+                var lstProds = DataBucket.GetProductosMemory(false)
+                    .Where(w =>
+                    (w.Descripcion.Contains(texto) || w.CodigoBarras == texto || w.Clave == texto) &&
+                    w.ProductoId > 0 && w.Estatus == true &&
+                (w.ProdParaVenta == soloParaVenta || !soloParaVenta))
+                    .OrderBy(o => o.Descripcion);
+
+                if (soloProductosSucursal)
+                {
+                    int[] idsProdSucursal = oContext.cat_sucursales_productos.Where(w => w.SucursalId == sucursalFiltro)
+                        .Select(s => s.ProductoId).ToArray();
+
+                    uiGrid.DataSource = lstProds.Where(w => idsProdSucursal.Contains(w.ProductoId));
+                }
+
             }
             catch (Exception ex)
             {

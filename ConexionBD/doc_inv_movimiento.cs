@@ -47,6 +47,7 @@ namespace ConexionBD
         public Nullable<int> MovimientoRefId { get; set; }
         public Nullable<bool> Cancelado { get; set; }
         public Nullable<short> TipoMermaId { get; set; }
+        public Nullable<System.DateTime> FechaCorteExistencia { get; set; }
     
         public virtual cat_sucursales cat_sucursales { get; set; }
         public virtual cat_sucursales cat_sucursales1 { get; set; }

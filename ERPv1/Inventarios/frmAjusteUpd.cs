@@ -637,7 +637,7 @@ namespace ERPv1.Inventarios
 
         private void imprimir()
         {
-            rpt.rptMovimientoInventario oTicket = new rpt.rptMovimientoInventario();
+            ERP.Reports.rptMovimientoInventario oTicket = new ERP.Reports.rptMovimientoInventario();
             ReportViewer oViewer = new ReportViewer();
             oContext = new ERPProdEntities();
             var ds = oContext.p_inv_movimiento_rpt(idForm).ToList();

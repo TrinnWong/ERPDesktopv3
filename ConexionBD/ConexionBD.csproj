@@ -328,6 +328,9 @@
     <Compile Include="cat_productos_impuestos.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="cat_productos_maximos_minimos.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="cat_productos_precios.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -3317,6 +3320,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\99_04 [p_corte_caja_inventario_generacion].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_05 tr_cat_productos_precios_after_update.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_06 p_rpt_bascula_bitacora.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_07 p_productos_sobrantes_grd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_08 INSERT [cat_tipos_movimiento_inventario].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">

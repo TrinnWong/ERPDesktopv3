@@ -39,12 +39,14 @@ namespace ERPv1
             {
                 string usuario = txtUsuario.Text.Trim();
                 string contraseña = txtContraseña.Text.Trim();
+
                 PuntoVentaContext oerpContext = new PuntoVentaContext();
 
                 string error = oLogin.validar(usuario, contraseña, ref oerpContext);
 
                 if (error.Length == 0)
                 {
+                    oerpContext.nombreSucursal = uiSucursal.Text;
                     oerpContext.sucursalId = int.Parse(uiSucursal.SelectedValue.ToString());
                     this.Hide();
 

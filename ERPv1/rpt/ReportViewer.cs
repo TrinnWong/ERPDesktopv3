@@ -68,7 +68,7 @@ namespace ERPv1.rpt
                 this.viewer1.Document.Printer.PrinterSettings.PrinterName = "";
             }
         }
-        public void ShowReport(rptMovimientoInventario oReport)
+        public void ShowReport(ERP.Reports.rptMovimientoInventario oReport)
         {
             setNUllPrint();
             this.viewer1.Document = oReport.Document;

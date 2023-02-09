@@ -106,6 +106,12 @@
     <Compile Include="rptEntradaCompra_Carta.Designer.cs">
       <DependentUpon>rptEntradaCompra_Carta.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptMovimientoInventario.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptMovimientoInventario.Designer.cs">
+      <DependentUpon>rptMovimientoInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptMovimientoInventarioCancelacion.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -456,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptEntradaCompra_Carta.resx">
       <DependentUpon>rptEntradaCompra_Carta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptMovimientoInventario.resx">
+      <DependentUpon>rptMovimientoInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptMovimientoInventarioCancelacion.resx">
       <DependentUpon>rptMovimientoInventarioCancelacion.cs</DependentUpon>

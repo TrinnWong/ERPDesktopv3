@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -119,6 +118,7 @@
             this.salidaDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.corteDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDiarioDeTiradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroSobrantesConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsConfiguracion = new System.Windows.Forms.ToolStripDropDownButton();
             this.configuradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,10 +157,10 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
+            this.timerMinimos = new System.Windows.Forms.Timer();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradaPorDevolucionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -821,6 +821,7 @@
             this.entradaPorTraspasoToolStripMenuItem,
             this.entradaDirectaToolStripMenuItem,
             this.ajustesPorEntradaToolStripMenuItem,
+            this.entradaPorDevolucionToolStripMenuItem,
             this.salidasPorToolStripMenuItem,
             this.existenciasToolStripMenuItem,
             this.existenciasAgrupadasToolStripMenuItem,
@@ -972,6 +973,13 @@
             this.registroDiarioDeTiradasToolStripMenuItem.Size = new System.Drawing.Size(488, 26);
             this.registroDiarioDeTiradasToolStripMenuItem.Text = "Registro Diario de Tiradas Tortilla";
             this.registroDiarioDeTiradasToolStripMenuItem.Click += new System.EventHandler(this.registroDiarioDeTiradasToolStripMenuItem_Click);
+            // 
+            // registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem
+            // 
+            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Name = "registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem";
+            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Size = new System.Drawing.Size(488, 26);
+            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Text = "Registro Diario de Consumo de Maiz y Maseca";
+            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Click += new System.EventHandler(this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem_Click);
             // 
             // registroSobrantesConsultaToolStripMenuItem
             // 
@@ -1322,12 +1330,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem
+            // entradaPorDevolucionToolStripMenuItem
             // 
-            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Name = "registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem";
-            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Size = new System.Drawing.Size(488, 26);
-            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Text = "Registro Diario de Consumo de Maiz y Maseca";
-            this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem.Click += new System.EventHandler(this.registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem_Click);
+            this.entradaPorDevolucionToolStripMenuItem.Name = "entradaPorDevolucionToolStripMenuItem";
+            this.entradaPorDevolucionToolStripMenuItem.Size = new System.Drawing.Size(347, 26);
+            this.entradaPorDevolucionToolStripMenuItem.Text = "Entrada Por Devolucion";
+            this.entradaPorDevolucionToolStripMenuItem.Click += new System.EventHandler(this.entradaPorDevolucionToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1491,6 +1499,7 @@
         private System.Windows.Forms.ToolStripMenuItem estadoDeCuentaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem productosEdiciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradaPorDevolucionToolStripMenuItem;
     }
 }
 

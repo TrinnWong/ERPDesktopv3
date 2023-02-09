@@ -46,7 +46,13 @@ namespace ConexionBD
                 ajustePorEntrada=5,
                 ajustePorSalida=6,
                 entradaDirecta=7,
-                desperdicioInventario=25
+                desperdicioInventario=25,
+                devolucion=20,
+                entradaTraspasoDevCancelacion=27,
+                entradaTraspasoDev=28,
+                salidaTraspasoDevCancelacion = 29,
+                salidaTraspasoDev = 30
+
 
         }
 

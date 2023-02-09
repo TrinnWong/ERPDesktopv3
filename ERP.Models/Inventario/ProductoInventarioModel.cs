@@ -30,5 +30,7 @@ namespace ERP.Models.Inventario
         public int tipoDescuentoId { get; set; }
         public int promocionCMId { get; set; }
         public int? cargoAdicionalId { get; set; }
+        public decimal existenciaSucursalOrigen { get; set; }
+        public decimal existenciaSucursalDestino { get; set; }
     }
 }

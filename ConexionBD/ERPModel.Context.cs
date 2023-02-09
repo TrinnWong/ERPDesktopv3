@@ -21,10 +21,10 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
+
         public ERPProdEntities(string sc)
            : base("name=ERPProdEntities")
         {
-            this.Database.Connection.ConnectionString = sc;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -238,6 +238,7 @@ namespace ConexionBD
         public virtual DbSet<doc_gastos> doc_gastos { get; set; }
         public virtual DbSet<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
         public virtual DbSet<sis_cuenta> sis_cuenta { get; set; }
+        public virtual DbSet<cat_productos_maximos_minimos> cat_productos_maximos_minimos { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {

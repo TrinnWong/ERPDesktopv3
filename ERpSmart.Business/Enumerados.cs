@@ -150,7 +150,9 @@ namespace ERP.Business
             InsumoInternoProduccion =	21,
             ProductoProduccion =	22,
             Cancelacion_Insumo_Interno_Produccion =	23,
-            Cancelacion_Producto_Produccion	=24
+            Cancelacion_Producto_Produccion	=24,
+            EntradaPorTraspasoDev = 28,
+            SalidaPorTraspasoDev = 30
         }
 
         public enum tipoPrecioProducto

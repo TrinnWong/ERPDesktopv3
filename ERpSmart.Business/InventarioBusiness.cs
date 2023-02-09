@@ -426,39 +426,70 @@ namespace ERP.Business
             try
             {
                 int sucursalId = entity.SucursalId;
-                doc_inv_movimiento entityNew = new doc_inv_movimiento();
+                int id = entity.MovimientoId;
 
-                entityNew.MovimientoId = (oContext.doc_inv_movimiento
-                    .Max(m => (int?)m.MovimientoId) ?? 0) + 1;
-                entityNew.Activo = true;
-                entityNew.Autorizado = entity.Autorizado;
-                entityNew.AutorizadoPor = entity.AutorizadoPor;
-                entityNew.Cancelado = entity.Cancelado;
-                entityNew.Comentarios = entity.Comentarios;
-                entityNew.Consecutivo = (oContext.doc_inv_movimiento
-                    .Where(w => w.SucursalId == sucursalId)
-                    .Max(m => (int?)m.Consecutivo) ?? 0) + 1;
-                entityNew.CreadoEl = DateTime.Now;
-                entityNew.CreadoPor = usuarioId;
-                entityNew.FechaAutoriza = entity.FechaAutoriza;
-                entityNew.FechaCancelacion = entity.FechaCancelacion;
-                entityNew.FechaMovimiento = entity.FechaMovimiento;
-                entityNew.FolioMovimiento = entityNew.Consecutivo.ToString();
-                entityNew.HoraMovimiento = entity.HoraMovimiento;
-                entityNew.ImporteTotal = entity.ImporteTotal;
-                entityNew.MovimientoRefId = entity.MovimientoRefId;
-                entityNew.ProductoCompraId = entity.ProductoCompraId;
-                entityNew.SucursalDestinoId = entity.SucursalDestinoId;
-                entityNew.SucursalId = entity.SucursalId;
-                entityNew.SucursalOrigenId = entity.SucursalOrigenId;
-                entityNew.TipoMovimientoId = entity.TipoMovimientoId;
-                entityNew.VentaId = entity.VentaId;
+                if((entity==null ? new doc_inv_movimiento() : entity).MovimientoId > 0)
+                {
+                    doc_inv_movimiento entityUpd = oContext.doc_inv_movimiento
+                        .Where(w => w.MovimientoId == id).FirstOrDefault();
+
+                    entityUpd.SucursalDestinoId = entity.SucursalDestinoId;
+                    entityUpd.Activo = entity.Activo;
+                    entityUpd.Autorizado = entity.Autorizado;
+                    entityUpd.Cancelado = entity.Cancelado;
+                    entityUpd.Comentarios = entity.Comentarios;
+                    entityUpd.FechaAutoriza = entity.FechaAutoriza;
+                    entityUpd.FechaCancelacion = entity.FechaCancelacion;
+                    entityUpd.ImporteTotal = entity.ImporteTotal;
+                    entityUpd.TipoMermaId = entity.TipoMermaId;
+                    entityUpd.Comentarios = entity.Comentarios;
+                    oContext.SaveChanges();
+
+                    entity = entityUpd;
+                }
+                else
+                {
+                    doc_inv_movimiento entityNew = new doc_inv_movimiento();
+
+
+                    entityNew.MovimientoId = (oContext.doc_inv_movimiento
+                        .Max(m => (int?)m.MovimientoId) ?? 0) + 1;
+                    entityNew.Activo = true;
+                    entityNew.Autorizado = entity.Autorizado;
+                    entityNew.AutorizadoPor = entity.AutorizadoPor;
+                    entityNew.Cancelado = entity.Cancelado;
+                    entityNew.Comentarios = entity.Comentarios;
+                    entityNew.Consecutivo = (oContext.doc_inv_movimiento
+                        .Where(w => w.SucursalId == sucursalId)
+                        .Max(m => (int?)m.Consecutivo) ?? 0) + 1;
+                    entityNew.CreadoEl = DateTime.Now;
+                    entityNew.CreadoPor = usuarioId;
+                    entityNew.FechaAutoriza = entity.FechaAutoriza;
+                    entityNew.FechaCancelacion = entity.FechaCancelacion;
+                    entityNew.FechaMovimiento = entity.FechaMovimiento;
+                    entityNew.FolioMovimiento = entityNew.Consecutivo.ToString();
+                    entityNew.HoraMovimiento = entity.HoraMovimiento;
+                    entityNew.ImporteTotal = entity.ImporteTotal;
+                    entityNew.MovimientoRefId = entity.MovimientoRefId;
+                    entityNew.ProductoCompraId = entity.ProductoCompraId;
+                    entityNew.SucursalDestinoId = entity.SucursalDestinoId;
+                    entityNew.SucursalId = entity.SucursalId;
+                    entityNew.SucursalOrigenId = entity.SucursalOrigenId;
+                    entityNew.TipoMovimientoId = entity.TipoMovimientoId;
+                    entityNew.VentaId = entity.VentaId;
+                    entityNew.TipoMermaId = entity.TipoMermaId;
+                    entityNew.Comentarios = entity.Comentarios;
+
+                    oContext.doc_inv_movimiento.Add(entityNew);
+
+                    oContext.SaveChanges();
+
+                    entity = entityNew;
+                }
+
+               
+
                 
-                oContext.doc_inv_movimiento.Add(entityNew);
-
-                oContext.SaveChanges();
-
-                entity = entityNew;
 
             }
             catch (Exception ex)

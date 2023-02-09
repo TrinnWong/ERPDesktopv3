@@ -379,6 +379,12 @@
     <Compile Include="Inventarios\frmInventarioGeneral.Designer.cs">
       <DependentUpon>frmInventarioGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventarios\frmInventarioMovList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios\frmInventarioMovList.Designer.cs">
+      <DependentUpon>frmInventarioMovList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventarios\frmInventarioRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,12 @@
     </Compile>
     <Compile Include="Inventarios\frmProductoKardexV2.Designer.cs">
       <DependentUpon>frmProductoKardexV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\frmInventarioMovRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios\frmInventarioMovRegistro.Designer.cs">
+      <DependentUpon>frmInventarioMovRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventarios\frmRecepcionProducto.cs">
       <SubType>Form</SubType>
@@ -826,6 +838,7 @@
     <Compile Include="Traspasos\frmTraspasosSalidaLite.Designer.cs">
       <DependentUpon>frmTraspasosSalidaLite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LoadingForm.cs" />
     <Compile Include="Utils\RawPrinterHelper.cs" />
     <Compile Include="Ventas\frmVentaFormasPagoDialog.cs">
       <SubType>Form</SubType>
@@ -965,6 +978,9 @@
     <EmbeddedResource Include="Inventarios\frmExistencias.resx">
       <DependentUpon>frmExistencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios\frmInventarioMovList.resx">
+      <DependentUpon>frmInventarioMovList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\frmInventarioRegistro.resx">
       <DependentUpon>frmInventarioRegistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -973,6 +989,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\frmProductoKardexV2.resx">
       <DependentUpon>frmProductoKardexV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios\frmInventarioMovRegistro.resx">
+      <DependentUpon>frmInventarioMovRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\frmRecepcionProducto.resx">
       <DependentUpon>frmRecepcionProducto.cs</DependentUpon>
@@ -1234,6 +1253,7 @@
     <None Include="Properties\DataSources\ConexionBD.cat_sucursales.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_sucursales_productos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_tipos_descuento.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_tipos_mermas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_unidadesmed.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_corte_caja_datos_entrada.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_inventario_captura.datasource" />
