@@ -1659,5 +1659,28 @@ namespace ERPv1
                 frmo.Show();
             }
         }
+
+        private void tsRH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuariosSucursalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuariosSucursales frmo = frmUsuariosSucursales.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.MdiParent = this;
+
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
     }
 }

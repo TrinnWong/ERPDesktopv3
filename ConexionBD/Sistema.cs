@@ -28,7 +28,7 @@ namespace ConexionBD
                 try
                 {
                     #region crear usuarios
-                    ServerConnection connMaster = new ServerConnection(oStringConnection.sqlConMaster);
+                   ServerConnection connMaster = new ServerConnection(oStringConnection.sqlConMaster);
                     Server serverMaster = new Server(connMaster);
                     string[] archivosMaster = null;
 

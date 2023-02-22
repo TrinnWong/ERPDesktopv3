@@ -3334,6 +3334,18 @@
     <Content Include="Versiones\2022.06.01\99_08 INSERT [cat_tipos_movimiento_inventario].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\99_09 p_rpt_ventas_movs_dia.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09100.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09101 p_chart_ventas_sucursal_meses_series.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09102 [p_rpt_ventas_detalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

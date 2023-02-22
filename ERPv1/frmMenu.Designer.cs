@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsCatalogos = new System.Windows.Forms.ToolStripDropDownButton();
@@ -107,6 +108,7 @@
             this.entradaPorTraspasoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesPorEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradaPorDevolucionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasPorTraspasoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidaPorAjusteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,10 +159,10 @@
             this.uiMenuSesion = new System.Windows.Forms.ToolStripDropDownButton();
             this.cambiarSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.timerMinimos = new System.Windows.Forms.Timer();
+            this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.entradaPorDevolucionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosSucursalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -554,6 +556,7 @@
             this.tsiTipoContrato,
             this.tsiAltaPersonal,
             this.tsiUsuarioSistema,
+            this.usuariosSucursalesToolStripMenuItem,
             this.tsiPuestos,
             this.tsiFormaPago,
             this.descuentosEmpleadoToolStripMenuItem});
@@ -566,6 +569,7 @@
             this.tsRH.Text = "R.H.";
             this.tsRH.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.tsRH.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.tsRH.Click += new System.EventHandler(this.tsRH_Click);
             // 
             // tsiDepartamentos
             // 
@@ -890,6 +894,13 @@
             this.ajustesPorEntradaToolStripMenuItem.Size = new System.Drawing.Size(347, 26);
             this.ajustesPorEntradaToolStripMenuItem.Text = "Entrada por Ajuste";
             this.ajustesPorEntradaToolStripMenuItem.Click += new System.EventHandler(this.ajustesPorEntradaToolStripMenuItem_Click);
+            // 
+            // entradaPorDevolucionToolStripMenuItem
+            // 
+            this.entradaPorDevolucionToolStripMenuItem.Name = "entradaPorDevolucionToolStripMenuItem";
+            this.entradaPorDevolucionToolStripMenuItem.Size = new System.Drawing.Size(347, 26);
+            this.entradaPorDevolucionToolStripMenuItem.Text = "Entrada Por Devolucion";
+            this.entradaPorDevolucionToolStripMenuItem.Click += new System.EventHandler(this.entradaPorDevolucionToolStripMenuItem_Click);
             // 
             // salidasPorToolStripMenuItem
             // 
@@ -1330,12 +1341,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // entradaPorDevolucionToolStripMenuItem
+            // usuariosSucursalesToolStripMenuItem
             // 
-            this.entradaPorDevolucionToolStripMenuItem.Name = "entradaPorDevolucionToolStripMenuItem";
-            this.entradaPorDevolucionToolStripMenuItem.Size = new System.Drawing.Size(347, 26);
-            this.entradaPorDevolucionToolStripMenuItem.Text = "Entrada Por Devolucion";
-            this.entradaPorDevolucionToolStripMenuItem.Click += new System.EventHandler(this.entradaPorDevolucionToolStripMenuItem_Click);
+            this.usuariosSucursalesToolStripMenuItem.Name = "usuariosSucursalesToolStripMenuItem";
+            this.usuariosSucursalesToolStripMenuItem.Size = new System.Drawing.Size(292, 38);
+            this.usuariosSucursalesToolStripMenuItem.Text = "Usuarios/Sucursales";
+            this.usuariosSucursalesToolStripMenuItem.Click += new System.EventHandler(this.usuariosSucursalesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1500,6 +1511,7 @@
         private System.Windows.Forms.ToolStripMenuItem productosEdiciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaPorDevolucionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosSucursalesToolStripMenuItem;
     }
 }
 

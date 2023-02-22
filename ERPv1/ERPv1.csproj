@@ -710,6 +710,12 @@
     <Compile Include="Seguridad\frmUsuariosRoles.Designer.cs">
       <DependentUpon>frmUsuariosRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad\frmUsuariosSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuariosSucursales.Designer.cs">
+      <DependentUpon>frmUsuariosSucursales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilerias\frmBitacoraExcepciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1020,6 +1026,9 @@
     <EmbeddedResource Include="Seguridad\frmUsuariosRoles.resx">
       <DependentUpon>frmUsuariosRoles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmUsuariosSucursales.resx">
+      <DependentUpon>frmUsuariosSucursales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\frmBitacoraExcepciones.resx">
       <DependentUpon>frmBitacoraExcepciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -1069,6 +1078,7 @@
     <None Include="Properties\DataSources\ConexionBD.cat_tipos_cajas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_tipos_mermas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_tipo_factor_SAT.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_usuarios.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_usuarios_sucursales.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_basculas_bitacora.datasource" />
     <None Include="Properties\DataSources\ConexionBD.doc_cargos.datasource" />
