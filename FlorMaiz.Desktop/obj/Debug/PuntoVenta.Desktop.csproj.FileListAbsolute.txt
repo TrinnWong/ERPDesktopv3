@@ -1,0 +1,8 @@
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ConexionBD.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Background.Task.exe
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Business.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Models.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Utils.dll
+C:\Users\danw7\source\repos\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\es\EntityFramework.resources.dll
