@@ -17,6 +17,7 @@ namespace ERPv1.Preferencia
     {
         int sucursalId;
         int err = 0;
+        int preferenciaId = 0;
         
         sis_preferencias_sucursales oRegistro;
         private static frmPreferenciaSucursalUpd _instance;
@@ -138,6 +139,9 @@ namespace ERPv1.Preferencia
         {
             try
             {
+                sucursalId = Convert.ToInt32(uiSucursal.EditValue);
+                preferenciaId = Convert.ToInt32(uiPreferencia.EditValue);
+
                 oContext = new ERPProdEntities();
                 if(uiSucursal.EditValue == null || uiPreferencia.EditValue == null)
                 {
@@ -147,6 +151,12 @@ namespace ERPv1.Preferencia
                 sis_preferencias_sucursales oEntityUpd;
                 if (oRegistro.Id == 0)
                 {
+                    if(oContext.sis_preferencias_sucursales.Where(w=> w.SucursalId == sucursalId
+                    && w.PreferenciaId == preferenciaId).Count() > 0)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe un registro para la preferencia y sucursal. Busque la preferencia en el listado y seleccione EDITAR");
+                        return;
+                    }
                     oEntityUpd = new sis_preferencias_sucursales() { CreadoEl = DateTime.Now };
 
                     oEntityUpd.Id = (oContext.sis_preferencias_sucursales

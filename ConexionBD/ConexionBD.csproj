@@ -814,6 +814,9 @@
     <Compile Include="p_doc_corte_caja_grd_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="p_doc_corte_caja_tortilleria_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="p_doc_devoluciones_grid_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -3344,6 +3347,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\99_09102 [p_rpt_ventas_detalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09103 p_cat_productos_grd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">

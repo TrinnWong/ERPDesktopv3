@@ -17,6 +17,7 @@ namespace ERP.Models.Inventario
         public decimal precioNeto { get; set; }
         public decimal precioCompra { get; set; }
         public decimal cantidad { get; set; }
+        public decimal cantidadOriginal { get; set; }
         public decimal porcImpuestos { get; set; }
         public decimal impuestos { get; set; }
         public decimal porcDescuento { get; set; }

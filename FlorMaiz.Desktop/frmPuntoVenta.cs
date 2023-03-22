@@ -1786,11 +1786,11 @@ namespace FlorMaiz.Desktop
                 BuscarProductoDialog();
                 
             }
-            if (e.KeyCode == Keys.F10)
+            if (e.KeyCode == Keys.F4)
             {
                 SeleccionProducto("", 1);
             }
-            if (e.KeyCode == Keys.F11)
+            if (e.KeyCode == Keys.F5)
             {
                 SeleccionProducto("", 2);
             }
@@ -1815,11 +1815,11 @@ namespace FlorMaiz.Desktop
                 BuscarProductoDialog();
                 
             }
-            if (e.KeyCode == Keys.F10)
+            if (e.KeyCode == Keys.F4)
             {
                 SeleccionProducto("",1);
             }
-            if (e.KeyCode == Keys.F11)
+            if (e.KeyCode == Keys.F5)
             {
                 SeleccionProducto("", 2);
             }

@@ -229,5 +229,10 @@ namespace ERP.Common.Inventarios
         {
             _instance = null;
         }
+
+        private void uiSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

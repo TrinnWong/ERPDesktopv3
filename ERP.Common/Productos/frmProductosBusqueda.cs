@@ -44,12 +44,18 @@ namespace ERP.Common.Productos
                 (w.ProdParaVenta == soloParaVenta || !soloParaVenta))
                     .OrderBy(o => o.Descripcion);
 
+                
+
                 if (soloProductosSucursal)
                 {
                     int[] idsProdSucursal = oContext.cat_sucursales_productos.Where(w => w.SucursalId == sucursalFiltro)
                         .Select(s => s.ProductoId).ToArray();
 
                     uiGrid.DataSource = lstProds.Where(w => idsProdSucursal.Contains(w.ProductoId));
+                }
+                else
+                {
+                    uiGrid.DataSource = lstProds;
                 }
 
             }

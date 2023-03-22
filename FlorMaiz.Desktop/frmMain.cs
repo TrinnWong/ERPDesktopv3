@@ -341,6 +341,44 @@ namespace FlorMaiz.Desktop
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            string msg = "";
+            oContext = new ERPProdEntities();
+            //Si es Tortillería, validar que los datos necesarios
+            if(oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI")
+            {
+                List<p_doc_corte_caja_tortilleria_Result> lstResult= oContext.p_doc_corte_caja_tortilleria(this.puntoVentaContext.sucursalId,
+                    DateTime.Now,
+                    DateTime.Now,
+                    puntoVentaContext.usuarioId).ToList();
+
+                if(lstResult.Count() > 0)
+                {
+                    if(lstResult.Where(w=> w.Clave == "MAIZS").Sum(s=> s.Cantidad) == 0)
+                    {
+                        msg =  "Es necesario registrar los sacos de Maiz usados para producción en el día " +DateTime.Now.AddDays(-1).ToShortDateString();
+                    }
+                    if (lstResult.Where(w => w.Clave == "MASECAS").Sum(s => s.Cantidad) == 0)
+                    {
+                        msg = msg + "|Es necesario registrar los sacos de Maseca usados para producción en el día " + DateTime.Now.AddDays(-1).ToShortDateString();
+                    }
+                    if (lstResult.FirstOrDefault().TotalRetiros == 0)
+                    {
+                        msg = msg + "|Es necesario registrar los retiros del día (Venta de Mostrador y Repartos) ";
+                    }
+                    //SOBRANTES
+                    if (lstResult.Where(w=> w.TipoId == 6).Sum(s=> s.Cantidad) == 0)
+                    {
+                        msg = msg + "|Es necesario registrar los sobrantes del día " + DateTime.Now.ToShortDateString();
+                    }
+
+                    if(msg.Length > 0)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning(msg);
+                        return;
+                    }
+                }
+            }
+
             if (!ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                 this.puntoVentaContext.sucursalId,
                 "PVCorteCajaOcultarDetalleCajero",this.puntoVentaContext.usuarioId))
@@ -554,7 +592,7 @@ namespace FlorMaiz.Desktop
                 else
                 {
                     Process p = new Process();
-                    ProcessStartInfo psi = new ProcessStartInfo(@"Bascula\ERP.Background.Task.exe");
+                    ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Background.Task.exe");
 
                     p.StartInfo = psi;
                     p.Start();
@@ -613,6 +651,29 @@ namespace FlorMaiz.Desktop
                     //frmo = new frmPuntoVenta();
                     frmo.puntoVentaContext = this.puntoVentaContext;
                     frmo.MdiParent = this;
+                    frmo.Show();
+                }
+            }
+            
+        }
+
+        private void mnuMaizMaseca_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmAdminPass oForm = new frmAdminPass();
+
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+            oForm.ShowDialog();
+
+            if (oForm.DialogResult == DialogResult.OK)
+            {
+                frmRegistroMaizMaseca frmo = frmRegistroMaizMaseca.GetInstance();
+                if (!frmo.Visible)
+                {
+                    frmo.MdiParent = this;
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.StartPosition = FormStartPosition.CenterScreen;
+                    frmo.WindowState = FormWindowState.Maximized;
+
                     frmo.Show();
                 }
             }

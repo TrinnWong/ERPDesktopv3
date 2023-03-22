@@ -114,10 +114,10 @@ namespace ERP.Background.Task
                         //peso = .120M;
 
                         uiPeso.Value = peso;
-                        cat_configuracion oConfigu = ContextLocal.cat_configuracion.Where(w=>w.ConfiguradorId == 1).FirstOrDefault();
-
-                        oConfigu.SuperEmail4 = peso.ToString();
-                        ContextLocal.SaveChanges();
+                        string queryString = String.Format("UPDATE cat_configuracion Set SuperEmail4 = '{0}'  where ConfiguradorId = 1", peso.ToString());
+                        ContextLocal.Database.ExecuteSqlCommand(queryString);
+                        
+                        
 
 
 
@@ -127,7 +127,7 @@ namespace ERP.Background.Task
                 }
                 catch (Exception ex)
                 {
-                    uiMemo.Text =String.Format("[{0}:{1}:{2}:{3}]",basculaConfiguracion.PortName,basculaConfiguracion.WriteBufferSize,basculaConfiguracion.ReadBufferSize,basculaConfiguracion.BaudRate) + ex.Message + "-"+"-"+(ex.InnerException == null ?"": ex.InnerException.Message) + ex.StackTrace;
+                    uiMemo.Text =String.Format("[{0}:{1}:{2}:{3}:{4}]",basculaConfiguracion.PortName,basculaConfiguracion.WriteBufferSize,basculaConfiguracion.ReadBufferSize,basculaConfiguracion.BaudRate, localString) + ex.Message + "-"+"-"+(ex.InnerException == null ?"": ex.InnerException.Message) + ex.StackTrace;
 
                 }
                 

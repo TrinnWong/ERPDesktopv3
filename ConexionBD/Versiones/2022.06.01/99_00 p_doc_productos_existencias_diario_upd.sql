@@ -8,7 +8,7 @@ DROP PROC p_doc_productos_existencias_diario_upd
 GO
 
 
--- p_doc_productos_existencias_diario_upd 3,1,''
+-- p_doc_productos_existencias_diario_upd 2,1,''
 CREATE PROC p_doc_productos_existencias_diario_upd
 @pSucursalId INT,
 @pCreadoPor INT,

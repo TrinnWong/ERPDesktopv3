@@ -248,6 +248,12 @@
     <Compile Include="CorteCaja\frmCorteCajaMaizDiario.Designer.cs">
       <DependentUpon>frmCorteCajaMaizDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="CorteCaja\frmCorteCajaTortilleria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorteCaja\frmCorteCajaTortilleria.Designer.cs">
+      <DependentUpon>frmCorteCajaTortilleria.cs</DependentUpon>
+    </Compile>
     <Compile Include="CorteCaja\frmCorteCajaTortilleriaDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -920,6 +926,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CorteCaja\frmCorteCajaMaizDiario.resx">
       <DependentUpon>frmCorteCajaMaizDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorteCaja\frmCorteCajaTortilleria.resx">
+      <DependentUpon>frmCorteCajaTortilleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CorteCaja\frmCorteCajaTortilleriaDatos.resx">
       <DependentUpon>frmCorteCajaTortilleriaDatos.cs</DependentUpon>

@@ -165,6 +165,11 @@ namespace ERPv1
                                 .Where(w=> w.cat_usuarios_sucursales
                                 .Where(s1=> s1.UsuarioId == oUsuario.IdUsuario).Count() >0).ToList();
                         }
+                        else
+                        {
+                            uiSucursal.DataSource = new List<cat_sucursales>();
+                            uiSucursal.SelectedValue = 0;
+                        }
                     }
                 }
               

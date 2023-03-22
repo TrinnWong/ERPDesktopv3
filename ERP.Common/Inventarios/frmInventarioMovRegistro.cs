@@ -639,12 +639,12 @@ namespace ERP.Common.Inventarios
                         result = ERP.Business.InventarioBusiness
                         .Guardar(ref entityMov, puntoVentaContext.usuarioId, oContext);
 
-                        /********Eliminar detalle************/
-                        List<doc_inv_movimiento_detalle> lstDetalleDel = oContext.doc_inv_movimiento_detalle.Where(w => w.MovimientoId == MovimientoInventarioId).ToList();
-                        foreach (doc_inv_movimiento_detalle itemDel in lstDetalleDel)
-                        {
-                            oContext.doc_inv_movimiento_detalle.Remove(itemDel);
-                        }
+                    /********Eliminar detalle************/
+                    if(MovimientoInventarioId > 0)
+                    {
+                        oContext.p_doc_inv_movimiento_detalle_del(MovimientoInventarioId);
+                    }
+                                       
 
                         if (result.ok)
                         {

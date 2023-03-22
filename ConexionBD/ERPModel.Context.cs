@@ -23,8 +23,9 @@ namespace ConexionBD
         }
 
         public ERPProdEntities(string sc)
-           : base("name=ERPProdEntities")
+            : base("name=ERPProdEntities")
         {
+            this.Database.Connection.ConnectionString = sc;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -118,7 +119,6 @@ namespace ConexionBD
         public virtual DbSet<rh_formaspagonom> rh_formaspagonom { get; set; }
         public virtual DbSet<rh_puestos> rh_puestos { get; set; }
         public virtual DbSet<rh_tipos_contrato> rh_tipos_contrato { get; set; }
-        public virtual DbSet<cat_configuracion> cat_configuracion { get; set; }
         public virtual DbSet<sis_versiones> sis_versiones { get; set; }
         public virtual DbSet<sis_versiones_detalle> sis_versiones_detalle { get; set; }
         public virtual DbSet<cat_productos_agrupados> cat_productos_agrupados { get; set; }
@@ -239,6 +239,7 @@ namespace ConexionBD
         public virtual DbSet<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
         public virtual DbSet<sis_cuenta> sis_cuenta { get; set; }
         public virtual DbSet<cat_productos_maximos_minimos> cat_productos_maximos_minimos { get; set; }
+        public virtual DbSet<cat_configuracion> cat_configuracion { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {
@@ -4909,6 +4910,36 @@ namespace ConexionBD
                 new ObjectParameter("pFecha", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_corte_caja_pedidos_pagos_Result>("p_rpt_corte_caja_pedidos_pagos", pSucursalIdParameter, pFechaParameter);
+        }
+    
+        public virtual ObjectResult<p_doc_corte_caja_tortilleria_Result> p_doc_corte_caja_tortilleria(Nullable<int> pSucursalId, Nullable<System.DateTime> pFechaIni, Nullable<System.DateTime> pFechaFin, Nullable<int> pUsuarioId)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pFechaIniParameter = pFechaIni.HasValue ?
+                new ObjectParameter("pFechaIni", pFechaIni) :
+                new ObjectParameter("pFechaIni", typeof(System.DateTime));
+    
+            var pFechaFinParameter = pFechaFin.HasValue ?
+                new ObjectParameter("pFechaFin", pFechaFin) :
+                new ObjectParameter("pFechaFin", typeof(System.DateTime));
+    
+            var pUsuarioIdParameter = pUsuarioId.HasValue ?
+                new ObjectParameter("pUsuarioId", pUsuarioId) :
+                new ObjectParameter("pUsuarioId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_doc_corte_caja_tortilleria_Result>("p_doc_corte_caja_tortilleria", pSucursalIdParameter, pFechaIniParameter, pFechaFinParameter, pUsuarioIdParameter);
+        }
+    
+        public virtual int p_doc_inv_movimiento_detalle_del(Nullable<int> pMovimientoId)
+        {
+            var pMovimientoIdParameter = pMovimientoId.HasValue ?
+                new ObjectParameter("pMovimientoId", pMovimientoId) :
+                new ObjectParameter("pMovimientoId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_inv_movimiento_detalle_del", pMovimientoIdParameter);
         }
     }
 }

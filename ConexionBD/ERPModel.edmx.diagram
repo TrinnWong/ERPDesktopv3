@@ -91,7 +91,6 @@
         <EntityTypeShape EntityType="ERPProdModel.rh_formaspagonom" Width="1.5" PointX="3" PointY="159.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.rh_puestos" Width="1.5" PointX="3" PointY="164.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ERPProdModel.rh_tipos_contrato" Width="1.5" PointX="3" PointY="168" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ERPProdModel.FK_cat_impuestos_cat_abreviaturas_SAT" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_almac__Empre__3552E9B6" ManuallyRouted="false" />
         <AssociationConnector Association="ERPProdModel.FK__cat_almac__Empre__36470DEF" ManuallyRouted="false" />
@@ -522,7 +521,6 @@
         <AssociationConnector Association="ERPProdModel.FK_doc_cargos_detalle_doc_cargos" />
         <AssociationConnector Association="ERPProdModel.FK_doc_pedidos_orden_doc_cargos" />
         <EntityTypeShape EntityType="ERPProdModel.cat_politicas" Width="1.5" PointX="11.375" PointY="3.75" />
-        <AssociationConnector Association="ERPProdModel.FK__cat_confi__Pedid__25276EE5" />
         <EntityTypeShape EntityType="ERPProdModel.cat_guisos" Width="1.5" PointX="7.5" PointY="93.125" />
         <AssociationConnector Association="ERPProdModel.FK_cat_productos_guisos_cat_productos" />
         <EntityTypeShape EntityType="ERPProdModel.cat_empresas_config_inventario" Width="1.5" PointX="3" PointY="124.25" />
@@ -767,6 +765,8 @@
         <AssociationConnector Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_sucursales" />
         <AssociationConnector Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios" />
         <AssociationConnector Association="ERPProdModel.FK_cat_productos_maximos_minimos_cat_usuarios1" />
+        <EntityTypeShape EntityType="ERPProdModel.cat_configuracion" Width="1.5" PointX="13.625" PointY="19.125" />
+        <AssociationConnector Association="ERPProdModel.FK__cat_confi__Pedid__77DFC722" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

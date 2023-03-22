@@ -9538,6 +9538,12 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Parameter Name="pFechaDel" Type="datetime" Mode="In" />
           <Parameter Name="pFechaAl" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="p_doc_corte_caja_tortilleria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+          <Parameter Name="pFechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="pFechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="pUsuarioId" Type="int" Mode="In" />
+        </Function>
         <Function Name="p_doc_devolucion_detalle_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pDevolucionDetId" Type="int" Mode="InOut" />
           <Parameter Name="pDevolucionId" Type="int" Mode="In" />
@@ -9571,6 +9577,9 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
         <Function Name="p_doc_inv_movimiento_cancel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pMovimientoId" Type="int" Mode="In" />
           <Parameter Name="pModificadoPor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="p_doc_inv_movimiento_detalle_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pMovimientoId" Type="int" Mode="In" />
         </Function>
         <Function Name="p_doc_inv_movimiento_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pMovimientoId" Type="int" Mode="InOut" />
@@ -14831,76 +14840,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <NavigationProperty Name="rh_empleados" Relationship="Self.FK__rh_emplea__TipoC__4242D080" FromRole="rh_tipos_contrato" ToRole="rh_empleados" />
           <NavigationProperty Name="rh_empleados1" Relationship="Self.FK__rh_emplea__TipoC__4336F4B9" FromRole="rh_tipos_contrato" ToRole="rh_empleados" />
         </EntityType>
-        <EntityType Name="cat_configuracion">
-          <Key>
-            <PropertyRef Name="ConfiguradorId" />
-          </Key>
-          <Property Name="ConfiguradorId" Type="Int32" Nullable="false" />
-          <Property Name="UnaFormaPago" Type="Boolean" />
-          <Property Name="MasUnaFormaPago" Type="Boolean" />
-          <Property Name="CosteoUEPS" Type="Boolean" />
-          <Property Name="CosteoPEPS" Type="Boolean" />
-          <Property Name="CosteoPromedio" Type="Boolean" />
-          <Property Name="AfectarInventarioLinea" Type="Boolean" />
-          <Property Name="AfectarInventarioManual" Type="Boolean" />
-          <Property Name="AfectarInventarioCorte" Type="Boolean" />
-          <Property Name="EnlazarPuntoVentaInventario" Type="Boolean" />
-          <Property Name="CajeroIncluirDetalleVenta" Type="Boolean" />
-          <Property Name="CajeroReqClaveSupervisor" Type="Boolean" />
-          <Property Name="SuperIncluirDetalleVenta" Type="Boolean" />
-          <Property Name="SuperIncluirVentaTel" Type="Boolean" />
-          <Property Name="SuperIncluirDetGastos" Type="Boolean" />
-          <Property Name="SuperEmail1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SuperEmail2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SuperEmail3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SuperEmail4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="RetiroMontoEfec" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="RetiroLectura" Type="Boolean" />
-          <Property Name="RetiroEscritura" Type="Boolean" />
-          <Property Name="NombreImpresora" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="HardwareCaracterCajon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpleadoPorcDescuento" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="EmpleadoGlobal" Type="Boolean" />
-          <Property Name="EmpleadoIndividual" Type="Boolean" />
-          <Property Name="MontoImpresionTicket" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ApartadoAnticipo1" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ApartadoAnticipoHasta1" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ApartadoAnticipo2" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ApatadoAnticipoEnAdelante2" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="PorcentajeUtilidadProd" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="DesgloceMontoTicket" Type="Boolean" />
-          <Property Name="RetiroReqClaveSup" Type="Boolean" />
-          <Property Name="CajDeclaracionFondoCorte" Type="Boolean" />
-          <Property Name="SupDeclaracionFondoCorte" Type="Boolean" />
-          <Property Name="vistaPreviaImpresion" Type="Boolean" />
-          <Property Name="CajeroCorteDetGasto" Type="Boolean" />
-          <Property Name="SupCorteDetGasto" Type="Boolean" />
-          <Property Name="CajeroCorteCancelaciones" Type="Boolean" />
-          <Property Name="SupCorteCancelaciones" Type="Boolean" />
-          <Property Name="DevDiasVale" Type="Byte" />
-          <Property Name="DevDiasGarantia" Type="Byte" />
-          <Property Name="DevHorasGarantia" Type="Byte" />
-          <Property Name="ApartadoDiasLiq" Type="Byte" />
-          <Property Name="ApartadoDiasProrroga" Type="Byte" />
-          <Property Name="ReqClaveSupReimpresionTicketPV" Type="Boolean" />
-          <Property Name="ReqClaveSupCancelaTicketPV" Type="Boolean" />
-          <Property Name="ReqClaveSupGastosPV" Type="Boolean" />
-          <Property Name="ReqClaveSupDevolucionPV" Type="Boolean" />
-          <Property Name="ReqClaveSupApartadoPV" Type="Boolean" />
-          <Property Name="ReqClaveSupExistenciaPV" Type="Boolean" />
-          <Property Name="SerieTicketVenta" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="SerieTicketApartado" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="CorteCajaIncluirExistencia" Type="Boolean" />
-          <Property Name="ImprimirTicketMediaCarta" Type="Boolean" />
-          <Property Name="Giro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SolicitarComanda" Type="Boolean" />
-          <Property Name="TieneRec" Type="Boolean" />
-          <Property Name="PorcRec" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="MontoRecargoDiario" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="PedidoAnticipoPorc" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="PedidoPoliticaId" Type="Int32" />
-          <NavigationProperty Name="cat_politicas" Relationship="ERPProdModel.FK__cat_confi__Pedid__25276EE5" FromRole="cat_configuracion" ToRole="cat_politicas" />
-        </EntityType>
         <Association Name="FK_cat_impuestos_cat_abreviaturas_SAT">
           <End Role="cat_abreviaturas_SAT" Type="Self.cat_abreviaturas_SAT" Multiplicity="1" />
           <End Role="cat_impuestos" Type="Self.cat_impuestos" Multiplicity="*" />
@@ -18482,7 +18421,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <EntitySet Name="rh_formaspagonom" EntityType="Self.rh_formaspagonom" />
           <EntitySet Name="rh_puestos" EntityType="Self.rh_puestos" />
           <EntitySet Name="rh_tipos_contrato" EntityType="Self.rh_tipos_contrato" />
-          <EntitySet Name="cat_configuracion" EntityType="Self.cat_configuracion" />
           <AssociationSet Name="FK_cat_impuestos_cat_abreviaturas_SAT" Association="Self.FK_cat_impuestos_cat_abreviaturas_SAT">
             <End Role="cat_abreviaturas_SAT" EntitySet="cat_abreviaturas_SAT" />
             <End Role="cat_impuestos" EntitySet="cat_impuestos" />
@@ -21294,10 +21232,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pPedidoId" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="cat_politicas" EntityType="ERPProdModel.cat_politicas" />
-          <AssociationSet Name="FK__cat_confi__Pedid__25276EE5" Association="ERPProdModel.FK__cat_confi__Pedid__25276EE5">
-            <End Role="cat_politicas" EntitySet="cat_politicas" />
-            <End Role="cat_configuracion" EntitySet="cat_configuracion" />
-          </AssociationSet>
           <EntitySet Name="cat_guisos" EntityType="ERPProdModel.cat_guisos" />
           <AssociationSet Name="FK_cat_productos_guisos_cat_productos" Association="ERPProdModel.FK_cat_productos_guisos_cat_productos">
             <End Role="cat_productos" EntitySet="cat_productos" />
@@ -22191,6 +22125,20 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <End Role="cat_usuarios" EntitySet="cat_usuarios" />
             <End Role="cat_productos_maximos_minimos" EntitySet="cat_productos_maximos_minimos" />
           </AssociationSet>
+          <FunctionImport Name="p_doc_corte_caja_tortilleria" ReturnType="Collection(ERPProdModel.p_doc_corte_caja_tortilleria_Result)">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pFechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="pFechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="pUsuarioId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="cat_configuracion" EntityType="ERPProdModel.cat_configuracion" />
+          <AssociationSet Name="FK__cat_confi__Pedid__77DFC722" Association="ERPProdModel.FK__cat_confi__Pedid__77DFC722">
+            <End Role="cat_politicas" EntitySet="cat_politicas" />
+            <End Role="cat_configuracion" EntitySet="cat_configuracion" />
+          </AssociationSet>
+          <FunctionImport Name="p_doc_inv_movimiento_detalle_del">
+            <Parameter Name="pMovimientoId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -24871,20 +24819,8 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="CreadoEl" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="cat_configuracion" Relationship="ERPProdModel.FK__cat_confi__Pedid__25276EE5" FromRole="cat_politicas" ToRole="cat_configuracion" />
+          <NavigationProperty Name="cat_configuracion" Relationship="ERPProdModel.FK__cat_confi__Pedid__77DFC722" FromRole="cat_politicas" ToRole="cat_configuracion" />
         </EntityType>
-        <Association Name="FK__cat_confi__Pedid__25276EE5">
-          <End Type="ERPProdModel.cat_politicas" Role="cat_politicas" Multiplicity="0..1" />
-          <End Type="ERPProdModel.cat_configuracion" Role="cat_configuracion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cat_politicas">
-              <PropertyRef Name="PoliticaId" />
-            </Principal>
-            <Dependent Role="cat_configuracion">
-              <PropertyRef Name="PedidoPoliticaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="cat_guisos">
           <Key>
             <PropertyRef Name="productoId" />
@@ -28217,6 +28153,106 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="p_doc_corte_caja_tortilleria_Result" >
+          <Property Type="String" Name="Tipo" Nullable="false" />
+          <Property Type="Int32" Name="Fila" Nullable="false" />
+          <Property Type="Int32" Name="TipoId" Nullable="false" />
+          <Property Type="String" Name="Concepto" Nullable="false" />
+          <Property Type="Boolean" Name="Abono" Nullable="false" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="PrecioUnitario" Nullable="false" />
+          <Property Type="Decimal" Name="Total" Nullable="false" />
+          <Property Type="String" Name="Clave" Nullable="false" />
+          <Property Type="Boolean" Name="Mostrar" Nullable="false" />
+          <Property Type="Decimal" Name="TotalEntradas" Nullable="false" />
+          <Property Type="Decimal" Name="TotalDescuentos" Nullable="false" />
+          <Property Type="Decimal" Name="TotalRetiros" Nullable="false" />
+          <Property Type="Decimal" Name="TotalDiferencia" Nullable="false" />
+          <Property Type="Decimal" Name="TotalRequerido" Nullable="false" />
+          <Property Type="Decimal" Name="TotalRegistradoSistema" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="cat_configuracion">
+          <Key>
+            <PropertyRef Name="ConfiguradorId" />
+          </Key>
+          <Property Name="ConfiguradorId" Type="Int32" Nullable="false" />
+          <Property Name="UnaFormaPago" Type="Boolean" />
+          <Property Name="MasUnaFormaPago" Type="Boolean" />
+          <Property Name="CosteoUEPS" Type="Boolean" />
+          <Property Name="CosteoPEPS" Type="Boolean" />
+          <Property Name="CosteoPromedio" Type="Boolean" />
+          <Property Name="AfectarInventarioLinea" Type="Boolean" />
+          <Property Name="AfectarInventarioManual" Type="Boolean" />
+          <Property Name="AfectarInventarioCorte" Type="Boolean" />
+          <Property Name="EnlazarPuntoVentaInventario" Type="Boolean" />
+          <Property Name="CajeroIncluirDetalleVenta" Type="Boolean" />
+          <Property Name="CajeroReqClaveSupervisor" Type="Boolean" />
+          <Property Name="SuperIncluirDetalleVenta" Type="Boolean" />
+          <Property Name="SuperIncluirVentaTel" Type="Boolean" />
+          <Property Name="SuperIncluirDetGastos" Type="Boolean" />
+          <Property Name="SuperEmail1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SuperEmail2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SuperEmail3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SuperEmail4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RetiroMontoEfec" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RetiroLectura" Type="Boolean" />
+          <Property Name="RetiroEscritura" Type="Boolean" />
+          <Property Name="NombreImpresora" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HardwareCaracterCajon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpleadoPorcDescuento" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="EmpleadoGlobal" Type="Boolean" />
+          <Property Name="EmpleadoIndividual" Type="Boolean" />
+          <Property Name="MontoImpresionTicket" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartadoAnticipo1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartadoAnticipoHasta1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApartadoAnticipo2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApatadoAnticipoEnAdelante2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PorcentajeUtilidadProd" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="DesgloceMontoTicket" Type="Boolean" />
+          <Property Name="RetiroReqClaveSup" Type="Boolean" />
+          <Property Name="CajDeclaracionFondoCorte" Type="Boolean" />
+          <Property Name="SupDeclaracionFondoCorte" Type="Boolean" />
+          <Property Name="vistaPreviaImpresion" Type="Boolean" />
+          <Property Name="CajeroCorteDetGasto" Type="Boolean" />
+          <Property Name="SupCorteDetGasto" Type="Boolean" />
+          <Property Name="CajeroCorteCancelaciones" Type="Boolean" />
+          <Property Name="SupCorteCancelaciones" Type="Boolean" />
+          <Property Name="DevDiasVale" Type="Byte" />
+          <Property Name="DevDiasGarantia" Type="Byte" />
+          <Property Name="DevHorasGarantia" Type="Byte" />
+          <Property Name="ApartadoDiasLiq" Type="Byte" />
+          <Property Name="ApartadoDiasProrroga" Type="Byte" />
+          <Property Name="ReqClaveSupReimpresionTicketPV" Type="Boolean" />
+          <Property Name="ReqClaveSupCancelaTicketPV" Type="Boolean" />
+          <Property Name="ReqClaveSupGastosPV" Type="Boolean" />
+          <Property Name="ReqClaveSupDevolucionPV" Type="Boolean" />
+          <Property Name="ReqClaveSupApartadoPV" Type="Boolean" />
+          <Property Name="ReqClaveSupExistenciaPV" Type="Boolean" />
+          <Property Name="SerieTicketVenta" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="SerieTicketApartado" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="CorteCajaIncluirExistencia" Type="Boolean" />
+          <Property Name="ImprimirTicketMediaCarta" Type="Boolean" />
+          <Property Name="Giro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SolicitarComanda" Type="Boolean" />
+          <Property Name="TieneRec" Type="Boolean" />
+          <Property Name="PorcRec" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MontoRecargoDiario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PedidoAnticipoPorc" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="PedidoPoliticaId" Type="Int32" />
+          <NavigationProperty Name="cat_politicas" Relationship="ERPProdModel.FK__cat_confi__Pedid__77DFC722" FromRole="cat_configuracion" ToRole="cat_politicas" />
+        </EntityType>
+        <Association Name="FK__cat_confi__Pedid__77DFC722">
+          <End Type="ERPProdModel.cat_politicas" Role="cat_politicas" Multiplicity="0..1" />
+          <End Type="ERPProdModel.cat_configuracion" Role="cat_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cat_politicas">
+              <PropertyRef Name="PoliticaId" />
+            </Principal>
+            <Dependent Role="cat_configuracion">
+              <PropertyRef Name="PedidoPoliticaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -29446,76 +29482,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
                 <ScalarProperty Name="Estatus" ColumnName="Estatus" />
                 <ScalarProperty Name="Empresa" ColumnName="Empresa" />
                 <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cat_configuracion">
-            <EntityTypeMapping TypeName="ERPProdModel.cat_configuracion">
-              <MappingFragment StoreEntitySet="cat_configuracion">
-                <ScalarProperty Name="PedidoPoliticaId" ColumnName="PedidoPoliticaId" />
-                <ScalarProperty Name="PedidoAnticipoPorc" ColumnName="PedidoAnticipoPorc" />
-                <ScalarProperty Name="MontoRecargoDiario" ColumnName="MontoRecargoDiario" />
-                <ScalarProperty Name="PorcRec" ColumnName="PorcRec" />
-                <ScalarProperty Name="TieneRec" ColumnName="TieneRec" />
-                <ScalarProperty Name="SolicitarComanda" ColumnName="SolicitarComanda" />
-                <ScalarProperty Name="Giro" ColumnName="Giro" />
-                <ScalarProperty Name="ImprimirTicketMediaCarta" ColumnName="ImprimirTicketMediaCarta" />
-                <ScalarProperty Name="ConfiguradorId" ColumnName="ConfiguradorId" />
-                <ScalarProperty Name="UnaFormaPago" ColumnName="UnaFormaPago" />
-                <ScalarProperty Name="MasUnaFormaPago" ColumnName="MasUnaFormaPago" />
-                <ScalarProperty Name="CosteoUEPS" ColumnName="CosteoUEPS" />
-                <ScalarProperty Name="CosteoPEPS" ColumnName="CosteoPEPS" />
-                <ScalarProperty Name="CosteoPromedio" ColumnName="CosteoPromedio" />
-                <ScalarProperty Name="AfectarInventarioLinea" ColumnName="AfectarInventarioLinea" />
-                <ScalarProperty Name="AfectarInventarioManual" ColumnName="AfectarInventarioManual" />
-                <ScalarProperty Name="AfectarInventarioCorte" ColumnName="AfectarInventarioCorte" />
-                <ScalarProperty Name="EnlazarPuntoVentaInventario" ColumnName="EnlazarPuntoVentaInventario" />
-                <ScalarProperty Name="CajeroIncluirDetalleVenta" ColumnName="CajeroIncluirDetalleVenta" />
-                <ScalarProperty Name="CajeroReqClaveSupervisor" ColumnName="CajeroReqClaveSupervisor" />
-                <ScalarProperty Name="SuperIncluirDetalleVenta" ColumnName="SuperIncluirDetalleVenta" />
-                <ScalarProperty Name="SuperIncluirVentaTel" ColumnName="SuperIncluirVentaTel" />
-                <ScalarProperty Name="SuperIncluirDetGastos" ColumnName="SuperIncluirDetGastos" />
-                <ScalarProperty Name="SuperEmail1" ColumnName="SuperEmail1" />
-                <ScalarProperty Name="SuperEmail2" ColumnName="SuperEmail2" />
-                <ScalarProperty Name="SuperEmail3" ColumnName="SuperEmail3" />
-                <ScalarProperty Name="SuperEmail4" ColumnName="SuperEmail4" />
-                <ScalarProperty Name="RetiroMontoEfec" ColumnName="RetiroMontoEfec" />
-                <ScalarProperty Name="RetiroLectura" ColumnName="RetiroLectura" />
-                <ScalarProperty Name="RetiroEscritura" ColumnName="RetiroEscritura" />
-                <ScalarProperty Name="NombreImpresora" ColumnName="NombreImpresora" />
-                <ScalarProperty Name="HardwareCaracterCajon" ColumnName="HardwareCaracterCajon" />
-                <ScalarProperty Name="EmpleadoPorcDescuento" ColumnName="EmpleadoPorcDescuento" />
-                <ScalarProperty Name="EmpleadoGlobal" ColumnName="EmpleadoGlobal" />
-                <ScalarProperty Name="EmpleadoIndividual" ColumnName="EmpleadoIndividual" />
-                <ScalarProperty Name="MontoImpresionTicket" ColumnName="MontoImpresionTicket" />
-                <ScalarProperty Name="ApartadoAnticipo1" ColumnName="ApartadoAnticipo1" />
-                <ScalarProperty Name="ApartadoAnticipoHasta1" ColumnName="ApartadoAnticipoHasta1" />
-                <ScalarProperty Name="ApartadoAnticipo2" ColumnName="ApartadoAnticipo2" />
-                <ScalarProperty Name="ApatadoAnticipoEnAdelante2" ColumnName="ApatadoAnticipoEnAdelante2" />
-                <ScalarProperty Name="PorcentajeUtilidadProd" ColumnName="PorcentajeUtilidadProd" />
-                <ScalarProperty Name="DesgloceMontoTicket" ColumnName="DesgloceMontoTicket" />
-                <ScalarProperty Name="RetiroReqClaveSup" ColumnName="RetiroReqClaveSup" />
-                <ScalarProperty Name="CajDeclaracionFondoCorte" ColumnName="CajDeclaracionFondoCorte" />
-                <ScalarProperty Name="SupDeclaracionFondoCorte" ColumnName="SupDeclaracionFondoCorte" />
-                <ScalarProperty Name="vistaPreviaImpresion" ColumnName="vistaPreviaImpresion" />
-                <ScalarProperty Name="CajeroCorteDetGasto" ColumnName="CajeroCorteDetGasto" />
-                <ScalarProperty Name="SupCorteDetGasto" ColumnName="SupCorteDetGasto" />
-                <ScalarProperty Name="CajeroCorteCancelaciones" ColumnName="CajeroCorteCancelaciones" />
-                <ScalarProperty Name="SupCorteCancelaciones" ColumnName="SupCorteCancelaciones" />
-                <ScalarProperty Name="DevDiasVale" ColumnName="DevDiasVale" />
-                <ScalarProperty Name="DevDiasGarantia" ColumnName="DevDiasGarantia" />
-                <ScalarProperty Name="DevHorasGarantia" ColumnName="DevHorasGarantia" />
-                <ScalarProperty Name="ApartadoDiasLiq" ColumnName="ApartadoDiasLiq" />
-                <ScalarProperty Name="ApartadoDiasProrroga" ColumnName="ApartadoDiasProrroga" />
-                <ScalarProperty Name="ReqClaveSupReimpresionTicketPV" ColumnName="ReqClaveSupReimpresionTicketPV" />
-                <ScalarProperty Name="ReqClaveSupCancelaTicketPV" ColumnName="ReqClaveSupCancelaTicketPV" />
-                <ScalarProperty Name="ReqClaveSupGastosPV" ColumnName="ReqClaveSupGastosPV" />
-                <ScalarProperty Name="ReqClaveSupDevolucionPV" ColumnName="ReqClaveSupDevolucionPV" />
-                <ScalarProperty Name="ReqClaveSupApartadoPV" ColumnName="ReqClaveSupApartadoPV" />
-                <ScalarProperty Name="ReqClaveSupExistenciaPV" ColumnName="ReqClaveSupExistenciaPV" />
-                <ScalarProperty Name="SerieTicketVenta" ColumnName="SerieTicketVenta" />
-                <ScalarProperty Name="SerieTicketApartado" ColumnName="SerieTicketApartado" />
-                <ScalarProperty Name="CorteCajaIncluirExistencia" ColumnName="CorteCajaIncluirExistencia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -32544,6 +32510,99 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_doc_corte_caja_tortilleria" FunctionName="ERPProdModel.Store.p_doc_corte_caja_tortilleria" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_doc_corte_caja_tortilleria_Result">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Fila" ColumnName="Fila" />
+                <ScalarProperty Name="TipoId" ColumnName="TipoId" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Abono" ColumnName="Abono" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Mostrar" ColumnName="Mostrar" />
+                <ScalarProperty Name="TotalEntradas" ColumnName="TotalEntradas" />
+                <ScalarProperty Name="TotalDescuentos" ColumnName="TotalDescuentos" />
+                <ScalarProperty Name="TotalRetiros" ColumnName="TotalRetiros" />
+                <ScalarProperty Name="TotalDiferencia" ColumnName="TotalDiferencia" />
+                <ScalarProperty Name="TotalRequerido" ColumnName="TotalRequerido" />
+                <ScalarProperty Name="TotalRegistradoSistema" ColumnName="TotalRegistradoSistema" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="cat_configuracion">
+            <EntityTypeMapping TypeName="ERPProdModel.cat_configuracion">
+              <MappingFragment StoreEntitySet="cat_configuracion">
+                <ScalarProperty Name="PedidoPoliticaId" ColumnName="PedidoPoliticaId" />
+                <ScalarProperty Name="PedidoAnticipoPorc" ColumnName="PedidoAnticipoPorc" />
+                <ScalarProperty Name="MontoRecargoDiario" ColumnName="MontoRecargoDiario" />
+                <ScalarProperty Name="PorcRec" ColumnName="PorcRec" />
+                <ScalarProperty Name="TieneRec" ColumnName="TieneRec" />
+                <ScalarProperty Name="SolicitarComanda" ColumnName="SolicitarComanda" />
+                <ScalarProperty Name="Giro" ColumnName="Giro" />
+                <ScalarProperty Name="ImprimirTicketMediaCarta" ColumnName="ImprimirTicketMediaCarta" />
+                <ScalarProperty Name="CorteCajaIncluirExistencia" ColumnName="CorteCajaIncluirExistencia" />
+                <ScalarProperty Name="SerieTicketApartado" ColumnName="SerieTicketApartado" />
+                <ScalarProperty Name="SerieTicketVenta" ColumnName="SerieTicketVenta" />
+                <ScalarProperty Name="ReqClaveSupExistenciaPV" ColumnName="ReqClaveSupExistenciaPV" />
+                <ScalarProperty Name="ReqClaveSupApartadoPV" ColumnName="ReqClaveSupApartadoPV" />
+                <ScalarProperty Name="ReqClaveSupDevolucionPV" ColumnName="ReqClaveSupDevolucionPV" />
+                <ScalarProperty Name="ReqClaveSupGastosPV" ColumnName="ReqClaveSupGastosPV" />
+                <ScalarProperty Name="ReqClaveSupCancelaTicketPV" ColumnName="ReqClaveSupCancelaTicketPV" />
+                <ScalarProperty Name="ReqClaveSupReimpresionTicketPV" ColumnName="ReqClaveSupReimpresionTicketPV" />
+                <ScalarProperty Name="ApartadoDiasProrroga" ColumnName="ApartadoDiasProrroga" />
+                <ScalarProperty Name="ApartadoDiasLiq" ColumnName="ApartadoDiasLiq" />
+                <ScalarProperty Name="DevHorasGarantia" ColumnName="DevHorasGarantia" />
+                <ScalarProperty Name="DevDiasGarantia" ColumnName="DevDiasGarantia" />
+                <ScalarProperty Name="DevDiasVale" ColumnName="DevDiasVale" />
+                <ScalarProperty Name="SupCorteCancelaciones" ColumnName="SupCorteCancelaciones" />
+                <ScalarProperty Name="CajeroCorteCancelaciones" ColumnName="CajeroCorteCancelaciones" />
+                <ScalarProperty Name="SupCorteDetGasto" ColumnName="SupCorteDetGasto" />
+                <ScalarProperty Name="CajeroCorteDetGasto" ColumnName="CajeroCorteDetGasto" />
+                <ScalarProperty Name="vistaPreviaImpresion" ColumnName="vistaPreviaImpresion" />
+                <ScalarProperty Name="SupDeclaracionFondoCorte" ColumnName="SupDeclaracionFondoCorte" />
+                <ScalarProperty Name="CajDeclaracionFondoCorte" ColumnName="CajDeclaracionFondoCorte" />
+                <ScalarProperty Name="RetiroReqClaveSup" ColumnName="RetiroReqClaveSup" />
+                <ScalarProperty Name="DesgloceMontoTicket" ColumnName="DesgloceMontoTicket" />
+                <ScalarProperty Name="PorcentajeUtilidadProd" ColumnName="PorcentajeUtilidadProd" />
+                <ScalarProperty Name="ApatadoAnticipoEnAdelante2" ColumnName="ApatadoAnticipoEnAdelante2" />
+                <ScalarProperty Name="ApartadoAnticipo2" ColumnName="ApartadoAnticipo2" />
+                <ScalarProperty Name="ApartadoAnticipoHasta1" ColumnName="ApartadoAnticipoHasta1" />
+                <ScalarProperty Name="ApartadoAnticipo1" ColumnName="ApartadoAnticipo1" />
+                <ScalarProperty Name="MontoImpresionTicket" ColumnName="MontoImpresionTicket" />
+                <ScalarProperty Name="EmpleadoIndividual" ColumnName="EmpleadoIndividual" />
+                <ScalarProperty Name="EmpleadoGlobal" ColumnName="EmpleadoGlobal" />
+                <ScalarProperty Name="EmpleadoPorcDescuento" ColumnName="EmpleadoPorcDescuento" />
+                <ScalarProperty Name="HardwareCaracterCajon" ColumnName="HardwareCaracterCajon" />
+                <ScalarProperty Name="NombreImpresora" ColumnName="NombreImpresora" />
+                <ScalarProperty Name="RetiroEscritura" ColumnName="RetiroEscritura" />
+                <ScalarProperty Name="RetiroLectura" ColumnName="RetiroLectura" />
+                <ScalarProperty Name="RetiroMontoEfec" ColumnName="RetiroMontoEfec" />
+                <ScalarProperty Name="SuperEmail4" ColumnName="SuperEmail4" />
+                <ScalarProperty Name="SuperEmail3" ColumnName="SuperEmail3" />
+                <ScalarProperty Name="SuperEmail2" ColumnName="SuperEmail2" />
+                <ScalarProperty Name="SuperEmail1" ColumnName="SuperEmail1" />
+                <ScalarProperty Name="SuperIncluirDetGastos" ColumnName="SuperIncluirDetGastos" />
+                <ScalarProperty Name="SuperIncluirVentaTel" ColumnName="SuperIncluirVentaTel" />
+                <ScalarProperty Name="SuperIncluirDetalleVenta" ColumnName="SuperIncluirDetalleVenta" />
+                <ScalarProperty Name="CajeroReqClaveSupervisor" ColumnName="CajeroReqClaveSupervisor" />
+                <ScalarProperty Name="CajeroIncluirDetalleVenta" ColumnName="CajeroIncluirDetalleVenta" />
+                <ScalarProperty Name="EnlazarPuntoVentaInventario" ColumnName="EnlazarPuntoVentaInventario" />
+                <ScalarProperty Name="AfectarInventarioCorte" ColumnName="AfectarInventarioCorte" />
+                <ScalarProperty Name="AfectarInventarioManual" ColumnName="AfectarInventarioManual" />
+                <ScalarProperty Name="AfectarInventarioLinea" ColumnName="AfectarInventarioLinea" />
+                <ScalarProperty Name="CosteoPromedio" ColumnName="CosteoPromedio" />
+                <ScalarProperty Name="CosteoPEPS" ColumnName="CosteoPEPS" />
+                <ScalarProperty Name="CosteoUEPS" ColumnName="CosteoUEPS" />
+                <ScalarProperty Name="MasUnaFormaPago" ColumnName="MasUnaFormaPago" />
+                <ScalarProperty Name="UnaFormaPago" ColumnName="UnaFormaPago" />
+                <ScalarProperty Name="ConfiguradorId" ColumnName="ConfiguradorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_detalle_del" FunctionName="ERPProdModel.Store.p_doc_inv_movimiento_detalle_del" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

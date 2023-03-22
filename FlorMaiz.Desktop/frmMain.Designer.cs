@@ -54,8 +54,12 @@
             this.uiSincronizar = new DevExpress.XtraBars.BarButtonItem();
             this.uiMnuBascula = new DevExpress.XtraBars.BarButtonItem();
             this.btnReimprimirUltimoCorteCajero = new DevExpress.XtraBars.BarButtonItem();
+            this.uiMenuReimprimirCorteSupervisor = new DevExpress.XtraBars.BarButtonItem();
+            this.mnuMaizMaseca = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPedidos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -64,9 +68,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.uiMenuReimprimirCorteSupervisor = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,9 +100,11 @@
             this.uiSincronizar,
             this.uiMnuBascula,
             this.btnReimprimirUltimoCorteCajero,
-            this.uiMenuReimprimirCorteSupervisor});
+            this.uiMenuReimprimirCorteSupervisor,
+            this.mnuMaizMaseca});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 27;
+            this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiRibbonControl.MaxItemId = 28;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -111,7 +114,7 @@
             this.ribbonPage2,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1191, 65);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1389, 65);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -193,7 +196,7 @@
             // 
             // barButtonItem9
             // 
-            this.barButtonItem9.Caption = "Corte de Caja";
+            this.barButtonItem9.Caption = "Generar Corte de Caja";
             this.barButtonItem9.Id = 11;
             this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
             this.barButtonItem9.Name = "barButtonItem9";
@@ -304,6 +307,22 @@
             this.btnReimprimirUltimoCorteCajero.Name = "btnReimprimirUltimoCorteCajero";
             this.btnReimprimirUltimoCorteCajero.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReimprimirUltimoCorteCajero_ItemClick);
             // 
+            // uiMenuReimprimirCorteSupervisor
+            // 
+            this.uiMenuReimprimirCorteSupervisor.Caption = "Reimprimir Corte Supervisor";
+            this.uiMenuReimprimirCorteSupervisor.Id = 26;
+            this.uiMenuReimprimirCorteSupervisor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuReimprimirCorteSupervisor.ImageOptions.Image")));
+            this.uiMenuReimprimirCorteSupervisor.Name = "uiMenuReimprimirCorteSupervisor";
+            this.uiMenuReimprimirCorteSupervisor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuReimprimirCorteSupervisor_ItemClick);
+            // 
+            // mnuMaizMaseca
+            // 
+            this.mnuMaizMaseca.Caption = "Registro Maiz y Maseca";
+            this.mnuMaizMaseca.Id = 27;
+            this.mnuMaizMaseca.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnuMaizMaseca.ImageOptions.Image")));
+            this.mnuMaizMaseca.Name = "mnuMaizMaseca";
+            this.mnuMaizMaseca.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuMaizMaseca_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -318,10 +337,26 @@
             this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
-            this.uiRibbonPageControl.ItemLinks.Add(this.uiProductoSobrante);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMnuBascula);
             this.uiRibbonPageControl.Name = "uiRibbonPageControl";
             this.uiRibbonPageControl.Text = "ribbonPageGroup1";
+            // 
+            // rbCorteCaja
+            // 
+            this.rbCorteCaja.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
+            this.rbCorteCaja.Name = "rbCorteCaja";
+            this.rbCorteCaja.Text = "Corte de Caja";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.mnuMaizMaseca);
+            this.ribbonPageGroup5.ItemLinks.Add(this.uiProductoSobrante);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnReimprimirUltimoCorteCajero);
+            this.ribbonPageGroup5.ItemLinks.Add(this.uiMenuReimprimirCorteSupervisor);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
             // ribbonPedidos
             // 
@@ -384,36 +419,14 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
-            // rbCorteCaja
-            // 
-            this.rbCorteCaja.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup5});
-            this.rbCorteCaja.Name = "rbCorteCaja";
-            this.rbCorteCaja.Text = "Corte de Caja";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem9);
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnReimprimirUltimoCorteCajero);
-            this.ribbonPageGroup5.ItemLinks.Add(this.uiMenuReimprimirCorteSupervisor);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
-            // 
-            // uiMenuReimprimirCorteSupervisor
-            // 
-            this.uiMenuReimprimirCorteSupervisor.Caption = "Reimprimir Corte Supervisor";
-            this.uiMenuReimprimirCorteSupervisor.Id = 26;
-            this.uiMenuReimprimirCorteSupervisor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuReimprimirCorteSupervisor.ImageOptions.Image")));
-            this.uiMenuReimprimirCorteSupervisor.Name = "uiMenuReimprimirCorteSupervisor";
-            this.uiMenuReimprimirCorteSupervisor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuReimprimirCorteSupervisor_ItemClick);
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 509);
+            this.ClientSize = new System.Drawing.Size(1389, 626);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA-FLOR DE MAIZ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -467,5 +480,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbCorteCaja;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem uiMenuReimprimirCorteSupervisor;
+        private DevExpress.XtraBars.BarButtonItem mnuMaizMaseca;
     }
 }
