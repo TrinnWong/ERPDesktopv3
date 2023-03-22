@@ -104,24 +104,38 @@ namespace ERP.Background.Task
                     //basculaControlador.cerrarBascula();
 
                     ERPProdEntities ContextLocal = new ERPProdEntities(localString);
-                    basculaControlador.abrirBascula();
-
-                    if (basculaControlador.isOpen())
+                    try
                     {
-                        //peso = rd.Next(100, 200);// basculaControlador.ObtenPeso();
+                        basculaControlador.abrirBascula();
+                    }
+                    catch (Exception ex)
+                    {
 
-                        peso =  basculaControlador.ObtenPeso();
-                        //peso = .120M;
-
-                        uiPeso.Value = peso;
-                        string queryString = String.Format("UPDATE cat_configuracion Set SuperEmail4 = '{0}'  where ConfiguradorId = 1", peso.ToString());
-                        ContextLocal.Database.ExecuteSqlCommand(queryString);
-                        
-                        
-
-
+                        uiMemo.Text = String.Format("[{0}:{1}:{2}:{3}:{4}]", basculaConfiguracion.PortName, basculaConfiguracion.WriteBufferSize, basculaConfiguracion.ReadBufferSize, basculaConfiguracion.BaudRate, localString) + ex.Message + "-" + "-" + (ex.InnerException == null ? "" : ex.InnerException.Message) + ex.StackTrace;
 
                     }
+
+                    peso = rd.Next(100, 200);
+                    uiPeso.Value = peso;
+                    string queryString = String.Format("UPDATE cat_configuracion Set SuperEmail4 = '{0}'  where ConfiguradorId = 1", peso.ToString());
+                    ContextLocal.Database.ExecuteSqlCommand(queryString);
+
+                    //if (basculaControlador.isOpen())
+                    //{
+                    //    peso = rd.Next(100, 200);// basculaControlador.ObtenPeso();
+
+                    //    //peso =  basculaControlador.ObtenPeso();
+                    //    //peso = .120M;
+
+                    //    uiPeso.Value = peso;
+                    //    string queryString = String.Format("UPDATE cat_configuracion Set SuperEmail4 = '{0}'  where ConfiguradorId = 1", peso.ToString());
+                    //    ContextLocal.Database.ExecuteSqlCommand(queryString);
+
+
+
+
+
+                    //}
 
 
                 }

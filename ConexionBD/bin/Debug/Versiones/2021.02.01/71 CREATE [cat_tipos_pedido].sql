@@ -1,0 +1,20 @@
+IF NOT EXISTS (
+	SELECT 1
+	FROM SYSOBJECTS
+	WHERE name ='cat_tipos_pedido'
+)
+BEGIN
+
+CREATE TABLE [dbo].[cat_tipos_pedido](
+	[TipoPedidoId] [int] NOT NULL,
+	[Nombre] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_cat_tipos_pedido] PRIMARY KEY CLUSTERED 
+(
+	[TipoPedidoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+END
+GO
+
+
