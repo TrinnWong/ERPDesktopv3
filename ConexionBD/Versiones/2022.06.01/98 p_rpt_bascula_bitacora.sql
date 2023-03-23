@@ -1,6 +1,12 @@
-
+IF EXISTS (
+	SELECT 1
+	FROM SYSOBJECTS
+	WHERE NAME = 'p_rpt_bascula_bitacora'
+)
+DROP PROC p_rpt_bascula_bitacora
+GO
 -- p_rpt_bascula_bitacora 0
-ALTER proc p_rpt_bascula_bitacora
+CREATE proc p_rpt_bascula_bitacora
 @pFechaIni DateTime,
 @pFechaFin DateTime,
 @pSucursalId int,
