@@ -48,11 +48,13 @@
             this.label8 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line2 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
+            this.uiAutorizadoPor = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.label12 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.pageBreak1 = new GrapeCity.ActiveReports.SectionReportModel.PageBreak();
-            this.uiAutorizadoPor = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.uiSucursalDestinoLabel = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.uiSucursalDestinoText = new GrapeCity.ActiveReports.SectionReportModel.Label();
             ((System.ComponentModel.ISupportInitialize)(this.label10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
@@ -66,9 +68,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.label6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiAutorizadoPor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSucursalDestinoLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSucursalDestinoText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // pageHeader
@@ -152,9 +156,12 @@
             this.line1,
             this.label7,
             this.label8,
-            this.line2});
+            this.line2,
+            this.uiSucursalDestinoLabel,
+            this.uiSucursalDestinoText});
             this.reportHeader1.Height = 0.96875F;
             this.reportHeader1.Name = "reportHeader1";
+            this.reportHeader1.Format += new System.EventHandler(this.reportHeader1_Format);
             // 
             // label9
             // 
@@ -171,11 +178,11 @@
             // 
             this.label2.Height = 0.2F;
             this.label2.HyperLink = null;
-            this.label2.Left = 0.219F;
+            this.label2.Left = 0.2140001F;
             this.label2.Name = "label2";
             this.label2.Style = "font-size: 8.25pt; font-weight: bold; ddo-char-set: 0";
             this.label2.Text = "Folio:";
-            this.label2.Top = 0.471F;
+            this.label2.Top = 0.55F;
             this.label2.Width = 0.406F;
             // 
             // label3
@@ -183,34 +190,34 @@
             this.label3.DataField = "Folio";
             this.label3.Height = 0.2F;
             this.label3.HyperLink = null;
-            this.label3.Left = 0.625F;
+            this.label3.Left = 0.6200001F;
             this.label3.Name = "label3";
             this.label3.Style = "";
             this.label3.Text = "label3";
-            this.label3.Top = 0.471F;
+            this.label3.Top = 0.55F;
             this.label3.Width = 0.8330001F;
             // 
             // label4
             // 
             this.label4.Height = 0.2F;
             this.label4.HyperLink = null;
-            this.label4.Left = 1.458F;
+            this.label4.Left = 1.453F;
             this.label4.Name = "label4";
             this.label4.Style = "font-size: 8.25pt; font-weight: bold; ddo-char-set: 0";
             this.label4.Text = "Fecha:";
-            this.label4.Top = 0.471F;
+            this.label4.Top = 0.55F;
             this.label4.Width = 0.406F;
             // 
             // textBox1
             // 
             this.textBox1.DataField = "FechaMovimiento";
             this.textBox1.Height = 0.2F;
-            this.textBox1.Left = 1.864F;
+            this.textBox1.Left = 1.859F;
             this.textBox1.Name = "textBox1";
             this.textBox1.OutputFormat = resources.GetString("textBox1.OutputFormat");
             this.textBox1.Style = "font-size: 8.25pt; ddo-char-set: 0";
             this.textBox1.Text = "textBox1";
-            this.textBox1.Top = 0.471F;
+            this.textBox1.Top = 0.55F;
             this.textBox1.Width = 1.011F;
             // 
             // label5
@@ -219,22 +226,22 @@
             this.label5.HyperLink = null;
             this.label5.Left = 0.08400001F;
             this.label5.Name = "label5";
-            this.label5.Style = "font-size: 8.25pt; font-weight: bold; ddo-char-set: 0";
-            this.label5.Text = "Sucursal:";
+            this.label5.Style = "font-size: 7.2pt; font-weight: bold; ddo-char-set: 0";
+            this.label5.Text = "Origen:";
             this.label5.Top = 0.221F;
-            this.label5.Width = 0.573F;
+            this.label5.Width = 0.541F;
             // 
             // label6
             // 
             this.label6.DataField = "SucursalOrigen";
-            this.label6.Height = 0.2F;
+            this.label6.Height = 0.329F;
             this.label6.HyperLink = null;
-            this.label6.Left = 0.657F;
+            this.label6.Left = 0.62F;
             this.label6.Name = "label6";
-            this.label6.Style = "font-size: 8.25pt; ddo-char-set: 0";
+            this.label6.Style = "font-size: 7.2pt; ddo-char-set: 0";
             this.label6.Text = "label3";
             this.label6.Top = 0.221F;
-            this.label6.Width = 2.218F;
+            this.label6.Width = 0.952F;
             // 
             // line1
             // 
@@ -296,6 +303,18 @@
             this.reportFooter1.Name = "reportFooter1";
             this.reportFooter1.Format += new System.EventHandler(this.reportFooter1_Format);
             // 
+            // uiAutorizadoPor
+            // 
+            this.uiAutorizadoPor.DataField = "AutorizadoPor";
+            this.uiAutorizadoPor.Height = 0.2F;
+            this.uiAutorizadoPor.Left = 1.75F;
+            this.uiAutorizadoPor.Name = "uiAutorizadoPor";
+            this.uiAutorizadoPor.OutputFormat = resources.GetString("uiAutorizadoPor.OutputFormat");
+            this.uiAutorizadoPor.Style = "font-size: 8.25pt; ddo-char-set: 0";
+            this.uiAutorizadoPor.Text = "textBox1";
+            this.uiAutorizadoPor.Top = 0.5F;
+            this.uiAutorizadoPor.Width = 1.011F;
+            // 
             // label12
             // 
             this.label12.Height = 0.2F;
@@ -329,18 +348,6 @@
             this.pageBreak1.Top = 0.7710001F;
             this.pageBreak1.Width = 6.5F;
             // 
-            // uiAutorizadoPor
-            // 
-            this.uiAutorizadoPor.DataField = "AutorizadoPor";
-            this.uiAutorizadoPor.Height = 0.2F;
-            this.uiAutorizadoPor.Left = 1.75F;
-            this.uiAutorizadoPor.Name = "uiAutorizadoPor";
-            this.uiAutorizadoPor.OutputFormat = resources.GetString("uiAutorizadoPor.OutputFormat");
-            this.uiAutorizadoPor.Style = "font-size: 8.25pt; ddo-char-set: 0";
-            this.uiAutorizadoPor.Text = "textBox1";
-            this.uiAutorizadoPor.Top = 0.5F;
-            this.uiAutorizadoPor.Width = 1.011F;
-            // 
             // textBox3
             // 
             this.textBox3.DataField = "Comentarios";
@@ -352,6 +359,30 @@
             this.textBox3.Text = "textBox1";
             this.textBox3.Top = 0.06200001F;
             this.textBox3.Width = 1.603F;
+            // 
+            // uiSucursalDestinoLabel
+            // 
+            this.uiSucursalDestinoLabel.DataField = "";
+            this.uiSucursalDestinoLabel.Height = 0.2F;
+            this.uiSucursalDestinoLabel.HyperLink = null;
+            this.uiSucursalDestinoLabel.Left = 1.572F;
+            this.uiSucursalDestinoLabel.Name = "uiSucursalDestinoLabel";
+            this.uiSucursalDestinoLabel.Style = "color: Black; font-size: 7.2pt; font-weight: bold; ddo-char-set: 0";
+            this.uiSucursalDestinoLabel.Text = "Destino:";
+            this.uiSucursalDestinoLabel.Top = 0.221F;
+            this.uiSucursalDestinoLabel.Width = 0.465F;
+            // 
+            // uiSucursalDestinoText
+            // 
+            this.uiSucursalDestinoText.DataField = "SucursalDestino";
+            this.uiSucursalDestinoText.Height = 0.329F;
+            this.uiSucursalDestinoText.HyperLink = null;
+            this.uiSucursalDestinoText.Left = 2.037F;
+            this.uiSucursalDestinoText.Name = "uiSucursalDestinoText";
+            this.uiSucursalDestinoText.Style = "color: Black; font-size: 7.2pt; ddo-char-set: 0";
+            this.uiSucursalDestinoText.Text = "label3";
+            this.uiSucursalDestinoText.Top = 0.221F;
+            this.uiSucursalDestinoText.Width = 0.838F;
             // 
             // rptMovimientoInventario
             // 
@@ -390,9 +421,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.label6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.label8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiAutorizadoPor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.label12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSucursalDestinoLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiSucursalDestinoText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -420,5 +453,7 @@
         private GrapeCity.ActiveReports.SectionReportModel.PageBreak pageBreak1;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox uiAutorizadoPor;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox3;
+        private GrapeCity.ActiveReports.SectionReportModel.Label uiSucursalDestinoLabel;
+        private GrapeCity.ActiveReports.SectionReportModel.Label uiSucursalDestinoText;
     }
 }

@@ -3,7 +3,8 @@ using System.Drawing;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using ConexionBD;
+using System.Linq;
 namespace ERP.Reports
 {
     /// <summary>
@@ -25,6 +26,24 @@ namespace ERP.Reports
         {
             uiAutorizadoPor.Text = autorizadoPor;
             textBox3.Text = comentarios;
+        }
+
+        private void reportHeader1_Format(object sender, EventArgs e)
+        {
+            if (((List<p_inv_movimiento_rpt_Result>)this.DataSource).Count() > 0)
+            {
+                if(((List<p_inv_movimiento_rpt_Result>)this.DataSource).FirstOrDefault()
+                    .SucursalDestino != "")
+                {
+                    uiSucursalDestinoText.Visible = true;
+                    uiSucursalDestinoLabel.Visible = true;
+                }
+                else
+                {
+                    uiSucursalDestinoText.Visible = false;
+                    uiSucursalDestinoLabel.Visible = false;
+                }
+            }
         }
     }
 }
