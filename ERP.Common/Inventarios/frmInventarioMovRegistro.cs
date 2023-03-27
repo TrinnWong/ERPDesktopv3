@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -1185,6 +1186,16 @@ namespace ERP.Common.Inventarios
                     && w.Activo == true
                     && (w.Cancelado ?? false) == false
                     && w.MovimientoId == movimientoInvOrigenId).FirstOrDefault();
+                ObjectParameter pError = new ObjectParameter("pError","");
+
+                oContext.p_traspaso_automatico(movOrigen.MovimientoId, puntoVentaContext.usuarioId, pError);
+
+                if(pError.Value.ToString().Length > 0)
+                {
+                    result.error = pError.Value.ToString();
+                }
+
+                return result;
 
                 //TRASPASOS
                 if (movOrigen.TipoMovimientoId == (int)ConexionBD.Enumerados.tipoMovsInventario.salidaPorTraspaso)
@@ -1339,7 +1350,7 @@ namespace ERP.Common.Inventarios
                 if (movOrigen.TipoMovimientoId == (int)ConexionBD.Enumerados.tipoMovsInventario.salidaTraspasoDev)
                 {
 
-
+                    
                     if (movOrigen != null)
                     {
                         int tipoMovimientoId = (int)ConexionBD.Enumerados.tipoMovsInventario.entradaTraspasoDev;

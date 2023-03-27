@@ -21,9 +21,8 @@ namespace ConexionBD
             : base("name=ERPProdEntities")
         {
         }
-
         public ERPProdEntities(string sc)
-            : base("name=ERPProdEntities")
+           : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
         }
@@ -4940,6 +4939,19 @@ namespace ConexionBD
                 new ObjectParameter("pMovimientoId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_inv_movimiento_detalle_del", pMovimientoIdParameter);
+        }
+    
+        public virtual int p_traspaso_automatico(Nullable<int> pMovimientoOrigenId, Nullable<int> pUsuarioId, ObjectParameter pError)
+        {
+            var pMovimientoOrigenIdParameter = pMovimientoOrigenId.HasValue ?
+                new ObjectParameter("pMovimientoOrigenId", pMovimientoOrigenId) :
+                new ObjectParameter("pMovimientoOrigenId", typeof(int));
+    
+            var pUsuarioIdParameter = pUsuarioId.HasValue ?
+                new ObjectParameter("pUsuarioId", pUsuarioId) :
+                new ObjectParameter("pUsuarioId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_traspaso_automatico", pMovimientoOrigenIdParameter, pUsuarioIdParameter, pError);
         }
     }
 }
