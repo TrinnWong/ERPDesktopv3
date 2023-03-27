@@ -634,7 +634,8 @@ namespace ERP.Common.Inventarios
                 }
                 oContext = new ERPProdEntities();
                 
-                
+
+
                     try
                     {
                         result = ERP.Business.InventarioBusiness

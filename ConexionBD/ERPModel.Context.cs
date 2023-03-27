@@ -20,11 +20,13 @@ namespace ConexionBD
         public ERPProdEntities()
             : base("name=ERPProdEntities")
         {
+            this.Database.CommandTimeout = 9999;
         }
         public ERPProdEntities(string sc)
            : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
+            this.Database.CommandTimeout = 9999;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
