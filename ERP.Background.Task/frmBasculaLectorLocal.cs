@@ -3,15 +3,9 @@ using ConexionBD.Models;
 using ERP.Business;
 using ERP.Business.Tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace ERP.Background.Task
 {
@@ -28,14 +22,11 @@ namespace ERP.Background.Task
         decimal ultimoPesoOcupadoPorApp = 0;
         decimal ultimoIndefinido = 0;
         decimal ultimoPeso = 0;
+
         public frmBasculaLectorLocal()
         {
             InitializeComponent();
-
             puntoVentaContext = new PuntoVentaContext();
-            
-           
-
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -45,7 +36,6 @@ namespace ERP.Background.Task
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             PlaceLowerRight();
             Hide();
             configApp();
@@ -85,7 +75,6 @@ namespace ERP.Background.Task
             }
             catch (Exception ex)
             {
-
                 Close();
             }
         }
@@ -94,35 +83,31 @@ namespace ERP.Background.Task
         {
             try
             {
-               
                 Random rd = new Random();
                 if (basculaControlador == null)
                     return;
                 try
                 {
-
-                    //basculaControlador.cerrarBascula();
-
-                    ERPProdEntities ContextLocal = new ERPProdEntities(localString);
-                    basculaControlador.abrirBascula();
-
-                    if (basculaControlador.isOpen())
+                    
+                    try
                     {
-                        //peso = rd.Next(100, 200);// basculaControlador.ObtenPeso();
-
-                        peso =  basculaControlador.ObtenPeso();
-                        //peso = .120M;
-
-                        uiPeso.Value = peso;
-                        string queryString = String.Format("UPDATE cat_configuracion Set SuperEmail4 = '{0}'  where ConfiguradorId = 1", peso.ToString());
-                        ContextLocal.Database.ExecuteSqlCommand(queryString);
-                        
-                        
-
-
-
+                        basculaControlador.abrirBascula();
+                    }
+                    catch (Exception ex)
+                    {
+                        uiMemo.Text = String.Format("[{0}:{1}:{2}:{3}:{4}]", basculaConfiguracion.PortName, basculaConfiguracion.WriteBufferSize, basculaConfiguracion.ReadBufferSize, basculaConfiguracion.BaudRate, localString) + ex.Message + "-" + "-" + (ex.InnerException == null ? "" : ex.InnerException.Message) + ex.StackTrace;
                     }
 
+                    peso = basculaControlador.ObtenPeso();
+                    uiPeso.Value = peso;
+
+                    #region Guardar peso del producto
+                    var pesoProducto = new PesoProducto()
+                    {
+                        pesoProducto = peso
+                    };
+                    GuardarPesoProducto(pesoProducto);
+                    #endregion
 
                 }
                 catch (Exception ex)
@@ -130,12 +115,6 @@ namespace ERP.Background.Task
                     uiMemo.Text =String.Format("[{0}:{1}:{2}:{3}:{4}]",basculaConfiguracion.PortName,basculaConfiguracion.WriteBufferSize,basculaConfiguracion.ReadBufferSize,basculaConfiguracion.BaudRate, localString) + ex.Message + "-"+"-"+(ex.InnerException == null ?"": ex.InnerException.Message) + ex.StackTrace;
 
                 }
-                
-
-          
-                
-
-
 
             }
             catch (Exception ex)
@@ -147,8 +126,6 @@ namespace ERP.Background.Task
                                     ex);
 
                 uiMemo.Text = String.Format("[{0}:{1}:{2}:{3}]", basculaConfiguracion.PortName, basculaConfiguracion.WriteBufferSize, basculaConfiguracion.ReadBufferSize, basculaConfiguracion.BaudRate) + ex.Message + "-" + "-" + (ex.InnerException == null ? "" : ex.InnerException.Message) + ex.StackTrace+ "|" + err;
-
-
             }
         }
 
@@ -158,7 +135,7 @@ namespace ERP.Background.Task
             {
                 basculaControlador.cerrarBasculaTarea();
             }
-          
+
             //Application.Restart();
             //Environment.Exit(0);
         }
@@ -173,7 +150,15 @@ namespace ERP.Background.Task
             {
                 timer1.Enabled = true;
             }
-            
+        }
+
+        private void  GuardarPesoProducto(PesoProducto pesoProducto)
+        {
+            string resultPath = Environment.CurrentDirectory;
+
+            string pesoPr = JsonConvert.SerializeObject(pesoProducto);
+            File.WriteAllText(resultPath + @"\\PesoProducto.txt", pesoPr);
+            //File.WriteAllText(@"C:\ERP\PesoProducto.txt", pesoPr);
         }
     }
 }
