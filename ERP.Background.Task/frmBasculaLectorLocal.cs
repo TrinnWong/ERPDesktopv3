@@ -168,8 +168,11 @@ namespace ERP.Background.Task
 
         private void  GuardarPesoProducto(PesoProducto pesoProducto)
         {
+            string resultPath = Environment.CurrentDirectory;
+
             string pesoPr = JsonConvert.SerializeObject(pesoProducto);
-            File.WriteAllText(@"C:\ERP\PesoProducto.txt", pesoPr);
+            File.WriteAllText(resultPath + @"\\PesoProducto.txt", pesoPr);
+            //File.WriteAllText(@"C:\ERP\PesoProducto.txt", pesoPr);
         }
     }
 }
