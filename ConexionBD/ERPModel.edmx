@@ -10475,6 +10475,11 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
         <Function Name="p_sucursales_usuario_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pUsuario" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="p_traspaso_automatico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pMovimientoOrigenId" Type="int" Mode="In" />
+          <Parameter Name="pUsuarioId" Type="int" Mode="In" />
+          <Parameter Name="pError" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="p_venta_afecta_inventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pVentaId" Type="int" Mode="In" />
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
@@ -22137,7 +22142,12 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <End Role="cat_configuracion" EntitySet="cat_configuracion" />
           </AssociationSet>
           <FunctionImport Name="p_doc_inv_movimiento_detalle_del">
-            <Parameter Name="pMovimientoId" Mode="In" Type="Int32" />
+          <Parameter Name="pMovimientoId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="p_traspaso_automatico">
+            <Parameter Name="pMovimientoOrigenId" Mode="In" Type="Int32" />
+            <Parameter Name="pUsuarioId" Mode="In" Type="Int32" />
+            <Parameter Name="pError" Mode="InOut" Type="String" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
@@ -32603,6 +32613,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_detalle_del" FunctionName="ERPProdModel.Store.p_doc_inv_movimiento_detalle_del" />
+          <FunctionImportMapping FunctionImportName="p_traspaso_automatico" FunctionName="ERPProdModel.Store.p_traspaso_automatico" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
