@@ -6,6 +6,8 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ERP.Business.Tools
 {
@@ -254,20 +256,13 @@ namespace ERP.Business.Tools
             decimal peso = 0;
             try
             {
-
-                ERPProdEntities oContext = new ERPProdEntities(localString);
-
+                /*ERPProdEntities oContext = new ERPProdEntities(localString);
                 cat_configuracion oConfig = oContext.cat_configuracion.FirstOrDefault();
-
-                peso = Convert.ToDecimal(oConfig.SuperEmail4);
-
-                
-
-
+                peso = Convert.ToDecimal(oConfig.SuperEmail4);*/
+                peso = LecturaPesoDeProducto();
             }
             catch (Exception ex)
             {
-
 
             }
 
@@ -304,6 +299,15 @@ namespace ERP.Business.Tools
             }
 
             return descontarTara ? peso - (configBascula.PesoDefault ?? 0) : peso;
+        }
+
+        public decimal LecturaPesoDeProducto()
+        {
+            string resultPath = Environment.CurrentDirectory;
+            string archivo = File.ReadAllText(resultPath + @"\\PesoProducto.txt");
+            decimal pesoProducto = (decimal)JsonConvert.DeserializeObject<PesoProducto>(archivo).pesoProducto;
+            
+            return pesoProducto;
         }
     }
 }

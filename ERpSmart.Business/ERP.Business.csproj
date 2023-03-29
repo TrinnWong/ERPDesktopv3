@@ -91,6 +91,7 @@
     <Compile Include="PagoBusiness.cs" />
     <Compile Include="PagoWebBusiness.cs" />
     <Compile Include="PedidoOrdenBusiness.cs" />
+    <Compile Include="PesoProducto.cs" />
     <Compile Include="PoliticasBusiness.cs" />
     <Compile Include="PreferenciaBusiness.cs" />
     <Compile Include="ProduccionBusiness.cs" />

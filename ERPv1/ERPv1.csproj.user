@@ -4,6 +4,6 @@
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartWorkingDirectory>C:\Users\danw7\source\repos\ERPDesktopv3\ERPv1\bin\Debug\</StartWorkingDirectory>
+    <StartWorkingDirectory>C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\ERPv1\bin</StartWorkingDirectory>
   </PropertyGroup>
 </Project>
