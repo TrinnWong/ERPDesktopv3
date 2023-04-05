@@ -492,6 +492,12 @@
     <Compile Include="Inventarios\frmSucursalProductoRecepcion2.Designer.cs">
       <DependentUpon>frmSucursalProductoRecepcion2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Preferencia\frmPreferenciaEmpresaUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preferencia\frmPreferenciaEmpresaUpd.Designer.cs">
+      <DependentUpon>frmPreferenciaEmpresaUpd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Preferencia\frmPreferenciaSucursalUpd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -905,6 +911,9 @@
     <EmbeddedResource Include="Inventarios\frmSucursalProductoRecepcion2.resx">
       <DependentUpon>frmSucursalProductoRecepcion2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Preferencia\frmPreferenciaEmpresaUpd.resx">
+      <DependentUpon>frmPreferenciaEmpresaUpd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Preferencia\frmPreferenciaSucursalUpd.resx">
       <DependentUpon>frmPreferenciaSucursalUpd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1068,6 +1077,7 @@
     <None Include="Properties\DataSources\ConexionBD.cat_centro_costos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_clientes.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_departamentos.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_empresas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_gastos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_politicas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_productos.datasource" />
@@ -1096,6 +1106,7 @@
     <None Include="Properties\DataSources\ConexionBD.rh_empleado_puestos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_bitacora_errores.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_preferencias.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.sis_preferencias_empresa.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_preferencias_sucursales.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_roles.datasource" />
     <None Include="Properties\DataSources\ConexionBD.sis_usuarios_roles.datasource" />

@@ -404,7 +404,7 @@ namespace TacosAna.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            this.lblVersion.Text = Sistema.ObtenVersion();
         }
 
         private void uiSucursal_SelectedValueChanged(object sender, EventArgs e)

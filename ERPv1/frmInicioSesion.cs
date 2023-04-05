@@ -115,7 +115,7 @@ namespace ERPv1
                 //}
 
                 string error = oSistema.actualizarVersion(false);
-
+                this.lblVersion.Text = Sistema.ObtenVersion();
                 if (error.Length > 0)
                 {
                     MessageBox.Show("Ocurrió un error al actualizar la versión del sistema, por favor avise al administrador. Puede seguir utilizando la aplicación" + error

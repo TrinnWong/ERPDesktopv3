@@ -344,7 +344,9 @@ namespace FlorMaiz.Desktop
             string msg = "";
             oContext = new ERPProdEntities();
             //Si es Tortillería, validar que los datos necesarios
-            if(oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI")
+            if(oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI" &&
+                !ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                   this.puntoVentaContext.sucursalId, "QuitarVal-MasecaMaizCorte", this.puntoVentaContext.usuarioId))
             {
                 List<p_doc_corte_caja_tortilleria_Result> lstResult= oContext.p_doc_corte_caja_tortilleria(this.puntoVentaContext.sucursalId,
                     DateTime.Now,
@@ -678,6 +680,10 @@ namespace FlorMaiz.Desktop
                 }
             }
             
+        }
+
+        private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
         }
     }
 }

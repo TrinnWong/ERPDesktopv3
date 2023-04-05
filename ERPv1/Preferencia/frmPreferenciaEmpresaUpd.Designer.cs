@@ -1,6 +1,6 @@
 ﻿namespace ERPv1.Preferencia
 {
-    partial class frmPreferenciaSucursalUpd
+    partial class frmPreferenciaEmpresaUpd
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreferenciaSucursalUpd));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreferenciaEmpresaUpd));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -41,21 +41,21 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.uiEmpresa = new DevExpress.XtraEditors.LookUpEdit();
+            this.catempresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDescripcion = new DevExpress.XtraEditors.LabelControl();
             this.uiLimpiar = new DevExpress.XtraEditors.SimpleButton();
             this.uiValor = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
-            this.sispreferenciassucursalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sispreferenciasempresaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSucursalId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPreferenciaId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreadoEl = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcat_sucursales = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsis_preferencias = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repBtnEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -63,8 +63,6 @@
             this.repBtnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.uiPreferencia = new DevExpress.XtraEditors.LookUpEdit();
             this.sispreferenciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uiSucursal = new DevExpress.XtraEditors.LookUpEdit();
-            this.catsucursalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -73,20 +71,22 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.sispreferenciassucursalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.catsucursalesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiEmpresa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catempresasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiValor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciassucursalesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciasempresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiPreferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sispreferenciasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiSucursal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -95,12 +95,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciassucursalesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.uiEmpresa);
             this.layoutControl1.Controls.Add(this.lblDescripcion);
             this.layoutControl1.Controls.Add(this.uiLimpiar);
             this.layoutControl1.Controls.Add(this.uiValor);
@@ -108,7 +111,6 @@
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.uiGrid);
             this.layoutControl1.Controls.Add(this.uiPreferencia);
-            this.layoutControl1.Controls.Add(this.uiSucursal);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -118,6 +120,27 @@
             this.layoutControl1.Size = new System.Drawing.Size(1254, 554);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // uiEmpresa
+            // 
+            this.uiEmpresa.Location = new System.Drawing.Point(85, 44);
+            this.uiEmpresa.Name = "uiEmpresa";
+            this.uiEmpresa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.uiEmpresa.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Empresa")});
+            this.uiEmpresa.Properties.DataSource = this.catempresasBindingSource;
+            this.uiEmpresa.Properties.DisplayMember = "Nombre";
+            this.uiEmpresa.Properties.NullText = "(Selecciona una Empresa)";
+            this.uiEmpresa.Properties.ValueMember = "Clave";
+            this.uiEmpresa.Size = new System.Drawing.Size(343, 22);
+            this.uiEmpresa.StyleController = this.layoutControl1;
+            this.uiEmpresa.TabIndex = 12;
+            this.uiEmpresa.EditValueChanged += new System.EventHandler(this.uiEmpresa_EditValueChanged);
+            // 
+            // catempresasBindingSource
+            // 
+            this.catempresasBindingSource.DataSource = typeof(ConexionBD.cat_empresas);
             // 
             // lblDescripcion
             // 
@@ -175,11 +198,11 @@
             this.labelControl1.Size = new System.Drawing.Size(233, 22);
             this.labelControl1.StyleController = this.layoutControl1;
             this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Preferencias por Sucursal";
+            this.labelControl1.Text = "Preferencias por Empresa";
             // 
             // uiGrid
             // 
-            this.uiGrid.DataSource = this.sispreferenciassucursalesBindingSource;
+            this.uiGrid.DataSource = this.sispreferenciasempresaBindingSource;
             this.uiGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.uiGrid.Location = new System.Drawing.Point(16, 145);
             this.uiGrid.MainView = this.uiGridView;
@@ -193,20 +216,18 @@
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
             // 
-            // sispreferenciassucursalesBindingSource
+            // sispreferenciasempresaBindingSource
             // 
-            this.sispreferenciassucursalesBindingSource.DataSource = typeof(ConexionBD.sis_preferencias_sucursales);
+            this.sispreferenciasempresaBindingSource.DataSource = typeof(ConexionBD.sis_preferencias_empresa);
             // 
             // uiGridView
             // 
             this.uiGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
-            this.colSucursalId,
             this.colPreferenciaId,
             this.gridColumn1,
             this.colValor,
             this.colCreadoEl,
-            this.colcat_sucursales,
             this.colsis_preferencias,
             this.gridColumn2,
             this.gridColumn3});
@@ -223,16 +244,6 @@
             this.colId.VisibleIndex = 2;
             this.colId.Width = 149;
             // 
-            // colSucursalId
-            // 
-            this.colSucursalId.Caption = "Sucursal";
-            this.colSucursalId.FieldName = "cat_sucursales.NombreSucursal";
-            this.colSucursalId.Name = "colSucursalId";
-            this.colSucursalId.OptionsColumn.AllowEdit = false;
-            this.colSucursalId.Visible = true;
-            this.colSucursalId.VisibleIndex = 3;
-            this.colSucursalId.Width = 183;
-            // 
             // colPreferenciaId
             // 
             this.colPreferenciaId.Caption = "Preferencia";
@@ -240,7 +251,7 @@
             this.colPreferenciaId.Name = "colPreferenciaId";
             this.colPreferenciaId.OptionsColumn.AllowEdit = false;
             this.colPreferenciaId.Visible = true;
-            this.colPreferenciaId.VisibleIndex = 4;
+            this.colPreferenciaId.VisibleIndex = 3;
             this.colPreferenciaId.Width = 183;
             // 
             // gridColumn1
@@ -249,7 +260,7 @@
             this.gridColumn1.FieldName = "sis_preferencias.Descripcion";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
+            this.gridColumn1.VisibleIndex = 5;
             this.gridColumn1.Width = 201;
             // 
             // colValor
@@ -258,7 +269,7 @@
             this.colValor.Name = "colValor";
             this.colValor.OptionsColumn.AllowEdit = false;
             this.colValor.Visible = true;
-            this.colValor.VisibleIndex = 5;
+            this.colValor.VisibleIndex = 4;
             this.colValor.Width = 183;
             // 
             // colCreadoEl
@@ -266,12 +277,6 @@
             this.colCreadoEl.FieldName = "CreadoEl";
             this.colCreadoEl.Name = "colCreadoEl";
             this.colCreadoEl.OptionsColumn.AllowEdit = false;
-            // 
-            // colcat_sucursales
-            // 
-            this.colcat_sucursales.FieldName = "cat_sucursales";
-            this.colcat_sucursales.Name = "colcat_sucursales";
-            this.colcat_sucursales.OptionsColumn.AllowEdit = false;
             // 
             // colsis_preferencias
             // 
@@ -319,7 +324,7 @@
             // 
             // uiPreferencia
             // 
-            this.uiPreferencia.Location = new System.Drawing.Point(532, 44);
+            this.uiPreferencia.Location = new System.Drawing.Point(503, 44);
             this.uiPreferencia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiPreferencia.Name = "uiPreferencia";
             this.uiPreferencia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -331,7 +336,7 @@
             this.uiPreferencia.Properties.DisplayMember = "Preferencia";
             this.uiPreferencia.Properties.NullText = "(Selecciona una Preferencia)";
             this.uiPreferencia.Properties.ValueMember = "Id";
-            this.uiPreferencia.Size = new System.Drawing.Size(315, 22);
+            this.uiPreferencia.Size = new System.Drawing.Size(344, 22);
             this.uiPreferencia.StyleController = this.layoutControl1;
             this.uiPreferencia.TabIndex = 5;
             this.uiPreferencia.EditValueChanged += new System.EventHandler(this.uiPreferencia_EditValueChanged);
@@ -339,28 +344,6 @@
             // sispreferenciasBindingSource
             // 
             this.sispreferenciasBindingSource.DataSource = typeof(ConexionBD.sis_preferencias);
-            // 
-            // uiSucursal
-            // 
-            this.uiSucursal.Location = new System.Drawing.Point(85, 44);
-            this.uiSucursal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiSucursal.Name = "uiSucursal";
-            this.uiSucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiSucursal.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NombreSucursal", "Sucursal")});
-            this.uiSucursal.Properties.DataSource = this.catsucursalesBindingSource;
-            this.uiSucursal.Properties.DisplayMember = "NombreSucursal";
-            this.uiSucursal.Properties.NullText = "(Selecciona una Sucursal)";
-            this.uiSucursal.Properties.ValueMember = "Clave";
-            this.uiSucursal.Size = new System.Drawing.Size(372, 22);
-            this.uiSucursal.StyleController = this.layoutControl1;
-            this.uiSucursal.TabIndex = 4;
-            this.uiSucursal.EditValueChanged += new System.EventHandler(this.uiSucursal_EditValueChanged);
-            // 
-            // catsucursalesBindingSource
-            // 
-            this.catsucursalesBindingSource.DataSource = typeof(ConexionBD.cat_sucursales);
             // 
             // layoutControlGroup1
             // 
@@ -374,8 +357,8 @@
             this.layoutControlItem6,
             this.emptySpaceItem1,
             this.layoutControlItem7,
-            this.layoutControlItem1,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
             this.layoutControlGroup1.Size = new System.Drawing.Size(1254, 554);
@@ -402,9 +385,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.uiPreferencia;
-            this.layoutControlItem2.Location = new System.Drawing.Point(447, 28);
+            this.layoutControlItem2.Location = new System.Drawing.Point(418, 28);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(390, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(419, 28);
             this.layoutControlItem2.Text = "Preferencia";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(65, 16);
             // 
@@ -443,15 +426,6 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.uiSucursal;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 28);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(447, 28);
-            this.layoutControlItem1.Text = "Sucursales";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(65, 16);
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.lblDescripcion;
@@ -461,29 +435,46 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // frmPreferenciaSucursalUpd
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.uiEmpresa;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(418, 28);
+            this.layoutControlItem1.Text = "Empresa";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(65, 16);
+            // 
+            // sispreferenciassucursalesBindingSource
+            // 
+            this.sispreferenciassucursalesBindingSource.DataSource = typeof(ConexionBD.sis_preferencias_sucursales);
+            // 
+            // catsucursalesBindingSource
+            // 
+            this.catsucursalesBindingSource.DataSource = typeof(ConexionBD.cat_sucursales);
+            // 
+            // frmPreferenciaEmpresaUpd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1254, 554);
             this.Controls.Add(this.layoutControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmPreferenciaSucursalUpd";
-            this.Text = "Preferencias por Sucursal";
+            this.Name = "frmPreferenciaEmpresaUpd";
+            this.Text = "Preferencias por Empresa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPreferenciaSucursalUpd_FormClosing);
             this.Load += new System.EventHandler(this.frmPreferenciaSucursalUpd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiEmpresa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catempresasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiValor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciassucursalesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciasempresaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repBtnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiPreferencia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sispreferenciasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiSucursal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -492,8 +483,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sispreferenciassucursalesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,8 +496,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraEditors.LookUpEdit uiPreferencia;
-        private DevExpress.XtraEditors.LookUpEdit uiSucursal;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.GridControl uiGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView uiGridView;
@@ -515,11 +506,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private System.Windows.Forms.BindingSource sispreferenciassucursalesBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraGrid.Columns.GridColumn colSucursalId;
         private DevExpress.XtraGrid.Columns.GridColumn colPreferenciaId;
         private DevExpress.XtraGrid.Columns.GridColumn colValor;
         private DevExpress.XtraGrid.Columns.GridColumn colCreadoEl;
-        private DevExpress.XtraGrid.Columns.GridColumn colcat_sucursales;
         private DevExpress.XtraGrid.Columns.GridColumn colsis_preferencias;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
@@ -535,5 +524,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraEditors.LabelControl lblDescripcion;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.LookUpEdit uiEmpresa;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private System.Windows.Forms.BindingSource catempresasBindingSource;
+        private System.Windows.Forms.BindingSource sispreferenciasempresaBindingSource;
     }
 }

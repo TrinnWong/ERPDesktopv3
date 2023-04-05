@@ -13,6 +13,11 @@ namespace ConexionBD
 {
     public class Sistema:BusinessObject
     {
+
+        public static string ObtenVersion()
+        {
+            return "versión:2023.04.05";
+        }
         public string actualizarVersion(bool recortado)
         {
             string error = "";

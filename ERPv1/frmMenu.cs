@@ -1682,5 +1682,29 @@ namespace ERPv1
 
             }
         }
+
+        private void toolStripDropDownButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preferenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preferenciasPorEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ERPv1.Preferencia.frmPreferenciaEmpresaUpd frmo = ERPv1.Preferencia.frmPreferenciaEmpresaUpd.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+
+                frmo.Show();
+            }
+        }
     }
 }

@@ -76,6 +76,7 @@
             this.tsiTipoContrato = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiAltaPersonal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUsuarioSistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosSucursalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPuestos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiFormaPago = new System.Windows.Forms.ToolStripMenuItem();
             this.descuentosEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,7 +163,7 @@
             this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.usuariosSucursalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferenciasPorEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -616,6 +617,13 @@
             this.tsiUsuarioSistema.Text = "Usuarios del Sistema";
             this.tsiUsuarioSistema.Click += new System.EventHandler(this.tsiUsuarioSistema_Click);
             // 
+            // usuariosSucursalesToolStripMenuItem
+            // 
+            this.usuariosSucursalesToolStripMenuItem.Name = "usuariosSucursalesToolStripMenuItem";
+            this.usuariosSucursalesToolStripMenuItem.Size = new System.Drawing.Size(292, 38);
+            this.usuariosSucursalesToolStripMenuItem.Text = "Usuarios/Sucursales";
+            this.usuariosSucursalesToolStripMenuItem.Click += new System.EventHandler(this.usuariosSucursalesToolStripMenuItem_Click);
+            // 
             // tsiPuestos
             // 
             this.tsiPuestos.Image = global::ERPv1.Properties.Resources.Groups_Rescuers_Light_icon32x32;
@@ -843,6 +851,7 @@
             this.toolStripDropDownButton3.Text = "Inventarios";
             this.toolStripDropDownButton3.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.toolStripDropDownButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.toolStripDropDownButton3.Click += new System.EventHandler(this.toolStripDropDownButton3_Click);
             // 
             // sucursalesToolStripMenuItem1
             // 
@@ -1078,10 +1087,12 @@
             // preferenciasToolStripMenuItem
             // 
             this.preferenciasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.preferenciasPorEmpresaToolStripMenuItem,
             this.preferenciasPorSucursalToolStripMenuItem});
             this.preferenciasToolStripMenuItem.Name = "preferenciasToolStripMenuItem";
             this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(390, 26);
             this.preferenciasToolStripMenuItem.Text = "Preferencias";
+            this.preferenciasToolStripMenuItem.Click += new System.EventHandler(this.preferenciasToolStripMenuItem_Click);
             // 
             // preferenciasPorSucursalToolStripMenuItem
             // 
@@ -1341,12 +1352,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // usuariosSucursalesToolStripMenuItem
+            // preferenciasPorEmpresaToolStripMenuItem
             // 
-            this.usuariosSucursalesToolStripMenuItem.Name = "usuariosSucursalesToolStripMenuItem";
-            this.usuariosSucursalesToolStripMenuItem.Size = new System.Drawing.Size(292, 38);
-            this.usuariosSucursalesToolStripMenuItem.Text = "Usuarios/Sucursales";
-            this.usuariosSucursalesToolStripMenuItem.Click += new System.EventHandler(this.usuariosSucursalesToolStripMenuItem_Click);
+            this.preferenciasPorEmpresaToolStripMenuItem.Name = "preferenciasPorEmpresaToolStripMenuItem";
+            this.preferenciasPorEmpresaToolStripMenuItem.Size = new System.Drawing.Size(312, 26);
+            this.preferenciasPorEmpresaToolStripMenuItem.Text = "Preferencias por Empresa";
+            this.preferenciasPorEmpresaToolStripMenuItem.Click += new System.EventHandler(this.preferenciasPorEmpresaToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1512,6 +1523,7 @@
         private System.Windows.Forms.ToolStripMenuItem registroDiarioDeConsumoDeMaizYMasecaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaPorDevolucionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosSucursalesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferenciasPorEmpresaToolStripMenuItem;
     }
 }
 

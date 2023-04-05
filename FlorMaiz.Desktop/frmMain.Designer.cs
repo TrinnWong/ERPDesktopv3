@@ -68,6 +68,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,10 +102,11 @@
             this.uiMnuBascula,
             this.btnReimprimirUltimoCorteCajero,
             this.uiMenuReimprimirCorteSupervisor,
-            this.mnuMaizMaseca});
+            this.mnuMaizMaseca,
+            this.barButtonItem13});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
             this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiRibbonControl.MaxItemId = 28;
+            this.uiRibbonControl.MaxItemId = 29;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -158,7 +160,7 @@
             // 
             // barButtonItem4
             // 
-            this.barButtonItem4.Caption = "Gastos Caja";
+            this.barButtonItem4.Caption = "Gastos Caja Chica";
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
             this.barButtonItem4.Name = "barButtonItem4";
@@ -419,6 +421,14 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "Gastos Negocio";
+            this.barButtonItem13.Id = 28;
+            this.barButtonItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.Image")));
+            this.barButtonItem13.Name = "barButtonItem13";
+            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -481,5 +491,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem uiMenuReimprimirCorteSupervisor;
         private DevExpress.XtraBars.BarButtonItem mnuMaizMaseca;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
     }
 }
