@@ -41,6 +41,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uiPendientesPago = new DevExpress.XtraEditors.CheckEdit();
             this.uiBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.uiNuevo = new DevExpress.XtraEditors.SimpleButton();
             this.uiSucursal = new DevExpress.XtraEditors.LookUpEdit();
@@ -99,8 +101,11 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiPendientesPago.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiSucursal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
@@ -115,30 +120,55 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.label1);
+            this.layoutControl1.Controls.Add(this.uiPendientesPago);
             this.layoutControl1.Controls.Add(this.uiBuscar);
             this.layoutControl1.Controls.Add(this.uiNuevo);
             this.layoutControl1.Controls.Add(this.uiSucursal);
             this.layoutControl1.Controls.Add(this.uiGrid);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1154, 496);
+            this.layoutControl1.Size = new System.Drawing.Size(1346, 610);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1338, 35);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Pedidos Clientes";
+            // 
+            // uiPendientesPago
+            // 
+            this.uiPendientesPago.Location = new System.Drawing.Point(782, 45);
+            this.uiPendientesPago.Name = "uiPendientesPago";
+            this.uiPendientesPago.Properties.Caption = "Solo Pendientes de Pago";
+            this.uiPendientesPago.Size = new System.Drawing.Size(166, 20);
+            this.uiPendientesPago.StyleController = this.layoutControl1;
+            this.uiPendientesPago.TabIndex = 8;
+            this.uiPendientesPago.CheckedChanged += new System.EventHandler(this.uiPendientesPago_CheckedChanged);
             // 
             // uiBuscar
             // 
             this.uiBuscar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiBuscar.ImageOptions.Image")));
             this.uiBuscar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiBuscar.Location = new System.Drawing.Point(765, 18);
+            this.uiBuscar.Location = new System.Drawing.Point(954, 45);
+            this.uiBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiBuscar.Name = "uiBuscar";
-            this.uiBuscar.Size = new System.Drawing.Size(307, 40);
+            this.uiBuscar.Size = new System.Drawing.Size(254, 40);
             this.uiBuscar.StyleController = this.layoutControl1;
             this.uiBuscar.TabIndex = 7;
             this.uiBuscar.Text = "Buscar";
@@ -148,17 +178,19 @@
             // 
             this.uiNuevo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiNuevo.ImageOptions.Image")));
             this.uiNuevo.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiNuevo.Location = new System.Drawing.Point(18, 64);
+            this.uiNuevo.Location = new System.Drawing.Point(4, 91);
+            this.uiNuevo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiNuevo.Name = "uiNuevo";
-            this.uiNuevo.Size = new System.Drawing.Size(741, 40);
+            this.uiNuevo.Size = new System.Drawing.Size(772, 40);
             this.uiNuevo.StyleController = this.layoutControl1;
             this.uiNuevo.TabIndex = 6;
-            this.uiNuevo.Text = "Nuevo";
+            this.uiNuevo.Text = "Nuevo Pedido";
             this.uiNuevo.Click += new System.EventHandler(this.uiNuevo_Click);
             // 
             // uiSucursal
             // 
-            this.uiSucursal.Location = new System.Drawing.Point(63, 18);
+            this.uiSucursal.Location = new System.Drawing.Point(58, 45);
+            this.uiSucursal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiSucursal.Name = "uiSucursal";
             this.uiSucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -168,7 +200,7 @@
             this.uiSucursal.Properties.DisplayMember = "NombreSucursal";
             this.uiSucursal.Properties.NullText = "(Selecciona una sucursal)";
             this.uiSucursal.Properties.ValueMember = "Clave";
-            this.uiSucursal.Size = new System.Drawing.Size(696, 26);
+            this.uiSucursal.Size = new System.Drawing.Size(718, 22);
             this.uiSucursal.StyleController = this.layoutControl1;
             this.uiSucursal.TabIndex = 5;
             this.uiSucursal.EditValueChanged += new System.EventHandler(this.uiSucursal_EditValueChanged);
@@ -180,13 +212,15 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.docpedidosordenBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(18, 110);
+            this.uiGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.uiGrid.Location = new System.Drawing.Point(4, 137);
             this.uiGrid.MainView = this.uiGridView;
+            this.uiGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repBtnEdit,
             this.repBtnCancelar});
-            this.uiGrid.Size = new System.Drawing.Size(1118, 368);
+            this.uiGrid.Size = new System.Drawing.Size(1338, 469);
             this.uiGrid.TabIndex = 4;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -569,76 +603,99 @@
             this.layoutControlItem3,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1154, 496);
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1346, 610);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.uiGrid;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 92);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 133);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1124, 374);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1344, 475);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.uiSucursal;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 41);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(747, 46);
+            this.layoutControlItem2.Size = new System.Drawing.Size(778, 46);
             this.layoutControlItem2.Text = "Sucursal";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(40, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(49, 16);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.uiNuevo;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 46);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 87);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(747, 46);
+            this.layoutControlItem3.Size = new System.Drawing.Size(778, 46);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(747, 46);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(778, 87);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(377, 46);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(566, 46);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(1060, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(1210, 41);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(64, 46);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(134, 46);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.uiBuscar;
-            this.layoutControlItem4.Location = new System.Drawing.Point(747, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(950, 41);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(313, 46);
+            this.layoutControlItem4.Size = new System.Drawing.Size(260, 46);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.uiPendientesPago;
+            this.layoutControlItem5.Location = new System.Drawing.Point(778, 41);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(172, 46);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.label1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(1344, 41);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
             // frmPedidosClientesList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 496);
+            this.ClientSize = new System.Drawing.Size(1346, 610);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmPedidosClientesList";
             this.Text = "Pedidos Clientes - Listado";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPedidosClientesList_FormClosing);
             this.Load += new System.EventHandler(this.frmPedidosClientesList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiPendientesPago.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiSucursal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catsucursalesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
@@ -653,6 +710,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,5 +777,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCancelar;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repBtnCancelar;
         private DevExpress.XtraGrid.Columns.GridColumn colSaldo;
+        private DevExpress.XtraEditors.CheckEdit uiPendientesPago;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

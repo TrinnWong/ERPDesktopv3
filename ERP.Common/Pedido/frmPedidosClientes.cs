@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using ERP.Business;
 using ERP.Common.Base;
+using ERP.Common.Forms;
 using ERP.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace ERP.Common.Pedido
 {
     public partial class frmPedidosClientes : FormBaseXtraForm
     {
+        LoadingForm oFormLoading;
         public int IDForm;
+        int err = 0;
         private doc_pedidos_orden pedido;
         private doc_pedidos_orden_detalle pedidoDetalle;
         private static frmPedidosClientes _instance;
@@ -42,6 +45,9 @@ namespace ERP.Common.Pedido
                     uiProducto.Enabled = false;
                     uiCantidad.Enabled = false;
                     colRepDelete.Visible = false;
+                    uiPagar.Enabled = false;
+                    uiGuardarDetalle.Enabled = false;
+                    uiGuardar.Enabled = false;
                 }
                 else
                 {
@@ -49,6 +55,8 @@ namespace ERP.Common.Pedido
                     uiCancelarDetalle.Enabled = true;
                     uiProducto.Enabled = true;
                     uiCantidad.Enabled = true;
+                    uiPagar.Enabled = true;
+                    uiGuardarDetalle.Enabled = true;
                 }
                
             }
@@ -74,7 +82,7 @@ namespace ERP.Common.Pedido
 
         private void frmPedidosClientes_Load(object sender, EventArgs e)
         {
-            
+            oFormLoading = new LoadingForm("Procesando...");
             loadSucursales();
             loadSucursalesCobro();
             loadClientes();
@@ -103,6 +111,7 @@ namespace ERP.Common.Pedido
                     uiCliente.Enabled = false;
 
 
+
                 }
                 else
                 {
@@ -118,7 +127,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                  "ERP",
                                                  this.Name,
                                                  ex);
@@ -139,7 +148,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -151,15 +160,15 @@ namespace ERP.Common.Pedido
         {
             try
             {
-                uiSucursal.Properties.DataSource =
-                    oContext.cat_sucursales                    
+                uiSucursal.Properties.DataSource = ERP.Business.SucursalBusiness
+                    .ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId,this.puntoVentaContext.usuarioId)
                     .OrderBy(o=> o.NombreSucursal)
                     .ToList();
             }
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -171,15 +180,15 @@ namespace ERP.Common.Pedido
         {
             try
             {
-                uiSucursalCobro.Properties.DataSource =
-                    oContext.cat_sucursales
+                uiSucursalCobro.Properties.DataSource = ERP.Business.SucursalBusiness
+                    .ObtenSucursalesPorUsuario(this.puntoVentaContext.empresaId, this.puntoVentaContext.usuarioId)
                     .OrderBy(o => o.NombreSucursal)
                     .ToList();
             }
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -197,7 +206,7 @@ namespace ERP.Common.Pedido
             }
             catch (Exception ex) 
             {
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                               "ERP",
                                                               this.Name,
                                                               ex);
@@ -269,7 +278,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -438,7 +447,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                  "ERP",
                                                  this.Name,
                                                  ex);
@@ -491,7 +500,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -620,7 +629,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
                                                 ex);
@@ -701,7 +710,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                  "ERP",
                                                  this.Name,
                                                  ex);
@@ -743,7 +752,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                  "ERP",
                                                  this.Name,
                                                  ex);
@@ -759,6 +768,153 @@ namespace ERP.Common.Pedido
         private void uiCliente_EditValueChanged(object sender, EventArgs e)
         {
             LoadProductosPrecios();
+        }
+
+        private void uiPagar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(pedido.VentaId == null)
+                {
+                    if(
+                        XtraMessageBox.Show("Se generará una venta para la sucursal asignada al cobro por el monto del pedido.¿Está seguro(a) de continuar?","Aviso",
+                        MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        int sucursalId = Convert.ToInt32(uiSucursalCobro.EditValue);
+                        int cajaId = 0;
+
+                        if (oContext.cat_cajas
+                           .Where(w => w.Sucursal == sucursalId).Count() > 0)
+                        {
+                            cajaId = oContext.cat_cajas
+                           .Where(w => w.Sucursal == sucursalId).FirstOrDefault().Clave;
+                        }
+                        else
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowWarning("La sucursal de Cobro no tiene una caja creada, es necesario crearla antes de continuar");
+                            return;
+                        } 
+
+
+
+                        oFormLoading.Show();
+                        long ventaId = 0;
+                        
+                        GuardarEncabezado();
+
+                       
+
+                        List<ProductoModel0> lst = ((List<doc_pedidos_orden_detalle>)uiGrid.DataSource).ToList().Select(
+                                s => new ProductoModel0()
+                                {
+                                    cantidad = s.Cantidad,
+                                    cantidadCobroReparto = 0,
+                                    cantidadDevolucion = 0,
+                                    cantidadFinalReparto = 0,
+                                    cantidadOriginal = 0,
+                                    cargoAdicionalId = null,
+                                    clave = s.cat_productos.Clave,
+                                    descripcion = s.cat_productos.Descripcion,
+                                    impuestos = 0,
+                                    montoDescuento = 0,
+                                    paraLlevar = true,
+                                    paraMesa = false,
+                                    partida = 0,
+                                    pedidoDetalleId = s.PedidoDetalleId,
+                                    porcDescuento = 0,
+                                    porcDescuentoPartida = 0,
+                                    porcDescunetoVta = 0,
+                                    porcImpuestos = 0,
+                                    precioCompra = 0,
+                                    precioNeto = s.PrecioUnitario,
+                                    precioUnitario = s.PrecioUnitario,
+                                    productoId = s.ProductoId,
+                                    promocionCMId = 0,
+                                    tieneBascula = s.cat_productos.ProdVtaBascula ?? false,
+                                    tienePromocion = false,
+                                    tipoDescuentoId = 0,
+                                    total = s.Total,
+                                    unidadId = s.cat_productos.ClaveUnidadMedida ?? 0
+
+                                }
+                                ).ToList();
+
+                        List<FormaPagoModel> lstFP = new List<FormaPagoModel>();
+                        lstFP.Add(new FormaPagoModel() { cantidad = lst.Sum(s=> s.total), 
+                            id = (int)ERP.Business.Enumerados.formasPago.EFECTIVO });
+
+                        error= ERP.Business.VentasBusiness.pagar(ref ventaId, 
+                                    Convert.ToInt32(uiCliente.EditValue),
+                                    "", 0M, 0M, 0M, 0M,
+                                     ((List<doc_pedidos_orden_detalle>)uiGrid.DataSource).Sum(s => s.Total),
+                                    ((List<doc_pedidos_orden_detalle>)uiGrid.DataSource).Sum(s => s.Total),
+                                    ((List<doc_pedidos_orden_detalle>)uiGrid.DataSource).Sum(s => s.Total),
+                                    0,
+                                    false,
+                                    Convert.ToInt32(uiSucursalCobro.EditValue),
+                                    puntoVentaContext.usuarioId,
+                                    cajaId,
+                                    lst, 
+                                    new List<FormaPagoModel>(), 
+                                    new List<ConexionBD.Models.ValeFPModel>(), pedido.PedidoId, false, false, null);
+
+                        if(error.Length == 0)
+                        {
+                            ERP.Reports.rptVentaTicket oTicket2 = new ERP.Reports.rptVentaTicket();
+
+                            ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer();
+
+                            oTicket2.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
+
+                            oViewer.ShowTicket(oTicket2);
+
+                            uiPagar.Enabled = false;
+                            colEdit.Visible = false;
+                            colRepDelete.Visible = false;
+                            uiGuardarDetalle.Enabled = false;
+
+                            oFormLoading.Hide();
+                        }
+                        else
+                        {
+                            oFormLoading.Hide();
+                            ERP.Utils.MessageBoxUtil.ShowError(error);
+                        }
+
+
+                    } 
+                }
+                else
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("El pedido ya está PAGADO");
+                }
+            }
+            catch (Exception ex)
+            {
+                oFormLoading.Hide();
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                                 "ERP",
+                                                 this.Name,
+                                                 ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void uiImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            ERP.Reports.rptPedido oTicket2 = new ERP.Reports.rptPedido();
+
+
+            ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer();
+            oContext = new ERPProdEntities();
+            oTicket2.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
+
+            oViewer.ShowTicket(oTicket2);
         }
     }
 }

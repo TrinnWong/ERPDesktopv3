@@ -40,15 +40,25 @@ namespace ERP.Common.Pedido
         {
             try
             {
+                bool soloPendientePagar = uiPendientesPago.Checked;
                 oContext = new ERPProdEntities();
                 int? sucursalId = Convert.ToInt32( uiSucursal.EditValue);
                 uiGrid.DataSource = oContext.doc_pedidos_orden                    
                     .Where(
                     w => 
-                        ((w.Activo == true || w.VentaId > 0) 
-                        && w.SucursalId == (sucursalId ?? 0) && w.ClienteId != null)
-                        || w.Cancelada == true
-                    ).ToList();
+                        (
+                            
+                             w.SucursalId == (sucursalId ?? 0) && w.ClienteId != null
+                            && (
+                                (
+                                    soloPendientePagar && 
+                                    w.VentaId == null
+                                )
+                                || !soloPendientePagar
+                           )
+                        )
+                        
+                    ).OrderByDescending(o=> o.CreadoEl).ToList();
             }
             catch (Exception ex)
             {
@@ -218,6 +228,11 @@ namespace ERP.Common.Pedido
 
                 throw;
             }
+        }
+
+        private void uiPendientesPago_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadGrid();
         }
     }
 }

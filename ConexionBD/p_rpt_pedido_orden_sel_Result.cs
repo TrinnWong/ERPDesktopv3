@@ -24,5 +24,8 @@ namespace ConexionBD
         public decimal Precio { get; set; }
         public decimal Total { get; set; }
         public Nullable<decimal> Devolucion { get; set; }
+        public Nullable<System.DateTime> FechaProgramada { get; set; }
+        public Nullable<System.TimeSpan> HoraProgramada { get; set; }
+        public string SucursalProduccion { get; set; }
     }
 }
