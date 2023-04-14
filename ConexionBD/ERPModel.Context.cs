@@ -18,7 +18,7 @@ namespace ConexionBD
     public partial class ERPProdEntities : DbContext
     {
         public ERPProdEntities()
-             : base("name=ERPProdEntities")
+            : base("name=ERPProdEntities")
         {
             this.Database.CommandTimeout = 9999;
         }
@@ -28,6 +28,7 @@ namespace ConexionBD
             this.Database.Connection.ConnectionString = sc;
             this.Database.CommandTimeout = 9999;
         }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

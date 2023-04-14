@@ -49,10 +49,11 @@
             this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
-            this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox9 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox12 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
+            this.textBox8 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
+            this.textBox13 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
@@ -67,9 +68,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // pageHeader
@@ -172,7 +174,8 @@
             this.textBox1,
             this.textBox7,
             this.textBox9,
-            this.textBox12});
+            this.textBox12,
+            this.textBox13});
             this.groupHeader1.Height = 1.266028F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
@@ -183,7 +186,7 @@
             this.textBox15.Height = 0.2F;
             this.textBox15.Left = 0.062F;
             this.textBox15.Name = "textBox15";
-            this.textBox15.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
+            this.textBox15.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.textBox15.Text = null;
             this.textBox15.Top = 0.928F;
             this.textBox15.Width = 2.843F;
@@ -283,23 +286,23 @@
             // 
             this.textBox5.DataField = "Cliente";
             this.textBox5.Height = 0.151F;
-            this.textBox5.Left = 0.706F;
+            this.textBox5.Left = 0.872F;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
+            this.textBox5.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.textBox5.Text = null;
             this.textBox5.Top = 0.696F;
-            this.textBox5.Width = 2.199F;
+            this.textBox5.Width = 2.033F;
             // 
             // textBox1
             // 
             this.textBox1.DataField = "FechaPedido";
             this.textBox1.Height = 0.148F;
-            this.textBox1.Left = 0.687F;
+            this.textBox1.Left = 0.5560001F;
             this.textBox1.Name = "textBox1";
             this.textBox1.OutputFormat = resources.GetString("textBox1.OutputFormat");
             this.textBox1.Style = "font-size: 6.75pt; text-align: left; ddo-char-set: 0";
             this.textBox1.Text = "000.0000";
-            this.textBox1.Top = 0.25F;
+            this.textBox1.Top = 0.265F;
             this.textBox1.Width = 1.125F;
             // 
             // textBox7
@@ -311,6 +314,26 @@
             this.textBox7.Text = "CLIENTE:";
             this.textBox7.Top = 0.696F;
             this.textBox7.Width = 0.6070001F;
+            // 
+            // textBox9
+            // 
+            this.textBox9.DataField = "SucursalProduccion";
+            this.textBox9.Height = 0.151F;
+            this.textBox9.Left = 0.872F;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
+            this.textBox9.Top = 0.483F;
+            this.textBox9.Width = 2.024F;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Height = 0.151F;
+            this.textBox12.Left = 0.063F;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
+            this.textBox12.Text = "SUCURSAL:";
+            this.textBox12.Top = 0.483F;
+            this.textBox12.Width = 0.699F;
             // 
             // groupFooter1
             // 
@@ -338,26 +361,16 @@
             this.textBox8.Top = 0F;
             this.textBox8.Width = 0.7519999F;
             // 
-            // textBox9
+            // textBox13
             // 
-            this.textBox9.DataField = "SucursalProduccion";
-            this.textBox9.Height = 0.151F;
-            this.textBox9.Left = 0.872F;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
-            this.textBox9.Text = null;
-            this.textBox9.Top = 0.483F;
-            this.textBox9.Width = 2.024F;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Height = 0.151F;
-            this.textBox12.Left = 0.063F;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
-            this.textBox12.Text = "SUCURSAL:";
-            this.textBox12.Top = 0.483F;
-            this.textBox12.Width = 0.699F;
+            this.textBox13.DataField = "Estado";
+            this.textBox13.Height = 0.148F;
+            this.textBox13.Left = 1.681F;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.OutputFormat = resources.GetString("textBox13.OutputFormat");
+            this.textBox13.Style = "font-size: 6.75pt; text-align: left; ddo-char-set: 0";
+            this.textBox13.Top = 0.262F;
+            this.textBox13.Width = 1.215F;
             // 
             // rptPedido
             // 
@@ -398,9 +411,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -427,5 +441,6 @@
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox8;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox9;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox12;
+        private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox13;
     }
 }

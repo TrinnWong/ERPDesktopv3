@@ -872,7 +872,7 @@ namespace ERP.Common.Pedido
                             colEdit.Visible = false;
                             colRepDelete.Visible = false;
                             uiGuardarDetalle.Enabled = false;
-
+                            uiPagar.Enabled = false;
                             oFormLoading.Hide();
                         }
                         else

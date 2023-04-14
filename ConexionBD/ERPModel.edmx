@@ -27490,7 +27490,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Property Type="Int32" Name="PedidoId" Nullable="false" />
           <Property Type="String" Name="Folio" Nullable="true" MaxLength="21" />
           <Property Type="String" Name="Cliente" Nullable="false" MaxLength="500" />
-          <Property Type="String" Name="Direccion" Nullable="false" MaxLength="204" />
+          <Property Type="String" Name="Direccion" Nullable="false" MaxLength="241" />
           <Property Type="DateTime" Name="FechaPedido" Nullable="false" Precision="23" />
           <Property Type="String" Name="ClaveProducto" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="Producto" Nullable="true" MaxLength="250" />
@@ -27501,6 +27501,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Property Type="DateTime" Name="FechaProgramada" Nullable="true" Precision="23" />
           <Property Type="Time" Name="HoraProgramada" Nullable="true" />
           <Property Type="String" Name="SucursalProduccion" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
         </ComplexType>
         <EntityType Name="doc_inventario_captura">
           <Key>
@@ -32242,6 +32243,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
                 <ScalarProperty Name="FechaProgramada" ColumnName="FechaProgramada" />
                 <ScalarProperty Name="HoraProgramada" ColumnName="HoraProgramada" />
                 <ScalarProperty Name="SucursalProduccion" ColumnName="SucursalProduccion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

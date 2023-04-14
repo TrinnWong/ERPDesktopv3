@@ -46,13 +46,19 @@ namespace ERP.Common.Pedido
                 uiGrid.DataSource = oContext.doc_pedidos_orden                    
                     .Where(
                     w => 
-                        (
-                            
-                             w.SucursalId == (sucursalId ?? 0) && w.ClienteId != null
+                        (                           
+                            w.SucursalId == (sucursalId ?? 0) && w.ClienteId != null
                             && (
                                 (
-                                    soloPendientePagar && 
-                                    w.VentaId == null
+                                   soloPendientePagar && 
+                                   ( 
+                                    w.VentaId == null &&
+                                    (
+                                        w.doc_cargos == null
+                                        ||
+                                        (w.doc_cargos != null && w.doc_cargos.Saldo > 0)
+                                    )
+                                   )
                                 )
                                 || !soloPendientePagar
                            )
@@ -226,13 +232,48 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
 
-                throw;
+                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                                "ERP",
+                                                this.Name,
+                                                ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
 
         private void uiPendientesPago_CheckedChanged(object sender, EventArgs e)
         {
             LoadGrid();
+        }
+
+        private void repBtnImprimir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                if(uiGridView.FocusedRowHandle >= 0)
+                {                    
+                    ERP.Reports.rptPedido oTicket2 = new ERP.Reports.rptPedido();
+
+
+                    ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer();
+                    oContext = new ERPProdEntities();
+                    oTicket2.DataSource = oContext.p_rpt_pedido_orden_sel(
+                        ((doc_pedidos_orden)uiGridView.GetRow(uiGridView.FocusedRowHandle)).PedidoId
+                        ).ToList();
+
+                    oViewer.ShowTicket(oTicket2);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                int err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                               "ERP",
+                                               this.Name,
+                                               ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+
+            }
+           
         }
     }
 }

@@ -138,8 +138,11 @@
   <data name="textBox1.OutputFormat" xml:space="preserve">
     <value>dd/MM/yyyy h:mm</value>
   </data>
-  <data name="textBox1.OutputFormat" xml:space="preserve">
+  <data name="textBox13.OutputFormat" xml:space="preserve">
     <value>dd/MM/yyyy h:mm</value>
+  </data>
+  <data name="textBox8.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
   <data name="textBox8.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>

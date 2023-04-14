@@ -3391,6 +3391,12 @@
     <Content Include="Versiones\2022.06.01\99_09117 [p_productos_sobrantes_grd].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\99_09118 [p_rpt_ventas_detalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09119 [p_rpt_pedido_orden_sel].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

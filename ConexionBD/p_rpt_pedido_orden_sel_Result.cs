@@ -27,5 +27,6 @@ namespace ConexionBD
         public Nullable<System.DateTime> FechaProgramada { get; set; }
         public Nullable<System.TimeSpan> HoraProgramada { get; set; }
         public string SucursalProduccion { get; set; }
+        public string Estado { get; set; }
     }
 }
