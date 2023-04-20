@@ -1,8 +1,6 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.UI;
-
 using ERP.Common.Basculas;
 using ERP.Common.Catalogos;
 using ERP.Common.Inventarios;
@@ -16,12 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FlorMaiz.Desktop
@@ -39,7 +33,7 @@ namespace FlorMaiz.Desktop
             else _instance.BringToFront();
             return _instance;
         }
-       
+
         public frmMain()
         {
             InitializeComponent();
@@ -53,8 +47,8 @@ namespace FlorMaiz.Desktop
         private void frmMain_Load(object sender, EventArgs e)
         {
             oContext = new ERPProdEntities();
-            if(oContext.sis_preferencias_empresa
-                .Where(w=> w.sis_preferencias.Preferencia == "PermitirEntradaDirectaPV").Count() > 0)
+            if (oContext.sis_preferencias_empresa
+                .Where(w => w.sis_preferencias.Preferencia == "PermitirEntradaDirectaPV").Count() > 0)
             {
                 uiEntradaDirecta.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             }
@@ -63,7 +57,7 @@ namespace FlorMaiz.Desktop
                 uiEntradaDirecta.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
 
-            if(ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                 this.puntoVentaContext.sucursalId, "PVBotonRegistroBasculaPedidosApp", this.puntoVentaContext.usuarioId))
             {
                 frmBasculaExpressVenta frmo = frmBasculaExpressVenta.GetInstance();
@@ -91,7 +85,6 @@ namespace FlorMaiz.Desktop
 
                 }
             }
-            
         }
 
         private void uiMenuNuevaVenta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -105,11 +98,9 @@ namespace FlorMaiz.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-               
-
             }
             else
-            {               
+            {
                 frmo.inicializar();
             }
         }
@@ -125,14 +116,12 @@ namespace FlorMaiz.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -147,7 +136,6 @@ namespace FlorMaiz.Desktop
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.Show();
-
             }
         }
 
@@ -162,7 +150,6 @@ namespace FlorMaiz.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -185,12 +172,10 @@ namespace FlorMaiz.Desktop
                 {
                     abrir = true;
                 }
-
             }
             else
             {
                 abrir = true;
-
             }
 
             if (abrir)
@@ -205,7 +190,6 @@ namespace FlorMaiz.Desktop
                 frm.puntoVentaContext = this.puntoVentaContext;
                 frm.ShowDialog();
             }
-
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -227,12 +211,10 @@ namespace FlorMaiz.Desktop
                 {
                     abrir = true;
                 }
-
             }
             else
             {
                 abrir = true;
-
             }
 
             if (abrir)
@@ -262,7 +244,6 @@ namespace FlorMaiz.Desktop
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             frmAdminPass oForm = new frmAdminPass();
             oForm.WindowState = FormWindowState.Normal;
             oForm.StartPosition = FormStartPosition.CenterScreen;
@@ -329,7 +310,6 @@ namespace FlorMaiz.Desktop
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -344,20 +324,20 @@ namespace FlorMaiz.Desktop
             string msg = "";
             oContext = new ERPProdEntities();
             //Si es Tortillería, validar que los datos necesarios
-            if(oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI" &&
+            if (oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI" &&
                 !ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                    this.puntoVentaContext.sucursalId, "QuitarVal-MasecaMaizCorte", this.puntoVentaContext.usuarioId))
             {
-                List<p_doc_corte_caja_tortilleria_Result> lstResult= oContext.p_doc_corte_caja_tortilleria(this.puntoVentaContext.sucursalId,
+                List<p_doc_corte_caja_tortilleria_Result> lstResult = oContext.p_doc_corte_caja_tortilleria(this.puntoVentaContext.sucursalId,
                     DateTime.Now,
                     DateTime.Now,
                     puntoVentaContext.usuarioId).ToList();
 
-                if(lstResult.Count() > 0)
+                if (lstResult.Count() > 0)
                 {
-                    if(lstResult.Where(w=> w.Clave == "MAIZS").Sum(s=> s.Cantidad) == 0)
+                    if (lstResult.Where(w => w.Clave == "MAIZS").Sum(s => s.Cantidad) == 0)
                     {
-                        msg =  "Es necesario registrar los sacos de Maiz usados para producción en el día " +DateTime.Now.AddDays(-1).ToShortDateString();
+                        msg = "Es necesario registrar los sacos de Maiz usados para producción en el día " + DateTime.Now.AddDays(-1).ToShortDateString();
                     }
                     if (lstResult.Where(w => w.Clave == "MASECAS").Sum(s => s.Cantidad) == 0)
                     {
@@ -368,12 +348,12 @@ namespace FlorMaiz.Desktop
                         msg = msg + "|Es necesario registrar los retiros del día (Venta de Mostrador y Repartos) ";
                     }
                     //SOBRANTES
-                    if (lstResult.Where(w=> w.TipoId == 6).Sum(s=> s.Cantidad) == 0)
+                    if (lstResult.Where(w => w.TipoId == 6).Sum(s => s.Cantidad) == 0)
                     {
                         msg = msg + "|Es necesario registrar los sobrantes del día " + DateTime.Now.ToShortDateString();
                     }
 
-                    if(msg.Length > 0)
+                    if (msg.Length > 0)
                     {
                         ERP.Utils.MessageBoxUtil.ShowWarning(msg);
                         return;
@@ -383,7 +363,7 @@ namespace FlorMaiz.Desktop
 
             if (!ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                 this.puntoVentaContext.sucursalId,
-                "PVCorteCajaOcultarDetalleCajero",this.puntoVentaContext.usuarioId))
+                "PVCorteCajaOcultarDetalleCajero", this.puntoVentaContext.usuarioId))
             {
                 frmCorteCajaGen frmo = frmCorteCajaGen.GetInstance();
 
@@ -404,10 +384,10 @@ namespace FlorMaiz.Desktop
                     //frmo = new frmPuntoVenta();
                     frmo.puntoVentaContext = this.puntoVentaContext;
                     frmo.MdiParent = this;
-                    if (frmo.generarCorteCaja(false,false))
+                    if (frmo.generarCorteCaja(false, false))
                     {
-                        error = ERP.Business.CorteCajaBusiness.imprimirCorteCajero(puntoVentaContext.sucursalId,puntoVentaContext.cajaId,puntoVentaContext.usuarioId);
-                        
+                        error = ERP.Business.CorteCajaBusiness.imprimirCorteCajero(puntoVentaContext.sucursalId, puntoVentaContext.cajaId, puntoVentaContext.usuarioId);
+
                         if (error.Length > 0)
                         {
                             ERP.Utils.MessageBoxUtil.ShowError(error);
@@ -419,14 +399,11 @@ namespace FlorMaiz.Desktop
                             Application.Exit();
                             this.Close();
                         }
-                        
                     }
                 }
             }
-            
         }
 
-   
         private void timerClearMemoryData_Tick(object sender, EventArgs e)
         {
             //ERP.Business.DataMemory.DataBucket.ClearData();
@@ -434,7 +411,6 @@ namespace FlorMaiz.Desktop
 
         private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
             frmBasculaExpressVenta frmo = frmBasculaExpressVenta.GetInstance();
 
             if (!frmo.Visible)
@@ -447,10 +423,8 @@ namespace FlorMaiz.Desktop
         }
 
         private void uiProductoSobrante_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {           
-
+        {
             frmSobrantesRegistro oForm = new frmSobrantesRegistro();
-
             oForm.dtProcess = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
             oForm.habilitarFecha = false;
             oForm.puntoVentaContext = this.puntoVentaContext;
@@ -522,9 +496,7 @@ namespace FlorMaiz.Desktop
                 frmo.MdiParent = frmMain.GetInstance();
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
-
                 frmo.Show();
-
             }
         }
 
@@ -602,14 +574,12 @@ namespace FlorMaiz.Desktop
             }
             catch (Exception ex)
             {
-
                 int err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
                                        "ERP",
                                        this.Name,
                                        ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
-            
         }
 
         private void btnReimprimirUltimoCorteCajero_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -656,7 +626,6 @@ namespace FlorMaiz.Desktop
                     frmo.Show();
                 }
             }
-            
         }
 
         private void mnuMaizMaseca_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -675,15 +644,52 @@ namespace FlorMaiz.Desktop
                     frmo.puntoVentaContext = this.puntoVentaContext;
                     frmo.StartPosition = FormStartPosition.CenterScreen;
                     frmo.WindowState = FormWindowState.Maximized;
-
                     frmo.Show();
                 }
             }
-            
         }
 
         private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+        }
+
+        private void timerToCheckNetwork_Tick(object sender, EventArgs e)
+        {
+            string estadoConexionaRed = "";
+            bool RedActiva = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+
+            if (!RedActiva)
+            {
+                estadoConexionaRed = "No está conectado a la red";
+                MessageBox.Show(estadoConexionaRed, "Alerta", MessageBoxButtons.OK);
+            }
+            else
+            {
+                //estadoConexionaRed = "Se estableció conexión con la red local";
+                //Console.WriteLine(estadoConexionaRed);
+
+                string estadoConexionInternet = "";
+                System.Uri Url = new System.Uri("https://www.google.com/");
+
+                System.Net.WebRequest WebRequest;
+                WebRequest = System.Net.WebRequest.Create(Url);
+                System.Net.WebResponse objetoResp;
+
+                try
+                {
+                    objetoResp = WebRequest.GetResponse();
+                    estadoConexionInternet = "Se establecio conexión a internet corretamente.";
+                    //Console.WriteLine(estadoConexionaRed);
+                    objetoResp.Close();
+                }
+                catch (Exception ex)
+                {
+                    estadoConexionInternet = "No se pudo conectar a Internet " + ex.Message;
+                    MessageBox.Show(estadoConexionInternet, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                WebRequest = null;
+            }
         }
     }
 }

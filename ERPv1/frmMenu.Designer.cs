@@ -133,6 +133,7 @@
             this.cargosAdicionalesConfiguraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionBasculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferenciasPorEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferenciasPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.notasDeVentaResumidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,7 +164,6 @@
             this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.preferenciasPorEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1094,6 +1094,13 @@
             this.preferenciasToolStripMenuItem.Text = "Preferencias";
             this.preferenciasToolStripMenuItem.Click += new System.EventHandler(this.preferenciasToolStripMenuItem_Click);
             // 
+            // preferenciasPorEmpresaToolStripMenuItem
+            // 
+            this.preferenciasPorEmpresaToolStripMenuItem.Name = "preferenciasPorEmpresaToolStripMenuItem";
+            this.preferenciasPorEmpresaToolStripMenuItem.Size = new System.Drawing.Size(312, 26);
+            this.preferenciasPorEmpresaToolStripMenuItem.Text = "Preferencias por Empresa";
+            this.preferenciasPorEmpresaToolStripMenuItem.Click += new System.EventHandler(this.preferenciasPorEmpresaToolStripMenuItem_Click);
+            // 
             // preferenciasPorSucursalToolStripMenuItem
             // 
             this.preferenciasPorSucursalToolStripMenuItem.Name = "preferenciasPorSucursalToolStripMenuItem";
@@ -1351,13 +1358,7 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // preferenciasPorEmpresaToolStripMenuItem
-            // 
-            this.preferenciasPorEmpresaToolStripMenuItem.Name = "preferenciasPorEmpresaToolStripMenuItem";
-            this.preferenciasPorEmpresaToolStripMenuItem.Size = new System.Drawing.Size(312, 26);
-            this.preferenciasPorEmpresaToolStripMenuItem.Text = "Preferencias por Empresa";
-            this.preferenciasPorEmpresaToolStripMenuItem.Click += new System.EventHandler(this.preferenciasPorEmpresaToolStripMenuItem_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmMenu
             // 

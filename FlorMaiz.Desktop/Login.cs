@@ -4,19 +4,15 @@ using ERP.Business;
 using ERP.Common.Productos;
 using FlorMaiz.Desktop;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Objects;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ERP.Common;
 
 namespace TacosAna.Desktop
 {
-    public partial class Login :Form
+    public partial class Login : Form
     {
         /*
          * 0 Geral
@@ -30,7 +26,6 @@ namespace TacosAna.Desktop
         {
             InitializeComponent();
             oSistema = new Sistema();
-          
 
             string error = oSistema.actualizarVersion(false);
 
@@ -42,16 +37,10 @@ namespace TacosAna.Desktop
                     , "ERROR"
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
-
-                
             }
 
             oContext = new ERPProdEntities();
             oLogin = new ConexionBD.LoginCaja();
-           
-          
-          
-            
         }
 
         private void llenarSucursalesUsuario()
@@ -62,7 +51,6 @@ namespace TacosAna.Desktop
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }
@@ -75,17 +63,14 @@ namespace TacosAna.Desktop
         private void button1_Click(object sender, EventArgs e)
         {
             entrar();
-           
         }
 
         public void entrarDemo()
         {
-
             try
             {
                 cat_usuarios usuario = null;
                 bool esSupervisor = false;
-
 
                 if (uiSucursal.SelectedValue == null)
                 {
@@ -97,6 +82,7 @@ namespace TacosAna.Desktop
                     MessageBox.Show("Es necesario ingresar la caja", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 int sucursalId = (int)uiSucursal.SelectedValue;
                 int cajaId = (int)uiCaja.SelectedValue;
                 int sesionId = 0;
@@ -110,12 +96,8 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-
                     cat_configuracion configPV = oContext.cat_configuracion.FirstOrDefault();
                     PuntoVentaContext puntoVentaContext;
-
-
-
                     puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                     puntoVentaContext.usuarioId = usuario.IdUsuario;
                     puntoVentaContext.usuario = usuario.NombreUsuario;
@@ -126,8 +108,6 @@ namespace TacosAna.Desktop
                     puntoVentaContext.giroPuntoVenta = configPV != null ? configPV.Giro : ConexionBD.Enumerados.systemGiro.ESTANDAR.ToString();
                     puntoVentaContext.solicitarComanda = configPV.SolicitarComanda ?? false;
                     puntoVentaContext.tieneRec = configPV.TieneRec ?? false;
-
-
 
                     /***Insertar Sesion***/
                     ObjectParameter pSesionId = new ObjectParameter("pSesionId", "");
@@ -171,8 +151,6 @@ namespace TacosAna.Desktop
                             puntoVentaContext.nombreImpresoraComanda = "";
                         }
                         #endregion
-
-                       
                     }
 
                     frmMain oMenu = frmMain.GetInstance();
@@ -195,33 +173,20 @@ namespace TacosAna.Desktop
                     //    this.Hide();
                     //    return;
                     //}
-
-
-
-
-
-
-
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.InnerException != null ? ex.InnerException.Message : ex.Message, "ERROR SESION", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
 
         public void entrar()
         {
-
             try
             {
                 cat_usuarios usuario = null;
                 bool esSupervisor = false;
-
 
                 if (uiSucursal.SelectedValue == null)
                 {
@@ -233,6 +198,7 @@ namespace TacosAna.Desktop
                     MessageBox.Show("Es necesario ingresar la caja", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 int sucursalId = (int)uiSucursal.SelectedValue;
                 int cajaId = (int)uiCaja.SelectedValue;
                 int sesionId = 0;
@@ -246,12 +212,8 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-
                     cat_configuracion configPV = oContext.cat_configuracion.FirstOrDefault();
                     PuntoVentaContext puntoVentaContext;
-
-
-
                     puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                     puntoVentaContext.usuarioId = usuario.IdUsuario;
                     puntoVentaContext.usuario = usuario.NombreUsuario;
@@ -261,23 +223,22 @@ namespace TacosAna.Desktop
                     puntoVentaContext.esSupervisor = esSupervisor;
                     puntoVentaContext.giroPuntoVenta = configPV != null ? configPV.Giro : ConexionBD.Enumerados.systemGiro.ESTANDAR.ToString();
                     puntoVentaContext.solicitarComanda = configPV.SolicitarComanda ?? false;
-                    puntoVentaContext.tieneRec = configPV.TieneRec??false;
+                    puntoVentaContext.tieneRec = configPV.TieneRec ?? false;
                     puntoVentaContext.nombreSucursal = oContext.cat_sucursales.Where(w => w.Clave == sucursalId).FirstOrDefault().NombreSucursal;
 
                     /****VALIDAR SOBRANTES****/
                     if (!ERP.Business.ProductoSobranteBusiness.ExistenSobrantes(puntoVentaContext.sucursalId, oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1),
                        puntoVentaContext.usuarioId) &&
-                       ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId,puntoVentaContext.sucursalId, "SolicitarSobrantesPV", puntoVentaContext.usuarioId)
-                      
+                       ERP.Business.PreferenciaBusiness.AplicaPreferencia(puntoVentaContext.empresaId, puntoVentaContext.sucursalId, "SolicitarSobrantesPV", puntoVentaContext.usuarioId)
                        )
                     {
-                        ERP.Utils.MessageBoxUtil.ShowError("ES NECESARIO CAPTURAR LOS SOBRANTES DEL DÍA "+ oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1).ToShortDateString());
+                        ERP.Utils.MessageBoxUtil.ShowError("ES NECESARIO CAPTURAR LOS SOBRANTES DEL DÍA " + oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1).ToShortDateString());
                         frmSobrantesRegistro oForm = new frmSobrantesRegistro();
-
                         oForm.dtProcess = oContext.p_GetDateTimeServer().FirstOrDefault().Value.AddDays(-1);
                         oForm.habilitarFecha = false;
                         oForm.puntoVentaContext = puntoVentaContext;
                         oForm.StartPosition = FormStartPosition.CenterScreen;
+                        
                         var resultDialog = oForm.ShowDialog();
 
                         if (resultDialog != DialogResult.OK)
@@ -300,38 +261,43 @@ namespace TacosAna.Desktop
 
                     cat_sucursales entitySuc = oContext.cat_sucursales.Where(w => w.Clave == sucursalId).FirstOrDefault();
 
-                   
                     #region impresora Caja
-                        cat_cajas_impresora entityCaja = oContext.cat_cajas_impresora
-                       .Where(w => w.CajaId == cajaId).FirstOrDefault();
+                    cat_cajas_impresora entityCaja = oContext.cat_cajas_impresora
+                   .Where(w => w.CajaId == cajaId).FirstOrDefault();
 
-                        if (entityCaja != null)
-                        {
-                            puntoVentaContext.nombreImpresoraCaja = entityCaja.cat_impresoras.NombreRed;
-                        }
-                        else
-                        {
-                            puntoVentaContext.nombreImpresoraCaja = "";
-                        }
-                        #endregion
+                    if (entityCaja != null)
+                    {
+                        puntoVentaContext.nombreImpresoraCaja = entityCaja.cat_impresoras.NombreRed;
+                    }
+                    else
+                    {
+                        puntoVentaContext.nombreImpresoraCaja = "";
+                    }
+                    #endregion
 
                     #region impresora Comanda
-                        cat_impresoras_comandas entityComanda = oContext.cat_impresoras_comandas
-                       .Where(w => w.cat_impresoras.SucursalId == sucursalId && w.cat_impresoras.Activa).FirstOrDefault();
+                    cat_impresoras_comandas entityComanda = oContext.cat_impresoras_comandas
+                   .Where(w => w.cat_impresoras.SucursalId == sucursalId && w.cat_impresoras.Activa).FirstOrDefault();
 
-                        if (entityComanda != null)
-                        {
-                            puntoVentaContext.nombreImpresoraComanda = entityComanda.cat_impresoras.NombreRed;
-                        }
-                        else
-                        {
-                            puntoVentaContext.nombreImpresoraComanda = "";
-                        }
+                    if (entityComanda != null)
+                    {
+                        puntoVentaContext.nombreImpresoraComanda = entityComanda.cat_impresoras.NombreRed;
+                    }
+                    else
+                    {
+                        puntoVentaContext.nombreImpresoraComanda = "";
+                    }
                     #endregion
 
                     EquipoComputoBusiness.RegistrarEquipo(puntoVentaContext.sucursalId);
 
+                    this.Hide();
+                    BarraCargarForms welcome = new BarraCargarForms();
+                    welcome.ShowDialog();
+                    //welcome.Hide();
+
                     frmMain oMenu = frmMain.GetInstance();
+
                     oMenu.puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                     oMenu.puntoVentaContext = puntoVentaContext;
                     oMenu.puntoVentaContext.conectarConBascula = false;
@@ -340,13 +306,11 @@ namespace TacosAna.Desktop
                         oMenu.puntoVentaContext.sucursalId, "ConectarConBascula", oMenu.puntoVentaContext.usuarioId))
                     {
                         puntoVentaContext.conectarConBascula = true;
-
                     }
                     else
                     {
                         puntoVentaContext.conectarConBascula = false;
                     }
-
                     if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(oMenu.puntoVentaContext.empresaId,
                         oMenu.puntoVentaContext.sucursalId, "UsarPesoInteligente", oMenu.puntoVentaContext.usuarioId))
                     {
@@ -356,23 +320,16 @@ namespace TacosAna.Desktop
                     {
                         puntoVentaContext.usarTareaBascula = false;
                     }
-
-
-
                     oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]";
                     oMenu.Show();
-                    this.Hide();
 
                     return;
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.InnerException != null ? ex.InnerException.Message : ex.Message, "ERROR SESION", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void abrirMenu()
@@ -381,10 +338,9 @@ namespace TacosAna.Desktop
             {
 
             }
-            catch (Exception )
+            catch (Exception)
             {
 
-               
             }
         }
 
@@ -411,12 +367,11 @@ namespace TacosAna.Desktop
         {
             int sucursalId;
 
-            if(uiSucursal.SelectedItem != null)
+            if (uiSucursal.SelectedItem != null)
             {
                 sucursalId = Convert.ToInt32(((p_sucursales_usuario_sel_Result)uiSucursal.SelectedItem).Clave);
-                uiCaja.DataSource = oContext.cat_cajas.Where(w=> w.Sucursal == sucursalId).ToList();
+                uiCaja.DataSource = oContext.cat_cajas.Where(w => w.Sucursal == sucursalId).ToList();
             }
-            
         }
     }
 }
