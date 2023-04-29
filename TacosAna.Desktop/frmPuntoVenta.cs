@@ -2540,6 +2540,7 @@ namespace TacosAna.Desktop
             {
                 string aviso = "";
 
+               
                 if (programacion.doc_pedidos_orden.Notas.Length > 0)
                 {
                     uiPedido.Text = programacion.doc_pedidos_orden.Notas;

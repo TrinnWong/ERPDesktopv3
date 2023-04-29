@@ -46,6 +46,8 @@
             this.colFecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidadSobrante = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRequiereBascula = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRepDevolucion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repDevCocina = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pproductossobrantesgrdResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDevCocina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -85,10 +88,11 @@
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(837, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(1058, 586);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -101,6 +105,7 @@
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(5, 63);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(457, 18);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -110,13 +115,14 @@
             // uiFecha
             // 
             this.uiFecha.EditValue = null;
-            this.uiFecha.Location = new System.Drawing.Point(156, 35);
+            this.uiFecha.Location = new System.Drawing.Point(185, 35);
+            this.uiFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiFecha.Name = "uiFecha";
             this.uiFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.uiFecha.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.uiFecha.Size = new System.Drawing.Size(259, 22);
+            this.uiFecha.Size = new System.Drawing.Size(340, 22);
             this.uiFecha.StyleController = this.layoutControl1;
             this.uiFecha.TabIndex = 9;
             // 
@@ -124,9 +130,10 @@
             // 
             this.uiTerminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiTerminar.ImageOptions.Image")));
             this.uiTerminar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiTerminar.Location = new System.Drawing.Point(294, 405);
+            this.uiTerminar.Location = new System.Drawing.Point(370, 541);
+            this.uiTerminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiTerminar.Name = "uiTerminar";
-            this.uiTerminar.Size = new System.Drawing.Size(290, 40);
+            this.uiTerminar.Size = new System.Drawing.Size(369, 40);
             this.uiTerminar.StyleController = this.layoutControl1;
             this.uiTerminar.TabIndex = 8;
             this.uiTerminar.Text = "TERMINAR Y AFECTAR INVENTARIO";
@@ -136,9 +143,10 @@
             // 
             this.uiSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiSalir.ImageOptions.Image")));
             this.uiSalir.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiSalir.Location = new System.Drawing.Point(590, 405);
+            this.uiSalir.Location = new System.Drawing.Point(745, 541);
+            this.uiSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiSalir.Name = "uiSalir";
-            this.uiSalir.Size = new System.Drawing.Size(242, 40);
+            this.uiSalir.Size = new System.Drawing.Size(308, 40);
             this.uiSalir.StyleController = this.layoutControl1;
             this.uiSalir.TabIndex = 7;
             this.uiSalir.Text = "SALIR";
@@ -148,9 +156,10 @@
             // 
             this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiGuardar.ImageOptions.Image")));
             this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiGuardar.Location = new System.Drawing.Point(5, 405);
+            this.uiGuardar.Location = new System.Drawing.Point(5, 541);
+            this.uiGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiGuardar.Name = "uiGuardar";
-            this.uiGuardar.Size = new System.Drawing.Size(283, 40);
+            this.uiGuardar.Size = new System.Drawing.Size(359, 40);
             this.uiGuardar.StyleController = this.layoutControl1;
             this.uiGuardar.TabIndex = 6;
             this.uiGuardar.Text = "GUARDAR";
@@ -159,10 +168,14 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.pproductossobrantesgrdResultBindingSource;
+            this.uiGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.uiGrid.Location = new System.Drawing.Point(5, 87);
             this.uiGrid.MainView = this.uiGridView;
+            this.uiGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiGrid.Name = "uiGrid";
-            this.uiGrid.Size = new System.Drawing.Size(827, 312);
+            this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repDevCocina});
+            this.uiGrid.Size = new System.Drawing.Size(1048, 448);
             this.uiGrid.TabIndex = 5;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -180,11 +193,13 @@
             this.colExistencia,
             this.colFecha,
             this.colCantidadSobrante,
-            this.colRequiereBascula});
+            this.colRequiereBascula,
+            this.colRepDevolucion});
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
             this.uiGridView.OptionsView.ShowGroupPanel = false;
             this.uiGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.uiGridView_RowClick);
+            this.uiGridView.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.uiGridView_RowCellClick);
             this.uiGridView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.uiGridView_ShowingEditor);
             // 
             // colProductoId
@@ -195,7 +210,7 @@
             this.colProductoId.OptionsColumn.AllowEdit = false;
             this.colProductoId.Visible = true;
             this.colProductoId.VisibleIndex = 0;
-            this.colProductoId.Width = 63;
+            this.colProductoId.Width = 73;
             // 
             // colClave
             // 
@@ -204,7 +219,7 @@
             this.colClave.OptionsColumn.AllowEdit = false;
             this.colClave.Visible = true;
             this.colClave.VisibleIndex = 1;
-            this.colClave.Width = 80;
+            this.colClave.Width = 93;
             // 
             // colDescripcion
             // 
@@ -213,7 +228,7 @@
             this.colDescripcion.OptionsColumn.AllowEdit = false;
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
-            this.colDescripcion.Width = 313;
+            this.colDescripcion.Width = 364;
             // 
             // colExistencia
             // 
@@ -229,7 +244,7 @@
             this.colFecha.OptionsColumn.AllowEdit = false;
             this.colFecha.Visible = true;
             this.colFecha.VisibleIndex = 3;
-            this.colFecha.Width = 104;
+            this.colFecha.Width = 96;
             // 
             // colCantidadSobrante
             // 
@@ -237,7 +252,7 @@
             this.colCantidadSobrante.Name = "colCantidadSobrante";
             this.colCantidadSobrante.Visible = true;
             this.colCantidadSobrante.VisibleIndex = 4;
-            this.colCantidadSobrante.Width = 149;
+            this.colCantidadSobrante.Width = 137;
             // 
             // colRequiereBascula
             // 
@@ -245,14 +260,32 @@
             this.colRequiereBascula.Name = "colRequiereBascula";
             this.colRequiereBascula.OptionsColumn.AllowEdit = false;
             this.colRequiereBascula.Visible = true;
-            this.colRequiereBascula.VisibleIndex = 5;
-            this.colRequiereBascula.Width = 98;
+            this.colRequiereBascula.VisibleIndex = 6;
+            this.colRequiereBascula.Width = 108;
+            // 
+            // colRepDevolucion
+            // 
+            this.colRepDevolucion.Caption = "Dev. Cocina";
+            this.colRepDevolucion.ColumnEdit = this.repDevCocina;
+            this.colRepDevolucion.FieldName = "CantidadDevolucionCocina";
+            this.colRepDevolucion.Name = "colRepDevolucion";
+            this.colRepDevolucion.Visible = true;
+            this.colRepDevolucion.VisibleIndex = 5;
+            this.colRepDevolucion.Width = 157;
+            // 
+            // repDevCocina
+            // 
+            this.repDevCocina.AutoHeight = false;
+            this.repDevCocina.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDevCocina.Name = "repDevCocina";
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(5, 5);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(209, 24);
             this.labelControl1.StyleController = this.layoutControl1;
@@ -275,7 +308,7 @@
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(837, 450);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 586);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -283,7 +316,7 @@
             this.layoutControlItem1.Control = this.labelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(833, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1054, 30);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -292,34 +325,34 @@
             this.layoutControlItem2.Control = this.uiGrid;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 82);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(833, 318);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1054, 454);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.uiGuardar;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 400);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 536);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(289, 46);
+            this.layoutControlItem3.Size = new System.Drawing.Size(365, 46);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.uiSalir;
-            this.layoutControlItem4.Location = new System.Drawing.Point(585, 400);
+            this.layoutControlItem4.Location = new System.Drawing.Point(740, 536);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(248, 46);
+            this.layoutControlItem4.Size = new System.Drawing.Size(314, 46);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.uiTerminar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(289, 400);
+            this.layoutControlItem5.Location = new System.Drawing.Point(365, 536);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(296, 46);
+            this.layoutControlItem5.Size = new System.Drawing.Size(375, 46);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -328,16 +361,16 @@
             this.layoutControlItem6.Control = this.uiFecha;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(416, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(526, 28);
             this.layoutControlItem6.Text = "Registro de Sobrantes del Día:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(146, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(175, 16);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(416, 30);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(526, 30);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(417, 28);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(528, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -345,16 +378,17 @@
             this.layoutControlItem7.Control = this.labelControl2;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 58);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(833, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1054, 24);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // frmSobrantesRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 450);
+            this.ClientSize = new System.Drawing.Size(1058, 586);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmSobrantesRegistro";
             this.Text = "Registro de Produtos Sobrantes";
             this.Load += new System.EventHandler(this.frmSobrantesRegistro_Load);
@@ -365,6 +399,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pproductossobrantesgrdResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDevCocina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -406,5 +441,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraGrid.Columns.GridColumn colRepDevolucion;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repDevCocina;
     }
 }

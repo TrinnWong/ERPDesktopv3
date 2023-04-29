@@ -20,5 +20,7 @@ namespace ConexionBD
         public System.DateTime Fecha { get; set; }
         public decimal CantidadSobrante { get; set; }
         public bool RequiereBascula { get; set; }
+
+        public decimal CantidadDevolucionCocina { get; set; }
     }
 }
