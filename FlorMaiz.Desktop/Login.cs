@@ -9,6 +9,7 @@ using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using ERP.Common;
+using System.Threading.Tasks;
 
 namespace TacosAna.Desktop
 {
@@ -22,6 +23,7 @@ namespace TacosAna.Desktop
         ConexionBD.Sistema oSistema;
         ConexionBD.LoginCaja oLogin;
         ERPProdEntities oContext;
+        BarraCargarForms welcome;
         public Login()
         {
             InitializeComponent();
@@ -60,9 +62,26 @@ namespace TacosAna.Desktop
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private  void button1_Click(object sender, EventArgs e)
         {
+
+            if (uiSucursal.SelectedValue == null)
+            {
+                MessageBox.Show("Es necesario ingresar la sucrusal", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (uiCaja.SelectedValue == null)
+            {
+                MessageBox.Show("Es necesario ingresar la caja", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+           
+
             entrar();
+
+           
+
         }
 
         public void entrarDemo()
@@ -72,16 +91,6 @@ namespace TacosAna.Desktop
                 cat_usuarios usuario = null;
                 bool esSupervisor = false;
 
-                if (uiSucursal.SelectedValue == null)
-                {
-                    MessageBox.Show("Es necesario ingresar la sucrusal", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (uiCaja.SelectedValue == null)
-                {
-                    MessageBox.Show("Es necesario ingresar la caja", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 int sucursalId = (int)uiSucursal.SelectedValue;
                 int cajaId = (int)uiCaja.SelectedValue;
@@ -185,6 +194,11 @@ namespace TacosAna.Desktop
         {
             try
             {
+                welcome = new BarraCargarForms();
+                welcome.setProgress(50);
+                welcome.Show();
+                welcome.BringToFront();
+
                 cat_usuarios usuario = null;
                 bool esSupervisor = false;
 
@@ -199,19 +213,24 @@ namespace TacosAna.Desktop
                     return;
                 }
 
+
                 int sucursalId = (int)uiSucursal.SelectedValue;
                 int cajaId = (int)uiCaja.SelectedValue;
                 int sesionId = 0;
-
+                
                 string error = oLogin.validarLogin(uiUsuario.Text, uiPassword.Text, uiCaja.SelectedValue == null ? 0 : (int)uiCaja.SelectedValue, ref usuario, ref esSupervisor, ref sesionId);
 
                 if (error.Length > 0)
                 {
+                    
                     MessageBox.Show(error, "ERROR LOGIN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else
                 {
+
+
+                    
                     cat_configuracion configPV = oContext.cat_configuracion.FirstOrDefault();
                     PuntoVentaContext puntoVentaContext;
                     puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
@@ -291,10 +310,12 @@ namespace TacosAna.Desktop
 
                     EquipoComputoBusiness.RegistrarEquipo(puntoVentaContext.sucursalId);
 
+
+                    welcome.setProgress(60);
+                    welcome.Close();
                     this.Hide();
-                    BarraCargarForms welcome = new BarraCargarForms();
-                    welcome.ShowDialog();
-                    //welcome.Hide();
+                    
+                    
 
                     frmMain oMenu = frmMain.GetInstance();
 
@@ -328,6 +349,9 @@ namespace TacosAna.Desktop
             }
             catch (Exception ex)
             {
+                welcome.setProgress(60);
+                welcome.Close();
+
                 MessageBox.Show(ex.InnerException != null ? ex.InnerException.Message : ex.Message, "ERROR SESION", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -360,6 +384,7 @@ namespace TacosAna.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
+            welcome = new BarraCargarForms();
             this.lblVersion.Text = Sistema.ObtenVersion();
         }
 

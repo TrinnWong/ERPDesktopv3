@@ -5,36 +5,59 @@ namespace ERP.Common
 {
     public partial class BarraCargarForms : Form
     {
+        public bool _breakForm;
         public BarraCargarForms()
         {
+            _breakForm = false;
             InitializeComponent();
         }
 
-        private void fadeInForm_Tick(object sender, EventArgs e)
+        public void breakForm()
         {
-            if (this.Opacity < 1) this.Opacity += 0.05;
-            circularProgressBar1.Value += 1;
-            circularProgressBar1.Text = circularProgressBar1.Value.ToString();
-            if (circularProgressBar1.Value == 100)
-            {
-                fadeInForm.Stop();
-                fadeOutForm.Start();
-            }
+            _breakForm = true;
         }
 
-        private void fadeOutForm_Tick(object sender, EventArgs e)
+        public void setProgress(int value)
         {
-            this.Opacity -= 0.1;
-            if (this.Opacity == 0)
+            //if (this.Opacity < 1) this.Opacity = value/100;
+            circularProgressBar1.Value = value;
+            circularProgressBar1.Text = circularProgressBar1.Value.ToString();
+
+            if (circularProgressBar1.Value == 100 || _breakForm)
             {
-                fadeOutForm.Stop();
+                _breakForm = false;
+                fadeInForm.Stop();
+                fadeOutForm.Start();
                 this.Close();
             }
         }
 
+        private void fadeInForm_Tick(object sender, EventArgs e)
+        {
+            //if (this.Opacity < 1) this.Opacity += 0.05;
+            //circularProgressBar1.Value += 1;
+            //circularProgressBar1.Text = circularProgressBar1.Value.ToString();
+            //if (circularProgressBar1.Value == 100 || _breakForm)
+            //{
+            //    _breakForm = false;
+            //    fadeInForm.Stop();
+            //    fadeOutForm.Start();
+            //}
+        }
+
+        private void fadeOutForm_Tick(object sender, EventArgs e)
+        {
+            //this.Opacity -= 0.1;
+            //if (this.Opacity == 0)
+            //{
+            //    fadeOutForm.Stop();
+            //    this.Close();
+            //}
+        }
+
         private void LoadingAppForms_Load(object sender, EventArgs e)
         {
-            this.Opacity = 0.0;
+            //this.Opacity = 0.0;
             circularProgressBar1.Value = 0;
             circularProgressBar1.Minimum = 0;
             circularProgressBar1.Maximum = 100;

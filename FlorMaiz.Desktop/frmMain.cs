@@ -661,8 +661,8 @@ namespace FlorMaiz.Desktop
 
             if (!RedActiva)
             {
-                estadoConexionaRed = "No está conectado a la red";
-                MessageBox.Show(estadoConexionaRed, "Alerta", MessageBoxButtons.OK);
+                estadoConexionaRed = "No hay conexión a Internet";
+                ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionaRed);
             }
             else
             {
@@ -685,8 +685,8 @@ namespace FlorMaiz.Desktop
                 }
                 catch (Exception ex)
                 {
-                    estadoConexionInternet = "No se pudo conectar a Internet " + ex.Message;
-                    MessageBox.Show(estadoConexionInternet, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    estadoConexionInternet = "No hay conexión a Internet " + ex.Message;
+                    ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionInternet);
                 }
                 WebRequest = null;
             }
