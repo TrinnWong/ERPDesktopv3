@@ -1980,6 +1980,7 @@ namespace ConexionBD
 
                 result = InventarioBusiness.Guardar(ref entityMov, usuarioId, oContext);
 
+                
                 if (result.ok)
                 {
                     foreach (ProductoModel0 itemProducto in lstProductos.Where(w => w.cantidadCobroReparto > 0))

@@ -512,7 +512,10 @@ namespace ERP.Business
             return result;
         }
 
-        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet, doc_inv_movimiento entityEnc, int usuarioId, ERPProdEntities oContext)
+        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet, 
+            doc_inv_movimiento entityEnc, int usuarioId, 
+            ERPProdEntities oContext
+            )
         {
             ResultAPIModel result = new ResultAPIModel();
             try
@@ -543,6 +546,7 @@ namespace ERP.Business
                 oContext.doc_inv_movimiento_detalle.Add(entityNew);
 
                 oContext.SaveChanges();
+
                 entityDet = entityNew;
 
 
@@ -563,6 +567,62 @@ namespace ERP.Business
             return result;
         }
 
+
+        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet,
+           doc_inv_movimiento entityEnc, int usuarioId,
+           ref ERPProdEntities oContext,
+           bool saveChanges=true
+           )
+        {
+            ResultAPIModel result = new ResultAPIModel();
+            try
+            {
+                doc_inv_movimiento_detalle entityNew = new doc_inv_movimiento_detalle();
+                int MovimientoId = entityEnc.MovimientoId;
+                entityNew.MovimientoDetalleId = (oContext.doc_inv_movimiento_detalle
+                    .Max(m => (int?)m.MovimientoDetalleId) ?? 0) + 1;
+                entityNew.Cantidad = entityDet.Cantidad;
+                entityNew.Comisiones = entityDet.Comisiones;
+                entityNew.Consecutivo = (short)((oContext.doc_inv_movimiento_detalle
+                    .Where(w => w.MovimientoId == MovimientoId).Max(m => (int?)m.Consecutivo) ?? 0) + 1);
+                entityNew.CostoPromedio = entityDet.CostoPromedio;
+                entityNew.CostoUltimaCompra = entityDet.CostoUltimaCompra;
+                entityNew.CreadoEl = DateTime.Now;
+                entityNew.CreadoPor = usuarioId;
+                entityNew.Disponible = entityDet.Disponible;
+                entityNew.Flete = entityDet.Flete;
+                entityNew.Importe = entityDet.Importe;
+                entityNew.MovimientoId = entityEnc.MovimientoId;
+                entityNew.PrecioUnitario = entityDet.PrecioUnitario;
+                entityNew.ProductoId = entityDet.ProductoId;
+                entityNew.ValCostoPromedio = entityDet.ValCostoPromedio;
+                entityNew.ValCostoUltimaCompra = entityDet.ValCostoUltimaCompra;
+                entityNew.ValorMovimiento = entityDet.ValorMovimiento;
+
+
+                oContext.doc_inv_movimiento_detalle.Add(entityNew);
+
+                if(saveChanges) oContext.SaveChanges();
+
+                entityDet = entityNew;
+
+
+            }
+            catch (Exception ex)
+            {
+                entityDet.MovimientoDetalleId = 0;
+                int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                    "ERP",
+                                    "InventarioBusiness.Guardar",
+                                    ex);
+
+                result.error = ConstantesBusiness.messageErrorBitacora.Replace("{id}", err.ToString());
+
+
+            }
+
+            return result;
+        }
 
         public static ResultAPIModel GuardarTraspaso(ref doc_inv_movimiento entity,
             List<doc_inv_movimiento_detalle> entityDetalle,
