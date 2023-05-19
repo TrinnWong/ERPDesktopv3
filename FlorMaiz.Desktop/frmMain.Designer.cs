@@ -56,6 +56,7 @@
             this.btnReimprimirUltimoCorteCajero = new DevExpress.XtraBars.BarButtonItem();
             this.uiMenuReimprimirCorteSupervisor = new DevExpress.XtraBars.BarButtonItem();
             this.mnuMaizMaseca = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -68,7 +69,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.timerToCheckNetwork = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -325,6 +326,14 @@
             this.mnuMaizMaseca.Name = "mnuMaizMaseca";
             this.mnuMaizMaseca.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuMaizMaseca_ItemClick);
             // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "Gastos Negocio";
+            this.barButtonItem13.Id = 28;
+            this.barButtonItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.Image")));
+            this.barButtonItem13.Name = "barButtonItem13";
+            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -421,13 +430,11 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
-            // barButtonItem13
+            // timerToCheckNetwork
             // 
-            this.barButtonItem13.Caption = "Gastos Negocio";
-            this.barButtonItem13.Id = 28;
-            this.barButtonItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.Image")));
-            this.barButtonItem13.Name = "barButtonItem13";
-            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
+            this.timerToCheckNetwork.Enabled = true;
+            this.timerToCheckNetwork.Interval = 10000;
+            this.timerToCheckNetwork.Tick += new System.EventHandler(this.timerToCheckNetwork_Tick);
             // 
             // frmMain
             // 
@@ -447,7 +454,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -492,5 +498,6 @@
         private DevExpress.XtraBars.BarButtonItem uiMenuReimprimirCorteSupervisor;
         private DevExpress.XtraBars.BarButtonItem mnuMaizMaseca;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
+        private System.Windows.Forms.Timer timerToCheckNetwork;
     }
 }

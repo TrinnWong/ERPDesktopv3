@@ -1,8 +1,0 @@
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ConexionBD.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\EntityFramework.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Background.Task.exe
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Business.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Models.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\ERP.Utils.dll
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\FlorMaiz.Desktop\bin\Debug\Newtonsoft.Json.dll
