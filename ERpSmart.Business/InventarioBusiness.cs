@@ -2,6 +2,7 @@
 using ERP.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -443,6 +444,7 @@ namespace ERP.Business
                     entityUpd.ImporteTotal = entity.ImporteTotal;
                     entityUpd.TipoMermaId = entity.TipoMermaId;
                     entityUpd.Comentarios = entity.Comentarios;
+                    entityUpd.CreadoPor = entityUpd.CreadoPor == 0 ? usuarioId : entityUpd.CreadoPor;
                     oContext.SaveChanges();
 
                     entity = entityUpd;
@@ -479,6 +481,7 @@ namespace ERP.Business
                     entityNew.VentaId = entity.VentaId;
                     entityNew.TipoMermaId = entity.TipoMermaId;
                     entityNew.Comentarios = entity.Comentarios;
+                    entityNew.CreadoPor = entityNew.CreadoPor == 0 ? usuarioId : entityNew.CreadoPor;
 
                     oContext.doc_inv_movimiento.Add(entityNew);
 
@@ -509,7 +512,10 @@ namespace ERP.Business
             return result;
         }
 
-        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet, doc_inv_movimiento entityEnc, int usuarioId, ERPProdEntities oContext)
+        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet, 
+            doc_inv_movimiento entityEnc, int usuarioId, 
+            ERPProdEntities oContext
+            )
         {
             ResultAPIModel result = new ResultAPIModel();
             try
@@ -525,7 +531,7 @@ namespace ERP.Business
                 entityNew.CostoPromedio = entityDet.CostoPromedio;
                 entityNew.CostoUltimaCompra = entityDet.CostoUltimaCompra;
                 entityNew.CreadoEl = DateTime.Now;
-                entityNew.CreadoPor = entityDet.CreadoPor;
+                entityNew.CreadoPor = usuarioId;
                 entityNew.Disponible = entityDet.Disponible;
                 entityNew.Flete = entityDet.Flete;
                 entityNew.Importe = entityDet.Importe;
@@ -540,6 +546,7 @@ namespace ERP.Business
                 oContext.doc_inv_movimiento_detalle.Add(entityNew);
 
                 oContext.SaveChanges();
+
                 entityDet = entityNew;
 
 
@@ -560,6 +567,62 @@ namespace ERP.Business
             return result;
         }
 
+
+        public static ResultAPIModel GuardarDetalle(ref doc_inv_movimiento_detalle entityDet,
+           doc_inv_movimiento entityEnc, int usuarioId,
+           ref ERPProdEntities oContext,
+           bool saveChanges=true
+           )
+        {
+            ResultAPIModel result = new ResultAPIModel();
+            try
+            {
+                doc_inv_movimiento_detalle entityNew = new doc_inv_movimiento_detalle();
+                int MovimientoId = entityEnc.MovimientoId;
+                entityNew.MovimientoDetalleId = (oContext.doc_inv_movimiento_detalle
+                    .Max(m => (int?)m.MovimientoDetalleId) ?? 0) + 1;
+                entityNew.Cantidad = entityDet.Cantidad;
+                entityNew.Comisiones = entityDet.Comisiones;
+                entityNew.Consecutivo = (short)((oContext.doc_inv_movimiento_detalle
+                    .Where(w => w.MovimientoId == MovimientoId).Max(m => (int?)m.Consecutivo) ?? 0) + 1);
+                entityNew.CostoPromedio = entityDet.CostoPromedio;
+                entityNew.CostoUltimaCompra = entityDet.CostoUltimaCompra;
+                entityNew.CreadoEl = DateTime.Now;
+                entityNew.CreadoPor = usuarioId;
+                entityNew.Disponible = entityDet.Disponible;
+                entityNew.Flete = entityDet.Flete;
+                entityNew.Importe = entityDet.Importe;
+                entityNew.MovimientoId = entityEnc.MovimientoId;
+                entityNew.PrecioUnitario = entityDet.PrecioUnitario;
+                entityNew.ProductoId = entityDet.ProductoId;
+                entityNew.ValCostoPromedio = entityDet.ValCostoPromedio;
+                entityNew.ValCostoUltimaCompra = entityDet.ValCostoUltimaCompra;
+                entityNew.ValorMovimiento = entityDet.ValorMovimiento;
+
+
+                oContext.doc_inv_movimiento_detalle.Add(entityNew);
+
+                if(saveChanges) oContext.SaveChanges();
+
+                entityDet = entityNew;
+
+
+            }
+            catch (Exception ex)
+            {
+                entityDet.MovimientoDetalleId = 0;
+                int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                    "ERP",
+                                    "InventarioBusiness.Guardar",
+                                    ex);
+
+                result.error = ConstantesBusiness.messageErrorBitacora.Replace("{id}", err.ToString());
+
+
+            }
+
+            return result;
+        }
 
         public static ResultAPIModel GuardarTraspaso(ref doc_inv_movimiento entity,
             List<doc_inv_movimiento_detalle> entityDetalle,
@@ -639,6 +702,105 @@ namespace ERP.Business
                     }
                 }
                
+            }
+            catch (Exception ex)
+            {
+                int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                   "ERP",
+                                   "InventarioBusiness.Guardar",
+                                   ex);
+
+                result.error = ConstantesBusiness.messageErrorBitacora.Replace("{id}", err.ToString());
+
+
+
+            }
+
+            return result;
+        }
+
+
+        public static ResultAPIModel GuardarTraspaso(ref doc_inv_movimiento entity,
+         List<doc_inv_movimiento_detalle> entityDetalle,
+         int usuarioId,
+         int empresaId,
+         ERPProdEntities oContext,
+         bool aplicarTraspasoAutomatico=true)
+        {
+            ResultAPIModel result = new ResultAPIModel();
+            try
+            {
+                var configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, entity.SucursalId);
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    try
+                    {
+                        result = Guardar(ref entity, usuarioId, oContext);
+
+                        if (result.ok)
+                        {
+                            for (int i = 0; i < entityDetalle.Count; i++)
+                            {
+                                doc_inv_movimiento_detalle itemDET = entityDetalle[i];
+                                result = GuardarDetalle(ref itemDET, entity,
+                                    usuarioId, oContext);
+
+                                if (!result.ok)
+                                {
+                                    return result;
+                                }
+                                if (ERP.Business.DataMemory.DataBucket.GetProductosMemory(false).Where(w => w.ProductoId == entityDetalle[i].ProductoId).FirstOrDefault()
+                                    .ProdVtaBascula == true && configBascula != null)
+                                {
+                                    //Guarda Bitácora Báscula
+                                    ERP.Business.BasculasBusiness.InsertBitacora(configBascula.BasculaId, entity.SucursalId, usuarioId, entityDetalle[i].Cantidad ?? 0,
+                                        (int)ERP.Business.Enumerados.tipoBasculaBitacora.Traspaso, entityDetalle[i].ProductoId, null);
+                                }
+
+                            }
+
+                            cat_empresas_config_inventario confEmpresaIn = oContext.cat_empresas_config_inventario
+                           .Where(w => w.EmpresaId == empresaId).FirstOrDefault();
+
+                            if (confEmpresaIn != null)
+                            {
+                                if (confEmpresaIn.EnableTraspasoAutomatico)
+                                {
+                                    ObjectParameter pError = new ObjectParameter("pError","");
+                                    oContext.p_traspaso_automatico(entity.MovimientoId, usuarioId, pError);
+
+                                    result.error = pError.Value.ToString();                                         
+
+                                    if (!result.ok)
+                                    {
+                                        return result;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            scope.Dispose();
+                            return result;
+                        }
+
+                        scope.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        scope.Dispose();
+
+                        int err = ERP.Business.SisBitacoraBusiness.Insert(usuarioId,
+                                  "ERP",
+                                  "InventarioBusiness.Guardar",
+                                  ex);
+
+                        result.error = ConstantesBusiness.messageErrorBitacora.Replace("{id}", err.ToString());
+
+
+                    }
+                }
+
             }
             catch (Exception ex)
             {
