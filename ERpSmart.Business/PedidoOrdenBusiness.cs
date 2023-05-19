@@ -1536,24 +1536,28 @@ namespace ConexionBD
 
             
             if (
-              pedido.VentaId > 0
+              pedido.VentaId != null
            )
             {
                 return "Pagado";
             }
-
-            if(pedido.doc_cargos != null)
+            else
             {
-                if (pedido.doc_cargos.Saldo == 0)
+                if (pedido.doc_cargos != null)
                 {
-                    return "Pagado";
-                }
+                    if (pedido.doc_cargos.Saldo == 0)
+                    {
+                        return "Pagado";
+                    }
 
-                if (pedido.doc_cargos.Saldo < pedido.doc_cargos.Total && pedido.doc_cargos.Saldo > 0)
-                {
-                    return "Pagado Parcialmente";
+                    if (pedido.doc_cargos.Saldo < pedido.doc_cargos.Total && pedido.doc_cargos.Saldo > 0)
+                    {
+                        return "Pagado Parcialmente";
+                    }
                 }
             }
+
+            
             
             
 
@@ -1593,8 +1597,16 @@ namespace ConexionBD
                            .Where(w => w.PedidoId == pedidoId).FirstOrDefault();
 
                if(pedidoUpd.Cancelada == true)
-                {
+               {
                     return "El pedido ya está cancelado";
+               }
+               if(pedidoUpd.doc_ventas != null)
+               {
+                    if(pedidoUpd.doc_ventas.Activo == true)
+                    {
+                        return String.Format( "El pedido tiene un ticket de pago asignado, no es posible cancelar.Será necesario cancelar el ticket {0}",
+                            pedidoUpd.Folio);
+                    }
                 }
                if(oContext.doc_pagos
                     .Where(
@@ -1968,6 +1980,7 @@ namespace ConexionBD
 
                 result = InventarioBusiness.Guardar(ref entityMov, usuarioId, oContext);
 
+                
                 if (result.ok)
                 {
                     foreach (ProductoModel0 itemProducto in lstProductos.Where(w => w.cantidadCobroReparto > 0))

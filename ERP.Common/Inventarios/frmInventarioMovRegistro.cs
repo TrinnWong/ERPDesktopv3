@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 
+
 namespace ERP.Common.Inventarios
 {
     public partial class frmInventarioMovRegistro : FormBaseXtraForm
@@ -89,6 +90,7 @@ namespace ERP.Common.Inventarios
                 {
                     uiGrid.DataSource = oContext.doc_inv_movimiento_detalle
                             .Where(w => w.MovimientoId == MovimientoInventarioId)
+                            .OrderBy(o=> o.cat_productos.Orden)
                             .Select(s => new ProductoInventarioModel()
                             {
                                 unidad = s.cat_productos.cat_unidadesmed.Descripcion,
@@ -619,19 +621,17 @@ namespace ERP.Common.Inventarios
                 entityMov.Comentarios = uiComentarios.Text;
 
 
-                List<doc_inv_movimiento_detalle> lstMovsDetalle = new List<doc_inv_movimiento_detalle>();
+                List<doc_inv_movimiento_detalle> lstMovsDetalle = new List<doc_inv_movimiento_detalle>();                
 
-                foreach (ProductoInventarioModel itemDet in ((List<ProductoInventarioModel>)uiGrid.DataSource)
-                    .Where(W=> (W.cantidad > 0 && borrarPartidasEnCero) || borrarPartidasEnCero == false).ToList())
-                {
-                    doc_inv_movimiento_detalle entityMovDet = new doc_inv_movimiento_detalle();
-
-                    entityMovDet.Cantidad = itemDet.cantidad;
-                    entityMovDet.ProductoId = itemDet.productoId;
-                    entityMovDet.CreadoPor = puntoVentaContext.usuarioId;
-
-                    lstMovsDetalle.Add(entityMovDet);
-                }
+                lstMovsDetalle = ((List<ProductoInventarioModel>)uiGrid.DataSource)
+                    .Where(W => (W.cantidad > 0 && borrarPartidasEnCero) || borrarPartidasEnCero == false)
+                    .Select(
+                        s=> new doc_inv_movimiento_detalle(){
+                            Cantidad = s.cantidad,
+                            ProductoId = s.productoId,
+                            CreadoPor = puntoVentaContext.usuarioId
+                        }
+                    ).ToList();
                 oContext = new ERPProdEntities();
                 
 
@@ -647,34 +647,49 @@ namespace ERP.Common.Inventarios
                         oContext.p_doc_inv_movimiento_detalle_del(MovimientoInventarioId);
                     }
                                        
+                        
+                    
+                        
+                    if (result.ok)
+                     
+                    {
+                        
+                        DateTime fechaSis = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
+                        int MovimientoId= (oContext.doc_inv_movimiento_detalle
+                                .Max(m => (int?)m.MovimientoDetalleId) ?? 0) + 1;
 
-                        if (result.ok)
-                        {
-                            for (int i = 0; i < lstMovsDetalle.Count; i++)
+                        IEnumerable<doc_inv_movimiento_detalle> lstInsert = lstMovsDetalle.Select(
+                            s=> new doc_inv_movimiento_detalle()
                             {
-                                doc_inv_movimiento_detalle itemUpd = lstMovsDetalle[i];
-
-                                result = ERP.Business.InventarioBusiness.GuardarDetalle(ref itemUpd,
-                                    entityMov, puntoVentaContext.usuarioId, oContext);
-
-                                if (!result.ok)
-                                {
-                                   
-                                    ERP.Utils.MessageBoxUtil.ShowError(result.error);
-                                }
-
-                                //Guarda Bitácora Báscula
-                                if (oContext.cat_productos.Where(w => w.ProductoId == itemUpd.ProductoId).FirstOrDefault()
-                                    .ProdVtaBascula == true)
-                                {
-                                    ERP.Business.BasculasBusiness.InsertBitacora(configBascula.BasculaId, puntoVentaContext.sucursalId,
-                                   puntoVentaContext.usuarioId, itemUpd.Cantidad ?? 0,
-                                   (int)tipoMovBascula, itemUpd.ProductoId, null);
-                                }
-
-                                
+                                MovimientoDetalleId = MovimientoId++,
+                                Cantidad = s.Cantidad,
+                                Comisiones = 0,
+                                Consecutivo = 0,
+                                CostoPromedio = 0,
+                                CostoUltimaCompra = 0,
+                                CreadoEl = fechaSis,
+                                CreadoPor = s.CreadoPor,
+                                Disponible = 0,
+                                Flete = 0,
+                                Importe = 0,
+                                MovimientoId = entityMov.MovimientoId,
+                                PrecioUnitario = 0,
+                                ProductoId = s.ProductoId,
+                                ValCostoPromedio = 0,
+                                ValCostoUltimaCompra = 0,
+                                ValorMovimiento = 0,
 
                             }
+                         ).AsEnumerable();
+
+                        oContext.Configuration.AutoDetectChangesEnabled = false;
+                        oContext.doc_inv_movimiento_detalle.AddRange(lstInsert.Where(w=> w.Cantidad > 0).AsEnumerable());
+                        oContext.SaveChanges();
+                        oContext.Configuration.AutoDetectChangesEnabled = true;
+
+                       
+                            
+
                         }
 
 
@@ -1132,11 +1147,7 @@ namespace ERP.Common.Inventarios
 
 
 
-                if (XtraMessageBox.Show("¿Está seguro(a) de continuar?",
-                    "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
-                    return false;
-                }
+               
 
                 return true;
             }
