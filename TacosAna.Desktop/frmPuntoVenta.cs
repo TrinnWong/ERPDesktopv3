@@ -1545,6 +1545,13 @@ namespace TacosAna.Desktop
         {
             try
             {
+                if(((List<PedidoDetalleModel>)grProducto.DataSource).Where(
+                    f=> f.paraLlevar == false && f.paraMesa == false).Count() ==
+                    ((List<PedidoDetalleModel>)grProducto.DataSource).Count())
+                {
+                    uiLlevar.Checked = true;
+                }
+
                 if (uiConsumo.Checked && uiEmpleado.EditValue == null)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("EL EMPLEADO ES REQUERIDO");

@@ -10,15 +10,17 @@
 namespace ConexionBD
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class p_productos_sobrantes_grd_Result
+    public partial class doc_productos_max_min
     {
+        public int SucursalId { get; set; }
         public int ProductoId { get; set; }
-        public string Clave { get; set; }
-        public string Descripcion { get; set; }
-        public decimal Existencia { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public decimal CantidadSobrante { get; set; }
-        public bool RequiereBascula { get; set; }
+        public decimal Maximo { get; set; }
+        public decimal Minimo { get; set; }
+        public System.DateTime CreadoEl { get; set; }
+    
+        public virtual cat_productos cat_productos { get; set; }
+        public virtual cat_sucursales cat_sucursales { get; set; }
     }
 }

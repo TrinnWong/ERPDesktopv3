@@ -11,14 +11,14 @@ namespace ConexionBD
 {
     using System;
     
-    public partial class p_productos_sobrantes_grd_Result
+    public partial class p_doc_productos_max_min_grd_Result
     {
+        public Nullable<int> SucursalId { get; set; }
+        public string Sucursal { get; set; }
         public int ProductoId { get; set; }
         public string Clave { get; set; }
         public string Descripcion { get; set; }
-        public decimal Existencia { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public decimal CantidadSobrante { get; set; }
-        public bool RequiereBascula { get; set; }
+        public decimal Maximo { get; set; }
+        public decimal Minimo { get; set; }
     }
 }

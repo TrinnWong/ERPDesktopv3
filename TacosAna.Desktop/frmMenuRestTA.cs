@@ -838,15 +838,16 @@ namespace TacosAna.Desktop
 
         private void uiInvRecepcionProd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
+            frmInventarioMovRegistro frmo = frmInventarioMovRegistro.GetInstance();
             if (!frmo.Visible)
             {
-                frmo.MdiParent = this;
+                frmo.MdiParent = this.MdiParent;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaPorTraspaso;
+                frmo.tipoMovimiento = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorEntrada;
+                frmo.MovimientoInventarioId = 0;
+
                 frmo.Show();
             }
         }

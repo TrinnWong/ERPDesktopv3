@@ -20,15 +20,13 @@ namespace ConexionBD
         public ERPProdEntities()
             : base("name=ERPProdEntities")
         {
-            this.Database.CommandTimeout = 9999;
         }
+
         public ERPProdEntities(string sc)
            : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
-            this.Database.CommandTimeout = 9999;
         }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -242,6 +240,7 @@ namespace ConexionBD
         public virtual DbSet<sis_cuenta> sis_cuenta { get; set; }
         public virtual DbSet<cat_productos_maximos_minimos> cat_productos_maximos_minimos { get; set; }
         public virtual DbSet<cat_configuracion> cat_configuracion { get; set; }
+        public virtual DbSet<doc_productos_max_min> doc_productos_max_min { get; set; }
     
         public virtual int doc_corte_caja_denominaciones_ins(Nullable<int> pCorteCajaId, Nullable<int> pDenominacionId, Nullable<int> pCantidad, Nullable<decimal> pValor, Nullable<decimal> pTotal, Nullable<int> pCreadoPor)
         {
@@ -4955,6 +4954,40 @@ namespace ConexionBD
                 new ObjectParameter("pUsuarioId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_traspaso_automatico", pMovimientoOrigenIdParameter, pUsuarioIdParameter, pError);
+        }
+    
+        public virtual ObjectResult<p_doc_productos_max_min_grd_Result> p_doc_productos_max_min_grd(Nullable<int> pSucursalId, Nullable<bool> pSoloAsignadasSucursal)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pSoloAsignadasSucursalParameter = pSoloAsignadasSucursal.HasValue ?
+                new ObjectParameter("pSoloAsignadasSucursal", pSoloAsignadasSucursal) :
+                new ObjectParameter("pSoloAsignadasSucursal", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_doc_productos_max_min_grd_Result>("p_doc_productos_max_min_grd", pSucursalIdParameter, pSoloAsignadasSucursalParameter);
+        }
+    
+        public virtual int p_doc_productos_max_min_ins_upd(Nullable<int> pSucursalId, Nullable<int> pProductoId, Nullable<decimal> pMaximo, Nullable<decimal> pMinimo)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pProductoIdParameter = pProductoId.HasValue ?
+                new ObjectParameter("pProductoId", pProductoId) :
+                new ObjectParameter("pProductoId", typeof(int));
+    
+            var pMaximoParameter = pMaximo.HasValue ?
+                new ObjectParameter("pMaximo", pMaximo) :
+                new ObjectParameter("pMaximo", typeof(decimal));
+    
+            var pMinimoParameter = pMinimo.HasValue ?
+                new ObjectParameter("pMinimo", pMinimo) :
+                new ObjectParameter("pMinimo", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_productos_max_min_ins_upd", pSucursalIdParameter, pProductoIdParameter, pMaximoParameter, pMinimoParameter);
         }
     }
 }

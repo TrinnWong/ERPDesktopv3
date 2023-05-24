@@ -1,6 +1,12 @@
-
+IF  EXISTS (
+	SELECT 1
+	FROM sysobjects
+	WHERE NAME = 'p_rpt_sucursal_mov_dia'
+)
+DROP PROC p_rpt_sucursal_mov_dia
+GO
 -- p_rpt_sucursal_mov_dia 0,'20230501','20230515',1
-ALTER proc p_rpt_sucursal_mov_dia
+CREATE proc p_rpt_sucursal_mov_dia
 @pSucursalId INT,
 @pDel DATETIME,
 @pAl DATETIME,
