@@ -3124,37 +3124,31 @@ namespace TacosAna.Desktop
                 }
                 #endregion
                 long ventaId = 0;
-                CalcularImpuestosProd();
+                //CalcularImpuestosProd();
 
                 List<ProductoModel0> lstProductosPago = new List<ProductoModel0>();
+                                
+                pedidoId = pedidoId > 0 ? pedidoId : lstPedido.Max(m=> m.pedidoId);
 
-                int i = 1;
-                foreach (var itemPedido in lstPedido)
-                {
-                    ProductoModel0 itemProdPago = new ProductoModel0();
-
-                    itemProdPago.cantidad = itemPedido.cantidad;
-                    itemProdPago.clave = itemPedido.clave;
-                    itemProdPago.descripcion = itemPedido.descripcion;
-                    itemProdPago.impuestos = itemPedido.totalImpuestos;
-                    itemProdPago.montoDescuento = itemPedido.totalDescuento;
-                    itemProdPago.partida = i;
-                    itemProdPago.porcDescuento = 0;
-                    itemProdPago.porcDescuentoPartida = itemPedido.porcDescuento;
-                    itemProdPago.porcDescunetoVta = 0;
-                    itemProdPago.porcImpuestos = itemPedido.porcImpuestos;
-                    itemProdPago.precioUnitario = itemPedido.precioUnitario;
-                    itemProdPago.productoId = itemPedido.productoId;
-                    itemProdPago.tipoDescuentoId = (int)ConexionBD.Enumerados.tipoDescuento.DESCUENTO_EMPLEADO;
-                    itemProdPago.total = itemPedido.total;
-                    itemProdPago.unidadId = itemPedido.unidadId;
-                    itemProdPago.paraLlevar = itemPedido.paraLlevar;
-                    itemProdPago.paraMesa = itemPedido.paraMesa;
-                    pedidoId = pedidoId > 0 ? pedidoId : itemPedido.pedidoId;
-                    i++;
-
-                    lstProductosPago.Add(itemProdPago);
-                }
+                lstProductosPago = lstPedido.Select(s => new ProductoModel0() {
+                        cantidad = s.cantidad,
+                    clave = s.clave,
+                    descripcion = s.descripcion,
+                    impuestos = s.totalImpuestos,
+                    montoDescuento = s.totalDescuento,
+                    partida = 1,
+                    porcDescuento = 0,
+                    porcDescuentoPartida = s.porcDescuento,
+                    porcDescunetoVta = 0,
+                    porcImpuestos = s.porcImpuestos,
+                    precioUnitario = s.precioUnitario,
+                    productoId = s.productoId,
+                    tipoDescuentoId = (int)ConexionBD.Enumerados.tipoDescuento.DESCUENTO_EMPLEADO,
+                    total = s.total,
+                    unidadId = s.unidadId,
+                    paraLlevar = s.paraLlevar,
+                    paraMesa = s.paraMesa
+                }).ToList();
 
                 if (lstFormasPago.Count() == 0)
                 {

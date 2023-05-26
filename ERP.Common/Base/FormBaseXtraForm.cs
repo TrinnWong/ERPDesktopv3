@@ -1,6 +1,7 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
+using ERP.Common.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ERP.Common.Base
 {
     public class FormBaseXtraForm:XtraForm
     {
-        
+        public LoadingForm oFormLoading;
 
         public ERPProdEntities oContext;
         public PuntoVentaContext puntoVentaContext;
@@ -29,10 +30,13 @@ namespace ERP.Common.Base
             this.Load += new System.EventHandler(this.FormBaseXtraForm_Load);
             this.ResumeLayout(false);
 
+            oFormLoading = new LoadingForm("Procesando...");
+
         }
 
         private  void FormBaseXtraForm_Load(object sender, EventArgs e)
         {
+            
             XtraMessageBox.Show("LOAD BASE");
         }
 

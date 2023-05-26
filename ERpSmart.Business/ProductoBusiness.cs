@@ -111,8 +111,7 @@ namespace ERP.Business
             try
             {
                 result.lstProductos = oContext.cat_productos
-                    .Where(w => w.Inventariable == true && w.Estatus == true 
-                    && (w.MaximoInventario??0) > 0 && (w.MinimoInventario??0) > 0
+                    .Where(w => w.Inventariable == true && w.Estatus == true                     
                     && w.cat_productos_existencias.Where(s1=> s1.SucursalId == sucursalId).FirstOrDefault().Disponible < w.MinimoInventario
                     )
 
@@ -122,10 +121,10 @@ namespace ERP.Business
                              claveProd = s.Clave,
                               disponible = s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).Count()> 0 ?
                               s.cat_productos_existencias.Where(s1=> s1.SucursalId == sucursalId).FirstOrDefault().Disponible??0:0,
-                               maximo = s.MaximoInventario ??0,
-                               minimo = s.MinimoInventario ??0,
+                               maximo = s.doc_productos_max_min.Where(s1=> s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v=> (decimal?)v.Maximo) ?? 0,
+                               minimo = s.doc_productos_max_min.Where(s1 => s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v => (decimal?)v.Minimo) ?? 0,
                                 productoId = s.ProductoId,
-                                 solicitar = (s.MaximoInventario??0) - 
+                                 solicitar = (s.doc_productos_max_min.Where(s1 => s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v => (decimal?)v.Minimo) ?? 0) - 
                                             (s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).Count() > 0 ?
                                                s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).FirstOrDefault().Disponible ?? 0 : 0),
                                  descripcion = s.Descripcion

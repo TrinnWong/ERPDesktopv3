@@ -68,7 +68,7 @@
             this.Cantidad,
             this.digitoVerificador});
             this.uiGridFormasPago.Location = new System.Drawing.Point(16, 15);
-            this.uiGridFormasPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiGridFormasPago.Margin = new System.Windows.Forms.Padding(4);
             this.uiGridFormasPago.MultiSelect = false;
             this.uiGridFormasPago.Name = "uiGridFormasPago";
             this.uiGridFormasPago.RowHeadersWidth = 51;
@@ -136,7 +136,7 @@
             this.uiFaltante.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiFaltante.ForeColor = System.Drawing.Color.Red;
             this.uiFaltante.Location = new System.Drawing.Point(955, 316);
-            this.uiFaltante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiFaltante.Margin = new System.Windows.Forms.Padding(4);
             this.uiFaltante.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -153,7 +153,7 @@
             this.uiTotalVenta.Enabled = false;
             this.uiTotalVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiTotalVenta.Location = new System.Drawing.Point(955, 364);
-            this.uiTotalVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiTotalVenta.Margin = new System.Windows.Forms.Padding(4);
             this.uiTotalVenta.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -182,7 +182,7 @@
             this.uiCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiCambio.ForeColor = System.Drawing.Color.Green;
             this.uiCambio.Location = new System.Drawing.Point(955, 407);
-            this.uiCambio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiCambio.Margin = new System.Windows.Forms.Padding(4);
             this.uiCambio.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -211,7 +211,7 @@
             this.uiTotalRecibido.Enabled = false;
             this.uiTotalRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiTotalRecibido.Location = new System.Drawing.Point(955, 273);
-            this.uiTotalRecibido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiTotalRecibido.Margin = new System.Windows.Forms.Padding(4);
             this.uiTotalRecibido.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -236,7 +236,7 @@
             // uiPagar
             // 
             this.uiPagar.Location = new System.Drawing.Point(865, 466);
-            this.uiPagar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiPagar.Margin = new System.Windows.Forms.Padding(4);
             this.uiPagar.Name = "uiPagar";
             this.uiPagar.Size = new System.Drawing.Size(412, 58);
             this.uiPagar.TabIndex = 10;
@@ -253,7 +253,7 @@
             this.Vencimiento,
             this.Monto});
             this.uiGriVales.Location = new System.Drawing.Point(27, 57);
-            this.uiGriVales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiGriVales.Margin = new System.Windows.Forms.Padding(4);
             this.uiGriVales.Name = "uiGriVales";
             this.uiGriVales.RowHeadersWidth = 51;
             this.uiGriVales.Size = new System.Drawing.Size(688, 174);
@@ -301,9 +301,9 @@
             this.groupBox1.Controls.Add(this.btnAgregarVale);
             this.groupBox1.Controls.Add(this.uiFolioVale);
             this.groupBox1.Location = new System.Drawing.Point(16, 292);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(744, 233);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
@@ -312,7 +312,7 @@
             // btnAgregarVale
             // 
             this.btnAgregarVale.Location = new System.Drawing.Point(271, 16);
-            this.btnAgregarVale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarVale.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarVale.Name = "btnAgregarVale";
             this.btnAgregarVale.Size = new System.Drawing.Size(325, 37);
             this.btnAgregarVale.TabIndex = 13;
@@ -323,7 +323,7 @@
             // uiFolioVale
             // 
             this.uiFolioVale.Location = new System.Drawing.Point(27, 25);
-            this.uiFolioVale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uiFolioVale.Margin = new System.Windows.Forms.Padding(4);
             this.uiFolioVale.Name = "uiFolioVale";
             this.uiFolioVale.Size = new System.Drawing.Size(220, 22);
             this.uiFolioVale.TabIndex = 12;
@@ -344,7 +344,7 @@
             this.Controls.Add(this.uiFaltante);
             this.Controls.Add(this.uiFaltantelbl);
             this.Controls.Add(this.uiGridFormasPago);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmVentaFormasPagoDialog";
             this.Text = "Formas de Pago";
             this.Load += new System.EventHandler(this.frmVentaFormasPago_Load);

@@ -841,7 +841,7 @@ namespace TacosAna.Desktop
             frmInventarioMovRegistro frmo = frmInventarioMovRegistro.GetInstance();
             if (!frmo.Visible)
             {
-                frmo.MdiParent = this.MdiParent;
+                frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
@@ -993,6 +993,48 @@ namespace TacosAna.Desktop
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
 
+            }
+        }
+
+        private void uiMenuMaxMinConfig_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Common.Productos.frmMaximosMinimosUpd frmo = ERP.Common.Productos.frmMaximosMinimosUpd.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.deshabilitarSucursal = true;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
+
+        private void uiMenuAjusteInventario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            frmAdminPass oForm = new frmAdminPass();
+            oForm.WindowState = FormWindowState.Normal;
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+
+            oForm.ShowDialog();
+
+            if (oForm.DialogResult == DialogResult.OK)
+            {
+                ERP.Common.Productos.frmAjustarInventario frmo = ERP.Common.Productos.frmAjustarInventario.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.MdiParent = this;
+                    frmo.deshabilitarSucursal = true;
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.WindowState = FormWindowState.Maximized;
+                    frmo.Show();
+
+                }
             }
         }
     }
