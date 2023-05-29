@@ -14,6 +14,6 @@ namespace ERP.Models.Producto
         public decimal disponible { get; set; }
         public decimal minimo { get; set; }
         public decimal maximo { get; set; }
-        public decimal solicitar { get; set; }
+        public decimal? solicitar { get; set; }
     }
 }

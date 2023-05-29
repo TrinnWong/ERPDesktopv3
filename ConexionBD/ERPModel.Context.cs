@@ -23,7 +23,7 @@ namespace ConexionBD
         }
 
         public ERPProdEntities(string sc)
-           : base("name=ERPProdEntities")
+            : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
         }
@@ -4988,6 +4988,15 @@ namespace ConexionBD
                 new ObjectParameter("pMinimo", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_doc_productos_max_min_ins_upd", pSucursalIdParameter, pProductoIdParameter, pMaximoParameter, pMinimoParameter);
+        }
+    
+        public virtual ObjectResult<p_doc_productos_max_min_sel_Result> p_doc_productos_max_min_sel(Nullable<int> pSucursalId)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_doc_productos_max_min_sel_Result>("p_doc_productos_max_min_sel", pSucursalIdParameter);
         }
     }
 }

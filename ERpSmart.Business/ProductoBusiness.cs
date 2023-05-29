@@ -110,26 +110,19 @@ namespace ERP.Business
             ProductoMinMaxListModel result = new ProductoMinMaxListModel();
             try
             {
-                result.lstProductos = oContext.cat_productos
-                    .Where(w => w.Inventariable == true && w.Estatus == true                     
-                    && w.cat_productos_existencias.Where(s1=> s1.SucursalId == sucursalId).FirstOrDefault().Disponible < w.MinimoInventario
-                    )
-
+                result.lstProductos = oContext.p_doc_productos_max_min_sel(sucursalId)
                     .Select(
-                        s => new ProductoMinMaxModel()
+                        s=> new ProductoMinMaxModel()
                         {
-                             claveProd = s.Clave,
-                              disponible = s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).Count()> 0 ?
-                              s.cat_productos_existencias.Where(s1=> s1.SucursalId == sucursalId).FirstOrDefault().Disponible??0:0,
-                               maximo = s.doc_productos_max_min.Where(s1=> s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v=> (decimal?)v.Maximo) ?? 0,
-                               minimo = s.doc_productos_max_min.Where(s1 => s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v => (decimal?)v.Minimo) ?? 0,
-                                productoId = s.ProductoId,
-                                 solicitar = (s.doc_productos_max_min.Where(s1 => s1.ProductoId == s.ProductoId && s1.SucursalId == sucursalId).Max(v => (decimal?)v.Minimo) ?? 0) - 
-                                            (s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).Count() > 0 ?
-                                               s.cat_productos_existencias.Where(s1 => s1.SucursalId == sucursalId).FirstOrDefault().Disponible ?? 0 : 0),
-                                 descripcion = s.Descripcion
+                             claveProd = s.CalveProducto,
+                              descripcion =s.Producto,
+                               disponible = s.Disponible,
+                                maximo = s.Maximo,
+                                 minimo = s.Minimo,
+                                  productoId = s.ProductoId,
+                                   solicitar = s.Solicitar
                         }
-                    ).OrderByDescending(o=> o.solicitar).ToList();
+                    ).ToList();
             }
             catch (Exception ex)
             {

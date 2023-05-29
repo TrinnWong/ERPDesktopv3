@@ -838,6 +838,9 @@
     <Compile Include="p_doc_productos_max_min_grd_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="p_doc_productos_max_min_sel_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="p_doc_productos_sobrantes_registro_sel_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -3428,6 +3431,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\99_09128 p_doc_productos_max_min_grd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09129 p_doc_productos_max_min_ins_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09130 p_doc_productos_max_min_sel.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">

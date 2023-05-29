@@ -3075,10 +3075,11 @@ namespace TacosAna.Desktop
                     
                     }
                 }
-
+                uiKeyCatch.Focus();
             }
             catch (Exception ex)
             {
+                uiKeyCatch.Focus();
                 int err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
                              "ERP",
                              this.Name,
@@ -4243,6 +4244,14 @@ namespace TacosAna.Desktop
                                this.Name,
                                ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void uiKeyCatch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.F2)
+            {
+                cobrar();
             }
         }
     }

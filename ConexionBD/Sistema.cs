@@ -13,6 +13,7 @@ namespace ConexionBD
 {
     public class Sistema:BusinessObject
     {
+        public static string scMain = "data source=sql5110.site4now.net;initial catalog=db_a2abca_tacosanamain;user id=db_a2abca_tacosanamain_admin;password=Trinn2023_;MultipleActiveResultSets=True;App=EntityFramework;";
 
         public static string ObtenVersion()
         {

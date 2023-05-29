@@ -9858,6 +9858,9 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Parameter Name="pMaximo" Type="decimal" Mode="In" />
           <Parameter Name="pMinimo" Type="decimal" Mode="In" />
         </Function>
+        <Function Name="p_doc_productos_max_min_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+        </Function>
         <Function Name="p_doc_productos_sobrantes_registro_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
           <Parameter Name="pFecha" Type="datetime" Mode="In" />
@@ -22224,6 +22227,9 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pMaximo" Mode="In" Type="Decimal" />
             <Parameter Name="pMinimo" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="p_doc_productos_max_min_sel" ReturnType="Collection(ERPProdModel.p_doc_productos_max_min_sel_Result)">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -28388,6 +28394,16 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
           <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
         </ComplexType>
+        <ComplexType Name="p_doc_productos_max_min_sel_Result">
+          <Property Type="String" Name="CalveProducto" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ProductoId" Nullable="false" />
+          <Property Type="Int32" Name="SucursalId" Nullable="false" />
+          <Property Type="Decimal" Name="Disponible" Nullable="false" Precision="16" Scale="5" />
+          <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
+          <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
+          <Property Type="Decimal" Name="Solicitar" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="500" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -32768,6 +32784,20 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="p_doc_productos_max_min_ins_upd" FunctionName="ERPProdModel.Store.p_doc_productos_max_min_ins_upd" />
+          <FunctionImportMapping FunctionImportName="p_doc_productos_max_min_sel" FunctionName="ERPProdModel.Store.p_doc_productos_max_min_sel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_doc_productos_max_min_sel_Result">
+                <ScalarProperty Name="CalveProducto" ColumnName="CalveProducto" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+                <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+                <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+                <ScalarProperty Name="Solicitar" ColumnName="Solicitar" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

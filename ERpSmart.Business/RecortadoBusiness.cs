@@ -20,7 +20,7 @@ namespace ERP.Business
                 
                 sisCuenta = new SisCuentaBusiness();
                 ERPProdEntities contextSuc = new ERPProdEntities();
-                ERPProdEntities contextMaster = new ERPProdEntities(sisCuenta.ObtieneCadenaConnexion(1));
+                ERPProdEntities contextMaster = new ERPProdEntities(ConexionBD.Sistema.scMain);
                 sis_cuenta sisCuentaData =  sisCuenta.ObtieneArchivoConfiguracionCuenta();
                 List<doc_ventas> lstVentas = contextSuc.doc_ventas.Where(w => (w.Rec ?? false) == false && w.doc_corte_caja.Count() == 0).ToList();
                 long[] ventas = lstVentas.Select(s => s.VentaId).ToArray();

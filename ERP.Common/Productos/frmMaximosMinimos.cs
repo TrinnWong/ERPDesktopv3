@@ -35,9 +35,14 @@ namespace ERP.Common.Productos
 
         private void frmMaximosMinimos_Load(object sender, EventArgs e)
         {
+            loadGrid();
+        }
+
+        private void loadGrid()
+        {
             ProductoMinMaxListModel result = oProducto.GetMaxMinResumen(puntoVentaContext.sucursalId);
 
-            if(result.error.ok)
+            if (result.error.ok)
             {
                 uiGrid.DataSource = result.lstProductos.ToList();
             }
@@ -65,6 +70,11 @@ namespace ERP.Common.Productos
         private void frmMaximosMinimos_FormClosing(object sender, FormClosingEventArgs e)
         {
             _instance = null;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            loadGrid();
         }
     }
 }
