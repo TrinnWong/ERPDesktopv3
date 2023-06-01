@@ -354,7 +354,7 @@ namespace ERP.Common.Procesos
 
         private void uiGridFormasPago_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            if (e.KeyCode == Keys.Enter)
             {
                 pagar();
             }
@@ -369,7 +369,7 @@ namespace ERP.Common.Procesos
         private void Control_KeyDown(object sender, KeyEventArgs e)
         {
             // Verificar si la tecla presionada es F2
-            if (e.KeyCode == Keys.F2)
+            if (e.KeyCode == Keys.F3)
             {
                 // Llamar al método "pagar()"
                 pagar();

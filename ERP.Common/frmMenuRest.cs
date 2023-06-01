@@ -34,6 +34,7 @@ namespace PuntoVenta
         public PuntoVentaContext puntoVentaContext;
         private static frmMenuRest _instance;
         object mdiParenAux;
+        public string errorCorte="";
         public frmMenuRest()
         {
             InitializeComponent();
@@ -406,6 +407,7 @@ namespace PuntoVenta
             try
             {
                 string error = "";
+                errorCorte = "";
                 oContext = new ERPProdEntities();
                 DateTime fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 ObjectParameter pCorteCajaId = new ObjectParameter("pCorteCajaId", 0);
@@ -417,10 +419,11 @@ namespace PuntoVenta
                 {
                     ERP.Business.RecortadoBusiness oRecortado = new ERP.Business.RecortadoBusiness();
 
-                    error = oRecortado.Iniciar(puntoVentaContext.usuarioId);
+                    error = oRecortado.Iniciar(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
 
                     if(error.Length > 0)
                     {
+                        errorCorte = error;
                         ERP.Utils.MessageBoxUtil.ShowError(error);
                         return;
                     }

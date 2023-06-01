@@ -21,6 +21,7 @@ AS
 	FROM doc_productos_max_min MM
 	INNER JOIN cat_productos P ON P.ProductoId = MM.ProductoId
 	LEFT JOIN cat_productos_existencias PE ON PE.ProductoId = MM.ProductoId AND
-									PE.SucursalId = MM.SucursalId
+									PE.SucursalId = MM.SucursalId AND
+									ISNULL(MM.Minimo,0) > 0
 	WHERE MM.SucursalId = @pSucursalId  AND
 	ISNULL(MM.Minimo,0) - ISNULL(PE.Disponible,0) > 0

@@ -1037,5 +1037,21 @@ namespace TacosAna.Desktop
                 }
             }
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmInventarioMovRegistro frmo = frmInventarioMovRegistro.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimiento = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorSalida;
+                frmo.MovimientoInventarioId = 0;
+
+                frmo.Show();
+            }
+        }
     }
 }
