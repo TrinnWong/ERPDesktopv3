@@ -1353,4 +1353,3 @@ C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Reports\bin\Debug\Versione
 C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Reports\bin\Debug\Versiones\2022.06.01\62 doc_inventario_captura.sql
 C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Reports\bin\Debug\Versiones\2022.06.01\63 INSERT INTO SIS_PREFERENCIAS.sql
 C:\Users\Administrator\source\repos\ERP2019donet2\ERP.Reports\bin\Debug\Versiones\2022.06.01\64 p_doc_pedidos_ordenes_detalle_sel.sql
-C:\Users\silve\ERPDesktopv3-main\ERPDesktopv3\ERP.Reports\bin\Debug\GrapeCity.ActiveReports.Design.Win.v9.dll
