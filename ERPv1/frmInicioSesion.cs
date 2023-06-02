@@ -53,7 +53,7 @@ namespace ERPv1
                     if (!frmo.Visible)
                     {
                         frmo.puntoVentaContext = oerpContext;
-                        frmo.Text = "SISTEMA ERP [" + uiSucursal.Text.Trim() + "][" + usuario.Trim() + "]";
+                        frmo.Text = "SISTEMA ERP [" + oerpContext.nombreSucursal.Trim() + "][" + usuario.Trim() + "]";
                         frmo.Show();
                     }
                 }

@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
@@ -141,6 +142,11 @@ namespace FlorMaiz.Desktop
                         valorImrpesionTicket = Convert.ToInt32(error);
                     }
                 }
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                   this.puntoVentaContext.sucursalId, "UsarPesoInteligente", this.puntoVentaContext.usuarioId, ref error))
+                {
+                    abrirTareaBascula();
+                }
 
                 HabilitarBasculaSiNo();
                 
@@ -157,6 +163,32 @@ namespace FlorMaiz.Desktop
         }
 
         #region  métodos
+        private void abrirTareaBascula()
+        {
+            try
+            {
+                if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
+                }
+                else
+                {
+                    Process p = new Process();
+                    ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Background.Task.exe");
+
+                    p.StartInfo = psi;
+                    p.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                int err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
+                                       "ERP",
+                                       this.Name,
+                                       ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
         public void inicializar()
         {
             try
