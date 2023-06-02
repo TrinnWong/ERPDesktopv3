@@ -217,7 +217,7 @@ namespace TacosAna.Desktop
 
                 if (!esSucursalCorrespondiente)
                 {
-                    if (XtraMessageBox.Show("¿Está seguro de continuar?, esta acción afectará el inventario", "Avso", MessageBoxButtons.YesNo,
+                    if (XtraMessageBox.Show("La sucursal seleccionada no corresponde a la configuración inicial. Para continuar se requiere clave de administrador. ¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo,
                             MessageBoxIcon.Question) == DialogResult.Yes) {
                         
                         frmAdminPass oForm = new frmAdminPass();
