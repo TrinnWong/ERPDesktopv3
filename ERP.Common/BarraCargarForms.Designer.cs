@@ -30,11 +30,19 @@ namespace ERP.Common
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.fadeInForm = new System.Windows.Forms.Timer(this.components);
+            this.fadeOutForm = new System.Windows.Forms.Timer(this.components);
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.fadeOutForm = new System.Windows.Forms.Timer(this.components);
-            this.fadeInForm = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // fadeInForm
+            // 
+            this.fadeInForm.Tick += new System.EventHandler(this.fadeInForm_Tick);
+            // 
+            // fadeOutForm
+            // 
+            this.fadeOutForm.Tick += new System.EventHandler(this.fadeOutForm_Tick);
             // 
             // circularProgressBar1
             // 
@@ -46,7 +54,7 @@ namespace ERP.Common
             this.circularProgressBar1.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.circularProgressBar1.InnerMargin = 2;
             this.circularProgressBar1.InnerWidth = -1;
-            this.circularProgressBar1.Location = new System.Drawing.Point(145, 46);
+            this.circularProgressBar1.Location = new System.Drawing.Point(131, 50);
             this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
             this.circularProgressBar1.Name = "circularProgressBar1";
             this.circularProgressBar1.OuterColor = System.Drawing.Color.LightGray;
@@ -55,7 +63,7 @@ namespace ERP.Common
             this.circularProgressBar1.ProgressColor = System.Drawing.SystemColors.ActiveCaption;
             this.circularProgressBar1.ProgressWidth = 25;
             this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.circularProgressBar1.Size = new System.Drawing.Size(117, 122);
+            this.circularProgressBar1.Size = new System.Drawing.Size(160, 160);
             this.circularProgressBar1.StartAngle = 270;
             this.circularProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
@@ -74,21 +82,13 @@ namespace ERP.Common
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 186);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(165, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 26);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Procesando...";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // fadeOutForm
-            // 
-            this.fadeOutForm.Tick += new System.EventHandler(this.fadeOutForm_Tick);
-            // 
-            // fadeInForm
-            // 
-            this.fadeInForm.Tick += new System.EventHandler(this.fadeInForm_Tick);
             // 
             // BarraCargarForms
             // 
@@ -110,9 +110,10 @@ namespace ERP.Common
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer fadeInForm;
+        private System.Windows.Forms.Timer fadeOutForm;
         private CircularProgressBar.CircularProgressBar circularProgressBar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer fadeOutForm;
-        private System.Windows.Forms.Timer fadeInForm;
     }
 }
