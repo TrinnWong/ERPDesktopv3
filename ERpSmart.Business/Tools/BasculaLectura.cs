@@ -304,7 +304,7 @@ namespace ERP.Business.Tools
         public decimal LecturaPesoDeProducto()
         {
             string resultPath = Environment.CurrentDirectory;
-            string archivo = File.ReadAllText(resultPath + @"\\PesoProducto.txt");
+            string archivo = File.ReadAllText(@"C:\\Temp\\PesoProducto.txt");
             decimal pesoProducto = (decimal)JsonConvert.DeserializeObject<PesoProducto>(archivo).pesoProducto;
             
             return pesoProducto;

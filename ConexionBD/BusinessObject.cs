@@ -17,5 +17,7 @@ namespace ConexionBD
             oStringConnection = new CadenaConexion();
         }
 
+        
+
     }
 }

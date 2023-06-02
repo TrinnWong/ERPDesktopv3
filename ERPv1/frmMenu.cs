@@ -1,25 +1,16 @@
-﻿using ConexionBD.Models;
-using ERPv1.Catalogos;
+﻿using ERPv1.Catalogos;
 using ERPv1.Inventarios;
 using ERPv1.Procesos;
 using ERPv1.Productos;
-using ERP.Common;
 using Productos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ERP.Common.Inventarios;
 using ERP.Common.Catalogos;
 using ERP.Common.Reports;
 using ERP.Procesos;
 using ERP.Common.Produccion;
-using DevExpress.XtraEditors;
 using ERP.Common.Catalogos.Restaurante;
 using ConexionBD;
 using ERP.Common.Configuracion;
@@ -27,7 +18,6 @@ using ERPv1.Reports;
 using ERPv1.Seguridad;
 using ERPv1.Utilerias;
 using ERP.Models;
-using ERP.Business.Base;
 using ERP.Common.Base;
 using ERP.Common.Basculas;
 using ERPv1.Clientes;
@@ -44,7 +34,6 @@ namespace ERPv1
 {
     public partial class frmMenu : FormBaseWinForm
     {
-
         private static frmMenu _instance;
 
         public static frmMenu GetInstance()
@@ -53,15 +42,14 @@ namespace ERPv1
             else _instance.BringToFront();
             return _instance;
         }
+
         public frmMenu()
         {
             InitializeComponent();
-            
         }
         
         private  void frmMenu_Load(object sender, EventArgs e)
         {
-           
             if (puntoVentaContext.giroPuntoVenta == Enumerados.systemGiro.REST.ToString())
             {
                 uiMenuRestaurante.Visible = true;
@@ -70,6 +58,7 @@ namespace ERPv1
             {
                 uiMenuRestaurante.Visible = false;
             }
+
             oContext = new ERPProdEntities();
             bool configIni = oContext.p_cat_configuracion_ini_exis(puntoVentaContext.sucursalId).FirstOrDefault().Value;
             
@@ -89,7 +78,6 @@ namespace ERPv1
             }
 
             HabilitarDeshabilitarMenu();
-
         }
 
         private void HabilitarDeshabilitarMenu()
@@ -104,13 +92,11 @@ namespace ERPv1
                 cambioDePrecioIndividualToolStripMenuItem.Visible = false;
 
             }
-            
         }
 
         private void frmMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-            
         }
 
         #region Eventos
@@ -402,7 +388,6 @@ namespace ERPv1
 
         private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             frmProductosCompra frmo = frmProductosCompra.GetInstance();
 
             if (!frmo.Visible)
@@ -413,8 +398,6 @@ namespace ERPv1
                 frmo.Show();
 
             }
-
-          
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -494,7 +477,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -508,7 +490,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -522,7 +503,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -540,9 +520,7 @@ namespace ERPv1
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
-                
                 frmo.Show();
-
             }
         }
 
@@ -554,11 +532,8 @@ namespace ERPv1
             {
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
-
                 frmo.Show();
-
             }
-
         }
 
         private void ajustesPorEntradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -571,7 +546,6 @@ namespace ERPv1
             //    frmo.MdiParent = this;
             //    frmo.puntoVentaContext = this.puntoVentaContext;
             //    frmo.Show();
-
             //}
 
             frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
@@ -601,7 +575,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -615,7 +588,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -631,7 +603,6 @@ namespace ERPv1
 
         private void existenciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             frmExistenciasV2 frmo = frmExistenciasV2.GetInstance();
 
             if (!frmo.Visible)
@@ -640,7 +611,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -655,7 +625,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -669,7 +638,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -683,7 +651,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -697,7 +664,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -712,7 +678,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -726,7 +691,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -740,7 +704,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -754,7 +717,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -768,7 +730,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -782,7 +743,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -796,7 +756,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -810,7 +769,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -824,7 +782,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -838,7 +795,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -852,7 +808,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -866,7 +821,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -882,7 +836,6 @@ namespace ERPv1
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.accion = ConexionBD.Enumerados.accionForm.agregar;
                 frmo.Show();
-
             }
         }
 
@@ -902,7 +855,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;                
                 frmo.Show();
-
             }
         }
 
@@ -917,7 +869,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -932,7 +883,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -947,7 +897,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -962,7 +911,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -976,7 +924,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.Show();
-
             }
         }
 
@@ -991,7 +938,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1007,13 +953,11 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void cargosAdicionalesConfiguraciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             frmCargoAdicionalConfig frmo = frmCargoAdicionalConfig.GetInstance();
 
             if (!frmo.Visible)
@@ -1023,7 +967,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1037,9 +980,7 @@ namespace ERPv1
         private void timerMinimos_Tick(object sender, EventArgs e)
         {
             ERP.Business.ProductoBusiness oProducto = new ERP.Business.ProductoBusiness();
-
             ResultAPIModel oResult =  oProducto.GenerarAvisoMinMax();
-           
         }
 
         private void máximosYMInimosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1053,19 +994,16 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void tsPoliticas_Click(object sender, EventArgs e)
         {
-           
 
         }
 
         private void salidasPorTraspasoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
             if (!frmo.Visible)
             {
@@ -1101,7 +1039,6 @@ namespace ERPv1
 
             //}
 
-
             frmInventarioMovList frmo = frmInventarioMovList.GetInstance();
             if (!frmo.Visible)
             {
@@ -1124,7 +1061,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
 
                 frmo.Show();
-
             }
         }
 
@@ -1138,7 +1074,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
 
                 frmo.Show();
-
             }
         }
 
@@ -1152,7 +1087,6 @@ namespace ERPv1
                 frmo.MdiParent = this;
 
                 frmo.Show();
-
             }
         }
 
@@ -1179,7 +1113,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
 
         }
@@ -1195,7 +1128,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1210,7 +1142,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1225,15 +1156,16 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void cambiarSucursalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSucursalSeleccion frmo = new frmSucursalSeleccion();
-            frmo.puntoVentaContext = this.puntoVentaContext;
-            frmo.ShowDialog();
+            this.Hide();
+            Application.OpenForms["frmInicioSesion"].Show();
+            //frmSucursalSeleccion frmo = new frmSucursalSeleccion();
+            //frmo.puntoVentaContext = this.puntoVentaContext;
+            //frmo.ShowDialog();
         }
 
         private void productosRecepciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1247,7 +1179,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1262,7 +1193,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1277,13 +1207,12 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void uiMenuSesion_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cargosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1297,7 +1226,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1312,7 +1240,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1333,7 +1260,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1348,7 +1274,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1363,14 +1288,12 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
         private void registroExpressToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmProductoInventarioForm oForm = new frmProductoInventarioForm();
-
             oForm.puntoVentaContext = this.puntoVentaContext;
             oForm.ShowDialog();
         }
@@ -1541,7 +1464,6 @@ namespace ERPv1
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1559,7 +1481,6 @@ namespace ERPv1
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1586,7 +1507,6 @@ namespace ERPv1
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
         }
 
@@ -1599,7 +1519,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-
                 frmo.Show();
             }
         }
@@ -1613,7 +1532,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-
                 frmo.Show();
             }
         }
@@ -1627,7 +1545,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-
                 frmo.Show();
             }
         }
@@ -1641,7 +1558,6 @@ namespace ERPv1
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-
                 frmo.Show();
             }
         }
@@ -1675,12 +1591,38 @@ namespace ERPv1
 
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.MdiParent = this;
-
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
-
             }
+        }
+
+        private void toolStripDropDownButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preferenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preferenciasPorEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ERPv1.Preferencia.frmPreferenciaEmpresaUpd frmo = ERPv1.Preferencia.frmPreferenciaEmpresaUpd.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

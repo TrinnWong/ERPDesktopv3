@@ -29,6 +29,7 @@ namespace ConexionBD
             this.Database.CommandTimeout = 9999;
         }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

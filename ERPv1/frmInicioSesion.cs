@@ -1,15 +1,10 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using ERP.Business;
-using ERP.Common.Sistema;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERPv1
@@ -34,7 +29,6 @@ namespace ERPv1
 
         private void iniciarSesion()
         {
-
             try
             {
                 string usuario = txtUsuario.Text.Trim();
@@ -50,15 +44,17 @@ namespace ERPv1
                     oerpContext.sucursalId = int.Parse(uiSucursal.SelectedValue.ToString());
                     this.Hide();
 
+                    //En caso de cerrar sesion o cambiar sucursal, se borran estos campos
+                    txtContraseña.Text="";
+                    uiSucursal.Text="";
+
                     frmMenu frmo = frmMenu.GetInstance();
 
                     if (!frmo.Visible)
                     {
-
                         frmo.puntoVentaContext = oerpContext;
                         frmo.Text = "SISTEMA ERP [" + uiSucursal.Text.Trim() + "][" + usuario.Trim() + "]";
                         frmo.Show();
-
                     }
                 }
                 else
@@ -68,18 +64,13 @@ namespace ERPv1
             }
             catch (Exception ex)
             {
-
                 ERP.Utils.MessageBoxUtil.ShowError("Información incorrecta, verificar el usuario y contraseña");
             }
-
-           
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             iniciarSesion();
-            
         }
 
         private void pbImgSalir1_Click(object sender, EventArgs e)
@@ -115,7 +106,7 @@ namespace ERPv1
                 //}
 
                 string error = oSistema.actualizarVersion(false);
-
+                this.lblVersion.Text = Sistema.ObtenVersion();
                 if (error.Length > 0)
                 {
                     MessageBox.Show("Ocurrió un error al actualizar la versión del sistema, por favor avise al administrador. Puede seguir utilizando la aplicación" + error
@@ -128,12 +119,8 @@ namespace ERPv1
             }
             catch (Exception ex)
             {
-
                 ERP.Utils.MessageBoxUtil.ShowError("Ocurrió un error al inciar el sistema");
             }
-            
-
-
         }
 
         private void txtContraseña_KeyDown(object sender, KeyEventArgs e)
@@ -172,13 +159,9 @@ namespace ERPv1
                         }
                     }
                 }
-              
-                
-
             }
             catch (Exception ex)
             {
-
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                               "ERP",
                                               this.Name,

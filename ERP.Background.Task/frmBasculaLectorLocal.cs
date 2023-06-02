@@ -154,11 +154,14 @@ namespace ERP.Background.Task
 
         private void  GuardarPesoProducto(PesoProducto pesoProducto)
         {
-            string resultPath = Environment.CurrentDirectory;
+            bool exists = System.IO.Directory.Exists(@"C:\\Temp");
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(@"C:\\Temp");           
 
             string pesoPr = JsonConvert.SerializeObject(pesoProducto);
-            File.WriteAllText(resultPath + @"\\PesoProducto.txt", pesoPr);
-            //File.WriteAllText(@"C:\ERP\PesoProducto.txt", pesoPr);
+            File.WriteAllText(@"C:\\Temp\\PesoProducto.txt", pesoPr);
+            
         }
     }
 }
