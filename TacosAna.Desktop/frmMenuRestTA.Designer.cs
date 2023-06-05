@@ -62,6 +62,7 @@
             this.mneMaxMin = new DevExpress.XtraBars.BarButtonItem();
             this.uiMenuMaxMinConfig = new DevExpress.XtraBars.BarButtonItem();
             this.uiMenuAjusteInventario = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.rbComanda = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbCuentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCuenta = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -77,7 +78,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.uiRevisarRed = new System.Windows.Forms.Timer();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -395,6 +396,14 @@
             this.uiMenuAjusteInventario.Name = "uiMenuAjusteInventario";
             this.uiMenuAjusteInventario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuAjusteInventario_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Salida Producto por Devolución";
+            this.barButtonItem1.Id = 33;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // rbComanda
             // 
             this.rbComanda.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -517,13 +526,11 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
             // 
-            // barButtonItem1
+            // uiRevisarRed
             // 
-            this.barButtonItem1.Caption = "Salida Producto por Devolución";
-            this.barButtonItem1.Id = 33;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.uiRevisarRed.Enabled = true;
+            this.uiRevisarRed.Interval = 10000;
+            this.uiRevisarRed.Tick += new System.EventHandler(this.uiRevisarRed_Tick);
             // 
             // frmMenuRestTA
             // 
@@ -595,5 +602,6 @@
         private DevExpress.XtraBars.BarButtonItem uiMenuMaxMinConfig;
         private DevExpress.XtraBars.BarButtonItem uiMenuAjusteInventario;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private System.Windows.Forms.Timer uiRevisarRed;
     }
 }

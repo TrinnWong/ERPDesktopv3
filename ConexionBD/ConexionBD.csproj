@@ -895,6 +895,9 @@
     <Compile Include="p_pv_cargos_adicionales_grd_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="p_retiro_automatico_SiNo_Result.cs">
+      <DependentUpon>ERPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="p_rpt_apartados_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -3437,6 +3440,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\2022.06.01\99_09130 p_doc_productos_max_min_sel.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\01 PREFERENCIA PV-RETIROAUTOMATICO.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\02 fnGetPreferenciaValor.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\03 p_retiro_automatico_SiNo.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\04 [fnPreferenciaAplicaSiNo].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">

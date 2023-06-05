@@ -1053,5 +1053,43 @@ namespace TacosAna.Desktop
                 frmo.Show();
             }
         }
+
+        private void uiRevisarRed_Tick(object sender, EventArgs e)
+        {
+            string estadoConexionaRed = "";
+            bool RedActiva = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+
+            if (!RedActiva)
+            {
+                estadoConexionaRed = "No hay conexión a Internet";
+                ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionaRed);
+            }
+            else
+            {
+                //estadoConexionaRed = "Se estableció conexión con la red local";
+                //Console.WriteLine(estadoConexionaRed);
+
+                string estadoConexionInternet = "";
+                System.Uri Url = new System.Uri("https://www.google.com/");
+
+                System.Net.WebRequest WebRequest;
+                WebRequest = System.Net.WebRequest.Create(Url);
+                System.Net.WebResponse objetoResp;
+
+                try
+                {
+                    objetoResp = WebRequest.GetResponse();
+                    estadoConexionInternet = "Se establecio conexión a internet corretamente.";
+                    //Console.WriteLine(estadoConexionaRed);
+                    objetoResp.Close();
+                }
+                catch (Exception ex)
+                {
+                    estadoConexionInternet = "No hay conexión a Internet " + ex.Message;
+                    ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionInternet);
+                }
+                WebRequest = null;
+            }
+        }
     }
 }

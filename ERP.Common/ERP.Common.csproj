@@ -292,6 +292,12 @@
     <Compile Include="Dialogos\frmCuentasListado.Designer.cs">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogos\frmRetiroAutomatico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogos\frmRetiroAutomatico.Designer.cs">
+      <DependentUpon>frmRetiroAutomatico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogos\frmSolicitaCantidadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -968,6 +974,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogos\frmCuentasListado.resx">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogos\frmRetiroAutomatico.resx">
+      <DependentUpon>frmRetiroAutomatico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogos\frmSolicitaCantidadDialog.resx">
       <DependentUpon>frmSolicitaCantidadDialog.cs</DependentUpon>

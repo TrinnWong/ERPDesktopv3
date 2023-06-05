@@ -27,6 +27,8 @@ namespace TacosAna.Desktop
         cat_configuracion conf ;
         int err;
         string botonSeleccionado;
+        decimal retiroAcumulado = 0;
+        decimal cantidadLimiteRetiro = 0;
         public enum famProductos
         {
             vaso=100,
@@ -150,6 +152,17 @@ namespace TacosAna.Desktop
             entityConfiguracion = oContext.cat_configuracion.FirstOrDefault();
 
             porcAnticipoPedido = entityConfiguracion.PedidoAnticipoPorc??0;
+
+            ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                this.puntoVentaContext.sucursalId,
+                "PV-RetiroAutomatico", this.puntoVentaContext.usuarioId, ref error);
+
+            if(error.Length > 0)
+            {
+                cantidadLimiteRetiro = Convert.ToDecimal(error);
+            }
+               
+            
             Inicializar();
 
            
@@ -1610,12 +1623,15 @@ namespace TacosAna.Desktop
 
                     if(resultDailog == DialogResult.OK)
                     {
+                        retiroAcumulado = retiroAcumulado + lstPedido.Sum(s => s.total);
                         this.lstFormasPago = oFormasPago.lstFormasPago;
                         uiCalculadora.EditValue = lstFormasPago.Sum(s => s.cantidad);
 
                         cobrandoCalc();
 
                         ConfirmarPago();
+
+                        aplicarRetiroAutomatico();
                     }
                     else {
                         cobrandoCalc();
@@ -4252,6 +4268,52 @@ namespace TacosAna.Desktop
             if(e.KeyCode== Keys.F2)
             {
                 cobrar();
+            }
+        }
+
+        private void aplicarRetiroAutomatico()
+        {
+            try
+            {
+                if (cantidadLimiteRetiro > 0)
+                {
+                    oContext = new ERPProdEntities();
+
+                    p_retiro_automatico_SiNo_Result result = oContext.p_retiro_automatico_SiNo(this.puntoVentaContext.sucursalId,
+                        this.puntoVentaContext.cajaId).FirstOrDefault();
+
+                    if(result != null)
+                    {
+                        if(result.AplicaSiNo == true)
+                        {
+                            frmRetiroAutomatico oFormRetiro = new frmRetiroAutomatico();
+                            oFormRetiro.puntoVentaContext = this.puntoVentaContext;
+                            oFormRetiro.cantidadRetiro = this.cantidadLimiteRetiro;
+                            oFormRetiro.StartPosition = FormStartPosition.CenterParent;
+                            var resultRetiro = oFormRetiro.ShowDialog();
+
+                            if(resultRetiro == DialogResult.OK)
+                            {
+                                retiroAcumulado = 0;
+                            }
+                        }
+                    }
+
+
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
+                               "ERP",
+                               this.Name,
+                               ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
     }

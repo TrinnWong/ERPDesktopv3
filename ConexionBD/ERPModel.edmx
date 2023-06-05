@@ -10245,6 +10245,10 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
         <Function Name="p_pv_cargos_adicionales_grd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pSucursalId" Type="int" Mode="In" />
         </Function>
+        <Function Name="p_retiro_automatico_SiNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pSucursalId" Type="int" Mode="In" />
+          <Parameter Name="pCajaId" Type="int" Mode="In" />
+        </Function>
         <Function Name="p_rh_empleado_cliente_gen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pEmpleadoId" Type="int" Mode="In" />
         </Function>
@@ -22228,7 +22232,11 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pMinimo" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="p_doc_productos_max_min_sel" ReturnType="Collection(ERPProdModel.p_doc_productos_max_min_sel_Result)">
+          <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="p_retiro_automatico_SiNo" ReturnType="Collection(ERPProdModel.p_retiro_automatico_SiNo_Result)">
             <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pCajaId" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
@@ -28404,6 +28412,10 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Property Type="Decimal" Name="Solicitar" Nullable="true" Precision="17" Scale="5" />
           <Property Type="String" Name="Producto" Nullable="true" MaxLength="500" />
         </ComplexType>
+        <ComplexType Name="p_retiro_automatico_SiNo_Result" >
+          <Property Type="Boolean" Name="AplicaSiNo" Nullable="false" />
+          <Property Type="Decimal" Name="CantidadDisponibleRetiro" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -32795,6 +32807,14 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
                 <ScalarProperty Name="Minimo" ColumnName="Minimo" />
                 <ScalarProperty Name="Solicitar" ColumnName="Solicitar" />
                 <ScalarProperty Name="Producto" ColumnName="Producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p_retiro_automatico_SiNo" FunctionName="ERPProdModel.Store.p_retiro_automatico_SiNo" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ERPProdModel.p_retiro_automatico_SiNo_Result">
+                <ScalarProperty Name="AplicaSiNo" ColumnName="AplicaSiNo" />
+                <ScalarProperty Name="CantidadDisponibleRetiro" ColumnName="CantidadDisponibleRetiro" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

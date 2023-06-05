@@ -4998,5 +4998,18 @@ namespace ConexionBD
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_doc_productos_max_min_sel_Result>("p_doc_productos_max_min_sel", pSucursalIdParameter);
         }
+    
+        public virtual ObjectResult<p_retiro_automatico_SiNo_Result> p_retiro_automatico_SiNo(Nullable<int> pSucursalId, Nullable<int> pCajaId)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pCajaIdParameter = pCajaId.HasValue ?
+                new ObjectParameter("pCajaId", pCajaId) :
+                new ObjectParameter("pCajaId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_retiro_automatico_SiNo_Result>("p_retiro_automatico_SiNo", pSucursalIdParameter, pCajaIdParameter);
+        }
     }
 }
