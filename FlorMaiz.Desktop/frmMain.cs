@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace FlorMaiz.Desktop
+namespace PuntoVenta.Desktop
 {
     public partial class frmMain : XtraForm
     {

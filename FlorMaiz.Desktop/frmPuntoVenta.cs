@@ -25,7 +25,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ERP.Business.Enumerados;
 
-namespace FlorMaiz.Desktop
+namespace PuntoVenta.Desktop
 {
     public partial class frmPuntoVenta : FormBaseXtraForm
     {

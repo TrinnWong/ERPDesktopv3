@@ -2,7 +2,7 @@
 using ConexionBD.Models;
 using ERP.Business;
 using ERP.Common.Productos;
-using FlorMaiz.Desktop;
+using PuntoVenta.Desktop;
 using System;
 using System.Data;
 using System.Data.Entity.Core.Objects;
