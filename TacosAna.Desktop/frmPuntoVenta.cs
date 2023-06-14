@@ -7,6 +7,7 @@ using ERP.Common.Procesos;
 using ERP.Common.Procesos.Restaurante;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
+using ERP.Common.Utils;
 using ERP.Models.Pedidos;
 using ERP.Models.Producto;
 using ERP.Reports.TacosAna;
@@ -1623,6 +1624,7 @@ namespace TacosAna.Desktop
 
                     if(resultDailog == DialogResult.OK)
                     {
+                        abrirCajon();
                         retiroAcumulado = retiroAcumulado + lstPedido.Sum(s => s.total);
                         this.lstFormasPago = oFormasPago.lstFormasPago;
                         uiCalculadora.EditValue = lstFormasPago.Sum(s => s.cantidad);
@@ -1656,7 +1658,15 @@ namespace TacosAna.Desktop
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
+        private void abrirCajon()
+        {
+            string error = RawPrinterHelper.AbreCajon(this.puntoVentaContext.nombreImpresoraCaja);
 
+            if (error.Length > 0)
+            {
+                XtraMessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void cobrarDeshabilitar()
         {
             cobrando = false;
