@@ -3298,7 +3298,7 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-                    
+                    abrirCajon();
 
                     cat_configuracion entity =entityConfiguracion;
 
