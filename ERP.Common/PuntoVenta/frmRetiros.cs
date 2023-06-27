@@ -1,5 +1,6 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
+using ERP.Common.Reports;
 using ERP.Reports;
 using System;
 using System.Collections.Generic;
@@ -55,11 +56,13 @@ namespace ERP.Common.PuntoVenta
         private void guardar()
         {
             try
-            {       
+            {
                 //if(lstDenominaciones.Count() == 0)
                 //{
-                    //AbrirDeclaracionFondo();
+                //AbrirDeclaracionFondo();
                 //}
+
+                
                 
                 oContext = new ERPProdEntities();
 
@@ -84,7 +87,7 @@ namespace ERP.Common.PuntoVenta
                     }
                 }
 
-                if (uiMonto.Value < 0)
+                if (uiMonto.Value <= 0)
                 {
                     //XtraMessageBox.Show("Es necesario ingresar cantidades mayores a cero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     // MessageBox.Show("Es necesario ingresar cantidades mayores a cero", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -138,10 +141,10 @@ namespace ERP.Common.PuntoVenta
 
                 //MessageBox.Show("RETIRO REGISTRADO", "AVISO");
                 rptRetiroTicket oTicket = new rptRetiroTicket();
-                //ReportViewer oViewer = new ReportViewer(this.puntoVentaContext.cajaId);
-                //oTicket.DataSource = oContext.p_rpt_retiro_ticket(entity.RetiroId).ToList();
-                //oViewer.ShowTicket(oTicket);
-                //oViewer.Show();
+                ReportViewer oViewer = new ReportViewer(this.puntoVentaContext.cajaId);
+                oTicket.DataSource = oContext.p_rpt_retiro_ticket(entity.RetiroId).ToList();
+                oViewer.ShowTicket(oTicket);
+                oViewer.Show();
 
                 this.Close();
             }
@@ -156,6 +159,8 @@ namespace ERP.Common.PuntoVenta
         private void frmRetiros_Load(object sender, EventArgs e)
         {
             //AbrirDeclaracionFondo();
+
+            this.uiMonto.Focus();
         }
 
         private void uiGuardar_Click(object sender, EventArgs e)
