@@ -2,13 +2,8 @@
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERP.Common.Catalogos
@@ -28,7 +23,6 @@ namespace ERP.Common.Catalogos
             return _instance;
         }
 
-
         public frmComandaImpresora()
         {
             InitializeComponent();
@@ -42,7 +36,6 @@ namespace ERP.Common.Catalogos
                 ImpresorasBusiness oImpresora = new ImpresorasBusiness();
 
                 cat_impresoras_comandas entity = new cat_impresoras_comandas();
-
                
                 entity.ImpresoraId = uiImpresora.EditValue != null ? short.Parse(uiImpresora.EditValue.ToString()) : (short)0;
 
@@ -59,9 +52,7 @@ namespace ERP.Common.Catalogos
             }
             catch (Exception ex)
             {
-
                 XtraMessageBox.Show("Ocurrió un error al buscar las impresoras", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -76,7 +67,6 @@ namespace ERP.Common.Catalogos
             }
             catch (Exception ex)
             {
-
                 XtraMessageBox.Show("Ocurrió un error al buscar las impresoras", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

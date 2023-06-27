@@ -174,7 +174,7 @@
             this.uiContinuar.Name = "uiContinuar";
             this.uiContinuar.Size = new System.Drawing.Size(552, 50);
             this.uiContinuar.TabIndex = 2;
-            this.uiContinuar.Text = "CONTINAR CON LA CONFIRMACIÓN";
+            this.uiContinuar.Text = "CONTINUAR CON LA CONFIRMACIÓN";
             this.uiContinuar.UseVisualStyleBackColor = true;
             this.uiContinuar.Click += new System.EventHandler(this.uiContinuar_Click);
             // 
