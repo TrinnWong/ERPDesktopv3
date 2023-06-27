@@ -2,7 +2,7 @@
 using ConexionBD.Models;
 using ERP.Business;
 using ERP.Common.Productos;
-using FlorMaiz.Desktop;
+using PuntoVenta.Desktop;
 using System;
 using System.Data;
 using System.Data.Entity.Core.Objects;
@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ERP.Common;
 using System.IO;
 using ERP.Common.Seguridad;
+using DevExpress.XtraEditors;
 
 namespace TacosAna.Desktop
 {
@@ -216,10 +217,9 @@ namespace TacosAna.Desktop
 
                 if (!esSucursalCorrespondiente)
                 {
-                    DialogResult result =  MessageBox.Show("La sucursal seleccionada no corresponde a la configuración inicial.Para continuar se requiere clave de administrador. ¿Desea continuar?",
-                        "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.Yes) {
+                    if (XtraMessageBox.Show("La sucursal seleccionada no corresponde a la configuración inicial. Para continuar se requiere clave de administrador. ¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes) {
+                        
                         frmAdminPass oForm = new frmAdminPass();
                         oForm.WindowState = FormWindowState.Normal;
                         oForm.StartPosition = FormStartPosition.CenterScreen;
@@ -230,7 +230,7 @@ namespace TacosAna.Desktop
                             #region Como se accedió con permisos de administrador, ahora se sobreescribe en archivo la sucursal
                             string path = Directory.GetCurrentDirectory();
                             string empresaYsucursal = "1," + sucursalId;
-                            File.WriteAllText(path + @"\\sucursalCorrespondiente.txt", empresaYsucursal);
+                            File.WriteAllText(path + @"\\config.txt", empresaYsucursal);
                             #endregion 
                             LoginValidado(usuario, esSupervisor, sucursalId, cajaId, sesionId);
                         }
@@ -438,12 +438,12 @@ namespace TacosAna.Desktop
         private bool VerificarSucursal(int sucursalId)
         {
             string path = Directory.GetCurrentDirectory();
-            bool exists = File.Exists(path + @"\\sucursalCorrespondiente.txt");
+            bool exists = File.Exists(path + @"\\config.txt");
             bool esSucursalCorrespondiente = false;
 
             if (exists)
             {
-                string lecturaSucursal = File.ReadAllText(path + @"\\sucursalCorrespondiente.txt");
+                string lecturaSucursal = File.ReadAllText(path + @"\\config.txt");
                 int sucursalREgistrada = Int32.Parse(lecturaSucursal.Substring(2));
                 esSucursalCorrespondiente = (sucursalId == sucursalREgistrada);
             }
@@ -451,7 +451,7 @@ namespace TacosAna.Desktop
             {
                 //File.Create(path + @"\\sucursalCorrespondiente.txt");
                 string empresaYsucursal = "1," + sucursalId;
-                File.WriteAllText(path + @"\\sucursalCorrespondiente.txt", empresaYsucursal);
+                File.WriteAllText(path + @"\\config.txt", empresaYsucursal);
                 esSucursalCorrespondiente = true;
             }
 

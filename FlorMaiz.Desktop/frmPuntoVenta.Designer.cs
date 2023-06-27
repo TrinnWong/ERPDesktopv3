@@ -1,4 +1,4 @@
-﻿namespace FlorMaiz.Desktop
+﻿namespace PuntoVenta.Desktop
 {
     partial class frmPuntoVenta
     {

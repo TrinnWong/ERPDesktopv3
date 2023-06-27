@@ -1,4 +1,4 @@
-﻿namespace FlorMaiz.Desktop
+﻿namespace PuntoVenta.Desktop
 {
     partial class frmMain
     {
@@ -445,7 +445,7 @@
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
-            this.Text = "PUNTO DE VENTA-FLOR DE MAIZ";
+            this.Text = "PUNTO DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.frmMain_HelpButtonClicked);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
