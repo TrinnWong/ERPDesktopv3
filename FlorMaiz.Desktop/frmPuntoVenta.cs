@@ -11,6 +11,7 @@ using ERP.Common.Forms;
 using ERP.Common.Pedido;
 using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
+using ERP.Common.Seguridad;
 using ERP.Models.CalculoConta;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,7 @@ namespace PuntoVenta.Desktop
         decimal valorImrpesionTicket = 0;
         bool imprimirTicket = false;
         bool pesoInteligenteLecturaLocal = false;
+        bool desvincularBascula = false;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -357,6 +359,9 @@ namespace PuntoVenta.Desktop
         {
             try
             {
+                if (desvincularBascula)
+                    return;
+
                 if (puntoVentaContext.conectarConBascula)
                 {
                     if (portBascula.IsOpen)
@@ -523,8 +528,7 @@ namespace PuntoVenta.Desktop
         public void limpiar()
         {
             
-            uiValorGranel.EditValue = 0;
-            gcMonedas.Enabled = false;
+            
             pagando = false;
             capturaMontoManual = false;
             uiMontoManual.ReadOnly = true;
@@ -610,13 +614,13 @@ namespace PuntoVenta.Desktop
                     
                     if (productoSeleccionado.ProdVtaBascula == true)
                     {
-                        gcMonedas.Enabled = true;
+                        //gcMonedas.Enabled = true;
                         uiPesoVal.ReadOnly = false;
                         abrirBascula();
                     }
                     else
                     {
-                        gcMonedas.Enabled = false;
+                        //gcMonedas.Enabled = false;
                         cerrarBascula();
                         uiPesoVal.ReadOnly = false;
                         //uiPesoVal.EditValue = 1;
@@ -1494,7 +1498,7 @@ namespace PuntoVenta.Desktop
         {
             try
             {
-                EstablecerPorPrecio(uiValorGranel.Value);
+                //EstablecerPorPrecio(uiValorGranel.Value);
                 agregarProducto();
 
             }
@@ -1517,10 +1521,7 @@ namespace PuntoVenta.Desktop
                 {
                     uiMontoManual.EditValue = cantidad;
                 }
-                else
-                {
-                    uiMontoManual.EditValue = uiValorGranel.EditValue;
-                }
+                
                 
 
                 uiPrecioProducto.EditValue = uiCliente.EditValue == null ?
@@ -1744,7 +1745,7 @@ namespace PuntoVenta.Desktop
 
         private void uiValorGranel_MouseUp(object sender, MouseEventArgs e)
         {
-            uiValorGranel.SelectAll();
+            //uiValorGranel.SelectAll();
         }
 
         private void uiValorGranel_KeyUp(object sender, KeyEventArgs e)
@@ -1753,7 +1754,7 @@ namespace PuntoVenta.Desktop
             {
                 try
                 {
-                    EstablecerPorPrecio(uiValorGranel.Value);
+                    //EstablecerPorPrecio(uiValorGranel.Value);
                     
 
                 }
@@ -2032,6 +2033,44 @@ namespace PuntoVenta.Desktop
                 }
             }
             
+        }
+
+        private void uiRgVincularBascula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(Convert.ToInt32(uiRgVincularBascula.EditValue) == 1)
+                {
+                    desvincularBascula = false;
+                }
+                if (Convert.ToInt32(uiRgVincularBascula.EditValue) == 2)
+                {
+                    frmAdminPass oForm = new frmAdminPass();
+
+                    oForm.StartPosition = FormStartPosition.CenterScreen;
+                    oForm.ShowDialog();
+
+                    if (oForm.DialogResult == DialogResult.OK)
+                    {
+                        desvincularBascula = true;
+
+                        ERP.Business.SisBitacoraBusiness.GuardarBitacoraGeneral("desvinculación-bascula",
+                            this.puntoVentaContext.sucursalId, "Solicitud de desvinculación del Punto de Venta",
+                            this.puntoVentaContext.usuarioId);
+                        ERP.Utils.MessageBoxUtil.ShowWarning("La báscula se ha desvinculado temporalmente, se guardó registro en bitácora de la solicitud de desvinculación");
+                     }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
+                                      "PUNTO DE VENTA",
+                                      this.Name,
+                                      ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+
+            }
         }
     }
 }
