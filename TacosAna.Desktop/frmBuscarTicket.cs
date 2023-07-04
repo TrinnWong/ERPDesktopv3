@@ -71,14 +71,18 @@ namespace TacosAna.Desktop
 
             uiTicket.DataSource = oContext.doc_ventas
                 .Where(
-                    w => (
-                        w.Folio.ToString() == folio && uiBuscarFolio.Checked &&
-                        DbFunctions.TruncateTime(w.Fecha) >= DbFunctions.TruncateTime(fechaIni) && DbFunctions.TruncateTime(w.Fecha) <= DbFunctions.TruncateTime(fechaFin)
-                    )
-                    ||
+                    w => 
+                    w.SucursalId == puntoVentaContext.sucursalId &&
                     (
-                   DbFunctions.TruncateTime( w.Fecha) >= DbFunctions.TruncateTime(fechaIni) && DbFunctions.TruncateTime(w.Fecha) <= DbFunctions.TruncateTime(fechaFin )
-                    && uiBuscarFechas.Checked)
+                        (
+                            w.Folio.ToString() == folio && uiBuscarFolio.Checked &&
+                            DbFunctions.TruncateTime(w.Fecha) >= DbFunctions.TruncateTime(fechaIni) && DbFunctions.TruncateTime(w.Fecha) <= DbFunctions.TruncateTime(fechaFin)
+                        )
+                        ||
+                        (
+                       DbFunctions.TruncateTime( w.Fecha) >= DbFunctions.TruncateTime(fechaIni) && DbFunctions.TruncateTime(w.Fecha) <= DbFunctions.TruncateTime(fechaFin )
+                        && uiBuscarFechas.Checked)
+                    )
                 ).Select(
                     s => new
                     {
