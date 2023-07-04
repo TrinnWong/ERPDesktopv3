@@ -68,6 +68,33 @@ namespace ERP.Common.Inventarios
                 double KgTortillaMaseca = 0;
                 int productoMaizSacoId = 0;
                 int productoMasecaSacoId = 0;
+                int dia = uiFecha.DateTime.Day;int mes = uiFecha.DateTime.Month; 
+                int anio = uiFecha.DateTime.Year;
+
+                //Validar si ya existe
+                var existe = oContext.doc_maiz_maseca_rendimiento
+                    .Where(w => w.SucursalId == puntoVentaContext.sucursalId
+                    && (w.Fecha.Day == dia && w.Fecha.Month == mes && w.Fecha.Year == anio))
+                    .FirstOrDefault();
+
+                if (existe != null)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowError("Ya existe una captura para la fecha seleccionada");
+                    return;
+                }
+
+
+                if(uiMaizSacos.Value <= 0 || uiMasecaSacos.Value <= 0)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowError("La captura de sacos no puede ser 0");
+                    return;
+                }
+
+                if(uiFecha.DateTime.Date > DateTime.Now.Date)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowError("No es posible realizar una captura de una fecha futura");
+                    return;
+                }
 
                 if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                    this.puntoVentaContext.sucursalId, "MAIZ-SACO-CLAVE", this.puntoVentaContext.usuarioId, ref error))
@@ -132,8 +159,10 @@ namespace ERP.Common.Inventarios
                 {
                     return;
                 }
+
                 int sucursalId = puntoVentaContext.sucursalId;
                 DateTime timeBD = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
+
                 using (oContext = new ERPProdEntities())
                 {
 

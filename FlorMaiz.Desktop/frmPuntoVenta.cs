@@ -2058,7 +2058,18 @@ namespace PuntoVenta.Desktop
                             this.puntoVentaContext.sucursalId, "Solicitud de desvinculación del Punto de Venta",
                             this.puntoVentaContext.usuarioId);
                         ERP.Utils.MessageBoxUtil.ShowWarning("La báscula se ha desvinculado temporalmente, se guardó registro en bitácora de la solicitud de desvinculación");
-                     }
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(uiRgVincularBascula.EditValue) == 1)
+                        {
+                            uiRgVincularBascula.EditValue = 2;
+                        }
+                        if (Convert.ToInt32(uiRgVincularBascula.EditValue) == 2)
+                        {
+                            uiRgVincularBascula.EditValue = 1;
+                        }
+                    }
                 }
                 
             }

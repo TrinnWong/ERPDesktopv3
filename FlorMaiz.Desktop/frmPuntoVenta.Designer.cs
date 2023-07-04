@@ -41,6 +41,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.uiRgVincularBascula = new DevExpress.XtraEditors.RadioGroup();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.uiBotonPedidosApp = new DevExpress.XtraEditors.SimpleButton();
             this.uiSoloMostrarClientesSucursal = new DevExpress.XtraEditors.CheckEdit();
@@ -185,7 +186,6 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem63 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem62 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem64 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -193,12 +193,13 @@
             this.layoutControlItem66 = new DevExpress.XtraLayout.LayoutControlItem();
             this.uiLayoutBotonPedidosApp = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem67 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem63 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem52 = new DevExpress.XtraLayout.LayoutControlItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.uiTimerPedidosApp = new System.Windows.Forms.Timer(this.components);
-            this.uiRgVincularBascula = new DevExpress.XtraEditors.RadioGroup();
-            this.layoutControlItem52 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiRgVincularBascula.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiSoloMostrarClientesSucursal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFormaPago.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catformaspagoBindingSource)).BeginInit();
@@ -273,7 +274,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem62)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem64)).BeginInit();
@@ -281,7 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiLayoutBotonPedidosApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiRgVincularBascula.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem52)).BeginInit();
             this.SuspendLayout();
             // 
@@ -356,6 +356,19 @@
             this.layoutControl1.Size = new System.Drawing.Size(1489, 805);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // uiRgVincularBascula
+            // 
+            this.uiRgVincularBascula.EditValue = 1;
+            this.uiRgVincularBascula.Location = new System.Drawing.Point(16, 299);
+            this.uiRgVincularBascula.Name = "uiRgVincularBascula";
+            this.uiRgVincularBascula.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Báscula Activa "),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Desvincular Báscula")});
+            this.uiRgVincularBascula.Size = new System.Drawing.Size(529, 26);
+            this.uiRgVincularBascula.StyleController = this.layoutControl1;
+            this.uiRgVincularBascula.TabIndex = 72;
+            this.uiRgVincularBascula.SelectedIndexChanged += new System.EventHandler(this.uiRgVincularBascula_SelectedIndexChanged);
             // 
             // simpleButton1
             // 
@@ -1299,6 +1312,8 @@
             // 
             this.uiGridView.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiGridView.Appearance.FooterPanel.Options.UseFont = true;
+            this.uiGridView.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiGridView.Appearance.Row.Options.UseFont = true;
             this.uiGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.col_porcDescuento,
@@ -1339,7 +1354,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 54;
+            this.gridColumn1.Width = 63;
             // 
             // uiRepEliminar
             // 
@@ -1382,13 +1397,15 @@
             // 
             // coldescripcion
             // 
+            this.coldescripcion.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.coldescripcion.AppearanceCell.Options.UseForeColor = true;
             this.coldescripcion.Caption = "Descripción";
             this.coldescripcion.FieldName = "descripcion";
             this.coldescripcion.Name = "coldescripcion";
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 3;
-            this.coldescripcion.Width = 234;
+            this.coldescripcion.Width = 288;
             // 
             // colprecioUnitario
             // 
@@ -1518,7 +1535,7 @@
             this.colCambioPrecio.Name = "colCambioPrecio";
             this.colCambioPrecio.Visible = true;
             this.colCambioPrecio.VisibleIndex = 0;
-            this.colCambioPrecio.Width = 52;
+            this.colCambioPrecio.Width = 61;
             // 
             // uiRepCambioPrecio
             // 
@@ -2197,15 +2214,6 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(10, 32);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem63
-            // 
-            this.layoutControlItem63.Control = this.uiTipoCortesia;
-            this.layoutControlItem63.Location = new System.Drawing.Point(1071, 283);
-            this.layoutControlItem63.Name = "layoutControlItem63";
-            this.layoutControlItem63.Size = new System.Drawing.Size(382, 32);
-            this.layoutControlItem63.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem63.TextVisible = false;
-            // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.uiClienteAgregar;
@@ -2269,27 +2277,14 @@
             this.layoutControlItem67.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem67.TextVisible = false;
             // 
-            // timer1
+            // layoutControlItem63
             // 
-            this.timer1.Interval = 125;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // uiTimerPedidosApp
-            // 
-            this.uiTimerPedidosApp.Tick += new System.EventHandler(this.uiTimerPedidosApp_Tick);
-            // 
-            // uiRgVincularBascula
-            // 
-            this.uiRgVincularBascula.EditValue = 1;
-            this.uiRgVincularBascula.Location = new System.Drawing.Point(16, 299);
-            this.uiRgVincularBascula.Name = "uiRgVincularBascula";
-            this.uiRgVincularBascula.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Báscula Activa "),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Desvincular Báscula")});
-            this.uiRgVincularBascula.Size = new System.Drawing.Size(529, 26);
-            this.uiRgVincularBascula.StyleController = this.layoutControl1;
-            this.uiRgVincularBascula.TabIndex = 72;
-            this.uiRgVincularBascula.SelectedIndexChanged += new System.EventHandler(this.uiRgVincularBascula_SelectedIndexChanged);
+            this.layoutControlItem63.Control = this.uiTipoCortesia;
+            this.layoutControlItem63.Location = new System.Drawing.Point(1071, 283);
+            this.layoutControlItem63.Name = "layoutControlItem63";
+            this.layoutControlItem63.Size = new System.Drawing.Size(382, 32);
+            this.layoutControlItem63.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem63.TextVisible = false;
             // 
             // layoutControlItem52
             // 
@@ -2299,6 +2294,15 @@
             this.layoutControlItem52.Size = new System.Drawing.Size(535, 32);
             this.layoutControlItem52.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem52.TextVisible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 125;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uiTimerPedidosApp
+            // 
+            this.uiTimerPedidosApp.Tick += new System.EventHandler(this.uiTimerPedidosApp_Tick);
             // 
             // frmPuntoVenta
             // 
@@ -2317,6 +2321,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmPuntoVenta_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiRgVincularBascula.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiSoloMostrarClientesSucursal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiFormaPago.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catformaspagoBindingSource)).EndInit();
@@ -2391,7 +2396,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem62)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem64)).EndInit();
@@ -2399,7 +2403,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiLayoutBotonPedidosApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiRgVincularBascula.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem52)).EndInit();
             this.ResumeLayout(false);
 
