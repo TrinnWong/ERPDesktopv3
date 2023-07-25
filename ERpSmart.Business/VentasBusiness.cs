@@ -44,7 +44,11 @@ namespace ERP.Business
             try
             {
                 oContext = new ERPProdEntities();
-                using (TransactionScope scope = new TransactionScope())
+
+                // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
+                var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted };
+
+                using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                 {
                     
                     if (clienteId == 0)
