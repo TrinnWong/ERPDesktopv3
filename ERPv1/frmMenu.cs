@@ -985,15 +985,17 @@ namespace ERPv1
 
         private void máximosYMInimosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ERP.Common.Productos.frmMaximosMinimos frmo = ERP.Common.Productos.frmMaximosMinimos.GetInstance();
+            ERP.Common.Productos.frmMaximosMinimosUpd frmo = ERP.Common.Productos.frmMaximosMinimosUpd.GetInstance();
 
             if (!frmo.Visible)
             {
                 //frmo = new frmPuntoVenta();
                 frmo.MdiParent = this;
+                frmo.deshabilitarSucursal = false;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
+
             }
         }
 

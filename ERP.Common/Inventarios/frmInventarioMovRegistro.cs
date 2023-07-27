@@ -67,24 +67,68 @@ namespace ERP.Common.Inventarios
                 oContext = new ERPProdEntities();
                 if (rellenarProductos)
                 {
-                    uiGrid.DataSource = oContext.cat_productos
-                    .Where(w => w.cat_sucursales_productos.Where(s1 => s1.SucursalId == puntoVentaContext.sucursalId).Count() > 0)
-                    .OrderBy(o=> o.Orden)
-                    .Select(
-                        s => new ProductoInventarioModel()
-                        {
-                            unidad = s.cat_unidadesmed.Descripcion,
-                            cantidad = 0,
-                            clave = s.Clave,
-                            descripcion = s.Descripcion,
-                            productoId = s.ProductoId,
-                            unidadId = s.ClaveUnidadMedida ?? 0,
-                            existenciaSucursalOrigen = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
-                            .Where(s2=> s2.SucursalId == sucursalOrigen).FirstOrDefault().ExistenciaTeorica ?? 0 : 0,
-                            existenciaSucursalDestino = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
-                            .Where(s2 => s2.SucursalId == sucursalDestinoId).FirstOrDefault().ExistenciaTeorica ?? 0 : 0
-                        }
-                    ).ToList();
+                    List<ProductoInventarioModel> gridDataSource = new List<ProductoInventarioModel>();
+                    
+
+                    if((int)this.tipoMovimiento == (int)ERP.Business.Enumerados.tipoMovimientoInventario.SalidaPorTraspaso)
+                    {
+                        gridDataSource = oContext.cat_productos
+                        .Where(w => w.cat_sucursales_productos.Where(s1 => s1.SucursalId == sucursalOrigen).Count() > 0)
+                        .OrderBy(o => o.Orden)
+                        .Select(
+                            s => new ProductoInventarioModel()
+                            {
+                                unidad = s.cat_unidadesmed.Descripcion,
+                                cantidad = 0,
+                                clave = s.Clave,
+                                descripcion = s.Descripcion,
+                                productoId = s.ProductoId,
+                                unidadId = s.ClaveUnidadMedida ?? 0,
+                                existenciaSucursalOrigen = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
+                                .Where(s2 => s2.SucursalId == sucursalOrigen).FirstOrDefault().ExistenciaTeorica ?? 0 : 0,
+                                existenciaSucursalDestino = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
+                                .Where(s2 => s2.SucursalId == sucursalDestinoId).FirstOrDefault().ExistenciaTeorica ?? 0 : 0
+                            }
+                        ).ToList();
+
+                        var lstMaximosMinimos = oContext.doc_productos_max_min
+                       .Where(w => w.SucursalId == sucursalDestinoId);
+
+                        gridDataSource = gridDataSource
+                         .Join(lstMaximosMinimos,
+                             gridItem => gridItem.productoId,
+                             maxMinItem => maxMinItem.ProductoId,
+                             (gridItem, maxMinItem) =>
+                             {
+                                 gridItem.cantidad =maxMinItem.Maximo > 0 ? ((maxMinItem.Maximo - gridItem.existenciaSucursalDestino) < 0 ? 0 : (maxMinItem.Maximo - gridItem.existenciaSucursalDestino)):0;
+                                 return gridItem;
+                             })
+                         .ToList();
+                    }
+                    else
+                    {
+                        gridDataSource = oContext.cat_productos
+                        .Where(w => w.cat_sucursales_productos.Where(s1 => s1.SucursalId == puntoVentaContext.sucursalId).Count() > 0)
+                        .OrderBy(o => o.Orden)
+                        .Select(
+                            s => new ProductoInventarioModel()
+                            {
+                                unidad = s.cat_unidadesmed.Descripcion,
+                                cantidad = 0,
+                                clave = s.Clave,
+                                descripcion = s.Descripcion,
+                                productoId = s.ProductoId,
+                                unidadId = s.ClaveUnidadMedida ?? 0,
+                                existenciaSucursalOrigen = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
+                                .Where(s2 => s2.SucursalId == sucursalOrigen).FirstOrDefault().ExistenciaTeorica ?? 0 : 0,
+                                existenciaSucursalDestino = s.cat_productos_existencias.Count() > 0 ? s.cat_productos_existencias
+                                .Where(s2 => s2.SucursalId == sucursalDestinoId).FirstOrDefault().ExistenciaTeorica ?? 0 : 0
+                            }
+                        ).ToList();
+                    }
+                   
+
+                    uiGrid.DataSource = gridDataSource.ToList();
                 }
                 else
                 {

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventarioMovRegistro));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.uiSucursalOrigen = new DevExpress.XtraEditors.LookUpEdit();
             this.catsucursalesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -166,18 +166,18 @@
             this.layoutControl1.Controls.Add(this.lblTitulo);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(920, 210, 975, 600);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1303, 710);
+            this.layoutControl1.Size = new System.Drawing.Size(1117, 577);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // uiSucursalOrigen
             // 
-            this.uiSucursalOrigen.Location = new System.Drawing.Point(116, 46);
+            this.uiSucursalOrigen.Location = new System.Drawing.Point(96, 35);
+            this.uiSucursalOrigen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiSucursalOrigen.Name = "uiSucursalOrigen";
             this.uiSucursalOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -188,7 +188,7 @@
             this.uiSucursalOrigen.Properties.NullText = "(Selecciona una Sucursal Origen)";
             this.uiSucursalOrigen.Properties.ReadOnly = true;
             this.uiSucursalOrigen.Properties.ValueMember = "Clave";
-            this.uiSucursalOrigen.Size = new System.Drawing.Size(532, 22);
+            this.uiSucursalOrigen.Size = new System.Drawing.Size(460, 20);
             this.uiSucursalOrigen.StyleController = this.layoutControl1;
             this.uiSucursalOrigen.TabIndex = 30;
             this.uiSucursalOrigen.EditValueChanged += new System.EventHandler(this.uiSucursalOrigen_EditValueChanged_1);
@@ -199,15 +199,17 @@
             // 
             // uiComentarios
             // 
-            this.uiComentarios.Location = new System.Drawing.Point(865, 120);
+            this.uiComentarios.Location = new System.Drawing.Point(739, 101);
+            this.uiComentarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiComentarios.Name = "uiComentarios";
-            this.uiComentarios.Size = new System.Drawing.Size(422, 22);
+            this.uiComentarios.Size = new System.Drawing.Size(366, 20);
             this.uiComentarios.StyleController = this.layoutControl1;
             this.uiComentarios.TabIndex = 29;
             // 
             // uiTipoMovimiento
             // 
-            this.uiTipoMovimiento.Location = new System.Drawing.Point(398, 120);
+            this.uiTipoMovimiento.Location = new System.Drawing.Point(338, 101);
+            this.uiTipoMovimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiTipoMovimiento.Name = "uiTipoMovimiento";
             this.uiTipoMovimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -215,7 +217,7 @@
             this.uiTipoMovimiento.Properties.DisplayMember = "Tipo";
             this.uiTipoMovimiento.Properties.NullText = "(Selecciona un tipo de movimiento)";
             this.uiTipoMovimiento.Properties.ValueMember = "TipoMermaId";
-            this.uiTipoMovimiento.Size = new System.Drawing.Size(361, 22);
+            this.uiTipoMovimiento.Size = new System.Drawing.Size(313, 20);
             this.uiTipoMovimiento.StyleController = this.layoutControl1;
             this.uiTipoMovimiento.TabIndex = 28;
             // 
@@ -225,7 +227,8 @@
             // 
             // uiSucursalDestino
             // 
-            this.uiSucursalDestino.Location = new System.Drawing.Point(754, 46);
+            this.uiSucursalDestino.Location = new System.Drawing.Point(644, 35);
+            this.uiSucursalDestino.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiSucursalDestino.Name = "uiSucursalDestino";
             this.uiSucursalDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -235,7 +238,7 @@
             this.uiSucursalDestino.Properties.DisplayMember = "NombreSucursal";
             this.uiSucursalDestino.Properties.NullText = "(Selecciona la Sucursal Destino)";
             this.uiSucursalDestino.Properties.ValueMember = "Clave";
-            this.uiSucursalDestino.Size = new System.Drawing.Size(533, 22);
+            this.uiSucursalDestino.Size = new System.Drawing.Size(461, 20);
             this.uiSucursalDestino.StyleController = this.layoutControl1;
             this.uiSucursalDestino.TabIndex = 27;
             this.uiSucursalDestino.EditValueChanged += new System.EventHandler(this.uiSucursalDestino_EditValueChanged);
@@ -250,9 +253,10 @@
             this.uiAutorizar.Appearance.Options.UseFont = true;
             this.uiAutorizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiAutorizar.ImageOptions.Image")));
             this.uiAutorizar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiAutorizar.Location = new System.Drawing.Point(558, 654);
+            this.uiAutorizar.Location = new System.Drawing.Point(477, 527);
+            this.uiAutorizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiAutorizar.Name = "uiAutorizar";
-            this.uiAutorizar.Size = new System.Drawing.Size(247, 40);
+            this.uiAutorizar.Size = new System.Drawing.Size(214, 38);
             this.uiAutorizar.StyleController = this.layoutControl1;
             this.uiAutorizar.TabIndex = 26;
             this.uiAutorizar.Text = "Autorizar";
@@ -264,10 +268,9 @@
             this.uiImprimir.Appearance.Options.UseFont = true;
             this.uiImprimir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiImprimir.ImageOptions.Image")));
             this.uiImprimir.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiImprimir.Location = new System.Drawing.Point(811, 654);
-            this.uiImprimir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiImprimir.Location = new System.Drawing.Point(695, 527);
             this.uiImprimir.Name = "uiImprimir";
-            this.uiImprimir.Size = new System.Drawing.Size(235, 40);
+            this.uiImprimir.Size = new System.Drawing.Size(203, 38);
             this.uiImprimir.StyleController = this.layoutControl1;
             this.uiImprimir.TabIndex = 25;
             this.uiImprimir.Text = "Imprimir";
@@ -275,10 +278,11 @@
             // 
             // uiRellenarProductosSucursal
             // 
-            this.uiRellenarProductosSucursal.Location = new System.Drawing.Point(16, 120);
+            this.uiRellenarProductosSucursal.Location = new System.Drawing.Point(12, 101);
+            this.uiRellenarProductosSucursal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiRellenarProductosSucursal.Name = "uiRellenarProductosSucursal";
             this.uiRellenarProductosSucursal.Properties.Caption = "Cargar Productos";
-            this.uiRellenarProductosSucursal.Size = new System.Drawing.Size(276, 20);
+            this.uiRellenarProductosSucursal.Size = new System.Drawing.Size(238, 19);
             this.uiRellenarProductosSucursal.StyleController = this.layoutControl1;
             this.uiRellenarProductosSucursal.TabIndex = 24;
             this.uiRellenarProductosSucursal.CheckedChanged += new System.EventHandler(this.uiRellenarProductosSucursal_CheckedChanged);
@@ -289,10 +293,9 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(318, 654);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton1.Location = new System.Drawing.Point(271, 527);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(234, 40);
+            this.simpleButton1.Size = new System.Drawing.Size(202, 38);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 23;
             this.simpleButton1.Text = "Buscar (F3)";
@@ -300,10 +303,9 @@
             // 
             // uiClave
             // 
-            this.uiClave.Location = new System.Drawing.Point(116, 74);
-            this.uiClave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiClave.Location = new System.Drawing.Point(96, 59);
             this.uiClave.Name = "uiClave";
-            this.uiClave.Size = new System.Drawing.Size(176, 22);
+            this.uiClave.Size = new System.Drawing.Size(154, 20);
             this.uiClave.StyleController = this.layoutControl1;
             this.uiClave.TabIndex = 22;
             this.uiClave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiClave_KeyUp);
@@ -312,10 +314,9 @@
             // 
             this.uiProductosMosaico.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiProductosMosaico.ImageOptions.Image")));
             this.uiProductosMosaico.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiProductosMosaico.Location = new System.Drawing.Point(298, 74);
-            this.uiProductosMosaico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiProductosMosaico.Location = new System.Drawing.Point(254, 59);
             this.uiProductosMosaico.Name = "uiProductosMosaico";
-            this.uiProductosMosaico.Size = new System.Drawing.Size(208, 40);
+            this.uiProductosMosaico.Size = new System.Drawing.Size(180, 38);
             this.uiProductosMosaico.StyleController = this.layoutControl1;
             this.uiProductosMosaico.TabIndex = 21;
             this.uiProductosMosaico.Text = "Productos Mosaico";
@@ -327,10 +328,9 @@
             this.uiCancelar.Appearance.Options.UseFont = true;
             this.uiCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCancelar.ImageOptions.Image")));
             this.uiCancelar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiCancelar.Location = new System.Drawing.Point(1052, 654);
-            this.uiCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiCancelar.Location = new System.Drawing.Point(902, 527);
             this.uiCancelar.Name = "uiCancelar";
-            this.uiCancelar.Size = new System.Drawing.Size(235, 40);
+            this.uiCancelar.Size = new System.Drawing.Size(203, 38);
             this.uiCancelar.StyleController = this.layoutControl1;
             this.uiCancelar.TabIndex = 19;
             this.uiCancelar.Text = "Salir";
@@ -342,10 +342,9 @@
             this.uiGuardar.Appearance.Options.UseFont = true;
             this.uiGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiGuardar.ImageOptions.Image")));
             this.uiGuardar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiGuardar.Location = new System.Drawing.Point(16, 654);
-            this.uiGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiGuardar.Location = new System.Drawing.Point(12, 527);
             this.uiGuardar.Name = "uiGuardar";
-            this.uiGuardar.Size = new System.Drawing.Size(296, 40);
+            this.uiGuardar.Size = new System.Drawing.Size(255, 38);
             this.uiGuardar.StyleController = this.layoutControl1;
             this.uiGuardar.TabIndex = 18;
             this.uiGuardar.Text = "Guardar";
@@ -357,10 +356,9 @@
             this.uiAgregar.Appearance.Options.UseFont = true;
             this.uiAgregar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiAgregar.ImageOptions.Image")));
             this.uiAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiAgregar.Location = new System.Drawing.Point(975, 74);
-            this.uiAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiAgregar.Location = new System.Drawing.Point(836, 59);
             this.uiAgregar.Name = "uiAgregar";
-            this.uiAgregar.Size = new System.Drawing.Size(312, 40);
+            this.uiAgregar.Size = new System.Drawing.Size(269, 38);
             this.uiAgregar.StyleController = this.layoutControl1;
             this.uiAgregar.TabIndex = 17;
             this.uiAgregar.Text = "Agregar";
@@ -368,8 +366,7 @@
             // 
             // uiProductoSeleccion
             // 
-            this.uiProductoSeleccion.Location = new System.Drawing.Point(512, 74);
-            this.uiProductoSeleccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiProductoSeleccion.Location = new System.Drawing.Point(438, 59);
             this.uiProductoSeleccion.Name = "uiProductoSeleccion";
             this.uiProductoSeleccion.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.uiProductoSeleccion.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
@@ -378,7 +375,7 @@
             this.uiProductoSeleccion.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue;
             this.uiProductoSeleccion.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.uiProductoSeleccion.Properties.ReadOnly = true;
-            this.uiProductoSeleccion.Size = new System.Drawing.Size(238, 28);
+            this.uiProductoSeleccion.Size = new System.Drawing.Size(206, 22);
             this.uiProductoSeleccion.StyleController = this.layoutControl1;
             this.uiProductoSeleccion.TabIndex = 16;
             // 
@@ -390,8 +387,7 @@
             0,
             0});
             this.uiCantidad.Enabled = false;
-            this.uiCantidad.Location = new System.Drawing.Point(756, 74);
-            this.uiCantidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiCantidad.Location = new System.Drawing.Point(648, 59);
             this.uiCantidad.Name = "uiCantidad";
             this.uiCantidad.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiCantidad.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
@@ -403,7 +399,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.uiCantidad.Properties.DisplayFormat.FormatString = "n4";
             this.uiCantidad.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.uiCantidad.Size = new System.Drawing.Size(213, 40);
+            this.uiCantidad.Size = new System.Drawing.Size(184, 32);
             this.uiCantidad.StyleController = this.layoutControl1;
             this.uiCantidad.TabIndex = 15;
             this.uiCantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiCantidad_KeyUp);
@@ -411,15 +407,13 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.productoInventarioModelBindingSource;
-            this.uiGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.uiGrid.Location = new System.Drawing.Point(16, 148);
+            this.uiGrid.Location = new System.Drawing.Point(12, 125);
             this.uiGrid.MainView = this.uiGridView;
-            this.uiGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repBtnDel,
             this.repCantidad});
-            this.uiGrid.Size = new System.Drawing.Size(1271, 500);
+            this.uiGrid.Size = new System.Drawing.Size(1093, 398);
             this.uiGrid.TabIndex = 14;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -469,14 +463,14 @@
             this.colAccion.Name = "colAccion";
             this.colAccion.Visible = true;
             this.colAccion.VisibleIndex = 0;
-            this.colAccion.Width = 101;
+            this.colAccion.Width = 74;
             // 
             // repBtnDel
             // 
             this.repBtnDel.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.repBtnDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repBtnDel.Name = "repBtnDel";
             this.repBtnDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repBtnDel.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repBtnDel_ButtonClick);
@@ -495,7 +489,7 @@
             this.colpartida.OptionsColumn.AllowEdit = false;
             this.colpartida.Visible = true;
             this.colpartida.VisibleIndex = 1;
-            this.colpartida.Width = 86;
+            this.colpartida.Width = 63;
             // 
             // colclave
             // 
@@ -505,7 +499,7 @@
             this.colclave.OptionsColumn.AllowEdit = false;
             this.colclave.Visible = true;
             this.colclave.VisibleIndex = 2;
-            this.colclave.Width = 101;
+            this.colclave.Width = 64;
             // 
             // colproductoId
             // 
@@ -521,7 +515,7 @@
             this.coldescripcion.OptionsColumn.AllowEdit = false;
             this.coldescripcion.Visible = true;
             this.coldescripcion.VisibleIndex = 3;
-            this.coldescripcion.Width = 211;
+            this.coldescripcion.Width = 473;
             // 
             // colprecioUnitario
             // 
@@ -551,7 +545,7 @@
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 7;
-            this.colcantidad.Width = 290;
+            this.colcantidad.Width = 106;
             // 
             // repCantidad
             // 
@@ -622,7 +616,7 @@
             this.colunidad.OptionsColumn.AllowEdit = false;
             this.colunidad.Visible = true;
             this.colunidad.VisibleIndex = 4;
-            this.colunidad.Width = 308;
+            this.colunidad.Width = 92;
             // 
             // coltipoDescuentoId
             // 
@@ -650,7 +644,7 @@
             this.colexistenciaOrigen.OptionsColumn.AllowEdit = false;
             this.colexistenciaOrigen.Visible = true;
             this.colexistenciaOrigen.VisibleIndex = 5;
-            this.colexistenciaOrigen.Width = 179;
+            this.colexistenciaOrigen.Width = 94;
             // 
             // colexistenciaDestino
             // 
@@ -660,16 +654,15 @@
             this.colexistenciaDestino.OptionsColumn.AllowEdit = false;
             this.colexistenciaDestino.Visible = true;
             this.colexistenciaDestino.VisibleIndex = 6;
-            this.colexistenciaDestino.Width = 186;
+            this.colexistenciaDestino.Width = 109;
             // 
             // lblTitulo
             // 
             this.lblTitulo.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Appearance.Options.UseFont = true;
-            this.lblTitulo.Location = new System.Drawing.Point(16, 16);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 12);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(270, 24);
+            this.lblTitulo.Size = new System.Drawing.Size(221, 19);
             this.lblTitulo.StyleController = this.layoutControl1;
             this.lblTitulo.TabIndex = 4;
             this.lblTitulo.Text = "RECEPCIÓN DE PRODUCTO";
@@ -698,7 +691,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1303, 710);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1117, 577);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -706,153 +699,153 @@
             this.layoutControlItem1.Control = this.lblTitulo;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1277, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1097, 23);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.uiGrid;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 132);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 113);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(1277, 506);
+            this.layoutControlItem11.Size = new System.Drawing.Size(1097, 402);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.uiProductoSeleccion;
-            this.layoutControlItem13.Location = new System.Drawing.Point(496, 58);
+            this.layoutControlItem13.Location = new System.Drawing.Point(426, 47);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(244, 46);
+            this.layoutControlItem13.Size = new System.Drawing.Size(210, 42);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layGuardar
             // 
             this.layGuardar.Control = this.uiGuardar;
-            this.layGuardar.Location = new System.Drawing.Point(0, 638);
+            this.layGuardar.Location = new System.Drawing.Point(0, 515);
             this.layGuardar.Name = "layGuardar";
-            this.layGuardar.Size = new System.Drawing.Size(302, 46);
+            this.layGuardar.Size = new System.Drawing.Size(259, 42);
             this.layGuardar.TextSize = new System.Drawing.Size(0, 0);
             this.layGuardar.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.uiProductosMosaico;
-            this.layoutControlItem2.Location = new System.Drawing.Point(282, 58);
+            this.layoutControlItem2.Location = new System.Drawing.Point(242, 47);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(214, 46);
+            this.layoutControlItem2.Size = new System.Drawing.Size(184, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.uiClave;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 47);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(282, 46);
+            this.layoutControlItem3.Size = new System.Drawing.Size(242, 42);
             this.layoutControlItem3.Text = "Clave";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(95, 16);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layRellenarProd
             // 
             this.layRellenarProd.Control = this.uiRellenarProductosSucursal;
-            this.layRellenarProd.Location = new System.Drawing.Point(0, 104);
+            this.layRellenarProd.Location = new System.Drawing.Point(0, 89);
             this.layRellenarProd.Name = "layRellenarProd";
-            this.layRellenarProd.Size = new System.Drawing.Size(282, 28);
+            this.layRellenarProd.Size = new System.Drawing.Size(242, 24);
             this.layRellenarProd.TextSize = new System.Drawing.Size(0, 0);
             this.layRellenarProd.TextVisible = false;
             // 
             // layImprimir
             // 
             this.layImprimir.Control = this.uiImprimir;
-            this.layImprimir.Location = new System.Drawing.Point(795, 638);
+            this.layImprimir.Location = new System.Drawing.Point(683, 515);
             this.layImprimir.Name = "layImprimir";
-            this.layImprimir.Size = new System.Drawing.Size(241, 46);
+            this.layImprimir.Size = new System.Drawing.Size(207, 42);
             this.layImprimir.TextSize = new System.Drawing.Size(0, 0);
             this.layImprimir.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.uiAutorizar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(542, 638);
+            this.layoutControlItem5.Location = new System.Drawing.Point(465, 515);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(253, 46);
+            this.layoutControlItem5.Size = new System.Drawing.Size(218, 42);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.uiCancelar;
-            this.layoutControlItem16.Location = new System.Drawing.Point(1036, 638);
+            this.layoutControlItem16.Location = new System.Drawing.Point(890, 515);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(241, 46);
+            this.layoutControlItem16.Size = new System.Drawing.Size(207, 42);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButton1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(302, 638);
+            this.layoutControlItem4.Location = new System.Drawing.Point(259, 515);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(240, 46);
+            this.layoutControlItem4.Size = new System.Drawing.Size(206, 42);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // laySucursalDestino
             // 
             this.laySucursalDestino.Control = this.uiSucursalDestino;
-            this.laySucursalDestino.Location = new System.Drawing.Point(638, 30);
+            this.laySucursalDestino.Location = new System.Drawing.Point(548, 23);
             this.laySucursalDestino.Name = "laySucursalDestino";
-            this.laySucursalDestino.Size = new System.Drawing.Size(639, 28);
+            this.laySucursalDestino.Size = new System.Drawing.Size(549, 24);
             this.laySucursalDestino.Text = "Sucursal Destino";
-            this.laySucursalDestino.TextSize = new System.Drawing.Size(95, 16);
+            this.laySucursalDestino.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.uiCantidad;
-            this.layoutControlItem12.Location = new System.Drawing.Point(740, 58);
+            this.layoutControlItem12.Location = new System.Drawing.Point(636, 47);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(219, 46);
+            this.layoutControlItem12.Size = new System.Drawing.Size(188, 42);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.uiAgregar;
-            this.layoutControlItem14.Location = new System.Drawing.Point(959, 58);
+            this.layoutControlItem14.Location = new System.Drawing.Point(824, 47);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(318, 46);
+            this.layoutControlItem14.Size = new System.Drawing.Size(273, 42);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layTipoMov
             // 
             this.layTipoMov.Control = this.uiTipoMovimiento;
-            this.layTipoMov.Location = new System.Drawing.Point(282, 104);
+            this.layTipoMov.Location = new System.Drawing.Point(242, 89);
             this.layTipoMov.Name = "layTipoMov";
-            this.layTipoMov.Size = new System.Drawing.Size(467, 28);
+            this.layTipoMov.Size = new System.Drawing.Size(401, 24);
             this.layTipoMov.Text = "Tipo Movimiento";
-            this.layTipoMov.TextSize = new System.Drawing.Size(95, 16);
+            this.layTipoMov.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layComentario
             // 
             this.layComentario.Control = this.uiComentarios;
-            this.layComentario.Location = new System.Drawing.Point(749, 104);
+            this.layComentario.Location = new System.Drawing.Point(643, 89);
             this.layComentario.Name = "layComentario";
-            this.layComentario.Size = new System.Drawing.Size(528, 28);
+            this.layComentario.Size = new System.Drawing.Size(454, 24);
             this.layComentario.Text = "Comentarios";
-            this.layComentario.TextSize = new System.Drawing.Size(95, 16);
+            this.layComentario.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.uiSucursalOrigen;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 23);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(638, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(548, 24);
             this.layoutControlItem6.Text = "Sucursal Origen";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(95, 16);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(79, 13);
             // 
             // catsucursalesBindingSource
             // 
@@ -873,11 +866,10 @@
             // 
             // frmInventarioMovRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 710);
+            this.ClientSize = new System.Drawing.Size(1117, 577);
             this.Controls.Add(this.layoutControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmInventarioMovRegistro";
             this.Text = "Recepción de Produto";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTraspasosSalidaLite_FormClosing);
