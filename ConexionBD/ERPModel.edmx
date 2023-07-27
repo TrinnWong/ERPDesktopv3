@@ -22212,15 +22212,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pUsuarioId" Mode="In" Type="Int32" />
             <Parameter Name="pError" Mode="InOut" Type="String" />
           </FunctionImport>
-          <EntitySet Name="doc_productos_max_min" EntityType="ERPProdModel.doc_productos_max_min" />
-          <AssociationSet Name="FK_doc_productos_max_min_cat_productos" Association="ERPProdModel.FK_doc_productos_max_min_cat_productos">
-            <End Role="cat_productos" EntitySet="cat_productos" />
-            <End Role="doc_productos_max_min" EntitySet="doc_productos_max_min" />
-          </AssociationSet>
-          <AssociationSet Name="FK_doc_productos_max_min_cat_sucursales" Association="ERPProdModel.FK_doc_productos_max_min_cat_sucursales">
-            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
-            <End Role="doc_productos_max_min" EntitySet="doc_productos_max_min" />
-          </AssociationSet>
           <FunctionImport Name="p_doc_productos_max_min_grd" ReturnType="Collection(ERPProdModel.p_doc_productos_max_min_grd_Result)">
             <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
             <Parameter Name="pSoloAsignadasSucursal" Mode="In" Type="Boolean" />
@@ -22238,6 +22229,19 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
             <Parameter Name="pCajaId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="p_retiro_automatico_SiNo1">
+            <Parameter Name="pSucursalId" Mode="In" Type="Int32" />
+            <Parameter Name="pCajaId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="doc_productos_max_min" EntityType="ERPProdModel.doc_productos_max_min" />
+          <AssociationSet Name="FK_doc_productos_max_min_cat_productos" Association="ERPProdModel.FK_doc_productos_max_min_cat_productos">
+            <End Role="cat_productos" EntitySet="cat_productos" />
+            <End Role="doc_productos_max_min" EntitySet="doc_productos_max_min" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doc_productos_max_min_cat_sucursales" Association="ERPProdModel.FK_doc_productos_max_min_cat_sucursales">
+            <End Role="cat_sucursales" EntitySet="cat_sucursales" />
+            <End Role="doc_productos_max_min" EntitySet="doc_productos_max_min" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -28356,6 +28360,29 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="p_doc_productos_max_min_grd_Result">
+          <Property Type="Int32" Name="SucursalId" Nullable="true" />
+          <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="ProductoId" Nullable="false" />
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
+          <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="p_doc_productos_max_min_sel_Result">
+          <Property Type="String" Name="CalveProducto" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ProductoId" Nullable="false" />
+          <Property Type="Int32" Name="SucursalId" Nullable="false" />
+          <Property Type="Decimal" Name="Disponible" Nullable="false" Precision="16" Scale="5" />
+          <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
+          <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
+          <Property Type="Decimal" Name="Solicitar" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="p_retiro_automatico_SiNo_Result" >
+          <Property Type="Boolean" Name="AplicaSiNo" Nullable="false" />
+          <Property Type="Decimal" Name="CantidadDisponibleRetiro" Nullable="false" />
+        </ComplexType>
         <EntityType Name="doc_productos_max_min">
           <Key>
             <PropertyRef Name="SucursalId" />
@@ -28393,29 +28420,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="p_doc_productos_max_min_grd_Result">
-          <Property Type="Int32" Name="SucursalId" Nullable="true" />
-          <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="60" />
-          <Property Type="Int32" Name="ProductoId" Nullable="false" />
-          <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
-          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="500" />
-          <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
-          <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
-        </ComplexType>
-        <ComplexType Name="p_doc_productos_max_min_sel_Result">
-          <Property Type="String" Name="CalveProducto" Nullable="false" MaxLength="30" />
-          <Property Type="Int32" Name="ProductoId" Nullable="false" />
-          <Property Type="Int32" Name="SucursalId" Nullable="false" />
-          <Property Type="Decimal" Name="Disponible" Nullable="false" Precision="16" Scale="5" />
-          <Property Type="Decimal" Name="Maximo" Nullable="false" Precision="14" Scale="4" />
-          <Property Type="Decimal" Name="Minimo" Nullable="false" Precision="14" Scale="4" />
-          <Property Type="Decimal" Name="Solicitar" Nullable="true" Precision="17" Scale="5" />
-          <Property Type="String" Name="Producto" Nullable="true" MaxLength="500" />
-        </ComplexType>
-        <ComplexType Name="p_retiro_automatico_SiNo_Result" >
-          <Property Type="Boolean" Name="AplicaSiNo" Nullable="false" />
-          <Property Type="Decimal" Name="CantidadDisponibleRetiro" Nullable="false" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -32771,17 +32775,6 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="p_doc_inv_movimiento_detalle_del" FunctionName="ERPProdModel.Store.p_doc_inv_movimiento_detalle_del" />
           <FunctionImportMapping FunctionImportName="p_traspaso_automatico" FunctionName="ERPProdModel.Store.p_traspaso_automatico" />
-          <EntitySetMapping Name="doc_productos_max_min">
-            <EntityTypeMapping TypeName="ERPProdModel.doc_productos_max_min">
-              <MappingFragment StoreEntitySet="doc_productos_max_min">
-                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
-                <ScalarProperty Name="Minimo" ColumnName="Minimo" />
-                <ScalarProperty Name="Maximo" ColumnName="Maximo" />
-                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
-                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="p_doc_productos_max_min_grd" FunctionName="ERPProdModel.Store.p_doc_productos_max_min_grd">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ERPProdModel.p_doc_productos_max_min_grd_Result">
@@ -32810,14 +32803,18 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="p_retiro_automatico_SiNo" FunctionName="ERPProdModel.Store.p_retiro_automatico_SiNo" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ERPProdModel.p_retiro_automatico_SiNo_Result">
-                <ScalarProperty Name="AplicaSiNo" ColumnName="AplicaSiNo" />
-                <ScalarProperty Name="CantidadDisponibleRetiro" ColumnName="CantidadDisponibleRetiro" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p_retiro_automatico_SiNo1" FunctionName="ERPProdModel.Store.p_retiro_automatico_SiNo" />
+          <EntitySetMapping Name="doc_productos_max_min">
+            <EntityTypeMapping TypeName="ERPProdModel.doc_productos_max_min">
+              <MappingFragment StoreEntitySet="doc_productos_max_min">
+                <ScalarProperty Name="CreadoEl" ColumnName="CreadoEl" />
+                <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+                <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

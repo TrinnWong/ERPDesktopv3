@@ -17,17 +17,16 @@ namespace ConexionBD
     
     public partial class ERPProdEntities : DbContext
     {
+        public ERPProdEntities(string sc)
+           : base("name=ERPProdEntities")
+        {
+            this.Database.Connection.ConnectionString = sc;
+        }
         public ERPProdEntities()
             : base("name=ERPProdEntities")
         {
         }
-
-        public ERPProdEntities(string sc)
-            : base("name=ERPProdEntities")
-        {
-            this.Database.Connection.ConnectionString = sc;
-        }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -5010,6 +5009,19 @@ namespace ConexionBD
                 new ObjectParameter("pCajaId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_retiro_automatico_SiNo_Result>("p_retiro_automatico_SiNo", pSucursalIdParameter, pCajaIdParameter);
+        }
+    
+        public virtual int p_retiro_automatico_SiNo1(Nullable<int> pSucursalId, Nullable<int> pCajaId)
+        {
+            var pSucursalIdParameter = pSucursalId.HasValue ?
+                new ObjectParameter("pSucursalId", pSucursalId) :
+                new ObjectParameter("pSucursalId", typeof(int));
+    
+            var pCajaIdParameter = pCajaId.HasValue ?
+                new ObjectParameter("pCajaId", pCajaId) :
+                new ObjectParameter("pCajaId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_retiro_automatico_SiNo1", pSucursalIdParameter, pCajaIdParameter);
         }
     }
 }
