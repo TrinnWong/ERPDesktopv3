@@ -2,6 +2,7 @@
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
 using ERP.Common;
+using ERP.Common.Forms;
 using ERP.Common.Procesos;
 using ERP.Common.Reports;
 using ERP.Reports;
@@ -24,6 +25,7 @@ namespace ERP.Common.PuntoVenta
     public partial class frmCorteCajaGen : Form
     {
         int err;
+        LoadingForm oFormLoading;
         ERPProdEntities oContext;
         public PuntoVentaContext puntoVentaContext;
         private static frmCorteCajaGen _instance;
@@ -38,6 +40,8 @@ namespace ERP.Common.PuntoVenta
             InitializeComponent();
             this.uiGrid.Columns[2].DefaultCellStyle.Format = "c2";
             this.uiGrid.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
         }
 
         private void uiSalir_Click(object sender, EventArgs e)
@@ -64,6 +68,8 @@ namespace ERP.Common.PuntoVenta
 
         private void frmCorteCaja_Load(object sender, EventArgs e)
         {
+            
+
             llenarGrid();
         }
 
@@ -131,6 +137,7 @@ namespace ERP.Common.PuntoVenta
 
                 if (MessageBox.Show("¿Está seguro(a) de generar el CORTE DE CAJA?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    
                     oContext = new ERPProdEntities();
                     cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
@@ -181,12 +188,12 @@ namespace ERP.Common.PuntoVenta
                     }
 
 
-
+                    
                 }
             }
             catch (Exception ex)
             {
-
+               
                 err = ERP.Business.SisBitacoraBusiness.Insert(puntoVentaContext.usuarioId,
                                  "ERP",
                                  this.Name,

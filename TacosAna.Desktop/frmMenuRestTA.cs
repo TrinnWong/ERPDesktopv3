@@ -838,15 +838,16 @@ namespace TacosAna.Desktop
 
         private void uiInvRecepcionProd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
+            frmInventarioMovRegistro frmo = frmInventarioMovRegistro.GetInstance();
             if (!frmo.Visible)
             {
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaPorTraspaso;
+                frmo.tipoMovimiento = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorEntrada;
+                frmo.MovimientoInventarioId = 0;
+
                 frmo.Show();
             }
         }
@@ -992,6 +993,102 @@ namespace TacosAna.Desktop
                 frmo.WindowState = FormWindowState.Maximized;
                 frmo.Show();
 
+            }
+        }
+
+        private void uiMenuMaxMinConfig_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Common.Productos.frmMaximosMinimosUpd frmo = ERP.Common.Productos.frmMaximosMinimosUpd.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.deshabilitarSucursal = true;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+
+            }
+        }
+
+        private void uiMenuAjusteInventario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            frmAdminPass oForm = new frmAdminPass();
+            oForm.WindowState = FormWindowState.Normal;
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+
+            oForm.ShowDialog();
+
+            if (oForm.DialogResult == DialogResult.OK)
+            {
+                ERP.Common.Productos.frmAjustarInventario frmo = ERP.Common.Productos.frmAjustarInventario.GetInstance();
+
+                if (!frmo.Visible)
+                {
+                    //frmo = new frmPuntoVenta();
+                    frmo.MdiParent = this;
+                    frmo.deshabilitarSucursal = true;
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.WindowState = FormWindowState.Maximized;
+                    frmo.Show();
+
+                }
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmInventarioMovRegistro frmo = frmInventarioMovRegistro.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.tipoMovimiento = ERP.Business.Enumerados.tipoMovimientoInventario.AjustePorSalida;
+                frmo.MovimientoInventarioId = 0;
+
+                frmo.Show();
+            }
+        }
+
+        private void uiRevisarRed_Tick(object sender, EventArgs e)
+        {
+            string estadoConexionaRed = "";
+            bool RedActiva = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+
+            if (!RedActiva)
+            {
+                estadoConexionaRed = "No hay conexión a Internet";
+                ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionaRed);
+            }
+            else
+            {
+                //estadoConexionaRed = "Se estableció conexión con la red local";
+                //Console.WriteLine(estadoConexionaRed);
+
+                string estadoConexionInternet = "";
+                System.Uri Url = new System.Uri("https://www.google.com/");
+
+                System.Net.WebRequest WebRequest;
+                WebRequest = System.Net.WebRequest.Create(Url);
+                System.Net.WebResponse objetoResp;
+
+                try
+                {
+                    objetoResp = WebRequest.GetResponse();
+                    estadoConexionInternet = "Se establecio conexión a internet corretamente.";
+                    //Console.WriteLine(estadoConexionaRed);
+                    objetoResp.Close();
+                }
+                catch (Exception ex)
+                {
+                    estadoConexionInternet = "No hay conexión a Internet " + ex.Message;
+                    ERP.Utils.MessageBoxUtil.ShowWarning(estadoConexionInternet);
+                }
+                WebRequest = null;
             }
         }
     }

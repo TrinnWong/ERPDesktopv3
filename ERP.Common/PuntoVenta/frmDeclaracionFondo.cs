@@ -280,9 +280,18 @@ namespace ERP.Common.PuntoVenta
                         frmMenuRest oForm = frmMenuRest.GetInstance();
                         oForm.puntoVentaContext = this.puntoVentaContext;
                         oForm.CorteCaja(model1, false,imprimirCorte,cerrarSistema);
-                        this.Close();
+                        if(oForm.errorCorte.Length > 0)
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowError(oForm.errorCorte);
+                            this.DialogResult = DialogResult.Cancel;
+                        }
+                        else
+                        {
+                            this.Close();
 
-                        this.DialogResult = DialogResult.OK;
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        
                     }
                     
                 }

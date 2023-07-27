@@ -335,6 +335,46 @@ namespace ERP.Common.Procesos
         {
 
         }
+
+        private void frmVentaFormasPagoDialog_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.F2)
+            {
+                pagar();
+            }
+        }
+
+        private void uiGridFormasPago_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                pagar();
+            }
+        }
+
+        private void uiGridFormasPago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                pagar();
+            }
+        }
+
+        private void uiGridFormasPago_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyDown += Control_KeyDown;
+        }
+
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la tecla presionada es F2
+            if (e.KeyCode == Keys.F3)
+            {
+                // Llamar al método "pagar()"
+                pagar();
+            }
+        }
     }
 
    

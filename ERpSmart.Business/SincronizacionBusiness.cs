@@ -17,7 +17,7 @@ namespace ERP.Business
         {
             sisCuenta = new SisCuentaBusiness();
             contextDestino = new ERPProdEntities();
-            contextOrigen = new ERPProdEntities(sisCuenta.ObtieneCadenaConnexion(1));
+            contextOrigen = new ERPProdEntities(ConexionBD.Sistema.scMain);
 
         }
 

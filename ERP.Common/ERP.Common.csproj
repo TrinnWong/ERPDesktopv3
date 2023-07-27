@@ -292,6 +292,12 @@
     <Compile Include="Dialogos\frmCuentasListado.Designer.cs">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogos\frmRetiroAutomatico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogos\frmRetiroAutomatico.Designer.cs">
+      <DependentUpon>frmRetiroAutomatico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogos\frmSolicitaCantidadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,12 @@
     </Compile>
     <Compile Include="Inventarios\frmInventarioRegistro.Designer.cs">
       <DependentUpon>frmInventarioRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\frmAjustarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios\frmAjustarInventario.Designer.cs">
+      <DependentUpon>frmAjustarInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventarios\frmProductoKardex.cs">
       <SubType>Form</SubType>
@@ -598,6 +610,12 @@
     </Compile>
     <Compile Include="Productos\frmMaximosMinimos.Designer.cs">
       <DependentUpon>frmMaximosMinimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\frmMaximosMinimosUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frmMaximosMinimosUpd.Designer.cs">
+      <DependentUpon>frmMaximosMinimosUpd.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\frmProductoInventarioForm.cs">
       <SubType>Form</SubType>
@@ -957,6 +975,9 @@
     <EmbeddedResource Include="Dialogos\frmCuentasListado.resx">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogos\frmRetiroAutomatico.resx">
+      <DependentUpon>frmRetiroAutomatico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogos\frmSolicitaCantidadDialog.resx">
       <DependentUpon>frmSolicitaCantidadDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -1010,6 +1031,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\frmInventarioRegistro.resx">
       <DependentUpon>frmInventarioRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios\frmAjustarInventario.resx">
+      <DependentUpon>frmAjustarInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventarios\frmProductoKardex.resx">
       <DependentUpon>frmProductoKardex.cs</DependentUpon>
@@ -1103,6 +1127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmMaximosMinimos.resx">
       <DependentUpon>frmMaximosMinimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frmMaximosMinimosUpd.resx">
+      <DependentUpon>frmMaximosMinimosUpd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\frmProductoInventarioForm.resx">
       <DependentUpon>frmProductoInventarioForm.cs</DependentUpon>
@@ -1301,6 +1328,7 @@
     <None Include="Properties\DataSources\ConexionBD.p_cat_productos_grd_Result.datasource" />
     <None Include="Properties\DataSources\ConexionBD.p_corte_caja_inventario_generacion_Result.datasource" />
     <None Include="Properties\DataSources\ConexionBD.p_doc_precios_especiales_grd_Result.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.p_doc_productos_max_min_grd_Result.datasource" />
     <None Include="Properties\DataSources\ConexionBD.p_doc_solicitud_produccion_requerido_grd_Result.datasource" />
     <None Include="Properties\DataSources\ConexionBD.p_inv_producto_kardex_grd_Result.datasource" />
     <None Include="Properties\DataSources\ConexionBD.p_productos_existencia_sel_Result.datasource" />
@@ -1310,6 +1338,7 @@
     <None Include="Properties\DataSources\ERP.Models.Cuentas.CuentaPendienteViewModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Cuentas.CuentasDetalleViewModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Inventario.AceptacionSucursalGrdModel.datasource" />
+    <None Include="Properties\DataSources\ERP.Models.Inventario.AjusteInventarioGridModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Inventario.ProductoInventarioModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Pedidos.PedidoDetalleModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.Produccion.ProduccionDetalleModel.datasource" />

@@ -80,6 +80,7 @@ namespace ConexionBD
             this.doc_cargos = new HashSet<doc_cargos>();
             this.doc_maiz_maseca_rendimiento = new HashSet<doc_maiz_maseca_rendimiento>();
             this.cat_productos_maximos_minimos = new HashSet<cat_productos_maximos_minimos>();
+            this.doc_productos_max_min = new HashSet<doc_productos_max_min>();
         }
     
         public int Clave { get; set; }
@@ -229,5 +230,7 @@ namespace ConexionBD
         public virtual ICollection<doc_maiz_maseca_rendimiento> doc_maiz_maseca_rendimiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cat_productos_maximos_minimos> cat_productos_maximos_minimos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<doc_productos_max_min> doc_productos_max_min { get; set; }
     }
 }

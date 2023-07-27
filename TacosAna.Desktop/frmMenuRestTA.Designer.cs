@@ -59,6 +59,10 @@
             this.uiInvRecepcionProd = new DevExpress.XtraBars.BarButtonItem();
             this.uiCorteCajaSupervisor = new DevExpress.XtraBars.BarButtonItem();
             this.mnuProductoSobrante = new DevExpress.XtraBars.BarButtonItem();
+            this.mneMaxMin = new DevExpress.XtraBars.BarButtonItem();
+            this.uiMenuMaxMinConfig = new DevExpress.XtraBars.BarButtonItem();
+            this.uiMenuAjusteInventario = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.rbComanda = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbCuentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCuenta = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -74,7 +78,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.mneMaxMin = new DevExpress.XtraBars.BarButtonItem();
+            this.uiRevisarRed = new System.Windows.Forms.Timer();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -142,9 +146,13 @@
             this.uiInvRecepcionProd,
             this.uiCorteCajaSupervisor,
             this.mnuProductoSobrante,
-            this.mneMaxMin});
+            this.mneMaxMin,
+            this.uiMenuMaxMinConfig,
+            this.uiMenuAjusteInventario,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 31;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonControl1.MaxItemId = 34;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -156,7 +164,7 @@
             this.ribbonPage2,
             this.rbSesion});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(989, 65);
+            this.ribbonControl1.Size = new System.Drawing.Size(1154, 65);
             // 
             // uiMenuNuevaCuenta
             // 
@@ -345,6 +353,7 @@
             // 
             this.uiInvRecepcionProd.Caption = "Recepción de Producto";
             this.uiInvRecepcionProd.Id = 27;
+            this.uiInvRecepcionProd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiInvRecepcionProd.ImageOptions.Image")));
             this.uiInvRecepcionProd.Name = "uiInvRecepcionProd";
             this.uiInvRecepcionProd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiInvRecepcionProd_ItemClick);
             // 
@@ -362,6 +371,38 @@
             this.mnuProductoSobrante.Id = 29;
             this.mnuProductoSobrante.Name = "mnuProductoSobrante";
             this.mnuProductoSobrante.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuProductoSobrante_ItemClick);
+            // 
+            // mneMaxMin
+            // 
+            this.mneMaxMin.Caption = "Maximos y Mínimos";
+            this.mneMaxMin.Id = 30;
+            this.mneMaxMin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mneMaxMin.ImageOptions.Image")));
+            this.mneMaxMin.Name = "mneMaxMin";
+            this.mneMaxMin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mneMaxMin_ItemClick);
+            // 
+            // uiMenuMaxMinConfig
+            // 
+            this.uiMenuMaxMinConfig.Caption = "Máximos y Mínimos Config.";
+            this.uiMenuMaxMinConfig.Id = 31;
+            this.uiMenuMaxMinConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuMaxMinConfig.ImageOptions.Image")));
+            this.uiMenuMaxMinConfig.Name = "uiMenuMaxMinConfig";
+            this.uiMenuMaxMinConfig.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuMaxMinConfig_ItemClick);
+            // 
+            // uiMenuAjusteInventario
+            // 
+            this.uiMenuAjusteInventario.Caption = "Ajuste de Inventario";
+            this.uiMenuAjusteInventario.Id = 32;
+            this.uiMenuAjusteInventario.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuAjusteInventario.ImageOptions.Image")));
+            this.uiMenuAjusteInventario.Name = "uiMenuAjusteInventario";
+            this.uiMenuAjusteInventario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuAjusteInventario_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Salida Producto por Devolución";
+            this.barButtonItem1.Id = 33;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // rbComanda
             // 
@@ -464,7 +505,10 @@
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.uiInvRecepcionProd);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup3.ItemLinks.Add(this.uiMenuAjusteInventario);
             this.ribbonPageGroup3.ItemLinks.Add(this.mnuProductoSobrante);
+            this.ribbonPageGroup3.ItemLinks.Add(this.uiMenuMaxMinConfig);
             this.ribbonPageGroup3.ItemLinks.Add(this.mneMaxMin);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
@@ -482,21 +526,21 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
             // 
-            // mneMaxMin
+            // uiRevisarRed
             // 
-            this.mneMaxMin.Caption = "Maximos y Mínimos";
-            this.mneMaxMin.Id = 30;
-            this.mneMaxMin.Name = "mneMaxMin";
-            this.mneMaxMin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mneMaxMin_ItemClick);
+            this.uiRevisarRed.Enabled = true;
+            this.uiRevisarRed.Interval = 10000;
+            this.uiRevisarRed.Tick += new System.EventHandler(this.uiRevisarRed_Tick);
             // 
             // frmMenuRestTA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 642);
+            this.ClientSize = new System.Drawing.Size(1154, 790);
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMenuRestTA";
             this.Text = "frmMenuRest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -555,5 +599,9 @@
         private DevExpress.XtraBars.BarButtonItem uiCorteCajaSupervisor;
         private DevExpress.XtraBars.BarButtonItem mnuProductoSobrante;
         private DevExpress.XtraBars.BarButtonItem mneMaxMin;
+        private DevExpress.XtraBars.BarButtonItem uiMenuMaxMinConfig;
+        private DevExpress.XtraBars.BarButtonItem uiMenuAjusteInventario;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private System.Windows.Forms.Timer uiRevisarRed;
     }
 }

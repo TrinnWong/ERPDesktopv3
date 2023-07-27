@@ -67,6 +67,7 @@
     <Compile Include="Grid\GridBaseModel.cs" />
     <Compile Include="Ingredientes\IngredienteModel.cs" />
     <Compile Include="Inventario\AceptacionSucursalGrdModel.cs" />
+    <Compile Include="Inventario\AjusteInventarioGridModel.cs" />
     <Compile Include="Login\LoginModel.cs" />
     <Compile Include="Mesas\MesaComboBoxModel.cs" />
     <Compile Include="Pago\PagoOnlineParamModel.cs" />

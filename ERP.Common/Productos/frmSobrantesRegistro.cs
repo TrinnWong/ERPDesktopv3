@@ -199,7 +199,7 @@ namespace ERP.Common.Productos
                             var resultAPI = ERP.Business.InventarioBusiness.GuardarTraspaso(ref entityInv,
                                 lstDevs.Select(s => new doc_inv_movimiento_detalle()
                                 {
-                                    Cantidad = s.CantidadDevolucionCocina,
+                                    //Cantidad = s.CantidadDevolucionCocina,
                                     Comisiones = 0,
                                     Consecutivo = 0,
                                     CostoPromedio = 0,

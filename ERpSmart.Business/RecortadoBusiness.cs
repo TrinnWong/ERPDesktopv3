@@ -13,15 +13,15 @@ namespace ERP.Business
     {
         int err;
         SisCuentaBusiness sisCuenta;
-        public string Iniciar(int usuarioId)
+        public string Iniciar(int usuarioId,int sucursalId)
         {
             try
             {
                 
                 sisCuenta = new SisCuentaBusiness();
                 ERPProdEntities contextSuc = new ERPProdEntities();
-                ERPProdEntities contextMaster = new ERPProdEntities(sisCuenta.ObtieneCadenaConnexion(1));
-                sis_cuenta sisCuentaData =  sisCuenta.ObtieneArchivoConfiguracionCuenta();
+                ERPProdEntities contextMaster = new ERPProdEntities(ConexionBD.Sistema.scMain);
+                //sis_cuenta sisCuentaData =  sisCuenta.ObtieneArchivoConfiguracionCuenta();
                 List<doc_ventas> lstVentas = contextSuc.doc_ventas.Where(w => (w.Rec ?? false) == false && w.doc_corte_caja.Count() == 0).ToList();
                 long[] ventas = lstVentas.Select(s => s.VentaId).ToArray();
                 List<doc_ventas_detalle> lstVentasDetalle = contextSuc.doc_ventas_detalle
@@ -201,21 +201,32 @@ namespace ERP.Business
 
                         }
 
-                        var ultimaVentaMaster = contextMaster.doc_ventas.Where(w => w.SucursalId == sisCuentaData.ClaveSucursal).OrderByDescending(o => o.VentaId)
+                        
+                       
+
+                        
+
+                        dbContextTransaction.Commit();
+
+                        try
+                        {
+                            contextMaster = new ERPProdEntities(ConexionBD.Sistema.scMain);
+                            var ultimaVentaMaster = contextMaster.doc_ventas.Where(w => w.SucursalId == sucursalId).OrderByDescending(o => o.VentaId)
                             .FirstOrDefault();
 
-                        if(lstVentas.Count() > 0)
-                        {
+
                             ObjectParameter pCorteCajaId = new ObjectParameter("pCorteCajaId", 0);
                             //Realizar Corte de Caja en Master
                             contextMaster.p_corte_caja_generacion(ultimaVentaMaster.CajaId,
                                 ultimaVentaMaster.UsuarioCreacionId,
                                 DateTime.Now, pCorteCajaId, false);
                         }
+                        catch (Exception ex)
+                        {
 
+                            
+                        }
                         
-
-                        dbContextTransaction.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -243,13 +254,14 @@ namespace ERP.Business
                 }
 
                 #region recortar
-                ObjectParameter pError = new ObjectParameter("pError","");
-                contextSuc.p_doc_ventas_rec(sisCuentaData.ClaveSucursal, pError);
+                //contextSuc = new ERPProdEntities();
+                //ObjectParameter pError = new ObjectParameter("pError","");
+                //contextSuc.p_doc_ventas_rec(sucursalId, pError);
 
-                if(pError.Value.ToString().Length > 0)
-                {
-                    return pError.ToString();
-                }
+                //if(pError.Value.ToString().Length > 0)
+                //{
+                //    return pError.ToString();
+                //}
 
                 #endregion
 

@@ -70,6 +70,7 @@ namespace ERP.Business
             ref string valor)
         {
             bool result = false;
+            valor = "";
             try
             {
                 ERPProdEntities oContext = new ERPProdEntities();

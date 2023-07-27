@@ -7,6 +7,7 @@ using ERP.Common.Procesos;
 using ERP.Common.Procesos.Restaurante;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
+using ERP.Common.Utils;
 using ERP.Models.Pedidos;
 using ERP.Models.Producto;
 using ERP.Reports.TacosAna;
@@ -27,6 +28,8 @@ namespace TacosAna.Desktop
         cat_configuracion conf ;
         int err;
         string botonSeleccionado;
+        decimal retiroAcumulado = 0;
+        decimal cantidadLimiteRetiro = 0;
         public enum famProductos
         {
             vaso=100,
@@ -150,6 +153,17 @@ namespace TacosAna.Desktop
             entityConfiguracion = oContext.cat_configuracion.FirstOrDefault();
 
             porcAnticipoPedido = entityConfiguracion.PedidoAnticipoPorc??0;
+
+            ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                this.puntoVentaContext.sucursalId,
+                "PV-RetiroAutomatico", this.puntoVentaContext.usuarioId, ref error);
+
+            if(error.Length > 0)
+            {
+                cantidadLimiteRetiro = Convert.ToDecimal(error);
+            }
+               
+            
             Inicializar();
 
            
@@ -1545,6 +1559,13 @@ namespace TacosAna.Desktop
         {
             try
             {
+                if(((List<PedidoDetalleModel>)grProducto.DataSource).Where(
+                    f=> f.paraLlevar == false && f.paraMesa == false).Count() ==
+                    ((List<PedidoDetalleModel>)grProducto.DataSource).Count())
+                {
+                    uiLlevar.Checked = true;
+                }
+
                 if (uiConsumo.Checked && uiEmpleado.EditValue == null)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("EL EMPLEADO ES REQUERIDO");
@@ -1603,12 +1624,16 @@ namespace TacosAna.Desktop
 
                     if(resultDailog == DialogResult.OK)
                     {
+                        abrirCajon();
+                        retiroAcumulado = retiroAcumulado + lstPedido.Sum(s => s.total);
                         this.lstFormasPago = oFormasPago.lstFormasPago;
                         uiCalculadora.EditValue = lstFormasPago.Sum(s => s.cantidad);
 
                         cobrandoCalc();
 
                         ConfirmarPago();
+
+                        aplicarRetiroAutomatico();
                     }
                     else {
                         cobrandoCalc();
@@ -1633,7 +1658,15 @@ namespace TacosAna.Desktop
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
+        private void abrirCajon()
+        {
+            string error = RawPrinterHelper.AbreCajon(this.puntoVentaContext.nombreImpresoraCaja);
 
+            if (error.Length > 0)
+            {
+                XtraMessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void cobrarDeshabilitar()
         {
             cobrando = false;
@@ -3068,10 +3101,11 @@ namespace TacosAna.Desktop
                     
                     }
                 }
-
+                uiKeyCatch.Focus();
             }
             catch (Exception ex)
             {
+                uiKeyCatch.Focus();
                 int err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
                              "ERP",
                              this.Name,
@@ -3117,37 +3151,31 @@ namespace TacosAna.Desktop
                 }
                 #endregion
                 long ventaId = 0;
-                CalcularImpuestosProd();
+                //CalcularImpuestosProd();
 
                 List<ProductoModel0> lstProductosPago = new List<ProductoModel0>();
+                                
+                pedidoId = pedidoId > 0 ? pedidoId : lstPedido.Max(m=> m.pedidoId);
 
-                int i = 1;
-                foreach (var itemPedido in lstPedido)
-                {
-                    ProductoModel0 itemProdPago = new ProductoModel0();
-
-                    itemProdPago.cantidad = itemPedido.cantidad;
-                    itemProdPago.clave = itemPedido.clave;
-                    itemProdPago.descripcion = itemPedido.descripcion;
-                    itemProdPago.impuestos = itemPedido.totalImpuestos;
-                    itemProdPago.montoDescuento = itemPedido.totalDescuento;
-                    itemProdPago.partida = i;
-                    itemProdPago.porcDescuento = 0;
-                    itemProdPago.porcDescuentoPartida = itemPedido.porcDescuento;
-                    itemProdPago.porcDescunetoVta = 0;
-                    itemProdPago.porcImpuestos = itemPedido.porcImpuestos;
-                    itemProdPago.precioUnitario = itemPedido.precioUnitario;
-                    itemProdPago.productoId = itemPedido.productoId;
-                    itemProdPago.tipoDescuentoId = (int)ConexionBD.Enumerados.tipoDescuento.DESCUENTO_EMPLEADO;
-                    itemProdPago.total = itemPedido.total;
-                    itemProdPago.unidadId = itemPedido.unidadId;
-                    itemProdPago.paraLlevar = itemPedido.paraLlevar;
-                    itemProdPago.paraMesa = itemPedido.paraMesa;
-                    pedidoId = pedidoId > 0 ? pedidoId : itemPedido.pedidoId;
-                    i++;
-
-                    lstProductosPago.Add(itemProdPago);
-                }
+                lstProductosPago = lstPedido.Select(s => new ProductoModel0() {
+                        cantidad = s.cantidad,
+                    clave = s.clave,
+                    descripcion = s.descripcion,
+                    impuestos = s.totalImpuestos,
+                    montoDescuento = s.totalDescuento,
+                    partida = 1,
+                    porcDescuento = 0,
+                    porcDescuentoPartida = s.porcDescuento,
+                    porcDescunetoVta = 0,
+                    porcImpuestos = s.porcImpuestos,
+                    precioUnitario = s.precioUnitario,
+                    productoId = s.productoId,
+                    tipoDescuentoId = (int)ConexionBD.Enumerados.tipoDescuento.DESCUENTO_EMPLEADO,
+                    total = s.total,
+                    unidadId = s.unidadId,
+                    paraLlevar = s.paraLlevar,
+                    paraMesa = s.paraMesa
+                }).ToList();
 
                 if (lstFormasPago.Count() == 0)
                 {
@@ -3270,7 +3298,7 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-                    
+                    abrirCajon();
 
                     cat_configuracion entity =entityConfiguracion;
 
@@ -4236,6 +4264,60 @@ namespace TacosAna.Desktop
             }
             catch (Exception ex)
             {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
+                               "ERP",
+                               this.Name,
+                               ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void uiKeyCatch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.F2)
+            {
+                cobrar();
+            }
+        }
+
+        private void aplicarRetiroAutomatico()
+        {
+            try
+            {
+                if (cantidadLimiteRetiro > 0)
+                {
+                    oContext = new ERPProdEntities();
+
+                    p_retiro_automatico_SiNo_Result result = oContext.p_retiro_automatico_SiNo(this.puntoVentaContext.sucursalId,
+                        this.puntoVentaContext.cajaId).FirstOrDefault();
+
+                    if(result != null)
+                    {
+                        if(result.AplicaSiNo == true)
+                        {
+                            frmRetiroAutomatico oFormRetiro = new frmRetiroAutomatico();
+                            oFormRetiro.puntoVentaContext = this.puntoVentaContext;
+                            oFormRetiro.cantidadRetiro = this.cantidadLimiteRetiro;
+                            oFormRetiro.StartPosition = FormStartPosition.CenterParent;
+                            var resultRetiro = oFormRetiro.ShowDialog();
+
+                            if(resultRetiro == DialogResult.OK)
+                            {
+                                retiroAcumulado = 0;
+                            }
+                        }
+                    }
+
+
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
 
                 err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
                                "ERP",
