@@ -640,9 +640,6 @@
     <Compile Include="doc_productos_compra_detalle.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="doc_productos_max_min.cs">
-      <DependentUpon>ERPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="doc_productos_minimo.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -835,12 +832,6 @@
     <Compile Include="p_doc_precios_especiales_grd_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="p_doc_productos_max_min_grd_Result.cs">
-      <DependentUpon>ERPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="p_doc_productos_max_min_sel_Result.cs">
-      <DependentUpon>ERPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="p_doc_productos_sobrantes_registro_sel_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
@@ -893,9 +884,6 @@
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_pv_cargos_adicionales_grd_Result.cs">
-      <DependentUpon>ERPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="p_retiro_automatico_SiNo_Result.cs">
       <DependentUpon>ERPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="p_rpt_apartados_Result.cs">
@@ -3415,45 +3403,7 @@
     <Content Include="Versiones\2022.06.01\99_09121 [p_punto_venta_validar_sesion].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Versiones\2022.06.01\99_09122 [tr_doc_inv_movimiento_detalle_ins].sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09123 [p_inv_movimiento_autoriza].sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09124 IDX_doc_movimiento_detalle.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09125 IDX_doc_movimiento.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09126 p_rpt_sucursal_mov_dia.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09127 CREATE doc_productos_max_min.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09128 p_doc_productos_max_min_grd.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09129 p_doc_productos_max_min_ins_upd.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2022.06.01\99_09130 p_doc_productos_max_min_sel.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2023.06.01\01 PREFERENCIA PV-RETIROAUTOMATICO.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2023.06.01\02 fnGetPreferenciaValor.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2023.06.01\03 p_retiro_automatico_SiNo.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Versiones\2023.06.01\04 [fnPreferenciaAplicaSiNo].sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Versiones\2023.06.01\01 p_rpt_sucursales_precios.sql" />
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

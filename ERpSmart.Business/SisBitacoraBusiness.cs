@@ -147,6 +147,33 @@ namespace ERP.Business
             return bitacora;
         }
 
+        public static sis_bitacora_general GuardarBitacoraGeneral(
+            string accion, int susucursalId, 
+            string detalle, int usuarioid)
+        {
+            ERPProdEntities oContext = new ERPProdEntities();
+
+            sis_bitacora_general bitacora = new sis_bitacora_general();
+            try
+            {
+
+                bitacora.BitacoraId = (oContext.sis_bitacora_general
+                    .Max(m => (int?)m.BitacoraId) ?? 0) + 1;
+                bitacora.Detalle = accion + "|" + detalle;
+                bitacora.CreadoPor = usuarioid;
+                bitacora.CreadoEl = DateTime.Now;
+
+                oContext.sis_bitacora_general.Add(bitacora);
+                oContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+            return bitacora;
+        }
 
     }
 }
