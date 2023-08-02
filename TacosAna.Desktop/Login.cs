@@ -352,8 +352,8 @@ namespace TacosAna.Desktop
                         frmMenuRestTA oMenu = frmMenuRestTA.GetInstance();
                         oMenu.puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                         oMenu.puntoVentaContext = puntoVentaContext;
-                        oMenu.WindowState = FormWindowState.Maximized;
-                        oMenu.StartPosition = FormStartPosition.CenterScreen;
+                        //oMenu.WindowState = FormWindowState.Maximized;
+                        //oMenu.StartPosition = FormStartPosition.CenterScreen;
                         oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]";
                         oMenu.Show();
                         this.Hide();
@@ -370,8 +370,8 @@ namespace TacosAna.Desktop
                             frmMenuRestTA oMenu = frmMenuRestTA.GetInstance();
                             oMenu.puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                             oMenu.puntoVentaContext = puntoVentaContext;
-                            oMenu.WindowState = FormWindowState.Maximized;
-                            oMenu.StartPosition = FormStartPosition.CenterScreen;
+                            //oMenu.WindowState = FormWindowState.Maximized;
+                            //oMenu.StartPosition = FormStartPosition.CenterScreen;
                             oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]";
                             oMenu.Show();
                             this.Hide();
