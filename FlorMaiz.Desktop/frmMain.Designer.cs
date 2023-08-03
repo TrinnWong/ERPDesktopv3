@@ -70,6 +70,7 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timerToCheckNetwork = new System.Windows.Forms.Timer();
+            this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,10 +105,10 @@
             this.btnReimprimirUltimoCorteCajero,
             this.uiMenuReimprimirCorteSupervisor,
             this.mnuMaizMaseca,
-            this.barButtonItem13});
+            this.barButtonItem13,
+            this.uiRepartoExpress});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiRibbonControl.MaxItemId = 29;
+            this.uiRibbonControl.MaxItemId = 30;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -117,7 +118,7 @@
             this.ribbonPage2,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1389, 65);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1191, 52);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -344,6 +345,7 @@
             // uiRibbonPageControl
             // 
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMenuNuevaVenta);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoExpress);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem1);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
@@ -436,14 +438,21 @@
             this.timerToCheckNetwork.Interval = 10000;
             this.timerToCheckNetwork.Tick += new System.EventHandler(this.timerToCheckNetwork_Tick);
             // 
+            // uiRepartoExpress
+            // 
+            this.uiRepartoExpress.Caption = "Reparto(Registro Express)";
+            this.uiRepartoExpress.Id = 29;
+            this.uiRepartoExpress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.ImageOptions.Image")));
+            this.uiRepartoExpress.Name = "uiRepartoExpress";
+            this.uiRepartoExpress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1389, 626);
+            this.ClientSize = new System.Drawing.Size(1191, 509);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -454,6 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -499,5 +509,6 @@
         private DevExpress.XtraBars.BarButtonItem mnuMaizMaseca;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private System.Windows.Forms.Timer timerToCheckNetwork;
+        private DevExpress.XtraBars.BarButtonItem uiRepartoExpress;
     }
 }

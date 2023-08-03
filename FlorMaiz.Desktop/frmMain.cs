@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using ERP.Common.Basculas;
 using ERP.Common.Catalogos;
 using ERP.Common.Inventarios;
+using ERP.Common.Pedido;
 using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
@@ -690,6 +691,15 @@ namespace PuntoVenta.Desktop
                 }
                 WebRequest = null;
             }
+        }
+
+        private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmRepartosTortillaCaptura frmo = new frmRepartosTortillaCaptura();
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.ShowDialog();
+          
         }
     }
 }
