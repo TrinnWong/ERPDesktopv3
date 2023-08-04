@@ -17,16 +17,17 @@ namespace ConexionBD
     
     public partial class ERPProdEntities : DbContext
     {
+        public ERPProdEntities()
+            : base("name=ERPProdEntities")
+        {
+        }
+
         public ERPProdEntities(string sc)
            : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
         }
-        public ERPProdEntities()
-            : base("name=ERPProdEntities")
-        {
-        }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -5022,6 +5023,15 @@ namespace ConexionBD
                 new ObjectParameter("pCajaId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_retiro_automatico_SiNo1", pSucursalIdParameter, pCajaIdParameter);
+        }
+    
+        public virtual int p_sucursales_productos_config_por_precio_especial(Nullable<int> precioEspecialId)
+        {
+            var precioEspecialIdParameter = precioEspecialId.HasValue ?
+                new ObjectParameter("PrecioEspecialId", precioEspecialId) :
+                new ObjectParameter("PrecioEspecialId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_sucursales_productos_config_por_precio_especial", precioEspecialIdParameter);
         }
     }
 }

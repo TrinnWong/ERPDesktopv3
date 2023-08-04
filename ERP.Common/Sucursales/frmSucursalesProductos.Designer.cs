@@ -116,9 +116,9 @@
             // 
             this.uiSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiSalir.ImageOptions.Image")));
             this.uiSalir.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiSalir.Location = new System.Drawing.Point(434, 115);
+            this.uiSalir.Location = new System.Drawing.Point(433, 96);
             this.uiSalir.Name = "uiSalir";
-            this.uiSalir.Size = new System.Drawing.Size(423, 40);
+            this.uiSalir.Size = new System.Drawing.Size(425, 38);
             this.uiSalir.StyleController = this.layoutControl1;
             this.uiSalir.TabIndex = 10;
             this.uiSalir.Text = "Salir";
@@ -126,12 +126,12 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.catsucursalesproductosBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(6, 161);
+            this.uiGrid.Location = new System.Drawing.Point(5, 138);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDelete});
-            this.uiGrid.Size = new System.Drawing.Size(1315, 454);
+            this.uiGrid.Size = new System.Drawing.Size(1317, 478);
             this.uiGrid.TabIndex = 9;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -212,9 +212,9 @@
             // 
             this.uiAgregar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiAgregar.ImageOptions.Image")));
             this.uiAgregar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiAgregar.Location = new System.Drawing.Point(6, 115);
+            this.uiAgregar.Location = new System.Drawing.Point(5, 96);
             this.uiAgregar.Name = "uiAgregar";
-            this.uiAgregar.Size = new System.Drawing.Size(422, 40);
+            this.uiAgregar.Size = new System.Drawing.Size(424, 38);
             this.uiAgregar.StyleController = this.layoutControl1;
             this.uiAgregar.TabIndex = 8;
             this.uiAgregar.Text = "Agregar Productos";
@@ -223,7 +223,7 @@
             // uiProductos
             // 
             this.uiProductos.EditValue = "(Selecciona los productos)";
-            this.uiProductos.Location = new System.Drawing.Point(58, 87);
+            this.uiProductos.Location = new System.Drawing.Point(57, 72);
             this.uiProductos.Name = "uiProductos";
             this.uiProductos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -233,7 +233,7 @@
             this.uiProductos.Properties.NullText = "(Selecciona los productos)";
             this.uiProductos.Properties.PopupView = this.gridLookUpEdit1View;
             this.uiProductos.Properties.ValueMember = "ProductoId";
-            this.uiProductos.Size = new System.Drawing.Size(799, 22);
+            this.uiProductos.Size = new System.Drawing.Size(801, 20);
             this.uiProductos.StyleController = this.layoutControl1;
             this.uiProductos.TabIndex = 7;
             this.uiProductos.EditValueChanged += new System.EventHandler(this.uiProductos_EditValueChanged);
@@ -274,7 +274,7 @@
             // 
             // uiSucursal
             // 
-            this.uiSucursal.Location = new System.Drawing.Point(58, 59);
+            this.uiSucursal.Location = new System.Drawing.Point(57, 48);
             this.uiSucursal.Name = "uiSucursal";
             this.uiSucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -284,7 +284,7 @@
             this.uiSucursal.Properties.DisplayMember = "NombreSucursal";
             this.uiSucursal.Properties.NullText = "(Selecciona una Sucursal)";
             this.uiSucursal.Properties.ValueMember = "Clave";
-            this.uiSucursal.Size = new System.Drawing.Size(799, 22);
+            this.uiSucursal.Size = new System.Drawing.Size(801, 20);
             this.uiSucursal.StyleController = this.layoutControl1;
             this.uiSucursal.TabIndex = 6;
             this.uiSucursal.EditValueChanged += new System.EventHandler(this.uiSucursal_EditValueChanged);
@@ -299,7 +299,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.AliceBlue;
             this.labelControl2.Appearance.Options.UseBackColor = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(6, 40);
+            this.labelControl2.Location = new System.Drawing.Point(5, 31);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(867, 13);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -312,9 +312,9 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(6, 6);
+            this.labelControl1.Location = new System.Drawing.Point(5, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(471, 28);
+            this.labelControl1.Size = new System.Drawing.Size(368, 22);
             this.labelControl1.StyleController = this.layoutControl1;
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "Configuración de Productos por Sucursal";
@@ -346,7 +346,7 @@
             this.layoutControlItem1.Control = this.labelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1321, 34);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1321, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -361,78 +361,78 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.labelControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1321, 19);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1321, 17);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.uiSucursal;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 53);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 43);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(857, 28);
+            this.layoutControlItem3.Size = new System.Drawing.Size(857, 24);
             this.layoutControlItem3.Text = "Sucursal";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.uiProductos;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 81);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 67);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(857, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(857, 24);
             this.layoutControlItem4.Text = "Productos";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.uiAgregar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 109);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 91);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(428, 46);
+            this.layoutControlItem5.Size = new System.Drawing.Size(428, 42);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.uiGrid;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 155);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 133);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1321, 460);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1321, 482);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(857, 109);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(857, 91);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(464, 46);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(464, 42);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(857, 81);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(857, 67);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(464, 28);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(464, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(857, 53);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(857, 43);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(464, 28);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(464, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.uiSalir;
-            this.layoutControlItem7.Location = new System.Drawing.Point(428, 109);
+            this.layoutControlItem7.Location = new System.Drawing.Point(428, 91);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(429, 46);
+            this.layoutControlItem7.Size = new System.Drawing.Size(429, 42);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -444,6 +444,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmSucursalesProductos";
             this.Text = "Configuración de productos por sucursal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSucursalesProductos_FormClosing);
             this.Load += new System.EventHandler(this.frmSucursalesProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

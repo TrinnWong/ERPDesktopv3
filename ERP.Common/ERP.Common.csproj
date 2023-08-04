@@ -1301,10 +1301,12 @@
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\ConexionBD.cat_basculas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_cargos_adicionales.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_centro_costos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_clientes.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_conceptos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_estatus_produccion.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_formas_pago.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_gastos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_impresoras.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_lineas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_productos.datasource" />

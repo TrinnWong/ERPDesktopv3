@@ -57,6 +57,7 @@
             this.uiMenuReimprimirCorteSupervisor = new DevExpress.XtraBars.BarButtonItem();
             this.mnuMaizMaseca = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -70,7 +71,6 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timerToCheckNetwork = new System.Windows.Forms.Timer();
-            this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -335,6 +335,14 @@
             this.barButtonItem13.Name = "barButtonItem13";
             this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
             // 
+            // uiRepartoExpress
+            // 
+            this.uiRepartoExpress.Caption = "Reparto(Registro Express)";
+            this.uiRepartoExpress.Id = 29;
+            this.uiRepartoExpress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiRepartoExpress.ImageOptions.Image")));
+            this.uiRepartoExpress.Name = "uiRepartoExpress";
+            this.uiRepartoExpress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -345,11 +353,11 @@
             // uiRibbonPageControl
             // 
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMenuNuevaVenta);
-            this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoExpress);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem1);
-            this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
-            this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoExpress);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
+            this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMnuBascula);
             this.uiRibbonPageControl.Name = "uiRibbonPageControl";
             this.uiRibbonPageControl.Text = "ribbonPageGroup1";
@@ -437,14 +445,6 @@
             this.timerToCheckNetwork.Enabled = true;
             this.timerToCheckNetwork.Interval = 10000;
             this.timerToCheckNetwork.Tick += new System.EventHandler(this.timerToCheckNetwork_Tick);
-            // 
-            // uiRepartoExpress
-            // 
-            this.uiRepartoExpress.Caption = "Reparto(Registro Express)";
-            this.uiRepartoExpress.Id = 29;
-            this.uiRepartoExpress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.ImageOptions.Image")));
-            this.uiRepartoExpress.Name = "uiRepartoExpress";
-            this.uiRepartoExpress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
             // 
             // frmMain
             // 

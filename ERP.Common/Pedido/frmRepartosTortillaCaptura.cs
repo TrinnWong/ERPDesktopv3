@@ -46,6 +46,7 @@ namespace ERP.Common.Pedido
                 uiCliente.Properties.DataSource = oContext.cat_clientes
                     .Where(w => w.SucursalBaseId == puntoVentaContext.sucursalId).ToList();
                 LoadProductos();
+                uiTortillaKilos.Select();
             }
             catch (Exception ex)
             {
@@ -61,8 +62,9 @@ namespace ERP.Common.Pedido
         private void uiGuardar_Click(object sender, EventArgs e)
         {
             uiGuardar.Enabled = false;
+            uiSalir.Enabled = false;
             Guardar();
-            uiGuardar.Enabled = true;
+            
         }
 
         private void LoadProductos()
@@ -107,26 +109,36 @@ namespace ERP.Common.Pedido
                 if(uiFecha.DateTime.Date < DateTime.Now.Date)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("No es posible registrar repartos de días anteriores");
+                    uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     return;
                 }
                 if(uiCliente.EditValue == null)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("El cliente es requerido");
+                    uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     return;
                 }
                 if(uiTortillaKilos.Value < 0 || uiTortillaKilosDev.Value <0)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("Los kilos de Tortilla/Devolución no pueden ser negativos");
+                    uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     return;
                 }
                 if (uiMasaKilos.Value < 0 || uiMasaKilosDev.Value < 0)
                 {
                     ERP.Utils.MessageBoxUtil.ShowWarning("Los kilos de Masa/Devolución no pueden ser negativos");
+                    uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     return;
                 }
                 if(uiTortillaKilosDev.Value > uiTortillaKilos.Value || uiMasaKilosDev.Value > uiMasaKilos.Value)
                 {
-                    ERP.Utils.MessageBoxUtil.ShowWarning("Los kilos de Devolución no puedens er mayor a los de reparto");
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Los kilos de Devolución no pueden ser mayor a los de reparto");
+                    uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     return;
                 }
                 #endregion
@@ -266,6 +278,7 @@ namespace ERP.Common.Pedido
                 else
                 {
                     uiGuardar.Enabled = true;
+                    uiSalir.Enabled = true;
                     ERP.Utils.MessageBoxUtil.ShowError(error);
                     return;
                 }
@@ -275,6 +288,7 @@ namespace ERP.Common.Pedido
             catch (Exception ex)
             {
                 uiGuardar.Enabled = true;
+                uiSalir.Enabled = true;
                 err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                                 "ERP",
                                                 this.Name,
@@ -309,6 +323,7 @@ namespace ERP.Common.Pedido
         private void uiCliente_EditValueChanged(object sender, EventArgs e)
         {
             LoadProductos();
+            uiTortillaKilos.Select();
         }
 
         private void uiMasaKilosDev_Validating(object sender, CancelEventArgs e)
@@ -334,6 +349,26 @@ namespace ERP.Common.Pedido
         private void uiSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void uiTortillaKilos_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculaTotales();
+        }
+
+        private void uiTortillaKilosDev_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculaTotales();
+        }
+
+        private void uiMasaKilos_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculaTotales();
+        }
+
+        private void uiMasaKilosDev_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculaTotales();
         }
     }
 }

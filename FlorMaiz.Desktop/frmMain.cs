@@ -18,6 +18,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
+using static ConexionBD.Enumerados;
 
 namespace PuntoVenta.Desktop
 {
@@ -232,15 +233,11 @@ namespace PuntoVenta.Desktop
                 XtraMessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            frmGastosList frmo = frmGastosList.GetInstance();
-
-            if (!frmo.Visible)
-            {
-                //frmo = new frmPuntoVenta();
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.MdiParent = this;
-                frmo.Show();
-            }
+            frmGastos frmo = new frmGastos();
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.accionForm = (int)accionForm.agregar;
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.ShowDialog();
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
+using DevExpress.XtraEditors;
 using ERP.Common.Reports;
 using ERP.Reports;
 using System;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace ERP.Common.PuntoVenta
 {
-    public partial class frmGastos : Form
+    public partial class frmGastos : XtraForm
     {
         ERPProdEntities oContext;
         public PuntoVentaContext puntoVentaContext;
@@ -51,10 +52,10 @@ namespace ERP.Common.PuntoVenta
 
                 if (entity != null)
                 {
-                    uiCentroCosto.SelectedValue = entity.CentroCostoId;
-                    uiConcepto.SelectedValue = entity.GastoConceptoId;
-                    uiMonto.Value = entity.Monto;
-                    uiObservaciones.Text = entity.Obervaciones;
+                    uiCentroCosto1.EditValue = entity.CentroCostoId;
+                    uiConcepto1.EditValue = entity.GastoConceptoId;
+                    uiMonto1.Value = entity.Monto;
+                    uiObservaciones1.Text = entity.Obervaciones;
                 }
             }
             catch (Exception)
@@ -66,8 +67,8 @@ namespace ERP.Common.PuntoVenta
 
         private void llenarCombos()
         {
-            uiCentroCosto.DataSource = oContext.cat_centro_costos.Where(w=> w.Estatus == true).ToList();
-
+            uiCentroCosto1.Properties.DataSource = oContext.cat_centro_costos.Where(w=> w.Estatus == true).ToList();
+            uiCentroCosto1.ItemIndex = 0;
             LlenarComboConcepto();
 
 
@@ -76,13 +77,13 @@ namespace ERP.Common.PuntoVenta
 
         private void LlenarComboConcepto()
         {
-            int? cc = (int?)uiCentroCosto.SelectedValue;
+            int? cc = Convert.ToInt32(uiCentroCosto1.EditValue);
 
-            uiConcepto.DataSource = oContext.cat_gastos.Where(w => w.Estatus ==true &&
+            uiConcepto1.Properties.DataSource = oContext.cat_gastos.Where(w => w.Estatus ==true &&
                         (w.ClaveCentroCosto == cc || cc==null)
                         ).ToList();
 
-            uiConcepto.Text = ""; ;
+            uiConcepto1.Text = ""; ;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,14 +105,14 @@ namespace ERP.Common.PuntoVenta
 
         private void guardar()
         {
-            this.uiGuardar.Enabled = false;
-            uiCancelar.Enabled = false;
+            this.uiGuardar1.Enabled = false;
+            uiSalir1.Enabled = false;
             try
             {
                 oContext = new ERPProdEntities();
                 string error="";
-                int cc = uiCentroCosto.SelectedValue == null ? 0 : (int)uiCentroCosto.SelectedValue;
-                int GastoConceptoId = uiConcepto.SelectedValue == null ? 0 :(int)uiConcepto.SelectedValue;
+                int cc = Convert.ToInt32(uiCentroCosto1.EditValue);
+                int GastoConceptoId = Convert.ToInt32(uiConcepto1.EditValue);
 
                 if (
                    cc <= 0
@@ -125,7 +126,7 @@ namespace ERP.Common.PuntoVenta
                 {
                     error = error + "|El concepto es requerido";
                 }
-                if (uiMonto.Value <= 0)
+                if (uiMonto1.Value <= 0)
                 {
                     error = error + "|El monto es requerido";
                 }
@@ -133,7 +134,8 @@ namespace ERP.Common.PuntoVenta
                 if (error.Length > 0)
                 {
                     MessageBox.Show( error,"ERROR");
-                    this.uiGuardar.Enabled = true;
+                    this.uiGuardar1.Enabled = true;
+                    uiSalir1.Enabled = true;
                     return;
                 }
 
@@ -146,14 +148,14 @@ namespace ERP.Common.PuntoVenta
 
                     entityGasto.GastoId = oContext.doc_gastos.Count() > 0 ? oContext.doc_gastos.Max(m => m.GastoId) + 1 : 1;
                     entityGasto.CajaId = this.puntoVentaContext.cajaId;
-                    entityGasto.CentroCostoId = (int)uiCentroCosto.SelectedValue;
-                    entityGasto.GastoConceptoId = (int)uiConcepto.SelectedValue;
+                    entityGasto.CentroCostoId = Convert.ToInt32(uiCentroCosto1.EditValue);
+                    entityGasto.GastoConceptoId = Convert.ToInt32(uiConcepto1.EditValue);
                     entityGasto.CreadoEl = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                     entityGasto.CreadoPor = this.puntoVentaContext.usuarioId;
 
                     entityGasto.Activo = true;
-                    entityGasto.Monto = uiMonto.Value;
-                    entityGasto.Obervaciones = uiObservaciones.Text;
+                    entityGasto.Monto = uiMonto1.Value;
+                    entityGasto.Obervaciones = uiObservaciones1.Text;
                     entityGasto.SucursalId = this.puntoVentaContext.sucursalId;
 
                     error = oGasto.InsertargastoVenta(entityGasto);
@@ -178,14 +180,14 @@ namespace ERP.Common.PuntoVenta
 
                     
                     entityGasto.CajaId = this.puntoVentaContext.cajaId;
-                    entityGasto.CentroCostoId = (int)uiCentroCosto.SelectedValue;
-                    entityGasto.GastoConceptoId = (int)uiConcepto.SelectedValue;
+                    entityGasto.CentroCostoId = Convert.ToInt32(uiCentroCosto1.EditValue);
+                    entityGasto.GastoConceptoId = Convert.ToInt32(uiConcepto1.EditValue);
                     //entityGasto.CreadoEl = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                     //entityGasto.CreadoPor = this.puntoVentaContext.usuarioId;
 
                     //entityGasto.Activo = true;
-                    entityGasto.Monto = uiMonto.Value;
-                    entityGasto.Obervaciones = uiObservaciones.Text;
+                    entityGasto.Monto = uiMonto1.Value;
+                    entityGasto.Obervaciones = uiObservaciones1.Text;
                     //entityGasto.SucursalId = this.puntoVentaContext.sucursalId;
 
                     oContext.SaveChanges();
@@ -207,8 +209,8 @@ namespace ERP.Common.PuntoVenta
                         if (resultVal.Length > 0)
                         {
                             MessageBox.Show(resultVal.ToString(), "ERROR");
-                            this.uiGuardar.Enabled = true;
-                            uiCancelar.Enabled = true;
+                            this.uiGuardar1.Enabled = true;
+                            uiSalir1.Enabled = true;
                             return;
                         }
                        
@@ -220,26 +222,24 @@ namespace ERP.Common.PuntoVenta
                         oContext.SaveChanges();
                     }
                     else {
-                        this.uiGuardar.Enabled = true;
-                        uiCancelar.Enabled = true;
+                        this.uiGuardar1.Enabled = true;
+                        uiSalir1.Enabled = true;
                         return;
                     }
                     
                 }
 
-                this.uiGuardar.Enabled = true;
-                uiCancelar.Enabled = true;
+                this.uiGuardar1.Enabled = true;
+                uiSalir1.Enabled = true;
                 if (error.Length > 0)
                 {
                     MessageBox.Show(error, "ERROR");
                 }
                 else {
-                    MessageBox.Show("EL PROCESO CONCLUYÓ CON ÉXITO");
+                   
                     this.Close();
 
-                    frmGastosList instance = frmGastosList.GetInstance();
-
-                    instance.Buscar();
+                    
                 }
 
             }
@@ -247,8 +247,8 @@ namespace ERP.Common.PuntoVenta
             {
 
                 MessageBox.Show(ex.Message, "ERROR");
-                this.uiGuardar.Enabled = true;
-                uiCancelar.Enabled = true;
+                this.uiGuardar1.Enabled = true;
+                uiSalir1.Enabled = true;
                 this.Close();
             }
         }
@@ -270,20 +270,20 @@ namespace ERP.Common.PuntoVenta
                 )
             {
                 cargarForma();
-                uiCentroCosto.Enabled = false;
-                uiConcepto.Enabled = false;
-                uiObservaciones.Enabled = false;
-                uiMonto.Enabled = false;
+                uiCentroCosto1.Enabled = false;
+                uiConcepto1.Enabled = false;
+                uiObservaciones1.Enabled = false;
+                uiMonto1.Enabled = false;
 
                 if (resultVal.Length > 0)
                 {
-                    uiGuardar.Enabled = false;
+                    uiGuardar1.Enabled = false;
                 }
 
 
                 if (accionForm == (int)Enumerados.accionForm.eliminar)
                 {
-                    uiGuardar.Text = "ELIMINAR";
+                    uiGuardar1.Text = "ELIMINAR";
                 }
                 
             }
@@ -291,10 +291,10 @@ namespace ERP.Common.PuntoVenta
 
         private void Habilitar()
         {
-            uiCentroCosto.Enabled = true;
-            uiConcepto.Enabled = true;
-            uiObservaciones.Enabled = true;
-            uiMonto.Enabled = true;
+            uiCentroCosto1.Enabled = true;
+            uiConcepto1.Enabled = true;
+            uiObservaciones1.Enabled = true;
+            uiMonto1.Enabled = true;
 
         }
 
@@ -308,9 +308,50 @@ namespace ERP.Common.PuntoVenta
             _instance = null;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+      
+
+        private void uiSalir1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void uiGuardar1_Click(object sender, EventArgs e)
+        {
+           
+            guardar();
+        }
+
+        private void uiMonto1_Click(object sender, EventArgs e)
+        {
+            uiMonto1.Select();
+        }
+
+        private void uiMonto1_Enter(object sender, EventArgs e)
+        {
+            uiMonto1.Select();
+        }
+
+        private void uiConcepto1_EditValueChanged(object sender, EventArgs e)
+        {
+            uiMonto1.Select();
+        }
+
+        private void uiMonto1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                uiObservaciones1.Select();
+            }
+        }
+
+        private void uiObservaciones1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.uiGuardar1.Enabled = false;
+                uiSalir1.Enabled = false;
+                guardar();
+            }
         }
     }
 }
