@@ -479,6 +479,12 @@
     <Compile Include="Pedido\frmPedidosClientesList.Designer.cs">
       <DependentUpon>frmPedidosClientesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedido\frmRepartosTortillaCaptura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedido\frmRepartosTortillaCaptura.Designer.cs">
+      <DependentUpon>frmRepartosTortillaCaptura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Precios\frmPreciosEspeciales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1062,6 +1068,9 @@
     <EmbeddedResource Include="Pedido\frmPedidosClientesList.resx">
       <DependentUpon>frmPedidosClientesList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pedido\frmRepartosTortillaCaptura.resx">
+      <DependentUpon>frmRepartosTortillaCaptura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmPreciosEspeciales.resx">
       <DependentUpon>frmPreciosEspeciales.cs</DependentUpon>
     </EmbeddedResource>
@@ -1292,10 +1301,12 @@
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\ConexionBD.cat_basculas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_cargos_adicionales.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_centro_costos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_clientes.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_conceptos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_estatus_produccion.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_formas_pago.datasource" />
+    <None Include="Properties\DataSources\ConexionBD.cat_gastos.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_impresoras.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_lineas.datasource" />
     <None Include="Properties\DataSources\ConexionBD.cat_productos.datasource" />

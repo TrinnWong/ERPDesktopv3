@@ -74,6 +74,7 @@ namespace ERP.Common.Sucursales
         {
             try
             {
+                oContext = new ERPProdEntities();
                 sucursalId = Convert.ToInt32(uiSucursal.EditValue);
 
                 uiGrid.DataSource = oContext.cat_sucursales_productos
@@ -184,6 +185,11 @@ namespace ERP.Common.Sucursales
                                               ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+        private void frmSucursalesProductos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _instance = null;
         }
     }
 }
