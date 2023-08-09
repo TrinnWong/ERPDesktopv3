@@ -520,6 +520,10 @@
       <Project>{0aef8c95-ac9a-498a-9818-8b61c2f3561e}</Project>
       <Name>ERP.Reports</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP.Utils\ERP.Utils.csproj">
+      <Project>{517764ca-039d-4be8-9980-94531c7eee34}</Project>
+      <Name>ERP.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERpSmart.Business\ERP.Business.csproj">
       <Project>{41B8EAE3-04C3-4575-85A5-75203142965D}</Project>
       <Name>ERP.Business</Name>

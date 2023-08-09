@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Objects;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -99,12 +100,23 @@ namespace PuntoVenta
         public void AbrirComanda()
         {
             //frmPuntoVentaRest.GetInstance().Close();
-           // frmPuntoVentaRest.GetInstance().nuevaCuenta(0);
+            // frmPuntoVentaRest.GetInstance().nuevaCuenta(0);
 
-            frmComandaNueva frmo = new frmComandaNueva();
-            frmo.puntoVentaContext = this.puntoVentaContext;
-            frmo.StartPosition = FormStartPosition.CenterParent;
-            frmo.ShowDialog();
+            frmComandaNueva frmo = frmComandaNueva.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.Show();
+
+
+            }
+
+            
 
 
 
@@ -137,6 +149,8 @@ namespace PuntoVenta
                 AbrirComanda();
             */
             AbrirPuntoDeVenta();
+            EncenderTareaImpresion();
+
         }
 
         private void uiMenuNuevaCuenta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -737,6 +751,39 @@ namespace PuntoVenta
                 ConexionBD.PedidoOrdenBusiness.ImpresionAutomaticaPedido(this.puntoVentaContext.usuarioId, this.puntoVentaContext.sucursalId,
                     this.puntoVentaContext.cajaId);
 
+            }
+        }
+
+        private void uiTareaImpresion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            EncenderTareaImpresion();
+        }
+
+        private void EncenderTareaImpresion()
+        {
+            try
+            {
+                if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+                {
+
+                    ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
+                }
+                else
+                {
+                    Process p = new Process();
+                    ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Background.Task.exe");
+
+                    p.StartInfo = psi;
+                    p.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                int err = ERP.Business.SisBitacoraBusiness.Insert(puntoVentaContext.usuarioId,
+                                       "ERP",
+                                       this.Name,
+                                       ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
         }
     }

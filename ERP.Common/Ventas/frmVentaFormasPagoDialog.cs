@@ -18,6 +18,8 @@ namespace ERP.Common.Procesos
     {
         decimal totalTarjeta { get; set; }
         public decimal totalVenta { get; set; }
+
+        public decimal cambio { get; set; }
         public List<FormaPagoModel> lstFormasPago { get; set; }
         public List<ValeFPModel> lstVales { get; set; }
 
@@ -179,7 +181,7 @@ namespace ERP.Common.Procesos
                     error = "\nNo es posible capturar cantidades en negativo";
                 }
             }
-
+            cambio = uiCambio.Value;
             if (error.Length == 0)
             {
                 //frmPuntoVenta oForm = (frmPuntoVenta)this.Owner.MdiChildren[0];

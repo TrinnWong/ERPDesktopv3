@@ -61,6 +61,7 @@
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timer1 = new System.Windows.Forms.Timer();
+            this.uiTareaImpresion = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -119,9 +120,10 @@
             this.uiImpresoraTicketPV,
             this.uiImpresoraComanda,
             this.uiCancelarTicket,
-            this.uiAbrirCajon});
+            this.uiAbrirCajon,
+            this.uiTareaImpresion});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 20;
+            this.ribbonControl1.MaxItemId = 21;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -131,7 +133,7 @@
             this.rbImpresora,
             this.rbSesion});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(989, 65);
+            this.ribbonControl1.Size = new System.Drawing.Size(989, 52);
             // 
             // uiMenuNuevaCuenta
             // 
@@ -179,7 +181,7 @@
             // 
             // uiMenuNuevaComanda
             // 
-            this.uiMenuNuevaComanda.Caption = "Nueva Comanda";
+            this.uiMenuNuevaComanda.Caption = "Mesas";
             this.uiMenuNuevaComanda.Id = 6;
             this.uiMenuNuevaComanda.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuNuevaComanda.ImageOptions.Image")));
             this.uiMenuNuevaComanda.Name = "uiMenuNuevaComanda";
@@ -191,6 +193,7 @@
             this.uiMenuImprimirComanda.Id = 7;
             this.uiMenuImprimirComanda.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiMenuImprimirComanda.ImageOptions.Image")));
             this.uiMenuImprimirComanda.Name = "uiMenuImprimirComanda";
+            this.uiMenuImprimirComanda.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.uiMenuImprimirComanda.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiMenuImprimirComanda_ItemClick);
             // 
             // uiMenuCuentaList
@@ -262,7 +265,7 @@
             this.rbComanda.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbCuentas});
             this.rbComanda.Name = "rbComanda";
-            this.rbComanda.Text = "Comandas";
+            this.rbComanda.Text = "Mesas";
             this.rbComanda.Visible = false;
             // 
             // rbCuentas
@@ -270,6 +273,7 @@
             this.rbCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rbCuentas.ImageOptions.Image")));
             this.rbCuentas.ItemLinks.Add(this.uiMenuNuevaComanda);
             this.rbCuentas.ItemLinks.Add(this.uiMenuImprimirComanda);
+            this.rbCuentas.ItemLinks.Add(this.uiTareaImpresion);
             this.rbCuentas.Name = "rbCuentas";
             this.rbCuentas.Text = "Comandas";
             // 
@@ -345,6 +349,14 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // uiTareaImpresion
+            // 
+            this.uiTareaImpresion.Caption = "Encender Tarea de Impresión";
+            this.uiTareaImpresion.Id = 20;
+            this.uiTareaImpresion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiTareaImpresion.ImageOptions.Image")));
+            this.uiTareaImpresion.Name = "uiTareaImpresion";
+            this.uiTareaImpresion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiTareaImpresion_ItemClick);
+            // 
             // frmMenuRestTA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,5 +409,6 @@
         private DevExpress.XtraBars.BarButtonItem uiCancelarTicket;
         private DevExpress.XtraBars.BarButtonItem uiAbrirCajon;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraBars.BarButtonItem uiTareaImpresion;
     }
 }

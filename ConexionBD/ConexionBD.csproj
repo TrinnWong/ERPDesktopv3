@@ -2921,6 +2921,9 @@
     <Content Include="Versiones\2022.06.01\09 [p_venta_afecta_inventario].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2022.06.01\09_09129 p_doc_productos_max_min_ins_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\2022.06.01\10 [p_rpt_corte_caja_fp].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -2978,8 +2981,12 @@
     <Content Include="Versiones\2022.06.01\27 p_rpt_ventas_detalle.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Versiones\2022.06.01\28 [p_doc_sobrantes_ajustes_inventario].sql" />
-    <Content Include="Versiones\2022.06.01\29 [p_corte_caja_inventario_generacion].sql" />
+    <Content Include="Versiones\2022.06.01\28 [p_doc_sobrantes_ajustes_inventario].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\29 [p_corte_caja_inventario_generacion].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\2022.06.01\30 INSERT INTO PREFERENCIA SolicitarSobrantesPV.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3415,7 +3422,126 @@
     <Content Include="Versiones\2022.06.01\99_09121 [p_punto_venta_validar_sesion].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Versiones\2023.06.01\01 p_rpt_sucursales_precios.sql" />
+    <Content Include="Versiones\2022.06.01\99_09122 [tr_doc_inv_movimiento_detalle_ins].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09123 [p_inv_movimiento_autoriza].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09124 IDX_doc_movimiento_detalle.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09125 IDX_doc_movimiento.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09126 p_rpt_sucursal_mov_dia.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09127 CREATE doc_productos_max_min.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09128 p_doc_productos_max_min_grd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09129 p_doc_productos_max_min_ins_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09130 p_doc_productos_max_min_sel.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09131 p_doc_ventas_rec.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2022.06.01\99_09132 [p_rpt_ventas_detalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\01 PREFERENCIA PV-RETIROAUTOMATICO.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\01 p_rpt_sucursales_precios.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\02 fnGetPreferenciaValor.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\03 p_retiro_automatico_SiNo.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\04 [fnPreferenciaAplicaSiNo].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\05 p_rpt_sucursales_precios.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\06 p_rpt_corte_caja_general.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\07 [p_rpt_corte_caja_general].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\08 p_rpt_salidas_analitico.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\09 p_rpt_salidas_sintetico.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\10 [p_punto_venta_validar_sesion].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\11 p_rpt_sucursal_mov_dia.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\12 p_rpt_sucursales_precios.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\13 p_rpt_sucursal_mov_dia.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\13 tr_cat_productos_ins_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\14 p_doc_gastos_ins_upd.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\15 p_doc_gastos_del.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\16 p_cat_gatos_sel.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\17 p_doc_gastos_sel.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\18 [p_sucursales_usuario_sel].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\20 sinc_doc_ventas.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\21 sis_sucursal_autocreate.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\22 sinc_doc_inv_movimiento.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\23 p_rpt_sucursal_mov_dia.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\24 p_doc_ventas_rec.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\25 [p_InsertarVenta].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\26 [p_InsertarVentaDetalle].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\27 [p_InsertarVentaFormaPago].sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\2023.06.01\28 p_sucursales_productos_config_por_precio_especial.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3754,6 +3880,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Pedidos\" />
+    <Folder Include="Versiones\2023.08.01\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">

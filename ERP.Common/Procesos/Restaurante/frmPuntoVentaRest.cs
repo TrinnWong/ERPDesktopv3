@@ -1376,6 +1376,7 @@ namespace ERP.Common.Procesos.Restaurante
                     cuentaPagada = entity.doc_ventas != null ? true : false;
                     uiUberEats.Checked = entity.UberEats??false;
                     uiPara.Text = entity.Para;
+                    uiVerTodaCuenta.Checked = true;
                     #region mesas
 
 
@@ -1881,9 +1882,12 @@ namespace ERP.Common.Procesos.Restaurante
 
         public void pagar(List<FormaPagoModel> _formasPago, List<ValeFPModel> _vales, decimal totalRecibido, decimal cambio)
         {
-           
-            fpForm.Close();
-            fpForm.Dispose();
+            if(fpForm != null)
+            {
+                fpForm.Close();
+                fpForm.Dispose();
+
+            }
 
             int _cuentaid = int.Parse(uiCuenta.Value.ToString());
             ConexionBD.PuntoVenta oData = new ConexionBD.PuntoVenta();
