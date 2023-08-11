@@ -39,7 +39,6 @@
             this.uiPassSupCajero = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.uiEsSupCajero = new System.Windows.Forms.CheckBox();
-            this.uiUsuarioId = new System.Windows.Forms.NumericUpDown();
             this.uiSucursal = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +62,7 @@
             this.uiUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.uiUsuarioId = new System.Windows.Forms.NumericUpDown();
             this.gbBotones = new System.Windows.Forms.GroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -77,10 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiCaja.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catcajasBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUsuarioId)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nClave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiUsuarioId)).BeginInit();
             this.gbBotones.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
@@ -137,7 +137,7 @@
             this.uiCaja.Properties.DisplayMember = "Descripcion";
             this.uiCaja.Properties.NullText = "(Selecciona una caja)";
             this.uiCaja.Properties.ValueMember = "Clave";
-            this.uiCaja.Size = new System.Drawing.Size(412, 26);
+            this.uiCaja.Size = new System.Drawing.Size(412, 20);
             this.uiCaja.TabIndex = 27;
             // 
             // catcajasBindingSource
@@ -149,7 +149,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(27, 498);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(287, 23);
+            this.label14.Size = new System.Drawing.Size(194, 16);
             this.label14.TabIndex = 26;
             this.label14.Text = "CAJA PREDETERMINADA";
             // 
@@ -159,7 +159,7 @@
             this.uiEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiEmail.MaxLength = 60;
             this.uiEmail.Name = "uiEmail";
-            this.uiEmail.Size = new System.Drawing.Size(196, 31);
+            this.uiEmail.Size = new System.Drawing.Size(196, 23);
             this.uiEmail.TabIndex = 25;
             // 
             // label13
@@ -167,7 +167,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(28, 444);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 23);
+            this.label13.Size = new System.Drawing.Size(65, 16);
             this.label13.TabIndex = 24;
             this.label13.Text = "*EMAIL";
             // 
@@ -190,7 +190,7 @@
             this.uiPassSupCajero.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiPassSupCajero.MaxLength = 60;
             this.uiPassSupCajero.Name = "uiPassSupCajero";
-            this.uiPassSupCajero.Size = new System.Drawing.Size(197, 31);
+            this.uiPassSupCajero.Size = new System.Drawing.Size(197, 23);
             this.uiPassSupCajero.TabIndex = 8;
             // 
             // label12
@@ -198,7 +198,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(215, 19);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(300, 23);
+            this.label12.Size = new System.Drawing.Size(202, 16);
             this.label12.TabIndex = 9;
             this.label12.Text = "*PASSWORD SUPERVISOR";
             // 
@@ -207,19 +207,11 @@
             this.uiEsSupCajero.AutoSize = true;
             this.uiEsSupCajero.Location = new System.Drawing.Point(27, 32);
             this.uiEsSupCajero.Name = "uiEsSupCajero";
-            this.uiEsSupCajero.Size = new System.Drawing.Size(219, 27);
+            this.uiEsSupCajero.Size = new System.Drawing.Size(150, 20);
             this.uiEsSupCajero.TabIndex = 0;
             this.uiEsSupCajero.Text = "Supervisor Cajero";
             this.uiEsSupCajero.UseVisualStyleBackColor = true;
             this.uiEsSupCajero.CheckedChanged += new System.EventHandler(this.uiEsSupCajero_CheckedChanged);
-            // 
-            // uiUsuarioId
-            // 
-            this.uiUsuarioId.Location = new System.Drawing.Point(451, -13);
-            this.uiUsuarioId.Name = "uiUsuarioId";
-            this.uiUsuarioId.Size = new System.Drawing.Size(120, 31);
-            this.uiUsuarioId.TabIndex = 22;
-            this.uiUsuarioId.Visible = false;
             // 
             // uiSucursal
             // 
@@ -227,7 +219,7 @@
             this.uiSucursal.FormattingEnabled = true;
             this.uiSucursal.Location = new System.Drawing.Point(237, 464);
             this.uiSucursal.Name = "uiSucursal";
-            this.uiSucursal.Size = new System.Drawing.Size(205, 31);
+            this.uiSucursal.Size = new System.Drawing.Size(205, 24);
             this.uiSucursal.TabIndex = 21;
             this.uiSucursal.ValueMember = "Clave";
             this.uiSucursal.SelectedValueChanged += new System.EventHandler(this.uiSucursal_SelectedValueChanged);
@@ -237,7 +229,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(233, 446);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(142, 23);
+            this.label11.Size = new System.Drawing.Size(98, 16);
             this.label11.TabIndex = 20;
             this.label11.Text = "*SUCURSAL";
             // 
@@ -260,7 +252,7 @@
             this.uiPasswordSupervisor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiPasswordSupervisor.MaxLength = 60;
             this.uiPasswordSupervisor.Name = "uiPasswordSupervisor";
-            this.uiPasswordSupervisor.Size = new System.Drawing.Size(197, 31);
+            this.uiPasswordSupervisor.Size = new System.Drawing.Size(197, 23);
             this.uiPasswordSupervisor.TabIndex = 8;
             // 
             // label10
@@ -268,7 +260,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(215, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(300, 23);
+            this.label10.Size = new System.Drawing.Size(202, 16);
             this.label10.TabIndex = 9;
             this.label10.Text = "*PASSWORD SUPERVISOR";
             // 
@@ -277,7 +269,7 @@
             this.uiEsSupervisor.AutoSize = true;
             this.uiEsSupervisor.Location = new System.Drawing.Point(27, 32);
             this.uiEsSupervisor.Name = "uiEsSupervisor";
-            this.uiEsSupervisor.Size = new System.Drawing.Size(234, 27);
+            this.uiEsSupervisor.Size = new System.Drawing.Size(160, 20);
             this.uiEsSupervisor.TabIndex = 0;
             this.uiEsSupervisor.Text = "Supervisor General";
             this.uiEsSupervisor.UseVisualStyleBackColor = true;
@@ -291,7 +283,7 @@
             this.uiNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiNombre.MaxLength = 60;
             this.uiNombre.Name = "uiNombre";
-            this.uiNombre.Size = new System.Drawing.Size(198, 31);
+            this.uiNombre.Size = new System.Drawing.Size(198, 23);
             this.uiNombre.TabIndex = 18;
             // 
             // label9
@@ -299,7 +291,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(28, 129);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 23);
+            this.label9.Size = new System.Drawing.Size(82, 16);
             this.label9.TabIndex = 17;
             this.label9.Text = "*NOMBRE";
             // 
@@ -310,7 +302,7 @@
             this.uiPuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiPuesto.MaxLength = 60;
             this.uiPuesto.Name = "uiPuesto";
-            this.uiPuesto.Size = new System.Drawing.Size(204, 31);
+            this.uiPuesto.Size = new System.Drawing.Size(204, 23);
             this.uiPuesto.TabIndex = 16;
             // 
             // label8
@@ -318,7 +310,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(245, 184);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 23);
+            this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 15;
             this.label8.Text = "*PUESTO";
             // 
@@ -329,7 +321,7 @@
             this.uiDepartamento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiDepartamento.MaxLength = 60;
             this.uiDepartamento.Name = "uiDepartamento";
-            this.uiDepartamento.Size = new System.Drawing.Size(196, 31);
+            this.uiDepartamento.Size = new System.Drawing.Size(196, 23);
             this.uiDepartamento.TabIndex = 14;
             // 
             // label5
@@ -337,7 +329,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(28, 184);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(209, 23);
+            this.label5.Size = new System.Drawing.Size(143, 16);
             this.label5.TabIndex = 13;
             this.label5.Text = "*DEPARTAMENTO";
             // 
@@ -356,7 +348,7 @@
             this.uiEmpleado.FormattingEnabled = true;
             this.uiEmpleado.Location = new System.Drawing.Point(25, 40);
             this.uiEmpleado.Name = "uiEmpleado";
-            this.uiEmpleado.Size = new System.Drawing.Size(246, 31);
+            this.uiEmpleado.Size = new System.Drawing.Size(246, 24);
             this.uiEmpleado.TabIndex = 11;
             this.uiEmpleado.ValueMember = "NumEmpleado";
             this.uiEmpleado.SelectedValueChanged += new System.EventHandler(this.uiEmpleado_SelectedValueChanged);
@@ -366,7 +358,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(22, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 23);
+            this.label6.Size = new System.Drawing.Size(101, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "*EMPLEADO";
             // 
@@ -376,7 +368,7 @@
             this.uiPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiPassword.MaxLength = 60;
             this.uiPassword.Name = "uiPassword";
-            this.uiPassword.Size = new System.Drawing.Size(210, 31);
+            this.uiPassword.Size = new System.Drawing.Size(210, 23);
             this.uiPassword.TabIndex = 6;
             // 
             // label4
@@ -384,7 +376,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(245, 241);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 23);
+            this.label4.Size = new System.Drawing.Size(100, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "*PASSWORD";
             // 
@@ -399,7 +391,7 @@
             0,
             0});
             this.nClave.Name = "nClave";
-            this.nClave.Size = new System.Drawing.Size(131, 31);
+            this.nClave.Size = new System.Drawing.Size(131, 23);
             this.nClave.TabIndex = 1;
             // 
             // label3
@@ -407,7 +399,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(27, 562);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 23);
+            this.label3.Size = new System.Drawing.Size(140, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "USUARIO ACTIVO";
             // 
@@ -419,7 +411,7 @@
             this.chkEstatus.Location = new System.Drawing.Point(250, 564);
             this.chkEstatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkEstatus.Name = "chkEstatus";
-            this.chkEstatus.Size = new System.Drawing.Size(22, 21);
+            this.chkEstatus.Size = new System.Drawing.Size(15, 14);
             this.chkEstatus.TabIndex = 3;
             this.chkEstatus.UseVisualStyleBackColor = true;
             // 
@@ -429,7 +421,7 @@
             this.uiUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiUsuario.MaxLength = 60;
             this.uiUsuario.Name = "uiUsuario";
-            this.uiUsuario.Size = new System.Drawing.Size(208, 31);
+            this.uiUsuario.Size = new System.Drawing.Size(208, 23);
             this.uiUsuario.TabIndex = 2;
             // 
             // label2
@@ -437,7 +429,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 241);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 23);
+            this.label2.Size = new System.Drawing.Size(86, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "*USUARIO";
             // 
@@ -446,9 +438,22 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 23);
+            this.label1.Size = new System.Drawing.Size(200, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "*NÚMERO DE EMPLEADO";
+            // 
+            // uiUsuarioId
+            // 
+            this.uiUsuarioId.Location = new System.Drawing.Point(451, -13);
+            this.uiUsuarioId.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.uiUsuarioId.Name = "uiUsuarioId";
+            this.uiUsuarioId.Size = new System.Drawing.Size(120, 23);
+            this.uiUsuarioId.TabIndex = 22;
+            this.uiUsuarioId.Visible = false;
             // 
             // gbBotones
             // 
@@ -573,7 +578,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 23);
+            this.label7.Size = new System.Drawing.Size(69, 16);
             this.label7.TabIndex = 4;
             this.label7.Text = "BUSCAR";
             // 
@@ -582,7 +587,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(113, 28);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(389, 31);
+            this.txtBuscar.Size = new System.Drawing.Size(389, 23);
             this.txtBuscar.TabIndex = 3;
             // 
             // frmUsuarios
@@ -603,11 +608,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.catcajasBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiUsuarioId)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nClave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uiUsuarioId)).EndInit();
             this.gbBotones.ResumeLayout(false);
             this.gbListado.ResumeLayout(false);
             this.gbListado.PerformLayout();
