@@ -1736,7 +1736,7 @@ namespace ConexionBD
                                 pedido.TipoPedidoId = (int)tipoPedido;
                                 pedido.Total = lstProductos.Sum(s => s.total);
                                 pedido.VentaId = null;
-
+                                
                                 oContext.doc_pedidos_orden.Add(pedido);
                                 oContext.SaveChanges();
 
@@ -1761,7 +1761,8 @@ namespace ConexionBD
                                     pedidoDetalle.PrecioUnitario = itemDetalle.precioUnitario;
                                     pedidoDetalle.ProductoId = itemDetalle.productoId;
                                     pedidoDetalle.Total = itemDetalle.total;
-
+                                    pedidoDetalle.CantidadDevolucion = itemDetalle.cantidadDevolucion;
+                                    pedidoDetalle.CantidadOriginal = itemDetalle.cantidadOriginal;
                                     oContext.doc_pedidos_orden_detalle.Add(pedidoDetalle);
                                     oContext.SaveChanges();
                                     

@@ -1624,5 +1624,10 @@ namespace ERPv1
         {
 
         }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

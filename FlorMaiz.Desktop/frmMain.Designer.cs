@@ -57,6 +57,7 @@
             this.uiMenuReimprimirCorteSupervisor = new DevExpress.XtraBars.BarButtonItem();
             this.mnuMaizMaseca = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -104,10 +105,10 @@
             this.btnReimprimirUltimoCorteCajero,
             this.uiMenuReimprimirCorteSupervisor,
             this.mnuMaizMaseca,
-            this.barButtonItem13});
+            this.barButtonItem13,
+            this.uiRepartoExpress});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiRibbonControl.MaxItemId = 29;
+            this.uiRibbonControl.MaxItemId = 30;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -117,7 +118,7 @@
             this.ribbonPage2,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1389, 65);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1191, 52);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -334,6 +335,14 @@
             this.barButtonItem13.Name = "barButtonItem13";
             this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
             // 
+            // uiRepartoExpress
+            // 
+            this.uiRepartoExpress.Caption = "Reparto(Registro Express)";
+            this.uiRepartoExpress.Id = 29;
+            this.uiRepartoExpress.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiRepartoExpress.ImageOptions.Image")));
+            this.uiRepartoExpress.Name = "uiRepartoExpress";
+            this.uiRepartoExpress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -345,9 +354,10 @@
             // 
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMenuNuevaVenta);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem1);
-            this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
-            this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoExpress);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
+            this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMnuBascula);
             this.uiRibbonPageControl.Name = "uiRibbonPageControl";
             this.uiRibbonPageControl.Text = "ribbonPageGroup1";
@@ -438,12 +448,11 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1389, 626);
+            this.ClientSize = new System.Drawing.Size(1191, 509);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -454,6 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -499,5 +509,6 @@
         private DevExpress.XtraBars.BarButtonItem mnuMaizMaseca;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private System.Windows.Forms.Timer timerToCheckNetwork;
+        private DevExpress.XtraBars.BarButtonItem uiRepartoExpress;
     }
 }

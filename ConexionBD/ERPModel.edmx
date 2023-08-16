@@ -10524,6 +10524,9 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
         <Function Name="p_sis_versiones_ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pVersiones" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="p_sucursales_productos_config_por_precio_especial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PrecioEspecialId" Type="int" Mode="In" />
+        </Function>
         <Function Name="p_sucursales_usuario_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pUsuario" Type="varchar" Mode="In" />
         </Function>
@@ -22242,6 +22245,9 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <End Role="cat_sucursales" EntitySet="cat_sucursales" />
             <End Role="doc_productos_max_min" EntitySet="doc_productos_max_min" />
           </AssociationSet>
+          <FunctionImport Name="p_sucursales_productos_config_por_precio_especial">
+            <Parameter Name="PrecioEspecialId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="p_BuscarProductos_Result">
           <Property Type="String" Name="Clave" Nullable="false" MaxLength="30" />
@@ -32815,6 +32821,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_sucursales_productos_config_por_precio_especial" FunctionName="ERPProdModel.Store.p_sucursales_productos_config_por_precio_especial" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

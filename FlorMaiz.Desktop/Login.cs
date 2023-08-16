@@ -422,6 +422,7 @@ namespace TacosAna.Desktop
         {
             welcome = new BarraCargarForms();
             this.lblVersion.Text = Sistema.ObtenVersion();
+            uiUsuario.Select();
         }
 
         private void uiSucursal_SelectedValueChanged(object sender, EventArgs e)

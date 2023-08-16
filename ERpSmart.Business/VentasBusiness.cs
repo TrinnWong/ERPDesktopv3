@@ -44,9 +44,12 @@ namespace ERP.Business
             try
             {
                 oContext = new ERPProdEntities();
-
+                oContext.Database.CommandTimeout = 300;
+               
                 // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
-                var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted };
+                var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
 
                 using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                 {

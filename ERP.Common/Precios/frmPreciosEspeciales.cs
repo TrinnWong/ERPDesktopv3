@@ -1,6 +1,7 @@
 ﻿using ConexionBD;
 using DevExpress.XtraEditors;
 using ERP.Common.Base;
+using ERP.Common.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,6 +103,7 @@ namespace ERP.Common.Precios
 
         private void frmPreciosEspeciales_Load(object sender, EventArgs e)
         {
+            oFormLoading = new LoadingForm("Procesando...");
             oContext = new ERPProdEntities();
             entity = new doc_precios_especiales();
             LoadPreciosEspeciales();
@@ -268,12 +270,20 @@ namespace ERP.Common.Precios
 
                 }
 
-                ERP.Utils.MessageBoxUtil.ShowOk();
+                if (uiRestaurarProductosSucursal.Checked)
+                {
+                    oContext.p_sucursales_productos_config_por_precio_especial(entity.Id);
+                }
+                
                 LoadGrid();
+
+                uiGuardar.Enabled = true;
+                uiCancelar.Enabled = true;
             }
             catch (Exception ex)
             {
-
+                uiGuardar.Enabled = true;
+                uiCancelar.Enabled = true;
                 err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                      "ERP",
                                      this.Name,
@@ -284,11 +294,35 @@ namespace ERP.Common.Precios
 
         private void uiGuardarPrecios_Click(object sender, EventArgs e)
         {
-            if(XtraMessageBox.Show("¿Este proceso puede tardar varios minutos?, ¿Está seguro(a) de continar?","Aviso",
-                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (uiRestaurarProductosSucursal.Checked)
             {
-                GuardarPrecios();
+                if (XtraMessageBox.Show("ATENCIÓN!!, Se modificarán precios y se reasignarán los productos para venta a la sucursal.¿Está seguro(a) de continuar?", "Aviso",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    uiGuardar.Enabled = false;
+                    uiCancelar.Enabled = false;
+                    oFormLoading.Show();
+
+                    GuardarPrecios();
+
+                    oFormLoading.Hide();
+                }
             }
+            else
+            {
+                if (XtraMessageBox.Show("¿Este proceso puede tardar varios minutos?, ¿Está seguro(a) de continar?", "Aviso",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    uiGuardar.Enabled = false;
+                    uiCancelar.Enabled = false;
+                    oFormLoading.Show();
+
+                    GuardarPrecios();
+
+                    oFormLoading.Hide();
+                }
+            }
+            
         }
     }
 }
