@@ -197,5 +197,21 @@ namespace ERP.Common.PuntoVenta
         {
 
         }
+
+        private void uiMonto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                uiObservaciones.Select();
+            }
+        }
+
+        private void uiObservaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.Enter)
+            {
+                guardar();
+            }
+        }
     }
 }

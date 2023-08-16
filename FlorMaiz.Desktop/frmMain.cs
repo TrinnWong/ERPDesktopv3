@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using ERP.Common.Basculas;
 using ERP.Common.Catalogos;
 using ERP.Common.Inventarios;
+using ERP.Common.Pedido;
 using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
@@ -17,6 +18,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
+using static ConexionBD.Enumerados;
 
 namespace PuntoVenta.Desktop
 {
@@ -231,15 +233,11 @@ namespace PuntoVenta.Desktop
                 XtraMessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            frmGastosList frmo = frmGastosList.GetInstance();
-
-            if (!frmo.Visible)
-            {
-                //frmo = new frmPuntoVenta();
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.MdiParent = this;
-                frmo.Show();
-            }
+            frmGastos frmo = new frmGastos();
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.accionForm = (int)accionForm.agregar;
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.ShowDialog();
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -690,6 +688,15 @@ namespace PuntoVenta.Desktop
                 }
                 WebRequest = null;
             }
+        }
+
+        private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmRepartosTortillaCaptura frmo = new frmRepartosTortillaCaptura();
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.ShowDialog();
+          
         }
     }
 }
