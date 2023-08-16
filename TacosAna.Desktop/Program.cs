@@ -18,6 +18,7 @@ namespace TacosAna.Desktop
         {
             WindowsFormsSettings.TouchUIMode = DevExpress.LookAndFeel.TouchUIMode.True;
             WindowsFormsSettings.DefaultFont = new System.Drawing.Font("Arial", 11);
+            WindowsFormsSettings.TouchScaleFactor = (float)1.5;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
