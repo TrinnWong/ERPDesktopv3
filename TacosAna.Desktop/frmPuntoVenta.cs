@@ -4289,8 +4289,8 @@ namespace TacosAna.Desktop
                 {
                     oContext = new ERPProdEntities();
 
-                    p_retiro_automatico_SiNo_Result result = oContext.p_retiro_automatico_SiNo(this.puntoVentaContext.sucursalId,
-                        this.puntoVentaContext.cajaId).FirstOrDefault();
+                    p_retiro_automatico_SiNo_Result result = ERP.Business.RetiroBusiness.p_retiro_automatico_SiNo(this.puntoVentaContext.sucursalId,
+                        this.puntoVentaContext.cajaId);
 
                     if(result != null)
                     {

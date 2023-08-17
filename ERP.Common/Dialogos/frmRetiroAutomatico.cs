@@ -25,6 +25,7 @@ namespace ERP.Common.Dialogos
 
         private void uiOk_Click(object sender, EventArgs e)
         {
+            uiOk.Enabled = false;            
             guardar();
         }
 
@@ -71,12 +72,14 @@ namespace ERP.Common.Dialogos
                 oViewer.ShowTicket(oTicket);
 
                 this.DialogResult = DialogResult.OK;
+                
                 this.Close();
 
 
             }
             catch (Exception ex)
             {
+                uiOk.Enabled = true;
                 MessageBox.Show(ex.Message, "ERROR");
                 this.Close();
             }

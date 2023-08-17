@@ -104,6 +104,7 @@
     <Compile Include="Recortado.cs" />
     <Compile Include="RecortadoBusiness.cs" />
     <Compile Include="ReportesBusiness.cs" />
+    <Compile Include="RetiroBusiness.cs" />
     <Compile Include="SeguridadBusiness.cs" />
     <Compile Include="SincronizacionBusiness.cs" />
     <Compile Include="SisBitacoraBusiness.cs" />
