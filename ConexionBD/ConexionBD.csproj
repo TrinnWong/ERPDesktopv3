@@ -3754,6 +3754,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Pedidos\" />
+    <Folder Include="Versiones\2023.08.01\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">

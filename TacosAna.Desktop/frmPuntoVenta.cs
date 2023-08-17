@@ -1620,6 +1620,7 @@ namespace TacosAna.Desktop
 
                     oFormasPago.lstFormasPago = this.lstFormasPago;
                     oFormasPago.totalVenta = lstPedido.Sum(s => s.total);
+                    oFormasPago.StartPosition = FormStartPosition.CenterScreen;
                     var resultDailog = oFormasPago.ShowDialog();
 
                     if(resultDailog == DialogResult.OK)

@@ -144,7 +144,7 @@ namespace ERP.Common.Procesos
             
         }
 
-        private void pagar()
+        private bool pagar()
         {
 
             uiPagar.Enabled = false;
@@ -152,6 +152,7 @@ namespace ERP.Common.Procesos
             if (double.Parse(uiFaltante.Value.ToString()) > 0.01)
             {
                 error = "Es necesario cubrir el total de la venta";
+                
                 
             }
 
@@ -186,18 +187,21 @@ namespace ERP.Common.Procesos
 
                 this.DialogResult = DialogResult.OK;
 
-                this.Close();
+                return true;
                 //System.Threading.Thread.Sleep(2000);
 
             }
             else
             {
+
                 MessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 uiPagar.Enabled = true;
+                return false;
+            }
 
                
-            }
+            
 
         }
 
@@ -276,7 +280,11 @@ namespace ERP.Common.Procesos
 
         private void uiPagar_Click(object sender, EventArgs e)
         {
-            pagar();
+            if (pagar())
+            {
+                this.Close();
+            }
+
         }
 
         private void btnAgregarVale_Click(object sender, EventArgs e)

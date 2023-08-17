@@ -1259,6 +1259,13 @@ namespace ConexionBD
 
                 doc_cargos cargoEntity = new doc_cargos();
 
+                // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
+                var transactionOptions = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
+
                 using (TransactionScope transactionScope = new TransactionScope())
                 {
 
