@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.uiTerminar = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblInstrucciones = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiTotal2)).BeginInit();
@@ -66,29 +66,19 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblInstrucciones);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1147, 45);
+            this.panel1.Size = new System.Drawing.Size(1150, 45);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "DECLARACIÓN DE FONDO";
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 494);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1147, 10);
+            this.panel2.Size = new System.Drawing.Size(1150, 10);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -104,7 +94,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1147, 449);
+            this.panel3.Size = new System.Drawing.Size(1150, 449);
             this.panel3.TabIndex = 2;
             // 
             // uiTerminar
@@ -130,7 +120,7 @@
             0,
             0});
             this.uiTotal2.Name = "uiTotal2";
-            this.uiTotal2.Size = new System.Drawing.Size(139, 30);
+            this.uiTotal2.Size = new System.Drawing.Size(139, 22);
             this.uiTotal2.TabIndex = 6;
             this.uiTotal2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -155,7 +145,7 @@
             0,
             0});
             this.uiTotal1.Name = "uiTotal1";
-            this.uiTotal1.Size = new System.Drawing.Size(139, 30);
+            this.uiTotal1.Size = new System.Drawing.Size(139, 22);
             this.uiTotal1.TabIndex = 4;
             this.uiTotal1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -201,8 +191,8 @@
             this.uiGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiGrid2.Location = new System.Drawing.Point(3, 16);
             this.uiGrid2.Name = "uiGrid2";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiGrid2.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiGrid2.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.uiGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.uiGrid2.Size = new System.Drawing.Size(555, 327);
             this.uiGrid2.TabIndex = 1;
@@ -268,8 +258,8 @@
             this.uiGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiGrid1.Location = new System.Drawing.Point(3, 16);
             this.uiGrid1.Name = "uiGrid1";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiGrid1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiGrid1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.uiGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.uiGrid1.Size = new System.Drawing.Size(555, 327);
             this.uiGrid1.TabIndex = 0;
@@ -308,11 +298,25 @@
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             // 
+            // lblInstrucciones
+            // 
+            this.lblInstrucciones.Appearance.BackColor = System.Drawing.Color.Navy;
+            this.lblInstrucciones.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstrucciones.Appearance.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblInstrucciones.Appearance.Options.UseBackColor = true;
+            this.lblInstrucciones.Appearance.Options.UseFont = true;
+            this.lblInstrucciones.Appearance.Options.UseForeColor = true;
+            this.lblInstrucciones.Location = new System.Drawing.Point(18, 13);
+            this.lblInstrucciones.Name = "lblInstrucciones";
+            this.lblInstrucciones.Size = new System.Drawing.Size(98, 16);
+            this.lblInstrucciones.TabIndex = 1;
+            this.lblInstrucciones.Text = "INSTRUCCIONES";
+            // 
             // frmDeclaracionFondo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 504);
+            this.ClientSize = new System.Drawing.Size(1150, 504);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -342,7 +346,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView uiGrid1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView uiGrid2;
         private System.Windows.Forms.Button uiContinuar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
@@ -360,5 +363,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valor2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad2;
         private System.Windows.Forms.DataGridViewTextBoxColumn total2;
+        private DevExpress.XtraEditors.LabelControl lblInstrucciones;
     }
 }

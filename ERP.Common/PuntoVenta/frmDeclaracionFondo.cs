@@ -111,6 +111,18 @@ namespace ERP.Common.PuntoVenta
 
         private void frmDeclaracionFondo_Load(object sender, EventArgs e)
         {
+            if (tipo == "fondoInicial")
+            {
+                
+                this.Text = "FONDO INICIAL";
+                this.lblInstrucciones.Text = "INDICA LA CANTIDAD DE DINERO CON LA QUE INICIARÁS LA VENTA";
+            }
+            if (tipo == "corteCaja")
+            {
+               
+                this.Text = "CORTE DE CAJA";
+                this.lblInstrucciones.Text = "ESPECIFICA EL TOTAL QUE QUEDÓ EN CAJA (EXCLUYE LOS RETIROS)";
+            }
             oCOntext = new ERPProdEntities();
             llenarGrids();
         }
