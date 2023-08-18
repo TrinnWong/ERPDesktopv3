@@ -3542,6 +3542,12 @@
     <Content Include="Versiones\2023.06.01\28 p_sucursales_productos_config_por_precio_especial.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2023.08.01\01 [p_rpt_VentaTicket].sql" />
+    <Content Include="Versiones\2023.08.01\02 [p_rpt_Comanda].sql" />
+    <Content Include="Versiones\2023.08.01\03 IDX_doc_ventas_detalle.sql" />
+    <Content Include="Versiones\2023.08.01\04 IDX_doc_pedidos_orden_detalle.sql" />
+    <Content Include="Versiones\2023.08.01\05 IDX_doc_ventas.sql" />
+    <Content Include="Versiones\2023.08.01\06 p_rpt_corte_caja_general.sql" />
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3880,7 +3886,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Pedidos\" />
-    <Folder Include="Versiones\2023.08.01\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">

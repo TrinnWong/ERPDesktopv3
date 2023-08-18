@@ -10,6 +10,8 @@ namespace ERP.Models.Precios
     {
         public int productoId { get; set; }
         public string clave { get; set; }
+
+        public string familia { get; set; }
         public string producto { get; set; }
         public int precioId { get; set; }
         public decimal precio { get; set; }

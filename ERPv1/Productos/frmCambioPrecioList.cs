@@ -42,6 +42,7 @@ namespace ERPv1.Productos
 
                 uiGrid.DataSource = oContext.cat_productos_precios
                     .Where(w => (w.cat_productos.Descripcion.ToUpper().Contains(filtro) || 
+                    (w.cat_productos.cat_familias != null ? w.cat_productos.cat_familias.Descripcion.Contains(filtro) : false) ||
                     filtro == "") &&
                     w.cat_productos.Estatus == true &&
                     w.IdPrecio == 1 
@@ -62,7 +63,9 @@ namespace ERPv1.Productos
                                   costoOriginal = s.cat_productos.cat_productos_existencias
                                   .Where(w => w.SucursalId == puntoVentaContext.sucursalId).Count() > 0 ?
                                   s.cat_productos.cat_productos_existencias
-                                  .Where(w => w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault().CostoCapturaUsuario ?? 0 : 0
+                                  .Where(w => w.SucursalId == puntoVentaContext.sucursalId).FirstOrDefault().CostoCapturaUsuario ?? 0 : 0,
+                                  familia = s.cat_productos.cat_familias.Descripcion
+
                         }
                     )
                     .ToList();
@@ -99,6 +102,7 @@ namespace ERPv1.Productos
 
         private void uiGuardar_Click(object sender, EventArgs e)
         {
+            uiGuardar.Enabled = false;
             Guardar();
         }
 
@@ -128,11 +132,12 @@ namespace ERPv1.Productos
                 }
 
                 ERP.Utils.MessageBoxUtil.ShowOk();
+                uiGuardar.Enabled = true;
                 llenarGrid();
             }
             catch (Exception ex)
             {
-
+                uiGuardar.Enabled = true;
                 err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
                                      "ERP",
                                      this.Name,

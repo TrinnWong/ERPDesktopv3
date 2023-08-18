@@ -3,6 +3,7 @@ using ConexionBD.Models;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout;
 using DevExpress.XtraReports.UI;
+using ERP.Common.Forms;
 using ERP.Common.Reports;
 using ERP.Common.Utils;
 using ERP.Models.Mesas;
@@ -22,6 +23,7 @@ namespace ERP.Common.Procesos.Restaurante
 {
     public partial class frmComandaNueva : Form
     {
+        LoadingForm oFormLoading;
         string error = "";
         int copiasImpresion = 2;
         doc_pedidos_orden oPedidoSeleccionado = new doc_pedidos_orden();
@@ -30,6 +32,7 @@ namespace ERP.Common.Procesos.Restaurante
         List<MesaComboBoxModel> lstMesas;
         List<int> mesasId = new List<int>();
         private static frmComandaNueva _instance;
+        int mesaId = 0;
         public static frmComandaNueva GetInstance()
         {
             if (_instance == null) _instance = new frmComandaNueva();
@@ -89,12 +92,15 @@ namespace ERP.Common.Procesos.Restaurante
                         Nombre = s.Nombre,
                         Abierta = s.doc_pedidos_orden_mesa
                                 .Where(
-                                    w => w.doc_pedidos_orden.Activo
+                                    w => w.doc_pedidos_orden.Activo &&
+                                    w.doc_pedidos_orden.VentaId == null
                                 ).Count() > 0 ? true : false
                     })
                      .ToList();
 
                 int iButton = 1;
+
+                
                 foreach (MesaComboBoxModel mesa in lstMesas)
                 {
                     SimpleButton button = (SimpleButton)Controls.Find("simpleButton" + iButton.ToString(), true).FirstOrDefault();
@@ -113,7 +119,7 @@ namespace ERP.Common.Procesos.Restaurante
                     }
                     else
                     {
-                       
+                        button.LookAndFeel.SkinName = "Skin";
                         button.ForeColor = Color.Black;
                     }
 
@@ -133,12 +139,18 @@ namespace ERP.Common.Procesos.Restaurante
         }
         private void Button_Click(object sender, EventArgs e)
         {
+            oFormLoading.Show();
+            limpiarSeccionMesa();
+
             SimpleButton button = (SimpleButton)sender;
-            int mesaId = int.Parse(button.AccessibleName);
+            mesaId = int.Parse(button.AccessibleName);
             string nombreMesa = button.Text;
 
             // Abre la ventana de punto de venta y pasa los datos necesarios
-            BuscarPedidoPorMesa(mesaId, nombreMesa);
+            BuscarPedidoPorMesa( nombreMesa);
+
+
+            oFormLoading.Hide();
         }
         private void llenarLkpMeseros()
         {
@@ -160,6 +172,7 @@ namespace ERP.Common.Procesos.Restaurante
 
         private void frmComandaNueva_Load(object sender, EventArgs e)
         {
+            oFormLoading = new LoadingForm("Procesando...");
             frmPuntoVentaRest frmo = frmPuntoVentaRest.GetInstance();
 
             if (frmo.Visible)
@@ -179,6 +192,7 @@ namespace ERP.Common.Procesos.Restaurante
             oPedidoSeleccionado = new doc_pedidos_orden();
             uiMesaLabel.Text = "";
             uiGrid.DataSource = null;
+            mesaId = 0;
         }
 
         private void HabilitarBotonesMesa(bool valor)
@@ -188,12 +202,12 @@ namespace ERP.Common.Procesos.Restaurante
             uiImprimirCuenta.Enabled = valor;
 
         }
-        private void BuscarPedidoPorMesa(int mesaId,string mesa)
+        private void BuscarPedidoPorMesa(string mesa)
         {
             try
             {
-                limpiarSeccionMesa();
-                int[] indexmesas = new int[] { mesaId }; ;
+               
+                int[] indexmesas = new int[] { this.mesaId }; ;
                 mesasId = new List<int>();
                 mesasId.Add(mesaId);
                 oContext = new ERPProdEntities();
@@ -270,7 +284,7 @@ namespace ERP.Common.Procesos.Restaurante
         private void loadGrid()
         {
            
-            uiGrid.DataSource = oPedidoSeleccionado.doc_pedidos_orden_detalle.ToList();
+            uiGrid.DataSource = oPedidoSeleccionado.doc_pedidos_orden_detalle.Where(w=> (w.Cancelado??true) == false).ToList();
             uiTotal.Value = oPedidoSeleccionado.doc_pedidos_orden_detalle.Sum(s => s.Total);
         }
         private void uiContinuar_Click(object sender, EventArgs e)
@@ -327,64 +341,83 @@ namespace ERP.Common.Procesos.Restaurante
 
         private void uiActualizar_Click(object sender, EventArgs e)
         {
+
+            Actualizar();
+        }
+
+        private void Actualizar()
+        {
             limpiarSeccionMesa();
 
             llenarLkpMesas();
             llenarLkpComanda();
             llenarLkpMeseros();
-           
         }
 
         private void simpleButton22_Click(object sender, EventArgs e)
         {
             if(oPedidoSeleccionado.PedidoId > 0)
             {
+                uiPagar.Enabled = false;
                 abrirFormasPago(oPedidoSeleccionado.PedidoId);
+                Actualizar();
+
             }
             
         }
 
         public void abrirFormasPago(int pedidoId)
         {
-            
-            int cuentaid = pedidoId;
-
-
-            if (cuentaid == 0)
+            try
             {
-                XtraMessageBox.Show("Es necesario abrir una cuenta", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                int cuentaid = pedidoId;
+
+
+                if (cuentaid == 0)
+                {
+                    XtraMessageBox.Show("Es necesario abrir una cuenta", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                //if (
+                //  oContext.doc_pedidos_orden_detalle
+                //  .Where(w => w.PedidoId == cuentaid
+                //  && (w.Impreso ?? false) == false
+                //  && (w.Cancelado ?? false) == false
+                //  ).Count() > 0
+                //  )
+                //{
+                //    XtraMessageBox.Show("Existen comandas sin imprimir, no es posible pagar la cuenta",
+                //        "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //    return;
+                //}
+
+                decimal total = oContext.doc_pedidos_orden_detalle.Where(w => w.PedidoId == cuentaid).Count() > 0 ?
+                    oContext.doc_pedidos_orden_detalle.Where(w => w.PedidoId == cuentaid && (w.Cancelado ?? false) == false).Sum(S => S.Total) : 0;
+
+
+                frmVentaFormasPagoDialog fpForm = new frmVentaFormasPagoDialog();
+                fpForm.StartPosition = FormStartPosition.CenterScreen;
+                fpForm.totalVenta = total;
+
+                var resultDailog = fpForm.ShowDialog();
+
+                if (resultDailog == DialogResult.OK)
+                {
+                    pagar(fpForm.lstFormasPago, new List<ValeFPModel>(), fpForm.lstFormasPago.Sum(s => s.cantidad) ?? 0, fpForm.cambio);
+                
+                }
+
+                uiPagar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+
+                uiPagar.Enabled = true;
             }
            
-
-            if (
-              oContext.doc_pedidos_orden_detalle
-              .Where(w => w.PedidoId == cuentaid
-              && (w.Impreso ?? false) == false
-              && (w.Cancelado ?? false) == false
-              ).Count() > 0
-              )
-            {
-                XtraMessageBox.Show("Existen comandas sin imprimir, no es posible pagar la cuenta",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return;
-            }
-
-            decimal total = oContext.doc_pedidos_orden_detalle.Where(w => w.PedidoId == cuentaid).Count() > 0 ?
-                oContext.doc_pedidos_orden_detalle.Where(w => w.PedidoId == cuentaid && (w.Cancelado ?? false) == false).Sum(S => S.Total) : 0;
-
-
-            frmVentaFormasPagoDialog fpForm = new frmVentaFormasPagoDialog();
-            fpForm.StartPosition = FormStartPosition.CenterScreen;
-            fpForm.totalVenta = total;
-
-            var resultDailog = fpForm.ShowDialog();
-
-            if (resultDailog == DialogResult.OK)
-            {
-                pagar(fpForm.lstFormasPago,new List<ValeFPModel>(), fpForm.lstFormasPago.Sum(s => s.cantidad)??0, fpForm.cambio);
-            }
             
 
 
@@ -513,7 +546,7 @@ namespace ERP.Common.Procesos.Restaurante
                 }
                 catch (Exception ex)
                 {
-
+                    uiPagar.Enabled = true;
                     MessageBox.Show("Ocurrió un error al intentar imprimir el ticket." + ex.Message, "ERROR");
                 }
 
@@ -558,7 +591,7 @@ namespace ERP.Common.Procesos.Restaurante
                 }
                 else
                 {
-                    loadGrid();
+                    BuscarPedidoPorMesa(this.uiMesaLabel.Text);
                 }
             }
             catch (Exception ex)
@@ -665,7 +698,7 @@ namespace ERP.Common.Procesos.Restaurante
             }
 
             AbrirPuntoDeVenta(oPedidoSeleccionado.PedidoId, mesasId.ToArray());
-            this.Close();
+            limpiarSeccionMesa();
 
 
         }
