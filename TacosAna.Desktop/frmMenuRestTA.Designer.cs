@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTickets;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuRestTA));
             this.uiMenuBuscarTicket = new DevExpress.XtraBars.BarButtonItem();
@@ -78,7 +79,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.uiRevisarRed = new System.Windows.Forms.Timer();
+            this.uiRevisarRed = new System.Windows.Forms.Timer(this.components);
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -151,7 +152,6 @@
             this.uiMenuAjusteInventario,
             this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 34;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -164,7 +164,7 @@
             this.ribbonPage2,
             this.rbSesion});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(1154, 65);
+            this.ribbonControl1.Size = new System.Drawing.Size(989, 52);
             // 
             // uiMenuNuevaCuenta
             // 
@@ -534,13 +534,11 @@
             // 
             // frmMenuRestTA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 790);
+            this.ClientSize = new System.Drawing.Size(989, 642);
             this.Controls.Add(this.ribbonControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMenuRestTA";
             this.Text = "frmMenuRest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
