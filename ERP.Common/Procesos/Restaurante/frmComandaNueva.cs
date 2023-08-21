@@ -284,7 +284,7 @@ namespace ERP.Common.Procesos.Restaurante
         private void loadGrid()
         {
            
-            uiGrid.DataSource = oPedidoSeleccionado.doc_pedidos_orden_detalle.Where(w=> (w.Cancelado??true) == false).ToList();
+            uiGrid.DataSource = oPedidoSeleccionado.doc_pedidos_orden_detalle.Where(w=> (w.Cancelado??false) == false).ToList();
             uiTotal.Value = oPedidoSeleccionado.doc_pedidos_orden_detalle.Sum(s => s.Total);
         }
         private void uiContinuar_Click(object sender, EventArgs e)

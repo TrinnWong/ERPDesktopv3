@@ -139,6 +139,8 @@ namespace PuntoVenta
             {
                 AbrirComanda();
             }
+
+            EncenderTareaImpresion();
         }
 
         private void uiMenuNuevaCuenta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -726,7 +728,13 @@ namespace PuntoVenta
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           if( Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
+            EncenderTareaImpresion();
+        }
+
+        private void EncenderTareaImpresion()
+        {
+
+            if (Process.GetProcessesByName("ERP.Background.Task").Count() > 0)
             {
                 ERP.Utils.MessageBoxUtil.ShowWarning("Ya existe una instanacia de la tarea abierta");
             }
@@ -738,8 +746,7 @@ namespace PuntoVenta
                 p.StartInfo = psi;
                 p.Start();
             }
-                
-            
+
         }
     }
 }
