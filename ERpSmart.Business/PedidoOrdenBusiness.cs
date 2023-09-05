@@ -11,7 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using DevExpress.XtraReports.UI;
-
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ConexionBD
 {
@@ -1262,7 +1263,7 @@ namespace ConexionBD
                 // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
                 var transactionOptions = new TransactionOptions
                 {
-                    IsolationLevel = IsolationLevel.ReadCommitted,
+                    IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted,
                     Timeout = TimeSpan.FromMinutes(5)
                 };
 
@@ -1358,8 +1359,10 @@ namespace ConexionBD
 
                     if (esNuevo)
                     {
+
+                        p_doc_pedidos_orden_mesa_mesero_del(orden.PedidoId);
                         #region mesas
-                        oContext.p_doc_pedidos_orden_mesa_del(orden.PedidoId);
+                        //oContext.p_doc_pedidos_orden_mesa_del(orden.PedidoId);
 
                         if (mesas != null)
                         {
@@ -1372,7 +1375,7 @@ namespace ConexionBD
                         #endregion
 
                         #region meseros
-                        oContext.p_doc_pedidos_orden_mesero_del(orden.PedidoId);
+                        //oContext.p_doc_pedidos_orden_mesero_del(orden.PedidoId);
 
                         if (meseroId > 0)
                         {
@@ -1412,9 +1415,9 @@ namespace ConexionBD
 
                         comandaId = comandaId > 0 ? comandaId : int.Parse(pComandaId.Value.ToString());
 
-
+                        p_doc_pedidos_orden_ingre_adicional_del(itemDet.PedidoDetalleId);
                         #region ingredientes
-                        oContext.p_doc_pedidos_orden_ingre_del(orden.PedidoId);
+                        //oContext.p_doc_pedidos_orden_ingre_del(itemDet.PedidoDetalleId);
 
                         foreach (int itemIng in SinIngredientesId)
                         {
@@ -1424,7 +1427,7 @@ namespace ConexionBD
 
 
                         #region adicionales
-                        oContext.p_doc_pedidos_orden_adicional_del(orden.PedidoId);
+                        //oContext.p_doc_pedidos_orden_adicional_del(itemDet.PedidoDetalleId);
 
                         foreach (int itemAdic in adicionalesId)
                         {
@@ -1458,7 +1461,43 @@ namespace ConexionBD
             return error;
         }
 
+        public void p_doc_pedidos_orden_mesa_mesero_del(int pPedidoOrdenId )
+        {
+     
 
+                using (SqlCommand cmd = new SqlCommand("p_doc_pedidos_orden_mesa_mesero_del", ((SqlConnection)oContext.Database.Connection)))
+                {
+                    cmd.Connection.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del procedimiento almacenado
+                    cmd.Parameters.Add(new SqlParameter("@pPedidoOrdenId", SqlDbType.Int));
+                    cmd.Parameters["@pPedidoOrdenId"].Value = pPedidoOrdenId;
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                }
+           
+        }
+
+        public void p_doc_pedidos_orden_ingre_adicional_del(int pPedidoDetalleId)
+        {
+            
+
+                using (SqlCommand cmd = new SqlCommand("p_doc_pedidos_orden_ingre_adicional_del", ((SqlConnection)oContext.Database.Connection)))
+                {
+                    cmd.Connection.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del procedimiento almacenado
+                    cmd.Parameters.Add(new SqlParameter("@pPedidoDetalleId", SqlDbType.Int));
+                    cmd.Parameters["@pPedidoDetalleId"].Value = pPedidoDetalleId;
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Connection.Close();
+                }
+            
+        }
 
         public static decimal ObtenerCantidadPendienteBascula(int pedidoDetalleId,int usuarioId)
         {

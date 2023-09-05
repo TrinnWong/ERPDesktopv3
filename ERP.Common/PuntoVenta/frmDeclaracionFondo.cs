@@ -24,6 +24,7 @@ namespace ERP.Common.PuntoVenta
         public PuntoVentaContext puntoVentaContext;
         List<DeclaracionFondoModel> model1;
         List<DeclaracionFondoModel> model2;
+        public bool permitirCorteCero = false;
 
         DeclaracionFondoBusiness oDeclaracionB;
         public frmDeclaracionFondo()
@@ -291,7 +292,7 @@ namespace ERP.Common.PuntoVenta
                     {
                         frmMenuRest oForm = frmMenuRest.GetInstance();
                         oForm.puntoVentaContext = this.puntoVentaContext;
-                        oForm.CorteCaja(model1, false,imprimirCorte,cerrarSistema);
+                        oForm.CorteCaja(model1, this.permitirCorteCero,imprimirCorte,cerrarSistema);
                         if(oForm.errorCorte.Length > 0)
                         {
                             ERP.Utils.MessageBoxUtil.ShowError(oForm.errorCorte);

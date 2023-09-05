@@ -165,7 +165,9 @@ namespace ERP.Common.PuntoVenta
                                 frm.tipo = "corteCaja";
                                 frm.imprimirCorte = imprimirCorte;
                                 frm.cerrarSistema = cerrarSistema;
+                                frm.permitirCorteCero = permitirCorteCeros;
                                 frm.StartPosition = FormStartPosition.CenterScreen;
+                                
                                 var resultDF = frm.ShowDialog();
                                 if(resultDF == DialogResult.OK)
                                 {

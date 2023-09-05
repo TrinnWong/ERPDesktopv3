@@ -86,16 +86,16 @@ namespace ERP.Common.Reports
 
             if (comanda)
             {
-                entityImpresora = oImpresora.ObtenerComandaImpresora(sucursalId);
+                entityImpresora = ERP.Business.DataMemory.DataBucket.GetImpresoraComanda(sucursalId,false);
             }
             else
             {
-                entityImpresora = oImpresora.ObtenerCajaImpresora(cajaId);
+                entityImpresora = ERP.Business.DataMemory.DataBucket.GetImpresoraCaja(cajaId, false);
             }
             
 
             oContext = new ERPProdEntities();
-            cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+            cat_configuracion entity = ERP.Business.DataMemory.DataBucket.GetConfiguracion(false); 
 
             printerName = entityImpresora.NombreRed;
             vistaPrevia = entity.vistaPreviaImpresion ?? false;

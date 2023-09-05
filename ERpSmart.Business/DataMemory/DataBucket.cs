@@ -15,7 +15,9 @@ namespace ERP.Business.DataMemory
         public static List<cat_productos> lstProductosProduccion;
         public static List<cat_familias> lstFamilias;
         public static List<doc_clientes_productos_precios> lstClientesProductosPrecios;
-
+        public static cat_impresoras entityImpresoraComanda;
+        public static cat_impresoras entityImpresoraCaja;
+        public static cat_configuracion entityConfiguracion;
         public static List<cat_productos>  GetProductosMemory(bool refresh)
         {
             
@@ -110,11 +112,63 @@ namespace ERP.Business.DataMemory
             return lstClientesProductosPrecios;
         }
 
+        public static cat_configuracion GetConfiguracion( bool refresh)
+        {
+            if (entityConfiguracion == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+
+                entityConfiguracion = oContext.cat_configuracion.FirstOrDefault();
+
+
+
+            }
+
+            return entityConfiguracion;
+        }
+
+        public static cat_impresoras GetImpresoraComanda(int sucursalId, bool refresh)
+        {
+            if (entityImpresoraComanda == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+
+                entityImpresoraComanda = oContext.cat_impresoras
+                 .Where(w => w.SucursalId == sucursalId &&
+                 w.cat_impresoras_comandas != null).FirstOrDefault();
+
+
+
+            }
+
+            return entityImpresoraComanda;
+        }
+
+        public static cat_impresoras GetImpresoraCaja(int cajaId, bool refresh)
+        {
+            if (entityImpresoraCaja == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+
+                entityImpresoraCaja = oContext.cat_impresoras
+                .Where(
+                w => w.cat_cajas_impresora.Where(s1 => s1.CajaId == cajaId).Count() > 0
+                ).FirstOrDefault();
+
+
+
+            }
+
+            return entityImpresoraComanda;
+        }
+
         public static void ClearData()
         {
             lstProductos = null;
             lstFamilias = null;
             lstClientesProductosPrecios = null;
+            entityImpresoraCaja = null;
+            entityImpresoraComanda = null;
         }
 
         public static void LoadAll()

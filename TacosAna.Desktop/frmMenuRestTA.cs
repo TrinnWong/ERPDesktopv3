@@ -127,6 +127,9 @@ namespace TacosAna.Desktop
             {
                 AbrirComanda();
             */
+
+            ERP.Business.DataMemory.DataBucket.GetImpresoraCaja(this.puntoVentaContext.cajaId, true);
+            ERP.Business.DataMemory.DataBucket.GetImpresoraComanda(this.puntoVentaContext.sucursalId, true);
             AbrirPuntoDeVenta();
         }
 

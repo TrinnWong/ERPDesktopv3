@@ -125,6 +125,7 @@ namespace TacosAna.Desktop
         string error;
         decimal descuentoEmpleado { get; set; }
         cat_configuracion entityConfiguracion;
+        cat_impresoras entityImpresoraComanda;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -162,8 +163,12 @@ namespace TacosAna.Desktop
             {
                 cantidadLimiteRetiro = Convert.ToDecimal(error);
             }
-               
-            
+
+            ImpresorasBusiness oImpresora = new ImpresorasBusiness();
+            ERP.Business.DataMemory.DataBucket.GetImpresoraComanda(this.puntoVentaContext.sucursalId, true);
+            ERP.Business.DataMemory.DataBucket.GetImpresoraCaja(this.puntoVentaContext.cajaId, true);
+            entityImpresoraComanda = oImpresora.ObtenerComandaImpresora(this.puntoVentaContext.sucursalId);
+            ERP.Business.DataMemory.DataBucket.GetConfiguracion(true);
             Inicializar();
 
            
@@ -3299,8 +3304,8 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-                    abrirCajon();
 
+                    
                     cat_configuracion entity =entityConfiguracion;
 
                     if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
@@ -3314,7 +3319,10 @@ namespace TacosAna.Desktop
 
                     }
 
+                    abrirCajon();
                     Inicializar();
+
+                    
                 }
 
 
@@ -3348,9 +3356,7 @@ namespace TacosAna.Desktop
         {
             try
             {
-                ImpresorasBusiness oImpresora = new ImpresorasBusiness();
-                cat_impresoras entityImpresora;
-                entityImpresora = oImpresora.ObtenerComandaImpresora(this.puntoVentaContext.sucursalId);
+               
                 rptComanda oReport = new rptComanda();
                 oReport.DataSource = oContext.p_rpt_Comanda(pedidoId, 0, true, "").ToList();
                 oReport.CreateDocument();
@@ -3361,7 +3367,7 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-                    oReport.Print(entityImpresora.NombreRed);
+                    oReport.Print(entityImpresoraComanda.NombreRed);
                 }
 
             }
