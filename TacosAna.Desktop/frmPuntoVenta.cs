@@ -11,11 +11,13 @@ using ERP.Common.Utils;
 using ERP.Models.Pedidos;
 using ERP.Models.Producto;
 using ERP.Reports.TacosAna;
+using GrapeCity.ActiveReports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1938,7 +1940,7 @@ namespace TacosAna.Desktop
                 {
                     imprimirComanda(orden.PedidoId);
 
-                    XtraMessageBox.Show("OK. El registro se guardó correctamente", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //XtraMessageBox.Show("OK. El registro se guardó correctamente", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Inicializar();
                     return "";
                 }
@@ -3277,12 +3279,12 @@ namespace TacosAna.Desktop
                         XtraMessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    
 
                     pedidoId = orden.PedidoId;
                 }
 
                 #endregion
-
 
 
                 error = puntoVenta.pagar(ref ventaId, clienteId, "", 0, 0, lstPedido.Sum(s => s.totalDescuento), lstPedido.Sum(s => s.totalImpuestos),
@@ -3308,21 +3310,26 @@ namespace TacosAna.Desktop
                     
                     cat_configuracion entity =entityConfiguracion;
 
-                    if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
+                    if (pedido.TipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo || pedido.TipoPedidoId == null)
                     {
-                        imprimirTicket((int)ventaId);
+                        imprimirComanda(pedidoId);
+                    }
 
-                        if (pedido.TipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo || pedido.TipoPedidoId == null)
-                        {
-                            imprimirComanda(pedidoId);
-                        }
+                    
+
+                    if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
+                    {                        
+
+                        imprimirTicket((int)ventaId);   
 
                     }
 
-                    abrirCajon();
-                    Inicializar();
 
-                    
+                    Inicializar();
+                    abrirCajon();
+
+
+
                 }
 
 
@@ -3335,11 +3342,36 @@ namespace TacosAna.Desktop
             {
                 ERP.Reports.TacosAna.rptVentaTicket oTicket2 = new ERP.Reports.TacosAna.rptVentaTicket(ventaId);
                 
-                ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(puntoVentaContext.sucursalId,this.puntoVentaContext.cajaId,false);
+                //ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(puntoVentaContext.sucursalId,this.puntoVentaContext.cajaId,false);
 
                 oTicket2.DataSource = oContext.p_rpt_VentaTicket(ventaId).ToList();
 
-                oViewer.ShowTicket(oTicket2);
+                //oViewer.ShowTicket(oTicket2);
+
+
+
+                // Configura la impresora
+                PrinterSettings printerSettings = new PrinterSettings();
+                printerSettings.PrinterName = ERP.Business.DataMemory.DataBucket.entityImpresoraCaja.NombreRed;
+                //printerSettings.DefaultPageSettings.PaperSize = new PaperSize("Custom", 800, 32767); // 80mm x 32767mm (altura máxima)
+
+                // Crea un objeto PrintDocument
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrinterSettings = printerSettings;
+
+                // Asocia el informe con el PrintDocument
+                oTicket2.Run();
+                printDocument.PrintPage += (sender, e) =>
+                {
+                    e.HasMorePages = false; // Establece esto en false para imprimir una sola página
+
+                    oTicket2.Document.Print(false);
+
+                };
+
+                // Imprime el informe
+                printDocument.Print();
+
             }
             catch (Exception ex)
             {

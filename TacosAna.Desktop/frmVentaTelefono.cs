@@ -169,9 +169,16 @@ namespace TacosAna.Desktop
 
         private void frmVentaTelefono_Load(object sender, EventArgs e)
         {
+            if (esVentaPorTelefono)
+            {
+                uiTelefono.Text = "8330000000";
+                uiNombre.Focus();
+                uiNombre.Select();
+                BuscarCliente();
+            }
             if(programacion != null)
             {
-                if(programacion.cat_clientes != null)
+                if(programacion.cat_clientes.ClienteId>0)
                 {
                     uiNombre.Text = programacion.cat_clientes.Nombre;
                     uiTelefono.Text = programacion.cat_clientes.Telefono;
@@ -205,6 +212,11 @@ namespace TacosAna.Desktop
 
         private void uiTelefono_Leave(object sender, EventArgs e)
         {
+            BuscarCliente();  
+        }
+
+        private void BuscarCliente()
+        {
             try
             {
                 string telefono = uiTelefono.Text;
@@ -219,7 +231,7 @@ namespace TacosAna.Desktop
             catch (Exception ex)
             {
 
-                
+
             }
         }
     }
