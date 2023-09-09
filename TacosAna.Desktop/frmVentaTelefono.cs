@@ -116,6 +116,7 @@ namespace TacosAna.Desktop
 
                 if (esVentaPorTelefono)
                 {
+                    uiNotas.Text = String.Format("Para: {0} {1}",uiNombre.Text,uiNotas.Text);
                     frmPuntoVenta.GetInstance().guardarTemporal(uiNotas.Text.Length > 0 ? uiNotas.Text : frmPuntoVenta.GetInstance().notas, ERP.Business.Enumerados.tipoPedido.PedidoTelefono);
                 }
                 else

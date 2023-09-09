@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCuentasListado));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.cuentaPendienteViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
@@ -102,9 +102,9 @@
             // repBtnVer
             // 
             this.repBtnVer.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.repBtnVer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repBtnVer.Name = "repBtnVer";
             this.repBtnVer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repBtnVer.Click += new System.EventHandler(this.repBtnVer_Click);
@@ -146,7 +146,7 @@
             this.colimporte.OptionsColumn.AllowEdit = false;
             this.colimporte.Visible = true;
             this.colimporte.VisibleIndex = 4;
-            this.colimporte.Width = 106;
+            this.colimporte.Width = 103;
             // 
             // colfechaApertura
             // 
@@ -173,7 +173,8 @@
             this.colEstatus.Name = "colEstatus";
             this.colEstatus.OptionsColumn.AllowEdit = false;
             this.colEstatus.Visible = true;
-            this.colEstatus.VisibleIndex = 5;
+            this.colEstatus.VisibleIndex = 6;
+            this.colEstatus.Width = 70;
             // 
             // gridColumn2
             // 
@@ -182,8 +183,8 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 153;
+            this.gridColumn2.VisibleIndex = 3;
+            this.gridColumn2.Width = 144;
             // 
             // gridColumn3
             // 
@@ -194,8 +195,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 6;
-            this.gridColumn3.Width = 71;
+            this.gridColumn3.VisibleIndex = 7;
+            this.gridColumn3.Width = 66;
             // 
             // gridColumn4
             // 
@@ -206,8 +207,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 7;
-            this.gridColumn4.Width = 90;
+            this.gridColumn4.VisibleIndex = 8;
+            this.gridColumn4.Width = 84;
             // 
             // gridColumn5
             // 
@@ -216,8 +217,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 8;
-            this.gridColumn5.Width = 36;
+            this.gridColumn5.VisibleIndex = 9;
+            this.gridColumn5.Width = 33;
             // 
             // gcSaldo
             // 
@@ -228,7 +229,7 @@
             this.gcSaldo.OptionsColumn.AllowEdit = false;
             this.gcSaldo.Visible = true;
             this.gcSaldo.VisibleIndex = 9;
-            this.gcSaldo.Width = 94;
+            this.gcSaldo.Width = 102;
             // 
             // repositoryItemCalcEdit1
             // 
@@ -247,7 +248,7 @@
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 54;
+            this.gridColumn6.Width = 53;
             // 
             // gridColumn7
             // 
@@ -256,13 +257,13 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 3;
-            this.gridColumn7.Width = 107;
+            this.gridColumn7.VisibleIndex = 4;
+            this.gridColumn7.Width = 101;
             // 
             // uiGrid
             // 
             this.uiGrid.DataSource = this.cuentaPendienteViewModelBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(18, 18);
+            this.uiGrid.Location = new System.Drawing.Point(12, 12);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -271,7 +272,7 @@
             this.repBtnVer,
             this.repositoryItemSpinEdit2,
             this.repositoryItemCalcEdit1});
-            this.uiGrid.Size = new System.Drawing.Size(890, 290);
+            this.uiGrid.Size = new System.Drawing.Size(934, 302);
             this.uiGrid.TabIndex = 0;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -293,7 +294,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(926, 326);
+            this.layoutControl1.Size = new System.Drawing.Size(958, 326);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -305,7 +306,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(926, 326);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(958, 326);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -313,7 +314,7 @@
             this.layoutControlItem1.Control = this.uiGrid;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(896, 296);
+            this.layoutControlItem1.Size = new System.Drawing.Size(938, 306);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -321,7 +322,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 326);
+            this.ClientSize = new System.Drawing.Size(958, 326);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

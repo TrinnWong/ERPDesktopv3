@@ -821,11 +821,11 @@ namespace TacosAna.Desktop
                     }
                     if (descripcionPartida.Contains(" C ") && !descripcionPartida.Contains(" CH "))
                     {
-                        descripcionPartida = descripcionPartida.Replace(" C ", " 4C ");
+                        descripcionPartida = descripcionPartida.Replace(" C ", " C ");
                     }
                     if (!descripcionPartida.Contains(" C ") && descripcionPartida.Contains(" CH "))
                     {
-                        descripcionPartida = descripcionPartida.Replace(" CH ", " 4CH ");
+                        descripcionPartida = descripcionPartida.Replace(" CH ", " CH ");
                     }
 
                 }
@@ -844,7 +844,7 @@ namespace TacosAna.Desktop
                     }
                     if (!descripcionPartida.Contains(" C ") && descripcionPartida.Contains(" CH "))
                     {
-                        descripcionPartida = descripcionPartida.Replace(" CH ", " 10CH ");
+                        descripcionPartida = descripcionPartida.Replace(" CH ", " CH ");
                     }
 
                 }

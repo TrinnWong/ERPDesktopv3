@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnProd1 = new System.Windows.Forms.Button();
             this.btnProd2 = new System.Windows.Forms.Button();
             this.btnProd3 = new System.Windows.Forms.Button();
@@ -196,10 +196,9 @@
             this.btnProd1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd1.ForeColor = System.Drawing.Color.White;
-            this.btnProd1.Location = new System.Drawing.Point(7, 7);
-            this.btnProd1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd1.Location = new System.Drawing.Point(6, 6);
             this.btnProd1.Name = "btnProd1";
-            this.btnProd1.Size = new System.Drawing.Size(96, 43);
+            this.btnProd1.Size = new System.Drawing.Size(82, 35);
             this.btnProd1.TabIndex = 0;
             this.btnProd1.UseVisualStyleBackColor = false;
             this.btnProd1.Click += new System.EventHandler(this.btnProd1_Click);
@@ -210,10 +209,9 @@
             this.btnProd2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd2.ForeColor = System.Drawing.Color.White;
-            this.btnProd2.Location = new System.Drawing.Point(7, 53);
-            this.btnProd2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd2.Location = new System.Drawing.Point(6, 43);
             this.btnProd2.Name = "btnProd2";
-            this.btnProd2.Size = new System.Drawing.Size(96, 43);
+            this.btnProd2.Size = new System.Drawing.Size(82, 35);
             this.btnProd2.TabIndex = 1;
             this.btnProd2.UseVisualStyleBackColor = false;
             this.btnProd2.Click += new System.EventHandler(this.btnProd2_Click);
@@ -224,10 +222,9 @@
             this.btnProd3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd3.ForeColor = System.Drawing.Color.White;
-            this.btnProd3.Location = new System.Drawing.Point(7, 100);
-            this.btnProd3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd3.Location = new System.Drawing.Point(6, 81);
             this.btnProd3.Name = "btnProd3";
-            this.btnProd3.Size = new System.Drawing.Size(96, 43);
+            this.btnProd3.Size = new System.Drawing.Size(82, 35);
             this.btnProd3.TabIndex = 2;
             this.btnProd3.UseVisualStyleBackColor = false;
             this.btnProd3.Click += new System.EventHandler(this.btnProd3_Click);
@@ -238,10 +235,9 @@
             this.btnProd4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd4.ForeColor = System.Drawing.Color.White;
-            this.btnProd4.Location = new System.Drawing.Point(7, 146);
-            this.btnProd4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd4.Location = new System.Drawing.Point(6, 119);
             this.btnProd4.Name = "btnProd4";
-            this.btnProd4.Size = new System.Drawing.Size(96, 43);
+            this.btnProd4.Size = new System.Drawing.Size(82, 35);
             this.btnProd4.TabIndex = 3;
             this.btnProd4.UseVisualStyleBackColor = false;
             this.btnProd4.Click += new System.EventHandler(this.btnProd4_Click);
@@ -252,10 +248,9 @@
             this.btnProd5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd5.ForeColor = System.Drawing.Color.White;
-            this.btnProd5.Location = new System.Drawing.Point(7, 192);
-            this.btnProd5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd5.Location = new System.Drawing.Point(6, 156);
             this.btnProd5.Name = "btnProd5";
-            this.btnProd5.Size = new System.Drawing.Size(96, 43);
+            this.btnProd5.Size = new System.Drawing.Size(82, 35);
             this.btnProd5.TabIndex = 4;
             this.btnProd5.UseVisualStyleBackColor = false;
             this.btnProd5.Click += new System.EventHandler(this.btnProd5_Click);
@@ -266,10 +261,9 @@
             this.btnProd6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd6.ForeColor = System.Drawing.Color.White;
-            this.btnProd6.Location = new System.Drawing.Point(7, 239);
-            this.btnProd6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd6.Location = new System.Drawing.Point(6, 194);
             this.btnProd6.Name = "btnProd6";
-            this.btnProd6.Size = new System.Drawing.Size(96, 43);
+            this.btnProd6.Size = new System.Drawing.Size(82, 35);
             this.btnProd6.TabIndex = 5;
             this.btnProd6.UseVisualStyleBackColor = false;
             this.btnProd6.Click += new System.EventHandler(this.btnProd6_Click);
@@ -280,10 +274,9 @@
             this.uiEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uiEnter.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.uiEnter.ForeColor = System.Drawing.Color.White;
-            this.uiEnter.Location = new System.Drawing.Point(213, 194);
-            this.uiEnter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiEnter.Location = new System.Drawing.Point(183, 158);
             this.uiEnter.Name = "uiEnter";
-            this.uiEnter.Size = new System.Drawing.Size(96, 59);
+            this.uiEnter.Size = new System.Drawing.Size(82, 48);
             this.uiEnter.TabIndex = 11;
             this.uiEnter.Text = "ENT";
             this.uiEnter.UseVisualStyleBackColor = false;
@@ -295,10 +288,9 @@
             this.btnG2_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG2_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG2_4.ForeColor = System.Drawing.Color.White;
-            this.btnG2_4.Location = new System.Drawing.Point(213, 146);
-            this.btnG2_4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG2_4.Location = new System.Drawing.Point(183, 119);
             this.btnG2_4.Name = "btnG2_4";
-            this.btnG2_4.Size = new System.Drawing.Size(96, 43);
+            this.btnG2_4.Size = new System.Drawing.Size(82, 35);
             this.btnG2_4.TabIndex = 10;
             this.btnG2_4.Text = "MITAD";
             this.btnG2_4.UseVisualStyleBackColor = false;
@@ -310,10 +302,9 @@
             this.btnG2_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG2_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG2_3.ForeColor = System.Drawing.Color.White;
-            this.btnG2_3.Location = new System.Drawing.Point(213, 101);
-            this.btnG2_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG2_3.Location = new System.Drawing.Point(183, 82);
             this.btnG2_3.Name = "btnG2_3";
-            this.btnG2_3.Size = new System.Drawing.Size(96, 43);
+            this.btnG2_3.Size = new System.Drawing.Size(82, 35);
             this.btnG2_3.TabIndex = 9;
             this.btnG2_3.Text = "CON";
             this.btnG2_3.UseVisualStyleBackColor = false;
@@ -325,10 +316,9 @@
             this.btnG2_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG2_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG2_2.ForeColor = System.Drawing.Color.White;
-            this.btnG2_2.Location = new System.Drawing.Point(213, 53);
-            this.btnG2_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG2_2.Location = new System.Drawing.Point(183, 43);
             this.btnG2_2.Name = "btnG2_2";
-            this.btnG2_2.Size = new System.Drawing.Size(96, 43);
+            this.btnG2_2.Size = new System.Drawing.Size(82, 35);
             this.btnG2_2.TabIndex = 8;
             this.btnG2_2.Text = "POR X";
             this.btnG2_2.UseVisualStyleBackColor = false;
@@ -340,10 +330,9 @@
             this.btnG2_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG2_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG2_1.ForeColor = System.Drawing.Color.White;
-            this.btnG2_1.Location = new System.Drawing.Point(213, 7);
-            this.btnG2_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG2_1.Location = new System.Drawing.Point(183, 6);
             this.btnG2_1.Name = "btnG2_1";
-            this.btnG2_1.Size = new System.Drawing.Size(96, 43);
+            this.btnG2_1.Size = new System.Drawing.Size(82, 35);
             this.btnG2_1.TabIndex = 7;
             this.btnG2_1.Text = "SIN /";
             this.btnG2_1.UseVisualStyleBackColor = false;
@@ -355,10 +344,9 @@
             this.btnG3_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_1.ForeColor = System.Drawing.Color.White;
-            this.btnG3_1.Location = new System.Drawing.Point(322, 7);
-            this.btnG3_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_1.Location = new System.Drawing.Point(276, 6);
             this.btnG3_1.Name = "btnG3_1";
-            this.btnG3_1.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_1.Size = new System.Drawing.Size(82, 35);
             this.btnG3_1.TabIndex = 12;
             this.btnG3_1.UseVisualStyleBackColor = false;
             this.btnG3_1.Click += new System.EventHandler(this.btnG3_1_Click);
@@ -369,10 +357,9 @@
             this.btnG3_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_2.ForeColor = System.Drawing.Color.White;
-            this.btnG3_2.Location = new System.Drawing.Point(421, 7);
-            this.btnG3_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_2.Location = new System.Drawing.Point(361, 6);
             this.btnG3_2.Name = "btnG3_2";
-            this.btnG3_2.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_2.Size = new System.Drawing.Size(82, 35);
             this.btnG3_2.TabIndex = 13;
             this.btnG3_2.UseVisualStyleBackColor = false;
             this.btnG3_2.Click += new System.EventHandler(this.btnG3_2_Click);
@@ -383,10 +370,9 @@
             this.btnG3_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_3.ForeColor = System.Drawing.Color.White;
-            this.btnG3_3.Location = new System.Drawing.Point(520, 7);
-            this.btnG3_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_3.Location = new System.Drawing.Point(446, 6);
             this.btnG3_3.Name = "btnG3_3";
-            this.btnG3_3.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_3.Size = new System.Drawing.Size(82, 35);
             this.btnG3_3.TabIndex = 14;
             this.btnG3_3.UseVisualStyleBackColor = false;
             this.btnG3_3.Click += new System.EventHandler(this.btnG3_3_Click);
@@ -397,10 +383,9 @@
             this.btnG3_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_4.ForeColor = System.Drawing.Color.White;
-            this.btnG3_4.Location = new System.Drawing.Point(619, 7);
-            this.btnG3_4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_4.Location = new System.Drawing.Point(531, 6);
             this.btnG3_4.Name = "btnG3_4";
-            this.btnG3_4.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_4.Size = new System.Drawing.Size(82, 35);
             this.btnG3_4.TabIndex = 15;
             this.btnG3_4.UseVisualStyleBackColor = false;
             this.btnG3_4.Click += new System.EventHandler(this.btnG3_4_Click);
@@ -411,10 +396,9 @@
             this.btnG3_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_5.ForeColor = System.Drawing.Color.White;
-            this.btnG3_5.Location = new System.Drawing.Point(719, 7);
-            this.btnG3_5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_5.Location = new System.Drawing.Point(616, 6);
             this.btnG3_5.Name = "btnG3_5";
-            this.btnG3_5.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_5.Size = new System.Drawing.Size(82, 35);
             this.btnG3_5.TabIndex = 16;
             this.btnG3_5.UseVisualStyleBackColor = false;
             this.btnG3_5.Click += new System.EventHandler(this.btnG3_5_Click);
@@ -425,10 +409,9 @@
             this.btnG3_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_6.ForeColor = System.Drawing.Color.White;
-            this.btnG3_6.Location = new System.Drawing.Point(818, 7);
-            this.btnG3_6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_6.Location = new System.Drawing.Point(701, 6);
             this.btnG3_6.Name = "btnG3_6";
-            this.btnG3_6.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_6.Size = new System.Drawing.Size(82, 35);
             this.btnG3_6.TabIndex = 17;
             this.btnG3_6.UseVisualStyleBackColor = false;
             this.btnG3_6.Click += new System.EventHandler(this.btnG3_6_Click);
@@ -440,10 +423,9 @@
             this.btnG4_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_5.ForeColor = System.Drawing.Color.White;
-            this.btnG4_5.Location = new System.Drawing.Point(719, 100);
-            this.btnG4_5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_5.Location = new System.Drawing.Point(616, 81);
             this.btnG4_5.Name = "btnG4_5";
-            this.btnG4_5.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_5.Size = new System.Drawing.Size(82, 35);
             this.btnG4_5.TabIndex = 22;
             this.btnG4_5.UseVisualStyleBackColor = false;
             this.btnG4_5.Click += new System.EventHandler(this.btnG4_5_Click);
@@ -455,10 +437,9 @@
             this.btnG4_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_4.ForeColor = System.Drawing.Color.White;
-            this.btnG4_4.Location = new System.Drawing.Point(619, 100);
-            this.btnG4_4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_4.Location = new System.Drawing.Point(531, 81);
             this.btnG4_4.Name = "btnG4_4";
-            this.btnG4_4.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_4.Size = new System.Drawing.Size(82, 35);
             this.btnG4_4.TabIndex = 21;
             this.btnG4_4.UseVisualStyleBackColor = false;
             this.btnG4_4.Click += new System.EventHandler(this.btnG4_4_Click);
@@ -470,10 +451,9 @@
             this.btnG4_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_3.ForeColor = System.Drawing.Color.White;
-            this.btnG4_3.Location = new System.Drawing.Point(520, 100);
-            this.btnG4_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_3.Location = new System.Drawing.Point(446, 81);
             this.btnG4_3.Name = "btnG4_3";
-            this.btnG4_3.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_3.Size = new System.Drawing.Size(82, 35);
             this.btnG4_3.TabIndex = 20;
             this.btnG4_3.UseVisualStyleBackColor = false;
             this.btnG4_3.Click += new System.EventHandler(this.btnG4_3_Click);
@@ -484,10 +464,9 @@
             this.btnG4_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_2.ForeColor = System.Drawing.Color.White;
-            this.btnG4_2.Location = new System.Drawing.Point(421, 100);
-            this.btnG4_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_2.Location = new System.Drawing.Point(361, 81);
             this.btnG4_2.Name = "btnG4_2";
-            this.btnG4_2.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_2.Size = new System.Drawing.Size(82, 35);
             this.btnG4_2.TabIndex = 19;
             this.btnG4_2.UseVisualStyleBackColor = false;
             this.btnG4_2.Click += new System.EventHandler(this.btnG4_2_Click);
@@ -498,10 +477,9 @@
             this.btnG4_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_1.ForeColor = System.Drawing.Color.White;
-            this.btnG4_1.Location = new System.Drawing.Point(322, 100);
-            this.btnG4_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_1.Location = new System.Drawing.Point(276, 81);
             this.btnG4_1.Name = "btnG4_1";
-            this.btnG4_1.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_1.Size = new System.Drawing.Size(82, 35);
             this.btnG4_1.TabIndex = 18;
             this.btnG4_1.UseVisualStyleBackColor = false;
             this.btnG4_1.Click += new System.EventHandler(this.btnG4_1_Click);
@@ -512,10 +490,9 @@
             this.btnG4_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_8.ForeColor = System.Drawing.Color.White;
-            this.btnG4_8.Location = new System.Drawing.Point(1016, 98);
-            this.btnG4_8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_8.Location = new System.Drawing.Point(871, 80);
             this.btnG4_8.Name = "btnG4_8";
-            this.btnG4_8.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_8.Size = new System.Drawing.Size(82, 35);
             this.btnG4_8.TabIndex = 23;
             this.btnG4_8.UseVisualStyleBackColor = false;
             this.btnG4_8.Click += new System.EventHandler(this.btnG4_8_Click);
@@ -526,10 +503,9 @@
             this.btnG5_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_6.ForeColor = System.Drawing.Color.White;
-            this.btnG5_6.Location = new System.Drawing.Point(818, 146);
-            this.btnG5_6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_6.Location = new System.Drawing.Point(701, 119);
             this.btnG5_6.Name = "btnG5_6";
-            this.btnG5_6.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_6.Size = new System.Drawing.Size(82, 35);
             this.btnG5_6.TabIndex = 29;
             this.btnG5_6.UseVisualStyleBackColor = false;
             this.btnG5_6.Click += new System.EventHandler(this.btnG5_6_Click);
@@ -540,10 +516,9 @@
             this.btnG5_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_5.ForeColor = System.Drawing.Color.White;
-            this.btnG5_5.Location = new System.Drawing.Point(719, 146);
-            this.btnG5_5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_5.Location = new System.Drawing.Point(616, 119);
             this.btnG5_5.Name = "btnG5_5";
-            this.btnG5_5.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_5.Size = new System.Drawing.Size(82, 35);
             this.btnG5_5.TabIndex = 28;
             this.btnG5_5.UseVisualStyleBackColor = false;
             this.btnG5_5.Click += new System.EventHandler(this.btnG5_5_Click);
@@ -554,10 +529,9 @@
             this.btnG5_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_4.ForeColor = System.Drawing.Color.White;
-            this.btnG5_4.Location = new System.Drawing.Point(619, 146);
-            this.btnG5_4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_4.Location = new System.Drawing.Point(531, 119);
             this.btnG5_4.Name = "btnG5_4";
-            this.btnG5_4.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_4.Size = new System.Drawing.Size(82, 35);
             this.btnG5_4.TabIndex = 27;
             this.btnG5_4.UseVisualStyleBackColor = false;
             this.btnG5_4.Click += new System.EventHandler(this.btnG5_4_Click);
@@ -568,10 +542,9 @@
             this.btnG5_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_3.ForeColor = System.Drawing.Color.White;
-            this.btnG5_3.Location = new System.Drawing.Point(520, 146);
-            this.btnG5_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_3.Location = new System.Drawing.Point(446, 119);
             this.btnG5_3.Name = "btnG5_3";
-            this.btnG5_3.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_3.Size = new System.Drawing.Size(82, 35);
             this.btnG5_3.TabIndex = 26;
             this.btnG5_3.UseVisualStyleBackColor = false;
             this.btnG5_3.Click += new System.EventHandler(this.btnG5_3_Click);
@@ -582,10 +555,9 @@
             this.btnG5_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_2.ForeColor = System.Drawing.Color.White;
-            this.btnG5_2.Location = new System.Drawing.Point(421, 146);
-            this.btnG5_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_2.Location = new System.Drawing.Point(361, 119);
             this.btnG5_2.Name = "btnG5_2";
-            this.btnG5_2.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_2.Size = new System.Drawing.Size(82, 35);
             this.btnG5_2.TabIndex = 25;
             this.btnG5_2.UseVisualStyleBackColor = false;
             this.btnG5_2.Click += new System.EventHandler(this.btnG5_2_Click);
@@ -596,68 +568,63 @@
             this.btnG5_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_1.ForeColor = System.Drawing.Color.White;
-            this.btnG5_1.Location = new System.Drawing.Point(322, 146);
-            this.btnG5_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_1.Location = new System.Drawing.Point(276, 119);
             this.btnG5_1.Name = "btnG5_1";
-            this.btnG5_1.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_1.Size = new System.Drawing.Size(82, 35);
             this.btnG5_1.TabIndex = 24;
             this.btnG5_1.UseVisualStyleBackColor = false;
             this.btnG5_1.Click += new System.EventHandler(this.btnG5_1_Click);
             // 
             // uiMesa
             // 
-            this.uiMesa.Location = new System.Drawing.Point(216, 322);
-            this.uiMesa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiMesa.Location = new System.Drawing.Point(185, 262);
             this.uiMesa.Name = "uiMesa";
             this.uiMesa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiMesa.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiMesa.Properties.Appearance.Options.UseFont = true;
             this.uiMesa.Properties.Appearance.Options.UseForeColor = true;
             this.uiMesa.Properties.Caption = "MESA";
-            this.uiMesa.Size = new System.Drawing.Size(87, 21);
+            this.uiMesa.Size = new System.Drawing.Size(75, 19);
             this.uiMesa.TabIndex = 36;
             this.uiMesa.CheckedChanged += new System.EventHandler(this.uiMesa_CheckedChanged);
             // 
             // uiLlevar
             // 
-            this.uiLlevar.Location = new System.Drawing.Point(282, 322);
-            this.uiLlevar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiLlevar.Location = new System.Drawing.Point(242, 262);
             this.uiLlevar.Name = "uiLlevar";
             this.uiLlevar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiLlevar.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiLlevar.Properties.Appearance.Options.UseFont = true;
             this.uiLlevar.Properties.Appearance.Options.UseForeColor = true;
             this.uiLlevar.Properties.Caption = "LLEVAR";
-            this.uiLlevar.Size = new System.Drawing.Size(87, 21);
+            this.uiLlevar.Size = new System.Drawing.Size(75, 19);
             this.uiLlevar.TabIndex = 37;
             this.uiLlevar.CheckedChanged += new System.EventHandler(this.uiLlevar_CheckedChanged);
             // 
             // uiCortesia
             // 
-            this.uiCortesia.Location = new System.Drawing.Point(358, 322);
-            this.uiCortesia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiCortesia.Location = new System.Drawing.Point(307, 262);
             this.uiCortesia.Name = "uiCortesia";
             this.uiCortesia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiCortesia.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiCortesia.Properties.Appearance.Options.UseFont = true;
             this.uiCortesia.Properties.Appearance.Options.UseForeColor = true;
             this.uiCortesia.Properties.Caption = "CORTESIA";
-            this.uiCortesia.Size = new System.Drawing.Size(87, 21);
+            this.uiCortesia.Size = new System.Drawing.Size(75, 19);
             this.uiCortesia.TabIndex = 38;
             this.uiCortesia.CheckedChanged += new System.EventHandler(this.uiCortesia_CheckedChanged);
             this.uiCortesia.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiCortesia_EditValueChanging);
             // 
             // uiPrecioEmp
             // 
-            this.uiPrecioEmp.Location = new System.Drawing.Point(547, 322);
-            this.uiPrecioEmp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiPrecioEmp.Location = new System.Drawing.Point(469, 262);
             this.uiPrecioEmp.Name = "uiPrecioEmp";
             this.uiPrecioEmp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiPrecioEmp.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiPrecioEmp.Properties.Appearance.Options.UseFont = true;
             this.uiPrecioEmp.Properties.Appearance.Options.UseForeColor = true;
             this.uiPrecioEmp.Properties.Caption = "PRECIO EMPLEADO";
-            this.uiPrecioEmp.Size = new System.Drawing.Size(156, 21);
+            this.uiPrecioEmp.Size = new System.Drawing.Size(134, 19);
             this.uiPrecioEmp.TabIndex = 40;
             this.uiPrecioEmp.CheckedChanged += new System.EventHandler(this.uiPrecioEmp_CheckedChanged);
             this.uiPrecioEmp.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiPrecioEmp_EditValueChanging);
@@ -668,10 +635,9 @@
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn7.ForeColor = System.Drawing.Color.White;
-            this.btn7.Location = new System.Drawing.Point(8, 336);
-            this.btn7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn7.Location = new System.Drawing.Point(7, 273);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(58, 43);
+            this.btn7.Size = new System.Drawing.Size(50, 35);
             this.btn7.TabIndex = 42;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = false;
@@ -683,10 +649,9 @@
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn8.ForeColor = System.Drawing.Color.White;
-            this.btn8.Location = new System.Drawing.Point(73, 336);
-            this.btn8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn8.Location = new System.Drawing.Point(63, 273);
             this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(58, 43);
+            this.btn8.Size = new System.Drawing.Size(50, 35);
             this.btn8.TabIndex = 43;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = false;
@@ -698,10 +663,9 @@
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn9.ForeColor = System.Drawing.Color.White;
-            this.btn9.Location = new System.Drawing.Point(139, 336);
-            this.btn9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn9.Location = new System.Drawing.Point(119, 273);
             this.btn9.Name = "btn9";
-            this.btn9.Size = new System.Drawing.Size(58, 43);
+            this.btn9.Size = new System.Drawing.Size(50, 35);
             this.btn9.TabIndex = 44;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = false;
@@ -713,10 +677,9 @@
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn6.ForeColor = System.Drawing.Color.White;
-            this.btn6.Location = new System.Drawing.Point(139, 383);
-            this.btn6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn6.Location = new System.Drawing.Point(119, 311);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(58, 43);
+            this.btn6.Size = new System.Drawing.Size(50, 35);
             this.btn6.TabIndex = 47;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = false;
@@ -728,10 +691,9 @@
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn5.ForeColor = System.Drawing.Color.White;
-            this.btn5.Location = new System.Drawing.Point(73, 383);
-            this.btn5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn5.Location = new System.Drawing.Point(63, 311);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(58, 43);
+            this.btn5.Size = new System.Drawing.Size(50, 35);
             this.btn5.TabIndex = 46;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = false;
@@ -743,10 +705,9 @@
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn4.ForeColor = System.Drawing.Color.White;
-            this.btn4.Location = new System.Drawing.Point(8, 383);
-            this.btn4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn4.Location = new System.Drawing.Point(7, 311);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(58, 43);
+            this.btn4.Size = new System.Drawing.Size(50, 35);
             this.btn4.TabIndex = 45;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = false;
@@ -758,10 +719,9 @@
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn3.ForeColor = System.Drawing.Color.White;
-            this.btn3.Location = new System.Drawing.Point(139, 430);
-            this.btn3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn3.Location = new System.Drawing.Point(119, 349);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(58, 43);
+            this.btn3.Size = new System.Drawing.Size(50, 35);
             this.btn3.TabIndex = 50;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = false;
@@ -773,10 +733,9 @@
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn2.ForeColor = System.Drawing.Color.White;
-            this.btn2.Location = new System.Drawing.Point(73, 430);
-            this.btn2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn2.Location = new System.Drawing.Point(63, 349);
             this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(58, 43);
+            this.btn2.Size = new System.Drawing.Size(50, 35);
             this.btn2.TabIndex = 49;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = false;
@@ -788,10 +747,9 @@
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn1.ForeColor = System.Drawing.Color.White;
-            this.btn1.Location = new System.Drawing.Point(8, 430);
-            this.btn1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn1.Location = new System.Drawing.Point(7, 349);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(58, 43);
+            this.btn1.Size = new System.Drawing.Size(50, 35);
             this.btn1.TabIndex = 48;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
@@ -803,10 +761,9 @@
             this.btnClr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClr.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnClr.ForeColor = System.Drawing.Color.White;
-            this.btnClr.Location = new System.Drawing.Point(139, 476);
-            this.btnClr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClr.Location = new System.Drawing.Point(119, 387);
             this.btnClr.Name = "btnClr";
-            this.btnClr.Size = new System.Drawing.Size(58, 43);
+            this.btnClr.Size = new System.Drawing.Size(50, 35);
             this.btnClr.TabIndex = 53;
             this.btnClr.Text = "CLR";
             this.btnClr.UseVisualStyleBackColor = false;
@@ -818,10 +775,9 @@
             this.button47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button47.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.button47.ForeColor = System.Drawing.Color.White;
-            this.button47.Location = new System.Drawing.Point(73, 476);
-            this.button47.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button47.Location = new System.Drawing.Point(63, 387);
             this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(58, 43);
+            this.button47.Size = new System.Drawing.Size(50, 35);
             this.button47.TabIndex = 52;
             this.button47.Text = ".";
             this.button47.UseVisualStyleBackColor = false;
@@ -833,10 +789,9 @@
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn0.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Location = new System.Drawing.Point(8, 476);
-            this.btn0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn0.Location = new System.Drawing.Point(7, 387);
             this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(58, 43);
+            this.btn0.Size = new System.Drawing.Size(50, 35);
             this.btn0.TabIndex = 51;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = false;
@@ -845,8 +800,7 @@
             // textEdit1
             // 
             this.textEdit1.EditValue = "TOTAL";
-            this.textEdit1.Location = new System.Drawing.Point(216, 545);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textEdit1.Location = new System.Drawing.Point(185, 443);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -856,15 +810,14 @@
             this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit1.Size = new System.Drawing.Size(154, 28);
+            this.textEdit1.Size = new System.Drawing.Size(132, 22);
             this.textEdit1.TabIndex = 55;
             // 
             // uiTotal
             // 
             this.uiTotal.EditValue = "$0.00";
             this.uiTotal.Enabled = false;
-            this.uiTotal.Location = new System.Drawing.Point(216, 572);
-            this.uiTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiTotal.Location = new System.Drawing.Point(185, 465);
             this.uiTotal.Name = "uiTotal";
             this.uiTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -874,15 +827,14 @@
             this.uiTotal.Properties.Appearance.Options.UseForeColor = true;
             this.uiTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.uiTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiTotal.Size = new System.Drawing.Size(154, 40);
+            this.uiTotal.Size = new System.Drawing.Size(132, 32);
             this.uiTotal.TabIndex = 56;
             // 
             // uiRecibi
             // 
             this.uiRecibi.EditValue = "$0.00";
             this.uiRecibi.Enabled = false;
-            this.uiRecibi.Location = new System.Drawing.Point(377, 572);
-            this.uiRecibi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiRecibi.Location = new System.Drawing.Point(323, 465);
             this.uiRecibi.Name = "uiRecibi";
             this.uiRecibi.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiRecibi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -892,14 +844,13 @@
             this.uiRecibi.Properties.Appearance.Options.UseForeColor = true;
             this.uiRecibi.Properties.Appearance.Options.UseTextOptions = true;
             this.uiRecibi.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiRecibi.Size = new System.Drawing.Size(154, 40);
+            this.uiRecibi.Size = new System.Drawing.Size(132, 32);
             this.uiRecibi.TabIndex = 58;
             // 
             // textEdit4
             // 
             this.textEdit4.EditValue = "RECIBI";
-            this.textEdit4.Location = new System.Drawing.Point(377, 545);
-            this.textEdit4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textEdit4.Location = new System.Drawing.Point(323, 443);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -909,15 +860,14 @@
             this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit4.Size = new System.Drawing.Size(154, 28);
+            this.textEdit4.Size = new System.Drawing.Size(132, 22);
             this.textEdit4.TabIndex = 57;
             // 
             // uiCambio
             // 
             this.uiCambio.EditValue = "$0.00";
             this.uiCambio.Enabled = false;
-            this.uiCambio.Location = new System.Drawing.Point(538, 572);
-            this.uiCambio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiCambio.Location = new System.Drawing.Point(461, 465);
             this.uiCambio.Name = "uiCambio";
             this.uiCambio.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiCambio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -927,14 +877,13 @@
             this.uiCambio.Properties.Appearance.Options.UseForeColor = true;
             this.uiCambio.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCambio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiCambio.Size = new System.Drawing.Size(154, 40);
+            this.uiCambio.Size = new System.Drawing.Size(132, 32);
             this.uiCambio.TabIndex = 60;
             // 
             // textEdit6
             // 
             this.textEdit6.EditValue = "CAMBIO";
-            this.textEdit6.Location = new System.Drawing.Point(538, 545);
-            this.textEdit6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textEdit6.Location = new System.Drawing.Point(461, 443);
             this.textEdit6.Name = "textEdit6";
             this.textEdit6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -944,15 +893,14 @@
             this.textEdit6.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit6.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit6.Size = new System.Drawing.Size(154, 28);
+            this.textEdit6.Size = new System.Drawing.Size(132, 22);
             this.textEdit6.TabIndex = 59;
             // 
             // uiFaltan
             // 
             this.uiFaltan.EditValue = "$0.00";
             this.uiFaltan.Enabled = false;
-            this.uiFaltan.Location = new System.Drawing.Point(699, 572);
-            this.uiFaltan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiFaltan.Location = new System.Drawing.Point(599, 465);
             this.uiFaltan.Name = "uiFaltan";
             this.uiFaltan.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiFaltan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -962,14 +910,13 @@
             this.uiFaltan.Properties.Appearance.Options.UseForeColor = true;
             this.uiFaltan.Properties.Appearance.Options.UseTextOptions = true;
             this.uiFaltan.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiFaltan.Size = new System.Drawing.Size(154, 40);
+            this.uiFaltan.Size = new System.Drawing.Size(132, 32);
             this.uiFaltan.TabIndex = 62;
             // 
             // textEdit8
             // 
             this.textEdit8.EditValue = "FALTAN";
-            this.textEdit8.Location = new System.Drawing.Point(699, 545);
-            this.textEdit8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textEdit8.Location = new System.Drawing.Point(599, 443);
             this.textEdit8.Name = "textEdit8";
             this.textEdit8.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -979,15 +926,13 @@
             this.textEdit8.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit8.Properties.Appearance.Options.UseTextOptions = true;
             this.textEdit8.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit8.Size = new System.Drawing.Size(154, 28);
+            this.textEdit8.Size = new System.Drawing.Size(132, 22);
             this.textEdit8.TabIndex = 61;
             // 
             // grProducto
             // 
-            this.grProducto.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grProducto.Location = new System.Drawing.Point(213, 352);
+            this.grProducto.Location = new System.Drawing.Point(183, 286);
             this.grProducto.MainView = this.gvProducto;
-            this.grProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grProducto.Name = "grProducto";
             this.grProducto.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.calcTotal,
@@ -999,7 +944,7 @@
             this.repDel,
             this.chkPrecioEmpleado,
             this.repCantidad});
-            this.grProducto.Size = new System.Drawing.Size(908, 186);
+            this.grProducto.Size = new System.Drawing.Size(778, 151);
             this.grProducto.TabIndex = 63;
             this.grProducto.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProducto});
@@ -1040,9 +985,9 @@
             // repDel
             // 
             this.repDel.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
             this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repDel.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.repDel.Name = "repDel";
             this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -1234,10 +1179,9 @@
             this.button49.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button49.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.button49.ForeColor = System.Drawing.Color.White;
-            this.button49.Location = new System.Drawing.Point(8, 523);
-            this.button49.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button49.Location = new System.Drawing.Point(7, 425);
             this.button49.Name = "button49";
-            this.button49.Size = new System.Drawing.Size(58, 59);
+            this.button49.Size = new System.Drawing.Size(50, 48);
             this.button49.TabIndex = 66;
             this.button49.Text = "SUP.";
             this.button49.UseVisualStyleBackColor = false;
@@ -1249,10 +1193,9 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(73, 523);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(63, 425);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(58, 59);
+            this.btnCancelar.Size = new System.Drawing.Size(50, 48);
             this.btnCancelar.TabIndex = 65;
             this.btnCancelar.Text = "CAN.";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -1264,10 +1207,9 @@
             this.button51.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button51.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.button51.ForeColor = System.Drawing.Color.White;
-            this.button51.Location = new System.Drawing.Point(139, 523);
-            this.button51.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button51.Location = new System.Drawing.Point(119, 425);
             this.button51.Name = "button51";
-            this.button51.Size = new System.Drawing.Size(57, 59);
+            this.button51.Size = new System.Drawing.Size(49, 48);
             this.button51.TabIndex = 64;
             this.button51.Text = "COB. [F2]";
             this.button51.UseVisualStyleBackColor = false;
@@ -1276,22 +1218,26 @@
             // uiPedido
             // 
             this.uiPedido.Enabled = false;
-            this.uiPedido.Location = new System.Drawing.Point(819, 250);
-            this.uiPedido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiPedido.Location = new System.Drawing.Point(702, 203);
             this.uiPedido.Name = "uiPedido";
-            this.uiPedido.Size = new System.Drawing.Size(296, 53);
+            this.uiPedido.Size = new System.Drawing.Size(254, 43);
             this.uiPedido.TabIndex = 76;
             // 
             // uiCalculadora
             // 
             this.uiCalculadora.EditValue = "";
             this.uiCalculadora.Enabled = false;
-            this.uiCalculadora.Location = new System.Drawing.Point(8, 298);
-            this.uiCalculadora.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiCalculadora.Location = new System.Drawing.Point(7, 242);
             this.uiCalculadora.Name = "uiCalculadora";
+            this.uiCalculadora.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiCalculadora.Properties.Appearance.Options.UseFont = true;
             this.uiCalculadora.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCalculadora.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.uiCalculadora.Size = new System.Drawing.Size(124, 22);
+            this.uiCalculadora.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiCalculadora.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
+            this.uiCalculadora.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.uiCalculadora.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.uiCalculadora.Size = new System.Drawing.Size(106, 28);
             this.uiCalculadora.TabIndex = 77;
             this.uiCalculadora.EditValueChanged += new System.EventHandler(this.uiCalculadora_EditValueChanged);
             // 
@@ -1301,10 +1247,9 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnRegresar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresar.Location = new System.Drawing.Point(138, 290);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegresar.Location = new System.Drawing.Point(118, 236);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(58, 43);
+            this.btnRegresar.Size = new System.Drawing.Size(50, 35);
             this.btnRegresar.TabIndex = 78;
             this.btnRegresar.Text = "<--";
             this.btnRegresar.UseVisualStyleBackColor = false;
@@ -1312,8 +1257,7 @@
             // 
             // uiEmpleado
             // 
-            this.uiEmpleado.Location = new System.Drawing.Point(699, 318);
-            this.uiEmpleado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiEmpleado.Location = new System.Drawing.Point(599, 258);
             this.uiEmpleado.Name = "uiEmpleado";
             this.uiEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1323,7 +1267,7 @@
             this.uiEmpleado.Properties.DisplayMember = "Nombre";
             this.uiEmpleado.Properties.NullText = "(SELECCIONA UN EMPLEADO)";
             this.uiEmpleado.Properties.ValueMember = "NumEmpleado";
-            this.uiEmpleado.Size = new System.Drawing.Size(414, 22);
+            this.uiEmpleado.Size = new System.Drawing.Size(355, 20);
             this.uiEmpleado.TabIndex = 79;
             this.uiEmpleado.Visible = false;
             this.uiEmpleado.EditValueChanged += new System.EventHandler(this.uiEmpleado_EditValueChanged);
@@ -1334,10 +1278,9 @@
             this.btnProd7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd7.ForeColor = System.Drawing.Color.White;
-            this.btnProd7.Location = new System.Drawing.Point(108, 6);
-            this.btnProd7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd7.Location = new System.Drawing.Point(93, 5);
             this.btnProd7.Name = "btnProd7";
-            this.btnProd7.Size = new System.Drawing.Size(96, 43);
+            this.btnProd7.Size = new System.Drawing.Size(82, 35);
             this.btnProd7.TabIndex = 80;
             this.btnProd7.UseVisualStyleBackColor = false;
             this.btnProd7.Click += new System.EventHandler(this.btnProd7_Click);
@@ -1348,10 +1291,9 @@
             this.btnProd8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd8.ForeColor = System.Drawing.Color.White;
-            this.btnProd8.Location = new System.Drawing.Point(110, 53);
-            this.btnProd8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd8.Location = new System.Drawing.Point(94, 43);
             this.btnProd8.Name = "btnProd8";
-            this.btnProd8.Size = new System.Drawing.Size(96, 43);
+            this.btnProd8.Size = new System.Drawing.Size(82, 35);
             this.btnProd8.TabIndex = 81;
             this.btnProd8.UseVisualStyleBackColor = false;
             this.btnProd8.Click += new System.EventHandler(this.btnProd8_Click);
@@ -1362,10 +1304,9 @@
             this.btnProd9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd9.ForeColor = System.Drawing.Color.White;
-            this.btnProd9.Location = new System.Drawing.Point(110, 100);
-            this.btnProd9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd9.Location = new System.Drawing.Point(94, 81);
             this.btnProd9.Name = "btnProd9";
-            this.btnProd9.Size = new System.Drawing.Size(96, 43);
+            this.btnProd9.Size = new System.Drawing.Size(82, 35);
             this.btnProd9.TabIndex = 82;
             this.btnProd9.UseVisualStyleBackColor = false;
             this.btnProd9.Click += new System.EventHandler(this.btnProd9_Click);
@@ -1376,10 +1317,9 @@
             this.btnProd10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd10.ForeColor = System.Drawing.Color.White;
-            this.btnProd10.Location = new System.Drawing.Point(110, 146);
-            this.btnProd10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd10.Location = new System.Drawing.Point(94, 119);
             this.btnProd10.Name = "btnProd10";
-            this.btnProd10.Size = new System.Drawing.Size(96, 43);
+            this.btnProd10.Size = new System.Drawing.Size(82, 35);
             this.btnProd10.TabIndex = 83;
             this.btnProd10.UseVisualStyleBackColor = false;
             this.btnProd10.Click += new System.EventHandler(this.btnProd10_Click);
@@ -1390,10 +1330,9 @@
             this.btnProdMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProdMas.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProdMas.ForeColor = System.Drawing.Color.White;
-            this.btnProdMas.Location = new System.Drawing.Point(110, 240);
-            this.btnProdMas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProdMas.Location = new System.Drawing.Point(94, 195);
             this.btnProdMas.Name = "btnProdMas";
-            this.btnProdMas.Size = new System.Drawing.Size(96, 43);
+            this.btnProdMas.Size = new System.Drawing.Size(82, 35);
             this.btnProdMas.TabIndex = 84;
             this.btnProdMas.Text = "Mas...";
             this.btnProdMas.UseVisualStyleBackColor = false;
@@ -1404,10 +1343,9 @@
             this.btnProd11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProd11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnProd11.ForeColor = System.Drawing.Color.White;
-            this.btnProd11.Location = new System.Drawing.Point(110, 192);
-            this.btnProd11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProd11.Location = new System.Drawing.Point(94, 156);
             this.btnProd11.Name = "btnProd11";
-            this.btnProd11.Size = new System.Drawing.Size(96, 43);
+            this.btnProd11.Size = new System.Drawing.Size(82, 35);
             this.btnProd11.TabIndex = 85;
             this.btnProd11.UseVisualStyleBackColor = false;
             this.btnProd11.Click += new System.EventHandler(this.btnProd11_Click);
@@ -1418,10 +1356,9 @@
             this.btnG3_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_7.ForeColor = System.Drawing.Color.White;
-            this.btnG3_7.Location = new System.Drawing.Point(918, 7);
-            this.btnG3_7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_7.Location = new System.Drawing.Point(787, 6);
             this.btnG3_7.Name = "btnG3_7";
-            this.btnG3_7.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_7.Size = new System.Drawing.Size(82, 35);
             this.btnG3_7.TabIndex = 86;
             this.btnG3_7.UseVisualStyleBackColor = false;
             this.btnG3_7.Click += new System.EventHandler(this.btnG3_8_Click);
@@ -1432,10 +1369,9 @@
             this.btnG3_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_8.ForeColor = System.Drawing.Color.White;
-            this.btnG3_8.Location = new System.Drawing.Point(1017, 7);
-            this.btnG3_8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_8.Location = new System.Drawing.Point(872, 6);
             this.btnG3_8.Name = "btnG3_8";
-            this.btnG3_8.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_8.Size = new System.Drawing.Size(82, 35);
             this.btnG3_8.TabIndex = 87;
             this.btnG3_8.UseVisualStyleBackColor = false;
             this.btnG3_8.Click += new System.EventHandler(this.btnG3_8_Click_1);
@@ -1446,10 +1382,9 @@
             this.btnG3_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_16.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_16.ForeColor = System.Drawing.Color.White;
-            this.btnG3_16.Location = new System.Drawing.Point(1017, 53);
-            this.btnG3_16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_16.Location = new System.Drawing.Point(872, 43);
             this.btnG3_16.Name = "btnG3_16";
-            this.btnG3_16.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_16.Size = new System.Drawing.Size(82, 35);
             this.btnG3_16.TabIndex = 95;
             this.btnG3_16.UseVisualStyleBackColor = false;
             this.btnG3_16.Click += new System.EventHandler(this.btnG3_16_Click);
@@ -1460,10 +1395,9 @@
             this.btnG3_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_15.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_15.ForeColor = System.Drawing.Color.White;
-            this.btnG3_15.Location = new System.Drawing.Point(918, 53);
-            this.btnG3_15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_15.Location = new System.Drawing.Point(787, 43);
             this.btnG3_15.Name = "btnG3_15";
-            this.btnG3_15.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_15.Size = new System.Drawing.Size(82, 35);
             this.btnG3_15.TabIndex = 94;
             this.btnG3_15.UseVisualStyleBackColor = false;
             this.btnG3_15.Click += new System.EventHandler(this.button2_Click);
@@ -1474,10 +1408,9 @@
             this.btnG3_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_14.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_14.ForeColor = System.Drawing.Color.White;
-            this.btnG3_14.Location = new System.Drawing.Point(818, 53);
-            this.btnG3_14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_14.Location = new System.Drawing.Point(701, 43);
             this.btnG3_14.Name = "btnG3_14";
-            this.btnG3_14.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_14.Size = new System.Drawing.Size(82, 35);
             this.btnG3_14.TabIndex = 93;
             this.btnG3_14.UseVisualStyleBackColor = false;
             this.btnG3_14.Click += new System.EventHandler(this.btnG3_14_Click);
@@ -1488,10 +1421,9 @@
             this.btnG3_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_13.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_13.ForeColor = System.Drawing.Color.White;
-            this.btnG3_13.Location = new System.Drawing.Point(719, 53);
-            this.btnG3_13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_13.Location = new System.Drawing.Point(616, 43);
             this.btnG3_13.Name = "btnG3_13";
-            this.btnG3_13.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_13.Size = new System.Drawing.Size(82, 35);
             this.btnG3_13.TabIndex = 92;
             this.btnG3_13.UseVisualStyleBackColor = false;
             this.btnG3_13.Click += new System.EventHandler(this.btnG3_13_Click);
@@ -1502,10 +1434,9 @@
             this.btnG3_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_12.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_12.ForeColor = System.Drawing.Color.White;
-            this.btnG3_12.Location = new System.Drawing.Point(619, 53);
-            this.btnG3_12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_12.Location = new System.Drawing.Point(531, 43);
             this.btnG3_12.Name = "btnG3_12";
-            this.btnG3_12.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_12.Size = new System.Drawing.Size(82, 35);
             this.btnG3_12.TabIndex = 91;
             this.btnG3_12.UseVisualStyleBackColor = false;
             this.btnG3_12.Click += new System.EventHandler(this.btnG3_12_Click);
@@ -1516,10 +1447,9 @@
             this.btnG3_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_11.ForeColor = System.Drawing.Color.White;
-            this.btnG3_11.Location = new System.Drawing.Point(520, 53);
-            this.btnG3_11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_11.Location = new System.Drawing.Point(446, 43);
             this.btnG3_11.Name = "btnG3_11";
-            this.btnG3_11.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_11.Size = new System.Drawing.Size(82, 35);
             this.btnG3_11.TabIndex = 90;
             this.btnG3_11.UseVisualStyleBackColor = false;
             this.btnG3_11.Click += new System.EventHandler(this.btnG3_11_Click);
@@ -1530,10 +1460,9 @@
             this.btnG3_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_10.ForeColor = System.Drawing.Color.White;
-            this.btnG3_10.Location = new System.Drawing.Point(421, 53);
-            this.btnG3_10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_10.Location = new System.Drawing.Point(361, 43);
             this.btnG3_10.Name = "btnG3_10";
-            this.btnG3_10.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_10.Size = new System.Drawing.Size(82, 35);
             this.btnG3_10.TabIndex = 89;
             this.btnG3_10.UseVisualStyleBackColor = false;
             this.btnG3_10.Click += new System.EventHandler(this.btnG3_10_Click);
@@ -1544,10 +1473,9 @@
             this.btnG3_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG3_9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG3_9.ForeColor = System.Drawing.Color.White;
-            this.btnG3_9.Location = new System.Drawing.Point(322, 53);
-            this.btnG3_9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG3_9.Location = new System.Drawing.Point(276, 43);
             this.btnG3_9.Name = "btnG3_9";
-            this.btnG3_9.Size = new System.Drawing.Size(96, 43);
+            this.btnG3_9.Size = new System.Drawing.Size(82, 35);
             this.btnG3_9.TabIndex = 88;
             this.btnG3_9.UseVisualStyleBackColor = false;
             this.btnG3_9.Click += new System.EventHandler(this.btnG3_9_Click);
@@ -1559,10 +1487,9 @@
             this.btnG4_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_6.ForeColor = System.Drawing.Color.White;
-            this.btnG4_6.Location = new System.Drawing.Point(817, 98);
-            this.btnG4_6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_6.Location = new System.Drawing.Point(700, 80);
             this.btnG4_6.Name = "btnG4_6";
-            this.btnG4_6.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_6.Size = new System.Drawing.Size(82, 35);
             this.btnG4_6.TabIndex = 96;
             this.btnG4_6.UseVisualStyleBackColor = false;
             this.btnG4_6.Click += new System.EventHandler(this.btnG4_6_Click);
@@ -1574,10 +1501,9 @@
             this.btnG4_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_7.ForeColor = System.Drawing.Color.White;
-            this.btnG4_7.Location = new System.Drawing.Point(917, 98);
-            this.btnG4_7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG4_7.Location = new System.Drawing.Point(786, 80);
             this.btnG4_7.Name = "btnG4_7";
-            this.btnG4_7.Size = new System.Drawing.Size(96, 43);
+            this.btnG4_7.Size = new System.Drawing.Size(82, 35);
             this.btnG4_7.TabIndex = 97;
             this.btnG4_7.UseVisualStyleBackColor = false;
             this.btnG4_7.Click += new System.EventHandler(this.btnG4_7_Click);
@@ -1588,10 +1514,9 @@
             this.btnG5_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_7.ForeColor = System.Drawing.Color.White;
-            this.btnG5_7.Location = new System.Drawing.Point(917, 146);
-            this.btnG5_7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_7.Location = new System.Drawing.Point(786, 119);
             this.btnG5_7.Name = "btnG5_7";
-            this.btnG5_7.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_7.Size = new System.Drawing.Size(82, 35);
             this.btnG5_7.TabIndex = 98;
             this.btnG5_7.UseVisualStyleBackColor = false;
             this.btnG5_7.Click += new System.EventHandler(this.btnG5_7_Click);
@@ -1602,10 +1527,9 @@
             this.btnG5_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_8.ForeColor = System.Drawing.Color.White;
-            this.btnG5_8.Location = new System.Drawing.Point(1016, 146);
-            this.btnG5_8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_8.Location = new System.Drawing.Point(871, 119);
             this.btnG5_8.Name = "btnG5_8";
-            this.btnG5_8.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_8.Size = new System.Drawing.Size(82, 35);
             this.btnG5_8.TabIndex = 99;
             this.btnG5_8.UseVisualStyleBackColor = false;
             this.btnG5_8.Click += new System.EventHandler(this.btnG5_8_Click);
@@ -1615,9 +1539,9 @@
             this.lblNotas.AutoSize = true;
             this.lblNotas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblNotas.ForeColor = System.Drawing.Color.White;
-            this.lblNotas.Location = new System.Drawing.Point(880, 551);
+            this.lblNotas.Location = new System.Drawing.Point(754, 448);
             this.lblNotas.Name = "lblNotas";
-            this.lblNotas.Size = new System.Drawing.Size(0, 17);
+            this.lblNotas.Size = new System.Drawing.Size(0, 13);
             this.lblNotas.TabIndex = 110;
             // 
             // uiAnticipo
@@ -1626,10 +1550,9 @@
             this.uiAnticipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uiAnticipo.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.uiAnticipo.ForeColor = System.Drawing.Color.White;
-            this.uiAnticipo.Location = new System.Drawing.Point(13, 22);
-            this.uiAnticipo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiAnticipo.Location = new System.Drawing.Point(11, 18);
             this.uiAnticipo.Name = "uiAnticipo";
-            this.uiAnticipo.Size = new System.Drawing.Size(134, 38);
+            this.uiAnticipo.Size = new System.Drawing.Size(115, 31);
             this.uiAnticipo.TabIndex = 120;
             this.uiAnticipo.Text = "ANTICIPO/PAGO";
             this.uiAnticipo.UseVisualStyleBackColor = false;
@@ -1641,10 +1564,9 @@
             this.uiPedidoResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uiPedidoResumen.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.uiPedidoResumen.ForeColor = System.Drawing.Color.White;
-            this.uiPedidoResumen.Location = new System.Drawing.Point(154, 22);
-            this.uiPedidoResumen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiPedidoResumen.Location = new System.Drawing.Point(132, 18);
             this.uiPedidoResumen.Name = "uiPedidoResumen";
-            this.uiPedidoResumen.Size = new System.Drawing.Size(129, 38);
+            this.uiPedidoResumen.Size = new System.Drawing.Size(111, 31);
             this.uiPedidoResumen.TabIndex = 121;
             this.uiPedidoResumen.Text = "RESUMEN PEDIDO";
             this.uiPedidoResumen.UseVisualStyleBackColor = false;
@@ -1657,10 +1579,9 @@
             this.uiPedidoSaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uiPedidoSaldo.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.uiPedidoSaldo.ForeColor = System.Drawing.Color.White;
-            this.uiPedidoSaldo.Location = new System.Drawing.Point(289, 22);
-            this.uiPedidoSaldo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiPedidoSaldo.Location = new System.Drawing.Point(248, 18);
             this.uiPedidoSaldo.Name = "uiPedidoSaldo";
-            this.uiPedidoSaldo.Size = new System.Drawing.Size(129, 38);
+            this.uiPedidoSaldo.Size = new System.Drawing.Size(111, 31);
             this.uiPedidoSaldo.TabIndex = 122;
             this.uiPedidoSaldo.UseVisualStyleBackColor = false;
             // 
@@ -1672,11 +1593,9 @@
             this.groupBox1.Controls.Add(this.uiAnticipo);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(323, 239);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(277, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(491, 71);
+            this.groupBox1.Size = new System.Drawing.Size(421, 58);
             this.groupBox1.TabIndex = 123;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PEDIDOS";
@@ -1688,10 +1607,9 @@
             this.uiPedidoRefresh.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.uiPedidoRefresh.ForeColor = System.Drawing.Color.White;
             this.uiPedidoRefresh.Image = ((System.Drawing.Image)(resources.GetObject("uiPedidoRefresh.Image")));
-            this.uiPedidoRefresh.Location = new System.Drawing.Point(426, 20);
-            this.uiPedidoRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiPedidoRefresh.Location = new System.Drawing.Point(365, 16);
             this.uiPedidoRefresh.Name = "uiPedidoRefresh";
-            this.uiPedidoRefresh.Size = new System.Drawing.Size(45, 43);
+            this.uiPedidoRefresh.Size = new System.Drawing.Size(39, 35);
             this.uiPedidoRefresh.TabIndex = 123;
             this.uiPedidoRefresh.UseVisualStyleBackColor = false;
             this.uiPedidoRefresh.Visible = false;
@@ -1703,10 +1621,9 @@
             this.btnG5_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_16.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_16.ForeColor = System.Drawing.Color.White;
-            this.btnG5_16.Location = new System.Drawing.Point(1016, 194);
-            this.btnG5_16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_16.Location = new System.Drawing.Point(871, 158);
             this.btnG5_16.Name = "btnG5_16";
-            this.btnG5_16.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_16.Size = new System.Drawing.Size(82, 35);
             this.btnG5_16.TabIndex = 131;
             this.btnG5_16.UseVisualStyleBackColor = false;
             this.btnG5_16.Click += new System.EventHandler(this.btnG5_16_Click);
@@ -1717,10 +1634,9 @@
             this.btnG5_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_15.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_15.ForeColor = System.Drawing.Color.White;
-            this.btnG5_15.Location = new System.Drawing.Point(917, 194);
-            this.btnG5_15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_15.Location = new System.Drawing.Point(786, 158);
             this.btnG5_15.Name = "btnG5_15";
-            this.btnG5_15.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_15.Size = new System.Drawing.Size(82, 35);
             this.btnG5_15.TabIndex = 130;
             this.btnG5_15.UseVisualStyleBackColor = false;
             this.btnG5_15.Click += new System.EventHandler(this.btnG5_15_Click);
@@ -1731,10 +1647,9 @@
             this.btnG5_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_14.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_14.ForeColor = System.Drawing.Color.White;
-            this.btnG5_14.Location = new System.Drawing.Point(818, 194);
-            this.btnG5_14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_14.Location = new System.Drawing.Point(701, 158);
             this.btnG5_14.Name = "btnG5_14";
-            this.btnG5_14.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_14.Size = new System.Drawing.Size(82, 35);
             this.btnG5_14.TabIndex = 129;
             this.btnG5_14.UseVisualStyleBackColor = false;
             this.btnG5_14.Click += new System.EventHandler(this.btnG5_14_Click);
@@ -1745,10 +1660,9 @@
             this.btnG5_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_13.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_13.ForeColor = System.Drawing.Color.White;
-            this.btnG5_13.Location = new System.Drawing.Point(719, 194);
-            this.btnG5_13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_13.Location = new System.Drawing.Point(616, 158);
             this.btnG5_13.Name = "btnG5_13";
-            this.btnG5_13.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_13.Size = new System.Drawing.Size(82, 35);
             this.btnG5_13.TabIndex = 128;
             this.btnG5_13.UseVisualStyleBackColor = false;
             this.btnG5_13.Click += new System.EventHandler(this.btnG5_13_Click);
@@ -1759,10 +1673,9 @@
             this.btnG5_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_12.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_12.ForeColor = System.Drawing.Color.White;
-            this.btnG5_12.Location = new System.Drawing.Point(619, 194);
-            this.btnG5_12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_12.Location = new System.Drawing.Point(531, 158);
             this.btnG5_12.Name = "btnG5_12";
-            this.btnG5_12.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_12.Size = new System.Drawing.Size(82, 35);
             this.btnG5_12.TabIndex = 127;
             this.btnG5_12.UseVisualStyleBackColor = false;
             this.btnG5_12.Click += new System.EventHandler(this.btnG5_12_Click);
@@ -1773,10 +1686,9 @@
             this.btnG5_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_11.ForeColor = System.Drawing.Color.White;
-            this.btnG5_11.Location = new System.Drawing.Point(520, 194);
-            this.btnG5_11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_11.Location = new System.Drawing.Point(446, 158);
             this.btnG5_11.Name = "btnG5_11";
-            this.btnG5_11.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_11.Size = new System.Drawing.Size(82, 35);
             this.btnG5_11.TabIndex = 126;
             this.btnG5_11.UseVisualStyleBackColor = false;
             this.btnG5_11.Click += new System.EventHandler(this.btnG5_11_Click);
@@ -1787,10 +1699,9 @@
             this.btnG5_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_10.ForeColor = System.Drawing.Color.White;
-            this.btnG5_10.Location = new System.Drawing.Point(421, 194);
-            this.btnG5_10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_10.Location = new System.Drawing.Point(361, 158);
             this.btnG5_10.Name = "btnG5_10";
-            this.btnG5_10.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_10.Size = new System.Drawing.Size(82, 35);
             this.btnG5_10.TabIndex = 125;
             this.btnG5_10.UseVisualStyleBackColor = false;
             this.btnG5_10.Click += new System.EventHandler(this.btnG5_10_Click);
@@ -1801,47 +1712,45 @@
             this.btnG5_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG5_9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG5_9.ForeColor = System.Drawing.Color.White;
-            this.btnG5_9.Location = new System.Drawing.Point(322, 194);
-            this.btnG5_9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnG5_9.Location = new System.Drawing.Point(276, 158);
             this.btnG5_9.Name = "btnG5_9";
-            this.btnG5_9.Size = new System.Drawing.Size(96, 43);
+            this.btnG5_9.Size = new System.Drawing.Size(82, 35);
             this.btnG5_9.TabIndex = 124;
             this.btnG5_9.UseVisualStyleBackColor = false;
             this.btnG5_9.Click += new System.EventHandler(this.btnG5_9_Click);
             // 
             // uiConsumo
             // 
-            this.uiConsumo.Location = new System.Drawing.Point(453, 322);
-            this.uiConsumo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiConsumo.Location = new System.Drawing.Point(388, 262);
             this.uiConsumo.Name = "uiConsumo";
             this.uiConsumo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiConsumo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiConsumo.Properties.Appearance.Options.UseFont = true;
             this.uiConsumo.Properties.Appearance.Options.UseForeColor = true;
             this.uiConsumo.Properties.Caption = "CONSUMO";
-            this.uiConsumo.Size = new System.Drawing.Size(87, 21);
+            this.uiConsumo.Size = new System.Drawing.Size(75, 19);
             this.uiConsumo.TabIndex = 39;
             this.uiConsumo.CheckedChanged += new System.EventHandler(this.uiConsumo_CheckedChanged);
             this.uiConsumo.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.uiConsumo_EditValueChanging);
             // 
             // uiFactura
             // 
-            this.uiFactura.Location = new System.Drawing.Point(216, 276);
-            this.uiFactura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uiFactura.Location = new System.Drawing.Point(185, 224);
             this.uiFactura.Name = "uiFactura";
             this.uiFactura.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiFactura.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.uiFactura.Properties.Appearance.Options.UseFont = true;
             this.uiFactura.Properties.Appearance.Options.UseForeColor = true;
             this.uiFactura.Properties.Caption = "FACTURA";
-            this.uiFactura.Size = new System.Drawing.Size(87, 21);
+            this.uiFactura.Size = new System.Drawing.Size(75, 19);
             this.uiFactura.TabIndex = 132;
             // 
             // uiKeyCatch
             // 
-            this.uiKeyCatch.Location = new System.Drawing.Point(1105, 516);
+            this.uiKeyCatch.Location = new System.Drawing.Point(947, 419);
+            this.uiKeyCatch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiKeyCatch.Name = "uiKeyCatch";
-            this.uiKeyCatch.Size = new System.Drawing.Size(10, 22);
+            this.uiKeyCatch.Size = new System.Drawing.Size(9, 20);
             this.uiKeyCatch.TabIndex = 133;
             this.uiKeyCatch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiKeyCatch_KeyUp);
             // 
@@ -1849,9 +1758,9 @@
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 655);
+            this.ClientSize = new System.Drawing.Size(1032, 532);
             this.Controls.Add(this.uiFactura);
             this.Controls.Add(this.btnG5_16);
             this.Controls.Add(this.btnG5_15);
@@ -1946,7 +1855,6 @@
             this.Controls.Add(this.btnProd2);
             this.Controls.Add(this.btnProd1);
             this.Controls.Add(this.uiKeyCatch);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmPuntoVenta";
             this.Text = "PVTacosAna";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PVTacosAna_FormClosing);
