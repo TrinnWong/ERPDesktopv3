@@ -125,6 +125,7 @@ namespace TacosAna.Desktop
         private short limiteCarneChicharron { get; set; }
         private bool limiteMaxGuisoSeleccionValidar = false;
         string error;
+        private int cantidadPaquetesInicial = 0;
         decimal descuentoEmpleado { get; set; }
         cat_configuracion entityConfiguracion;
         cat_impresoras entityImpresoraComanda;
@@ -738,6 +739,7 @@ namespace TacosAna.Desktop
 
         private void LimpiarBotones()
         {
+            cantidadPaquetesInicial = 0;
             limiteMaxGuisoSeleccionValidar = false;
             limiteMaxGuisoSeleccion = 3;
             lstPaqueteDetalle = new List<string>();
@@ -2667,11 +2669,20 @@ namespace TacosAna.Desktop
 
         #region eventos
 
-        
+        private void guardarCantidadInicial()
+        {
+            if(uiCalculadora.Text != "")
+            {
+                cantidadPaquetesInicial = Convert.ToInt32(uiCalculadora.Text);
+
+                uiCalculadora.Text = "";
+            }
+            
+        }
 
         private void btnProd1_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
 
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
@@ -2749,7 +2760,7 @@ namespace TacosAna.Desktop
 
         private void btnProd3_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             limiteMaxGuisoSeleccion = 3;
             limiteMaxGuisoSeleccionValidar = false;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
@@ -2773,7 +2784,7 @@ namespace TacosAna.Desktop
 
         private void btnProd4_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {
@@ -2794,7 +2805,7 @@ namespace TacosAna.Desktop
 
         private void btnProd5_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {
@@ -2822,7 +2833,7 @@ namespace TacosAna.Desktop
 
         private void btnProd6_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {
@@ -2841,7 +2852,7 @@ namespace TacosAna.Desktop
 
         private void btnProd2_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             limiteMaxGuisoSeleccionValidar = false;
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
@@ -2886,7 +2897,7 @@ namespace TacosAna.Desktop
             if(botonSeleccionado == "ESP")
             {
                 btnG3_1.Enabled = false;
-                btnG3_2.Enabled = false;
+                //btnG3_2.Enabled = false;
             }
         }
 
@@ -3059,7 +3070,7 @@ namespace TacosAna.Desktop
 
 
                         item.key = lstPedido.Count + 1;
-                        item.cantidad = cantidad == 0 ? 1 : cantidad;
+                        item.cantidad = cantidadPaquetesInicial == 0 ? (cantidad == 0 ? 1 : cantidad) : cantidadPaquetesInicial;
                         item.clave = prodSel.Clave;
                         item.descripcion = uiPedido.Text;
                         item.familiaId = prodSel.ClaveFamilia??0;
@@ -3341,7 +3352,9 @@ namespace TacosAna.Desktop
             try
             {
                 ERP.Reports.TacosAna.rptVentaTicket oTicket2 = new ERP.Reports.TacosAna.rptVentaTicket(ventaId);
+
                 
+
                 //ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(puntoVentaContext.sucursalId,this.puntoVentaContext.cajaId,false);
 
                 oTicket2.DataSource = oContext.p_rpt_VentaTicket(ventaId).ToList();
@@ -3372,15 +3385,26 @@ namespace TacosAna.Desktop
                 // Imprime el informe
                 printDocument.Print();
 
+               
+
             }
             catch (Exception ex)
             {
 
                 err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
-                              "ERP",
-                              this.Name,
-                              ex);
-                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+                               "ERP",
+                               this.Name,
+                               ex);
+
+                //Si hubo un error al reimprimir , REINTENTAR
+                if (XtraMessageBox.Show("¿REINTENTAR REIMPRIMIR TICKET?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    imprimirTicket(ventaId);
+                }
+                else
+                {
+                    ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+                }
             }
         }
 
@@ -3405,12 +3429,23 @@ namespace TacosAna.Desktop
             }
             catch (Exception ex)
             {
-
                 err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
                               "ERP",
                               this.Name,
                               ex);
-                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+
+                //Si hubo un error al reimprimir , REINTENTAR
+                if (XtraMessageBox.Show("¿REINTENTAR REIMPRIMIR COMANDA?","Aviso", MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+                {
+                    imprimirComanda(pedidoId);
+                }
+                else
+                {
+                    ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+                }
+
+                
+               
             }
         }
 
@@ -3655,7 +3690,7 @@ namespace TacosAna.Desktop
 
         private void btnProd7_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {
@@ -3675,7 +3710,7 @@ namespace TacosAna.Desktop
 
         private void btnProd8_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {
@@ -3719,7 +3754,7 @@ namespace TacosAna.Desktop
 
         private void btnProd9_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SolicitaCantidadCortesia(10);
             limiteCarneChicharron = 10;
             limiteMaxGuisoSeleccionValidar = true;
@@ -3741,7 +3776,7 @@ namespace TacosAna.Desktop
 
         private void btnProd10_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SolicitaCantidadCortesia(5);
             limiteMaxGuisoSeleccionValidar = true;
             limiteCarneChicharron = 5;
@@ -3763,7 +3798,7 @@ namespace TacosAna.Desktop
 
         private void btnProd11_Click(object sender, EventArgs e)
         {
-            
+            guardarCantidadInicial();
             SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
             if (uiConsumo.Checked)
             {

@@ -42,7 +42,11 @@ namespace ERP.Common.Reports
                         fecha = s.CreadoEl ?? DateTime.MinValue
                     }).OrderBy(o => o.producto).ToList();
 
-                oViewer.ShowTicket(oTicket2);
+                //Imprimir solo si hay datos
+                if(((List<ProductoSobranteModel>)oTicket2.DataSource).Count() > 0){
+                    oViewer.ShowTicket(oTicket2);
+                }
+               
             }
             catch (Exception ex)
             {
@@ -72,7 +76,8 @@ namespace ERP.Common.Reports
                     fechaCorte).ToList();
                 oReport.CreateDocument();
 
-                if (entityImpresora != null)
+                if (entityImpresora != null &&
+                    ((List<p_rpt_corte_caja_pedidos_pagos_Result>)oReport.DataSource).Count() >0)
                 {
                     if (entityImpresora.NombreRed != "")
                     {

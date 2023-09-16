@@ -160,7 +160,7 @@
             this.textBox1,
             this.textBox5,
             this.textBox7});
-            this.groupHeader1.Height = 0.841028F;
+            this.groupHeader1.Height = 1.049361F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
             // 
@@ -173,7 +173,7 @@
             this.label4.Style = "font-size: 7.2pt; ddo-char-set: 0";
             this.label4.Text = "DIF.";
             this.label4.Top = 0.687F;
-            this.label4.Width = 0.54F;
+            this.label4.Width = 0.4460002F;
             // 
             // label3
             // 
@@ -195,7 +195,7 @@
             this.textBox4.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.textBox4.Text = "PRODUCTO SOBRANTE";
             this.textBox4.Top = 0.06200004F;
-            this.textBox4.Width = 2.896F;
+            this.textBox4.Width = 2.758F;
             // 
             // textBox6
             // 
@@ -231,29 +231,29 @@
             // 
             // line3
             // 
-            this.line3.Height = 0F;
+            this.line3.Height = 5.960464E-08F;
             this.line3.Left = 0.06200012F;
             this.line3.LineWeight = 1F;
             this.line3.Name = "line3";
             this.line3.Top = 0.687F;
-            this.line3.Width = 2.824F;
+            this.line3.Width = 2.79F;
             this.line3.X1 = 0.06200012F;
-            this.line3.X2 = 2.886F;
+            this.line3.X2 = 2.852F;
             this.line3.Y1 = 0.687F;
             this.line3.Y2 = 0.687F;
             // 
             // line4
             // 
-            this.line4.Height = 0F;
+            this.line4.Height = 5.960464E-08F;
             this.line4.Left = 0.05300012F;
             this.line4.LineWeight = 1F;
             this.line4.Name = "line4";
-            this.line4.Top = 0.8250001F;
-            this.line4.Width = 2.824F;
+            this.line4.Top = 0.825F;
+            this.line4.Width = 2.799F;
             this.line4.X1 = 0.05300012F;
-            this.line4.X2 = 2.877F;
+            this.line4.X2 = 2.852F;
             this.line4.Y1 = 0.8250001F;
-            this.line4.Y2 = 0.8250001F;
+            this.line4.Y2 = 0.825F;
             // 
             // textBox1
             // 
@@ -308,7 +308,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.95F;
+            this.PrintWidth = 2.825F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);

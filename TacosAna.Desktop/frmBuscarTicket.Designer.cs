@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarTicket));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.uiBuscarFolio = new System.Windows.Forms.RadioButton();
             this.uiBuscarFechas = new System.Windows.Forms.RadioButton();
             this.gpFolio = new System.Windows.Forms.GroupBox();
@@ -56,12 +56,12 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repVer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.uiReimprimir = new System.Windows.Forms.RadioButton();
             this.uiVerVenta = new System.Windows.Forms.RadioButton();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gpFolio.SuspendLayout();
             this.gpFechas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiFechaFin.Properties.CalendarTimeProperties)).BeginInit();
@@ -71,9 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uigvTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // uiBuscarFolio
@@ -296,9 +296,9 @@
             // repVer
             // 
             this.repVer.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.repVer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repVer.Name = "repVer";
             this.repVer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repVer.Click += new System.EventHandler(this.repVer_Click);
@@ -308,6 +308,21 @@
             this.gridColumn9.Caption = "gridColumn9";
             this.gridColumn9.FieldName = "ventaId";
             this.gridColumn9.Name = "gridColumn9";
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Facturar";
+            this.gridColumn10.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumn10.FieldName = "facturar";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 8;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // groupBox1
             // 
@@ -354,26 +369,11 @@
             this.uiVerVenta.Text = "Ver Venta";
             this.uiVerVenta.UseVisualStyleBackColor = true;
             // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Facturar";
-            this.gridColumn10.ColumnEdit = this.repositoryItemCheckEdit1;
-            this.gridColumn10.FieldName = "facturar";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.OptionsColumn.AllowEdit = false;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 8;
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
-            // 
             // frmBuscarTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 392);
+            this.ClientSize = new System.Drawing.Size(871, 392);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.uiTicket);
@@ -395,11 +395,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiTicket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uigvTicket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repVer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
