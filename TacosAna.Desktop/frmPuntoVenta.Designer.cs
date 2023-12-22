@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnProd1 = new System.Windows.Forms.Button();
             this.btnProd2 = new System.Windows.Forms.Button();
             this.btnProd3 = new System.Windows.Forms.Button();
@@ -112,7 +111,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkPrecioEmpleado = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repCantidad = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
-            this.pedidoDetalleModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pedidoDetalleModelBindingSource = new System.Windows.Forms.BindingSource();
             this.button49 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.button51 = new System.Windows.Forms.Button();
@@ -474,6 +473,7 @@
             // btnG4_1
             // 
             this.btnG4_1.BackColor = System.Drawing.Color.Red;
+            this.btnG4_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG4_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG4_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
             this.btnG4_1.ForeColor = System.Drawing.Color.White;
@@ -481,6 +481,7 @@
             this.btnG4_1.Name = "btnG4_1";
             this.btnG4_1.Size = new System.Drawing.Size(82, 35);
             this.btnG4_1.TabIndex = 18;
+            this.btnG4_1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnG4_1.UseVisualStyleBackColor = false;
             this.btnG4_1.Click += new System.EventHandler(this.btnG4_1_Click);
             // 
@@ -499,85 +500,93 @@
             // 
             // btnG5_6
             // 
-            this.btnG5_6.BackColor = System.Drawing.Color.Red;
+            this.btnG5_6.BackColor = System.Drawing.Color.White;
             this.btnG5_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_6.ForeColor = System.Drawing.Color.White;
+            this.btnG5_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_6.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_6.Location = new System.Drawing.Point(701, 119);
             this.btnG5_6.Name = "btnG5_6";
-            this.btnG5_6.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_6.Size = new System.Drawing.Size(82, 46);
             this.btnG5_6.TabIndex = 29;
+            this.btnG5_6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_6.UseVisualStyleBackColor = false;
             this.btnG5_6.Click += new System.EventHandler(this.btnG5_6_Click);
             // 
             // btnG5_5
             // 
-            this.btnG5_5.BackColor = System.Drawing.Color.Red;
+            this.btnG5_5.BackColor = System.Drawing.Color.White;
             this.btnG5_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_5.ForeColor = System.Drawing.Color.White;
+            this.btnG5_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_5.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_5.Location = new System.Drawing.Point(616, 119);
             this.btnG5_5.Name = "btnG5_5";
-            this.btnG5_5.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_5.Size = new System.Drawing.Size(82, 46);
             this.btnG5_5.TabIndex = 28;
+            this.btnG5_5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_5.UseVisualStyleBackColor = false;
             this.btnG5_5.Click += new System.EventHandler(this.btnG5_5_Click);
             // 
             // btnG5_4
             // 
-            this.btnG5_4.BackColor = System.Drawing.Color.Red;
+            this.btnG5_4.BackColor = System.Drawing.Color.White;
             this.btnG5_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_4.ForeColor = System.Drawing.Color.White;
+            this.btnG5_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_4.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_4.Location = new System.Drawing.Point(531, 119);
             this.btnG5_4.Name = "btnG5_4";
-            this.btnG5_4.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_4.Size = new System.Drawing.Size(82, 46);
             this.btnG5_4.TabIndex = 27;
+            this.btnG5_4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_4.UseVisualStyleBackColor = false;
             this.btnG5_4.Click += new System.EventHandler(this.btnG5_4_Click);
             // 
             // btnG5_3
             // 
-            this.btnG5_3.BackColor = System.Drawing.Color.Red;
+            this.btnG5_3.BackColor = System.Drawing.Color.White;
             this.btnG5_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_3.ForeColor = System.Drawing.Color.White;
+            this.btnG5_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_3.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_3.Location = new System.Drawing.Point(446, 119);
             this.btnG5_3.Name = "btnG5_3";
-            this.btnG5_3.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_3.Size = new System.Drawing.Size(82, 46);
             this.btnG5_3.TabIndex = 26;
+            this.btnG5_3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_3.UseVisualStyleBackColor = false;
             this.btnG5_3.Click += new System.EventHandler(this.btnG5_3_Click);
             // 
             // btnG5_2
             // 
-            this.btnG5_2.BackColor = System.Drawing.Color.Red;
+            this.btnG5_2.BackColor = System.Drawing.Color.White;
+            this.btnG5_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG5_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_2.ForeColor = System.Drawing.Color.White;
+            this.btnG5_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_2.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_2.Location = new System.Drawing.Point(361, 119);
             this.btnG5_2.Name = "btnG5_2";
-            this.btnG5_2.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_2.Size = new System.Drawing.Size(82, 46);
             this.btnG5_2.TabIndex = 25;
+            this.btnG5_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnG5_2.UseVisualStyleBackColor = false;
             this.btnG5_2.Click += new System.EventHandler(this.btnG5_2_Click);
             // 
             // btnG5_1
             // 
-            this.btnG5_1.BackColor = System.Drawing.Color.Red;
+            this.btnG5_1.BackColor = System.Drawing.Color.White;
+            this.btnG5_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG5_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_1.ForeColor = System.Drawing.Color.White;
+            this.btnG5_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_1.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_1.Location = new System.Drawing.Point(276, 119);
             this.btnG5_1.Name = "btnG5_1";
-            this.btnG5_1.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_1.Size = new System.Drawing.Size(82, 46);
             this.btnG5_1.TabIndex = 24;
+            this.btnG5_1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnG5_1.UseVisualStyleBackColor = false;
             this.btnG5_1.Click += new System.EventHandler(this.btnG5_1_Click);
             // 
             // uiMesa
             // 
-            this.uiMesa.Location = new System.Drawing.Point(185, 262);
+            this.uiMesa.Location = new System.Drawing.Point(180, 298);
             this.uiMesa.Name = "uiMesa";
             this.uiMesa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiMesa.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -590,7 +599,7 @@
             // 
             // uiLlevar
             // 
-            this.uiLlevar.Location = new System.Drawing.Point(242, 262);
+            this.uiLlevar.Location = new System.Drawing.Point(237, 298);
             this.uiLlevar.Name = "uiLlevar";
             this.uiLlevar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiLlevar.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -603,7 +612,7 @@
             // 
             // uiCortesia
             // 
-            this.uiCortesia.Location = new System.Drawing.Point(307, 262);
+            this.uiCortesia.Location = new System.Drawing.Point(302, 298);
             this.uiCortesia.Name = "uiCortesia";
             this.uiCortesia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiCortesia.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -617,7 +626,7 @@
             // 
             // uiPrecioEmp
             // 
-            this.uiPrecioEmp.Location = new System.Drawing.Point(469, 262);
+            this.uiPrecioEmp.Location = new System.Drawing.Point(464, 298);
             this.uiPrecioEmp.Name = "uiPrecioEmp";
             this.uiPrecioEmp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiPrecioEmp.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -800,7 +809,7 @@
             // textEdit1
             // 
             this.textEdit1.EditValue = "TOTAL";
-            this.textEdit1.Location = new System.Drawing.Point(185, 443);
+            this.textEdit1.Location = new System.Drawing.Point(180, 479);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -817,7 +826,7 @@
             // 
             this.uiTotal.EditValue = "$0.00";
             this.uiTotal.Enabled = false;
-            this.uiTotal.Location = new System.Drawing.Point(185, 465);
+            this.uiTotal.Location = new System.Drawing.Point(180, 501);
             this.uiTotal.Name = "uiTotal";
             this.uiTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -834,7 +843,7 @@
             // 
             this.uiRecibi.EditValue = "$0.00";
             this.uiRecibi.Enabled = false;
-            this.uiRecibi.Location = new System.Drawing.Point(323, 465);
+            this.uiRecibi.Location = new System.Drawing.Point(318, 501);
             this.uiRecibi.Name = "uiRecibi";
             this.uiRecibi.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiRecibi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -850,7 +859,7 @@
             // textEdit4
             // 
             this.textEdit4.EditValue = "RECIBI";
-            this.textEdit4.Location = new System.Drawing.Point(323, 443);
+            this.textEdit4.Location = new System.Drawing.Point(318, 479);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -867,7 +876,7 @@
             // 
             this.uiCambio.EditValue = "$0.00";
             this.uiCambio.Enabled = false;
-            this.uiCambio.Location = new System.Drawing.Point(461, 465);
+            this.uiCambio.Location = new System.Drawing.Point(456, 501);
             this.uiCambio.Name = "uiCambio";
             this.uiCambio.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiCambio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -883,7 +892,7 @@
             // textEdit6
             // 
             this.textEdit6.EditValue = "CAMBIO";
-            this.textEdit6.Location = new System.Drawing.Point(461, 443);
+            this.textEdit6.Location = new System.Drawing.Point(456, 479);
             this.textEdit6.Name = "textEdit6";
             this.textEdit6.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -900,7 +909,7 @@
             // 
             this.uiFaltan.EditValue = "$0.00";
             this.uiFaltan.Enabled = false;
-            this.uiFaltan.Location = new System.Drawing.Point(599, 465);
+            this.uiFaltan.Location = new System.Drawing.Point(594, 501);
             this.uiFaltan.Name = "uiFaltan";
             this.uiFaltan.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.uiFaltan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -916,7 +925,7 @@
             // textEdit8
             // 
             this.textEdit8.EditValue = "FALTAN";
-            this.textEdit8.Location = new System.Drawing.Point(599, 443);
+            this.textEdit8.Location = new System.Drawing.Point(594, 479);
             this.textEdit8.Name = "textEdit8";
             this.textEdit8.Properties.Appearance.BackColor = System.Drawing.Color.Green;
             this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
@@ -931,7 +940,7 @@
             // 
             // grProducto
             // 
-            this.grProducto.Location = new System.Drawing.Point(183, 286);
+            this.grProducto.Location = new System.Drawing.Point(178, 322);
             this.grProducto.MainView = this.gvProducto;
             this.grProducto.Name = "grProducto";
             this.grProducto.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -985,9 +994,9 @@
             // repDel
             // 
             this.repDel.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repDel.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.repDel.Name = "repDel";
             this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -1218,7 +1227,7 @@
             // uiPedido
             // 
             this.uiPedido.Enabled = false;
-            this.uiPedido.Location = new System.Drawing.Point(702, 203);
+            this.uiPedido.Location = new System.Drawing.Point(691, 243);
             this.uiPedido.Name = "uiPedido";
             this.uiPedido.Size = new System.Drawing.Size(254, 43);
             this.uiPedido.TabIndex = 76;
@@ -1257,7 +1266,7 @@
             // 
             // uiEmpleado
             // 
-            this.uiEmpleado.Location = new System.Drawing.Point(599, 258);
+            this.uiEmpleado.Location = new System.Drawing.Point(594, 294);
             this.uiEmpleado.Name = "uiEmpleado";
             this.uiEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1510,27 +1519,29 @@
             // 
             // btnG5_7
             // 
-            this.btnG5_7.BackColor = System.Drawing.Color.Red;
+            this.btnG5_7.BackColor = System.Drawing.Color.White;
             this.btnG5_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_7.ForeColor = System.Drawing.Color.White;
+            this.btnG5_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_7.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_7.Location = new System.Drawing.Point(786, 119);
             this.btnG5_7.Name = "btnG5_7";
-            this.btnG5_7.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_7.Size = new System.Drawing.Size(82, 46);
             this.btnG5_7.TabIndex = 98;
+            this.btnG5_7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_7.UseVisualStyleBackColor = false;
             this.btnG5_7.Click += new System.EventHandler(this.btnG5_7_Click);
             // 
             // btnG5_8
             // 
-            this.btnG5_8.BackColor = System.Drawing.Color.Red;
+            this.btnG5_8.BackColor = System.Drawing.Color.White;
             this.btnG5_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_8.ForeColor = System.Drawing.Color.White;
+            this.btnG5_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_8.ForeColor = System.Drawing.Color.Blue;
             this.btnG5_8.Location = new System.Drawing.Point(871, 119);
             this.btnG5_8.Name = "btnG5_8";
-            this.btnG5_8.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_8.Size = new System.Drawing.Size(82, 46);
             this.btnG5_8.TabIndex = 99;
+            this.btnG5_8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_8.UseVisualStyleBackColor = false;
             this.btnG5_8.Click += new System.EventHandler(this.btnG5_8_Click);
             // 
@@ -1539,7 +1550,7 @@
             this.lblNotas.AutoSize = true;
             this.lblNotas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblNotas.ForeColor = System.Drawing.Color.White;
-            this.lblNotas.Location = new System.Drawing.Point(754, 448);
+            this.lblNotas.Location = new System.Drawing.Point(749, 484);
             this.lblNotas.Name = "lblNotas";
             this.lblNotas.Size = new System.Drawing.Size(0, 13);
             this.lblNotas.TabIndex = 110;
@@ -1593,7 +1604,7 @@
             this.groupBox1.Controls.Add(this.uiAnticipo);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(277, 194);
+            this.groupBox1.Location = new System.Drawing.Point(266, 234);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(421, 58);
             this.groupBox1.TabIndex = 123;
@@ -1617,111 +1628,119 @@
             // 
             // btnG5_16
             // 
-            this.btnG5_16.BackColor = System.Drawing.Color.Red;
+            this.btnG5_16.BackColor = System.Drawing.Color.White;
             this.btnG5_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_16.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_16.ForeColor = System.Drawing.Color.White;
-            this.btnG5_16.Location = new System.Drawing.Point(871, 158);
+            this.btnG5_16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_16.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_16.Location = new System.Drawing.Point(871, 162);
             this.btnG5_16.Name = "btnG5_16";
-            this.btnG5_16.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_16.Size = new System.Drawing.Size(82, 44);
             this.btnG5_16.TabIndex = 131;
+            this.btnG5_16.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_16.UseVisualStyleBackColor = false;
             this.btnG5_16.Click += new System.EventHandler(this.btnG5_16_Click);
             // 
             // btnG5_15
             // 
-            this.btnG5_15.BackColor = System.Drawing.Color.Red;
+            this.btnG5_15.BackColor = System.Drawing.Color.White;
             this.btnG5_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_15.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_15.ForeColor = System.Drawing.Color.White;
-            this.btnG5_15.Location = new System.Drawing.Point(786, 158);
+            this.btnG5_15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_15.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_15.Location = new System.Drawing.Point(786, 162);
             this.btnG5_15.Name = "btnG5_15";
-            this.btnG5_15.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_15.Size = new System.Drawing.Size(82, 44);
             this.btnG5_15.TabIndex = 130;
+            this.btnG5_15.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_15.UseVisualStyleBackColor = false;
             this.btnG5_15.Click += new System.EventHandler(this.btnG5_15_Click);
             // 
             // btnG5_14
             // 
-            this.btnG5_14.BackColor = System.Drawing.Color.Red;
+            this.btnG5_14.BackColor = System.Drawing.Color.White;
             this.btnG5_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_14.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_14.ForeColor = System.Drawing.Color.White;
-            this.btnG5_14.Location = new System.Drawing.Point(701, 158);
+            this.btnG5_14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_14.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_14.Location = new System.Drawing.Point(701, 162);
             this.btnG5_14.Name = "btnG5_14";
-            this.btnG5_14.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_14.Size = new System.Drawing.Size(82, 44);
             this.btnG5_14.TabIndex = 129;
+            this.btnG5_14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_14.UseVisualStyleBackColor = false;
             this.btnG5_14.Click += new System.EventHandler(this.btnG5_14_Click);
             // 
             // btnG5_13
             // 
-            this.btnG5_13.BackColor = System.Drawing.Color.Red;
+            this.btnG5_13.BackColor = System.Drawing.Color.White;
             this.btnG5_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_13.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_13.ForeColor = System.Drawing.Color.White;
-            this.btnG5_13.Location = new System.Drawing.Point(616, 158);
+            this.btnG5_13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_13.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_13.Location = new System.Drawing.Point(616, 162);
             this.btnG5_13.Name = "btnG5_13";
-            this.btnG5_13.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_13.Size = new System.Drawing.Size(82, 44);
             this.btnG5_13.TabIndex = 128;
+            this.btnG5_13.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_13.UseVisualStyleBackColor = false;
             this.btnG5_13.Click += new System.EventHandler(this.btnG5_13_Click);
             // 
             // btnG5_12
             // 
-            this.btnG5_12.BackColor = System.Drawing.Color.Red;
+            this.btnG5_12.BackColor = System.Drawing.Color.White;
             this.btnG5_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_12.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_12.ForeColor = System.Drawing.Color.White;
-            this.btnG5_12.Location = new System.Drawing.Point(531, 158);
+            this.btnG5_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_12.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_12.Location = new System.Drawing.Point(531, 162);
             this.btnG5_12.Name = "btnG5_12";
-            this.btnG5_12.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_12.Size = new System.Drawing.Size(82, 44);
             this.btnG5_12.TabIndex = 127;
+            this.btnG5_12.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_12.UseVisualStyleBackColor = false;
             this.btnG5_12.Click += new System.EventHandler(this.btnG5_12_Click);
             // 
             // btnG5_11
             // 
-            this.btnG5_11.BackColor = System.Drawing.Color.Red;
+            this.btnG5_11.BackColor = System.Drawing.Color.White;
             this.btnG5_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_11.ForeColor = System.Drawing.Color.White;
-            this.btnG5_11.Location = new System.Drawing.Point(446, 158);
+            this.btnG5_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_11.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_11.Location = new System.Drawing.Point(446, 162);
             this.btnG5_11.Name = "btnG5_11";
-            this.btnG5_11.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_11.Size = new System.Drawing.Size(82, 44);
             this.btnG5_11.TabIndex = 126;
+            this.btnG5_11.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_11.UseVisualStyleBackColor = false;
             this.btnG5_11.Click += new System.EventHandler(this.btnG5_11_Click);
             // 
             // btnG5_10
             // 
-            this.btnG5_10.BackColor = System.Drawing.Color.Red;
+            this.btnG5_10.BackColor = System.Drawing.Color.White;
             this.btnG5_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_10.ForeColor = System.Drawing.Color.White;
-            this.btnG5_10.Location = new System.Drawing.Point(361, 158);
+            this.btnG5_10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_10.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_10.Location = new System.Drawing.Point(361, 162);
             this.btnG5_10.Name = "btnG5_10";
-            this.btnG5_10.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_10.Size = new System.Drawing.Size(82, 44);
             this.btnG5_10.TabIndex = 125;
+            this.btnG5_10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_10.UseVisualStyleBackColor = false;
             this.btnG5_10.Click += new System.EventHandler(this.btnG5_10_Click);
             // 
             // btnG5_9
             // 
-            this.btnG5_9.BackColor = System.Drawing.Color.Red;
+            this.btnG5_9.BackColor = System.Drawing.Color.White;
             this.btnG5_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
-            this.btnG5_9.ForeColor = System.Drawing.Color.White;
-            this.btnG5_9.Location = new System.Drawing.Point(276, 158);
+            this.btnG5_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_9.ForeColor = System.Drawing.Color.Blue;
+            this.btnG5_9.Location = new System.Drawing.Point(276, 162);
             this.btnG5_9.Name = "btnG5_9";
-            this.btnG5_9.Size = new System.Drawing.Size(82, 35);
+            this.btnG5_9.Size = new System.Drawing.Size(82, 44);
             this.btnG5_9.TabIndex = 124;
+            this.btnG5_9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_9.UseVisualStyleBackColor = false;
             this.btnG5_9.Click += new System.EventHandler(this.btnG5_9_Click);
             // 
             // uiConsumo
             // 
-            this.uiConsumo.Location = new System.Drawing.Point(388, 262);
+            this.uiConsumo.Location = new System.Drawing.Point(383, 298);
             this.uiConsumo.Name = "uiConsumo";
             this.uiConsumo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.uiConsumo.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -1747,7 +1766,7 @@
             // 
             // uiKeyCatch
             // 
-            this.uiKeyCatch.Location = new System.Drawing.Point(947, 419);
+            this.uiKeyCatch.Location = new System.Drawing.Point(942, 455);
             this.uiKeyCatch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiKeyCatch.Name = "uiKeyCatch";
             this.uiKeyCatch.Size = new System.Drawing.Size(9, 20);
@@ -1760,7 +1779,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 532);
+            this.ClientSize = new System.Drawing.Size(1032, 573);
             this.Controls.Add(this.uiFactura);
             this.Controls.Add(this.btnG5_16);
             this.Controls.Add(this.btnG5_15);
@@ -1855,6 +1874,7 @@
             this.Controls.Add(this.btnProd2);
             this.Controls.Add(this.btnProd1);
             this.Controls.Add(this.uiKeyCatch);
+            this.DoubleBuffered = true;
             this.Name = "frmPuntoVenta";
             this.Text = "PVTacosAna";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PVTacosAna_FormClosing);

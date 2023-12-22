@@ -18,6 +18,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +81,7 @@ namespace TacosAna.Desktop
         private List<cat_productos> itemMitad;        
         private cat_productos itemOtros;
         private List<string> lstPaqueteDetalle;
-
+        private List<cat_productos_imagenes> lstProductosImg;
         public decimal porcDescEmpleado;
         private decimal porcAnticipoPedido;
         public   bool esVentaPorTelefono;
@@ -172,6 +173,8 @@ namespace TacosAna.Desktop
             ERP.Business.DataMemory.DataBucket.GetImpresoraCaja(this.puntoVentaContext.cajaId, true);
             entityImpresoraComanda = oImpresora.ObtenerComandaImpresora(this.puntoVentaContext.sucursalId);
             ERP.Business.DataMemory.DataBucket.GetConfiguracion(true);
+
+            this.lstProductosImg = oContext.cat_productos_imagenes.ToList();
             Inicializar();
 
            
@@ -686,6 +689,7 @@ namespace TacosAna.Desktop
         }
         private void LlenarBotonesBebidas()
         {
+            Image img = null;
             try
             {
                 int i = 1;
@@ -695,7 +699,19 @@ namespace TacosAna.Desktop
                     if (controlA != null)
                     {
                         controlA.AccessibleName = item.ProductoId.ToString();
-                        controlA.Text = item.DescripcionCorta;
+                        controlA.Text = item.DescripcionCorta.ToUpper();
+                        img = GetImage(item.ProductoId);
+                        if(img!= null)
+                        {
+                            
+                            ((Button)controlA).BackgroundImage = img;
+                            ((Button)controlA).BackgroundImageLayout = ImageLayout.Zoom;
+                            ((Button)controlA).TextAlign = ContentAlignment.BottomLeft;
+                        }
+                        else
+                        {
+                            controlA.BackgroundImage = null;
+                        }
                     }
                     i++;
                 }
@@ -737,6 +753,21 @@ namespace TacosAna.Desktop
             }
         }
 
+        private Image GetImage(int prodctoId)
+        {
+            var imagenProd = lstProductosImg.Where(w => w.ProductoId == prodctoId && w.Principal == true).FirstOrDefault();
+            if(imagenProd!= null)
+            {
+                using (var ms = new MemoryStream(imagenProd.FileByte))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+
+            return null;
+
+           
+        }
         private void LimpiarBotones()
         {
             cantidadPaquetesInicial = 0;

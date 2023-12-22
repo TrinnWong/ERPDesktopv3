@@ -17,6 +17,7 @@ using static ConexionBD.Enumerados;
 using System.Transactions;
 using ConexionBD.Models;
 using ERP.Common.Produccion;
+using System.Runtime.InteropServices;
 
 namespace ERP.Common.Catalogos
 {
@@ -716,8 +717,8 @@ namespace ERP.Common.Catalogos
                 {
                     using (var ms = new MemoryStream((byte[])eImagen.FileByte))
                     {
-                        pbFoto.Image = Image.FromStream(ms);
-                        uiImagenPrincipal.Image = Image.FromStream(ms);
+                        this.pbFoto.Image = Image.FromStream(ms);
+                        this.uiImagenPrincipal.Image = Image.FromStream(ms);
                     }
                 }
                 
@@ -1510,8 +1511,9 @@ namespace ERP.Common.Catalogos
 
                             Byte[] data = preview;
                             
-                            MemoryStream mem = new MemoryStream(data);                           
+                            MemoryStream mem = new MemoryStream(preview);                           
                             
+                           
                             uiImagenDetalle.Image = Image.FromStream(mem);
 
                             if (entityPreview.Principal == true)
@@ -1531,6 +1533,8 @@ namespace ERP.Common.Catalogos
                 
             }
         }
+
+
 
         private void hacerPrincipal()
         {
