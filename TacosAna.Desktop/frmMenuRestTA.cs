@@ -1094,5 +1094,35 @@ namespace TacosAna.Desktop
                 WebRequest = null;
             }
         }
+
+        private void uiAnticipo_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           TacosAna.Desktop.frmPuntoVenta  frmo = TacosAna.Desktop.frmPuntoVenta.GetInstance();
+
+            if (frmo != null)
+            {
+                frmo.anticipoBoton();
+            }
+        }
+
+        private void btnResumenPedido_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TacosAna.Desktop.frmPuntoVenta frmo = TacosAna.Desktop.frmPuntoVenta.GetInstance();
+
+            if (frmo != null)
+            {
+                frmo.pedidoResumen();
+            }
+        }
+
+        private void uiPedidoRefresh2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TacosAna.Desktop.frmPuntoVenta frmo = TacosAna.Desktop.frmPuntoVenta.GetInstance();
+
+            if (frmo != null)
+            {
+                frmo.pedidoResumen();
+            }
+        }
     }
 }

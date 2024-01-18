@@ -197,6 +197,7 @@ namespace TacosAna.Desktop
             cobrandoAnticipo = false;
             cantidadAnticipo = 0;
             uiAnticipo.Enabled = false;
+           
             uiPedidoResumen.Enabled = false;
             ventaId = 0;
             programacion = new doc_pedidos_orden_programacion();
@@ -206,7 +207,7 @@ namespace TacosAna.Desktop
             pedidoId = 0;
             lblNotas.Text = "";
             cobrando = false;
-            btnCancelar.Enabled = false;
+            
             grProducto.DataSource = null;
             EnableCalculadora(true);
             uiEnter.Enabled = true;
@@ -290,14 +291,14 @@ namespace TacosAna.Desktop
 
 
                 /**Habilitar deshabilitar boton "mas prod"..*/
-                if (lstProdBotones.Count > numBtnProds)
-                {
-                    btnProdMas.Enabled = true;
-                }
-                else
-                {
-                    btnProdMas.Enabled = false;
-                }
+                //if (lstProdBotones.Count > numBtnProds)
+                //{
+                //    btnProdMas.Enabled = true;
+                //}
+                //else
+                //{
+                //    btnProdMas.Enabled = false;
+                //}
 
 
                 int i = 1;
@@ -700,18 +701,18 @@ namespace TacosAna.Desktop
                     {
                         controlA.AccessibleName = item.ProductoId.ToString();
                         controlA.Text = item.DescripcionCorta.ToUpper();
-                        img = GetImage(item.ProductoId);
-                        if(img!= null)
-                        {
+                        //img = GetImage(item.ProductoId);
+                        //if(img!= null)
+                        //{
                             
-                            ((Button)controlA).BackgroundImage = img;
-                            ((Button)controlA).BackgroundImageLayout = ImageLayout.Zoom;
-                            ((Button)controlA).TextAlign = ContentAlignment.BottomLeft;
-                        }
-                        else
-                        {
-                            controlA.BackgroundImage = null;
-                        }
+                        //    ((Button)controlA).BackgroundImage = img;
+                        //    ((Button)controlA).BackgroundImageLayout = ImageLayout.Zoom;
+                        //    ((Button)controlA).TextAlign = ContentAlignment.BottomLeft;
+                        //}
+                        //else
+                        //{
+                        //    controlA.BackgroundImage = null;
+                        //}
                     }
                     i++;
                 }
@@ -1649,7 +1650,7 @@ namespace TacosAna.Desktop
                 EnableBtnG4(false);
                 EnableBtnG5(false);
                
-                btnCancelar.Enabled = esPedidoConAnticipo ? false : true; 
+                
                 button49.Enabled = false;
                 btnClr.Enabled = false;
                 uiAnticipo.Enabled = false;
@@ -1711,7 +1712,7 @@ namespace TacosAna.Desktop
         private void cobrarDeshabilitar()
         {
             cobrando = false;
-            btnCancelar.Enabled = false;
+           
             button49.Enabled = true;
             btnClr.Enabled = true;
             itemSin = new List<cat_productos>();
@@ -2318,7 +2319,7 @@ namespace TacosAna.Desktop
                     uiPedidoResumen.Enabled = true;
                     uiAnticipo.Enabled = true;
                     EnableCalculadora(true);
-                    btnCancelar.Enabled = false;
+                  
                     button51.Enabled = false;
                     button49.Enabled = false;
                     btnClr.Enabled = false;
@@ -2485,7 +2486,7 @@ namespace TacosAna.Desktop
             button47.Enabled = enable;
             btnClr.Enabled = enable;
             button49.Enabled = enable;
-            btnCancelar.Enabled = enable;
+            
             button51.Enabled = enable;
             
         }
@@ -3963,7 +3964,7 @@ namespace TacosAna.Desktop
             }
         }
 
-        private void anticipoBoton()
+        public void anticipoBoton()
         {
             if (programacion.cat_clientes == null)
             {
@@ -4098,7 +4099,7 @@ namespace TacosAna.Desktop
             anticipoBoton();   
         }
 
-        private void uiPedidoResumen_Click(object sender, EventArgs e)
+        public void pedidoResumen()
         {
             try
             {
@@ -4120,6 +4121,11 @@ namespace TacosAna.Desktop
             }
         }
 
+        private void uiPedidoResumen_Click(object sender, EventArgs e)
+        {
+            pedidoResumen();
+        }
+
         private void uiCalculadora_EditValueChanged(object sender, EventArgs e)
         {
 
@@ -4127,6 +4133,10 @@ namespace TacosAna.Desktop
 
         private void uiPedidoRefresh_Click(object sender, EventArgs e)
         {
+            RefrescarPedido();
+        }
+
+        private void RefrescarPedido() {
             int pedidoId = this.pedido.PedidoId;
             Inicializar();
             obtenerCuenta(pedidoId);
@@ -4430,6 +4440,11 @@ namespace TacosAna.Desktop
                                ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
             }
+        }
+
+        private void btnProdMas_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

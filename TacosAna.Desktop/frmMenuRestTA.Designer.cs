@@ -64,6 +64,8 @@
             this.uiMenuMaxMinConfig = new DevExpress.XtraBars.BarButtonItem();
             this.uiMenuAjusteInventario = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.uiAnticipo2 = new DevExpress.XtraBars.BarButtonItem();
+            this.uiPedidoResumen2 = new DevExpress.XtraBars.BarButtonItem();
             this.rbComanda = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbCuentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCuenta = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -80,6 +82,7 @@
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.uiRevisarRed = new System.Windows.Forms.Timer(this.components);
+            this.uiPedidoRefresh2 = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -150,9 +153,12 @@
             this.mneMaxMin,
             this.uiMenuMaxMinConfig,
             this.uiMenuAjusteInventario,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.uiAnticipo2,
+            this.uiPedidoResumen2,
+            this.uiPedidoRefresh2});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 34;
+            this.ribbonControl1.MaxItemId = 37;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -404,6 +410,22 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
+            // uiAnticipo2
+            // 
+            this.uiAnticipo2.Caption = "Anticipo/Pago";
+            this.uiAnticipo2.Id = 34;
+            this.uiAnticipo2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAnticipoPago.ImageOptions.Image")));
+            this.uiAnticipo2.Name = "uiAnticipo2";
+            this.uiAnticipo2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiAnticipo_Click);
+            // 
+            // uiPedidoResumen2
+            // 
+            this.uiPedidoResumen2.Caption = "Resumen Pedido";
+            this.uiPedidoResumen2.Id = 35;
+            this.uiPedidoResumen2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnResumenPedido.ImageOptions.Image")));
+            this.uiPedidoResumen2.Name = "uiPedidoResumen2";
+            this.uiPedidoResumen2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnResumenPedido_ItemClick);
+            // 
             // rbComanda
             // 
             this.rbComanda.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -453,6 +475,9 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.uiPedido);
             this.ribbonPageGroup2.ItemLinks.Add(this.uiBuscarPedido);
+            this.ribbonPageGroup2.ItemLinks.Add(this.uiAnticipo2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.uiPedidoResumen2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.uiPedidoRefresh2);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // rbTicket
@@ -532,6 +557,14 @@
             this.uiRevisarRed.Interval = 10000;
             this.uiRevisarRed.Tick += new System.EventHandler(this.uiRevisarRed_Tick);
             // 
+            // uiPedidoRefresh2
+            // 
+            this.uiPedidoRefresh2.Caption = "Actualizar Pedido";
+            this.uiPedidoRefresh2.Id = 36;
+            this.uiPedidoRefresh2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiPedidoRefresh2.ImageOptions.Image")));
+            this.uiPedidoRefresh2.Name = "uiPedidoRefresh2";
+            this.uiPedidoRefresh2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiPedidoRefresh2_ItemClick);
+            // 
             // frmMenuRestTA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,5 +634,8 @@
         private DevExpress.XtraBars.BarButtonItem uiMenuAjusteInventario;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private System.Windows.Forms.Timer uiRevisarRed;
+        private DevExpress.XtraBars.BarButtonItem uiAnticipo2;
+        private DevExpress.XtraBars.BarButtonItem uiPedidoResumen2;
+        private DevExpress.XtraBars.BarButtonItem uiPedidoRefresh2;
     }
 }
