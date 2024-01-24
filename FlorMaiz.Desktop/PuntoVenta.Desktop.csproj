@@ -51,6 +51,9 @@
   <PropertyGroup>
     <ApplicationIcon>Awicons-Vista-Artistic-Coin.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
@@ -167,6 +170,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\ConexionBD.cat_formas_pago.datasource" />
     <None Include="Properties\DataSources\ConexionBD.ProductoModel.datasource" />
     <None Include="Properties\Settings.settings">

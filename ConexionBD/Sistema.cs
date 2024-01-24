@@ -24,7 +24,8 @@ namespace ConexionBD
             string error = "";
             try
             {
-                
+                string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
+
 
                 string root = AppDomain.CurrentDomain.BaseDirectory;
                 string script = "";
@@ -33,13 +34,28 @@ namespace ConexionBD
 
                 try
                 {
-                    #region crear usuarios
-                  ServerConnection connMaster = new ServerConnection(oStringConnection.sqlConMaster);
+                    #region crear base de datos local
+
+                    //CREAR CARPETA ERP en C
+                    if (!Directory.Exists(@"C:\ERP"))
+                    {
+                        try
+                        {
+                            // Crear la carpeta si no existe
+                            Directory.CreateDirectory(@"C:\ERP");
+                            Console.WriteLine("Carpeta creada correctamente.");
+                        }
+                        catch (Exception ex)
+                        {
+                           
+                        }
+                    }
+
+                    ServerConnection connMaster = new ServerConnection(oStringConnection.sqlLocalMaster);
                     Server serverMaster = new Server(connMaster);
                     string[] archivosMaster = null;
 
-                    archivosMaster = recortado ?  System.IO.Directory.GetFiles(@"Versiones\00Master_REC\"):
-                        System.IO.Directory.GetFiles(@"Versiones\00Master\");
+                    archivosMaster = System.IO.Directory.GetFiles(@"Versiones\00Local\");
 
 
                     foreach (var a in archivosMaster)
@@ -57,12 +73,14 @@ namespace ConexionBD
                         }
                        
                     }
+
+                    oStringConnection.sqlLocalMaster.Close();
                     #endregion
                 }
                 catch (Exception ex)
                 {
 
-                   
+                    oStringConnection.sqlLocalMaster.Close();
                 }
                 #endregion
 

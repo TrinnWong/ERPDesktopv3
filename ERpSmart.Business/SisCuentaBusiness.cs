@@ -174,20 +174,20 @@ namespace ERP.Business
             string[] fileConfig;
             try
             {
-                string path = Application.StartupPath + @"\SystemForms.txt";
+                string path = Application.StartupPath + @"\config.txt";
                 string text = System.IO.File.ReadAllText(path);
 
                 if (text.Length > 0)
                 {
                     result = new sis_cuenta();
 
-                    fileConfig = text.Split('|');
+                    fileConfig = text.Split(',');
 
-                    result.ClienteKey = fileConfig[0];
-                    result.Email = fileConfig[1];
-                    result.Password = fileConfig[2];
-                    result.URLValidacion = fileConfig[3].Replace("\n","").Replace("\r","");
-                    result.ClaveSucursal = Convert.ToInt32(fileConfig[4].Replace("\n", "").Replace("\r", ""));
+                    //result.ClienteKey = fileConfig[0];
+                    //result.Email = fileConfig[1];
+                    //result.Password = fileConfig[2];
+                    //result.URLValidacion = fileConfig[3].Replace("\n","").Replace("\r","");
+                    result.ClaveSucursal = Convert.ToInt32(fileConfig[1].Replace("\n", "").Replace("\r", ""));
                     return result;
                 }
                 else

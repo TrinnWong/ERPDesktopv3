@@ -357,7 +357,12 @@ namespace TacosAna.Desktop
                 welcome.Show();
                 welcome.BringToFront();
                 */
-                
+
+                #region importar información de la nube
+                SincronizacionBusiness oSinc = new SincronizacionBusiness();
+                oSinc.Importar();
+                #endregion
+
                 welcome.Close();
                 this.Hide();
 

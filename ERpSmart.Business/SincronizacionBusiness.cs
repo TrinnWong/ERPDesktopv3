@@ -1,6 +1,10 @@
 ﻿using ConexionBD;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +17,26 @@ namespace ERP.Business
         ERPProdEntities contextOrigen;
         ERPProdEntities contextDestino;
         int err;
+        //public SincronizacionBusiness()
+        //{
+        //    sisCuenta = new SisCuentaBusiness();
+        //    contextDestino = new ERPProdEntities();
+        //    contextOrigen = new ERPProdEntities(ConexionBD.Sistema.scMain);
+
+        //}
+
+
+       
         public SincronizacionBusiness()
         {
+            string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
             sisCuenta = new SisCuentaBusiness();
-            contextDestino = new ERPProdEntities();
-            contextOrigen = new ERPProdEntities(ConexionBD.Sistema.scMain);
+            var builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
+            var builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdLocalMater"].ConnectionString);
+
+
+            contextOrigen = new ERPProdEntities(builder1.ProviderConnectionString);
+            contextDestino = new ERPProdEntities(builder2.ProviderConnectionString.Replace("|DataDirectory|", directorioRaiz));
 
         }
 

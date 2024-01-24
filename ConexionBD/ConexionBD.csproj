@@ -1233,6 +1233,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SystemForms1.txt" />
+    <Content Include="Versiones\00Local\00 CREATE DATABASE.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\00Local\00_2 CREATE USER.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Versiones\00Local\00_3 CREATE OBJECTS.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Versiones\00Master\00 CREATE DATABASE.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3753,6 +3762,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="localdb\" />
     <Folder Include="Models\Pedidos\" />
   </ItemGroup>
   <ItemGroup>

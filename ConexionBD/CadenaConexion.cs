@@ -13,11 +13,13 @@ namespace ConexionBD
     {
         public SqlConnection sqlCon;
         public SqlConnection sqlConMaster;
+        public SqlConnection sqlLocalMaster;
+       
         public CadenaConexion()
         {
-           
-                var efConnectionString = !ConexionBD.Enumerados.CS.Contains("##SERVERDB##") ? "metadata = res://*/ERPModel.csdl|res://*/ERPModel.ssdl|res://*/ERPModel.msl;provider=System.Data.SqlClient;provider connection string=\"" +ConexionBD.Enumerados.CS+"\"":
-                                          ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
+
+            string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
+            var efConnectionString = ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
                 //ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
                 var builder = new EntityConnectionStringBuilder(efConnectionString);
                 var regularConnectionString = builder.ProviderConnectionString;
@@ -32,9 +34,15 @@ namespace ConexionBD
 
                     sqlConMaster = new SqlConnection(regularConnectionString2);
                 }
-            
-               
-       
+
+           
+                string localMasterCS =  $"Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True";
+
+                sqlLocalMaster = new SqlConnection(localMasterCS);
+           
+
+
+
         }
 
        
