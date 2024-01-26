@@ -42,6 +42,10 @@ namespace TacosAna.Desktop
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
             }
+            #region importar información de la nube
+            SincronizacionBusiness oSinc = new SincronizacionBusiness();
+            oSinc.Importar();
+            #endregion
 
             oContext = new ERPProdEntities();
             oLogin = new ConexionBD.LoginCaja();
@@ -358,10 +362,7 @@ namespace TacosAna.Desktop
                 welcome.BringToFront();
                 */
 
-                #region importar información de la nube
-                SincronizacionBusiness oSinc = new SincronizacionBusiness();
-                oSinc.Importar();
-                #endregion
+                
 
                 welcome.Close();
                 this.Hide();

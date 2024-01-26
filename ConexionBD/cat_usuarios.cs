@@ -11,7 +11,8 @@ namespace ConexionBD
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class cat_usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -98,6 +99,7 @@ namespace ConexionBD
         public int IdEmpleado { get; set; }
         public string NombreUsuario { get; set; }
         public string Password { get; set; }
+        [Column(TypeName = "datetime")]
         public System.DateTime CreadoEl { get; set; }
         public Nullable<bool> Activo { get; set; }
         public Nullable<bool> EsSupervisor { get; set; }

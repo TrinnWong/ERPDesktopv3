@@ -31,8 +31,9 @@ namespace ERP.Business
         {
             string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
             sisCuenta = new SisCuentaBusiness();
-            var builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
-            var builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdLocalMater"].ConnectionString);
+            var builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+            var builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
+            
 
 
             contextOrigen = new ERPProdEntities(builder1.ProviderConnectionString);
@@ -48,7 +49,9 @@ namespace ERP.Business
                 int sucursalId = cuenta.ClaveSucursal??0;
 
                 List<cat_empresas> lstEmpresasOri = contextOrigen.cat_empresas.ToList();
-                cat_sucursales sucursalOri = contextOrigen.cat_sucursales.Where(w => w.Clave == sucursalId).FirstOrDefault();
+                List<cat_cajas> lstCajasOri = contextOrigen.cat_cajas.ToList();
+                List<cat_tipos_cajas> lsTiposCajas = contextOrigen.cat_tipos_cajas.ToList();
+                List<cat_sucursales> sucursalOri = contextOrigen.cat_sucursales.ToList();
                 List<cat_usuarios> lstUsuariosOri = contextOrigen.cat_usuarios
                     .Where(w => w.cat_usuarios_sucursales.Where(s1 => s1.SucursalId == sucursalId).Count() > 0 || w.NombreUsuario.Contains("ADMIN")).ToList();
                 List<cat_usuarios_sucursales> lstUsuariosSucursalesOri = contextOrigen.cat_usuarios_sucursales
@@ -59,75 +62,22 @@ namespace ERP.Business
                 List<cat_productos> lstProductosOri = contextOrigen.cat_productos.ToList();
                 List<cat_productos_precios> lstProductosPrecioOri = contextOrigen
                     .cat_productos_precios.ToList();
+                List<rh_empleados> lstRHEmpleados = contextOrigen.rh_empleados.ToList();
+                List<rh_puestos> lstPuestos = contextOrigen.rh_puestos.ToList();
 
-                using (var dbContextTransaction = contextDestino.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        if (!ImportEmpresas(ref contextDestino, lstEmpresasOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-
-                        if (!ImportSucursales(ref contextDestino, sucursalOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-                        if (!ImportUsuarios(ref contextDestino, lstUsuariosOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-                        if (!ImportUsuariosSucursales(ref contextDestino, lstUsuariosSucursalesOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-                        if (!ImportLineas(ref contextDestino, lstLineasOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-                        if (!ImportFamilias(ref contextDestino, lstFamiliasOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-                        if (!ImportSubFamilias(ref contextDestino, lstSubFamiliasOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-
-                        if (!ImportProductos(ref contextDestino, lstProductosOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-
-                        if (!ImportProductosPrecios(ref contextDestino, lstProductosPrecioOri))
-                        {
-                            dbContextTransaction.Rollback();
-                            return "Ocurrió un error inesperado, revise el registro de bitácora";
-                        }
-
-                        dbContextTransaction.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-
-                        dbContextTransaction.Rollback();
-
-                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
-                                          "ERP",
-                                          "ERP.Business.RecortadoBusiness.Iniciar",
-                                          ex);
-
-                        return "Ocurrió un error inesperado, revise el registro de bitácora [" + err.ToString() + "]";
-                    }
-                }
+                ImportEmpresas(ref contextDestino, lstEmpresasOri);
+                ImportSucursales(ref contextDestino, sucursalOri);
+                ImportTiposCajas(ref contextDestino, lsTiposCajas);
+                ImportCajas(ref contextDestino, lstCajasOri);
+                ImportPuestos(ref contextDestino, lstPuestos);
+                ImportEmpleados(ref contextDestino, lstRHEmpleados);
+                ImportUsuarios(ref contextDestino, lstUsuariosOri);
+                ImportUsuariosSucursales(ref contextDestino, lstUsuariosSucursalesOri);
+                ImportLineas(ref contextDestino, lstLineasOri);
+                ImportFamilias(ref contextDestino, lstFamiliasOri);
+                ImportSubFamilias(ref contextDestino, lstSubFamiliasOri);
+                ImportProductos(ref contextDestino, lstProductosOri);
+                ImportProductosPrecios(ref contextDestino, lstProductosPrecioOri);
 
 
                 return "";
@@ -141,6 +91,55 @@ namespace ERP.Business
 
                 return "Ocurrió un error inesperado, revise el registro de bitácora [" + err.ToString() + "]";
 
+            }
+        }
+
+        public bool ImportCajas(ref ERPProdEntities context, List<cat_cajas> lstCajas)
+        {
+            try
+            {
+                foreach (cat_cajas itemCaja in lstCajas)
+                {
+                    cat_cajas cajaSinc = context.cat_cajas
+                        .AsNoTracking()
+                        .Where(w => w.Clave == itemCaja.Clave)
+                        .FirstOrDefault();
+
+                    if (cajaSinc != null)
+                    {
+                        cajaSinc.Descripcion = itemCaja.Descripcion;
+                        cajaSinc.Ubicacion = itemCaja.Ubicacion;
+                        cajaSinc.Estatus = itemCaja.Estatus;
+                        cajaSinc.Empresa = itemCaja.Empresa;
+                        cajaSinc.Sucursal = itemCaja.Sucursal;
+                        cajaSinc.TipoCajaId = itemCaja.TipoCajaId;
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        cajaSinc = new cat_cajas();
+                        cajaSinc.Clave = itemCaja.Clave;
+                        cajaSinc.Descripcion = itemCaja.Descripcion;
+                        cajaSinc.Ubicacion = itemCaja.Ubicacion;
+                        cajaSinc.Estatus = itemCaja.Estatus;
+                        cajaSinc.Empresa = itemCaja.Empresa;
+                        cajaSinc.Sucursal = itemCaja.Sucursal;
+                        cajaSinc.TipoCajaId = itemCaja.TipoCajaId;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_cajas.Add(cajaSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportCajas",
+                                                              ex);
+
+                return false;
             }
         }
 
@@ -193,66 +192,85 @@ namespace ERP.Business
             }
         }
 
-        public bool ImportSucursales(ref ERPProdEntities context, cat_sucursales itemSucursal)
+        public bool ImportSucursales(ref ERPProdEntities context, List<cat_sucursales> lstSucursales)
         {
             try
             {
-
-               
+                foreach (cat_sucursales itemSucursal in lstSucursales)
+                {
                     cat_sucursales sucursalSinc = context.cat_sucursales
-                        .Where(w => w.Clave == itemSucursal.Clave).FirstOrDefault();
+                        .AsNoTracking()
+                        .Where(w => w.Clave == itemSucursal.Clave)
+                        .FirstOrDefault();
 
                     if (sucursalSinc != null)
                     {
+                        sucursalSinc.Empresa = itemSucursal.Empresa;
                         sucursalSinc.Calle = itemSucursal.Calle;
                         sucursalSinc.Colonia = itemSucursal.Colonia;
-                        sucursalSinc.CP = itemSucursal.CP;
+                        sucursalSinc.NoExt = itemSucursal.NoExt;
+                        sucursalSinc.NoInt = itemSucursal.NoInt;
+                        sucursalSinc.Ciudad = itemSucursal.Ciudad;
+                        sucursalSinc.Estado = itemSucursal.Estado;
+                        sucursalSinc.Pais = itemSucursal.Pais;
+                        sucursalSinc.Telefono1 = itemSucursal.Telefono1;
+                        sucursalSinc.Telefono2 = itemSucursal.Telefono2;
                         sucursalSinc.Email = itemSucursal.Email;
                         sucursalSinc.Estatus = itemSucursal.Estatus;
                         sucursalSinc.NombreSucursal = itemSucursal.NombreSucursal;
-                        sucursalSinc.ServidorMailFrom = itemSucursal.ServidorMailFrom;
-                        sucursalSinc.ServidorMailPassword = itemSucursal.ServidorMailPassword;
-                        sucursalSinc.ServidorMailPort = itemSucursal.ServidorMailPort;
+                        sucursalSinc.CP = itemSucursal.CP;
                         sucursalSinc.ServidorMailSMTP = itemSucursal.ServidorMailSMTP;
-                        
+                        sucursalSinc.ServidorMailFrom = itemSucursal.ServidorMailFrom;
+                        sucursalSinc.ServidorMailPort = itemSucursal.ServidorMailPort;
+                        sucursalSinc.ServidorMailPassword = itemSucursal.ServidorMailPassword;
+
+                        // Puedes asignar otras propiedades según sea necesario
+
                         context.SaveChanges();
                     }
                     else
                     {
                         sucursalSinc = new cat_sucursales();
+
+                        sucursalSinc.Clave = itemSucursal.Clave;
+                        sucursalSinc.Empresa = itemSucursal.Empresa;
                         sucursalSinc.Calle = itemSucursal.Calle;
                         sucursalSinc.Colonia = itemSucursal.Colonia;
-                        sucursalSinc.CP = itemSucursal.CP;
+                        sucursalSinc.NoExt = itemSucursal.NoExt;
+                        sucursalSinc.NoInt = itemSucursal.NoInt;
+                        sucursalSinc.Ciudad = itemSucursal.Ciudad;
+                        sucursalSinc.Estado = itemSucursal.Estado;
+                        sucursalSinc.Pais = itemSucursal.Pais;
+                        sucursalSinc.Telefono1 = itemSucursal.Telefono1;
+                        sucursalSinc.Telefono2 = itemSucursal.Telefono2;
                         sucursalSinc.Email = itemSucursal.Email;
                         sucursalSinc.Estatus = itemSucursal.Estatus;
                         sucursalSinc.NombreSucursal = itemSucursal.NombreSucursal;
-                        sucursalSinc.ServidorMailFrom = itemSucursal.ServidorMailFrom;
-                        sucursalSinc.ServidorMailPassword = itemSucursal.ServidorMailPassword;
-                        sucursalSinc.ServidorMailPort = itemSucursal.ServidorMailPort;
+                        sucursalSinc.CP = itemSucursal.CP;
                         sucursalSinc.ServidorMailSMTP = itemSucursal.ServidorMailSMTP;
+                        sucursalSinc.ServidorMailFrom = itemSucursal.ServidorMailFrom;
+                        sucursalSinc.ServidorMailPort = itemSucursal.ServidorMailPort;
+                        sucursalSinc.ServidorMailPassword = itemSucursal.ServidorMailPassword;
 
-                        sucursalSinc.Clave = itemSucursal.Clave;
+                        // Puedes asignar otras propiedades según sea necesario
 
                         context.cat_sucursales.Add(sucursalSinc);
                         context.SaveChanges();
                     }
-
-
-                
-
+                }
                 return true;
             }
             catch (Exception ex)
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
-                                                          "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
-                                                          ex);
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportSucursales",
+                                                              ex);
 
                 return false;
-
             }
         }
+
 
         public bool ImportUsuarios(ref ERPProdEntities context, List<cat_usuarios> lstUsuarios)
         {
@@ -261,6 +279,7 @@ namespace ERP.Business
                 foreach (cat_usuarios itemUsuario in lstUsuarios)
                 {
                     cat_usuarios usuarioSinc = context.cat_usuarios
+                         .AsNoTracking()
                         .Where(w => w.IdUsuario == itemUsuario.IdUsuario).FirstOrDefault();
 
                     if (usuarioSinc != null)
@@ -287,6 +306,9 @@ namespace ERP.Business
                         usuarioSinc.EsSupervisor = itemUsuario.EsSupervisor;
                         usuarioSinc.EsSupervisorCajero = itemUsuario.EsSupervisorCajero;
                         usuarioSinc.NombreUsuario = itemUsuario.NombreUsuario;
+                        usuarioSinc.CreadoEl = itemUsuario.CreadoEl;
+                        usuarioSinc.IdEmpleado = itemUsuario.IdEmpleado;
+                        usuarioSinc.IdUsuario = itemUsuario.IdUsuario;
                         context.cat_usuarios.Add(usuarioSinc);
                         context.SaveChanges();
 
@@ -313,6 +335,7 @@ namespace ERP.Business
                 foreach (cat_usuarios_sucursales itemUsuario in lstUsuariosSucursales)
                 {
                     cat_usuarios_sucursales usuarioSinc = context.cat_usuarios_sucursales
+                         .AsNoTracking()
                         .Where(w => w.SucursalId == itemUsuario.SucursalId && 
                         w.UsuarioId == itemUsuario.UsuarioId).FirstOrDefault();
 
@@ -325,11 +348,13 @@ namespace ERP.Business
                         usuarioSinc.UsuarioId = itemUsuario.UsuarioId;
 
                         context.cat_usuarios_sucursales.Add(usuarioSinc);
-                        context.SaveChanges();
+                        
 
                     }
-                    
+                  
                 }
+
+                context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -659,6 +684,173 @@ namespace ERP.Business
         }
 
 
+        public bool ImportTiposCajas(ref ERPProdEntities context, List<cat_tipos_cajas> lstTiposCajas)
+        {
+            try
+            {
+                foreach (cat_tipos_cajas itemTipoCaja in lstTiposCajas)
+                {
+                    cat_tipos_cajas tipoCajaSinc = context.cat_tipos_cajas
+                        .AsNoTracking()
+                        .Where(w => w.TipoCajaId == itemTipoCaja.TipoCajaId)
+                        .FirstOrDefault();
+
+                    if (tipoCajaSinc != null)
+                    {
+                        tipoCajaSinc.Nombre = itemTipoCaja.Nombre;
+                        tipoCajaSinc.Activo = itemTipoCaja.Activo;
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        tipoCajaSinc = new cat_tipos_cajas();
+                       
+                        tipoCajaSinc.TipoCajaId = itemTipoCaja.TipoCajaId;
+                        tipoCajaSinc.Nombre = itemTipoCaja.Nombre;
+                        tipoCajaSinc.Activo = itemTipoCaja.Activo;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_tipos_cajas.Add(tipoCajaSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportTiposCajas",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportEmpleados(ref ERPProdEntities context, List<rh_empleados> lstEmpleados)
+        {
+            try
+            {
+                foreach (rh_empleados itemEmpleado in lstEmpleados)
+                {
+                    rh_empleados empleadoSinc = context.rh_empleados
+                        .AsNoTracking()
+                        .Where(w => w.NumEmpleado == itemEmpleado.NumEmpleado)
+                        .FirstOrDefault();
+
+                    if (empleadoSinc != null)
+                    {
+                        empleadoSinc.Nombre = itemEmpleado.Nombre;
+                        empleadoSinc.SueldoNeto = itemEmpleado.SueldoNeto;
+                        empleadoSinc.SueldoDiario = itemEmpleado.SueldoDiario;
+                        empleadoSinc.SueldoHra = itemEmpleado.SueldoHra;
+                        empleadoSinc.FormaPago = itemEmpleado.FormaPago;
+                        empleadoSinc.TipoContrato = itemEmpleado.TipoContrato;
+                        empleadoSinc.Puesto = itemEmpleado.Puesto;
+                        empleadoSinc.Departamento = itemEmpleado.Departamento;
+                        empleadoSinc.FechaIngreso = itemEmpleado.FechaIngreso;
+                        empleadoSinc.FechaInicioLab = itemEmpleado.FechaInicioLab;
+                        empleadoSinc.Estatus = itemEmpleado.Estatus;
+                        empleadoSinc.Foto = itemEmpleado.Foto;
+                        empleadoSinc.Empresa = itemEmpleado.Empresa;
+                        empleadoSinc.Sucursal = itemEmpleado.Sucursal;
+
+                        // Puedes asignar otras propiedades según sea necesario
+
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        empleadoSinc = new rh_empleados();
+
+                        empleadoSinc.NumEmpleado = itemEmpleado.NumEmpleado;
+                        empleadoSinc.Nombre = itemEmpleado.Nombre;
+                        empleadoSinc.SueldoNeto = itemEmpleado.SueldoNeto;
+                        empleadoSinc.SueldoDiario = itemEmpleado.SueldoDiario;
+                        empleadoSinc.SueldoHra = itemEmpleado.SueldoHra;
+                        empleadoSinc.FormaPago = itemEmpleado.FormaPago;
+                        empleadoSinc.TipoContrato = itemEmpleado.TipoContrato;
+                        empleadoSinc.Puesto = itemEmpleado.Puesto;
+                        empleadoSinc.Departamento = itemEmpleado.Departamento;
+                        empleadoSinc.FechaIngreso = itemEmpleado.FechaIngreso;
+                        empleadoSinc.FechaInicioLab = itemEmpleado.FechaInicioLab;
+                        empleadoSinc.Estatus = itemEmpleado.Estatus;
+                        empleadoSinc.Foto = itemEmpleado.Foto;
+                        empleadoSinc.Empresa = itemEmpleado.Empresa;
+                        empleadoSinc.Sucursal = itemEmpleado.Sucursal;
+
+                        // Puedes asignar otras propiedades según sea necesario
+
+                        context.rh_empleados.Add(empleadoSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportEmpleados",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportPuestos(ref ERPProdEntities context, List<rh_puestos> lstPuestos)
+        {
+            try
+            {
+                foreach (rh_puestos itemPuesto in lstPuestos)
+                {
+                    rh_puestos puestoSinc = context.rh_puestos
+                        .AsNoTracking()
+                        .Where(w => w.Clave == itemPuesto.Clave)
+                        .FirstOrDefault();
+
+                    if (puestoSinc != null)
+                    {
+                        puestoSinc.Descripcion = itemPuesto.Descripcion;
+                        puestoSinc.Estatus = itemPuesto.Estatus;
+                        puestoSinc.Empresa = itemPuesto.Empresa;
+                        puestoSinc.Sucursal = itemPuesto.Sucursal;
+                        puestoSinc.PermitirEliminar = itemPuesto.PermitirEliminar;
+                        puestoSinc.Mostrar = itemPuesto.Mostrar;
+
+                        // Puedes asignar otras propiedades según sea necesario
+
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        puestoSinc = new rh_puestos();
+
+                        puestoSinc.Clave = itemPuesto.Clave;
+                        puestoSinc.Descripcion = itemPuesto.Descripcion;
+                        puestoSinc.Estatus = itemPuesto.Estatus;
+                        puestoSinc.Empresa = itemPuesto.Empresa;
+                        puestoSinc.Sucursal = itemPuesto.Sucursal;
+                        puestoSinc.PermitirEliminar = itemPuesto.PermitirEliminar;
+                        puestoSinc.Mostrar = itemPuesto.Mostrar;
+
+                        // Puedes asignar otras propiedades según sea necesario
+
+                        context.rh_puestos.Add(puestoSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPuestos",
+                                                              ex);
+
+                return false;
+            }
+        }
 
 
     }
