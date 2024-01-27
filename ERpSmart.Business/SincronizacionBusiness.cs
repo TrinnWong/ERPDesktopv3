@@ -37,7 +37,7 @@ namespace ERP.Business
 
 
             contextOrigen = new ERPProdEntities(builder1.ProviderConnectionString);
-            contextDestino = new ERPProdEntities(builder2.ProviderConnectionString.Replace("|DataDirectory|", directorioRaiz));
+            contextDestino = new ERPProdEntities(builder2.ProviderConnectionString);
 
         }
 
@@ -50,6 +50,7 @@ namespace ERP.Business
 
                 List<cat_empresas> lstEmpresasOri = contextOrigen.cat_empresas.ToList();
                 List<cat_cajas> lstCajasOri = contextOrigen.cat_cajas.ToList();
+                List<cat_configuracion> lstConfiguracion = contextOrigen.cat_configuracion.ToList();
                 List<cat_tipos_cajas> lsTiposCajas = contextOrigen.cat_tipos_cajas.ToList();
                 List<cat_sucursales> sucursalOri = contextOrigen.cat_sucursales.ToList();
                 List<cat_usuarios> lstUsuariosOri = contextOrigen.cat_usuarios
@@ -67,6 +68,7 @@ namespace ERP.Business
 
                 ImportEmpresas(ref contextDestino, lstEmpresasOri);
                 ImportSucursales(ref contextDestino, sucursalOri);
+                ImportConfguracion(ref contextDestino, lstConfiguracion);
                 ImportTiposCajas(ref contextDestino, lsTiposCajas);
                 ImportCajas(ref contextDestino, lstCajasOri);
                 ImportPuestos(ref contextDestino, lstPuestos);
@@ -94,6 +96,169 @@ namespace ERP.Business
             }
         }
 
+        public bool ImportConfguracion(ref ERPProdEntities context, List<cat_configuracion> lstConfiguraciones)
+        {
+            try
+            {
+                foreach (cat_configuracion itemConfiguracion in lstConfiguraciones)
+                {
+                    cat_configuracion configuracionSinc = context.cat_configuracion                
+                    .Where(w => w.ConfiguradorId == itemConfiguracion.ConfiguradorId)
+                    .FirstOrDefault();
+
+                    if (configuracionSinc != null)
+                    {
+                        configuracionSinc.UnaFormaPago = itemConfiguracion.UnaFormaPago;
+                        configuracionSinc.MasUnaFormaPago = itemConfiguracion.MasUnaFormaPago;
+                        configuracionSinc.CosteoUEPS = itemConfiguracion.CosteoUEPS;
+                        configuracionSinc.CosteoPEPS = itemConfiguracion.CosteoPEPS;
+                        configuracionSinc.CosteoPromedio = itemConfiguracion.CosteoPromedio;
+                        configuracionSinc.AfectarInventarioLinea = itemConfiguracion.AfectarInventarioLinea;
+                        configuracionSinc.AfectarInventarioManual = itemConfiguracion.AfectarInventarioManual;
+                        configuracionSinc.AfectarInventarioCorte = itemConfiguracion.AfectarInventarioCorte;
+                        configuracionSinc.EnlazarPuntoVentaInventario = itemConfiguracion.EnlazarPuntoVentaInventario;
+                        configuracionSinc.CajeroIncluirDetalleVenta = itemConfiguracion.CajeroIncluirDetalleVenta;
+                        configuracionSinc.CajeroReqClaveSupervisor = itemConfiguracion.CajeroReqClaveSupervisor;
+                        configuracionSinc.SuperIncluirDetalleVenta = itemConfiguracion.SuperIncluirDetalleVenta;
+                        configuracionSinc.SuperIncluirVentaTel = itemConfiguracion.SuperIncluirVentaTel;
+                        configuracionSinc.SuperIncluirDetGastos = itemConfiguracion.SuperIncluirDetGastos;
+                        configuracionSinc.SuperEmail1 = itemConfiguracion.SuperEmail1;
+                        configuracionSinc.SuperEmail2 = itemConfiguracion.SuperEmail2;
+                        configuracionSinc.SuperEmail3 = itemConfiguracion.SuperEmail3;
+                        configuracionSinc.SuperEmail4 = itemConfiguracion.SuperEmail4;
+                        configuracionSinc.RetiroMontoEfec = itemConfiguracion.RetiroMontoEfec;
+                        configuracionSinc.RetiroLectura = itemConfiguracion.RetiroLectura;
+                        configuracionSinc.RetiroEscritura = itemConfiguracion.RetiroEscritura;
+                        configuracionSinc.NombreImpresora = itemConfiguracion.NombreImpresora;
+                        configuracionSinc.HardwareCaracterCajon = itemConfiguracion.HardwareCaracterCajon;
+                        configuracionSinc.EmpleadoPorcDescuento = itemConfiguracion.EmpleadoPorcDescuento;
+                        configuracionSinc.EmpleadoGlobal = itemConfiguracion.EmpleadoGlobal;
+                        configuracionSinc.EmpleadoIndividual = itemConfiguracion.EmpleadoIndividual;
+                        configuracionSinc.MontoImpresionTicket = itemConfiguracion.MontoImpresionTicket;
+                        configuracionSinc.ApartadoAnticipo1 = itemConfiguracion.ApartadoAnticipo1;
+                        configuracionSinc.ApartadoAnticipoHasta1 = itemConfiguracion.ApartadoAnticipoHasta1;
+                        configuracionSinc.ApartadoAnticipo2 = itemConfiguracion.ApartadoAnticipo2;
+                        configuracionSinc.ApatadoAnticipoEnAdelante2 = itemConfiguracion.ApatadoAnticipoEnAdelante2;
+                        configuracionSinc.PorcentajeUtilidadProd = itemConfiguracion.PorcentajeUtilidadProd;
+                        configuracionSinc.DesgloceMontoTicket = itemConfiguracion.DesgloceMontoTicket;
+                        configuracionSinc.RetiroReqClaveSup = itemConfiguracion.RetiroReqClaveSup;
+                        configuracionSinc.CajDeclaracionFondoCorte = itemConfiguracion.CajDeclaracionFondoCorte;
+                        configuracionSinc.SupDeclaracionFondoCorte = itemConfiguracion.SupDeclaracionFondoCorte;
+                        configuracionSinc.vistaPreviaImpresion = itemConfiguracion.vistaPreviaImpresion;
+                        configuracionSinc.CajeroCorteDetGasto = itemConfiguracion.CajeroCorteDetGasto;
+                        configuracionSinc.SupCorteDetGasto = itemConfiguracion.SupCorteDetGasto;
+                        configuracionSinc.CajeroCorteCancelaciones = itemConfiguracion.CajeroCorteCancelaciones;
+                        configuracionSinc.SupCorteCancelaciones = itemConfiguracion.SupCorteCancelaciones;
+                        configuracionSinc.DevDiasVale = itemConfiguracion.DevDiasVale;
+                        configuracionSinc.DevDiasGarantia = itemConfiguracion.DevDiasGarantia;
+                        configuracionSinc.DevHorasGarantia = itemConfiguracion.DevHorasGarantia;
+                        configuracionSinc.ApartadoDiasLiq = itemConfiguracion.ApartadoDiasLiq;
+                        configuracionSinc.ApartadoDiasProrroga = itemConfiguracion.ApartadoDiasProrroga;
+                        configuracionSinc.ReqClaveSupReimpresionTicketPV = itemConfiguracion.ReqClaveSupReimpresionTicketPV;
+                        configuracionSinc.ReqClaveSupCancelaTicketPV = itemConfiguracion.ReqClaveSupCancelaTicketPV;
+                        configuracionSinc.ReqClaveSupGastosPV = itemConfiguracion.ReqClaveSupGastosPV;
+                        configuracionSinc.ReqClaveSupDevolucionPV = itemConfiguracion.ReqClaveSupDevolucionPV;
+                        configuracionSinc.ReqClaveSupApartadoPV = itemConfiguracion.ReqClaveSupApartadoPV;
+                        configuracionSinc.ReqClaveSupExistenciaPV = itemConfiguracion.ReqClaveSupExistenciaPV;
+                        configuracionSinc.SerieTicketVenta = itemConfiguracion.SerieTicketVenta;
+                        configuracionSinc.SerieTicketApartado = itemConfiguracion.SerieTicketApartado;
+                        configuracionSinc.CorteCajaIncluirExistencia = itemConfiguracion.CorteCajaIncluirExistencia;
+                        configuracionSinc.ImprimirTicketMediaCarta = itemConfiguracion.ImprimirTicketMediaCarta;
+                        configuracionSinc.Giro = itemConfiguracion.Giro;
+                        configuracionSinc.SolicitarComanda = itemConfiguracion.SolicitarComanda;
+                        configuracionSinc.TieneRec = itemConfiguracion.TieneRec;
+                        configuracionSinc.PorcRec = itemConfiguracion.PorcRec;
+                        configuracionSinc.MontoRecargoDiario = itemConfiguracion.MontoRecargoDiario;
+                        configuracionSinc.PedidoAnticipoPorc = itemConfiguracion.PedidoAnticipoPorc;
+                        configuracionSinc.PedidoPoliticaId = itemConfiguracion.PedidoPoliticaId;
+
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        configuracionSinc = new cat_configuracion();
+                        configuracionSinc.UnaFormaPago = itemConfiguracion.UnaFormaPago;
+                        configuracionSinc.MasUnaFormaPago = itemConfiguracion.MasUnaFormaPago;
+                        configuracionSinc.CosteoUEPS = itemConfiguracion.CosteoUEPS;
+                        configuracionSinc.CosteoPEPS = itemConfiguracion.CosteoPEPS;
+                        configuracionSinc.CosteoPromedio = itemConfiguracion.CosteoPromedio;
+                        configuracionSinc.AfectarInventarioLinea = itemConfiguracion.AfectarInventarioLinea;
+                        configuracionSinc.AfectarInventarioManual = itemConfiguracion.AfectarInventarioManual;
+                        configuracionSinc.AfectarInventarioCorte = itemConfiguracion.AfectarInventarioCorte;
+                        configuracionSinc.EnlazarPuntoVentaInventario = itemConfiguracion.EnlazarPuntoVentaInventario;
+                        configuracionSinc.CajeroIncluirDetalleVenta = itemConfiguracion.CajeroIncluirDetalleVenta;
+                        configuracionSinc.CajeroReqClaveSupervisor = itemConfiguracion.CajeroReqClaveSupervisor;
+                        configuracionSinc.SuperIncluirDetalleVenta = itemConfiguracion.SuperIncluirDetalleVenta;
+                        configuracionSinc.SuperIncluirVentaTel = itemConfiguracion.SuperIncluirVentaTel;
+                        configuracionSinc.SuperIncluirDetGastos = itemConfiguracion.SuperIncluirDetGastos;
+                        configuracionSinc.SuperEmail1 = itemConfiguracion.SuperEmail1;
+                        configuracionSinc.SuperEmail2 = itemConfiguracion.SuperEmail2;
+                        configuracionSinc.SuperEmail3 = itemConfiguracion.SuperEmail3;
+                        configuracionSinc.SuperEmail4 = itemConfiguracion.SuperEmail4;
+                        configuracionSinc.RetiroMontoEfec = itemConfiguracion.RetiroMontoEfec;
+                        configuracionSinc.RetiroLectura = itemConfiguracion.RetiroLectura;
+                        configuracionSinc.RetiroEscritura = itemConfiguracion.RetiroEscritura;
+                        configuracionSinc.NombreImpresora = itemConfiguracion.NombreImpresora;
+                        configuracionSinc.HardwareCaracterCajon = itemConfiguracion.HardwareCaracterCajon;
+                        configuracionSinc.EmpleadoPorcDescuento = itemConfiguracion.EmpleadoPorcDescuento;
+                        configuracionSinc.EmpleadoGlobal = itemConfiguracion.EmpleadoGlobal;
+                        configuracionSinc.EmpleadoIndividual = itemConfiguracion.EmpleadoIndividual;
+                        configuracionSinc.MontoImpresionTicket = itemConfiguracion.MontoImpresionTicket;
+                        configuracionSinc.ApartadoAnticipo1 = itemConfiguracion.ApartadoAnticipo1;
+                        configuracionSinc.ApartadoAnticipoHasta1 = itemConfiguracion.ApartadoAnticipoHasta1;
+                        configuracionSinc.ApartadoAnticipo2 = itemConfiguracion.ApartadoAnticipo2;
+                        configuracionSinc.ApatadoAnticipoEnAdelante2 = itemConfiguracion.ApatadoAnticipoEnAdelante2;
+                        configuracionSinc.PorcentajeUtilidadProd = itemConfiguracion.PorcentajeUtilidadProd;
+                        configuracionSinc.DesgloceMontoTicket = itemConfiguracion.DesgloceMontoTicket;
+                        configuracionSinc.RetiroReqClaveSup = itemConfiguracion.RetiroReqClaveSup;
+                        configuracionSinc.CajDeclaracionFondoCorte = itemConfiguracion.CajDeclaracionFondoCorte;
+                        configuracionSinc.SupDeclaracionFondoCorte = itemConfiguracion.SupDeclaracionFondoCorte;
+                        configuracionSinc.vistaPreviaImpresion = itemConfiguracion.vistaPreviaImpresion;
+                        configuracionSinc.CajeroCorteDetGasto = itemConfiguracion.CajeroCorteDetGasto;
+                        configuracionSinc.SupCorteDetGasto = itemConfiguracion.SupCorteDetGasto;
+                        configuracionSinc.CajeroCorteCancelaciones = itemConfiguracion.CajeroCorteCancelaciones;
+                        configuracionSinc.SupCorteCancelaciones = itemConfiguracion.SupCorteCancelaciones;
+                        configuracionSinc.DevDiasVale = itemConfiguracion.DevDiasVale;
+                        configuracionSinc.DevDiasGarantia = itemConfiguracion.DevDiasGarantia;
+                        configuracionSinc.DevHorasGarantia = itemConfiguracion.DevHorasGarantia;
+                        configuracionSinc.ApartadoDiasLiq = itemConfiguracion.ApartadoDiasLiq;
+                        configuracionSinc.ApartadoDiasProrroga = itemConfiguracion.ApartadoDiasProrroga;
+                        configuracionSinc.ReqClaveSupReimpresionTicketPV = itemConfiguracion.ReqClaveSupReimpresionTicketPV;
+                        configuracionSinc.ReqClaveSupCancelaTicketPV = itemConfiguracion.ReqClaveSupCancelaTicketPV;
+                        configuracionSinc.ReqClaveSupGastosPV = itemConfiguracion.ReqClaveSupGastosPV;
+                        configuracionSinc.ReqClaveSupDevolucionPV = itemConfiguracion.ReqClaveSupDevolucionPV;
+                        configuracionSinc.ReqClaveSupApartadoPV = itemConfiguracion.ReqClaveSupApartadoPV;
+                        configuracionSinc.ReqClaveSupExistenciaPV = itemConfiguracion.ReqClaveSupExistenciaPV;
+                        configuracionSinc.SerieTicketVenta = itemConfiguracion.SerieTicketVenta;
+                        configuracionSinc.SerieTicketApartado = itemConfiguracion.SerieTicketApartado;
+                        configuracionSinc.CorteCajaIncluirExistencia = itemConfiguracion.CorteCajaIncluirExistencia;
+                        configuracionSinc.ImprimirTicketMediaCarta = itemConfiguracion.ImprimirTicketMediaCarta;
+                        configuracionSinc.Giro = itemConfiguracion.Giro;
+                        configuracionSinc.SolicitarComanda = itemConfiguracion.SolicitarComanda;
+                        configuracionSinc.TieneRec = itemConfiguracion.TieneRec;
+                        configuracionSinc.PorcRec = itemConfiguracion.PorcRec;
+                        configuracionSinc.MontoRecargoDiario = itemConfiguracion.MontoRecargoDiario;
+                        configuracionSinc.PedidoAnticipoPorc = itemConfiguracion.PedidoAnticipoPorc;
+                        configuracionSinc.PedidoPoliticaId = itemConfiguracion.PedidoPoliticaId;
+                        configuracionSinc.ConfiguradorId = itemConfiguracion.ConfiguradorId;
+
+                        context.cat_configuracion.Add(configuracionSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportConfguracion",
+                                                              ex);
+
+                return false;
+            }
+        }
+
         public bool ImportCajas(ref ERPProdEntities context, List<cat_cajas> lstCajas)
         {
             try
@@ -101,7 +266,7 @@ namespace ERP.Business
                 foreach (cat_cajas itemCaja in lstCajas)
                 {
                     cat_cajas cajaSinc = context.cat_cajas
-                        .AsNoTracking()
+                        
                         .Where(w => w.Clave == itemCaja.Clave)
                         .FirstOrDefault();
 
@@ -199,7 +364,7 @@ namespace ERP.Business
                 foreach (cat_sucursales itemSucursal in lstSucursales)
                 {
                     cat_sucursales sucursalSinc = context.cat_sucursales
-                        .AsNoTracking()
+                        
                         .Where(w => w.Clave == itemSucursal.Clave)
                         .FirstOrDefault();
 
@@ -279,7 +444,7 @@ namespace ERP.Business
                 foreach (cat_usuarios itemUsuario in lstUsuarios)
                 {
                     cat_usuarios usuarioSinc = context.cat_usuarios
-                         .AsNoTracking()
+                        
                         .Where(w => w.IdUsuario == itemUsuario.IdUsuario).FirstOrDefault();
 
                     if (usuarioSinc != null)
@@ -292,6 +457,8 @@ namespace ERP.Business
                         usuarioSinc.EsSupervisor = itemUsuario.EsSupervisor;
                         usuarioSinc.EsSupervisorCajero = itemUsuario.EsSupervisorCajero;
                         usuarioSinc.NombreUsuario = itemUsuario.NombreUsuario;
+                        usuarioSinc.IdSucursal = itemUsuario.IdSucursal;
+                        usuarioSinc.Email = itemUsuario.Email;
                         context.SaveChanges();
 
                     }
@@ -309,6 +476,9 @@ namespace ERP.Business
                         usuarioSinc.CreadoEl = itemUsuario.CreadoEl;
                         usuarioSinc.IdEmpleado = itemUsuario.IdEmpleado;
                         usuarioSinc.IdUsuario = itemUsuario.IdUsuario;
+                        usuarioSinc.IdSucursal = itemUsuario.IdSucursal;
+                        usuarioSinc.Email = itemUsuario.Email;
+
                         context.cat_usuarios.Add(usuarioSinc);
                         context.SaveChanges();
 
@@ -335,7 +505,7 @@ namespace ERP.Business
                 foreach (cat_usuarios_sucursales itemUsuario in lstUsuariosSucursales)
                 {
                     cat_usuarios_sucursales usuarioSinc = context.cat_usuarios_sucursales
-                         .AsNoTracking()
+                        
                         .Where(w => w.SucursalId == itemUsuario.SucursalId && 
                         w.UsuarioId == itemUsuario.UsuarioId).FirstOrDefault();
 
@@ -691,7 +861,7 @@ namespace ERP.Business
                 foreach (cat_tipos_cajas itemTipoCaja in lstTiposCajas)
                 {
                     cat_tipos_cajas tipoCajaSinc = context.cat_tipos_cajas
-                        .AsNoTracking()
+                        
                         .Where(w => w.TipoCajaId == itemTipoCaja.TipoCajaId)
                         .FirstOrDefault();
 
@@ -733,7 +903,7 @@ namespace ERP.Business
                 foreach (rh_empleados itemEmpleado in lstEmpleados)
                 {
                     rh_empleados empleadoSinc = context.rh_empleados
-                        .AsNoTracking()
+                       
                         .Where(w => w.NumEmpleado == itemEmpleado.NumEmpleado)
                         .FirstOrDefault();
 
@@ -804,7 +974,7 @@ namespace ERP.Business
                 foreach (rh_puestos itemPuesto in lstPuestos)
                 {
                     rh_puestos puestoSinc = context.rh_puestos
-                        .AsNoTracking()
+                        
                         .Where(w => w.Clave == itemPuesto.Clave)
                         .FirstOrDefault();
 
