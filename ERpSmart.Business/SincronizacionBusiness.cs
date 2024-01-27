@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -16,6 +17,9 @@ namespace ERP.Business
         SisCuentaBusiness sisCuenta;
         ERPProdEntities contextOrigen;
         ERPProdEntities contextDestino;
+        EntityConnectionStringBuilder builder1;
+        EntityConnectionStringBuilder builder2;
+
         int err;
         //public SincronizacionBusiness()
         //{
@@ -31,8 +35,8 @@ namespace ERP.Business
         {
             string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
             sisCuenta = new SisCuentaBusiness();
-            var builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
-            var builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
+            builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+             builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
             
 
 
@@ -68,7 +72,7 @@ namespace ERP.Business
 
                 ImportEmpresas(ref contextDestino, lstEmpresasOri);
                 ImportSucursales(ref contextDestino, sucursalOri);
-                ImportConfguracion(ref contextDestino, lstConfiguracion);
+                ImportConfiguraciones(lstConfiguracion);
                 ImportTiposCajas(ref contextDestino, lsTiposCajas);
                 ImportCajas(ref contextDestino, lstCajasOri);
                 ImportPuestos(ref contextDestino, lstPuestos);
@@ -96,168 +100,100 @@ namespace ERP.Business
             }
         }
 
-        public bool ImportConfguracion(ref ERPProdEntities context, List<cat_configuracion> lstConfiguraciones)
+        public bool ImportConfiguraciones(List<cat_configuracion> lstConfiguraciones)
         {
+            SqlConnection connection = new SqlConnection(builder2.ProviderConnectionString);
             try
             {
+               
+                connection.Open();
+
                 foreach (cat_configuracion itemConfiguracion in lstConfiguraciones)
                 {
-                    cat_configuracion configuracionSinc = context.cat_configuracion                
-                    .Where(w => w.ConfiguradorId == itemConfiguracion.ConfiguradorId)
-                    .FirstOrDefault();
-
-                    if (configuracionSinc != null)
+                    using (SqlCommand cmd = new SqlCommand("p_cat_configuracion_ins_upd", connection))
                     {
-                        configuracionSinc.UnaFormaPago = itemConfiguracion.UnaFormaPago;
-                        configuracionSinc.MasUnaFormaPago = itemConfiguracion.MasUnaFormaPago;
-                        configuracionSinc.CosteoUEPS = itemConfiguracion.CosteoUEPS;
-                        configuracionSinc.CosteoPEPS = itemConfiguracion.CosteoPEPS;
-                        configuracionSinc.CosteoPromedio = itemConfiguracion.CosteoPromedio;
-                        configuracionSinc.AfectarInventarioLinea = itemConfiguracion.AfectarInventarioLinea;
-                        configuracionSinc.AfectarInventarioManual = itemConfiguracion.AfectarInventarioManual;
-                        configuracionSinc.AfectarInventarioCorte = itemConfiguracion.AfectarInventarioCorte;
-                        configuracionSinc.EnlazarPuntoVentaInventario = itemConfiguracion.EnlazarPuntoVentaInventario;
-                        configuracionSinc.CajeroIncluirDetalleVenta = itemConfiguracion.CajeroIncluirDetalleVenta;
-                        configuracionSinc.CajeroReqClaveSupervisor = itemConfiguracion.CajeroReqClaveSupervisor;
-                        configuracionSinc.SuperIncluirDetalleVenta = itemConfiguracion.SuperIncluirDetalleVenta;
-                        configuracionSinc.SuperIncluirVentaTel = itemConfiguracion.SuperIncluirVentaTel;
-                        configuracionSinc.SuperIncluirDetGastos = itemConfiguracion.SuperIncluirDetGastos;
-                        configuracionSinc.SuperEmail1 = itemConfiguracion.SuperEmail1;
-                        configuracionSinc.SuperEmail2 = itemConfiguracion.SuperEmail2;
-                        configuracionSinc.SuperEmail3 = itemConfiguracion.SuperEmail3;
-                        configuracionSinc.SuperEmail4 = itemConfiguracion.SuperEmail4;
-                        configuracionSinc.RetiroMontoEfec = itemConfiguracion.RetiroMontoEfec;
-                        configuracionSinc.RetiroLectura = itemConfiguracion.RetiroLectura;
-                        configuracionSinc.RetiroEscritura = itemConfiguracion.RetiroEscritura;
-                        configuracionSinc.NombreImpresora = itemConfiguracion.NombreImpresora;
-                        configuracionSinc.HardwareCaracterCajon = itemConfiguracion.HardwareCaracterCajon;
-                        configuracionSinc.EmpleadoPorcDescuento = itemConfiguracion.EmpleadoPorcDescuento;
-                        configuracionSinc.EmpleadoGlobal = itemConfiguracion.EmpleadoGlobal;
-                        configuracionSinc.EmpleadoIndividual = itemConfiguracion.EmpleadoIndividual;
-                        configuracionSinc.MontoImpresionTicket = itemConfiguracion.MontoImpresionTicket;
-                        configuracionSinc.ApartadoAnticipo1 = itemConfiguracion.ApartadoAnticipo1;
-                        configuracionSinc.ApartadoAnticipoHasta1 = itemConfiguracion.ApartadoAnticipoHasta1;
-                        configuracionSinc.ApartadoAnticipo2 = itemConfiguracion.ApartadoAnticipo2;
-                        configuracionSinc.ApatadoAnticipoEnAdelante2 = itemConfiguracion.ApatadoAnticipoEnAdelante2;
-                        configuracionSinc.PorcentajeUtilidadProd = itemConfiguracion.PorcentajeUtilidadProd;
-                        configuracionSinc.DesgloceMontoTicket = itemConfiguracion.DesgloceMontoTicket;
-                        configuracionSinc.RetiroReqClaveSup = itemConfiguracion.RetiroReqClaveSup;
-                        configuracionSinc.CajDeclaracionFondoCorte = itemConfiguracion.CajDeclaracionFondoCorte;
-                        configuracionSinc.SupDeclaracionFondoCorte = itemConfiguracion.SupDeclaracionFondoCorte;
-                        configuracionSinc.vistaPreviaImpresion = itemConfiguracion.vistaPreviaImpresion;
-                        configuracionSinc.CajeroCorteDetGasto = itemConfiguracion.CajeroCorteDetGasto;
-                        configuracionSinc.SupCorteDetGasto = itemConfiguracion.SupCorteDetGasto;
-                        configuracionSinc.CajeroCorteCancelaciones = itemConfiguracion.CajeroCorteCancelaciones;
-                        configuracionSinc.SupCorteCancelaciones = itemConfiguracion.SupCorteCancelaciones;
-                        configuracionSinc.DevDiasVale = itemConfiguracion.DevDiasVale;
-                        configuracionSinc.DevDiasGarantia = itemConfiguracion.DevDiasGarantia;
-                        configuracionSinc.DevHorasGarantia = itemConfiguracion.DevHorasGarantia;
-                        configuracionSinc.ApartadoDiasLiq = itemConfiguracion.ApartadoDiasLiq;
-                        configuracionSinc.ApartadoDiasProrroga = itemConfiguracion.ApartadoDiasProrroga;
-                        configuracionSinc.ReqClaveSupReimpresionTicketPV = itemConfiguracion.ReqClaveSupReimpresionTicketPV;
-                        configuracionSinc.ReqClaveSupCancelaTicketPV = itemConfiguracion.ReqClaveSupCancelaTicketPV;
-                        configuracionSinc.ReqClaveSupGastosPV = itemConfiguracion.ReqClaveSupGastosPV;
-                        configuracionSinc.ReqClaveSupDevolucionPV = itemConfiguracion.ReqClaveSupDevolucionPV;
-                        configuracionSinc.ReqClaveSupApartadoPV = itemConfiguracion.ReqClaveSupApartadoPV;
-                        configuracionSinc.ReqClaveSupExistenciaPV = itemConfiguracion.ReqClaveSupExistenciaPV;
-                        configuracionSinc.SerieTicketVenta = itemConfiguracion.SerieTicketVenta;
-                        configuracionSinc.SerieTicketApartado = itemConfiguracion.SerieTicketApartado;
-                        configuracionSinc.CorteCajaIncluirExistencia = itemConfiguracion.CorteCajaIncluirExistencia;
-                        configuracionSinc.ImprimirTicketMediaCarta = itemConfiguracion.ImprimirTicketMediaCarta;
-                        configuracionSinc.Giro = itemConfiguracion.Giro;
-                        configuracionSinc.SolicitarComanda = itemConfiguracion.SolicitarComanda;
-                        configuracionSinc.TieneRec = itemConfiguracion.TieneRec;
-                        configuracionSinc.PorcRec = itemConfiguracion.PorcRec;
-                        configuracionSinc.MontoRecargoDiario = itemConfiguracion.MontoRecargoDiario;
-                        configuracionSinc.PedidoAnticipoPorc = itemConfiguracion.PedidoAnticipoPorc;
-                        configuracionSinc.PedidoPoliticaId = itemConfiguracion.PedidoPoliticaId;
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        context.SaveChanges();
-                    }
-                    else
-                    {
-                        configuracionSinc = new cat_configuracion();
-                        configuracionSinc.UnaFormaPago = itemConfiguracion.UnaFormaPago;
-                        configuracionSinc.MasUnaFormaPago = itemConfiguracion.MasUnaFormaPago;
-                        configuracionSinc.CosteoUEPS = itemConfiguracion.CosteoUEPS;
-                        configuracionSinc.CosteoPEPS = itemConfiguracion.CosteoPEPS;
-                        configuracionSinc.CosteoPromedio = itemConfiguracion.CosteoPromedio;
-                        configuracionSinc.AfectarInventarioLinea = itemConfiguracion.AfectarInventarioLinea;
-                        configuracionSinc.AfectarInventarioManual = itemConfiguracion.AfectarInventarioManual;
-                        configuracionSinc.AfectarInventarioCorte = itemConfiguracion.AfectarInventarioCorte;
-                        configuracionSinc.EnlazarPuntoVentaInventario = itemConfiguracion.EnlazarPuntoVentaInventario;
-                        configuracionSinc.CajeroIncluirDetalleVenta = itemConfiguracion.CajeroIncluirDetalleVenta;
-                        configuracionSinc.CajeroReqClaveSupervisor = itemConfiguracion.CajeroReqClaveSupervisor;
-                        configuracionSinc.SuperIncluirDetalleVenta = itemConfiguracion.SuperIncluirDetalleVenta;
-                        configuracionSinc.SuperIncluirVentaTel = itemConfiguracion.SuperIncluirVentaTel;
-                        configuracionSinc.SuperIncluirDetGastos = itemConfiguracion.SuperIncluirDetGastos;
-                        configuracionSinc.SuperEmail1 = itemConfiguracion.SuperEmail1;
-                        configuracionSinc.SuperEmail2 = itemConfiguracion.SuperEmail2;
-                        configuracionSinc.SuperEmail3 = itemConfiguracion.SuperEmail3;
-                        configuracionSinc.SuperEmail4 = itemConfiguracion.SuperEmail4;
-                        configuracionSinc.RetiroMontoEfec = itemConfiguracion.RetiroMontoEfec;
-                        configuracionSinc.RetiroLectura = itemConfiguracion.RetiroLectura;
-                        configuracionSinc.RetiroEscritura = itemConfiguracion.RetiroEscritura;
-                        configuracionSinc.NombreImpresora = itemConfiguracion.NombreImpresora;
-                        configuracionSinc.HardwareCaracterCajon = itemConfiguracion.HardwareCaracterCajon;
-                        configuracionSinc.EmpleadoPorcDescuento = itemConfiguracion.EmpleadoPorcDescuento;
-                        configuracionSinc.EmpleadoGlobal = itemConfiguracion.EmpleadoGlobal;
-                        configuracionSinc.EmpleadoIndividual = itemConfiguracion.EmpleadoIndividual;
-                        configuracionSinc.MontoImpresionTicket = itemConfiguracion.MontoImpresionTicket;
-                        configuracionSinc.ApartadoAnticipo1 = itemConfiguracion.ApartadoAnticipo1;
-                        configuracionSinc.ApartadoAnticipoHasta1 = itemConfiguracion.ApartadoAnticipoHasta1;
-                        configuracionSinc.ApartadoAnticipo2 = itemConfiguracion.ApartadoAnticipo2;
-                        configuracionSinc.ApatadoAnticipoEnAdelante2 = itemConfiguracion.ApatadoAnticipoEnAdelante2;
-                        configuracionSinc.PorcentajeUtilidadProd = itemConfiguracion.PorcentajeUtilidadProd;
-                        configuracionSinc.DesgloceMontoTicket = itemConfiguracion.DesgloceMontoTicket;
-                        configuracionSinc.RetiroReqClaveSup = itemConfiguracion.RetiroReqClaveSup;
-                        configuracionSinc.CajDeclaracionFondoCorte = itemConfiguracion.CajDeclaracionFondoCorte;
-                        configuracionSinc.SupDeclaracionFondoCorte = itemConfiguracion.SupDeclaracionFondoCorte;
-                        configuracionSinc.vistaPreviaImpresion = itemConfiguracion.vistaPreviaImpresion;
-                        configuracionSinc.CajeroCorteDetGasto = itemConfiguracion.CajeroCorteDetGasto;
-                        configuracionSinc.SupCorteDetGasto = itemConfiguracion.SupCorteDetGasto;
-                        configuracionSinc.CajeroCorteCancelaciones = itemConfiguracion.CajeroCorteCancelaciones;
-                        configuracionSinc.SupCorteCancelaciones = itemConfiguracion.SupCorteCancelaciones;
-                        configuracionSinc.DevDiasVale = itemConfiguracion.DevDiasVale;
-                        configuracionSinc.DevDiasGarantia = itemConfiguracion.DevDiasGarantia;
-                        configuracionSinc.DevHorasGarantia = itemConfiguracion.DevHorasGarantia;
-                        configuracionSinc.ApartadoDiasLiq = itemConfiguracion.ApartadoDiasLiq;
-                        configuracionSinc.ApartadoDiasProrroga = itemConfiguracion.ApartadoDiasProrroga;
-                        configuracionSinc.ReqClaveSupReimpresionTicketPV = itemConfiguracion.ReqClaveSupReimpresionTicketPV;
-                        configuracionSinc.ReqClaveSupCancelaTicketPV = itemConfiguracion.ReqClaveSupCancelaTicketPV;
-                        configuracionSinc.ReqClaveSupGastosPV = itemConfiguracion.ReqClaveSupGastosPV;
-                        configuracionSinc.ReqClaveSupDevolucionPV = itemConfiguracion.ReqClaveSupDevolucionPV;
-                        configuracionSinc.ReqClaveSupApartadoPV = itemConfiguracion.ReqClaveSupApartadoPV;
-                        configuracionSinc.ReqClaveSupExistenciaPV = itemConfiguracion.ReqClaveSupExistenciaPV;
-                        configuracionSinc.SerieTicketVenta = itemConfiguracion.SerieTicketVenta;
-                        configuracionSinc.SerieTicketApartado = itemConfiguracion.SerieTicketApartado;
-                        configuracionSinc.CorteCajaIncluirExistencia = itemConfiguracion.CorteCajaIncluirExistencia;
-                        configuracionSinc.ImprimirTicketMediaCarta = itemConfiguracion.ImprimirTicketMediaCarta;
-                        configuracionSinc.Giro = itemConfiguracion.Giro;
-                        configuracionSinc.SolicitarComanda = itemConfiguracion.SolicitarComanda;
-                        configuracionSinc.TieneRec = itemConfiguracion.TieneRec;
-                        configuracionSinc.PorcRec = itemConfiguracion.PorcRec;
-                        configuracionSinc.MontoRecargoDiario = itemConfiguracion.MontoRecargoDiario;
-                        configuracionSinc.PedidoAnticipoPorc = itemConfiguracion.PedidoAnticipoPorc;
-                        configuracionSinc.PedidoPoliticaId = itemConfiguracion.PedidoPoliticaId;
-                        configuracionSinc.ConfiguradorId = itemConfiguracion.ConfiguradorId;
+                        // Parámetros del procedimiento almacenado
+                        cmd.Parameters.AddWithValue("@pConfiguradorId", itemConfiguracion.ConfiguradorId);
+                        cmd.Parameters.AddWithValue("@pUnaFormaPago", itemConfiguracion.UnaFormaPago);
+                        cmd.Parameters.AddWithValue("@pMasUnaFormaPago", itemConfiguracion.MasUnaFormaPago);
+                        cmd.Parameters.AddWithValue("@pCosteoUEPS", itemConfiguracion.CosteoUEPS);
+                        cmd.Parameters.AddWithValue("@pCosteoPEPS", itemConfiguracion.CosteoPEPS);
+                        cmd.Parameters.AddWithValue("@pCosteoPromedio", itemConfiguracion.CosteoPromedio);
+                        cmd.Parameters.AddWithValue("@pAfectarInventarioLinea", itemConfiguracion.AfectarInventarioLinea);
+                        cmd.Parameters.AddWithValue("@pAfectarInventarioManual", itemConfiguracion.AfectarInventarioManual);
+                        cmd.Parameters.AddWithValue("@pAfectarInventarioCorte", itemConfiguracion.AfectarInventarioCorte);
+                        cmd.Parameters.AddWithValue("@pEnlazarPuntoVentaInventario", itemConfiguracion.EnlazarPuntoVentaInventario);
+                        cmd.Parameters.AddWithValue("@pCajeroIncluirDetalleVenta", itemConfiguracion.CajeroIncluirDetalleVenta);
+                        cmd.Parameters.AddWithValue("@pCajeroReqClaveSupervisor", itemConfiguracion.CajeroReqClaveSupervisor);
+                        cmd.Parameters.AddWithValue("@pSuperIncluirDetalleVenta", itemConfiguracion.SuperIncluirDetalleVenta);
+                        cmd.Parameters.AddWithValue("@pSuperIncluirVentaTel", itemConfiguracion.SuperIncluirVentaTel);
+                        cmd.Parameters.AddWithValue("@pSuperIncluirDetGastos", itemConfiguracion.SuperIncluirDetGastos);
+                        cmd.Parameters.AddWithValue("@pSuperEmail1", itemConfiguracion.SuperEmail1);
+                        cmd.Parameters.AddWithValue("@pSuperEmail2", itemConfiguracion.SuperEmail2);
+                        cmd.Parameters.AddWithValue("@pSuperEmail3", itemConfiguracion.SuperEmail3);
+                        cmd.Parameters.AddWithValue("@pSuperEmail4", itemConfiguracion.SuperEmail4);
+                        cmd.Parameters.AddWithValue("@pRetiroMontoEfec", itemConfiguracion.RetiroMontoEfec);
+                        cmd.Parameters.AddWithValue("@pRetiroLectura", itemConfiguracion.RetiroLectura);
+                        cmd.Parameters.AddWithValue("@pRetiroEscritura", itemConfiguracion.RetiroEscritura);
+                        cmd.Parameters.AddWithValue("@pNombreImpresora", itemConfiguracion.NombreImpresora);
+                        cmd.Parameters.AddWithValue("@pHardwareCaracterCajon", itemConfiguracion.HardwareCaracterCajon);
+                        cmd.Parameters.AddWithValue("@pEmpleadoPorcDescuento", itemConfiguracion.EmpleadoPorcDescuento);
+                        cmd.Parameters.AddWithValue("@pEmpleadoGlobal", itemConfiguracion.EmpleadoGlobal);
+                        cmd.Parameters.AddWithValue("@pEmpleadoIndividual", itemConfiguracion.EmpleadoIndividual);
+                        cmd.Parameters.AddWithValue("@pMontoImpresionTicket", itemConfiguracion.MontoImpresionTicket);
+                        cmd.Parameters.AddWithValue("@pApartadoAnticipo1", itemConfiguracion.ApartadoAnticipo1);
+                        cmd.Parameters.AddWithValue("@pApartadoAnticipoHasta1", itemConfiguracion.ApartadoAnticipoHasta1);
+                        cmd.Parameters.AddWithValue("@pApartadoAnticipo2", itemConfiguracion.ApartadoAnticipo2);
+                        cmd.Parameters.AddWithValue("@pApatadoAnticipoEnAdelante2", itemConfiguracion.ApatadoAnticipoEnAdelante2);
+                        cmd.Parameters.AddWithValue("@pPorcentajeUtilidadProd", itemConfiguracion.PorcentajeUtilidadProd);
+                        cmd.Parameters.AddWithValue("@pDesgloceMontoTicket", itemConfiguracion.DesgloceMontoTicket);
+                        cmd.Parameters.AddWithValue("@pRetiroReqClaveSup", itemConfiguracion.RetiroReqClaveSup);
+                        cmd.Parameters.AddWithValue("@pCajDeclaracionFondoCorte", itemConfiguracion.CajDeclaracionFondoCorte);
+                        cmd.Parameters.AddWithValue("@pSupDeclaracionFondoCorte", itemConfiguracion.SupDeclaracionFondoCorte);
+                        cmd.Parameters.AddWithValue("@pvistaPreviaImpresion", itemConfiguracion.vistaPreviaImpresion);
+                        cmd.Parameters.AddWithValue("@pCajeroCorteDetGasto", itemConfiguracion.CajeroCorteDetGasto);
+                        cmd.Parameters.AddWithValue("@pSupCorteDetGasto", itemConfiguracion.SupCorteDetGasto);
+                        cmd.Parameters.AddWithValue("@pCajeroCorteCancelaciones", itemConfiguracion.CajeroCorteCancelaciones);
+                        cmd.Parameters.AddWithValue("@pSupCorteCancelaciones", itemConfiguracion.SupCorteCancelaciones);
+                        cmd.Parameters.AddWithValue("@pDevDiasVale", itemConfiguracion.DevDiasVale);
+                        cmd.Parameters.AddWithValue("@pDevDiasGarantia", itemConfiguracion.DevDiasGarantia);
+                        cmd.Parameters.AddWithValue("@pDevHorasGarantia", itemConfiguracion.DevHorasGarantia);
+                        cmd.Parameters.AddWithValue("@pApartadoDiasLiq", itemConfiguracion.ApartadoDiasLiq);
+                        cmd.Parameters.AddWithValue("@pApartadoDiasProrroga", itemConfiguracion.ApartadoDiasProrroga);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupReimpresionTicketPV", itemConfiguracion.ReqClaveSupReimpresionTicketPV);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupCancelaTicketPV", itemConfiguracion.ReqClaveSupCancelaTicketPV);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupGastosPV", itemConfiguracion.ReqClaveSupGastosPV);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupDevolucionPV", itemConfiguracion.ReqClaveSupDevolucionPV);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupApartadoPV", itemConfiguracion.ReqClaveSupApartadoPV);
+                        cmd.Parameters.AddWithValue("@pReqClaveSupExistenciaPV", itemConfiguracion.ReqClaveSupExistenciaPV);
+                        cmd.Parameters.AddWithValue("@pCorteCajaIncluirExistencia", itemConfiguracion.CorteCajaIncluirExistencia);
+                        cmd.Parameters.AddWithValue("@pImprimirTicketMediaCarta", itemConfiguracion.ImprimirTicketMediaCarta);
+                        cmd.Parameters.AddWithValue("@pSolicitarComanda", itemConfiguracion.SolicitarComanda);
+                        cmd.Parameters.AddWithValue("@pGiro", itemConfiguracion.Giro);
+                        cmd.Parameters.AddWithValue("@pPedidoAnticipoPorc", itemConfiguracion.PedidoAnticipoPorc);
+                        cmd.Parameters.AddWithValue("@pPedidoPoliticaId", itemConfiguracion.PedidoPoliticaId);
 
-                        context.cat_configuracion.Add(configuracionSinc);
-                        context.SaveChanges();
+                        // Ejecuta el procedimiento almacenado
+                        cmd.ExecuteNonQuery();
                     }
                 }
+
                 return true;
             }
             catch (Exception ex)
             {
-                err = ERP.Business.SisBitacoraBusiness.Insert(1,
-                                                              "ERP",
-                                                              "ERP.Business.SincronizacionBusiness.ImportConfguracion",
-                                                              ex);
-
+                connection.Close();
+                // Manejo de errores
                 return false;
             }
+            finally
+            {
+                connection.Close();
+            }
         }
+
 
         public bool ImportCajas(ref ERPProdEntities context, List<cat_cajas> lstCajas)
         {
