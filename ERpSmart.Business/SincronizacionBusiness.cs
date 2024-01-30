@@ -19,7 +19,7 @@ namespace ERP.Business
         ERPProdEntities contextDestino;
         EntityConnectionStringBuilder builder1;
         EntityConnectionStringBuilder builder2;
-
+        int sucursalId = 0;
         int err;
         //public SincronizacionBusiness()
         //{
@@ -50,7 +50,7 @@ namespace ERP.Business
             try
             {
                 var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
-                int sucursalId = cuenta.ClaveSucursal??0;
+                sucursalId = cuenta.ClaveSucursal??0;
 
                 List<cat_empresas> lstEmpresasOri = contextOrigen.cat_empresas.ToList();
                 List<cat_cajas> lstCajasOri = contextOrigen.cat_cajas.ToList();
@@ -62,18 +62,47 @@ namespace ERP.Business
                 List<cat_usuarios_sucursales> lstUsuariosSucursalesOri = contextOrigen.cat_usuarios_sucursales
                    .Where(w => w.SucursalId == sucursalId).ToList();
                 List<cat_familias> lstFamiliasOri = contextOrigen.cat_familias.ToList();
+                List<cat_conceptos> lstConceptos = contextOrigen.cat_conceptos.ToList();
+
+                List<cat_centro_costos> lstCentroCostos = contextOrigen.cat_centro_costos.ToList();
+                List<cat_gastos> lstCatGastos = contextOrigen.cat_gastos.ToList();
                 List<cat_subfamilias> lstSubFamiliasOri = contextOrigen.cat_subfamilias.ToList();
                 List<cat_lineas> lstLineasOri = contextOrigen.cat_lineas.ToList();
+                List<cat_formas_pago> lstFormasPago = contextOrigen.cat_formas_pago.ToList();
                 List<cat_productos> lstProductosOri = contextOrigen.cat_productos.ToList();
+                List<cat_tipos_pedido> lstTiposPedido = contextOrigen.cat_tipos_pedido.ToList();
+                List<cat_tipos_movimiento_inventario> lstTiposMov = contextOrigen.cat_tipos_movimiento_inventario.ToList();
                 List<cat_productos_precios> lstProductosPrecioOri = contextOrigen
                     .cat_productos_precios.ToList();
                 List<rh_empleados> lstRHEmpleados = contextOrigen.rh_empleados.ToList();
                 List<rh_puestos> lstPuestos = contextOrigen.rh_puestos.ToList();
+                List<cat_sucursales_productos> lstSucursalesProductos = contextOrigen.cat_sucursales_productos.Where(w=> w.SucursalId == sucursalId).ToList();
+                List<cat_marcas> lstMarcas = contextOrigen.cat_marcas.ToList();
+                List<cat_unidadesmed> lstUnidadesMedida = contextOrigen.cat_unidadesmed.ToList();
+                List<cat_precios> lstPrecios = contextOrigen.cat_precios.ToList();
+                List<cat_clientes> lstClientes = contextOrigen.cat_clientes.Where(w=> w.SucursalBaseId == sucursalId).ToList();
+                List<doc_precios_especiales> lstPreciosEspeciales = contextOrigen.doc_precios_especiales.Where(w => w.SucursalId == sucursalId).ToList();
+                List<doc_precios_especiales_detalle> lstPreciosEspecialesDetalle = contextOrigen.doc_precios_especiales_detalle.Where(w => w.doc_precios_especiales.SucursalId == sucursalId).ToList();
+                List<sis_preferencias> lstPreferencias = contextOrigen.sis_preferencias.ToList();
+                List<sis_preferencias_empresa> lstPreferenciasEmpresa = contextOrigen.sis_preferencias_empresa.ToList();
+                List<sis_preferencias_sucursales> lstPreferenciasSucursal = contextOrigen.sis_preferencias_sucursales.Where(W=> W.SucursalId == sucursalId).ToList();
+                List<doc_clientes_productos_precios> lstClientesProductosPrecos = contextOrigen.doc_clientes_productos_precios.Where(W => W.cat_clientes.SucursalBaseId == sucursalId).ToList();
+                List<cat_productos_principales> lstProductosPrincipales = contextOrigen.cat_productos_principales.Where(W => W.SucursalId == 1).ToList();
+                List<doc_productos_sobrantes_config> lstProductosSobrantesConfig = contextOrigen.doc_productos_sobrantes_config.ToList();
+
 
                 ImportEmpresas(ref contextDestino, lstEmpresasOri);
                 ImportSucursales(ref contextDestino, sucursalOri);
                 ImportConfiguraciones(lstConfiguracion);
+                ImportPreferencias(ref contextDestino, lstPreferencias);
+                ImportPreferenciasEmpresa(ref contextDestino, lstPreferenciasEmpresa);
+                ImportPreferenciasSucursales(ref contextDestino, lstPreferenciasSucursal);
                 ImportTiposCajas(ref contextDestino, lsTiposCajas);
+                ImportTiposMovimientoInventario(lstTiposMov);
+                ImportConceptos(lstConceptos);
+                ImportCentroCostos(lstCentroCostos);
+                ImportcatGastos(lstCatGastos);
+
                 ImportCajas(ref contextDestino, lstCajasOri);
                 ImportPuestos(ref contextDestino, lstPuestos);
                 ImportEmpleados(ref contextDestino, lstRHEmpleados);
@@ -81,11 +110,20 @@ namespace ERP.Business
                 ImportUsuariosSucursales(ref contextDestino, lstUsuariosSucursalesOri);
                 ImportLineas(ref contextDestino, lstLineasOri);
                 ImportFamilias(ref contextDestino, lstFamiliasOri);
+                ImportTiposPedido(lstTiposPedido);
+                ImportMarcas(ref contextDestino,lstMarcas);
                 ImportSubFamilias(ref contextDestino, lstSubFamiliasOri);
+                ImportFormasPago(lstFormasPago);
+                ImportUnidadesMed(ref contextDestino, lstUnidadesMedida);
+                ImportPrecios(ref contextDestino, lstPrecios);
                 ImportProductos(ref contextDestino, lstProductosOri);
+                ImportProductosPrincipales(lstProductosPrincipales);
                 ImportProductosPrecios(ref contextDestino, lstProductosPrecioOri);
-
-
+                ImportSucursalesProductos(ref contextDestino,lstSucursalesProductos);
+                ImportClientes(ref contextDestino, lstClientes);
+                ImportClientesProductosPrecios(lstClientesProductosPrecos);
+                ImportPreciosEspeciales(ref contextDestino,lstPreciosEspeciales, lstPreciosEspecialesDetalle);
+                ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
                 return "";
             }
             catch (Exception ex)
@@ -95,7 +133,7 @@ namespace ERP.Business
                                                           "ERP.Business.SincronizacionBusiness.Importar",
                                                           ex);
 
-                return "Ocurrió un error inesperado, revise el registro de bitácora [" + err.ToString() + "]";
+                return "Ocurrió un error al importar, revise el registro de bitácora [" + err.ToString() + "]";
 
             }
         }
@@ -634,6 +672,7 @@ namespace ERP.Business
                 foreach (cat_productos itemProducto in lstProductosOri)
                 {
                     cat_productos productosSinc = context.cat_productos
+                        .AsNoTracking()
                         .Where(w => w.ProductoId == itemProducto.ProductoId).FirstOrDefault();
 
                     if (productosSinc != null)
@@ -673,7 +712,7 @@ namespace ERP.Business
                         productosSinc.Seriado = itemProducto.Seriado;
                         productosSinc.SobrePedido = itemProducto.SobrePedido;
                         productosSinc.Sucursal = itemProducto.Sucursal;
-                        
+                        productosSinc.Clave = itemProducto.Clave;
 
                         context.SaveChanges();
                     }
@@ -716,6 +755,7 @@ namespace ERP.Business
                         productosSinc.SobrePedido = itemProducto.SobrePedido;
                         productosSinc.Sucursal = itemProducto.Sucursal;
                         productosSinc.ProductoId = itemProducto.ProductoId;
+                        productosSinc.Clave = itemProducto.Clave;
                         context.cat_productos.Add(productosSinc);
                         context.SaveChanges();
                     }
@@ -766,7 +806,7 @@ namespace ERP.Business
                         productoPrecioSinc.MontoDescuento = itemProductoPrecio.MontoDescuento;
                         productoPrecioSinc.PorcDescuento = itemProductoPrecio.PorcDescuento;
                         productoPrecioSinc.Precio = itemProductoPrecio.Precio;
-
+                        productoPrecioSinc.IdProductoPrecio = itemProductoPrecio.IdProductoPrecio;
 
                         context.cat_productos_precios.Add(productoPrecioSinc);
                         context.SaveChanges();
@@ -958,6 +998,934 @@ namespace ERP.Business
             }
         }
 
+        public bool ImportSucursalesProductos(ref ERPProdEntities context, List<cat_sucursales_productos> lstSucursalesProductos)
+        {
+            try
+            {
+                foreach (cat_sucursales_productos itemSucursalProducto in lstSucursalesProductos)
+                {
+                    cat_sucursales_productos sucursalProductoSinc = context.cat_sucursales_productos
+                        .AsNoTracking()
+                        .Where(w => w.SucursalId == itemSucursalProducto.SucursalId && w.ProductoId == itemSucursalProducto.ProductoId)
+                        .FirstOrDefault();
+
+                    if (sucursalProductoSinc == null)
+                    {
+                        sucursalProductoSinc = new cat_sucursales_productos();
+                        sucursalProductoSinc.SucursalId = itemSucursalProducto.SucursalId;
+                        sucursalProductoSinc.ProductoId = itemSucursalProducto.ProductoId;
+                        sucursalProductoSinc.CreadoEl = DateTime.Now;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_sucursales_productos.Add(sucursalProductoSinc);
+                       
+                    }
+                   
+                }
+
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportSucursalesProductos",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportMarcas(ref ERPProdEntities context, List<cat_marcas> lstMarcas)
+        {
+            try
+            {
+                foreach (cat_marcas itemMarca in lstMarcas)
+                {
+                    cat_marcas marcaSinc = context.cat_marcas
+                        .Where(w => w.Clave == itemMarca.Clave)
+                        .FirstOrDefault();
+
+                    if (marcaSinc != null)
+                    {
+                        marcaSinc.Descripcion = itemMarca.Descripcion;
+                        marcaSinc.Estatus = itemMarca.Estatus;
+                        marcaSinc.Empresa = itemMarca.Empresa;
+                        marcaSinc.Sucursal = itemMarca.Sucursal;
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        marcaSinc = new cat_marcas();
+                        marcaSinc.Clave = itemMarca.Clave;
+                        marcaSinc.Descripcion = itemMarca.Descripcion;
+                        marcaSinc.Estatus = itemMarca.Estatus;
+                        marcaSinc.Empresa = itemMarca.Empresa;
+                        marcaSinc.Sucursal = itemMarca.Sucursal;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_marcas.Add(marcaSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportMarcas",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportUnidadesMed(ref ERPProdEntities context, List<cat_unidadesmed> lstUnidadesMed)
+        {
+            try
+            {
+                foreach (cat_unidadesmed itemUnidadMed in lstUnidadesMed)
+                {
+                    cat_unidadesmed unidadMedSinc = context.cat_unidadesmed
+                        .Where(w => w.Clave == itemUnidadMed.Clave)
+                        .FirstOrDefault();
+
+                    if (unidadMedSinc != null)
+                    {
+                        unidadMedSinc.Descripcion = itemUnidadMed.Descripcion;
+                        unidadMedSinc.DescripcionCorta = itemUnidadMed.DescripcionCorta;
+                        unidadMedSinc.Decimales = itemUnidadMed.Decimales;
+                        unidadMedSinc.Estatus = itemUnidadMed.Estatus;
+                        unidadMedSinc.Empresa = itemUnidadMed.Empresa;
+                        unidadMedSinc.Sucursal = itemUnidadMed.Sucursal;
+                        unidadMedSinc.IdCodigoSAT = itemUnidadMed.IdCodigoSAT;
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        unidadMedSinc = new cat_unidadesmed();
+                        unidadMedSinc.Clave = itemUnidadMed.Clave;
+                        unidadMedSinc.Descripcion = itemUnidadMed.Descripcion;
+                        unidadMedSinc.DescripcionCorta = itemUnidadMed.DescripcionCorta;
+                        unidadMedSinc.Decimales = itemUnidadMed.Decimales;
+                        unidadMedSinc.Estatus = itemUnidadMed.Estatus;
+                        unidadMedSinc.Empresa = itemUnidadMed.Empresa;
+                        unidadMedSinc.Sucursal = itemUnidadMed.Sucursal;
+                        unidadMedSinc.IdCodigoSAT = itemUnidadMed.IdCodigoSAT;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_unidadesmed.Add(unidadMedSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportUnidadesMed",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportPrecios(ref ERPProdEntities context, List<cat_precios> lstPrecios)
+        {
+            try
+            {
+                foreach (cat_precios itemPrecio in lstPrecios)
+                {
+                    cat_precios precioSinc = context.cat_precios
+                        .Where(w => w.IdPrecio == itemPrecio.IdPrecio)
+                        .FirstOrDefault();
+
+                    if (precioSinc != null)
+                    {
+                        precioSinc.Descripcion = itemPrecio.Descripcion;
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        precioSinc = new cat_precios();
+                        precioSinc.IdPrecio = itemPrecio.IdPrecio;
+                        precioSinc.Descripcion = itemPrecio.Descripcion;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_precios.Add(precioSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPrecios",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportClientes(ref ERPProdEntities context, List<cat_clientes> lstClientes)
+        {
+            try
+            {
+                foreach (cat_clientes itemCliente in lstClientes)
+                {
+                    cat_clientes clienteSinc = context.cat_clientes
+                        .Where(w => w.ClienteId == itemCliente.ClienteId)
+                        .FirstOrDefault();
+
+                    if (clienteSinc != null)
+                    {
+                        clienteSinc.Nombre = itemCliente.Nombre;
+                        clienteSinc.RFC = itemCliente.RFC;
+                        clienteSinc.Calle = itemCliente.Calle;
+                        clienteSinc.NumeroExt = itemCliente.NumeroExt;
+                        clienteSinc.NumeroInt = itemCliente.NumeroInt;
+                        clienteSinc.Colonia = itemCliente.Colonia;
+                        clienteSinc.CodigoPostal = itemCliente.CodigoPostal;
+                        clienteSinc.EstadoId = itemCliente.EstadoId;
+                        clienteSinc.MunicipioId = itemCliente.MunicipioId;
+                        clienteSinc.PaisId = itemCliente.PaisId;
+                        clienteSinc.Telefono = itemCliente.Telefono;
+                        clienteSinc.Telefono2 = itemCliente.Telefono2;
+                        clienteSinc.TipoClienteId = itemCliente.TipoClienteId;
+                        clienteSinc.DiasCredito = itemCliente.DiasCredito;
+                        clienteSinc.LimiteCredito = itemCliente.LimiteCredito;
+                        clienteSinc.AntecedenteId = itemCliente.AntecedenteId;
+                        clienteSinc.CreditoDisponible = itemCliente.CreditoDisponible;
+                        clienteSinc.SaldoGlobal = itemCliente.SaldoGlobal;
+                        clienteSinc.Activo = itemCliente.Activo;
+                        clienteSinc.ClienteEspecial = itemCliente.ClienteEspecial;
+                        clienteSinc.ClienteGral = itemCliente.ClienteGral;
+                        clienteSinc.PrecioId = itemCliente.PrecioId;
+                        clienteSinc.GiroId = itemCliente.GiroId;
+                        clienteSinc.GiroNegocioId = itemCliente.GiroNegocioId;
+                        clienteSinc.ApellidoPaterno = itemCliente.ApellidoPaterno;
+                        clienteSinc.ApellidoMaterno = itemCliente.ApellidoMaterno;
+                        clienteSinc.UUID = itemCliente.UUID;
+                        clienteSinc.KeyClient = itemCliente.KeyClient;
+                        clienteSinc.EmpleadoId = itemCliente.EmpleadoId;
+                        clienteSinc.Clave = itemCliente.Clave;
+                        clienteSinc.SucursalBaseId = itemCliente.SucursalBaseId;
+                        clienteSinc.pass = itemCliente.pass;
+
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        clienteSinc = new cat_clientes();
+                        clienteSinc.ClienteId = itemCliente.ClienteId;
+                        clienteSinc.Nombre = itemCliente.Nombre;
+                        clienteSinc.RFC = itemCliente.RFC;
+                        clienteSinc.Calle = itemCliente.Calle;
+                        clienteSinc.NumeroExt = itemCliente.NumeroExt;
+                        clienteSinc.NumeroInt = itemCliente.NumeroInt;
+                        clienteSinc.Colonia = itemCliente.Colonia;
+                        clienteSinc.CodigoPostal = itemCliente.CodigoPostal;
+                        clienteSinc.EstadoId = itemCliente.EstadoId;
+                        clienteSinc.MunicipioId = itemCliente.MunicipioId;
+                        clienteSinc.PaisId = itemCliente.PaisId;
+                        clienteSinc.Telefono = itemCliente.Telefono;
+                        clienteSinc.Telefono2 = itemCliente.Telefono2;
+                        clienteSinc.TipoClienteId = itemCliente.TipoClienteId;
+                        clienteSinc.DiasCredito = itemCliente.DiasCredito;
+                        clienteSinc.LimiteCredito = itemCliente.LimiteCredito;
+                        clienteSinc.AntecedenteId = itemCliente.AntecedenteId;
+                        clienteSinc.CreditoDisponible = itemCliente.CreditoDisponible;
+                        clienteSinc.SaldoGlobal = itemCliente.SaldoGlobal;
+                        clienteSinc.Activo = itemCliente.Activo;
+                        clienteSinc.ClienteEspecial = itemCliente.ClienteEspecial;
+                        clienteSinc.ClienteGral = itemCliente.ClienteGral;
+                        clienteSinc.PrecioId = itemCliente.PrecioId;
+                        clienteSinc.GiroId = itemCliente.GiroId;
+                        clienteSinc.GiroNegocioId = itemCliente.GiroNegocioId;
+                        clienteSinc.ApellidoPaterno = itemCliente.ApellidoPaterno;
+                        clienteSinc.ApellidoMaterno = itemCliente.ApellidoMaterno;
+                        clienteSinc.UUID = itemCliente.UUID;
+                        clienteSinc.KeyClient = itemCliente.KeyClient;
+                        clienteSinc.EmpleadoId = itemCliente.EmpleadoId;
+                        clienteSinc.Clave = itemCliente.Clave;
+                        clienteSinc.SucursalBaseId = itemCliente.SucursalBaseId;
+                        clienteSinc.pass = itemCliente.pass;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.cat_clientes.Add(clienteSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportClientes",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportPreciosEspeciales(ref ERPProdEntities context, List<doc_precios_especiales> lstPreciosEspeciales, List<doc_precios_especiales_detalle> lstPreciosEspecialesDetalle)
+        {
+            try
+            {
+                context.Database.ExecuteSqlCommand("DELETE FROM doc_precios_especiales WHERE SucursalId = @SucursalId", new SqlParameter("SucursalId", this.sucursalId));
+
+                context.Database.ExecuteSqlCommand("DELETE FROM doc_precios_especiales_detalle");
+
+                foreach (doc_precios_especiales itemPrecioEspecial in lstPreciosEspeciales)
+                {
+                    doc_precios_especiales precioEspecialSinc = new doc_precios_especiales();
+
+                    precioEspecialSinc.Descripcion = itemPrecioEspecial.Descripcion;
+                    precioEspecialSinc.FechaVigencia = itemPrecioEspecial.FechaVigencia;
+                    precioEspecialSinc.HoraVigencia = itemPrecioEspecial.HoraVigencia;
+                    precioEspecialSinc.CreadoEl = itemPrecioEspecial.CreadoEl;
+                    precioEspecialSinc.CreadoPor = itemPrecioEspecial.CreadoPor;
+                    precioEspecialSinc.SucursalId = itemPrecioEspecial.SucursalId;
+
+                    // Actualizar otras propiedades según sea necesario
+                    context.doc_precios_especiales.Add(precioEspecialSinc);
+                    context.SaveChanges();
+
+                    foreach (doc_precios_especiales_detalle itemDetalle in lstPreciosEspecialesDetalle.Where(w=>w.PrecioEspeciaId == itemPrecioEspecial.Id))
+                    {
+                        doc_precios_especiales_detalle precioEspecialSincDetalle = new doc_precios_especiales_detalle();
+
+                        precioEspecialSincDetalle.CreadoEl = itemDetalle.CreadoEl;
+                        precioEspecialSincDetalle.CreadoPor = itemDetalle.CreadoPor;
+                        precioEspecialSincDetalle.ModificadoEl = itemDetalle.ModificadoEl;
+                        precioEspecialSincDetalle.ModificadoPor = itemDetalle.ModificadoPor;
+                        precioEspecialSincDetalle.MontoAdicional = itemDetalle.MontoAdicional;
+                        precioEspecialSincDetalle.PrecioEspeciaId = precioEspecialSinc.Id;
+                        precioEspecialSincDetalle.PrecioEspecial = itemDetalle.PrecioEspecial;
+                        precioEspecialSincDetalle.ProductoId = itemDetalle.ProductoId;
+
+                        context.doc_precios_especiales_detalle.Add(precioEspecialSincDetalle);
+                        
+
+                    }
+
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPreciosEspeciales",
+                                                              ex);
+
+                return false;
+            }
+        }
+
+        public bool ImportPreferencias(ref ERPProdEntities context, List<sis_preferencias> lstPreferencias)
+        {
+            try
+            {
+                foreach (sis_preferencias itemPreferencia in lstPreferencias)
+                {
+                    sis_preferencias preferenciaSinc = context.sis_preferencias
+                        .Where(w => w.Preferencia == itemPreferencia.Preferencia)
+                        .FirstOrDefault();
+
+                    if (preferenciaSinc != null)
+                    {
+                        preferenciaSinc.Preferencia = itemPreferencia.Preferencia;
+                        preferenciaSinc.Descripcion = itemPreferencia.Descripcion;
+                        preferenciaSinc.ParaEmpresa = itemPreferencia.ParaEmpresa;
+                        preferenciaSinc.ParaUsuario = itemPreferencia.ParaUsuario;
+                        preferenciaSinc.CreadoEl = itemPreferencia.CreadoEl;
+
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        preferenciaSinc = new sis_preferencias();
+                        preferenciaSinc.Preferencia = itemPreferencia.Preferencia;
+                        preferenciaSinc.Descripcion = itemPreferencia.Descripcion;
+                        preferenciaSinc.ParaEmpresa = itemPreferencia.ParaEmpresa;
+                        preferenciaSinc.ParaUsuario = itemPreferencia.ParaUsuario;
+                        preferenciaSinc.CreadoEl = itemPreferencia.CreadoEl;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.sis_preferencias.Add(preferenciaSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPreferencias",
+                                                              ex);
+                return false;
+            }
+        }
+
+
+        public bool ImportPreferenciasEmpresa(ref ERPProdEntities context, List<sis_preferencias_empresa> lstPreferenciasEmpresa)
+        {
+            try
+            {
+                foreach (sis_preferencias_empresa itemPreferenciaEmpresa in lstPreferenciasEmpresa)
+                {
+                    sis_preferencias_empresa preferenciaEmpresaSinc = context.sis_preferencias_empresa
+                        .Where(w => w.EmpresaId == 1 && w.sis_preferencias.Preferencia == itemPreferenciaEmpresa.sis_preferencias.Preferencia)
+                        .FirstOrDefault();
+
+                    if (preferenciaEmpresaSinc != null)
+                    {
+                        preferenciaEmpresaSinc.PreferenciaId = itemPreferenciaEmpresa.PreferenciaId;
+                        preferenciaEmpresaSinc.EmpresaId = itemPreferenciaEmpresa.EmpresaId;
+                        preferenciaEmpresaSinc.Valor = itemPreferenciaEmpresa.Valor;
+                        preferenciaEmpresaSinc.CreadoEl = itemPreferenciaEmpresa.CreadoEl;
+
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        preferenciaEmpresaSinc = new sis_preferencias_empresa();
+                        preferenciaEmpresaSinc.PreferenciaId = itemPreferenciaEmpresa.PreferenciaId;
+                        preferenciaEmpresaSinc.EmpresaId = itemPreferenciaEmpresa.EmpresaId;
+                        preferenciaEmpresaSinc.Valor = itemPreferenciaEmpresa.Valor;
+                        preferenciaEmpresaSinc.CreadoEl = itemPreferenciaEmpresa.CreadoEl;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.sis_preferencias_empresa.Add(preferenciaEmpresaSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPreferenciasEmpresa",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportPreferenciasSucursales(ref ERPProdEntities context, List<sis_preferencias_sucursales> lstPreferenciasSucursales)
+        {
+            try
+            {
+                foreach (sis_preferencias_sucursales itemPreferenciaSucursal in lstPreferenciasSucursales)
+                {
+                    sis_preferencias_sucursales preferenciaSucursalSinc = context.sis_preferencias_sucursales
+                        .Where(w => w.Id == itemPreferenciaSucursal.Id)
+                        .FirstOrDefault();
+
+                    if (preferenciaSucursalSinc != null)
+                    {
+                        preferenciaSucursalSinc.SucursalId = itemPreferenciaSucursal.SucursalId;
+                        preferenciaSucursalSinc.PreferenciaId = itemPreferenciaSucursal.PreferenciaId;
+                        preferenciaSucursalSinc.Valor = itemPreferenciaSucursal.Valor;
+                        preferenciaSucursalSinc.CreadoEl = itemPreferenciaSucursal.CreadoEl;
+
+                        // Actualizar otras propiedades según sea necesario
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        preferenciaSucursalSinc = new sis_preferencias_sucursales();
+                        preferenciaSucursalSinc.SucursalId = itemPreferenciaSucursal.SucursalId;
+                        preferenciaSucursalSinc.PreferenciaId = itemPreferenciaSucursal.PreferenciaId;
+                        preferenciaSucursalSinc.Valor = itemPreferenciaSucursal.Valor;
+                        preferenciaSucursalSinc.CreadoEl = itemPreferenciaSucursal.CreadoEl;
+                        preferenciaSucursalSinc.Id = itemPreferenciaSucursal.Id;
+                        // Puedes asignar otras propiedades según sea necesario
+                        context.sis_preferencias_sucursales.Add(preferenciaSucursalSinc);
+                        context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportPreferenciasSucursales",
+                                                              ex);
+                return false;
+            }
+        }
+
+
+        public bool ImportClientesProductosPrecios(List<doc_clientes_productos_precios> lstClientesProductosPrecios)
+        {
+            try
+            {
+                foreach (doc_clientes_productos_precios itemClienteProductoPrecio in lstClientesProductosPrecios)
+                {
+                    doc_clientes_productos_precios clienteProductoPrecioSinc = this.contextDestino.doc_clientes_productos_precios
+                        .Where(w => w.ClienteProductoPrecioId == itemClienteProductoPrecio.ClienteProductoPrecioId)
+                        .FirstOrDefault();
+
+                    if (clienteProductoPrecioSinc != null)
+                    {
+                        clienteProductoPrecioSinc.ClienteId = itemClienteProductoPrecio.ClienteId;
+                        clienteProductoPrecioSinc.ProductoId = itemClienteProductoPrecio.ProductoId;
+                        clienteProductoPrecioSinc.Precio = itemClienteProductoPrecio.Precio;
+                        clienteProductoPrecioSinc.CreadoEl = itemClienteProductoPrecio.CreadoEl;
+
+                        // Actualizar otras propiedades según sea necesario
+                        this.contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        clienteProductoPrecioSinc = new doc_clientes_productos_precios();
+                        clienteProductoPrecioSinc.ClienteProductoPrecioId = itemClienteProductoPrecio.ClienteProductoPrecioId;
+                        clienteProductoPrecioSinc.ClienteId = itemClienteProductoPrecio.ClienteId;
+                        clienteProductoPrecioSinc.ProductoId = itemClienteProductoPrecio.ProductoId;
+                        clienteProductoPrecioSinc.Precio = itemClienteProductoPrecio.Precio;
+                        clienteProductoPrecioSinc.CreadoEl = itemClienteProductoPrecio.CreadoEl;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        this.contextDestino.doc_clientes_productos_precios.Add(clienteProductoPrecioSinc);
+                        this.contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportClientesProductosPrecios",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportProductosPrincipales(List<cat_productos_principales> lstProductosPrincipales)
+        {
+            try
+            {
+                foreach (cat_productos_principales itemProductoPrincipal in lstProductosPrincipales)
+                {
+                    cat_productos_principales productoPrincipalSinc = this.contextDestino.cat_productos_principales
+                        .Where(w => w.SucursalId == itemProductoPrincipal.SucursalId && w.ProductoId == itemProductoPrincipal.ProductoId)
+                        .FirstOrDefault();
+
+                    if (productoPrincipalSinc != null)
+                    {
+                        productoPrincipalSinc.CreadoEl = itemProductoPrincipal.CreadoEl;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        productoPrincipalSinc = new cat_productos_principales();
+                        productoPrincipalSinc.SucursalId = itemProductoPrincipal.SucursalId;
+                        productoPrincipalSinc.ProductoId = itemProductoPrincipal.ProductoId;
+                        productoPrincipalSinc.CreadoEl = itemProductoPrincipal.CreadoEl;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_productos_principales.Add(productoPrincipalSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportProductosPrincipales",
+                                                              ex);
+                return false;
+            }
+        }
+
+
+        public bool ImportFormasPago(List<cat_formas_pago> lstFormasPago)
+        {
+            try
+            {
+                foreach (cat_formas_pago itemFormaPago in lstFormasPago)
+                {
+                    cat_formas_pago formaPagoSinc = this.contextDestino.cat_formas_pago
+                        .Where(w => w.FormaPagoId == itemFormaPago.FormaPagoId)
+                        .FirstOrDefault();
+
+                    if (formaPagoSinc != null)
+                    {
+                        formaPagoSinc.Descripcion = itemFormaPago.Descripcion;
+                        formaPagoSinc.Abreviatura = itemFormaPago.Abreviatura;
+                        formaPagoSinc.Orden = itemFormaPago.Orden;
+                        formaPagoSinc.RequiereDigVerificador = itemFormaPago.RequiereDigVerificador;
+                        formaPagoSinc.Activo = itemFormaPago.Activo;
+                        formaPagoSinc.Signo = itemFormaPago.Signo;
+                        formaPagoSinc.NumeroHacienda = itemFormaPago.NumeroHacienda;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        formaPagoSinc = new cat_formas_pago();
+                        formaPagoSinc.FormaPagoId = itemFormaPago.FormaPagoId;
+                        formaPagoSinc.Descripcion = itemFormaPago.Descripcion;
+                        formaPagoSinc.Abreviatura = itemFormaPago.Abreviatura;
+                        formaPagoSinc.Orden = itemFormaPago.Orden;
+                        formaPagoSinc.RequiereDigVerificador = itemFormaPago.RequiereDigVerificador;
+                        formaPagoSinc.Activo = itemFormaPago.Activo;
+                        formaPagoSinc.Signo = itemFormaPago.Signo;
+                        formaPagoSinc.NumeroHacienda = itemFormaPago.NumeroHacienda;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_formas_pago.Add(formaPagoSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportFormasPago",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportTiposPedido(List<cat_tipos_pedido> lstTiposPedido)
+        {
+            try
+            {
+                foreach (cat_tipos_pedido itemTipoPedido in lstTiposPedido)
+                {
+                    cat_tipos_pedido tipoPedidoSinc = contextDestino.cat_tipos_pedido
+                        .Where(w => w.TipoPedidoId == itemTipoPedido.TipoPedidoId)
+                        .FirstOrDefault();
+
+                    if (tipoPedidoSinc != null)
+                    {
+                        tipoPedidoSinc.Nombre = itemTipoPedido.Nombre;
+                        tipoPedidoSinc.Folio = itemTipoPedido.Folio;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        tipoPedidoSinc = new cat_tipos_pedido();
+                        tipoPedidoSinc.TipoPedidoId = itemTipoPedido.TipoPedidoId;
+                        tipoPedidoSinc.Nombre = itemTipoPedido.Nombre;
+                        tipoPedidoSinc.Folio = itemTipoPedido.Folio;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_tipos_pedido.Add(tipoPedidoSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportTiposPedido",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportTiposMovimientoInventario(List<cat_tipos_movimiento_inventario> lstTiposMovimiento)
+        {
+            try
+            {
+                foreach (cat_tipos_movimiento_inventario itemTipoMovimiento in lstTiposMovimiento)
+                {
+                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextDestino.cat_tipos_movimiento_inventario
+                        .Where(w => w.TipoMovimientoInventarioId == itemTipoMovimiento.TipoMovimientoInventarioId)
+                        .FirstOrDefault();
+
+                    if (tipoMovimientoSinc != null)
+                    {
+                        tipoMovimientoSinc.Descripcion = itemTipoMovimiento.Descripcion;
+                        tipoMovimientoSinc.Activo = itemTipoMovimiento.Activo;
+                        tipoMovimientoSinc.EsEntrada = itemTipoMovimiento.EsEntrada;
+                        tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        tipoMovimientoSinc = new cat_tipos_movimiento_inventario();
+                        tipoMovimientoSinc.TipoMovimientoInventarioId = itemTipoMovimiento.TipoMovimientoInventarioId;
+                        tipoMovimientoSinc.Descripcion = itemTipoMovimiento.Descripcion;
+                        tipoMovimientoSinc.Activo = itemTipoMovimiento.Activo;
+                        tipoMovimientoSinc.EsEntrada = itemTipoMovimiento.EsEntrada;
+                        //tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_tipos_movimiento_inventario.Add(tipoMovimientoSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+
+                foreach (cat_tipos_movimiento_inventario itemTipoMovimiento in lstTiposMovimiento)
+                {
+                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextDestino.cat_tipos_movimiento_inventario
+                        .Where(w => w.TipoMovimientoInventarioId == itemTipoMovimiento.TipoMovimientoInventarioId)
+                        .FirstOrDefault();
+
+                    if (tipoMovimientoSinc != null)
+                    {
+                       
+                        tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                   
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportTiposMovimientoInventario",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportConceptos( List<cat_conceptos> lstConceptos)
+        {
+            try
+            {
+                foreach (cat_conceptos itemConcepto in lstConceptos)
+                {
+                    cat_conceptos conceptoSinc = this.contextDestino.cat_conceptos
+                        .Where(w => w.ConceptoId == itemConcepto.ConceptoId)
+                        .FirstOrDefault();
+
+                    if (conceptoSinc != null)
+                    {
+                        conceptoSinc.Descripcion = itemConcepto.Descripcion;
+                        conceptoSinc.FechaRegistro = itemConcepto.FechaRegistro;
+                        conceptoSinc.Activo = itemConcepto.Activo;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        conceptoSinc = new cat_conceptos();
+                        conceptoSinc.ConceptoId = itemConcepto.ConceptoId;
+                        conceptoSinc.Descripcion = itemConcepto.Descripcion;
+                        conceptoSinc.FechaRegistro = itemConcepto.FechaRegistro;
+                        conceptoSinc.Activo = itemConcepto.Activo;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_conceptos.Add(conceptoSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportConceptos",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportCentroCostos(List<cat_centro_costos> lstCentroCostos)
+        {
+            try
+            {
+                foreach (cat_centro_costos itemCentroCostos in lstCentroCostos)
+                {
+                    cat_centro_costos centroCostosSinc = this.contextDestino.cat_centro_costos
+                        .Where(w => w.Clave == itemCentroCostos.Clave)
+                        .FirstOrDefault();
+
+                    if (centroCostosSinc != null)
+                    {
+                        centroCostosSinc.Descripcion = itemCentroCostos.Descripcion;
+                        centroCostosSinc.Estatus = itemCentroCostos.Estatus;
+                        centroCostosSinc.Empresa = itemCentroCostos.Empresa;
+                        centroCostosSinc.Sucursal = itemCentroCostos.Sucursal;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        centroCostosSinc = new cat_centro_costos();
+                        centroCostosSinc.Clave = itemCentroCostos.Clave;
+                        centroCostosSinc.Descripcion = itemCentroCostos.Descripcion;
+                        centroCostosSinc.Estatus = itemCentroCostos.Estatus;
+                        centroCostosSinc.Empresa = itemCentroCostos.Empresa;
+                        centroCostosSinc.Sucursal = itemCentroCostos.Sucursal;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_centro_costos.Add(centroCostosSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportCentroCostos",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportcatGastos(List<cat_gastos> lstGastos)
+        {
+            try
+            {
+                foreach (cat_gastos itemGasto in lstGastos)
+                {
+                    cat_gastos gastoSinc = this.contextDestino.cat_gastos
+                        .Where(w => w.Clave == itemGasto.Clave)
+                        .FirstOrDefault();
+
+                    if (gastoSinc != null)
+                    {
+                        gastoSinc.Descripcion = itemGasto.Descripcion;
+                        gastoSinc.ClaveCentroCosto = itemGasto.ClaveCentroCosto;
+                        gastoSinc.Estatus = itemGasto.Estatus;
+                        gastoSinc.Empresa = itemGasto.Empresa;
+                        gastoSinc.Sucursal = itemGasto.Sucursal;
+                        gastoSinc.Monto = itemGasto.Monto;
+                        gastoSinc.Observaciones = itemGasto.Observaciones;
+                        gastoSinc.ConceptoId = itemGasto.ConceptoId;
+                        gastoSinc.CreadoPor = itemGasto.CreadoPor;
+                        gastoSinc.CreadoEl = itemGasto.CreadoEl;
+                        gastoSinc.CajaId = itemGasto.CajaId;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        gastoSinc = new cat_gastos();
+                        gastoSinc.Clave = itemGasto.Clave;
+                        gastoSinc.Descripcion = itemGasto.Descripcion;
+                        gastoSinc.ClaveCentroCosto = itemGasto.ClaveCentroCosto;
+                        gastoSinc.Estatus = itemGasto.Estatus;
+                        gastoSinc.Empresa = itemGasto.Empresa;
+                        gastoSinc.Sucursal = itemGasto.Sucursal;
+                        gastoSinc.Monto = itemGasto.Monto;
+                        gastoSinc.Observaciones = itemGasto.Observaciones;
+                        gastoSinc.ConceptoId = itemGasto.ConceptoId;
+                        gastoSinc.CreadoPor = itemGasto.CreadoPor;
+                        gastoSinc.CreadoEl = itemGasto.CreadoEl;
+                        gastoSinc.CajaId = itemGasto.CajaId;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.cat_gastos.Add(gastoSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportGastos",
+                                                              ex);
+                return false;
+            }
+        }
+
+        public bool ImportProductosSobrantesConfig(List<doc_productos_sobrantes_config> lstProductosSobrantesConfig)
+        {
+            try
+            {
+                foreach (doc_productos_sobrantes_config itemConfig in lstProductosSobrantesConfig)
+                {
+                    doc_productos_sobrantes_config configSinc = contextDestino.doc_productos_sobrantes_config
+                        .Where(w => w.EmpresaId == itemConfig.EmpresaId && w.ProductoSobranteId == itemConfig.ProductoSobranteId)
+                        .FirstOrDefault();
+
+                    if (configSinc != null)
+                    {
+                        configSinc.EmpresaId = itemConfig.EmpresaId;
+                        configSinc.ProductoSobranteId = itemConfig.ProductoSobranteId;
+                        configSinc.ProductoConvertirId = itemConfig.ProductoConvertirId;
+                        configSinc.Convertir = itemConfig.Convertir;
+                        configSinc.CreadoEl = itemConfig.CreadoEl;
+                        configSinc.CreadoPor = itemConfig.CreadoPor;
+                        configSinc.DejarEnCero = itemConfig.DejarEnCero;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextDestino.SaveChanges();
+                    }
+                    else
+                    {
+                        configSinc = new doc_productos_sobrantes_config();
+                        configSinc.EmpresaId = itemConfig.EmpresaId;
+                        configSinc.ProductoSobranteId = itemConfig.ProductoSobranteId;
+                        configSinc.ProductoConvertirId = itemConfig.ProductoConvertirId;
+                        configSinc.Convertir = itemConfig.Convertir;
+                        configSinc.CreadoEl = itemConfig.CreadoEl;
+                        configSinc.CreadoPor = itemConfig.CreadoPor;
+                        configSinc.DejarEnCero = itemConfig.DejarEnCero;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextDestino.doc_productos_sobrantes_config.Add(configSinc);
+                        contextDestino.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportProductosSobrantesConfig",
+                                                              ex);
+                return false;
+            }
+        }
 
     }
 }
