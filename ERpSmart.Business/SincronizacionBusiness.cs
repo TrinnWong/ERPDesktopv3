@@ -1,4 +1,5 @@
 ﻿using ConexionBD;
+using ERP.Models.Sincronizacion;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,13 +15,15 @@ namespace ERP.Business
 {
     public class SincronizacionBusiness:BusinessObject
     {
+        
         SisCuentaBusiness sisCuenta;
-        ERPProdEntities contextOrigen;
-        ERPProdEntities contextDestino;
+        ERPProdEntities contextNube;
+        ERPProdEntities contextLocal;
         EntityConnectionStringBuilder builder1;
         EntityConnectionStringBuilder builder2;
         int sucursalId = 0;
         int err;
+        public List<SincronizaResultadoModel> lstResultado;
         //public SincronizacionBusiness()
         //{
         //    sisCuenta = new SisCuentaBusiness();
@@ -37,92 +40,94 @@ namespace ERP.Business
             sisCuenta = new SisCuentaBusiness();
             builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
              builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
-            
 
 
-            contextOrigen = new ERPProdEntities(builder1.ProviderConnectionString);
-            contextDestino = new ERPProdEntities(builder2.ProviderConnectionString);
+
+            contextNube = new ERPProdEntities(builder1.ProviderConnectionString);
+            contextLocal = new ERPProdEntities(builder2.ProviderConnectionString);
+
+            lstResultado = new List<SincronizaResultadoModel>();
 
         }
 
-        public string Importar()
+        public string ImportarALocal()
         {
             try
             {
                 var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
                 sucursalId = cuenta.ClaveSucursal??0;
 
-                List<cat_empresas> lstEmpresasOri = contextOrigen.cat_empresas.ToList();
-                List<cat_cajas> lstCajasOri = contextOrigen.cat_cajas.ToList();
-                List<cat_configuracion> lstConfiguracion = contextOrigen.cat_configuracion.ToList();
-                List<cat_tipos_cajas> lsTiposCajas = contextOrigen.cat_tipos_cajas.ToList();
-                List<cat_sucursales> sucursalOri = contextOrigen.cat_sucursales.ToList();
-                List<cat_usuarios> lstUsuariosOri = contextOrigen.cat_usuarios
+                List<cat_empresas> lstEmpresasOri = contextNube.cat_empresas.ToList();
+                List<cat_cajas> lstCajasOri = contextNube.cat_cajas.ToList();
+                List<cat_configuracion> lstConfiguracion = contextNube.cat_configuracion.ToList();
+                List<cat_tipos_cajas> lsTiposCajas = contextNube.cat_tipos_cajas.ToList();
+                List<cat_sucursales> sucursalOri = contextNube.cat_sucursales.ToList();
+                List<cat_usuarios> lstUsuariosOri = contextNube.cat_usuarios
                     .Where(w => w.cat_usuarios_sucursales.Where(s1 => s1.SucursalId == sucursalId).Count() > 0 || w.NombreUsuario.Contains("ADMIN")).ToList();
-                List<cat_usuarios_sucursales> lstUsuariosSucursalesOri = contextOrigen.cat_usuarios_sucursales
+                List<cat_usuarios_sucursales> lstUsuariosSucursalesOri = contextNube.cat_usuarios_sucursales
                    .Where(w => w.SucursalId == sucursalId).ToList();
-                List<cat_familias> lstFamiliasOri = contextOrigen.cat_familias.ToList();
-                List<cat_conceptos> lstConceptos = contextOrigen.cat_conceptos.ToList();
+                List<cat_familias> lstFamiliasOri = contextNube.cat_familias.ToList();
+                List<cat_conceptos> lstConceptos = contextNube.cat_conceptos.ToList();
 
-                List<cat_centro_costos> lstCentroCostos = contextOrigen.cat_centro_costos.ToList();
-                List<cat_gastos> lstCatGastos = contextOrigen.cat_gastos.ToList();
-                List<cat_subfamilias> lstSubFamiliasOri = contextOrigen.cat_subfamilias.ToList();
-                List<cat_lineas> lstLineasOri = contextOrigen.cat_lineas.ToList();
-                List<cat_formas_pago> lstFormasPago = contextOrigen.cat_formas_pago.ToList();
-                List<cat_productos> lstProductosOri = contextOrigen.cat_productos.ToList();
-                List<cat_tipos_pedido> lstTiposPedido = contextOrigen.cat_tipos_pedido.ToList();
-                List<cat_tipos_movimiento_inventario> lstTiposMov = contextOrigen.cat_tipos_movimiento_inventario.ToList();
-                List<cat_productos_precios> lstProductosPrecioOri = contextOrigen
+                List<cat_centro_costos> lstCentroCostos = contextNube.cat_centro_costos.ToList();
+                List<cat_gastos> lstCatGastos = contextNube.cat_gastos.ToList();
+                List<cat_subfamilias> lstSubFamiliasOri = contextNube.cat_subfamilias.ToList();
+                List<cat_lineas> lstLineasOri = contextNube.cat_lineas.ToList();
+                List<cat_formas_pago> lstFormasPago = contextNube.cat_formas_pago.ToList();
+                List<cat_productos> lstProductosOri = contextNube.cat_productos.ToList();
+                List<cat_tipos_pedido> lstTiposPedido = contextNube.cat_tipos_pedido.ToList();
+                List<cat_tipos_movimiento_inventario> lstTiposMov = contextNube.cat_tipos_movimiento_inventario.ToList();
+                List<cat_productos_precios> lstProductosPrecioOri = contextNube
                     .cat_productos_precios.ToList();
-                List<rh_empleados> lstRHEmpleados = contextOrigen.rh_empleados.ToList();
-                List<rh_puestos> lstPuestos = contextOrigen.rh_puestos.ToList();
-                List<cat_sucursales_productos> lstSucursalesProductos = contextOrigen.cat_sucursales_productos.Where(w=> w.SucursalId == sucursalId).ToList();
-                List<cat_marcas> lstMarcas = contextOrigen.cat_marcas.ToList();
-                List<cat_unidadesmed> lstUnidadesMedida = contextOrigen.cat_unidadesmed.ToList();
-                List<cat_precios> lstPrecios = contextOrigen.cat_precios.ToList();
-                List<cat_clientes> lstClientes = contextOrigen.cat_clientes.Where(w=> w.SucursalBaseId == sucursalId).ToList();
-                List<doc_precios_especiales> lstPreciosEspeciales = contextOrigen.doc_precios_especiales.Where(w => w.SucursalId == sucursalId).ToList();
-                List<doc_precios_especiales_detalle> lstPreciosEspecialesDetalle = contextOrigen.doc_precios_especiales_detalle.Where(w => w.doc_precios_especiales.SucursalId == sucursalId).ToList();
-                List<sis_preferencias> lstPreferencias = contextOrigen.sis_preferencias.ToList();
-                List<sis_preferencias_empresa> lstPreferenciasEmpresa = contextOrigen.sis_preferencias_empresa.ToList();
-                List<sis_preferencias_sucursales> lstPreferenciasSucursal = contextOrigen.sis_preferencias_sucursales.Where(W=> W.SucursalId == sucursalId).ToList();
-                List<doc_clientes_productos_precios> lstClientesProductosPrecos = contextOrigen.doc_clientes_productos_precios.Where(W => W.cat_clientes.SucursalBaseId == sucursalId).ToList();
-                List<cat_productos_principales> lstProductosPrincipales = contextOrigen.cat_productos_principales.Where(W => W.SucursalId == 1).ToList();
-                List<doc_productos_sobrantes_config> lstProductosSobrantesConfig = contextOrigen.doc_productos_sobrantes_config.ToList();
+                List<rh_empleados> lstRHEmpleados = contextNube.rh_empleados.ToList();
+                List<rh_puestos> lstPuestos = contextNube.rh_puestos.ToList();
+                List<cat_sucursales_productos> lstSucursalesProductos = contextNube.cat_sucursales_productos.Where(w=> w.SucursalId == sucursalId).ToList();
+                List<cat_marcas> lstMarcas = contextNube.cat_marcas.ToList();
+                List<cat_unidadesmed> lstUnidadesMedida = contextNube.cat_unidadesmed.ToList();
+                List<cat_precios> lstPrecios = contextNube.cat_precios.ToList();
+                List<cat_clientes> lstClientes = contextNube.cat_clientes.Where(w=> w.SucursalBaseId == sucursalId).ToList();
+                List<doc_precios_especiales> lstPreciosEspeciales = contextNube.doc_precios_especiales.Where(w => w.SucursalId == sucursalId).ToList();
+                List<doc_precios_especiales_detalle> lstPreciosEspecialesDetalle = contextNube.doc_precios_especiales_detalle.Where(w => w.doc_precios_especiales.SucursalId == sucursalId).ToList();
+                List<sis_preferencias> lstPreferencias = contextNube.sis_preferencias.ToList();
+                List<sis_preferencias_empresa> lstPreferenciasEmpresa = contextNube.sis_preferencias_empresa.ToList();
+                List<sis_preferencias_sucursales> lstPreferenciasSucursal = contextNube.sis_preferencias_sucursales.Where(W=> W.SucursalId == sucursalId).ToList();
+                List<doc_clientes_productos_precios> lstClientesProductosPrecos = contextNube.doc_clientes_productos_precios.Where(W => W.cat_clientes.SucursalBaseId == sucursalId).ToList();
+                List<cat_productos_principales> lstProductosPrincipales = contextNube.cat_productos_principales.Where(W => W.SucursalId == 1).ToList();
+                List<doc_productos_sobrantes_config> lstProductosSobrantesConfig = contextNube.doc_productos_sobrantes_config.ToList();
 
 
-                ImportEmpresas(ref contextDestino, lstEmpresasOri);
-                ImportSucursales(ref contextDestino, sucursalOri);
+                ImportEmpresas(ref contextLocal, lstEmpresasOri);
+                ImportSucursales(ref contextLocal, sucursalOri);
                 ImportConfiguraciones(lstConfiguracion);
-                ImportPreferencias(ref contextDestino, lstPreferencias);
-                ImportPreferenciasEmpresa(ref contextDestino, lstPreferenciasEmpresa);
-                ImportPreferenciasSucursales(ref contextDestino, lstPreferenciasSucursal);
-                ImportTiposCajas(ref contextDestino, lsTiposCajas);
+                ImportPreferencias(ref contextLocal, lstPreferencias);
+                ImportPreferenciasEmpresa(ref contextLocal, lstPreferenciasEmpresa);
+                ImportPreferenciasSucursales(ref contextLocal, lstPreferenciasSucursal);
+                ImportTiposCajas(ref contextLocal, lsTiposCajas);
                 ImportTiposMovimientoInventario(lstTiposMov);
                 ImportConceptos(lstConceptos);
                 ImportCentroCostos(lstCentroCostos);
                 ImportcatGastos(lstCatGastos);
 
-                ImportCajas(ref contextDestino, lstCajasOri);
-                ImportPuestos(ref contextDestino, lstPuestos);
-                ImportEmpleados(ref contextDestino, lstRHEmpleados);
-                ImportUsuarios(ref contextDestino, lstUsuariosOri);
-                ImportUsuariosSucursales(ref contextDestino, lstUsuariosSucursalesOri);
-                ImportLineas(ref contextDestino, lstLineasOri);
-                ImportFamilias(ref contextDestino, lstFamiliasOri);
+                ImportCajas(ref contextLocal, lstCajasOri);
+                ImportPuestos(ref contextLocal, lstPuestos);
+                ImportEmpleados(ref contextLocal, lstRHEmpleados);
+                ImportUsuarios(ref contextLocal, lstUsuariosOri);
+                ImportUsuariosSucursales(ref contextLocal, lstUsuariosSucursalesOri);
+                ImportLineas(ref contextLocal, lstLineasOri);
+                ImportFamilias(ref contextLocal, lstFamiliasOri);
                 ImportTiposPedido(lstTiposPedido);
-                ImportMarcas(ref contextDestino,lstMarcas);
-                ImportSubFamilias(ref contextDestino, lstSubFamiliasOri);
+                ImportMarcas(ref contextLocal, lstMarcas);
+                ImportSubFamilias(ref contextLocal, lstSubFamiliasOri);
                 ImportFormasPago(lstFormasPago);
-                ImportUnidadesMed(ref contextDestino, lstUnidadesMedida);
-                ImportPrecios(ref contextDestino, lstPrecios);
-                ImportProductos(ref contextDestino, lstProductosOri);
+                ImportUnidadesMed(ref contextLocal, lstUnidadesMedida);
+                ImportPrecios(ref contextLocal, lstPrecios);
+                ImportProductos(ref contextLocal, lstProductosOri);
                 ImportProductosPrincipales(lstProductosPrincipales);
-                ImportProductosPrecios(ref contextDestino, lstProductosPrecioOri);
-                ImportSucursalesProductos(ref contextDestino,lstSucursalesProductos);
-                ImportClientes(ref contextDestino, lstClientes);
+                ImportProductosPrecios(ref contextLocal, lstProductosPrecioOri);
+                ImportSucursalesProductos(ref contextLocal, lstSucursalesProductos);
+                ImportClientes(ref contextLocal, lstClientes);
                 ImportClientesProductosPrecios(lstClientesProductosPrecos);
-                ImportPreciosEspeciales(ref contextDestino,lstPreciosEspeciales, lstPreciosEspecialesDetalle);
+                ImportPreciosEspeciales(ref contextLocal, lstPreciosEspeciales, lstPreciosEspecialesDetalle);
                 ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
                 return "";
             }
@@ -218,18 +223,24 @@ namespace ERP.Business
                     }
                 }
 
+                connection.Close();
+
+                lstResultado.Add(new SincronizaResultadoModel() {Tipo = "Importar", Entidad = "Configuraciones",Exitoso = true });
                 return true;
             }
             catch (Exception ex)
             {
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                             "ERP",
+                                                             "ERP.Business.SincronizacionBusiness.ImportConfiguraciones",
+                                                             ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuraciones", Exitoso = false,Detalle = String.Format("Bitácora error:{0}",err.ToString()) });
                 connection.Close();
                 // Manejo de errores
                 return false;
             }
-            finally
-            {
-                connection.Close();
-            }
+            
         }
 
 
@@ -269,6 +280,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Cajas", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -277,7 +291,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportCajas",
                                                               ex);
-
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
                 return false;
             }
         }
@@ -298,6 +312,7 @@ namespace ERP.Business
                         empresaSinc.NombreComercial = itemEmpresa.NombreComercial;
                         empresaSinc.RFC = itemEmpresa.RFC;
                         empresaSinc.Estatus = itemEmpresa.Estatus;
+                        empresaSinc.Logo = itemEmpresa.Logo;
                         context.SaveChanges();
                     }
                     else
@@ -307,13 +322,13 @@ namespace ERP.Business
                         empresaSinc.NombreComercial = itemEmpresa.NombreComercial;
                         empresaSinc.RFC = itemEmpresa.RFC;
                         empresaSinc.Estatus = itemEmpresa.Estatus;
-
+                        empresaSinc.Logo = itemEmpresa.Logo;
                         empresaSinc.Clave = itemEmpresa.Clave;
 
                         context.cat_empresas.Add(empresaSinc);
                         context.SaveChanges();
                     }
-
+                    lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Empresas", Exitoso = true, Detalle = "" });
 
                 }
 
@@ -325,6 +340,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportEmpresas",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Empresas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -397,6 +413,8 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Sucursales", Exitoso = true, Detalle = "" });
                 return true;
             }
             catch (Exception ex)
@@ -405,6 +423,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportSucursales",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -458,6 +477,9 @@ namespace ERP.Business
 
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -465,8 +487,9 @@ namespace ERP.Business
 
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportUsuarios",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -499,6 +522,9 @@ namespace ERP.Business
                 }
 
                 context.SaveChanges();
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios Sucursales", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -506,8 +532,9 @@ namespace ERP.Business
 
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportUsuariosSucursales",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -546,6 +573,7 @@ namespace ERP.Business
 
 
                 }
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Líneas", Exitoso = true, Detalle = "" });
 
                 return true;
             }
@@ -553,8 +581,9 @@ namespace ERP.Business
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportLineas",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Líneas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -599,14 +628,17 @@ namespace ERP.Business
 
                 }
 
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Familias", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportFamilias",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Familias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -649,6 +681,7 @@ namespace ERP.Business
 
 
                 }
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Subfamilias", Exitoso = true, Detalle = "" });
 
                 return true;
             }
@@ -656,8 +689,9 @@ namespace ERP.Business
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportSubFamilias",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Subfamilias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -762,6 +796,7 @@ namespace ERP.Business
 
 
                 }
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Productos", Exitoso = true, Detalle = "" });
 
                 return true;
             }
@@ -769,8 +804,9 @@ namespace ERP.Business
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportProductos",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Productos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -814,6 +850,7 @@ namespace ERP.Business
 
 
                 }
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios", Exitoso = true, Detalle = "" });
 
                 return true;
             }
@@ -821,8 +858,9 @@ namespace ERP.Business
             {
                 err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                           "ERP",
-                                                          "ERP.Business.SincronizacionBusiness.ImportEmpresas",
+                                                          "ERP.Business.SincronizacionBusiness.ImportProductosPrecios",
                                                           ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
 
@@ -859,6 +897,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Cajas", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -867,6 +908,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposCajas",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -930,6 +972,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Empleados", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -938,6 +983,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportEmpleados",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Empleados", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -985,6 +1031,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Puestos", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -993,6 +1042,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPuestos",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Puestos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1023,6 +1073,9 @@ namespace ERP.Business
                 }
 
                 context.SaveChanges();
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos por Sucursal", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1031,6 +1084,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportSucursalesProductos",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos por Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1068,6 +1122,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Marcas", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1076,6 +1133,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportMarcas",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Marcas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1119,6 +1177,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Unidades de Medida", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1127,6 +1188,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportUnidadesMed",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Unidades de Medida", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1158,6 +1220,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Precio", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1166,6 +1231,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPrecios",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Precio", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1261,6 +1327,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Clientes", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1269,6 +1338,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportClientes",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1278,10 +1348,11 @@ namespace ERP.Business
         {
             try
             {
-                context.Database.ExecuteSqlCommand("DELETE FROM doc_precios_especiales WHERE SucursalId = @SucursalId", new SqlParameter("SucursalId", this.sucursalId));
-
                 context.Database.ExecuteSqlCommand("DELETE FROM doc_precios_especiales_detalle");
 
+                context.Database.ExecuteSqlCommand("DELETE FROM doc_precios_especiales WHERE SucursalId = @SucursalId", new SqlParameter("SucursalId", this.sucursalId));
+
+                
                 foreach (doc_precios_especiales itemPrecioEspecial in lstPreciosEspeciales)
                 {
                     doc_precios_especiales precioEspecialSinc = new doc_precios_especiales();
@@ -1317,6 +1388,9 @@ namespace ERP.Business
 
                     context.SaveChanges();
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios Especiales", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1325,6 +1399,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPreciosEspeciales",
                                                               ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios Especiales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
@@ -1365,6 +1440,10 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Preferencias", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1374,6 +1453,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferencias",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Preferencias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1412,6 +1494,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Empresa", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1421,6 +1506,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferenciasEmpresa",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Empresa", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1458,6 +1546,9 @@ namespace ERP.Business
                         context.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Sucursal", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1467,6 +1558,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferenciasSucursales",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1478,7 +1572,7 @@ namespace ERP.Business
             {
                 foreach (doc_clientes_productos_precios itemClienteProductoPrecio in lstClientesProductosPrecios)
                 {
-                    doc_clientes_productos_precios clienteProductoPrecioSinc = this.contextDestino.doc_clientes_productos_precios
+                    doc_clientes_productos_precios clienteProductoPrecioSinc = this.contextLocal.doc_clientes_productos_precios
                         .Where(w => w.ClienteProductoPrecioId == itemClienteProductoPrecio.ClienteProductoPrecioId)
                         .FirstOrDefault();
 
@@ -1490,7 +1584,7 @@ namespace ERP.Business
                         clienteProductoPrecioSinc.CreadoEl = itemClienteProductoPrecio.CreadoEl;
 
                         // Actualizar otras propiedades según sea necesario
-                        this.contextDestino.SaveChanges();
+                        this.contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1502,10 +1596,13 @@ namespace ERP.Business
                         clienteProductoPrecioSinc.CreadoEl = itemClienteProductoPrecio.CreadoEl;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        this.contextDestino.doc_clientes_productos_precios.Add(clienteProductoPrecioSinc);
-                        this.contextDestino.SaveChanges();
+                        this.contextLocal.doc_clientes_productos_precios.Add(clienteProductoPrecioSinc);
+                        this.contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos-Precios", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1515,6 +1612,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportClientesProductosPrecios",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos-Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1525,7 +1625,7 @@ namespace ERP.Business
             {
                 foreach (cat_productos_principales itemProductoPrincipal in lstProductosPrincipales)
                 {
-                    cat_productos_principales productoPrincipalSinc = this.contextDestino.cat_productos_principales
+                    cat_productos_principales productoPrincipalSinc = this.contextLocal.cat_productos_principales
                         .Where(w => w.SucursalId == itemProductoPrincipal.SucursalId && w.ProductoId == itemProductoPrincipal.ProductoId)
                         .FirstOrDefault();
 
@@ -1534,7 +1634,7 @@ namespace ERP.Business
                         productoPrincipalSinc.CreadoEl = itemProductoPrincipal.CreadoEl;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1544,10 +1644,13 @@ namespace ERP.Business
                         productoPrincipalSinc.CreadoEl = itemProductoPrincipal.CreadoEl;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_productos_principales.Add(productoPrincipalSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_productos_principales.Add(productoPrincipalSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Principales", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1557,6 +1660,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportProductosPrincipales",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Principales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1568,7 +1674,7 @@ namespace ERP.Business
             {
                 foreach (cat_formas_pago itemFormaPago in lstFormasPago)
                 {
-                    cat_formas_pago formaPagoSinc = this.contextDestino.cat_formas_pago
+                    cat_formas_pago formaPagoSinc = this.contextLocal.cat_formas_pago
                         .Where(w => w.FormaPagoId == itemFormaPago.FormaPagoId)
                         .FirstOrDefault();
 
@@ -1583,7 +1689,7 @@ namespace ERP.Business
                         formaPagoSinc.NumeroHacienda = itemFormaPago.NumeroHacienda;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1598,10 +1704,13 @@ namespace ERP.Business
                         formaPagoSinc.NumeroHacienda = itemFormaPago.NumeroHacienda;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_formas_pago.Add(formaPagoSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_formas_pago.Add(formaPagoSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Formas Pago", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1611,6 +1720,10 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportFormasPago",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Formas Pago", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+
                 return false;
             }
         }
@@ -1621,7 +1734,7 @@ namespace ERP.Business
             {
                 foreach (cat_tipos_pedido itemTipoPedido in lstTiposPedido)
                 {
-                    cat_tipos_pedido tipoPedidoSinc = contextDestino.cat_tipos_pedido
+                    cat_tipos_pedido tipoPedidoSinc = contextLocal.cat_tipos_pedido
                         .Where(w => w.TipoPedidoId == itemTipoPedido.TipoPedidoId)
                         .FirstOrDefault();
 
@@ -1631,7 +1744,7 @@ namespace ERP.Business
                         tipoPedidoSinc.Folio = itemTipoPedido.Folio;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1641,10 +1754,13 @@ namespace ERP.Business
                         tipoPedidoSinc.Folio = itemTipoPedido.Folio;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_tipos_pedido.Add(tipoPedidoSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_tipos_pedido.Add(tipoPedidoSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos Pedido", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1654,6 +1770,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposPedido",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos Pedido", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1664,7 +1783,7 @@ namespace ERP.Business
             {
                 foreach (cat_tipos_movimiento_inventario itemTipoMovimiento in lstTiposMovimiento)
                 {
-                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextDestino.cat_tipos_movimiento_inventario
+                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextLocal.cat_tipos_movimiento_inventario
                         .Where(w => w.TipoMovimientoInventarioId == itemTipoMovimiento.TipoMovimientoInventarioId)
                         .FirstOrDefault();
 
@@ -1676,7 +1795,7 @@ namespace ERP.Business
                         tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1688,14 +1807,14 @@ namespace ERP.Business
                         //tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_tipos_movimiento_inventario.Add(tipoMovimientoSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_tipos_movimiento_inventario.Add(tipoMovimientoSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
 
                 foreach (cat_tipos_movimiento_inventario itemTipoMovimiento in lstTiposMovimiento)
                 {
-                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextDestino.cat_tipos_movimiento_inventario
+                    cat_tipos_movimiento_inventario tipoMovimientoSinc = this.contextLocal.cat_tipos_movimiento_inventario
                         .Where(w => w.TipoMovimientoInventarioId == itemTipoMovimiento.TipoMovimientoInventarioId)
                         .FirstOrDefault();
 
@@ -1705,10 +1824,13 @@ namespace ERP.Business
                         tipoMovimientoSinc.TipoMovimientoCancelacionId = itemTipoMovimiento.TipoMovimientoCancelacionId;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                    
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Movimiento de Inventario", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1718,6 +1840,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposMovimientoInventario",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Movimiento de Inventario", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1728,7 +1853,7 @@ namespace ERP.Business
             {
                 foreach (cat_conceptos itemConcepto in lstConceptos)
                 {
-                    cat_conceptos conceptoSinc = this.contextDestino.cat_conceptos
+                    cat_conceptos conceptoSinc = this.contextLocal.cat_conceptos
                         .Where(w => w.ConceptoId == itemConcepto.ConceptoId)
                         .FirstOrDefault();
 
@@ -1739,7 +1864,7 @@ namespace ERP.Business
                         conceptoSinc.Activo = itemConcepto.Activo;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1750,10 +1875,13 @@ namespace ERP.Business
                         conceptoSinc.Activo = itemConcepto.Activo;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_conceptos.Add(conceptoSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_conceptos.Add(conceptoSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Conceptos", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1763,6 +1891,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportConceptos",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Conceptos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1773,7 +1904,7 @@ namespace ERP.Business
             {
                 foreach (cat_centro_costos itemCentroCostos in lstCentroCostos)
                 {
-                    cat_centro_costos centroCostosSinc = this.contextDestino.cat_centro_costos
+                    cat_centro_costos centroCostosSinc = this.contextLocal.cat_centro_costos
                         .Where(w => w.Clave == itemCentroCostos.Clave)
                         .FirstOrDefault();
 
@@ -1785,7 +1916,7 @@ namespace ERP.Business
                         centroCostosSinc.Sucursal = itemCentroCostos.Sucursal;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1797,10 +1928,13 @@ namespace ERP.Business
                         centroCostosSinc.Sucursal = itemCentroCostos.Sucursal;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_centro_costos.Add(centroCostosSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_centro_costos.Add(centroCostosSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Centro Costos", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1810,6 +1944,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportCentroCostos",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Centro Costos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1820,7 +1957,7 @@ namespace ERP.Business
             {
                 foreach (cat_gastos itemGasto in lstGastos)
                 {
-                    cat_gastos gastoSinc = this.contextDestino.cat_gastos
+                    cat_gastos gastoSinc = this.contextLocal.cat_gastos
                         .Where(w => w.Clave == itemGasto.Clave)
                         .FirstOrDefault();
 
@@ -1839,7 +1976,7 @@ namespace ERP.Business
                         gastoSinc.CajaId = itemGasto.CajaId;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1858,10 +1995,13 @@ namespace ERP.Business
                         gastoSinc.CajaId = itemGasto.CajaId;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.cat_gastos.Add(gastoSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.cat_gastos.Add(gastoSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Gastos", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1871,6 +2011,9 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportGastos",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
@@ -1881,7 +2024,7 @@ namespace ERP.Business
             {
                 foreach (doc_productos_sobrantes_config itemConfig in lstProductosSobrantesConfig)
                 {
-                    doc_productos_sobrantes_config configSinc = contextDestino.doc_productos_sobrantes_config
+                    doc_productos_sobrantes_config configSinc = contextLocal.doc_productos_sobrantes_config
                         .Where(w => w.EmpresaId == itemConfig.EmpresaId && w.ProductoSobranteId == itemConfig.ProductoSobranteId)
                         .FirstOrDefault();
 
@@ -1896,7 +2039,7 @@ namespace ERP.Business
                         configSinc.DejarEnCero = itemConfig.DejarEnCero;
 
                         // Actualizar otras propiedades según sea necesario
-                        contextDestino.SaveChanges();
+                        contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1910,10 +2053,13 @@ namespace ERP.Business
                         configSinc.DejarEnCero = itemConfig.DejarEnCero;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        contextDestino.doc_productos_sobrantes_config.Add(configSinc);
-                        contextDestino.SaveChanges();
+                        contextLocal.doc_productos_sobrantes_config.Add(configSinc);
+                        contextLocal.SaveChanges();
                     }
                 }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Sobrantes - Configuración", Exitoso = true, Detalle = "" });
+
                 return true;
             }
             catch (Exception ex)
@@ -1923,9 +2069,610 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportProductosSobrantesConfig",
                                                               ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Sobrantes - Configuración", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                 return false;
             }
         }
 
+
+        //Exportar hacia la NUBE
+        public string ExportANube()
+        {
+            try
+            {
+                this.ExportGastos();
+                this.ExportRetiros();
+                this.ExportMaizMasecaRendimiento();
+                this.ExportProductosSobrantesRegistro();
+                this.ExportPedidosOrden_Ventas();
+                return "";
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                          "ERP",
+                                                          "ERP.Business.SincronizacionBusiness.Importar",
+                                                          ex);
+
+                return "Ocurrió un error al importar, revise el registro de bitácora [" + err.ToString() + "]";
+            }
+        }
+
+        public bool ExportGastos()
+        {
+            try
+            {
+                List<doc_gastos> listaGastos = this.contextLocal.doc_gastos.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (doc_gastos gasto in listaGastos)
+                        {
+                            doc_gastos exists = this.contextNube.doc_gastos.Where(w => w.CreadoEl == gasto.CreadoEl &&
+                            w.GastoConceptoId == gasto.GastoConceptoId &&
+                            w.Monto == gasto.Monto &&
+                            w.Obervaciones == gasto.Obervaciones).FirstOrDefault();
+
+                            if (exists == null)
+                            {
+                                exists = new doc_gastos
+                                {
+                                    GastoId = (this.contextNube.doc_gastos.Max(m => (int?)m.GastoId) ?? 0) + 1,
+                                    CentroCostoId = gasto.CentroCostoId,
+                                    GastoConceptoId = gasto.GastoConceptoId,
+                                    Obervaciones = gasto.Obervaciones,
+                                    Monto = gasto.Monto,
+                                    CajaId = gasto.CajaId,
+                                    CreadoEl = gasto.CreadoEl,
+                                    CreadoPor = gasto.CreadoPor,
+                                    SucursalId = gasto.SucursalId,
+                                    Activo = gasto.Activo
+
+                                };
+                                this.contextNube.doc_gastos.Add(exists);
+
+                                this.contextNube.SaveChanges();
+                            }
+                           
+
+
+
+                        }
+                        
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportGastos",
+                                                              ex);
+
+                        return false;
+                    }
+                    
+                }
+
+                this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_gastos");
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportGastos",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ExportRetiros()
+        {
+            try
+            {
+                List<doc_retiros> listaRetiros = this.contextLocal.doc_retiros.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (doc_retiros retiro in listaRetiros)
+                        {
+                            doc_retiros exists = this.contextNube.doc_retiros
+                                .Where(w => w.FechaRetiro == retiro.FechaRetiro &&
+                                            w.MontoRetiro == retiro.MontoRetiro &&                                            
+                                            w.CajaId == retiro.CajaId &&
+                                            w.SucursalId == retiro.SucursalId &&
+                                            w.Observaciones == retiro.Observaciones)
+                                .FirstOrDefault();
+
+                            if (exists == null)
+                            {
+                                exists = new doc_retiros
+                                {
+                                    RetiroId = (this.contextNube.doc_retiros.Max(m => (int?)m.RetiroId) ?? 0) + 1,
+                                    FechaRetiro = retiro.FechaRetiro,
+                                    MontoRetiro = retiro.MontoRetiro,
+                                    CreadoPor = retiro.CreadoPor,
+                                    CajaId = retiro.CajaId,
+                                    SucursalId = retiro.SucursalId,
+                                    Observaciones = retiro.Observaciones
+                                };
+
+                                this.contextNube.doc_retiros.Add(exists);
+                                this.contextNube.SaveChanges();
+                            }
+                        }
+
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportRetiros",
+                                                                      ex);
+                        return false;
+                    }
+                }
+
+                this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_retiros");
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportRetiros",
+                                                              ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ExportMaizMasecaRendimiento()
+        {
+            try
+            {
+                List<doc_maiz_maseca_rendimiento> listaRendimientos = this.contextLocal.doc_maiz_maseca_rendimiento.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (doc_maiz_maseca_rendimiento rendimiento in listaRendimientos)
+                        {
+                            doc_maiz_maseca_rendimiento exists = this.contextNube.doc_maiz_maseca_rendimiento
+                                .Where(w => w.SucursalId == rendimiento.SucursalId &&
+                                            w.Fecha == rendimiento.Fecha)
+                                .FirstOrDefault();
+
+                            if (exists == null)
+                            {
+                                exists = new doc_maiz_maseca_rendimiento
+                                {
+                                    SucursalId = rendimiento.SucursalId,
+                                    Fecha = rendimiento.Fecha,
+                                    MaizSacos = rendimiento.MaizSacos,
+                                    MasecaSacos = rendimiento.MasecaSacos,
+                                    TortillaMaizRendimiento = rendimiento.TortillaMaizRendimiento,
+                                    TortillaMasecaRendimiento = rendimiento.TortillaMasecaRendimiento,
+                                    TortillaTotalRendimiento = rendimiento.TortillaTotalRendimiento,
+                                    CreadoEl = rendimiento.CreadoEl,
+                                    CreadoPor = rendimiento.CreadoPor,
+                                    ModificadoEl = rendimiento.ModificadoEl,
+                                    ModificadoPor = rendimiento.ModificadoPor
+                                };
+
+                                this.contextNube.doc_maiz_maseca_rendimiento.Add(exists);
+                                this.contextNube.SaveChanges();
+                            }
+                            
+                        }
+
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportMaizMasecaRendimiento",
+                                                                      ex);
+                        return false;
+                    }
+                }
+
+                // Eliminar los registros exportados de la base de datos local
+                this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_maiz_maseca_rendimiento");
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportMaizMasecaRendimiento",
+                                                              ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ExportProductosSobrantesRegistro()
+        {
+            try
+            {
+                List<doc_productos_sobrantes_registro> listaSobrantes = this.contextLocal.doc_productos_sobrantes_registro.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (doc_productos_sobrantes_registro sobrante in listaSobrantes)
+                        {
+                            doc_productos_sobrantes_registro exists = this.contextNube.doc_productos_sobrantes_registro
+                                .Where(w => w.ProductoId == sobrante.ProductoId &&
+                                w.SucursalId == sobrante.SucursalId &&
+                                w.CreadoEl == sobrante.CreadoEl)
+                                .FirstOrDefault();
+
+                            if (exists == null)
+                            {
+                                exists = new doc_productos_sobrantes_registro
+                                {
+                                    Id = (this.contextNube.doc_productos_sobrantes_registro.Max(m=> (int?)m.Id)??0)+1,
+                                    SucursalId = sobrante.SucursalId,
+                                    ProductoId = sobrante.ProductoId,
+                                    CantidadSobrante = sobrante.CantidadSobrante,
+                                    CreadoEl = sobrante.CreadoEl,
+                                    CreadoPor = sobrante.CreadoPor,
+                                    Cerrado = sobrante.Cerrado,
+                                    CerradoEl = sobrante.CerradoEl,
+                                    CerradoPor = sobrante.CerradoPor,
+                                    CantidadInventario = sobrante.CantidadInventario
+                                };
+
+                                this.contextNube.doc_productos_sobrantes_registro.Add(exists);
+                                this.contextNube.SaveChanges();
+                            }
+                            else
+                            {
+                                // Actualizar existente si es necesario
+                                // exists.SucursalId = sobrante.SucursalId;
+                                // exists.ProductoId = sobrante.ProductoId;
+                                // ... (actualizar otras propiedades según tus necesidades)
+                            }
+                        }
+
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportProductosSobrantesRegistro",
+                                                                      ex);
+                        return false;
+                    }
+                }
+
+                // Eliminar los registros exportados de la base de datos local
+                this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_productos_sobrantes_registro");
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportProductosSobrantesRegistro",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+
+        public bool ExportPedidosOrden_Ventas()
+        {
+            try
+            {
+                List<doc_pedidos_orden> listaPedidosOrden = this.contextLocal.doc_pedidos_orden.ToList();
+                List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.ToList();
+                List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.ToList();
+                List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (doc_pedidos_orden pedidoOrden in listaPedidosOrden)
+                        {
+                            doc_pedidos_orden exists = null;
+
+                            if (exists == null)
+                            {
+                                exists = new doc_pedidos_orden
+                                {
+                                    PedidoId = (this.contextNube.doc_pedidos_orden.Max(m=> (int?)m.PedidoId) ??0)+1,
+                                    SucursalId = pedidoOrden.SucursalId,
+                                    ComandaId = pedidoOrden.ComandaId,
+                                    PorcDescuento = pedidoOrden.PorcDescuento,
+                                    Subtotal = pedidoOrden.Subtotal,
+                                    Descuento = pedidoOrden.Descuento,
+                                    Impuestos = pedidoOrden.Impuestos,
+                                    Total = pedidoOrden.Total,
+                                    ClienteId = pedidoOrden.ClienteId,
+                                    MotivoCancelacion = pedidoOrden.MotivoCancelacion,
+                                    Activo = pedidoOrden.Activo,
+                                    CreadoEl = pedidoOrden.CreadoEl,
+                                    CreadoPor = pedidoOrden.CreadoPor,
+                                    Personas = pedidoOrden.Personas,
+                                    FechaApertura = pedidoOrden.FechaApertura,
+                                    FechaCierre = pedidoOrden.FechaCierre,
+                                    //VentaId = pedidoOrden.VentaId,
+                                    Cancelada = pedidoOrden.Cancelada,
+                                    FechaCancelacion = pedidoOrden.FechaCancelacion,
+                                    CanceladoPor = pedidoOrden.CanceladoPor,
+                                    UberEats = pedidoOrden.UberEats,
+                                    Para = pedidoOrden.Para,
+                                    Notas = pedidoOrden.Notas,
+                                    CargoId = pedidoOrden.CargoId,
+                                    CajaId = pedidoOrden.CajaId,
+                                    TipoPedidoId = pedidoOrden.TipoPedidoId,
+                                    Folio = pedidoOrden.Folio,
+                                    Facturar = pedidoOrden.Facturar,
+                                    SucursalCobroId = pedidoOrden.SucursalCobroId,
+                                    Credito = pedidoOrden.Credito
+                                };
+
+                                this.contextNube.doc_pedidos_orden.Add(exists);
+                                this.contextNube.SaveChanges();
+
+                                //INSERTAR doc_pedidos_orden_detalle
+                                foreach (doc_pedidos_orden_detalle itemPedidoOrdenDetalle in listaPedidosOrdenDetalle.Where(w=> w.PedidoId == pedidoOrden.PedidoId))
+                                {
+                                    doc_pedidos_orden_detalle itemPedidoOrdenDetalleNEW = new doc_pedidos_orden_detalle();
+
+                                    itemPedidoOrdenDetalleNEW.Cancelado = itemPedidoOrdenDetalle.Cancelado;
+                                    itemPedidoOrdenDetalleNEW.Cantidad = itemPedidoOrdenDetalle.Cantidad;
+                                    itemPedidoOrdenDetalleNEW.CantidadDevolucion = itemPedidoOrdenDetalle.CantidadDevolucion;
+                                    itemPedidoOrdenDetalleNEW.CantidadOriginal = itemPedidoOrdenDetalle.CantidadOriginal;
+                                    itemPedidoOrdenDetalleNEW.CargoAdicionalId = itemPedidoOrdenDetalle.CargoAdicionalId;
+                                    itemPedidoOrdenDetalleNEW.CargoAdicionalMonto = itemPedidoOrdenDetalle.CargoAdicionalMonto;
+                                    itemPedidoOrdenDetalleNEW.ComandaId = itemPedidoOrdenDetalle.ComandaId;
+                                    itemPedidoOrdenDetalleNEW.CreadoEl = itemPedidoOrdenDetalle.CreadoEl;
+                                    itemPedidoOrdenDetalleNEW.CreadoPor = itemPedidoOrdenDetalle.CreadoPor;
+                                    itemPedidoOrdenDetalleNEW.Descripcion = itemPedidoOrdenDetalle.Descripcion;
+                                    itemPedidoOrdenDetalleNEW.Descuento = itemPedidoOrdenDetalle.Descuento;
+                                    itemPedidoOrdenDetalleNEW.Impreso = itemPedidoOrdenDetalle.Impreso;
+                                    itemPedidoOrdenDetalleNEW.Impuestos = itemPedidoOrdenDetalle.Impuestos;
+                                    itemPedidoOrdenDetalleNEW.Notas = itemPedidoOrdenDetalle.Notas;
+                                    itemPedidoOrdenDetalleNEW.Parallevar = itemPedidoOrdenDetalle.Parallevar;
+                                    itemPedidoOrdenDetalleNEW.PedidoDetalleId = (this.contextNube.doc_pedidos_orden_detalle.Max(m=> (int?)m.PedidoDetalleId)??0)+1;
+                                    itemPedidoOrdenDetalleNEW.PedidoId = exists.PedidoId;
+                                    itemPedidoOrdenDetalleNEW.PorcDescuento = itemPedidoOrdenDetalle.PorcDescuento;
+                                    itemPedidoOrdenDetalleNEW.PrecioUnitario = itemPedidoOrdenDetalle.PrecioUnitario;
+                                    itemPedidoOrdenDetalleNEW.ProductoId = itemPedidoOrdenDetalle.ProductoId;
+                                    itemPedidoOrdenDetalleNEW.PromocionCMId = itemPedidoOrdenDetalle.PromocionCMId;
+                                    itemPedidoOrdenDetalleNEW.TasaIVA = itemPedidoOrdenDetalle.TasaIVA;
+                                    itemPedidoOrdenDetalleNEW.TipoDescuentoId = itemPedidoOrdenDetalle.TipoDescuentoId;
+                                    itemPedidoOrdenDetalleNEW.Total = itemPedidoOrdenDetalle.Total;
+                                   
+                                    this.contextNube.doc_pedidos_orden_detalle.Add(itemPedidoOrdenDetalleNEW);
+                                    this.contextNube.SaveChanges();
+                                }
+
+                                //INSERTAR doc_venta
+                                doc_ventas itemVenta = listaVentas.Where(w=> w.VentaId == pedidoOrden.VentaId).FirstOrDefault();
+
+                                if(itemVenta != null)
+                                {
+                                    doc_ventas itemVentaNEW = new doc_ventas();
+
+                                    itemVentaNEW.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId) ?? 0) + 1;
+                                    itemVentaNEW.Activo = itemVenta.Activo;
+                                    itemVentaNEW.CajaId = itemVenta.CajaId;
+                                    itemVentaNEW.Cambio = itemVenta.Cambio;
+                                    itemVentaNEW.ClienteId = itemVenta.ClienteId;
+                                    itemVentaNEW.DescuentoEnPartidas = itemVenta.DescuentoEnPartidas;
+                                    itemVentaNEW.DescuentoVentaSiNo = itemVenta.DescuentoVentaSiNo;
+                                    itemVentaNEW.EmpleadoId = itemVenta.EmpleadoId;
+                                    itemVentaNEW.Facturar = itemVenta.Facturar;
+                                    itemVentaNEW.Fecha = itemVenta.Fecha;
+                                    itemVentaNEW.FechaCancelacion = itemVenta.FechaCancelacion;
+                                    itemVentaNEW.FechaCreacion = itemVenta.FechaCreacion;
+                                    itemVentaNEW.Folio = itemVenta.Folio;
+                                    itemVentaNEW.Impuestos = itemVenta.Impuestos;
+                                    itemVentaNEW.MontoDescuentoVenta = itemVenta.MontoDescuentoVenta;
+                                    itemVentaNEW.MotivoCancelacion = itemVenta.MotivoCancelacion;
+                                    itemVentaNEW.PorcDescuentoVenta = itemVenta.PorcDescuentoVenta;
+                                    itemVentaNEW.Rec = itemVenta.Rec;
+                                    itemVentaNEW.Serie = itemVenta.Serie;
+                                    itemVentaNEW.SubTotal = itemVenta.SubTotal;
+                                    itemVentaNEW.SucursalId = itemVenta.SucursalId;
+                                    itemVentaNEW.TotalDescuento = itemVenta.TotalDescuento;
+                                    itemVentaNEW.TotalRecibido = itemVenta.TotalRecibido;
+                                    itemVentaNEW.TotalVenta = itemVenta.TotalVenta;
+                                    itemVentaNEW.UsuarioCancelacionId = itemVenta.UsuarioCancelacionId;
+                                    itemVentaNEW.UsuarioCreacionId = itemVenta.UsuarioCreacionId;
+                                    
+
+                                    this.contextNube.doc_ventas.Add(itemVentaNEW);
+
+                                    this.contextNube.SaveChanges();
+
+                                    //INSERTAR VENTA DETALLE
+                                    foreach (doc_ventas_detalle itemVentaDetalle in listaVentasDetalle.Where(W=> W.VentaId == itemVenta.VentaId))
+                                    {
+                                        doc_ventas_detalle itemVentaDetalleNEW = new doc_ventas_detalle();
+
+                                        itemVentaDetalleNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
+                                        itemVentaDetalleNEW.Cantidad = itemVentaDetalle.Cantidad;
+                                        itemVentaDetalleNEW.CargoAdicionalId = itemVentaDetalle.CargoAdicionalId;
+                                        itemVentaDetalleNEW.CargoDetalleId = itemVentaDetalle.CargoDetalleId;
+                                        itemVentaDetalleNEW.Descripcion = itemVentaDetalle.Descripcion;
+                                        itemVentaDetalleNEW.Descuento = itemVentaDetalle.Descuento;
+                                        itemVentaDetalleNEW.FechaCreacion = itemVentaDetalle.FechaCreacion;
+                                        itemVentaDetalleNEW.Impuestos = itemVentaDetalle.Impuestos;
+                                        itemVentaDetalleNEW.ParaLlevar = itemVentaDetalle.ParaLlevar;
+                                        itemVentaDetalleNEW.ParaMesa = itemVentaDetalle.ParaMesa;
+                                        itemVentaDetalleNEW.PorcDescuneto = itemVentaDetalle.PorcDescuneto;
+                                        itemVentaDetalleNEW.PrecioUnitario = itemVentaDetalle.PrecioUnitario;
+                                        itemVentaDetalleNEW.ProductoId = itemVentaDetalle.ProductoId;
+                                        itemVentaDetalleNEW.PromocionCMId = itemVentaDetalle.PromocionCMId;
+                                        itemVentaDetalleNEW.TasaIVA = itemVentaDetalle.TasaIVA;
+                                        itemVentaDetalleNEW.TipoDescuentoId = itemVentaDetalle.TipoDescuentoId;
+                                        itemVentaDetalleNEW.Total = itemVentaDetalle.Total;
+                                        itemVentaDetalleNEW.UsuarioCreacionId = itemVentaDetalle.UsuarioCreacionId;
+                                        itemVentaDetalleNEW.VentaId = itemVentaNEW.VentaId;
+
+
+                                        this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleNEW);
+                                        this.contextNube.SaveChanges();
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                        foreach (doc_ventas itemVentaSP in listaVentas.Where(w=> w.doc_pedidos_orden.Where(s1=>s1.PedidoId > 0).Count() >0))
+                        {
+                            doc_ventas itemVentaNEWSP = new doc_ventas();
+
+                            itemVentaNEWSP.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId) ?? 0) + 1;
+                            itemVentaNEWSP.Activo = itemVentaSP.Activo;
+                            itemVentaNEWSP.CajaId = itemVentaSP.CajaId;
+                            itemVentaNEWSP.Cambio = itemVentaSP.Cambio;
+                            itemVentaNEWSP.ClienteId = itemVentaSP.ClienteId;
+                            itemVentaNEWSP.DescuentoEnPartidas = itemVentaSP.DescuentoEnPartidas;
+                            itemVentaNEWSP.DescuentoVentaSiNo = itemVentaSP.DescuentoVentaSiNo;
+                            itemVentaNEWSP.EmpleadoId = itemVentaSP.EmpleadoId;
+                            itemVentaNEWSP.Facturar = itemVentaSP.Facturar;
+                            itemVentaNEWSP.Fecha = itemVentaSP.Fecha;
+                            itemVentaNEWSP.FechaCancelacion = itemVentaSP.FechaCancelacion;
+                            itemVentaNEWSP.FechaCreacion = itemVentaSP.FechaCreacion;
+                            itemVentaNEWSP.Folio = itemVentaSP.Folio;
+                            itemVentaNEWSP.Impuestos = itemVentaSP.Impuestos;
+                            itemVentaNEWSP.MontoDescuentoVenta = itemVentaSP.MontoDescuentoVenta;
+                            itemVentaNEWSP.MotivoCancelacion = itemVentaSP.MotivoCancelacion;
+                            itemVentaNEWSP.PorcDescuentoVenta = itemVentaSP.PorcDescuentoVenta;
+                            itemVentaNEWSP.Rec = itemVentaSP.Rec;
+                            itemVentaNEWSP.Serie = itemVentaSP.Serie;
+                            itemVentaNEWSP.SubTotal = itemVentaSP.SubTotal;
+                            itemVentaNEWSP.SucursalId = itemVentaSP.SucursalId;
+                            itemVentaNEWSP.TotalDescuento = itemVentaSP.TotalDescuento;
+                            itemVentaNEWSP.TotalRecibido = itemVentaSP.TotalRecibido;
+                            itemVentaNEWSP.TotalVenta = itemVentaSP.TotalVenta;
+                            itemVentaNEWSP.UsuarioCancelacionId = itemVentaSP.UsuarioCancelacionId;
+                            itemVentaNEWSP.UsuarioCreacionId = itemVentaSP.UsuarioCreacionId;
+
+                            this.contextNube.doc_ventas.Add(itemVentaNEWSP);
+                            this.contextNube.SaveChanges();
+
+                            foreach (doc_ventas_detalle itemVentaDetalleSP in listaVentasDetalle.Where(w=> w.VentaId== itemVentaSP.VentaId))
+                            {
+                                doc_ventas_detalle itemVentaDetalleSPNEW = new doc_ventas_detalle();
+
+                                itemVentaDetalleSPNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
+                                itemVentaDetalleSPNEW.Cantidad = itemVentaDetalleSP.Cantidad;
+                                itemVentaDetalleSPNEW.CargoAdicionalId = itemVentaDetalleSP.CargoAdicionalId;
+                                itemVentaDetalleSPNEW.CargoDetalleId = itemVentaDetalleSP.CargoDetalleId;
+                                itemVentaDetalleSPNEW.Descripcion = itemVentaDetalleSP.Descripcion;
+                                itemVentaDetalleSPNEW.Descuento = itemVentaDetalleSP.Descuento;
+                                itemVentaDetalleSPNEW.FechaCreacion = itemVentaDetalleSP.FechaCreacion;
+                                itemVentaDetalleSPNEW.Impuestos = itemVentaDetalleSP.Impuestos;
+                                itemVentaDetalleSPNEW.ParaLlevar = itemVentaDetalleSP.ParaLlevar;
+                                itemVentaDetalleSPNEW.ParaMesa = itemVentaDetalleSP.ParaMesa;
+                                itemVentaDetalleSPNEW.PorcDescuneto = itemVentaDetalleSP.PorcDescuneto;
+                                itemVentaDetalleSPNEW.PrecioUnitario = itemVentaDetalleSP.PrecioUnitario;
+                                itemVentaDetalleSPNEW.ProductoId = itemVentaDetalleSP.ProductoId;
+                                itemVentaDetalleSPNEW.PromocionCMId = itemVentaDetalleSP.PromocionCMId;
+                                itemVentaDetalleSPNEW.TasaIVA = itemVentaDetalleSP.TasaIVA;
+                                itemVentaDetalleSPNEW.TipoDescuentoId = itemVentaDetalleSP.TipoDescuentoId;
+                                itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
+                                itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
+                                itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
+
+
+                                this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
+                                this.contextNube.SaveChanges();
+                            }
+                        }
+                        dbContextTransaction.Rollback();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
+                                                                      ex);
+                        return false;
+                    }
+                }
+
+                // Eliminar los registros exportados de la base de datos local
+                //this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden");
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
+                                                              ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public void ImportarExportar()
+        {
+            this.lstResultado = new List<SincronizaResultadoModel>();
+
+            this.ImportarALocal();
+            this.ExportANube();
+        }
     }
 }

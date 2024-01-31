@@ -8,6 +8,7 @@ using ERP.Common.Pedido;
 using ERP.Common.Productos;
 using ERP.Common.PuntoVenta;
 using ERP.Common.Seguridad;
+using ERP.Common.Sincronizar;
 using ERP.Common.Traspasos;
 using ERP.Common.Utils;
 using ERP.Common.Ventas;
@@ -547,10 +548,22 @@ namespace PuntoVenta.Desktop
 
         private void uiSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ERP.Business.DataMemory.DataBucket.GetProductosMemory(true);
-            ERP.Business.DataMemory.DataBucket.GetClientesProductosPrecios(true);
-            ERP.Business.DataMemory.DataBucket.GetFamiliasMemory(true);
-            ERP.Business.DataMemory.DataBucket.GetProductosProduccionMemory(true, ERP.Business.Enumerados.tipoProductoProduccion.TODO);
+            //ERP.Business.DataMemory.DataBucket.GetProductosMemory(true);
+            //ERP.Business.DataMemory.DataBucket.GetClientesProductosPrecios(true);
+            //ERP.Business.DataMemory.DataBucket.GetFamiliasMemory(true);
+            //ERP.Business.DataMemory.DataBucket.GetProductosProduccionMemory(true, ERP.Business.Enumerados.tipoProductoProduccion.TODO);
+
+
+            frmSincronizarNube frmo = frmSincronizarNube.GetInstance();
+            if (!frmo.Visible)
+            {
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                
+                frmo.Show();
+            }
         }
 
         private void uiMnuBascula_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -857,6 +857,12 @@
       <DependentUpon>frmAdminPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\SeguridadCommon.cs" />
+    <Compile Include="Sincronizar\frmSincronizarNube.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sincronizar\frmSincronizarNube.Designer.cs">
+      <DependentUpon>frmSincronizarNube.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmCuentaConfigSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1265,6 +1271,9 @@
     <EmbeddedResource Include="Seguridad\frmAdminPass.resx">
       <DependentUpon>frmAdminPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sincronizar\frmSincronizarNube.resx">
+      <DependentUpon>frmSincronizarNube.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmCuentaConfigSistema.resx">
       <DependentUpon>frmCuentaConfigSistema.cs</DependentUpon>
     </EmbeddedResource>
@@ -1357,6 +1366,7 @@
     <None Include="Properties\DataSources\ERP.Models.Produccion.ProduccionSucProductoModel.datasource" />
     <None Include="Properties\DataSources\ERP.Models.ProduccionSolicitud.ProduccionSolicitudAceptacionGrd.datasource" />
     <None Include="Properties\DataSources\ERP.Models.ProduccionSolicitud.ProduccionSolicitudGridModel.datasource" />
+    <None Include="Properties\DataSources\ERP.Models.Sincronizacion.SincronizaResultadoModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
