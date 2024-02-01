@@ -44,7 +44,7 @@ namespace TacosAna.Desktop
             }
             #region importar información de la nube
             SincronizacionBusiness oSinc = new SincronizacionBusiness();
-            oSinc.ImportarALocal();           
+            oSinc.ImportarALocal();
             #endregion
 
             oContext = new ERPProdEntities();

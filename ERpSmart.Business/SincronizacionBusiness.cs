@@ -16,7 +16,7 @@ namespace ERP.Business
     public class SincronizacionBusiness:BusinessObject
     {
         
-        SisCuentaBusiness sisCuenta;
+        public SisCuentaBusiness sisCuenta;
         ERPProdEntities contextNube;
         ERPProdEntities contextLocal;
         EntityConnectionStringBuilder builder1;
@@ -2153,6 +2153,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportGastos",
                                                               ex);
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                         return false;
                     }
@@ -2227,6 +2228,9 @@ namespace ERP.Business
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportRetiros",
                                                                       ex);
+
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                         return false;
                     }
                 }
@@ -2300,6 +2304,9 @@ namespace ERP.Business
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportMaizMasecaRendimiento",
                                                                       ex);
+
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                         return false;
                     }
                 }
@@ -2379,6 +2386,9 @@ namespace ERP.Business
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportProductosSobrantesRegistro",
                                                                       ex);
+
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                         return false;
                     }
                 }
@@ -2410,7 +2420,10 @@ namespace ERP.Business
         {
             try
             {
+                List<doc_cargos> listaCargos = this.contextLocal.doc_cargos.ToList();
+                List<doc_cargos_detalle> listaCargosDetalle = this.contextLocal.doc_cargos_detalle.ToList();
                 List<doc_pedidos_orden> listaPedidosOrden = this.contextLocal.doc_pedidos_orden.ToList();
+                List<doc_pedidos_cargos> listaPedidosCargos = this.contextLocal.doc_pedidos_cargos.ToList();
                 List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.ToList();
                 List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.ToList();
                 List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.ToList();
@@ -2450,7 +2463,7 @@ namespace ERP.Business
                                     UberEats = pedidoOrden.UberEats,
                                     Para = pedidoOrden.Para,
                                     Notas = pedidoOrden.Notas,
-                                    CargoId = pedidoOrden.CargoId,
+                                    //CargoId = pedidoOrden.CargoId,
                                     CajaId = pedidoOrden.CajaId,
                                     TipoPedidoId = pedidoOrden.TipoPedidoId,
                                     Folio = pedidoOrden.Folio,
@@ -2461,6 +2474,49 @@ namespace ERP.Business
 
                                 this.contextNube.doc_pedidos_orden.Add(exists);
                                 this.contextNube.SaveChanges();
+
+                                //CREAR EL CARGO EN LA NUBE
+                                doc_cargos itemCargo = pedidoOrden.doc_cargos;
+
+                                if(itemCargo!= null)
+                                {
+                                    doc_cargos itemCargoNew = new doc_cargos();
+
+                                    itemCargoNew.Activo = itemCargo.Activo;
+                                    itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
+                                    itemCargoNew.ClienteId = itemCargo.ClienteId;
+                                    itemCargoNew.CreadoPor = itemCargo.CreadoPor;
+                                    itemCargoNew.CredoEl = itemCargo.CredoEl;
+                                    itemCargoNew.Descripcion = itemCargo.Descripcion;
+                                    itemCargoNew.Descuento = itemCargo.Descuento;
+                                    itemCargoNew.ProductoId = itemCargo.ProductoId;
+                                    itemCargoNew.Saldo = itemCargo.Saldo;
+                                    itemCargoNew.SucursalId = itemCargo.SucursalId;
+                                    itemCargoNew.Total = itemCargo.Total;
+
+                                    this.contextNube.doc_cargos.Add(itemCargoNew);
+
+                                    foreach (doc_cargos_detalle itemCargoDetalle in listaCargosDetalle.Where(w=> w.CargoId == itemCargo.CargoId))
+                                    {
+                                        doc_cargos_detalle itemCargoDetalleNEW = new doc_cargos_detalle();
+
+                                        itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
+                                        itemCargoDetalleNEW.CargoId = itemCargoNew.ClienteId;
+                                        itemCargoDetalleNEW.CreadoEl = itemCargoDetalle.CreadoEl;
+                                        itemCargoDetalleNEW.Descuento = itemCargoDetalle.Descuento;
+                                        itemCargoDetalleNEW.FechaCargo = itemCargoDetalle.FechaCargo;
+                                        itemCargoDetalleNEW.FechaPago = itemCargoDetalle.FechaPago;
+                                        itemCargoDetalleNEW.Impuestos = itemCargoDetalle.Impuestos;
+                                        itemCargoDetalleNEW.Saldo = itemCargoDetalle.Saldo;
+                                        itemCargoDetalleNEW.Subtotal = itemCargoDetalle.Subtotal;
+                                        itemCargoDetalleNEW.Total = itemCargoDetalle.Total;
+
+                                        this.contextNube.doc_cargos_detalle.Add(itemCargoDetalleNEW);
+                                    }
+                                }
+                                
+
+                               
 
                                 //INSERTAR doc_pedidos_orden_detalle
                                 foreach (doc_pedidos_orden_detalle itemPedidoOrdenDetalle in listaPedidosOrdenDetalle.Where(w=> w.PedidoId == pedidoOrden.PedidoId))
@@ -2633,7 +2689,16 @@ namespace ERP.Business
                                 this.contextNube.SaveChanges();
                             }
                         }
-                        dbContextTransaction.Rollback();
+
+
+                        // Eliminar los registros exportados de la base de datos local
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_cargos");
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden_detalle");
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden");
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_ventas_detalle");
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_ventas");
+
+                        dbContextTransaction.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -2642,13 +2707,13 @@ namespace ERP.Business
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
                                                                       ex);
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
                         return false;
                     }
                 }
 
-                // Eliminar los registros exportados de la base de datos local
-                //this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden");
-
+                
 
                 lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = true, Detalle = "" });
 

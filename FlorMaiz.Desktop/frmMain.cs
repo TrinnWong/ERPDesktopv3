@@ -88,6 +88,16 @@ namespace PuntoVenta.Desktop
 
                 }
             }
+
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+               this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+            {
+                uiSincronizar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            }
+            else
+            {
+                uiSincronizar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
         }
 
         private void uiMenuNuevaVenta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

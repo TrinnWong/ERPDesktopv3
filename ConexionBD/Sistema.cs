@@ -273,5 +273,62 @@ namespace ConexionBD
             }
             return error;
         }
+
+
+        public static int ObtenSucursalConfigLocal()
+        {
+            string path = Directory.GetCurrentDirectory();
+            bool exists = File.Exists(path + @"\\config.txt");
+
+            if (exists)
+            {
+                string lecturaSucursal = File.ReadAllText(path + @"\\config.txt");
+
+
+                if (lecturaSucursal.Length > 0)
+                {
+                    var empresaRegistrada = lecturaSucursal.Split(',');
+
+                    return Convert.ToInt32(empresaRegistrada[1]);
+                }
+                else
+                {
+                    return 0;
+                }
+
+
+            }
+
+
+            return 0;
+        }
+
+        public static int ObtenEmpresaConfigLocal()
+        {
+            string path = Directory.GetCurrentDirectory();
+            bool exists = File.Exists(path + @"\\config.txt");
+
+            if (exists)
+            {
+                string lecturaSucursal = File.ReadAllText(path + @"\\config.txt");
+
+
+                if (lecturaSucursal.Length > 0)
+                {
+                    var empresaRegistrada = lecturaSucursal.Split(',');
+
+                    return Convert.ToInt32(empresaRegistrada[0]);
+                }
+                else
+                {
+                    return 0;
+                }
+                
+                
+            }
+
+
+            return 0;
+        }
     }
 }

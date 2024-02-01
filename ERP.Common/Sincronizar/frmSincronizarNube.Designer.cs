@@ -79,7 +79,7 @@ namespace ERP.Common.Sincronizar
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1048, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Utiliza esta función para subir a información de tus movimientos a la nube";
+            this.label1.Text = "Utiliza esta función para subir la información de tus movimientos a la nube";
             // 
             // uiSincronizar
             // 
