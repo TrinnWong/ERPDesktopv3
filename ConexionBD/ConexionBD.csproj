@@ -3764,6 +3764,7 @@
   <ItemGroup>
     <Folder Include="localdb\" />
     <Folder Include="Models\Pedidos\" />
+    <Folder Include="Versiones\2024.01.02\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">

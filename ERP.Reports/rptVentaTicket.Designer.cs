@@ -416,7 +416,7 @@
             this.label11,
             this.subReport1,
             this.line2});
-            this.groupFooter1.Height = 1.97075F;
+            this.groupFooter1.Height = 1.960333F;
             this.groupFooter1.Name = "groupFooter1";
             this.groupFooter1.Format += new System.EventHandler(this.groupFooter1_Format);
             this.groupFooter1.BeforePrint += new System.EventHandler(this.groupFooter1_BeforePrint);
@@ -659,24 +659,25 @@
             // 
             this.MasterReport = false;
             this.PageSettings.DefaultPaperSize = false;
-            this.PageSettings.Margins.Bottom = 0.02F;
+            this.PageSettings.Margins.Bottom = 0F;
             this.PageSettings.Margins.Left = 0F;
             this.PageSettings.Margins.Right = 0F;
             this.PageSettings.Margins.Top = 0.02F;
-            this.PageSettings.PaperHeight = 11F;
+            this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
+            this.PageSettings.PaperHeight = 8.26F;
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
-            this.PageSettings.PaperName = "Custom paper";
-            this.PageSettings.PaperWidth = 3F;
+            this.PageSettings.PaperName = "80(72.1) x 210 mm";
+            this.PageSettings.PaperWidth = 2.83F;
             this.PrintWidth = 2.881944F;
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);
             this.Sections.Add(this.groupFooter1);
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Arial; font-style: normal; text-decoration: none; font-weight: norma" +
             "l; font-size: 10pt; color: Black; ddo-char-set: 186", "Normal"));
-            this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 16pt; font-weight: bold", "Heading1", "Normal"));
+            this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 16pt; font-weight: bold; ddo-char-set: 186", "Heading1", "Normal"));
             this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-family: Times New Roman; font-size: 14pt; font-weight: bold; font-style: ita" +
-            "lic", "Heading2", "Normal"));
-            this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 13pt; font-weight: bold", "Heading3", "Normal"));
+            "lic; ddo-char-set: 186", "Heading2", "Normal"));
+            this.StyleSheet.Add(new DDCssLib.StyleSheetRule("font-size: 13pt; font-weight: bold; ddo-char-set: 186", "Heading3", "Normal"));
             this.ReportStart += new System.EventHandler(this.rptVentaTicket_ReportStart);
             ((System.ComponentModel.ISupportInitialize)(this.textBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox11)).EndInit();
