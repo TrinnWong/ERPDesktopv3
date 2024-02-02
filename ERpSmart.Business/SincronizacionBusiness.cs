@@ -2598,11 +2598,7 @@ namespace ERP.Business
 
                                     }
                                 }
-                               
-
-
-
-
+                              
                                 //INSERTAR doc_pedidos_orden_detalle
                                 foreach (doc_pedidos_orden_detalle itemPedidoOrdenDetalle in listaPedidosOrdenDetalle.Where(w=> w.PedidoId == pedidoOrden.PedidoId))
                                 {
@@ -2727,7 +2723,9 @@ namespace ERP.Business
 
                         }
 
-                        foreach (doc_ventas itemVentaSP in listaVentas.Where(w=> w.doc_pedidos_orden.Where(s1=>s1.PedidoId > 0).Count() >0))
+
+                        //VENTAS SIN PEDIDO
+                        foreach (doc_ventas itemVentaSP in listaVentas.Where(w=> w.doc_pedidos_orden.Where(s1=>s1.PedidoId > 0).Count() ==0))
                         {
                             doc_ventas itemVentaNEWSP = new doc_ventas();
 
@@ -2788,6 +2786,23 @@ namespace ERP.Business
 
                                 this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
                                 this.contextNube.SaveChanges();
+                            }
+
+
+                            foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
+                            {
+                                doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
+
+                                itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
+                                itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
+                                itemVentaFormaPagoNEW.FechaCreacion = itemVentaFormaPago.FechaCreacion;
+                                itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
+                                itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
+                                itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
+
+                                this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
+                                this.contextNube.SaveChanges();
+
                             }
                         }
 
