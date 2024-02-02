@@ -21,7 +21,7 @@ namespace ERP.Reports
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
         }
 
         private void detail_Format(object sender, EventArgs e)

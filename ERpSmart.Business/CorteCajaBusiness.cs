@@ -25,7 +25,7 @@ namespace ERP.Business
             try
             {
 
-                ERPProdEntities oContext = new ERPProdEntities();
+                ERPProdEntities oContext = new ERPProdEntities(true);
                 ImpresorasBusiness oImpresora = new ImpresorasBusiness();
                 cat_impresoras entityImpresora;
                 entityImpresora = oImpresora.ObtenerCajaImpresora(cajaId);

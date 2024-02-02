@@ -2,7 +2,9 @@
 using ConexionBD.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Core.EntityClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,24 @@ namespace ERP.Business
                 {
                     if(datos.Count() > 0)
                     {
-                        oContext = new ERPProdEntities();
+                        //Si tieene configurado LOCAL, conectarse a la información de la nube para hacer el corte
+                        if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(1,
+                            sucursalId, "PV-Local", usuarioId))
+                        {
+                            //Validar que no haya ventas sin haberse enviado
+                            oContext = new ERPProdEntities();
+
+                            EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                            oContext = new ERPProdEntities(builder1.ProviderConnectionString);
+
+
+                        }
+                        else
+                        {
+                            oContext = new ERPProdEntities();
+                        }
+
+                       
                         using (DbContextTransaction transaction = oContext.Database.BeginTransaction())
                         {
                             try

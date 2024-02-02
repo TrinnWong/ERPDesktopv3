@@ -10,8 +10,10 @@ using PuntoVenta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.IO;
@@ -58,7 +60,7 @@ namespace ERP.Common.PuntoVenta
         private void llenarGrid()
         {
             uiGrid.AutoGenerateColumns = false;
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             uiGrid.DataSource = oContext.p_doc_corte_caja_grd(puntoVentaContext.sucursalId, puntoVentaContext.usuarioId,
                 uiDel.Value, uiAl.Value).ToList();
             
@@ -77,7 +79,32 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-                oContext = new ERPProdEntities();
+                //Si tieene configurado LOCAL, conectarse a la información de la nube para hacer el corte
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                {
+                    //Validar que no haya ventas sin haberse enviado
+                    oContext = new ERPProdEntities(true);
+
+                    if(oContext.doc_ventas.Where(w=> w.SucursalId == this.puntoVentaContext.sucursalId).Count() > 0)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowError("Hay ventas que aun no se sincronizan. Ve a CONFIGURACIONES / SINCRONIZACIÓN para sincronizar la información pendiente");
+                        return false;
+                    }
+                    else
+                    {
+                        EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                        oContext = new ERPProdEntities(builder1.ProviderConnectionString);
+                    }
+
+                   
+                }
+                else
+                {
+                    oContext = new ERPProdEntities(true);
+                }
+
+                
                 DateTime fechaAct = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 /********Validar si hay pedidos pendientes************************/
                 if (oContext.doc_pedidos_orden
@@ -137,8 +164,8 @@ namespace ERP.Common.PuntoVenta
 
                 if (MessageBox.Show("¿Está seguro(a) de generar el CORTE DE CAJA?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    
-                    oContext = new ERPProdEntities();
+
+                    oContext = new ERPProdEntities(true);
                     cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
                     bool requiereDeclaracion = (this.puntoVentaContext.esSupervisor ? (entity.SupDeclaracionFondoCorte ?? false) : (entity.CajDeclaracionFondoCorte ?? false)) 
@@ -275,7 +302,7 @@ namespace ERP.Common.PuntoVenta
 
                     int sucursalId = puntoVentaContext.sucursalId;
 
-                    oContext = new ERPProdEntities();
+                    oContext = new ERPProdEntities(true);
                     cat_sucursales entity = oContext.cat_sucursales.Where(w => w.Clave == sucursalId).FirstOrDefault();
 
                     if ((entity.ServidorMailSMTP == null ? "" : entity.ServidorMailSMTP)  =="")

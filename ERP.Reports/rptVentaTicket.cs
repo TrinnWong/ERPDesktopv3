@@ -27,7 +27,7 @@ namespace ERP.Reports
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             cat_configuracion entityConf = oContext.cat_configuracion.FirstOrDefault();
             desglozarMonto = entityConf.DesgloceMontoTicket ?? false;
             giro = entityConf.Giro;
@@ -40,7 +40,7 @@ namespace ERP.Reports
 
         private void groupFooter1_Format(object sender, EventArgs e)
         {
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
 
             try
             {

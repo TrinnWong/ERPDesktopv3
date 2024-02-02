@@ -22,7 +22,7 @@ namespace ERP.Reports
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             this.Document.PrintOptions.Margin = new GrapeCity.ActiveReports.Extensibility.Printing.Margin(0, 0, 0, 0);
             this.Document.PrintOptions.PrintPageBorder = false;
             

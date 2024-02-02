@@ -9,7 +9,9 @@ using PuntoVenta.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Core.Objects;
 using System.Diagnostics;
 using System.Drawing;
@@ -337,7 +339,24 @@ namespace PuntoVenta
         {
             try
             {
-                oContext = new ERPProdEntities();
+                //Si tieene configurado LOCAL, conectarse a la información de la nube para hacer el corte
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                {
+                    //Validar que no haya ventas sin haberse enviado
+                    oContext = new ERPProdEntities();
+
+                    EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                    oContext = new ERPProdEntities(builder1.ProviderConnectionString);
+
+
+                }
+                else
+                {
+                    oContext = new ERPProdEntities();
+                }
+
+                
 
                 DateTime fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 ObjectParameter pCorteCajaId = new ObjectParameter("pCorteCajaId", 0);

@@ -15,7 +15,9 @@ using ERP.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Core.Objects;
 using System.Diagnostics;
 using System.Drawing;
@@ -408,28 +410,45 @@ namespace PuntoVenta
             {
                 string error = "";
                 errorCorte = "";
-                oContext = new ERPProdEntities();
+               
+
+                //Si tieene configurado LOCAL, conectarse a la información de la nube para hacer el corte
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                {
+                    //Validar que no haya ventas sin haberse enviado
+                    oContext = new ERPProdEntities();
+
+                    EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                    oContext = new ERPProdEntities(builder1.ProviderConnectionString);
+
+
+                }
+                else
+                {
+                    oContext = new ERPProdEntities();
+                }
                 DateTime fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 ObjectParameter pCorteCajaId = new ObjectParameter("pCorteCajaId", 0);
                 ObjectParameter pCorteCajaId_REC = new ObjectParameter("pCorteCajaId", 0);
                 cat_configuracion config = oContext.cat_configuracion.FirstOrDefault();
 
                 #region recortado
-                if (config.TieneRec??false)
-                {
-                    ERP.Business.RecortadoBusiness oRecortado = new ERP.Business.RecortadoBusiness();
+                //if (config.TieneRec??false)
+                //{
+                //    ERP.Business.RecortadoBusiness oRecortado = new ERP.Business.RecortadoBusiness();
 
-                    error = oRecortado.Iniciar(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
+                //    error = oRecortado.Iniciar(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
 
-                    if(error.Length > 0)
-                    {
-                        errorCorte = error;
-                        ERP.Utils.MessageBoxUtil.ShowError(error);
-                        return;
-                    }
+                //    if(error.Length > 0)
+                //    {
+                //        errorCorte = error;
+                //        ERP.Utils.MessageBoxUtil.ShowError(error);
+                //        return;
+                //    }
 
 
-                }
+                //}
                 #endregion
                 error = RawPrinterHelper.AbreCajon(this.puntoVentaContext.nombreImpresoraCaja);
                 if (error.Length > 0)
@@ -437,9 +456,24 @@ namespace PuntoVenta
                     XtraMessageBox.Show(error, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                oContext = new ERPProdEntities();
-                
-                
+                //Si tieene configurado LOCAL, conectarse a la información de la nube para hacer el corte
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                    this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                {
+                    //Validar que no haya ventas sin haberse enviado
+                    oContext = new ERPProdEntities();
+
+                    EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                    oContext = new ERPProdEntities(builder1.ProviderConnectionString);
+
+
+                }
+                else
+                {
+                    oContext = new ERPProdEntities();
+                }
+
+
 
                 using (TransactionScope scope = new TransactionScope())
                 {

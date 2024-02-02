@@ -1,8 +1,10 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using DevExpress.XtraEditors;
+using ERP.Business;
 using ERP.Common.Basculas;
 using ERP.Common.Catalogos;
+using ERP.Common.Forms;
 using ERP.Common.Inventarios;
 using ERP.Common.Pedido;
 using ERP.Common.Productos;
@@ -19,7 +21,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using static ConexionBD.Enumerados;
+
 
 namespace PuntoVenta.Desktop
 {
@@ -246,7 +248,7 @@ namespace PuntoVenta.Desktop
 
             frmGastos frmo = new frmGastos();
             frmo.puntoVentaContext = this.puntoVentaContext;
-            frmo.accionForm = (int)accionForm.agregar;
+            frmo.accionForm = (int)ConexionBD.Enumerados.accionForm.agregar;
             frmo.StartPosition = FormStartPosition.CenterScreen;
             frmo.ShowDialog();
         }
@@ -330,9 +332,23 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            LoadingForm oFormLoading = new LoadingForm("Procesando");
+            SincronizacionBusiness oSincronizar = new SincronizacionBusiness();
+
             string msg = "";
             oContext = new ERPProdEntities();
-            //Si es Tortillería, validar que los datos necesarios
+
+            //Realizar Sincronización de TODO
+            oFormLoading.Show();
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+              this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+            {
+                oSincronizar.ImportarExportar();
+            }
+            
+            oFormLoading.Hide();
+
+            //Si es Tortillería, validar que los datos necesarios.
             if (oContext.cat_configuracion.FirstOrDefault().Giro == "TORTI" &&
                 !ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
                    this.puntoVentaContext.sucursalId, "QuitarVal-MasecaMaizCorte", this.puntoVentaContext.usuarioId))
@@ -475,7 +491,7 @@ namespace PuntoVenta.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Normal;
-                frmo.tipoMovimiento = Enumerados.tipoMovsInventario.desperdicioInventario;
+                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.desperdicioInventario;
                 frmo.ClaveProductoDefault = "2";
                 frmo.ShowDialog();
             }
@@ -489,7 +505,7 @@ namespace PuntoVenta.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Normal;
-                frmo.tipoMovimiento = Enumerados.tipoMovsInventario.desperdicioInventario;
+                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.desperdicioInventario;
                 frmo.ClaveProductoDefault = "1";
                 frmo.ShowDialog();
             }
@@ -537,7 +553,7 @@ namespace PuntoVenta.Desktop
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = Enumerados.tipoMovsInventario.entradaDirecta;
+                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaDirecta;
                 frmo.Show();
             }
         }
@@ -550,30 +566,37 @@ namespace PuntoVenta.Desktop
                 frmo.MdiParent = this;
                 frmo.puntoVentaContext = this.puntoVentaContext;
                 frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
                 frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = Enumerados.tipoMovsInventario.ajustePorSalida;
+                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.ajustePorSalida;
                 frmo.Show();
             }
         }
 
         private void uiSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ERP.Business.DataMemory.DataBucket.GetProductosMemory(true);
-            //ERP.Business.DataMemory.DataBucket.GetClientesProductosPrecios(true);
-            //ERP.Business.DataMemory.DataBucket.GetFamiliasMemory(true);
-            //ERP.Business.DataMemory.DataBucket.GetProductosProduccionMemory(true, ERP.Business.Enumerados.tipoProductoProduccion.TODO);
+            frmAdminPass oForm = new frmAdminPass();
+            oForm.WindowState = FormWindowState.Normal;
+            oForm.StartPosition = FormStartPosition.CenterScreen;
 
+            oForm.ShowDialog();
 
-            frmSincronizarNube frmo = frmSincronizarNube.GetInstance();
-            if (!frmo.Visible)
+            if (oForm.DialogResult == DialogResult.OK)
             {
-                frmo.MdiParent = this;
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.StartPosition = FormStartPosition.CenterScreen;
-                frmo.WindowState = FormWindowState.Maximized;
-                
-                frmo.Show();
+                frmSincronizarNube frmo = frmSincronizarNube.GetInstance();
+                if (!frmo.Visible)
+                {
+                    frmo.MdiParent = this;
+                    frmo.puntoVentaContext = this.puntoVentaContext;
+                    frmo.StartPosition = FormStartPosition.CenterScreen;
+                    frmo.WindowState = FormWindowState.Maximized;
+
+                    frmo.Show();
+                }
             }
+
+
+           
         }
 
         private void uiMnuBascula_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

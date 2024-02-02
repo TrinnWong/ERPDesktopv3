@@ -31,7 +31,7 @@ namespace ERP.Reports
 
         private void reportHeader1_Format(object sender, EventArgs e)
         {
-            ERPProdEntities oContext = new ERPProdEntities();
+            ERPProdEntities oContext = new ERPProdEntities(true);
 
             cat_empresas entity = oContext.cat_empresas.FirstOrDefault();
 

@@ -23,7 +23,7 @@ namespace ERP.Reports
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             this.Document.PrintOptions.Margin = new GrapeCity.ActiveReports.Extensibility.Printing.Margin(0, 0, 0, 0);
             this.Document.PrintOptions.PrintPageBorder = false;
 
@@ -44,7 +44,7 @@ namespace ERP.Reports
             // Required for Windows Form Designer support
             //
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             this.Document.PrintOptions.Margin = new GrapeCity.ActiveReports.Extensibility.Printing.Margin(0, 0, 0, 0);
             this.Document.PrintOptions.PrintPageBorder = false;
 
@@ -89,7 +89,7 @@ namespace ERP.Reports
 
         private void groupFooter1_Format(object sender, EventArgs e)
         {
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
             int folio;
@@ -241,12 +241,12 @@ namespace ERP.Reports
 
         private void groupHeader1_Format(object sender, EventArgs e)
         {
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
 
             int folio;
 
             int.TryParse(uiCorteId.Text, out folio);
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             doc_corte_caja corte = oContext.doc_corte_caja
                 .Where(w => w.CorteCajaId == folio).FirstOrDefault();
             subRptVentaFormasPago oReportGas = new subRptVentaFormasPago();
