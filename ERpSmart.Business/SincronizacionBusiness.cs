@@ -130,6 +130,9 @@ namespace ERP.Business
                 ImportClientesProductosPrecios(lstClientesProductosPrecos);
                 ImportPreciosEspeciales(ref contextLocal, lstPreciosEspeciales, lstPreciosEspecialesDetalle);
                 ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
+                ImportCatBasculas();
+                ImportCatEquiposComputo();
+                ImportCatBasculasConfiguracion();
                 return "";
             }
             catch (Exception ex)
@@ -1466,6 +1469,7 @@ namespace ERP.Business
         {
             try
             {
+                List<sis_preferencias> lstPreferencias = this.contextLocal.sis_preferencias.ToList();
                 foreach (sis_preferencias_empresa itemPreferenciaEmpresa in lstPreferenciasEmpresa)
                 {
                     sis_preferencias_empresa preferenciaEmpresaSinc = context.sis_preferencias_empresa
@@ -1474,7 +1478,7 @@ namespace ERP.Business
 
                     if (preferenciaEmpresaSinc != null)
                     {
-                        preferenciaEmpresaSinc.PreferenciaId = itemPreferenciaEmpresa.PreferenciaId;
+                        preferenciaEmpresaSinc.PreferenciaId = lstPreferencias.Where(w => w.Preferencia == itemPreferenciaEmpresa.sis_preferencias.Preferencia).FirstOrDefault().Id;
                         preferenciaEmpresaSinc.EmpresaId = itemPreferenciaEmpresa.EmpresaId;
                         preferenciaEmpresaSinc.Valor = itemPreferenciaEmpresa.Valor;
                         preferenciaEmpresaSinc.CreadoEl = itemPreferenciaEmpresa.CreadoEl;
@@ -1485,7 +1489,7 @@ namespace ERP.Business
                     else
                     {
                         preferenciaEmpresaSinc = new sis_preferencias_empresa();
-                        preferenciaEmpresaSinc.PreferenciaId = itemPreferenciaEmpresa.PreferenciaId;
+                        preferenciaEmpresaSinc.PreferenciaId = lstPreferencias.Where(w => w.Preferencia == itemPreferenciaEmpresa.sis_preferencias.Preferencia).FirstOrDefault().Id;
                         preferenciaEmpresaSinc.EmpresaId = itemPreferenciaEmpresa.EmpresaId;
                         preferenciaEmpresaSinc.Valor = itemPreferenciaEmpresa.Valor;
                         preferenciaEmpresaSinc.CreadoEl = itemPreferenciaEmpresa.CreadoEl;
@@ -1517,7 +1521,9 @@ namespace ERP.Business
         public bool ImportPreferenciasSucursales(ref ERPProdEntities context, List<sis_preferencias_sucursales> lstPreferenciasSucursales)
         {
             try
-            {
+            { 
+
+                List<sis_preferencias> lstPreferencias = this.contextLocal.sis_preferencias.ToList();
                 foreach (sis_preferencias_sucursales itemPreferenciaSucursal in lstPreferenciasSucursales)
                 {
                     sis_preferencias_sucursales preferenciaSucursalSinc = context.sis_preferencias_sucursales
@@ -1527,7 +1533,7 @@ namespace ERP.Business
                     if (preferenciaSucursalSinc != null)
                     {
                         preferenciaSucursalSinc.SucursalId = itemPreferenciaSucursal.SucursalId;
-                        preferenciaSucursalSinc.PreferenciaId = itemPreferenciaSucursal.PreferenciaId;
+                    preferenciaSucursalSinc.PreferenciaId = lstPreferencias.Where(w => w.Preferencia == itemPreferenciaSucursal.sis_preferencias.Preferencia).FirstOrDefault().Id;
                         preferenciaSucursalSinc.Valor = itemPreferenciaSucursal.Valor;
                         preferenciaSucursalSinc.CreadoEl = itemPreferenciaSucursal.CreadoEl;
 
@@ -1538,8 +1544,8 @@ namespace ERP.Business
                     {
                         preferenciaSucursalSinc = new sis_preferencias_sucursales();
                         preferenciaSucursalSinc.SucursalId = itemPreferenciaSucursal.SucursalId;
-                        preferenciaSucursalSinc.PreferenciaId = itemPreferenciaSucursal.PreferenciaId;
-                        preferenciaSucursalSinc.Valor = itemPreferenciaSucursal.Valor;
+                        preferenciaSucursalSinc.PreferenciaId = lstPreferencias.Where(w => w.Preferencia == itemPreferenciaSucursal.sis_preferencias.Preferencia).FirstOrDefault().Id;
+                    preferenciaSucursalSinc.Valor = itemPreferenciaSucursal.Valor;
                         preferenciaSucursalSinc.CreadoEl = itemPreferenciaSucursal.CreadoEl;
                         preferenciaSucursalSinc.Id = itemPreferenciaSucursal.Id;
                         // Puedes asignar otras propiedades según sea necesario
@@ -2131,6 +2137,198 @@ namespace ERP.Business
                                                               ex);
 
                 lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Denominaciones", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ImportCatBasculas()
+        {
+            try
+            {
+                List<cat_basculas> lstBasculas = this.contextNube.cat_basculas.ToList();
+
+                foreach (cat_basculas itemBascula in lstBasculas)
+                {
+                    cat_basculas basculaSinc = this.contextLocal.cat_basculas
+                        .Where(w => w.BasculaId == itemBascula.BasculaId)
+                        .FirstOrDefault();
+
+                    if (basculaSinc != null)
+                    {
+                        // Actualizar propiedades existentes
+                        basculaSinc.EmpresaId = itemBascula.EmpresaId;
+                        basculaSinc.Alias = itemBascula.Alias;
+                        basculaSinc.Marca = itemBascula.Marca;
+                        basculaSinc.Modelo = itemBascula.Modelo;
+                        basculaSinc.Serie = itemBascula.Serie;
+                        basculaSinc.SucursalAsignadaId = itemBascula.SucursalAsignadaId;
+                        basculaSinc.Activo = itemBascula.Activo;
+                        basculaSinc.ModificadoEl = DateTime.Now;
+                        basculaSinc.ModificadoPor = itemBascula.ModificadoPor;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextLocal.SaveChanges();
+                    }
+                    else
+                    {
+                        // Crear nueva bascula
+                        basculaSinc = new cat_basculas();
+                        basculaSinc.BasculaId = itemBascula.BasculaId;
+                        basculaSinc.EmpresaId = itemBascula.EmpresaId;
+                        basculaSinc.Alias = itemBascula.Alias;
+                        basculaSinc.Marca = itemBascula.Marca;
+                        basculaSinc.Modelo = itemBascula.Modelo;
+                        basculaSinc.Serie = itemBascula.Serie;
+                        basculaSinc.SucursalAsignadaId = itemBascula.SucursalAsignadaId;
+                        basculaSinc.Activo = itemBascula.Activo;
+                        basculaSinc.CreadoEl = DateTime.Now;
+                        basculaSinc.CreadoPor = itemBascula.CreadoPor;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextLocal.cat_basculas.Add(basculaSinc);
+                        contextLocal.SaveChanges();
+                    }
+                }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Basculas", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportBasculas",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ImportCatBasculasConfiguracion()
+        {
+            try
+            {
+                List<cat_basculas_configuracion> lstConfiguraciones = this.contextNube.cat_basculas_configuracion.ToList();
+
+                foreach (cat_basculas_configuracion itemConfiguracion in lstConfiguraciones)
+                {
+                    cat_basculas_configuracion configuracionSinc = this.contextLocal.cat_basculas_configuracion
+                        .Where(w => w.EquipoComputoId == itemConfiguracion.EquipoComputoId)
+                        .FirstOrDefault();
+
+                    if (configuracionSinc != null)
+                    {
+                        // Actualizar propiedades existentes
+                        configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
+                        configuracionSinc.PortName = itemConfiguracion.PortName;
+                        configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
+                        configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
+                        configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
+                        configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
+                        //configuracionSinc.ModificadoEl = DateTime.Now;
+                        //configuracionSinc.ModificadoPor = itemConfiguracion.ModificadoPor;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextLocal.SaveChanges();
+                    }
+                    else
+                    {
+                        // Crear nueva configuración
+                        configuracionSinc = new cat_basculas_configuracion();
+                        configuracionSinc.EquipoComputoId = itemConfiguracion.EquipoComputoId;
+                        configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
+                        configuracionSinc.PortName = itemConfiguracion.PortName;
+                        configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
+                        configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
+                        configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
+                        configuracionSinc.CreadoEl = DateTime.Now;
+                        configuracionSinc.CreadoPor = itemConfiguracion.CreadoPor;
+                        configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
+                        configuracionSinc.SucursalId = itemConfiguracion.SucursalId;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextLocal.cat_basculas_configuracion.Add(configuracionSinc);
+                        contextLocal.SaveChanges();
+                    }
+                }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuración de Basculas", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportBasculasConfiguracion",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuración de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
+        public bool ImportCatEquiposComputo()
+        {
+            try
+            {
+                List<cat_equipos_computo> lstEquiposComputo = this.contextNube.cat_equipos_computo.ToList();
+
+                foreach (cat_equipos_computo itemEquipoComputo in lstEquiposComputo)
+                {
+                    cat_equipos_computo equipoComputoSinc = this.contextLocal.cat_equipos_computo
+                        .Where(w => w.EquipoComputoId == itemEquipoComputo.EquipoComputoId)
+                        .FirstOrDefault();
+
+                    if (equipoComputoSinc != null)
+                    {
+                        // Actualizar propiedades existentes
+                        equipoComputoSinc.HardwareID = itemEquipoComputo.HardwareID;
+                        equipoComputoSinc.IPPublica = itemEquipoComputo.IPPublica;
+                        equipoComputoSinc.PCName = itemEquipoComputo.PCName;
+                        equipoComputoSinc.ModificadoEl = DateTime.Now;
+                        equipoComputoSinc.SucursalId = itemEquipoComputo.SucursalId;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextLocal.SaveChanges();
+                    }
+                    else
+                    {
+                        // Crear nuevo equipo de cómputo
+                        equipoComputoSinc = new cat_equipos_computo();
+                        equipoComputoSinc.EquipoComputoId = itemEquipoComputo.EquipoComputoId;
+                        equipoComputoSinc.HardwareID = itemEquipoComputo.HardwareID;
+                        equipoComputoSinc.IPPublica = itemEquipoComputo.IPPublica;
+                        equipoComputoSinc.PCName = itemEquipoComputo.PCName;
+                        equipoComputoSinc.CreadoEl = DateTime.Now;
+                        equipoComputoSinc.SucursalId = itemEquipoComputo.SucursalId;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextLocal.cat_equipos_computo.Add(equipoComputoSinc);
+                        contextLocal.SaveChanges();
+                    }
+                }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Equipos de Cómputo", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportEquiposComputo",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Equipos de Cómputo", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                 return false;
             }
