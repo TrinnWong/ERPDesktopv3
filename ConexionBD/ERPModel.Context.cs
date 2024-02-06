@@ -30,10 +30,13 @@ namespace ConexionBD
         {
             if (cloud)
             {              
+                if(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
+                {
+                    EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
 
-                EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);               
-
-                this.Database.Connection.ConnectionString = builder1.ProviderConnectionString;
+                    this.Database.Connection.ConnectionString = builder1.ProviderConnectionString;
+                }
+                
 
             }
             
