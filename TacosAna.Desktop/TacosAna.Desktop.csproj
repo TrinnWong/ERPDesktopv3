@@ -193,6 +193,12 @@
     <Compile Include="frmCuentasListado.Designer.cs">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmItemsAdicionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItemsAdicionales.Designer.cs">
+      <DependentUpon>frmItemsAdicionales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuRestTA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </Compile>
     <EmbeddedResource Include="frmCuentasListado.resx">
       <DependentUpon>frmCuentasListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemsAdicionales.resx">
+      <DependentUpon>frmItemsAdicionales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuRestTA.resx">
       <DependentUpon>frmMenuRestTA.cs</DependentUpon>

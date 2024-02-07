@@ -70,6 +70,7 @@
     <Compile Include="Inventario\AjusteInventarioGridModel.cs" />
     <Compile Include="Login\LoginModel.cs" />
     <Compile Include="Mesas\MesaComboBoxModel.cs" />
+    <Compile Include="Otros\ItemGenericModel.cs" />
     <Compile Include="Pago\PagoOnlineParamModel.cs" />
     <Compile Include="PartialView\PartialParameterViewModel.cs" />
     <Compile Include="Pedidos\PedidoConfiguracionViewModel.cs" />

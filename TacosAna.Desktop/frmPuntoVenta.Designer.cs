@@ -156,13 +156,13 @@
             this.uiFactura = new DevExpress.XtraEditors.CheckEdit();
             this.uiKeyCatch = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiMesa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiLlevar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiCortesia.Properties)).BeginInit();
@@ -196,21 +196,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiKeyCatch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProd1
             // 
             this.btnProd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd1.ForeColor = System.Drawing.Color.Black;
             this.btnProd1.Location = new System.Drawing.Point(185, 11);
             this.btnProd1.Name = "btnProd1";
@@ -223,7 +223,7 @@
             // 
             this.btnProd2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd2.ForeColor = System.Drawing.Color.Black;
             this.btnProd2.Location = new System.Drawing.Point(185, 48);
             this.btnProd2.Name = "btnProd2";
@@ -236,7 +236,7 @@
             // 
             this.btnProd3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd3.ForeColor = System.Drawing.Color.Black;
             this.btnProd3.Location = new System.Drawing.Point(185, 86);
             this.btnProd3.Name = "btnProd3";
@@ -249,7 +249,7 @@
             // 
             this.btnProd4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd4.ForeColor = System.Drawing.Color.Black;
             this.btnProd4.Location = new System.Drawing.Point(185, 124);
             this.btnProd4.Name = "btnProd4";
@@ -262,7 +262,7 @@
             // 
             this.btnProd5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd5.ForeColor = System.Drawing.Color.Black;
             this.btnProd5.Location = new System.Drawing.Point(185, 161);
             this.btnProd5.Name = "btnProd5";
@@ -275,7 +275,7 @@
             // 
             this.btnProd6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd6.ForeColor = System.Drawing.Color.Black;
             this.btnProd6.Location = new System.Drawing.Point(185, 199);
             this.btnProd6.Name = "btnProd6";
@@ -288,7 +288,7 @@
             // 
             this.uiEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.uiEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uiEnter.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.uiEnter.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiEnter.ForeColor = System.Drawing.Color.Black;
             this.uiEnter.Location = new System.Drawing.Point(273, 200);
             this.uiEnter.Name = "uiEnter";
@@ -302,7 +302,7 @@
             // 
             this.btnG2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG2_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG2_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG2_4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG2_4.ForeColor = System.Drawing.Color.Black;
             this.btnG2_4.Location = new System.Drawing.Point(358, 124);
             this.btnG2_4.Name = "btnG2_4";
@@ -316,7 +316,7 @@
             // 
             this.btnG2_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG2_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG2_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG2_3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG2_3.ForeColor = System.Drawing.Color.Black;
             this.btnG2_3.Location = new System.Drawing.Point(358, 87);
             this.btnG2_3.Name = "btnG2_3";
@@ -330,7 +330,7 @@
             // 
             this.btnG2_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG2_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG2_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG2_2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG2_2.ForeColor = System.Drawing.Color.Black;
             this.btnG2_2.Location = new System.Drawing.Point(358, 48);
             this.btnG2_2.Name = "btnG2_2";
@@ -344,7 +344,7 @@
             // 
             this.btnG2_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG2_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG2_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG2_1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG2_1.ForeColor = System.Drawing.Color.Black;
             this.btnG2_1.Location = new System.Drawing.Point(358, 11);
             this.btnG2_1.Name = "btnG2_1";
@@ -358,7 +358,7 @@
             // 
             this.btnG3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_1.ForeColor = System.Drawing.Color.Black;
             this.btnG3_1.Location = new System.Drawing.Point(446, 11);
             this.btnG3_1.Name = "btnG3_1";
@@ -371,7 +371,7 @@
             // 
             this.btnG3_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_2.ForeColor = System.Drawing.Color.Black;
             this.btnG3_2.Location = new System.Drawing.Point(531, 11);
             this.btnG3_2.Name = "btnG3_2";
@@ -384,7 +384,7 @@
             // 
             this.btnG3_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_3.ForeColor = System.Drawing.Color.Black;
             this.btnG3_3.Location = new System.Drawing.Point(616, 11);
             this.btnG3_3.Name = "btnG3_3";
@@ -397,7 +397,7 @@
             // 
             this.btnG3_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_4.ForeColor = System.Drawing.Color.Black;
             this.btnG3_4.Location = new System.Drawing.Point(701, 11);
             this.btnG3_4.Name = "btnG3_4";
@@ -410,7 +410,7 @@
             // 
             this.btnG3_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_5.ForeColor = System.Drawing.Color.Black;
             this.btnG3_5.Location = new System.Drawing.Point(786, 11);
             this.btnG3_5.Name = "btnG3_5";
@@ -423,7 +423,7 @@
             // 
             this.btnG3_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_6.ForeColor = System.Drawing.Color.Black;
             this.btnG3_6.Location = new System.Drawing.Point(871, 11);
             this.btnG3_6.Name = "btnG3_6";
@@ -437,7 +437,7 @@
             this.btnG4_5.AccessibleName = "7";
             this.btnG4_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_5.ForeColor = System.Drawing.Color.Black;
             this.btnG4_5.Location = new System.Drawing.Point(786, 86);
             this.btnG4_5.Name = "btnG4_5";
@@ -451,7 +451,7 @@
             this.btnG4_4.AccessibleName = "10";
             this.btnG4_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_4.ForeColor = System.Drawing.Color.Black;
             this.btnG4_4.Location = new System.Drawing.Point(701, 86);
             this.btnG4_4.Name = "btnG4_4";
@@ -465,7 +465,7 @@
             this.btnG4_3.AccessibleName = "10";
             this.btnG4_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_3.ForeColor = System.Drawing.Color.Black;
             this.btnG4_3.Location = new System.Drawing.Point(616, 86);
             this.btnG4_3.Name = "btnG4_3";
@@ -478,7 +478,7 @@
             // 
             this.btnG4_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_2.ForeColor = System.Drawing.Color.Black;
             this.btnG4_2.Location = new System.Drawing.Point(531, 86);
             this.btnG4_2.Name = "btnG4_2";
@@ -492,7 +492,7 @@
             this.btnG4_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG4_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_1.ForeColor = System.Drawing.Color.Black;
             this.btnG4_1.Location = new System.Drawing.Point(446, 86);
             this.btnG4_1.Name = "btnG4_1";
@@ -506,7 +506,7 @@
             // 
             this.btnG4_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_8.ForeColor = System.Drawing.Color.Black;
             this.btnG4_8.Location = new System.Drawing.Point(1041, 85);
             this.btnG4_8.Name = "btnG4_8";
@@ -519,7 +519,7 @@
             // 
             this.btnG5_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_6.ForeColor = System.Drawing.Color.Black;
             this.btnG5_6.Location = new System.Drawing.Point(871, 124);
             this.btnG5_6.Name = "btnG5_6";
@@ -533,7 +533,7 @@
             // 
             this.btnG5_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_5.ForeColor = System.Drawing.Color.Black;
             this.btnG5_5.Location = new System.Drawing.Point(786, 124);
             this.btnG5_5.Name = "btnG5_5";
@@ -547,7 +547,7 @@
             // 
             this.btnG5_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_4.ForeColor = System.Drawing.Color.Black;
             this.btnG5_4.Location = new System.Drawing.Point(701, 124);
             this.btnG5_4.Name = "btnG5_4";
@@ -561,7 +561,7 @@
             // 
             this.btnG5_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_3.ForeColor = System.Drawing.Color.Black;
             this.btnG5_3.Location = new System.Drawing.Point(616, 124);
             this.btnG5_3.Name = "btnG5_3";
@@ -576,7 +576,7 @@
             this.btnG5_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG5_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_2.ForeColor = System.Drawing.Color.Black;
             this.btnG5_2.Location = new System.Drawing.Point(531, 124);
             this.btnG5_2.Name = "btnG5_2";
@@ -591,7 +591,7 @@
             this.btnG5_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnG5_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_1.ForeColor = System.Drawing.Color.Black;
             this.btnG5_1.Location = new System.Drawing.Point(446, 124);
             this.btnG5_1.Name = "btnG5_1";
@@ -659,7 +659,7 @@
             // 
             this.btn7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn7.ForeColor = System.Drawing.Color.Black;
             this.btn7.Location = new System.Drawing.Point(15, 48);
             this.btn7.Name = "btn7";
@@ -673,7 +673,7 @@
             // 
             this.btn8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn8.ForeColor = System.Drawing.Color.Black;
             this.btn8.Location = new System.Drawing.Point(71, 48);
             this.btn8.Name = "btn8";
@@ -687,7 +687,7 @@
             // 
             this.btn9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn9.ForeColor = System.Drawing.Color.Black;
             this.btn9.Location = new System.Drawing.Point(127, 48);
             this.btn9.Name = "btn9";
@@ -701,7 +701,7 @@
             // 
             this.btn6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn6.ForeColor = System.Drawing.Color.Black;
             this.btn6.Location = new System.Drawing.Point(127, 86);
             this.btn6.Name = "btn6";
@@ -715,7 +715,7 @@
             // 
             this.btn5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn5.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn5.ForeColor = System.Drawing.Color.Black;
             this.btn5.Location = new System.Drawing.Point(71, 86);
             this.btn5.Name = "btn5";
@@ -729,7 +729,7 @@
             // 
             this.btn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn4.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn4.ForeColor = System.Drawing.Color.Black;
             this.btn4.Location = new System.Drawing.Point(15, 86);
             this.btn4.Name = "btn4";
@@ -743,7 +743,7 @@
             // 
             this.btn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn3.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn3.ForeColor = System.Drawing.Color.Black;
             this.btn3.Location = new System.Drawing.Point(127, 124);
             this.btn3.Name = "btn3";
@@ -757,7 +757,7 @@
             // 
             this.btn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2.ForeColor = System.Drawing.Color.Black;
             this.btn2.Location = new System.Drawing.Point(71, 124);
             this.btn2.Name = "btn2";
@@ -771,7 +771,7 @@
             // 
             this.btn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1.ForeColor = System.Drawing.Color.Black;
             this.btn1.Location = new System.Drawing.Point(15, 124);
             this.btn1.Name = "btn1";
@@ -785,7 +785,7 @@
             // 
             this.btnClr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnClr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClr.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnClr.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClr.ForeColor = System.Drawing.Color.Black;
             this.btnClr.Location = new System.Drawing.Point(127, 162);
             this.btnClr.Name = "btnClr";
@@ -799,7 +799,7 @@
             // 
             this.button47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.button47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button47.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.button47.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button47.ForeColor = System.Drawing.Color.Black;
             this.button47.Location = new System.Drawing.Point(71, 162);
             this.button47.Name = "button47";
@@ -813,7 +813,7 @@
             // 
             this.btn0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btn0.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn0.ForeColor = System.Drawing.Color.Black;
             this.btn0.Location = new System.Drawing.Point(15, 162);
             this.btn0.Name = "btn0";
@@ -846,14 +846,14 @@
             this.uiTotal.Location = new System.Drawing.Point(959, 61);
             this.uiTotal.Name = "uiTotal";
             this.uiTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.uiTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.uiTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiTotal.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.uiTotal.Properties.Appearance.Options.UseBackColor = true;
             this.uiTotal.Properties.Appearance.Options.UseFont = true;
             this.uiTotal.Properties.Appearance.Options.UseForeColor = true;
             this.uiTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.uiTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiTotal.Size = new System.Drawing.Size(165, 32);
+            this.uiTotal.Size = new System.Drawing.Size(165, 36);
             this.uiTotal.TabIndex = 56;
             // 
             // uiRecibi
@@ -863,14 +863,14 @@
             this.uiRecibi.Location = new System.Drawing.Point(959, 111);
             this.uiRecibi.Name = "uiRecibi";
             this.uiRecibi.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.uiRecibi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.uiRecibi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiRecibi.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.uiRecibi.Properties.Appearance.Options.UseBackColor = true;
             this.uiRecibi.Properties.Appearance.Options.UseFont = true;
             this.uiRecibi.Properties.Appearance.Options.UseForeColor = true;
             this.uiRecibi.Properties.Appearance.Options.UseTextOptions = true;
             this.uiRecibi.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiRecibi.Size = new System.Drawing.Size(165, 32);
+            this.uiRecibi.Size = new System.Drawing.Size(165, 36);
             this.uiRecibi.TabIndex = 58;
             // 
             // textEdit4
@@ -896,14 +896,14 @@
             this.uiCambio.Location = new System.Drawing.Point(959, 165);
             this.uiCambio.Name = "uiCambio";
             this.uiCambio.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.uiCambio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.uiCambio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiCambio.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.uiCambio.Properties.Appearance.Options.UseBackColor = true;
             this.uiCambio.Properties.Appearance.Options.UseFont = true;
             this.uiCambio.Properties.Appearance.Options.UseForeColor = true;
             this.uiCambio.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCambio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiCambio.Size = new System.Drawing.Size(165, 32);
+            this.uiCambio.Size = new System.Drawing.Size(165, 36);
             this.uiCambio.TabIndex = 60;
             // 
             // textEdit6
@@ -929,14 +929,14 @@
             this.uiFaltan.Location = new System.Drawing.Point(959, 218);
             this.uiFaltan.Name = "uiFaltan";
             this.uiFaltan.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.uiFaltan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.uiFaltan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiFaltan.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.uiFaltan.Properties.Appearance.Options.UseBackColor = true;
             this.uiFaltan.Properties.Appearance.Options.UseFont = true;
             this.uiFaltan.Properties.Appearance.Options.UseForeColor = true;
             this.uiFaltan.Properties.Appearance.Options.UseTextOptions = true;
             this.uiFaltan.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.uiFaltan.Size = new System.Drawing.Size(165, 32);
+            this.uiFaltan.Size = new System.Drawing.Size(165, 36);
             this.uiFaltan.TabIndex = 62;
             // 
             // textEdit8
@@ -977,6 +977,8 @@
             // 
             // gvProducto
             // 
+            this.gvProducto.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvProducto.Appearance.Row.Options.UseFont = true;
             this.gvProducto.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRepo,
             this.gridColumn1,
@@ -1006,7 +1008,7 @@
             this.colRepo.Name = "colRepo";
             this.colRepo.Visible = true;
             this.colRepo.VisibleIndex = 0;
-            this.colRepo.Width = 61;
+            this.colRepo.Width = 76;
             // 
             // repDel
             // 
@@ -1025,9 +1027,7 @@
             this.gridColumn1.FieldName = "clave";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 29;
+            this.gridColumn1.Width = 47;
             // 
             // gridColumn2
             // 
@@ -1037,7 +1037,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 177;
+            this.gridColumn2.Width = 305;
             // 
             // gridColumn3
             // 
@@ -1045,8 +1045,8 @@
             this.gridColumn3.FieldName = "cantidad";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 46;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 57;
             // 
             // gridColumn4
             // 
@@ -1056,8 +1056,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 50;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 57;
             // 
             // calcPU
             // 
@@ -1075,8 +1075,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 34;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 59;
             // 
             // gridColumn11
             // 
@@ -1087,8 +1087,8 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 6;
-            this.gridColumn11.Width = 51;
+            this.gridColumn11.VisibleIndex = 5;
+            this.gridColumn11.Width = 69;
             // 
             // gridColumn6
             // 
@@ -1098,8 +1098,8 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 7;
-            this.gridColumn6.Width = 56;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 78;
             // 
             // calcTotal
             // 
@@ -1117,8 +1117,8 @@
             this.gridColumn7.FieldName = "paraLlevar";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 8;
-            this.gridColumn7.Width = 39;
+            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.Width = 38;
             // 
             // chkParaLlevar
             // 
@@ -1132,8 +1132,8 @@
             this.gridColumn8.FieldName = "paraMesa";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 9;
-            this.gridColumn8.Width = 39;
+            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.Width = 38;
             // 
             // chkParaMesa
             // 
@@ -1147,8 +1147,8 @@
             this.gridColumn9.FieldName = "cortesia";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 10;
-            this.gridColumn9.Width = 69;
+            this.gridColumn9.VisibleIndex = 9;
+            this.gridColumn9.Width = 39;
             // 
             // chkCortesia
             // 
@@ -1163,8 +1163,8 @@
             this.gridColumn10.FieldName = "consumoInterno";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 11;
-            this.gridColumn10.Width = 40;
+            this.gridColumn10.VisibleIndex = 10;
+            this.gridColumn10.Width = 39;
             // 
             // chkConsumoInterno
             // 
@@ -1179,8 +1179,8 @@
             this.gridColumn12.FieldName = "precioEmpleado";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 12;
-            this.gridColumn12.Width = 69;
+            this.gridColumn12.VisibleIndex = 11;
+            this.gridColumn12.Width = 65;
             // 
             // chkPrecioEmpleado
             // 
@@ -1203,7 +1203,7 @@
             // 
             this.button49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.button49.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button49.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.button49.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button49.ForeColor = System.Drawing.Color.Black;
             this.button49.Location = new System.Drawing.Point(15, 200);
             this.button49.Name = "button49";
@@ -1232,6 +1232,8 @@
             this.uiPedido.Enabled = false;
             this.uiPedido.Location = new System.Drawing.Point(531, 203);
             this.uiPedido.Name = "uiPedido";
+            this.uiPedido.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPedido.Properties.Appearance.Options.UseFont = true;
             this.uiPedido.Size = new System.Drawing.Size(607, 31);
             this.uiPedido.TabIndex = 76;
             // 
@@ -1241,7 +1243,7 @@
             this.uiCalculadora.Enabled = false;
             this.uiCalculadora.Location = new System.Drawing.Point(15, 14);
             this.uiCalculadora.Name = "uiCalculadora";
-            this.uiCalculadora.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiCalculadora.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiCalculadora.Properties.Appearance.Options.UseFont = true;
             this.uiCalculadora.Properties.Appearance.Options.UseTextOptions = true;
             this.uiCalculadora.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -1249,7 +1251,7 @@
             this.uiCalculadora.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.uiCalculadora.Properties.AppearanceDisabled.Options.UseFont = true;
             this.uiCalculadora.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.uiCalculadora.Size = new System.Drawing.Size(106, 28);
+            this.uiCalculadora.Size = new System.Drawing.Size(106, 20);
             this.uiCalculadora.TabIndex = 77;
             this.uiCalculadora.EditValueChanged += new System.EventHandler(this.uiCalculadora_EditValueChanged);
             // 
@@ -1257,7 +1259,7 @@
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnRegresar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.Black;
             this.btnRegresar.Location = new System.Drawing.Point(127, 10);
             this.btnRegresar.Name = "btnRegresar";
@@ -1292,7 +1294,7 @@
             // 
             this.btnProd7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd7.ForeColor = System.Drawing.Color.Black;
             this.btnProd7.Location = new System.Drawing.Point(272, 10);
             this.btnProd7.Name = "btnProd7";
@@ -1305,7 +1307,7 @@
             // 
             this.btnProd8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd8.ForeColor = System.Drawing.Color.Black;
             this.btnProd8.Location = new System.Drawing.Point(273, 48);
             this.btnProd8.Name = "btnProd8";
@@ -1318,7 +1320,7 @@
             // 
             this.btnProd9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd9.ForeColor = System.Drawing.Color.Black;
             this.btnProd9.Location = new System.Drawing.Point(273, 86);
             this.btnProd9.Name = "btnProd9";
@@ -1331,7 +1333,7 @@
             // 
             this.btnProd10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd10.ForeColor = System.Drawing.Color.Black;
             this.btnProd10.Location = new System.Drawing.Point(273, 124);
             this.btnProd10.Name = "btnProd10";
@@ -1344,7 +1346,7 @@
             // 
             this.btnProd11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnProd11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProd11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnProd11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProd11.ForeColor = System.Drawing.Color.Black;
             this.btnProd11.Location = new System.Drawing.Point(273, 161);
             this.btnProd11.Name = "btnProd11";
@@ -1357,7 +1359,7 @@
             // 
             this.btnG3_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_7.ForeColor = System.Drawing.Color.Black;
             this.btnG3_7.Location = new System.Drawing.Point(957, 11);
             this.btnG3_7.Name = "btnG3_7";
@@ -1370,7 +1372,7 @@
             // 
             this.btnG3_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_8.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_8.ForeColor = System.Drawing.Color.Black;
             this.btnG3_8.Location = new System.Drawing.Point(1042, 11);
             this.btnG3_8.Name = "btnG3_8";
@@ -1383,7 +1385,7 @@
             // 
             this.btnG3_16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_16.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_16.ForeColor = System.Drawing.Color.Black;
             this.btnG3_16.Location = new System.Drawing.Point(1042, 48);
             this.btnG3_16.Name = "btnG3_16";
@@ -1396,7 +1398,7 @@
             // 
             this.btnG3_15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_15.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_15.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_15.ForeColor = System.Drawing.Color.Black;
             this.btnG3_15.Location = new System.Drawing.Point(957, 48);
             this.btnG3_15.Name = "btnG3_15";
@@ -1409,7 +1411,7 @@
             // 
             this.btnG3_14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_14.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_14.ForeColor = System.Drawing.Color.Black;
             this.btnG3_14.Location = new System.Drawing.Point(871, 48);
             this.btnG3_14.Name = "btnG3_14";
@@ -1422,7 +1424,7 @@
             // 
             this.btnG3_13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_13.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_13.ForeColor = System.Drawing.Color.Black;
             this.btnG3_13.Location = new System.Drawing.Point(786, 48);
             this.btnG3_13.Name = "btnG3_13";
@@ -1435,7 +1437,7 @@
             // 
             this.btnG3_12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_12.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_12.ForeColor = System.Drawing.Color.Black;
             this.btnG3_12.Location = new System.Drawing.Point(701, 48);
             this.btnG3_12.Name = "btnG3_12";
@@ -1448,7 +1450,7 @@
             // 
             this.btnG3_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_11.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_11.ForeColor = System.Drawing.Color.Black;
             this.btnG3_11.Location = new System.Drawing.Point(616, 48);
             this.btnG3_11.Name = "btnG3_11";
@@ -1461,7 +1463,7 @@
             // 
             this.btnG3_10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_10.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_10.ForeColor = System.Drawing.Color.Black;
             this.btnG3_10.Location = new System.Drawing.Point(531, 48);
             this.btnG3_10.Name = "btnG3_10";
@@ -1474,7 +1476,7 @@
             // 
             this.btnG3_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG3_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG3_9.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG3_9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG3_9.ForeColor = System.Drawing.Color.Black;
             this.btnG3_9.Location = new System.Drawing.Point(446, 48);
             this.btnG3_9.Name = "btnG3_9";
@@ -1488,7 +1490,7 @@
             this.btnG4_6.AccessibleName = "7";
             this.btnG4_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_6.ForeColor = System.Drawing.Color.Black;
             this.btnG4_6.Location = new System.Drawing.Point(870, 85);
             this.btnG4_6.Name = "btnG4_6";
@@ -1502,7 +1504,7 @@
             this.btnG4_7.AccessibleName = "7";
             this.btnG4_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(228)))), ((int)(((byte)(180)))));
             this.btnG4_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG4_7.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Bold);
+            this.btnG4_7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG4_7.ForeColor = System.Drawing.Color.Black;
             this.btnG4_7.Location = new System.Drawing.Point(956, 85);
             this.btnG4_7.Name = "btnG4_7";
@@ -1515,7 +1517,7 @@
             // 
             this.btnG5_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_7.ForeColor = System.Drawing.Color.Black;
             this.btnG5_7.Location = new System.Drawing.Point(956, 124);
             this.btnG5_7.Name = "btnG5_7";
@@ -1529,7 +1531,7 @@
             // 
             this.btnG5_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_8.ForeColor = System.Drawing.Color.Black;
             this.btnG5_8.Location = new System.Drawing.Point(1041, 124);
             this.btnG5_8.Name = "btnG5_8";
@@ -1623,7 +1625,7 @@
             // 
             this.btnG5_16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_16.ForeColor = System.Drawing.Color.Black;
             this.btnG5_16.Location = new System.Drawing.Point(1041, 162);
             this.btnG5_16.Name = "btnG5_16";
@@ -1637,7 +1639,7 @@
             // 
             this.btnG5_15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_15.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_15.ForeColor = System.Drawing.Color.Black;
             this.btnG5_15.Location = new System.Drawing.Point(956, 162);
             this.btnG5_15.Name = "btnG5_15";
@@ -1651,7 +1653,7 @@
             // 
             this.btnG5_14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_14.ForeColor = System.Drawing.Color.Black;
             this.btnG5_14.Location = new System.Drawing.Point(870, 162);
             this.btnG5_14.Name = "btnG5_14";
@@ -1665,7 +1667,7 @@
             // 
             this.btnG5_13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_13.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_13.ForeColor = System.Drawing.Color.Black;
             this.btnG5_13.Location = new System.Drawing.Point(786, 162);
             this.btnG5_13.Name = "btnG5_13";
@@ -1679,7 +1681,7 @@
             // 
             this.btnG5_12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_12.ForeColor = System.Drawing.Color.Black;
             this.btnG5_12.Location = new System.Drawing.Point(701, 162);
             this.btnG5_12.Name = "btnG5_12";
@@ -1693,7 +1695,7 @@
             // 
             this.btnG5_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_11.ForeColor = System.Drawing.Color.Black;
             this.btnG5_11.Location = new System.Drawing.Point(616, 162);
             this.btnG5_11.Name = "btnG5_11";
@@ -1707,7 +1709,7 @@
             // 
             this.btnG5_10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_10.ForeColor = System.Drawing.Color.Black;
             this.btnG5_10.Location = new System.Drawing.Point(531, 162);
             this.btnG5_10.Name = "btnG5_10";
@@ -1721,7 +1723,7 @@
             // 
             this.btnG5_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.btnG5_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG5_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnG5_9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnG5_9.ForeColor = System.Drawing.Color.Black;
             this.btnG5_9.Location = new System.Drawing.Point(446, 162);
             this.btnG5_9.Name = "btnG5_9";
@@ -1779,17 +1781,60 @@
             this.layoutControl1.TabIndex = 134;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
+            // groupControl2
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2});
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1153, 513);
-            this.layoutControlGroup1.TextVisible = false;
+            this.groupControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(118)))));
+            this.groupControl2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(118)))));
+            this.groupControl2.Appearance.Options.UseBackColor = true;
+            this.groupControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.groupControl2.Controls.Add(this.panel1);
+            this.groupControl2.Controls.Add(this.label1);
+            this.groupControl2.Controls.Add(this.grProducto);
+            this.groupControl2.Controls.Add(this.groupBox1);
+            this.groupControl2.Controls.Add(this.uiPedidoSaldo);
+            this.groupControl2.Controls.Add(this.uiKeyCatch);
+            this.groupControl2.Controls.Add(this.lblNotas);
+            this.groupControl2.Controls.Add(this.button51);
+            this.groupControl2.Controls.Add(this.textEdit1);
+            this.groupControl2.Controls.Add(this.uiFaltan);
+            this.groupControl2.Controls.Add(this.uiTotal);
+            this.groupControl2.Controls.Add(this.textEdit8);
+            this.groupControl2.Controls.Add(this.textEdit4);
+            this.groupControl2.Controls.Add(this.uiCambio);
+            this.groupControl2.Controls.Add(this.uiRecibi);
+            this.groupControl2.Controls.Add(this.textEdit6);
+            this.groupControl2.Location = new System.Drawing.Point(2, 246);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.ShowCaption = false;
+            this.groupControl2.Size = new System.Drawing.Size(1149, 265);
+            this.groupControl2.TabIndex = 0;
+            this.groupControl2.Text = "groupControl2";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
+            this.panel1.Controls.Add(this.uiFactura);
+            this.panel1.Controls.Add(this.uiLlevar);
+            this.panel1.Controls.Add(this.uiPrecioEmp);
+            this.panel1.Controls.Add(this.uiConsumo);
+            this.panel1.Controls.Add(this.uiEmpleado);
+            this.panel1.Controls.Add(this.uiCortesia);
+            this.panel1.Controls.Add(this.uiMesa);
+            this.panel1.Location = new System.Drawing.Point(15, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(938, 24);
+            this.panel1.TabIndex = 135;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(630, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 19);
+            this.label1.TabIndex = 134;
+            this.label1.Text = "SALDO PENDIENTE";
             // 
             // groupControl1
             // 
@@ -1877,6 +1922,18 @@
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "groupControl1";
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1153, 513);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.groupControl1;
@@ -1886,35 +1943,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // groupControl2
-            // 
-            this.groupControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(118)))));
-            this.groupControl2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(118)))));
-            this.groupControl2.Appearance.Options.UseBackColor = true;
-            this.groupControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.groupControl2.Controls.Add(this.panel1);
-            this.groupControl2.Controls.Add(this.label1);
-            this.groupControl2.Controls.Add(this.grProducto);
-            this.groupControl2.Controls.Add(this.groupBox1);
-            this.groupControl2.Controls.Add(this.uiPedidoSaldo);
-            this.groupControl2.Controls.Add(this.uiKeyCatch);
-            this.groupControl2.Controls.Add(this.lblNotas);
-            this.groupControl2.Controls.Add(this.button51);
-            this.groupControl2.Controls.Add(this.textEdit1);
-            this.groupControl2.Controls.Add(this.uiFaltan);
-            this.groupControl2.Controls.Add(this.uiTotal);
-            this.groupControl2.Controls.Add(this.textEdit8);
-            this.groupControl2.Controls.Add(this.textEdit4);
-            this.groupControl2.Controls.Add(this.uiCambio);
-            this.groupControl2.Controls.Add(this.uiRecibi);
-            this.groupControl2.Controls.Add(this.textEdit6);
-            this.groupControl2.Location = new System.Drawing.Point(2, 246);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.ShowCaption = false;
-            this.groupControl2.Size = new System.Drawing.Size(1149, 265);
-            this.groupControl2.TabIndex = 0;
-            this.groupControl2.Text = "groupControl2";
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.groupControl2;
@@ -1923,32 +1951,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1153, 269);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(630, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 19);
-            this.label1.TabIndex = 134;
-            this.label1.Text = "SALDO PENDIENTE";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
-            this.panel1.Controls.Add(this.uiFactura);
-            this.panel1.Controls.Add(this.uiLlevar);
-            this.panel1.Controls.Add(this.uiPrecioEmp);
-            this.panel1.Controls.Add(this.uiConsumo);
-            this.panel1.Controls.Add(this.uiEmpleado);
-            this.panel1.Controls.Add(this.uiCortesia);
-            this.panel1.Controls.Add(this.uiMesa);
-            this.panel1.Location = new System.Drawing.Point(15, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 24);
-            this.panel1.TabIndex = 135;
             // 
             // frmPuntoVenta
             // 
@@ -1996,15 +1998,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.uiKeyCatch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
