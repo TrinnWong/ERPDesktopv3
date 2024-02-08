@@ -86,7 +86,7 @@ namespace TacosAna.Desktop
         private decimal porcAnticipoPedido;
         public   bool esVentaPorTelefono;
         public bool esPedidoConAnticipo;
-
+        Button btnTemp;
         private bool cobrando=false;
         private bool cobrandoAnticipo = false;
 
@@ -98,8 +98,8 @@ namespace TacosAna.Desktop
 
         /**variables para saber cuantos botones hay disponibles por sección*/
         private static int numBtnProds = 11;
-        private static int numBtnGuisos = 16;
-        private static int numBtnBebidas1 = 8;
+        private static int numBtnGuisos = 15;
+        private static int numBtnBebidas1 = 7;
         private static int numBtnBebidas2 = 16;
         
         
@@ -3830,20 +3830,51 @@ namespace TacosAna.Desktop
 
         private void btnProd11_Click(object sender, EventArgs e)
         {
-            guardarCantidadInicial();
-            SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
-            if (uiConsumo.Checked)
-            {
-                if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+            frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
+
+            oItemsAdicionales.lstItems =  lstProductos
+                    .Where(
+                        w =>
+                            w.cat_familias.Descripcion.ToUpper().Contains("TACOS")
+                    ).OrderBy(o => o.ProductoId).Select(s=> new ERP.Models.Otros.ItemGenericModel() {
+                         Descripcion = s.Descripcion,
+                         Id = s.ProductoId
+                    }).ToList();
+
+            oItemsAdicionales.StartPosition = FormStartPosition.CenterScreen;
+            DialogResult resultDialog = oItemsAdicionales.ShowDialog();
+
+            if(resultDialog == DialogResult.OK)
+            {    
+
+                guardarCantidadInicial();
+
+                SeleccionarProducto(oItemsAdicionales.result.Id.ToString(), oItemsAdicionales.result.Descripcion);
+                if (uiConsumo.Checked)
                 {
-                    ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
-                    return;
+                    if (!botonSeleccionado.Contains("SUR") && !botonSeleccionado.Contains("LIBRE"))
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("SOLO SE PERMITE SUR Y LIBRE PARA CONSUMO INTERNO");
+                        return;
+                    }
                 }
+
+                EnableBtnProd(false);
+                EnableBtnG2(true, false, true, false);
+
+                //SeleccionarProducto(((Button)sender).AccessibleName, ((Button)sender).Text);
+                //EnableBtnProd(false);
+                //EnableBtnG2(false, false, false, false);
+                EnableBtnG3(false);
+                EnableBtnG4(false);
+                EnableBtnG5(false);
+
+                limiteMaxGuisoSeleccion = 3;
+                limiteCarneChicharron = 4;
+                cantidadPaquete = 10;
             }
-            EnableBtnG2(false, false, false, false);
-            EnableBtnG3(false);
-            EnableBtnG4(false);
-            EnableBtnG5(false);
+
+           
             
         }
 
@@ -3894,7 +3925,31 @@ namespace TacosAna.Desktop
 
         private void btnG3_16_Click(object sender, EventArgs e)
         {
-            ClicProducto(sender);
+            frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
+
+            oItemsAdicionales.lstItems = lstGuisos
+                    .Select(
+                    s=>new ERP.Models.Otros.ItemGenericModel()
+                    {
+                         Id = s.ProductoId,
+                          Descripcion = s.DescripcionCorta
+                    }
+                ).ToList();                   
+
+            oItemsAdicionales.StartPosition = FormStartPosition.CenterScreen;
+            DialogResult resultDialog = oItemsAdicionales.ShowDialog();
+
+            if (resultDialog == DialogResult.OK)
+            {
+
+                btnTemp = new Button();
+                btnTemp.Visible = false;
+                btnTemp.AccessibleName = oItemsAdicionales.result.Id.ToString();
+                btnTemp.Text = oItemsAdicionales.result.Descripcion;
+
+
+                ClicProducto(btnTemp);
+            }
         }
 
         private void btnG5_4_Click(object sender, EventArgs e)
@@ -3922,6 +3977,33 @@ namespace TacosAna.Desktop
         private void btnG4_8_Click(object sender, EventArgs e)
         {
             clicBebida((Button)sender);
+
+
+            frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
+
+            oItemsAdicionales.lstItems = this.lstSubFamBebidas
+                    .Select(
+                    s => new ERP.Models.Otros.ItemGenericModel()
+                    {
+                        Id = s.Clave,
+                        Descripcion = s.Descripcion
+                    }
+                ).ToList();
+
+            oItemsAdicionales.StartPosition = FormStartPosition.CenterScreen;
+            DialogResult resultDialog = oItemsAdicionales.ShowDialog();
+
+            if (resultDialog == DialogResult.OK)
+            {
+
+                btnTemp = new Button();
+                btnTemp.Visible = false;
+                btnTemp.AccessibleName = oItemsAdicionales.result.Id.ToString();
+                btnTemp.Text = oItemsAdicionales.result.Descripcion;
+
+
+                clicBebida(btnTemp);
+            }
 
         }
 

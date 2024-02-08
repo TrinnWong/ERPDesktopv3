@@ -256,6 +256,7 @@ namespace TacosAna.Desktop
             this.btnA_42.Size = new System.Drawing.Size(129, 38);
             this.btnA_42.TabIndex = 54;
             this.btnA_42.UseVisualStyleBackColor = false;
+            this.btnA_42.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_36
             // 
@@ -268,6 +269,7 @@ namespace TacosAna.Desktop
             this.btnA_36.Size = new System.Drawing.Size(143, 38);
             this.btnA_36.TabIndex = 53;
             this.btnA_36.UseVisualStyleBackColor = false;
+            this.btnA_36.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_37
             // 
@@ -280,6 +282,7 @@ namespace TacosAna.Desktop
             this.btnA_37.Size = new System.Drawing.Size(142, 38);
             this.btnA_37.TabIndex = 52;
             this.btnA_37.UseVisualStyleBackColor = false;
+            this.btnA_37.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_38
             // 
@@ -292,6 +295,7 @@ namespace TacosAna.Desktop
             this.btnA_38.Size = new System.Drawing.Size(168, 38);
             this.btnA_38.TabIndex = 51;
             this.btnA_38.UseVisualStyleBackColor = false;
+            this.btnA_38.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_39
             // 
@@ -304,6 +308,7 @@ namespace TacosAna.Desktop
             this.btnA_39.Size = new System.Drawing.Size(157, 38);
             this.btnA_39.TabIndex = 50;
             this.btnA_39.UseVisualStyleBackColor = false;
+            this.btnA_39.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_40
             // 
@@ -316,6 +321,7 @@ namespace TacosAna.Desktop
             this.btnA_40.Size = new System.Drawing.Size(143, 38);
             this.btnA_40.TabIndex = 49;
             this.btnA_40.UseVisualStyleBackColor = false;
+            this.btnA_40.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_41
             // 
@@ -328,6 +334,7 @@ namespace TacosAna.Desktop
             this.btnA_41.Size = new System.Drawing.Size(156, 38);
             this.btnA_41.TabIndex = 48;
             this.btnA_41.UseVisualStyleBackColor = false;
+            this.btnA_41.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_16
             // 
@@ -340,6 +347,7 @@ namespace TacosAna.Desktop
             this.btnA_16.Size = new System.Drawing.Size(143, 47);
             this.btnA_16.TabIndex = 47;
             this.btnA_16.UseVisualStyleBackColor = false;
+            this.btnA_16.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_29
             // 
@@ -352,6 +360,7 @@ namespace TacosAna.Desktop
             this.btnA_29.Size = new System.Drawing.Size(143, 43);
             this.btnA_29.TabIndex = 46;
             this.btnA_29.UseVisualStyleBackColor = false;
+            this.btnA_29.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_30
             // 
@@ -364,6 +373,7 @@ namespace TacosAna.Desktop
             this.btnA_30.Size = new System.Drawing.Size(142, 43);
             this.btnA_30.TabIndex = 45;
             this.btnA_30.UseVisualStyleBackColor = false;
+            this.btnA_30.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_31
             // 
@@ -376,6 +386,7 @@ namespace TacosAna.Desktop
             this.btnA_31.Size = new System.Drawing.Size(168, 43);
             this.btnA_31.TabIndex = 44;
             this.btnA_31.UseVisualStyleBackColor = false;
+            this.btnA_31.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_32
             // 
@@ -388,6 +399,7 @@ namespace TacosAna.Desktop
             this.btnA_32.Size = new System.Drawing.Size(157, 43);
             this.btnA_32.TabIndex = 43;
             this.btnA_32.UseVisualStyleBackColor = false;
+            this.btnA_32.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_33
             // 
@@ -400,6 +412,7 @@ namespace TacosAna.Desktop
             this.btnA_33.Size = new System.Drawing.Size(143, 43);
             this.btnA_33.TabIndex = 42;
             this.btnA_33.UseVisualStyleBackColor = false;
+            this.btnA_33.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_34
             // 
@@ -412,6 +425,7 @@ namespace TacosAna.Desktop
             this.btnA_34.Size = new System.Drawing.Size(156, 43);
             this.btnA_34.TabIndex = 41;
             this.btnA_34.UseVisualStyleBackColor = false;
+            this.btnA_34.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_22
             // 
@@ -424,6 +438,7 @@ namespace TacosAna.Desktop
             this.btnA_22.Size = new System.Drawing.Size(143, 48);
             this.btnA_22.TabIndex = 40;
             this.btnA_22.UseVisualStyleBackColor = false;
+            this.btnA_22.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_23
             // 
@@ -436,6 +451,7 @@ namespace TacosAna.Desktop
             this.btnA_23.Size = new System.Drawing.Size(142, 48);
             this.btnA_23.TabIndex = 39;
             this.btnA_23.UseVisualStyleBackColor = false;
+            this.btnA_23.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_24
             // 
@@ -448,6 +464,7 @@ namespace TacosAna.Desktop
             this.btnA_24.Size = new System.Drawing.Size(168, 48);
             this.btnA_24.TabIndex = 38;
             this.btnA_24.UseVisualStyleBackColor = false;
+            this.btnA_24.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_25
             // 
@@ -460,6 +477,7 @@ namespace TacosAna.Desktop
             this.btnA_25.Size = new System.Drawing.Size(157, 48);
             this.btnA_25.TabIndex = 37;
             this.btnA_25.UseVisualStyleBackColor = false;
+            this.btnA_25.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_26
             // 
@@ -472,6 +490,7 @@ namespace TacosAna.Desktop
             this.btnA_26.Size = new System.Drawing.Size(143, 48);
             this.btnA_26.TabIndex = 36;
             this.btnA_26.UseVisualStyleBackColor = false;
+            this.btnA_26.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_27
             // 
@@ -484,6 +503,7 @@ namespace TacosAna.Desktop
             this.btnA_27.Size = new System.Drawing.Size(156, 48);
             this.btnA_27.TabIndex = 35;
             this.btnA_27.UseVisualStyleBackColor = false;
+            this.btnA_27.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_28
             // 
@@ -496,6 +516,7 @@ namespace TacosAna.Desktop
             this.btnA_28.Size = new System.Drawing.Size(129, 48);
             this.btnA_28.TabIndex = 34;
             this.btnA_28.UseVisualStyleBackColor = false;
+            this.btnA_28.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_35
             // 
@@ -508,6 +529,7 @@ namespace TacosAna.Desktop
             this.btnA_35.Size = new System.Drawing.Size(129, 43);
             this.btnA_35.TabIndex = 33;
             this.btnA_35.UseVisualStyleBackColor = false;
+            this.btnA_35.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_15
             // 
@@ -520,6 +542,7 @@ namespace TacosAna.Desktop
             this.btnA_15.Size = new System.Drawing.Size(142, 47);
             this.btnA_15.TabIndex = 32;
             this.btnA_15.UseVisualStyleBackColor = false;
+            this.btnA_15.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_17
             // 
@@ -532,6 +555,7 @@ namespace TacosAna.Desktop
             this.btnA_17.Size = new System.Drawing.Size(168, 47);
             this.btnA_17.TabIndex = 31;
             this.btnA_17.UseVisualStyleBackColor = false;
+            this.btnA_17.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_18
             // 
@@ -544,6 +568,7 @@ namespace TacosAna.Desktop
             this.btnA_18.Size = new System.Drawing.Size(157, 47);
             this.btnA_18.TabIndex = 30;
             this.btnA_18.UseVisualStyleBackColor = false;
+            this.btnA_18.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_19
             // 
@@ -556,6 +581,7 @@ namespace TacosAna.Desktop
             this.btnA_19.Size = new System.Drawing.Size(143, 47);
             this.btnA_19.TabIndex = 29;
             this.btnA_19.UseVisualStyleBackColor = false;
+            this.btnA_19.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_20
             // 
@@ -568,6 +594,7 @@ namespace TacosAna.Desktop
             this.btnA_20.Size = new System.Drawing.Size(156, 47);
             this.btnA_20.TabIndex = 28;
             this.btnA_20.UseVisualStyleBackColor = false;
+            this.btnA_20.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_21
             // 
@@ -580,6 +607,7 @@ namespace TacosAna.Desktop
             this.btnA_21.Size = new System.Drawing.Size(129, 47);
             this.btnA_21.TabIndex = 27;
             this.btnA_21.UseVisualStyleBackColor = false;
+            this.btnA_21.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_8
             // 
@@ -592,6 +620,7 @@ namespace TacosAna.Desktop
             this.btnA_8.Size = new System.Drawing.Size(143, 44);
             this.btnA_8.TabIndex = 26;
             this.btnA_8.UseVisualStyleBackColor = false;
+            this.btnA_8.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_9
             // 
@@ -604,6 +633,7 @@ namespace TacosAna.Desktop
             this.btnA_9.Size = new System.Drawing.Size(142, 44);
             this.btnA_9.TabIndex = 25;
             this.btnA_9.UseVisualStyleBackColor = false;
+            this.btnA_9.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_10
             // 
@@ -616,6 +646,7 @@ namespace TacosAna.Desktop
             this.btnA_10.Size = new System.Drawing.Size(168, 44);
             this.btnA_10.TabIndex = 24;
             this.btnA_10.UseVisualStyleBackColor = false;
+            this.btnA_10.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_11
             // 
@@ -628,6 +659,7 @@ namespace TacosAna.Desktop
             this.btnA_11.Size = new System.Drawing.Size(157, 44);
             this.btnA_11.TabIndex = 23;
             this.btnA_11.UseVisualStyleBackColor = false;
+            this.btnA_11.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_14
             // 
@@ -640,6 +672,7 @@ namespace TacosAna.Desktop
             this.btnA_14.Size = new System.Drawing.Size(129, 44);
             this.btnA_14.TabIndex = 22;
             this.btnA_14.UseVisualStyleBackColor = false;
+            this.btnA_14.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_12
             // 
@@ -652,6 +685,7 @@ namespace TacosAna.Desktop
             this.btnA_12.Size = new System.Drawing.Size(143, 44);
             this.btnA_12.TabIndex = 21;
             this.btnA_12.UseVisualStyleBackColor = false;
+            this.btnA_12.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_13
             // 
@@ -664,6 +698,7 @@ namespace TacosAna.Desktop
             this.btnA_13.Size = new System.Drawing.Size(156, 44);
             this.btnA_13.TabIndex = 20;
             this.btnA_13.UseVisualStyleBackColor = false;
+            this.btnA_13.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_7
             // 
@@ -676,6 +711,7 @@ namespace TacosAna.Desktop
             this.btnA_7.Size = new System.Drawing.Size(129, 44);
             this.btnA_7.TabIndex = 19;
             this.btnA_7.UseVisualStyleBackColor = false;
+            this.btnA_7.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_6
             // 
@@ -688,6 +724,7 @@ namespace TacosAna.Desktop
             this.btnA_6.Size = new System.Drawing.Size(156, 44);
             this.btnA_6.TabIndex = 18;
             this.btnA_6.UseVisualStyleBackColor = false;
+            this.btnA_6.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_5
             // 
@@ -700,6 +737,7 @@ namespace TacosAna.Desktop
             this.btnA_5.Size = new System.Drawing.Size(143, 44);
             this.btnA_5.TabIndex = 17;
             this.btnA_5.UseVisualStyleBackColor = false;
+            this.btnA_5.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_4
             // 
@@ -712,6 +750,7 @@ namespace TacosAna.Desktop
             this.btnA_4.Size = new System.Drawing.Size(157, 44);
             this.btnA_4.TabIndex = 16;
             this.btnA_4.UseVisualStyleBackColor = false;
+            this.btnA_4.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_3
             // 
@@ -724,6 +763,7 @@ namespace TacosAna.Desktop
             this.btnA_3.Size = new System.Drawing.Size(168, 44);
             this.btnA_3.TabIndex = 15;
             this.btnA_3.UseVisualStyleBackColor = false;
+            this.btnA_3.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_2
             // 
@@ -736,6 +776,7 @@ namespace TacosAna.Desktop
             this.btnA_2.Size = new System.Drawing.Size(142, 44);
             this.btnA_2.TabIndex = 14;
             this.btnA_2.UseVisualStyleBackColor = false;
+            this.btnA_2.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // btnA_1
             // 
@@ -748,6 +789,7 @@ namespace TacosAna.Desktop
             this.btnA_1.Size = new System.Drawing.Size(143, 44);
             this.btnA_1.TabIndex = 13;
             this.btnA_1.UseVisualStyleBackColor = false;
+            this.btnA_1.Click += new System.EventHandler(this.btnA_1_Click);
             // 
             // layoutControlGroup2
             // 
@@ -1206,6 +1248,7 @@ namespace TacosAna.Desktop
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmItemsAdicionales";
             this.Text = "Adicionales";
+            this.Load += new System.EventHandler(this.frmItemsAdicionales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

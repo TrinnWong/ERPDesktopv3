@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnProd1 = new System.Windows.Forms.Button();
             this.btnProd2 = new System.Windows.Forms.Button();
             this.btnProd3 = new System.Windows.Forms.Button();
@@ -512,6 +512,7 @@
             this.btnG4_8.Name = "btnG4_8";
             this.btnG4_8.Size = new System.Drawing.Size(82, 35);
             this.btnG4_8.TabIndex = 23;
+            this.btnG4_8.Text = "Mas...";
             this.btnG4_8.UseVisualStyleBackColor = false;
             this.btnG4_8.Click += new System.EventHandler(this.btnG4_8_Click);
             // 
@@ -1013,9 +1014,9 @@
             // repDel
             // 
             this.repDel.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repDel.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.repDel.Name = "repDel";
             this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -1352,6 +1353,7 @@
             this.btnProd11.Name = "btnProd11";
             this.btnProd11.Size = new System.Drawing.Size(82, 35);
             this.btnProd11.TabIndex = 85;
+            this.btnProd11.Text = "Mas...";
             this.btnProd11.UseVisualStyleBackColor = false;
             this.btnProd11.Click += new System.EventHandler(this.btnProd11_Click);
             // 
@@ -1391,6 +1393,7 @@
             this.btnG3_16.Name = "btnG3_16";
             this.btnG3_16.Size = new System.Drawing.Size(82, 35);
             this.btnG3_16.TabIndex = 95;
+            this.btnG3_16.Text = "Mas...";
             this.btnG3_16.UseVisualStyleBackColor = false;
             this.btnG3_16.Click += new System.EventHandler(this.btnG3_16_Click);
             // 
