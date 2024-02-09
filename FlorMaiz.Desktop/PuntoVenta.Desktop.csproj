@@ -201,6 +201,10 @@
       <Project>{3bc7f610-334b-4bfd-95da-58cabebccf8a}</Project>
       <Name>ERP.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP.Console.Task\ERP.Console.Task.csproj">
+      <Project>{f6dcbb84-9cf4-42a9-969f-a88879c1c923}</Project>
+      <Name>ERP.Console.Task</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">
       <Project>{46575e88-9879-4148-8c97-f9eacddcdee5}</Project>
       <Name>ERP.Models</Name>

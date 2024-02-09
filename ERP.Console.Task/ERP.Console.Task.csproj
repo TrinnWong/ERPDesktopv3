@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F6DCBB84-9CF4-42A9-969F-A88879C1C923}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>ERP.Console.Task</RootNamespace>
     <AssemblyName>ERP.Console.Task</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConexionBD\ConexionBD.csproj">
+      <Project>{11f22752-3a8a-4946-bd14-e4f2fa4f9307}</Project>
+      <Name>ConexionBD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERpSmart.Business\ERP.Business.csproj">
       <Project>{41b8eae3-04c3-4575-85a5-75203142965d}</Project>
       <Name>ERP.Business</Name>

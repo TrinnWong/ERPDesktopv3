@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.uiRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.uiMenuNuevaVenta = new DevExpress.XtraBars.BarButtonItem();
@@ -70,7 +71,8 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.timerToCheckNetwork = new System.Windows.Forms.Timer();
+            this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
+            this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -446,6 +448,12 @@
             this.timerToCheckNetwork.Interval = 10000;
             this.timerToCheckNetwork.Tick += new System.EventHandler(this.timerToCheckNetwork_Tick);
             // 
+            // uiTimerSincroniza
+            // 
+            this.uiTimerSincroniza.Enabled = true;
+            this.uiTimerSincroniza.Interval = 60000;
+            this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,5 +518,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private System.Windows.Forms.Timer timerToCheckNetwork;
         private DevExpress.XtraBars.BarButtonItem uiRepartoExpress;
+        private System.Windows.Forms.Timer uiTimerSincroniza;
     }
 }

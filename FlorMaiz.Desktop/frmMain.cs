@@ -343,7 +343,7 @@ namespace PuntoVenta.Desktop
             if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
               this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
             {
-                oSincronizar.ImportarExportar();
+                oSincronizar.ExportANube();
             }
             
             oFormLoading.Hide();
@@ -700,6 +700,16 @@ namespace PuntoVenta.Desktop
 
         private void timerToCheckNetwork_Tick(object sender, EventArgs e)
         {
+
+            //Si es LOCAL no mandar aviso de internet
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+               this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+            {
+                return;
+            }
+          
+
+
             string estadoConexionaRed = "";
             bool RedActiva = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
 
@@ -743,6 +753,30 @@ namespace PuntoVenta.Desktop
             frmo.StartPosition = FormStartPosition.CenterScreen;
             frmo.ShowDialog();
           
+        }
+
+        private void uiTimerSincroniza_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Process.GetProcessesByName("ERP.Console.Task").Count() == 0)
+                {
+                  
+                    Process p = new Process();
+                    ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Console.Task.exe");
+
+                    p.StartInfo = psi;
+                    p.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                int err = ERP.Business.SisBitacoraBusiness.Insert(frmMain.GetInstance().puntoVentaContext.usuarioId,
+                                       "ERP",
+                                       this.Name,
+                                       ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
         }
     }
 }

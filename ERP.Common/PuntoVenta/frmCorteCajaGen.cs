@@ -84,7 +84,7 @@ namespace ERP.Common.PuntoVenta
                     this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
                 {
                     //Validar que no haya ventas sin haberse enviado
-                    oContext = new ERPProdEntities(true);
+                    oContext = new ERPProdEntities();
 
                     if(oContext.doc_ventas.Where(w=> w.SucursalId == this.puntoVentaContext.sucursalId).Count() > 0)
                     {
