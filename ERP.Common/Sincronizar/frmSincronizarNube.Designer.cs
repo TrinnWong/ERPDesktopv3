@@ -32,6 +32,8 @@ namespace ERP.Common.Sincronizar
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSincronizarNube));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.uiImportar = new DevExpress.XtraEditors.SimpleButton();
+            this.uiExportar = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.uiSincronizar = new DevExpress.XtraEditors.SimpleButton();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
@@ -46,6 +48,8 @@ namespace ERP.Common.Sincronizar
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
@@ -56,10 +60,14 @@ namespace ERP.Common.Sincronizar
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.uiImportar);
+            this.layoutControl1.Controls.Add(this.uiExportar);
             this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.uiSincronizar);
             this.layoutControl1.Controls.Add(this.uiGrid);
@@ -70,6 +78,30 @@ namespace ERP.Common.Sincronizar
             this.layoutControl1.Size = new System.Drawing.Size(1072, 450);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // uiImportar
+            // 
+            this.uiImportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiImportar.ImageOptions.Image")));
+            this.uiImportar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiImportar.Location = new System.Drawing.Point(216, 36);
+            this.uiImportar.Name = "uiImportar";
+            this.uiImportar.Size = new System.Drawing.Size(151, 38);
+            this.uiImportar.StyleController = this.layoutControl1;
+            this.uiImportar.TabIndex = 8;
+            this.uiImportar.Text = "Importar";
+            this.uiImportar.Click += new System.EventHandler(this.uiImportar_Click);
+            // 
+            // uiExportar
+            // 
+            this.uiExportar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiExportar.ImageOptions.Image")));
+            this.uiExportar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.uiExportar.Location = new System.Drawing.Point(371, 36);
+            this.uiExportar.Name = "uiExportar";
+            this.uiExportar.Size = new System.Drawing.Size(157, 38);
+            this.uiExportar.StyleController = this.layoutControl1;
+            this.uiExportar.TabIndex = 7;
+            this.uiExportar.Text = "Exportar";
+            this.uiExportar.Click += new System.EventHandler(this.uiExportar_Click);
             // 
             // label1
             // 
@@ -87,10 +119,10 @@ namespace ERP.Common.Sincronizar
             this.uiSincronizar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.uiSincronizar.Location = new System.Drawing.Point(12, 36);
             this.uiSincronizar.Name = "uiSincronizar";
-            this.uiSincronizar.Size = new System.Drawing.Size(399, 38);
+            this.uiSincronizar.Size = new System.Drawing.Size(200, 38);
             this.uiSincronizar.StyleController = this.layoutControl1;
             this.uiSincronizar.TabIndex = 5;
-            this.uiSincronizar.Text = "Sincronizar";
+            this.uiSincronizar.Text = "Importar / Exportar";
             this.uiSincronizar.Click += new System.EventHandler(this.uiSincronizar_Click);
             // 
             // uiGrid
@@ -160,7 +192,9 @@ namespace ERP.Common.Sincronizar
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1072, 450);
             this.layoutControlGroup1.TextVisible = false;
@@ -179,7 +213,7 @@ namespace ERP.Common.Sincronizar
             this.layoutControlItem2.Control = this.uiSincronizar;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(403, 42);
+            this.layoutControlItem2.Size = new System.Drawing.Size(204, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -195,10 +229,28 @@ namespace ERP.Common.Sincronizar
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(403, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(520, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(649, 42);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(532, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.uiExportar;
+            this.layoutControlItem4.Location = new System.Drawing.Point(359, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(161, 42);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.uiImportar;
+            this.layoutControlItem5.Location = new System.Drawing.Point(204, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(155, 42);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // frmSincronizarNube
             // 
@@ -219,6 +271,8 @@ namespace ERP.Common.Sincronizar
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +294,9 @@ namespace ERP.Common.Sincronizar
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.SimpleButton uiImportar;
+        private DevExpress.XtraEditors.SimpleButton uiExportar;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

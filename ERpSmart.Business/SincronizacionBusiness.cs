@@ -43,11 +43,16 @@ namespace ERP.Business
 
 
 
-            contextNube = new ERPProdEntities(builder1.ProviderConnectionString);
-            contextLocal = new ERPProdEntities(builder2.ProviderConnectionString);
+            LoadContext();
 
             lstResultado = new List<SincronizaResultadoModel>();
 
+        }
+
+        private void LoadContext()
+        {
+            contextNube = new ERPProdEntities(builder1.ProviderConnectionString);
+            contextLocal = new ERPProdEntities(builder2.ProviderConnectionString);
         }
 
         public string ImportarALocal()
@@ -2365,7 +2370,7 @@ namespace ERP.Business
             {
                 List<doc_gastos> listaGastos = this.contextLocal.doc_gastos.ToList();
 
-                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
                     {
@@ -2402,7 +2407,11 @@ namespace ERP.Business
 
                         }
 
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_gastos");
+                        if(listaGastos.Count > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_gastos WHERE  GastoId IN ({0})", string.Join(",", listaGastos.Select(r => r.GastoId))));
+                        }
+                        
 
 
                         dbContextTransaction.Commit();
@@ -2447,7 +2456,7 @@ namespace ERP.Business
             {
                 List<doc_retiros> listaRetiros = this.contextLocal.doc_retiros.ToList();
 
-                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
                     {
@@ -2479,7 +2488,11 @@ namespace ERP.Business
                             }
                         }
 
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_retiros");
+                        if(listaRetiros.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_retiros WHERE RetiroId IN ({0})", string.Join(",", listaRetiros.Select(r => r.RetiroId))));
+                        }
+                        
 
                         dbContextTransaction.Commit();
                     }
@@ -2523,7 +2536,7 @@ namespace ERP.Business
             {
                 List<doc_maiz_maseca_rendimiento> listaRendimientos = this.contextLocal.doc_maiz_maseca_rendimiento.ToList();
 
-                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
                     {
@@ -2557,8 +2570,13 @@ namespace ERP.Business
                             
                         }
 
+                        
                         // Eliminar los registros exportados de la base de datos local
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_maiz_maseca_rendimiento");
+                        if(listaRendimientos.Count>0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_maiz_maseca_rendimiento WHERE Id IN ({0})", string.Join(",", listaRendimientos.Select(r => r.Id))));
+
+                        }
 
                         dbContextTransaction.Commit();
                     }
@@ -2641,8 +2659,13 @@ namespace ERP.Business
                             }
                         }
 
+                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_productos_sobrantes_regitro_inventario");
                         // Eliminar los registros exportados de la base de datos local
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_productos_sobrantes_registro");
+                        if (listaSobrantes.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_productos_sobrantes_registro WHERE Id IN ({0})", string.Join(",", listaSobrantes.Select(r => r.Id))));
+
+                        }
 
                         dbContextTransaction.Commit();
                     }
@@ -2693,8 +2716,8 @@ namespace ERP.Business
                 List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.ToList();
                 List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.ToList();
                 List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.ToList();
-
-                using (var dbContextTransaction = contextNube.Database.BeginTransaction())
+                List<long> lstVentasFormaPago = new List<long>();
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
                     {
@@ -2986,7 +3009,7 @@ namespace ERP.Business
                                 this.contextNube.SaveChanges();
                             }
 
-
+                            
                             foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
                             {
                                 doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
@@ -3001,19 +3024,54 @@ namespace ERP.Business
                                 this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
                                 this.contextNube.SaveChanges();
 
+                                lstVentasFormaPago.Add(itemVentaFormaPago.VentaId);
+
                             }
                         }
 
 
                         // Eliminar los registros exportados de la base de datos local
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_cargos_detalle");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_cargos");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_cargos");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden_detalle");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_pedidos_orden");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_ventas_formas_pago");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_ventas_detalle");
-                        this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM doc_ventas");
+                        if (listaCargosDetalle.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_cargos_detalle WHERE CargoDetalleId IN ({0})", string.Join(",", listaCargosDetalle.Select(r => r.CargoDetalleId))));
+
+                        }
+                        
+                        if(listaPedidosCargos.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_cargos WHERE PedidoCargoId IN ({0})", string.Join(",", listaPedidosCargos.Select(r => r.PedidoCargoId))));
+
+                        }
+                        if(listaPedidosOrdenDetalle.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_orden_detalle WHERE PedidoDetalleId IN ({0})", string.Join(",", listaPedidosOrdenDetalle.Select(r => r.PedidoDetalleId))));
+
+                        }
+                        if(listaPedidosOrden.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_orden WHERE PedidoId IN ({0})", string.Join(",", listaPedidosOrden.Select(r => r.PedidoId))));
+
+                        }
+                        if(lstVentasFormaPago.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", string.Join(",", lstVentasFormaPago.Select(r => r))));
+
+                        }
+                        if (listaCargos.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_cargos WHERE CargoId IN ({0})", string.Join(",", listaCargos.Select(r => r.CargoId))));
+
+                        }
+                        if (listaVentasDetalle.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_detalle WHERE VentaDetalleId IN ({0})", string.Join(",", listaVentasDetalle.Select(r => r.VentaDetalleId))));
+
+                        }
+                        if(listaVentas.Count() > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", string.Join(",", listaVentas.Select(r => r.VentaId))));
+
+                        }
 
                         dbContextTransaction.Commit();
                     }

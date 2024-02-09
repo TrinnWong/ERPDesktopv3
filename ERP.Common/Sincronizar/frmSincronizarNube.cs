@@ -65,5 +65,30 @@ namespace ERP.Common.Sincronizar
                 e.Appearance.ForeColor = Color.Green;
             }
         }
+
+        private void uiExportar_Click(object sender, EventArgs e)
+        {
+
+            this.uiGrid.DataSource = null;
+            oFormLoading.Show();
+            oSincronizar.lstResultado = new List<SincronizaResultadoModel>();
+            this.uiSincronizar.Enabled = false;
+            oSincronizar.ExportANube();
+            this.uiGrid.DataSource = oSincronizar.lstResultado.OrderByDescending(O => O.Detalle);
+            this.uiSincronizar.Enabled = true;
+            oFormLoading.Hide();
+        }
+
+        private void uiImportar_Click(object sender, EventArgs e)
+        {
+            this.uiGrid.DataSource = null;
+            oFormLoading.Show();
+            oSincronizar.lstResultado = new List<SincronizaResultadoModel>();
+            this.uiSincronizar.Enabled = false;
+            oSincronizar.ImportarALocal();
+            this.uiGrid.DataSource = oSincronizar.lstResultado.OrderByDescending(O => O.Detalle);
+            this.uiSincronizar.Enabled = true;
+            oFormLoading.Hide();
+        }
     }
 }
