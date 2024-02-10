@@ -104,7 +104,7 @@ namespace ERP.Common.PuntoVenta
                     oContext = new ERPProdEntities(true);
                 }
 
-                
+                oContext = new ERPProdEntities(true);
                 DateTime fechaAct = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                 /********Validar si hay pedidos pendientes************************/
                 if (oContext.doc_pedidos_orden
@@ -126,6 +126,7 @@ namespace ERP.Common.PuntoVenta
 
 
                 /*********Validar si existen movimientos para corte**************/
+                oContext = new ERPProdEntities(true);
                 bool permitirCorteCeros = false;
                 ObjectParameter pHayMovs = new ObjectParameter("pHayMovimientos", false);
                

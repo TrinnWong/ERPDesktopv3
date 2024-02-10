@@ -14,14 +14,14 @@ namespace ERP.Console.Task
             try
             {
 
-               
 
+                System.Console.WriteLine("Linea 18");
                 bool RedActiva = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
 
                 if (RedActiva)
                 {
 
-
+                    System.Console.WriteLine("Linea 24");
                     System.Uri Url = new System.Uri("https://www.google.com/");
 
                     System.Net.WebRequest WebRequest;
@@ -30,6 +30,7 @@ namespace ERP.Console.Task
 
                     try
                     {
+                        System.Console.WriteLine("Linea 33");
                         objetoResp = WebRequest.GetResponse();
                         objetoResp.Close();
 
@@ -41,6 +42,7 @@ namespace ERP.Console.Task
                     }
                     catch (Exception ex)
                     {
+                        System.Console.WriteLine("ERROR:"+ex.Message+" "+  ex.StackTrace);
                         ERP.Business.SisBitacoraBusiness.Insert(1,
                                            "ERP.Console.Task",
                                            "Program",
@@ -55,9 +57,13 @@ namespace ERP.Console.Task
 
 
                 }
+
+                //System.Console.ReadKey();
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine("Error:",ex.StackTrace);
+                //System.Console.ReadKey();
 
                 ERP.Business.SisBitacoraBusiness.Insert(1,
                                           "ERP.Console.Task",

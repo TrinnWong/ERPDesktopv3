@@ -72,6 +72,7 @@
             this.textBox11 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.subReport2 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subReport3 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
+            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.subDigito = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subGastos = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
@@ -90,7 +91,6 @@
             this.subVales = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subRetiros = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.subReport1 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
-            this.subReport4 = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox6)).BeginInit();
@@ -667,6 +667,17 @@
             this.subReport3.Top = 4.562F;
             this.subReport3.Width = 2.833F;
             // 
+            // subReport4
+            // 
+            this.subReport4.CloseBorder = false;
+            this.subReport4.Height = 0.5157783F;
+            this.subReport4.Left = 0.09350002F;
+            this.subReport4.Name = "subReport4";
+            this.subReport4.Report = null;
+            this.subReport4.ReportName = "subReport1";
+            this.subReport4.Top = 2.984222F;
+            this.subReport4.Width = 2.833F;
+            // 
             // groupFooter1
             // 
             this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
@@ -889,25 +900,14 @@
             this.subReport1.Visible = false;
             this.subReport1.Width = 2.894F;
             // 
-            // subReport4
-            // 
-            this.subReport4.CloseBorder = false;
-            this.subReport4.Height = 0.5157783F;
-            this.subReport4.Left = 0.09350002F;
-            this.subReport4.Name = "subReport4";
-            this.subReport4.Report = null;
-            this.subReport4.ReportName = "subReport1";
-            this.subReport4.Top = 2.984222F;
-            this.subReport4.Width = 2.833F;
-            // 
             // rptCorteCaja
             // 
             this.MasterReport = false;
             this.PageSettings.DefaultPaperSize = false;
-            this.PageSettings.Margins.Bottom = 0.1F;
-            this.PageSettings.Margins.Left = 0.2F;
-            this.PageSettings.Margins.Right = 0.2F;
-            this.PageSettings.Margins.Top = 0.1F;
+            this.PageSettings.Margins.Bottom = 0.01F;
+            this.PageSettings.Margins.Left = 0.01F;
+            this.PageSettings.Margins.Right = 0.01F;
+            this.PageSettings.Margins.Top = 0.01F;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
