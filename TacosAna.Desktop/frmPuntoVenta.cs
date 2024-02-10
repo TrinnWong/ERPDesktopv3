@@ -98,7 +98,7 @@ namespace TacosAna.Desktop
 
         /**variables para saber cuantos botones hay disponibles por sección*/
         private static int numBtnProds = 11;
-        private static int numBtnGuisos = 15;
+        private static int numBtnGuisos = 16;
         private static int numBtnBebidas1 = 7;
         private static int numBtnBebidas2 = 15;
         
@@ -463,6 +463,8 @@ namespace TacosAna.Desktop
                 }
             }
 
+            this.btnG4_8.Enabled = enable;
+
         }
 
         private void EnableBtnG5(bool enable)
@@ -484,6 +486,8 @@ namespace TacosAna.Desktop
 
                 }
             }
+
+            this.btnG5_16.Enabled = enable;
         }
 
       
@@ -826,7 +830,7 @@ namespace TacosAna.Desktop
             btnG5_13.Text = "";
             btnG5_14.Text = "";
             btnG5_15.Text = "";
-            btnG5_16.Text = "";
+            //btnG5_16.Text = "";
 
             GetGuisos();
             
@@ -1815,6 +1819,8 @@ namespace TacosAna.Desktop
                 famBebida = Convert.ToInt32(btn.AccessibleName);
 
                 GetBebidasBySubFam(famBebida);
+
+               
             }
             catch (Exception ex)
             {
@@ -3926,31 +3932,7 @@ namespace TacosAna.Desktop
 
         private void btnG3_16_Click(object sender, EventArgs e)
         {
-            frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
-
-            oItemsAdicionales.lstItems = lstGuisos
-                    .Select(
-                    s=>new ERP.Models.Otros.ItemGenericModel()
-                    {
-                         Id = s.ProductoId,
-                          Descripcion = s.DescripcionCorta
-                    }
-                ).ToList();                   
-
-            oItemsAdicionales.StartPosition = FormStartPosition.CenterScreen;
-            DialogResult resultDialog = oItemsAdicionales.ShowDialog();
-
-            if (resultDialog == DialogResult.OK)
-            {
-
-                btnTemp = new Button();
-                btnTemp.Visible = false;
-                btnTemp.AccessibleName = oItemsAdicionales.result.Id.ToString();
-                btnTemp.Text = oItemsAdicionales.result.Descripcion;
-
-
-                ClicProducto(btnTemp);
-            }
+            ClicProducto(sender);
         }
 
         private void btnG5_4_Click(object sender, EventArgs e)

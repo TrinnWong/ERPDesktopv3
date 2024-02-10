@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnProd1 = new System.Windows.Forms.Button();
             this.btnProd2 = new System.Windows.Forms.Button();
             this.btnProd3 = new System.Windows.Forms.Button();
@@ -292,7 +292,7 @@
             this.uiEnter.ForeColor = System.Drawing.Color.Black;
             this.uiEnter.Location = new System.Drawing.Point(273, 200);
             this.uiEnter.Name = "uiEnter";
-            this.uiEnter.Size = new System.Drawing.Size(255, 34);
+            this.uiEnter.Size = new System.Drawing.Size(340, 34);
             this.uiEnter.TabIndex = 11;
             this.uiEnter.Text = "ENTER";
             this.uiEnter.UseVisualStyleBackColor = false;
@@ -1014,9 +1014,9 @@
             // repDel
             // 
             this.repDel.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.repDel.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repDel.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.repDel.Name = "repDel";
             this.repDel.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -1231,11 +1231,11 @@
             // uiPedido
             // 
             this.uiPedido.Enabled = false;
-            this.uiPedido.Location = new System.Drawing.Point(531, 203);
+            this.uiPedido.Location = new System.Drawing.Point(616, 203);
             this.uiPedido.Name = "uiPedido";
             this.uiPedido.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiPedido.Properties.Appearance.Options.UseFont = true;
-            this.uiPedido.Size = new System.Drawing.Size(607, 31);
+            this.uiPedido.Size = new System.Drawing.Size(522, 31);
             this.uiPedido.TabIndex = 76;
             // 
             // uiCalculadora
@@ -1393,7 +1393,6 @@
             this.btnG3_16.Name = "btnG3_16";
             this.btnG3_16.Size = new System.Drawing.Size(82, 35);
             this.btnG3_16.TabIndex = 95;
-            this.btnG3_16.Text = "Mas...";
             this.btnG3_16.UseVisualStyleBackColor = false;
             this.btnG3_16.Click += new System.EventHandler(this.btnG3_16_Click);
             // 
@@ -1635,7 +1634,6 @@
             this.btnG5_16.Size = new System.Drawing.Size(82, 36);
             this.btnG5_16.TabIndex = 131;
             this.btnG5_16.Text = "Mas...";
-            this.btnG5_16.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnG5_16.UseVisualStyleBackColor = false;
             this.btnG5_16.Click += new System.EventHandler(this.btnG5_16_Click);
             // 
