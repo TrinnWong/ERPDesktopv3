@@ -100,7 +100,7 @@ namespace TacosAna.Desktop
         private static int numBtnProds = 11;
         private static int numBtnGuisos = 15;
         private static int numBtnBebidas1 = 7;
-        private static int numBtnBebidas2 = 16;
+        private static int numBtnBebidas2 = 15;
         
         
         /**variables para saber cuantos botones se usarán por sección*/
@@ -1190,7 +1190,8 @@ namespace TacosAna.Desktop
                         (w.cat_familias.Descripcion.ToUpper().Contains("BEBIDA") ||
                         w.cat_familias.Descripcion.ToUpper().Contains("REFRESCO") ||
                         w.cat_familias.Descripcion.ToUpper().Contains("INDIVIDUAL") ||
-                        w.cat_familias.Descripcion.ToUpper().Contains("SALSA") )
+                        w.cat_familias.Descripcion.ToUpper().Contains("SALSA") ||
+                        w.cat_familias.Descripcion.ToUpper().Contains("DULCE"))
                         ).ToList();
 
                     numBtnBebidas1_u = lstSubFamBebidas.Count;
@@ -3976,7 +3977,7 @@ namespace TacosAna.Desktop
 
         private void btnG4_8_Click(object sender, EventArgs e)
         {
-            clicBebida((Button)sender);
+           
 
 
             frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
@@ -4261,7 +4262,35 @@ namespace TacosAna.Desktop
 
         private void btnG5_16_Click(object sender, EventArgs e)
         {
-            clicBebida2((Button)sender);
+           
+
+
+            frmItemsAdicionales oItemsAdicionales = new frmItemsAdicionales();
+
+            oItemsAdicionales.lstItems = this.lstBebidasFiltro
+                    .Select(
+                    s => new ERP.Models.Otros.ItemGenericModel()
+                    {
+                        Id = s.ProductoId,
+                        Descripcion = s.DescripcionCorta
+                    }
+                ).ToList();
+
+            oItemsAdicionales.StartPosition = FormStartPosition.CenterScreen;
+            DialogResult resultDialog = oItemsAdicionales.ShowDialog();
+
+            if (resultDialog == DialogResult.OK)
+            {
+
+                btnTemp = new Button();
+                btnTemp.Visible = false;
+                btnTemp.AccessibleName = oItemsAdicionales.result.Id.ToString();
+                btnTemp.Text = oItemsAdicionales.result.Descripcion;
+
+
+                clicBebida2(btnTemp);
+            }
+
         }
 
         private bool paqTacoIndividualCompleto()
