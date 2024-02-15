@@ -184,9 +184,9 @@ namespace ERP.Common.Reports
                     {
                         this.viewer1.Document.Printer.PrinterSettings.Copies = copias;
                     }
-                    
+                   
                         //this.viewer1.Document.Printer.PrinterSettings.Copies = copias;
-                        this.viewer1.Print(false, false, true);
+                        this.viewer1.Print(false, false, false);
                    // }
                    // this.Show();
                    
@@ -493,6 +493,9 @@ namespace ERP.Common.Reports
 
                 this.viewer1.Document = oReport.Document;
                 oReport.Document.Printer.PrinterName = "";
+                oReport.Document.PrintOptions.PrintPageBorder = false;
+                oReport.PageSettings.PaperHeight -= 1;
+
                 oReport.Run();
                 showTicket2();
             }

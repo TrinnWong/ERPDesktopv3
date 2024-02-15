@@ -46,7 +46,6 @@
             this.textBox7 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.line3 = new GrapeCity.ActiveReports.SectionReportModel.Line();
-            this.line4 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.subRepFoto = new GrapeCity.ActiveReports.SectionReportModel.SubReport();
             this.textBox5 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox15 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
@@ -116,7 +115,7 @@
             this.textBox11,
             this.textBox12,
             this.textBox14});
-            this.detail.Height = 0.1896667F;
+            this.detail.Height = 0.1375833F;
             this.detail.Name = "detail";
             // 
             // textBox10
@@ -185,11 +184,10 @@
             this.textBox7,
             this.label4,
             this.line3,
-            this.line4,
             this.subRepFoto,
             this.textBox5,
             this.textBox15});
-            this.groupHeader1.Height = 1.865333F;
+            this.groupHeader1.Height = 1.8445F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
             // 
@@ -213,7 +211,7 @@
             this.textBox2.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox2.Text = "textBox1";
             this.textBox2.Top = 0.524F;
-            this.textBox2.Width = 2.639F;
+            this.textBox2.Width = 2.601F;
             // 
             // textBox4
             // 
@@ -269,7 +267,7 @@
             // 
             // label1
             // 
-            this.label1.Height = 0.538F;
+            this.label1.Height = 0.1710002F;
             this.label1.HyperLink = null;
             this.label1.Left = 0.1259999F;
             this.label1.Name = "label1";
@@ -280,7 +278,7 @@
             // 
             // label2
             // 
-            this.label2.Height = 0.538F;
+            this.label2.Height = 0.1710002F;
             this.label2.HyperLink = null;
             this.label2.Left = 0.6249999F;
             this.label2.Name = "label2";
@@ -291,7 +289,7 @@
             // 
             // label3
             // 
-            this.label3.Height = 0.538F;
+            this.label3.Height = 0.1710002F;
             this.label3.HyperLink = null;
             this.label3.Left = 2.258F;
             this.label3.Name = "label3";
@@ -316,16 +314,16 @@
             // 
             this.textBox7.DataField = "RFC";
             this.textBox7.Height = 0.221F;
-            this.textBox7.Left = 1.08F;
+            this.textBox7.Left = 1.066F;
             this.textBox7.Name = "textBox7";
             this.textBox7.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox7.Text = "TORTILLERÍAS DE LA TORRE";
-            this.textBox7.Top = 0.05500001F;
+            this.textBox7.Top = 0.055F;
             this.textBox7.Width = 1.67F;
             // 
             // label4
             // 
-            this.label4.Height = 0.538F;
+            this.label4.Height = 0.1710002F;
             this.label4.HyperLink = null;
             this.label4.Left = 1.718F;
             this.label4.Name = "label4";
@@ -337,39 +335,26 @@
             // line3
             // 
             this.line3.Height = 0F;
-            this.line3.Left = 0.03599994F;
+            this.line3.Left = 0.135F;
             this.line3.LineWeight = 1F;
             this.line3.Name = "line3";
             this.line3.Top = 1.846F;
-            this.line3.Width = 2.75F;
-            this.line3.X1 = 0.03599994F;
-            this.line3.X2 = 2.786F;
+            this.line3.Width = 2.615F;
+            this.line3.X1 = 0.135F;
+            this.line3.X2 = 2.75F;
             this.line3.Y1 = 1.846F;
             this.line3.Y2 = 1.846F;
-            // 
-            // line4
-            // 
-            this.line4.Height = 0F;
-            this.line4.Left = 0.05300003F;
-            this.line4.LineWeight = 1F;
-            this.line4.Name = "line4";
-            this.line4.Top = 2.282F;
-            this.line4.Width = 2.824F;
-            this.line4.X1 = 0.05300003F;
-            this.line4.X2 = 2.877F;
-            this.line4.Y1 = 2.282F;
-            this.line4.Y2 = 2.282F;
             // 
             // subRepFoto
             // 
             this.subRepFoto.CloseBorder = false;
-            this.subRepFoto.Height = 0.524F;
-            this.subRepFoto.Left = 0.102F;
+            this.subRepFoto.Height = 0.469F;
+            this.subRepFoto.Left = 0.135F;
             this.subRepFoto.Name = "subRepFoto";
             this.subRepFoto.Report = null;
             this.subRepFoto.ReportName = "";
-            this.subRepFoto.Top = 0F;
-            this.subRepFoto.Width = 0.927F;
+            this.subRepFoto.Top = 0.055F;
+            this.subRepFoto.Width = 0.8940001F;
             // 
             // textBox5
             // 
@@ -380,18 +365,18 @@
             this.textBox5.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox5.Text = null;
             this.textBox5.Top = 1.275F;
-            this.textBox5.Width = 2.686F;
+            this.textBox5.Width = 2.65F;
             // 
             // textBox15
             // 
             this.textBox15.DataField = "TextoCabecera2";
             this.textBox15.Height = 0.2F;
-            this.textBox15.Left = 0.09599993F;
+            this.textBox15.Left = 0.12F;
             this.textBox15.Name = "textBox15";
             this.textBox15.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox15.Text = null;
             this.textBox15.Top = 1.475F;
-            this.textBox15.Width = 2.654F;
+            this.textBox15.Width = 2.616F;
             // 
             // groupFooter1
             // 
@@ -560,7 +545,7 @@
             this.subFormasPago.Report = null;
             this.subFormasPago.ReportName = "subReport1";
             this.subFormasPago.Top = 0.744F;
-            this.subFormasPago.Width = 2.66F;
+            this.subFormasPago.Width = 2.624F;
             // 
             // label5
             // 
@@ -595,18 +580,18 @@
             this.uiMotivoCancelacion.Style = "font-size: 6.75pt; ddo-char-set: 0";
             this.uiMotivoCancelacion.Text = "textBox18";
             this.uiMotivoCancelacion.Top = 1.694F;
-            this.uiMotivoCancelacion.Width = 2.684F;
+            this.uiMotivoCancelacion.Width = 2.648F;
             // 
             // textBox16
             // 
             this.textBox16.DataField = "TextoPie";
             this.textBox16.Height = 0.224F;
-            this.textBox16.Left = 0.106F;
+            this.textBox16.Left = 0.12F;
             this.textBox16.Name = "textBox16";
             this.textBox16.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox16.Text = null;
             this.textBox16.Top = 1.338F;
-            this.textBox16.Width = 2.68F;
+            this.textBox16.Width = 2.63F;
             // 
             // label10
             // 
@@ -629,7 +614,7 @@
             this.label11.Style = "font-size: 8.25pt; text-align: left; vertical-align: middle; ddo-char-set: 0";
             this.label11.Text = "Le Atendió:";
             this.label11.Top = 1.556F;
-            this.label11.Width = 1.284F;
+            this.label11.Width = 1.248F;
             // 
             // subReport1
             // 
@@ -640,7 +625,7 @@
             this.subReport1.Report = null;
             this.subReport1.ReportName = "";
             this.subReport1.Top = 1.125F;
-            this.subReport1.Width = 2.661F;
+            this.subReport1.Width = 2.625F;
             // 
             // line2
             // 
@@ -662,13 +647,13 @@
             this.PageSettings.Margins.Bottom = 0F;
             this.PageSettings.Margins.Left = 0F;
             this.PageSettings.Margins.Right = 0F;
-            this.PageSettings.Margins.Top = 0.02F;
+            this.PageSettings.Margins.Top = 0F;
             this.PageSettings.Orientation = GrapeCity.ActiveReports.Document.Section.PageOrientation.Portrait;
             this.PageSettings.PaperHeight = 8.26F;
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "80(72.1) x 210 mm";
             this.PageSettings.PaperWidth = 2.83F;
-            this.PrintWidth = 2.881944F;
+            this.PrintWidth = 2.850694F;
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);
             this.Sections.Add(this.groupFooter1);
@@ -754,7 +739,6 @@
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox7;
         private GrapeCity.ActiveReports.SectionReportModel.Label label4;
         private GrapeCity.ActiveReports.SectionReportModel.Line line3;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line4;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox5;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox15;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox16;

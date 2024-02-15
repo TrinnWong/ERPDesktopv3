@@ -138,6 +138,21 @@ namespace ERP.Business
                 ImportCatBasculas();
                 ImportCatEquiposComputo();
                 ImportCatBasculasConfiguracion();
+                ImportCatConfiguracionTicketVenta();
+
+
+                //Actualizar ultimo Folio en BD LOCAL               
+                sucursalId = cuenta.ClaveSucursal ?? 0;
+
+                sis_preferencias_sucursales entityPreferencia = this.contextLocal.sis_preferencias_sucursales
+                    .Where(w => w.sis_preferencias.Preferencia == "PV-Local" && w.SucursalId == sucursalId).FirstOrDefault();
+
+                if (entityPreferencia != null)
+                {
+                    entityPreferencia.Valor = (this.contextNube.doc_ventas.Max(v => (long?)v.VentaId) ?? 0).ToString();
+                    this.contextLocal.SaveChanges();
+                }
+
                 return "";
             }
             catch (Exception ex)
@@ -2339,6 +2354,65 @@ namespace ERP.Business
             }
         }
 
+        public bool ImportCatConfiguracionTicketVenta()
+        {
+            try
+            {
+                List<cat_configuracion_ticket_venta> lstConfiguracionTicketVenta = this.contextNube.cat_configuracion_ticket_venta.ToList();
+
+                foreach (cat_configuracion_ticket_venta itemConfiguracionTicketVenta in lstConfiguracionTicketVenta)
+                {
+                    cat_configuracion_ticket_venta configuracionTicketVentaSinc = this.contextLocal.cat_configuracion_ticket_venta
+                        .Where(w => w.ConfiguracionTicketVentaId == itemConfiguracionTicketVenta.ConfiguracionTicketVentaId)
+                        .FirstOrDefault();
+
+                    if (configuracionTicketVentaSinc != null)
+                    {
+                        // Actualizar propiedades existentes
+                        configuracionTicketVentaSinc.TextoCabecera1 = itemConfiguracionTicketVenta.TextoCabecera1;
+                        configuracionTicketVentaSinc.TextoCabecera2 = itemConfiguracionTicketVenta.TextoCabecera2;
+                        configuracionTicketVentaSinc.TextoPie = itemConfiguracionTicketVenta.TextoPie;
+                       
+                        configuracionTicketVentaSinc.SucursalId = itemConfiguracionTicketVenta.SucursalId;
+
+                        // Actualizar otras propiedades según sea necesario
+                        contextLocal.SaveChanges();
+                    }
+                    else
+                    {
+                        // Crear nueva configuración de ticket de venta
+                        configuracionTicketVentaSinc = new cat_configuracion_ticket_venta();
+                        configuracionTicketVentaSinc.ConfiguracionTicketVentaId = itemConfiguracionTicketVenta.ConfiguracionTicketVentaId;
+                        configuracionTicketVentaSinc.TextoCabecera1 = itemConfiguracionTicketVenta.TextoCabecera1;
+                        configuracionTicketVentaSinc.TextoCabecera2 = itemConfiguracionTicketVenta.TextoCabecera2;
+                        configuracionTicketVentaSinc.TextoPie = itemConfiguracionTicketVenta.TextoPie;
+                        configuracionTicketVentaSinc.CreadoEl = DateTime.Now;
+                        configuracionTicketVentaSinc.SucursalId = itemConfiguracionTicketVenta.SucursalId;
+
+                        // Puedes asignar otras propiedades según sea necesario
+                        contextLocal.cat_configuracion_ticket_venta.Add(configuracionTicketVentaSinc);
+                        contextLocal.SaveChanges();
+                    }
+                }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Configuración Ticket de Venta", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ImportConfiguracionTicketVenta",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Configuración Ticket de Venta", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
 
         //Exportar hacia la NUBE
         public string ExportANube()
@@ -2368,12 +2442,14 @@ namespace ERP.Business
         {
             try
             {
+                
                 List<doc_gastos> listaGastos = this.contextLocal.doc_gastos.ToList();
 
                 using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
                     {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
                         foreach (doc_gastos gasto in listaGastos)
                         {
                             doc_gastos exists = this.contextNube.doc_gastos.Where(w => w.CreadoEl == gasto.CreadoEl &&
@@ -2391,7 +2467,7 @@ namespace ERP.Business
                                     Obervaciones = gasto.Obervaciones,
                                     Monto = gasto.Monto,
                                     CajaId = gasto.CajaId,
-                                    CreadoEl = gasto.CreadoEl,
+                                    CreadoEl = fechaHoraServidor,
                                     CreadoPor = gasto.CreadoPor,
                                     SucursalId = gasto.SucursalId,
                                     Activo = gasto.Activo
@@ -2460,6 +2536,8 @@ namespace ERP.Business
                 {
                     try
                     {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
+
                         foreach (doc_retiros retiro in listaRetiros)
                         {
                             doc_retiros exists = this.contextNube.doc_retiros
@@ -2475,7 +2553,7 @@ namespace ERP.Business
                                 exists = new doc_retiros
                                 {
                                     RetiroId = (this.contextNube.doc_retiros.Max(m => (int?)m.RetiroId) ?? 0) + 1,
-                                    FechaRetiro = retiro.FechaRetiro,
+                                    FechaRetiro = fechaHoraServidor,
                                     MontoRetiro = retiro.MontoRetiro,
                                     CreadoPor = retiro.CreadoPor,
                                     CajaId = retiro.CajaId,
@@ -2540,6 +2618,8 @@ namespace ERP.Business
                 {
                     try
                     {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
+
                         foreach (doc_maiz_maseca_rendimiento rendimiento in listaRendimientos)
                         {
                             doc_maiz_maseca_rendimiento exists = this.contextNube.doc_maiz_maseca_rendimiento
@@ -2558,7 +2638,7 @@ namespace ERP.Business
                                     TortillaMaizRendimiento = rendimiento.TortillaMaizRendimiento,
                                     TortillaMasecaRendimiento = rendimiento.TortillaMasecaRendimiento,
                                     TortillaTotalRendimiento = rendimiento.TortillaTotalRendimiento,
-                                    CreadoEl = rendimiento.CreadoEl,
+                                    CreadoEl = fechaHoraServidor,
                                     CreadoPor = rendimiento.CreadoPor,
                                     ModificadoEl = rendimiento.ModificadoEl,
                                     ModificadoPor = rendimiento.ModificadoPor
@@ -2623,6 +2703,8 @@ namespace ERP.Business
                 {
                     try
                     {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
+
                         foreach (doc_productos_sobrantes_registro sobrante in listaSobrantes)
                         {
                             doc_productos_sobrantes_registro exists = this.contextNube.doc_productos_sobrantes_registro
@@ -2639,7 +2721,7 @@ namespace ERP.Business
                                     SucursalId = sobrante.SucursalId,
                                     ProductoId = sobrante.ProductoId,
                                     CantidadSobrante = sobrante.CantidadSobrante,
-                                    CreadoEl = sobrante.CreadoEl,
+                                    CreadoEl = fechaHoraServidor,
                                     CreadoPor = sobrante.CreadoPor,
                                     Cerrado = sobrante.Cerrado,
                                     CerradoEl = sobrante.CerradoEl,
@@ -2721,6 +2803,8 @@ namespace ERP.Business
                 {
                     try
                     {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
+
                         foreach (doc_pedidos_orden pedidoOrden in listaPedidosOrden)
                         {
                             doc_pedidos_orden exists = null;
@@ -2740,7 +2824,7 @@ namespace ERP.Business
                                     ClienteId = pedidoOrden.ClienteId,
                                     MotivoCancelacion = pedidoOrden.MotivoCancelacion,
                                     Activo = pedidoOrden.Activo,
-                                    CreadoEl = pedidoOrden.CreadoEl,
+                                    CreadoEl = fechaHoraServidor,
                                     CreadoPor = pedidoOrden.CreadoPor,
                                     Personas = pedidoOrden.Personas,
                                     FechaApertura = pedidoOrden.FechaApertura,
@@ -2777,7 +2861,7 @@ namespace ERP.Business
                                         itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
                                         itemCargoNew.ClienteId = itemCargo.ClienteId;
                                         itemCargoNew.CreadoPor = itemCargo.CreadoPor;
-                                        itemCargoNew.CredoEl = itemCargo.CredoEl;
+                                        itemCargoNew.CredoEl = fechaHoraServidor;
                                         itemCargoNew.Descripcion = itemCargo.Descripcion;
                                         itemCargoNew.Descuento = itemCargo.Descuento;
                                         itemCargoNew.ProductoId = itemCargo.ProductoId;
@@ -2793,7 +2877,7 @@ namespace ERP.Business
 
                                             itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
                                             itemCargoDetalleNEW.CargoId = itemCargoNew.ClienteId;
-                                            itemCargoDetalleNEW.CreadoEl = itemCargoDetalle.CreadoEl;
+                                            itemCargoDetalleNEW.CreadoEl = fechaHoraServidor;
                                             itemCargoDetalleNEW.Descuento = itemCargoDetalle.Descuento;
                                             itemCargoDetalleNEW.FechaCargo = itemCargoDetalle.FechaCargo;
                                             itemCargoDetalleNEW.FechaPago = itemCargoDetalle.FechaPago;
@@ -2809,7 +2893,7 @@ namespace ERP.Business
                                         doc_pedidos_cargos itemPedidoCargNEW = new doc_pedidos_cargos();
 
                                         itemPedidoCargNEW.CargoId = itemCargo.CargoId;
-                                        itemPedidoCargNEW.CreadoEl = itemPedidoCArgo.CreadoEl;
+                                        itemPedidoCargNEW.CreadoEl = fechaHoraServidor;
                                         itemPedidoCargNEW.CreadoPor = itemPedidoCArgo.CreadoPor;
                                         itemPedidoCargNEW.PedidoCargoId = (this.contextNube.doc_pedidos_cargos.Max(m => (int?)m.PedidoCargoId) ?? 0) + 1;
                                         itemPedidoCargNEW.PedidoId = exists.PedidoId;
@@ -2832,7 +2916,7 @@ namespace ERP.Business
                                     itemPedidoOrdenDetalleNEW.CargoAdicionalId = itemPedidoOrdenDetalle.CargoAdicionalId;
                                     itemPedidoOrdenDetalleNEW.CargoAdicionalMonto = itemPedidoOrdenDetalle.CargoAdicionalMonto;
                                     itemPedidoOrdenDetalleNEW.ComandaId = itemPedidoOrdenDetalle.ComandaId;
-                                    itemPedidoOrdenDetalleNEW.CreadoEl = itemPedidoOrdenDetalle.CreadoEl;
+                                    itemPedidoOrdenDetalleNEW.CreadoEl = fechaHoraServidor;
                                     itemPedidoOrdenDetalleNEW.CreadoPor = itemPedidoOrdenDetalle.CreadoPor;
                                     itemPedidoOrdenDetalleNEW.Descripcion = itemPedidoOrdenDetalle.Descripcion;
                                     itemPedidoOrdenDetalleNEW.Descuento = itemPedidoOrdenDetalle.Descuento;
@@ -2870,9 +2954,9 @@ namespace ERP.Business
                                     itemVentaNEW.DescuentoVentaSiNo = itemVenta.DescuentoVentaSiNo;
                                     itemVentaNEW.EmpleadoId = itemVenta.EmpleadoId;
                                     itemVentaNEW.Facturar = itemVenta.Facturar;
-                                    itemVentaNEW.Fecha = itemVenta.Fecha;
+                                    itemVentaNEW.Fecha = fechaHoraServidor;
                                     itemVentaNEW.FechaCancelacion = itemVenta.FechaCancelacion;
-                                    itemVentaNEW.FechaCreacion = itemVenta.FechaCreacion;
+                                    itemVentaNEW.FechaCreacion = fechaHoraServidor;
                                     itemVentaNEW.Folio = itemVenta.Folio;
                                     itemVentaNEW.Impuestos = itemVenta.Impuestos;
                                     itemVentaNEW.MontoDescuentoVenta = itemVenta.MontoDescuentoVenta;
@@ -2904,7 +2988,7 @@ namespace ERP.Business
                                         itemVentaDetalleNEW.CargoDetalleId = itemVentaDetalle.CargoDetalleId;
                                         itemVentaDetalleNEW.Descripcion = itemVentaDetalle.Descripcion;
                                         itemVentaDetalleNEW.Descuento = itemVentaDetalle.Descuento;
-                                        itemVentaDetalleNEW.FechaCreacion = itemVentaDetalle.FechaCreacion;
+                                        itemVentaDetalleNEW.FechaCreacion = fechaHoraServidor;
                                         itemVentaDetalleNEW.Impuestos = itemVentaDetalle.Impuestos;
                                         itemVentaDetalleNEW.ParaLlevar = itemVentaDetalle.ParaLlevar;
                                         itemVentaDetalleNEW.ParaMesa = itemVentaDetalle.ParaMesa;
@@ -2929,7 +3013,7 @@ namespace ERP.Business
 
                                         itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
                                         itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                                        itemVentaFormaPagoNEW.FechaCreacion = itemVentaFormaPago.FechaCreacion;
+                                        itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
                                         itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
                                         itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
                                         itemVentaFormaPagoNEW.VentaId = itemVentaNEW.VentaId;
@@ -2959,10 +3043,10 @@ namespace ERP.Business
                             itemVentaNEWSP.DescuentoVentaSiNo = itemVentaSP.DescuentoVentaSiNo;
                             itemVentaNEWSP.EmpleadoId = itemVentaSP.EmpleadoId;
                             itemVentaNEWSP.Facturar = itemVentaSP.Facturar;
-                            itemVentaNEWSP.Fecha = itemVentaSP.Fecha;
+                            itemVentaNEWSP.Fecha = fechaHoraServidor;
                             itemVentaNEWSP.FechaCancelacion = itemVentaSP.FechaCancelacion;
-                            itemVentaNEWSP.FechaCreacion = itemVentaSP.FechaCreacion;
-                            itemVentaNEWSP.Folio = itemVentaSP.Folio;
+                            itemVentaNEWSP.FechaCreacion = fechaHoraServidor;
+                            itemVentaNEWSP.Folio = itemVentaNEWSP.VentaId.ToString();
                             itemVentaNEWSP.Impuestos = itemVentaSP.Impuestos;
                             itemVentaNEWSP.MontoDescuentoVenta = itemVentaSP.MontoDescuentoVenta;
                             itemVentaNEWSP.MotivoCancelacion = itemVentaSP.MotivoCancelacion;
@@ -2990,7 +3074,7 @@ namespace ERP.Business
                                 itemVentaDetalleSPNEW.CargoDetalleId = itemVentaDetalleSP.CargoDetalleId;
                                 itemVentaDetalleSPNEW.Descripcion = itemVentaDetalleSP.Descripcion;
                                 itemVentaDetalleSPNEW.Descuento = itemVentaDetalleSP.Descuento;
-                                itemVentaDetalleSPNEW.FechaCreacion = itemVentaDetalleSP.FechaCreacion;
+                                itemVentaDetalleSPNEW.FechaCreacion = fechaHoraServidor;
                                 itemVentaDetalleSPNEW.Impuestos = itemVentaDetalleSP.Impuestos;
                                 itemVentaDetalleSPNEW.ParaLlevar = itemVentaDetalleSP.ParaLlevar;
                                 itemVentaDetalleSPNEW.ParaMesa = itemVentaDetalleSP.ParaMesa;
@@ -3016,7 +3100,7 @@ namespace ERP.Business
 
                                 itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
                                 itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                                itemVentaFormaPagoNEW.FechaCreacion = itemVentaFormaPago.FechaCreacion;
+                                itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
                                 itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
                                 itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
                                 itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
@@ -3088,7 +3172,18 @@ namespace ERP.Business
                     }
                 }
 
-                
+                //Actualizar ultimo Folio en BD LOCAL
+                var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
+                sucursalId = cuenta.ClaveSucursal ?? 0;
+
+                sis_preferencias_sucursales entityPreferencia = this.contextLocal.sis_preferencias_sucursales
+                    .Where(w => w.sis_preferencias.Preferencia == "PV-Local" && w.SucursalId == sucursalId).FirstOrDefault();
+
+                if(entityPreferencia!= null)
+                {
+                    entityPreferencia.Valor = (this.contextNube.doc_ventas.Max(v => (long?)v.VentaId)??0).ToString();
+                    this.contextLocal.SaveChanges();
+                }
 
                 lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = true, Detalle = "" });
 

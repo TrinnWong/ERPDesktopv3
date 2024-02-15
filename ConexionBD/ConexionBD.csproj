@@ -3431,6 +3431,8 @@
     <Content Include="Versiones\2024.01.02\02 sis_preferencias.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Versiones\2024.01.02\03 [p_corte_caja_validaMovs].sql" />
+    <Content Include="Versiones\2024.01.02\04 [p_InsertarVenta].sql" />
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
