@@ -1635,7 +1635,7 @@ namespace PuntoVenta.Desktop
 
         private void uiGuardar_Click(object sender, EventArgs e)
         {
-            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PV-LOCAL", this.puntoVentaContext.usuarioId))
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
             {
                 ERP.Utils.MessageBoxUtil.ShowWarning("Usa la opción de REPARTO(REGISTRO EXPRESS) para el registro de pedidos");
                 return;
@@ -1688,7 +1688,7 @@ namespace PuntoVenta.Desktop
 
         private void uiBuscarPedido_Click(object sender, EventArgs e)
         {
-            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PV-LOCAL", this.puntoVentaContext.usuarioId))
+            if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
             {
                 ERP.Utils.MessageBoxUtil.ShowWarning("Usa la opción de REPARTO(REGISTRO EXPRESS) para el registro de pedidos");
                 return;

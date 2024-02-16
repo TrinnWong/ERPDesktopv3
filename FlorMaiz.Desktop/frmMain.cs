@@ -3,6 +3,7 @@ using ConexionBD.Models;
 using DevExpress.XtraEditors;
 using ERP.Business;
 using ERP.Common.Basculas;
+using ERP.Common.Bitacora;
 using ERP.Common.Catalogos;
 using ERP.Common.Forms;
 using ERP.Common.Inventarios;
@@ -776,6 +777,19 @@ namespace PuntoVenta.Desktop
                                        this.Name,
                                        ex);
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
+        }
+
+        private void uiToolsBitacora_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBitacoraExcepciones frmo = frmBitacoraExcepciones.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.Show();
             }
         }
     }

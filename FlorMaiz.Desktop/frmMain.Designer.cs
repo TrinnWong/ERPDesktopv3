@@ -73,6 +73,9 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
             this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
+            this.uiRibTools = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.uiToolsBitacora = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,9 +111,10 @@
             this.uiMenuReimprimirCorteSupervisor,
             this.mnuMaizMaseca,
             this.barButtonItem13,
-            this.uiRepartoExpress});
+            this.uiRepartoExpress,
+            this.uiToolsBitacora});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 30;
+            this.uiRibbonControl.MaxItemId = 31;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -118,6 +122,7 @@
             this.ribbonPedidos,
             this.ribbonPage1,
             this.ribbonPage2,
+            this.uiRibTools,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
             this.uiRibbonControl.Size = new System.Drawing.Size(1191, 52);
@@ -425,7 +430,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup2.ItemLinks.Add(this.uiSincronizar);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -453,6 +457,28 @@
             this.uiTimerSincroniza.Enabled = true;
             this.uiTimerSincroniza.Interval = 60000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
+            // 
+            // uiRibTools
+            // 
+            this.uiRibTools.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6});
+            this.uiRibTools.Name = "uiRibTools";
+            this.uiRibTools.Text = "Herramientas";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.uiSincronizar);
+            this.ribbonPageGroup6.ItemLinks.Add(this.uiToolsBitacora);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
+            // 
+            // uiToolsBitacora
+            // 
+            this.uiToolsBitacora.Caption = "Bitácora Excepciones";
+            this.uiToolsBitacora.Id = 30;
+            this.uiToolsBitacora.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiToolsBitacora.ImageOptions.Image")));
+            this.uiToolsBitacora.Name = "uiToolsBitacora";
+            this.uiToolsBitacora.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiToolsBitacora_ItemClick);
             // 
             // frmMain
             // 
@@ -519,5 +545,8 @@
         private System.Windows.Forms.Timer timerToCheckNetwork;
         private DevExpress.XtraBars.BarButtonItem uiRepartoExpress;
         private System.Windows.Forms.Timer uiTimerSincroniza;
+        private DevExpress.XtraBars.BarButtonItem uiToolsBitacora;
+        private DevExpress.XtraBars.Ribbon.RibbonPage uiRibTools;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
     }
 }

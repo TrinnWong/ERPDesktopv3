@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Business
 {
-    public class SincronizacionBusiness:BusinessObject
+    public class SincronizacionBusiness
     {
         
         public SisCuentaBusiness sisCuenta;
@@ -36,13 +36,15 @@ namespace ERP.Business
        
         public SincronizacionBusiness()
         {
+            System.Console.WriteLine("Linea SincronizacionBusiness 39");
             string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
+            System.Console.WriteLine("Linea SincronizacionBusiness 41");
             sisCuenta = new SisCuentaBusiness();
+            System.Console.WriteLine("Linea SincronizacionBusiness 43");
             builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
-             builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
-
-
-
+            System.Console.WriteLine("Linea SincronizacionBusiness 45");
+            builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
+            System.Console.WriteLine("Linea SincronizacionBusiness 47");
             LoadContext();
 
             lstResultado = new List<SincronizaResultadoModel>();

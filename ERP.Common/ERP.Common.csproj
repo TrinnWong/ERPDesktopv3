@@ -143,6 +143,12 @@
     <Compile Include="Base\FormBaseXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Bitacora\frmBitacoraExcepciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora\frmBitacoraExcepciones.Designer.cs">
+      <DependentUpon>frmBitacoraExcepciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\frmBasculaList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -914,6 +920,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FormBaseXtraForm.resx">
       <DependentUpon>FormBaseXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora\frmBitacoraExcepciones.resx">
+      <DependentUpon>frmBitacoraExcepciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\frmBasculaList.resx">
       <DependentUpon>frmBasculaList.cs</DependentUpon>

@@ -33,16 +33,16 @@ namespace ERP.Console.Task
                         System.Console.WriteLine("Linea 33");
                         objetoResp = WebRequest.GetResponse();
                         objetoResp.Close();
-
+                        System.Console.WriteLine("Linea 36");
                         SincronizacionBusiness oSincorinizar = new SincronizacionBusiness();
-
+                        System.Console.WriteLine("Linea 38");
                         oSincorinizar.ExportANube();
 
 
                     }
                     catch (Exception ex)
                     {
-                        System.Console.WriteLine("ERROR:"+ex.Message+" "+  ex.StackTrace);
+                        System.Console.WriteLine("CATCH 45 ERROR:" + ex.Message+" "+  ex.StackTrace);
                         ERP.Business.SisBitacoraBusiness.Insert(1,
                                            "ERP.Console.Task",
                                            "Program",
@@ -58,12 +58,12 @@ namespace ERP.Console.Task
 
                 }
 
-                //System.Console.ReadKey();
+               
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine("Error:",ex.StackTrace);
-                //System.Console.ReadKey();
+                System.Console.WriteLine("CATCH 65 Error:",ex.StackTrace);
+               
 
                 ERP.Business.SisBitacoraBusiness.Insert(1,
                                           "ERP.Console.Task",

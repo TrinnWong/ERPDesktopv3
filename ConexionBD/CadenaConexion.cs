@@ -19,7 +19,10 @@ namespace ConexionBD
         {
 
             string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
-            var efConnectionString = ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
+
+            if (ConfigurationManager.ConnectionStrings["ERPProdEntities"] != null)
+            {
+                var efConnectionString = ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
                 //ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString;
                 var builder = new EntityConnectionStringBuilder(efConnectionString);
                 var regularConnectionString = builder.ProviderConnectionString;
@@ -35,10 +38,12 @@ namespace ConexionBD
                     sqlConMaster = new SqlConnection(regularConnectionString2);
                 }
 
-           
-                string localMasterCS =  $"Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True";
+
+                string localMasterCS = $"Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True";
 
                 sqlLocalMaster = new SqlConnection(localMasterCS);
+            }
+           
            
 
 
