@@ -65,6 +65,7 @@
             this.uiSucursal.Size = new System.Drawing.Size(281, 21);
             this.uiSucursal.TabIndex = 1;
             this.uiSucursal.ValueMember = "Clave";
+            this.uiSucursal.SelectedIndexChanged += new System.EventHandler(this.uiSucursal_SelectedIndexChanged);
             // 
             // button1
             // 

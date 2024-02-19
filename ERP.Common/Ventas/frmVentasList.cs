@@ -37,7 +37,7 @@ namespace ERP.Common.Ventas
         {
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 uiGrid.DataSource = oContext.doc_ventas
                     .Where(w => DbFunctions.TruncateTime(w.Fecha)  == DbFunctions.TruncateTime(DateTime.Now) &&
                     w.SucursalId == puntoVentaContext.sucursalId
@@ -62,7 +62,7 @@ namespace ERP.Common.Ventas
 
         private void frmVentasList_Load(object sender, EventArgs e)
         {
-            oContext = new ConexionBD.ERPProdEntities();
+            oContext = new ConexionBD.ERPProdEntities(true);
             loadGrid();
         }
 

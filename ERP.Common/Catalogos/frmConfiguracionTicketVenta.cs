@@ -50,6 +50,14 @@ namespace ERP.Common.Catalogos
                     uiSerie.Text = entity.Serie;
                     uiID.Value = entity.ConfiguracionTicketVentaId;
                 }
+                else
+                {
+                    uiTextoCabecera1.Text = "";
+                    uiTextoCabcecera2.Text = "";
+                    uiTextoPie.Text = "";
+                    uiSerie.Text = "";
+                    uiID.Value = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -115,6 +123,11 @@ namespace ERP.Common.Catalogos
         private void frmConfiguracionTicketVenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             _instance = null;
+        }
+
+        private void uiSucursal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buscar();
         }
     }
 

@@ -29,9 +29,9 @@ namespace ConexionBD
 
                 sqlCon = new SqlConnection(regularConnectionString);
 
-                if (ConfigurationManager.ConnectionStrings["ERPProdMaster"] != null)
+                if (ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
                 {
-                    var efConnectionString2 = ConfigurationManager.ConnectionStrings["ERPProdMaster"].ConnectionString;
+                    var efConnectionString2 = ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString;
                     var builder2 = new EntityConnectionStringBuilder(efConnectionString2);
                     var regularConnectionString2 = builder2.ProviderConnectionString;
 

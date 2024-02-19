@@ -2360,6 +2360,9 @@ namespace ERP.Business
         {
             try
             {
+                this.contextLocal.Database.ExecuteSqlCommand("DELETE FROM cat_configuracion_ticket_venta");
+                contextLocal.SaveChanges();
+
                 List<cat_configuracion_ticket_venta> lstConfiguracionTicketVenta = this.contextNube.cat_configuracion_ticket_venta.ToList();
 
                 foreach (cat_configuracion_ticket_venta itemConfiguracionTicketVenta in lstConfiguracionTicketVenta)

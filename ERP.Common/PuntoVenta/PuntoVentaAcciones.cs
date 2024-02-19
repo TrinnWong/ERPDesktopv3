@@ -72,7 +72,7 @@ namespace ERP.Common.PuntoVenta
             rptVentaTicket oTicket = new rptVentaTicket();
             rptVentaTicket_CartaM oTicketMediaC = new rptVentaTicket_CartaM();
             ReportViewer oViewer = new ReportViewer();
-            ERPProdEntities oContext = new ERPProdEntities();
+            ERPProdEntities oContext = new ERPProdEntities(true);
             
 
             if (ventaId > 0)

@@ -17,10 +17,11 @@ namespace ConexionBD
 
         public static string ObtenVersion()
         {
-            return "versión:2023.08.01";
+            return "versión:2024.01.02";
         }
         public string actualizarVersion(bool recortado)
         {
+            ERPProdEntities oContextNube = new ERPProdEntities(true);
             string error = "";
             try
             {
@@ -91,6 +92,14 @@ namespace ConexionBD
                 ServerConnection conn = new ServerConnection(oStringConnection.sqlCon);
                 Server server = new Server(conn);
 
+                ServerConnection connNube = null;
+                Server serverNube = null;
+                if (oStringConnection.sqlConMaster!= null)
+                {
+                    connNube = new ServerConnection(oStringConnection.sqlConMaster);
+                    serverNube = new Server(connNube);
+                }
+              
 
                 //Ejecutar todos los scripts 00
 
@@ -110,7 +119,7 @@ namespace ConexionBD
                 #region insertar paquete de scripts
 
                 oContext.p_sis_versiones_ins(install);
-
+                oContextNube.p_sis_versiones_ins(install);
                 string[] installFolders = install.Split(',');
 
                 foreach (var itemFolder in installFolders)
@@ -122,6 +131,7 @@ namespace ConexionBD
                     foreach (var a in archivos)
                     {
                         oContext.p_sis_versiones_detalle_ins(itemFolder, Path.GetFileName(a.ToString()));
+                        oContextNube.p_sis_versiones_detalle_ins(itemFolder, Path.GetFileName(a.ToString()));
                     }                  
                    
 
@@ -129,6 +139,8 @@ namespace ConexionBD
 
                 //Ejecutar scripts y guardar si terminó con éxito
                 oContext = new ERPProdEntities();
+                
+                //ACTUALIZAR LOCAL
                 foreach (var itemFolder in installFolders)
                 {
                     
@@ -150,7 +162,7 @@ namespace ConexionBD
 
                             oContext.SaveChanges();
 
-                            File.Delete(pathScript);
+                            //File.Delete(pathScript);
                         }
                         catch (Exception ex)
                         {
@@ -185,6 +197,70 @@ namespace ConexionBD
 
 
                 }
+
+                //ACTUALIZAR NUBE
+                if(serverNube!= null)
+                {
+                    oContextNube = new ERPProdEntities(true);
+                    foreach (var itemFolder in installFolders)
+                    {
+
+                        List<sis_versiones_detalle> lstScriptsDetalle = new List<sis_versiones_detalle>();
+
+                        lstScriptsDetalle = oContextNube.sis_versiones_detalle
+                               .Where(w => w.sis_versiones.Nombre == itemFolder && !w.Completado).ToList();
+
+                        //Intentar ejecutar cada uno de los scripts de la versión
+                        foreach (sis_versiones_detalle itemScript in lstScriptsDetalle)
+                        {
+                            try
+                            {
+                                string pathScript = root + "Versiones\\" + itemFolder + "\\" + itemScript.ScriptName;
+                                script = File.ReadAllText(pathScript);
+                                serverNube.ConnectionContext.ExecuteNonQuery(script);
+
+                                itemScript.Completado = true;
+
+                                oContextNube.SaveChanges();
+
+                                File.Delete(pathScript);
+                            }
+                            catch (Exception ex)
+                            {
+                                error = ex.InnerException != null ? "SCRIPT: " + itemScript.ScriptName + "|" + ex.InnerException.Message : ex.Message;
+                                return error;
+                            }
+
+                        }
+
+                        //marcar la versión como completada o pendienete
+                        sis_versiones entityVersiones = oContextNube.sis_versiones.Where(w => w.Nombre == itemFolder).FirstOrDefault();
+                        int versionId = entityVersiones != null ? entityVersiones.VersionId : 0;
+
+                        if (
+                            oContextNube.sis_versiones_detalle
+                            .Where(
+                                w => w.VersionId == versionId
+                                && w.Completado == false
+                                ).Count() == 0
+                            )
+                        {
+                            entityVersiones.Completado = true;
+
+                        }
+                        else
+                        {
+                            entityVersiones.Completado = false;
+                        }
+                        entityVersiones.Intentos++;
+
+                        oContextNube.SaveChanges();
+
+
+
+                    }
+                }
+              
 
                 #endregion
 
