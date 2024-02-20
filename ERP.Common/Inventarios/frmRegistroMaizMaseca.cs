@@ -63,7 +63,7 @@ namespace ERP.Common.Inventarios
         {
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 double kgTortillaMaiz = 0;
                 double KgTortillaMaseca = 0;
                 int productoMaizSacoId = 0;
@@ -163,7 +163,7 @@ namespace ERP.Common.Inventarios
                 int sucursalId = puntoVentaContext.sucursalId;
                 DateTime timeBD = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
 
-                using (oContext = new ERPProdEntities())
+                using (oContext = new ERPProdEntities(true))
                 {
 
                     using (var dbContextTransaction = oContext.Database.BeginTransaction())
@@ -400,7 +400,7 @@ namespace ERP.Common.Inventarios
         {
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 uiGrid.DataSource = oContext.doc_maiz_maseca_rendimiento
                     .Where(w => w.SucursalId == puntoVentaContext.sucursalId).ToList();
             }

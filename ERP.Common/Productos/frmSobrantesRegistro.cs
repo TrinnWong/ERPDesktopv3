@@ -51,7 +51,7 @@ namespace ERP.Common.Productos
                 
                 Thread.Sleep(2000);
                 lstGrid = (List<p_productos_sobrantes_grd_Result>)uiGrid.DataSource;
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
 
                 oContext.Database.ExecuteSqlCommand(@"DELETE doc_productos_sobrantes_registro 
                                                     WHERE CONVERT(VARCHAR,CreadoEl,112)=CONVERT(VARCHAR,{0},112) AND 
@@ -94,7 +94,7 @@ namespace ERP.Common.Productos
         }
         private void llenarGrid()
         {
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
             uiGrid.DataSource = oContext.p_productos_sobrantes_grd(puntoVentaContext.sucursalId, uiFecha.DateTime).ToList();
 
         }
@@ -103,7 +103,7 @@ namespace ERP.Common.Productos
         {
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 if(dtProcess == null)
                 {
                     dtProcess = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
@@ -147,7 +147,7 @@ namespace ERP.Common.Productos
               MessageBoxButtons.YesNo,
               MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    oContext = new ERPProdEntities();
+                    oContext = new ERPProdEntities(true);
                     List<p_productos_sobrantes_grd_Result>  lstDevs = (List<p_productos_sobrantes_grd_Result>)uiGrid.DataSource;
 
                     guardar();
@@ -162,77 +162,80 @@ namespace ERP.Common.Productos
                     }
                     else
                     {
-                        //DEVOLUCIONES
-                        int sucursalDestino = oContext.cat_sucursales
-                            .Where(w => w.NombreSucursal.Contains("COCINA")).FirstOrDefault() != null ?
-                            oContext.cat_sucursales
-                            .Where(w => w.NombreSucursal.Contains("COCINA")).FirstOrDefault().Clave :
-                            0;
-                        if(sucursalDestino > 0)
-                        {
-                            lstGrid = (List<p_productos_sobrantes_grd_Result>)uiGrid.DataSource;                            
+                        ERP.Utils.MessageBoxUtil.ShowOk();
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                        ////DEVOLUCIONES
+                        //int sucursalDestino = oContext.cat_sucursales
+                        //    .Where(w => w.NombreSucursal.Contains("COCINA")).FirstOrDefault() != null ?
+                        //    oContext.cat_sucursales
+                        //    .Where(w => w.NombreSucursal.Contains("COCINA")).FirstOrDefault().Clave :
+                        //    0;
+                        //if(sucursalDestino > 0)
+                        //{
+                        //    lstGrid = (List<p_productos_sobrantes_grd_Result>)uiGrid.DataSource;                            
 
-                            doc_inv_movimiento entityInv = new doc_inv_movimiento();
-                            entityInv.Activo = true;
-                            entityInv.Autorizado = true;
-                            entityInv.AutorizadoPor = puntoVentaContext.usuarioId;
-                            entityInv.Cancelado = false;
-                            entityInv.Comentarios = "DEVOLUCIÓN DE SUCURSAL";
-                            entityInv.Consecutivo = 1;
-                            entityInv.CreadoEl = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
-                            entityInv.CreadoPor = puntoVentaContext.usuarioId;
-                            entityInv.FechaAutoriza = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
-                            entityInv.FechaCancelacion = null;
-                            entityInv.FechaMovimiento = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
-                            entityInv.FolioMovimiento = entityInv.Consecutivo.ToString();
-                            entityInv.CreadoEl = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
-                            entityInv.CreadoPor = puntoVentaContext.usuarioId;
-                            entityInv.HoraMovimiento = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault().TimeOfDay;
-                            entityInv.ImporteTotal = 0;
-                            entityInv.SucursalId = puntoVentaContext.sucursalId;
-                            entityInv.SucursalDestinoId = sucursalDestino;
-                            entityInv.SucursalOrigenId = puntoVentaContext.sucursalId;
-                            entityInv.TipoMovimientoId = (int)ERP.Business.Enumerados.tipoMovimientoInventario
-                                .SalidaPorTraspasoDev;
+                        //    doc_inv_movimiento entityInv = new doc_inv_movimiento();
+                        //    entityInv.Activo = true;
+                        //    entityInv.Autorizado = true;
+                        //    entityInv.AutorizadoPor = puntoVentaContext.usuarioId;
+                        //    entityInv.Cancelado = false;
+                        //    entityInv.Comentarios = "DEVOLUCIÓN DE SUCURSAL";
+                        //    entityInv.Consecutivo = 1;
+                        //    entityInv.CreadoEl = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
+                        //    entityInv.CreadoPor = puntoVentaContext.usuarioId;
+                        //    entityInv.FechaAutoriza = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
+                        //    entityInv.FechaCancelacion = null;
+                        //    entityInv.FechaMovimiento = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
+                        //    entityInv.FolioMovimiento = entityInv.Consecutivo.ToString();
+                        //    entityInv.CreadoEl = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault();
+                        //    entityInv.CreadoPor = puntoVentaContext.usuarioId;
+                        //    entityInv.HoraMovimiento = ERP.Business.Tools.TimeTools.ConvertToTimeZoneDefault().TimeOfDay;
+                        //    entityInv.ImporteTotal = 0;
+                        //    entityInv.SucursalId = puntoVentaContext.sucursalId;
+                        //    entityInv.SucursalDestinoId = sucursalDestino;
+                        //    entityInv.SucursalOrigenId = puntoVentaContext.sucursalId;
+                        //    entityInv.TipoMovimientoId = (int)ERP.Business.Enumerados.tipoMovimientoInventario
+                        //        .SalidaPorTraspasoDev;
 
 
-                            var resultAPI = ERP.Business.InventarioBusiness.GuardarTraspaso(ref entityInv,
-                                lstDevs.Select(s => new doc_inv_movimiento_detalle()
-                                {
-                                    //Cantidad = s.CantidadDevolucionCocina,
-                                    Comisiones = 0,
-                                    Consecutivo = 0,
-                                    CostoPromedio = 0,
-                                    CreadoEl = DateTime.Now,
-                                    ProductoId = s.ProductoId,
-                                    PrecioNeto = 0,
-                                    PrecioUnitario = 0
+                        //    var resultAPI = ERP.Business.InventarioBusiness.GuardarTraspaso(ref entityInv,
+                        //        lstDevs.Select(s => new doc_inv_movimiento_detalle()
+                        //        {
+                        //            //Cantidad = s.CantidadDevolucionCocina,
+                        //            Comisiones = 0,
+                        //            Consecutivo = 0,
+                        //            CostoPromedio = 0,
+                        //            CreadoEl = DateTime.Now,
+                        //            ProductoId = s.ProductoId,
+                        //            PrecioNeto = 0,
+                        //            PrecioUnitario = 0
 
-                                }).ToList(),
-                                puntoVentaContext.usuarioId,
-                                puntoVentaContext.empresaId,
-                                oContext,true);
+                        //        }).ToList(),
+                        //        puntoVentaContext.usuarioId,
+                        //        puntoVentaContext.empresaId,
+                        //        oContext,true);
 
-                            if (resultAPI.ok)
-                            {
-                                ERP.Utils.MessageBoxUtil.ShowOk();
-                                this.DialogResult = DialogResult.OK;
-                                this.Close();
-                            }
-                            else
-                            {
-                                ERP.Utils.MessageBoxUtil.ShowError(resultAPI.error);
-                            }
-                         }
-                        else
-                        {
-                            ERP.Utils.MessageBoxUtil.ShowOk();
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                       
+                        //    if (resultAPI.ok)
+                        //    {
+                        //        ERP.Utils.MessageBoxUtil.ShowOk();
+                        //        this.DialogResult = DialogResult.OK;
+                        //        this.Close();
+                        //    }
+                        //    else
+                        //    {
+                        //        ERP.Utils.MessageBoxUtil.ShowError(resultAPI.error);
+                        //    }
+                        // }
+                        //else
+                        //{
+                        //    ERP.Utils.MessageBoxUtil.ShowOk();
+                        //    this.DialogResult = DialogResult.OK;
+                        //    this.Close();
+                        //}
 
-                       
+
+
                     }
                 }
             }
