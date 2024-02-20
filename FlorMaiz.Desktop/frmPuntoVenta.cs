@@ -936,7 +936,7 @@ namespace PuntoVenta.Desktop
             try
             {
                 int i = 1;
-                List<cat_familias> familias = DataBucket.GetFamiliasMemory(false).Where(w => w.Estatus == true).ToList();
+                List<cat_familias> familias = DataBucket.GetFamiliasMemory(false).Where(w => w.Estatus == true && !w.Descripcion.Contains("SOBRANTE")).ToList();
 
                 familias = familias.Where(W => W.cat_productos.Where(s1 => s1.ProdParaVenta == true).Count() > 0).ToList();
 

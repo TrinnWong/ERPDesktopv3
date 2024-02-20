@@ -2462,27 +2462,24 @@ namespace ERP.Business
                             w.Monto == gasto.Monto &&
                             w.Obervaciones == gasto.Obervaciones).FirstOrDefault();
 
-                            if (exists == null)
+                            exists = new doc_gastos
                             {
-                                exists = new doc_gastos
-                                {
-                                    GastoId = (this.contextNube.doc_gastos.Max(m => (int?)m.GastoId) ?? 0) + 1,
-                                    CentroCostoId = gasto.CentroCostoId,
-                                    GastoConceptoId = gasto.GastoConceptoId,
-                                    Obervaciones = gasto.Obervaciones,
-                                    Monto = gasto.Monto,
-                                    CajaId = gasto.CajaId,
-                                    CreadoEl = fechaHoraServidor,
-                                    CreadoPor = gasto.CreadoPor,
-                                    SucursalId = gasto.SucursalId,
-                                    Activo = gasto.Activo
+                                GastoId = (this.contextNube.doc_gastos.Max(m => (int?)m.GastoId) ?? 0) + 1,
+                                CentroCostoId = gasto.CentroCostoId,
+                                GastoConceptoId = gasto.GastoConceptoId,
+                                Obervaciones = gasto.Obervaciones,
+                                Monto = gasto.Monto,
+                                CajaId = gasto.CajaId,
+                                CreadoEl = fechaHoraServidor,
+                                CreadoPor = gasto.CreadoPor,
+                                SucursalId = gasto.SucursalId,
+                                Activo = gasto.Activo
 
-                                };
-                                this.contextNube.doc_gastos.Add(exists);
+                            };
+                            this.contextNube.doc_gastos.Add(exists);
 
-                                this.contextNube.SaveChanges();
-                            }
-                           
+                            this.contextNube.SaveChanges();
+
 
 
 
@@ -2553,22 +2550,19 @@ namespace ERP.Business
                                             w.Observaciones == retiro.Observaciones)
                                 .FirstOrDefault();
 
-                            if (exists == null)
+                            exists = new doc_retiros
                             {
-                                exists = new doc_retiros
-                                {
-                                    RetiroId = (this.contextNube.doc_retiros.Max(m => (int?)m.RetiroId) ?? 0) + 1,
-                                    FechaRetiro = fechaHoraServidor,
-                                    MontoRetiro = retiro.MontoRetiro,
-                                    CreadoPor = retiro.CreadoPor,
-                                    CajaId = retiro.CajaId,
-                                    SucursalId = retiro.SucursalId,
-                                    Observaciones = retiro.Observaciones
-                                };
+                                RetiroId = (this.contextNube.doc_retiros.Max(m => (int?)m.RetiroId) ?? 0) + 1,
+                                FechaRetiro = fechaHoraServidor,
+                                MontoRetiro = retiro.MontoRetiro,
+                                CreadoPor = retiro.CreadoPor,
+                                CajaId = retiro.CajaId,
+                                SucursalId = retiro.SucursalId,
+                                Observaciones = retiro.Observaciones
+                            };
 
-                                this.contextNube.doc_retiros.Add(exists);
-                                this.contextNube.SaveChanges();
-                            }
+                            this.contextNube.doc_retiros.Add(exists);
+                            this.contextNube.SaveChanges();
                         }
 
                         if(listaRetiros.Count() > 0)

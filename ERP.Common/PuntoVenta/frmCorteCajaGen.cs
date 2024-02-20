@@ -86,9 +86,11 @@ namespace ERP.Common.PuntoVenta
                     //Validar que no haya ventas sin haberse enviado
                     oContext = new ERPProdEntities();
 
-                    if(oContext.doc_ventas.Where(w=> w.SucursalId == this.puntoVentaContext.sucursalId).Count() > 0)
+                    if(oContext.doc_ventas.Where(w=> w.SucursalId == this.puntoVentaContext.sucursalId).Count() > 0 ||
+                        oContext.doc_gastos.Where(w=> w.SucursalId == this.puntoVentaContext.sucursalId).Count()>0 ||
+                        oContext.doc_retiros.Where(w => w.SucursalId == this.puntoVentaContext.sucursalId).Count() > 0)
                     {
-                        ERP.Utils.MessageBoxUtil.ShowError("Hay ventas que aun no se sincronizan. Ve a CONFIGURACIONES / SINCRONIZACIÓN para sincronizar la información pendiente");
+                        ERP.Utils.MessageBoxUtil.ShowError("Hay ventas, gastos o retiros que aun no se sincronizan. Ve a CONFIGURACIONES / SINCRONIZACIÓN para sincronizar la información pendiente");
                         return false;
                     }
                     else

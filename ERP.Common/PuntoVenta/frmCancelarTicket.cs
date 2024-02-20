@@ -24,7 +24,7 @@ namespace ERP.Common.PuntoVenta
         {
             InitializeComponent();
 
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
         }
 
         public void llenarForma()
@@ -65,7 +65,7 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
 
                 if (uiMotivo.Text.Trim() == "")
                 {

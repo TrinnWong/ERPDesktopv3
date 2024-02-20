@@ -18,7 +18,7 @@ namespace ERP.Common.PuntoVenta
         {
             try
             {
-                ERPProdEntities oContext = new ERPProdEntities();
+                ERPProdEntities oContext = new ERPProdEntities(true);
                 doc_ventas venta = oContext.doc_ventas
                     .Where(w=> w.VentaId == ventaId).FirstOrDefault();
 
@@ -44,7 +44,7 @@ namespace ERP.Common.PuntoVenta
         }
         public static void CancelarTicketSolicitud(int ventaId, PuntoVentaContext puntoVentaContext)
         {
-            ERPProdEntities oContext = new ERPProdEntities();
+            ERPProdEntities oContext = new ERPProdEntities(true);
 
             cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 

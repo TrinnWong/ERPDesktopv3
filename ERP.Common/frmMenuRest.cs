@@ -479,6 +479,7 @@ namespace PuntoVenta
                 {
                     try
                     {
+                        fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
                         oContext.p_corte_caja_generacion(this.puntoVentaContext.cajaId, this.puntoVentaContext.usuarioId, fechaActual, pCorteCajaId, permitirCorteCero);
                         if (denominaciones != null)
                         {
