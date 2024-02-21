@@ -142,6 +142,12 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             frmVentasList frmo = frmVentasList.GetInstance();
 
             if (!frmo.Visible)
@@ -333,6 +339,12 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             LoadingForm oFormLoading = new LoadingForm("Procesando");
             SincronizacionBusiness oSincronizar = new SincronizacionBusiness();
 
@@ -450,6 +462,12 @@ namespace PuntoVenta.Desktop
 
         private void uiProductoSobrante_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             frmSobrantesRegistro oForm = new frmSobrantesRegistro();
             oForm.dtProcess = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
             oForm.habilitarFecha = false;
@@ -528,6 +546,11 @@ namespace PuntoVenta.Desktop
 
         private void uiDevoluciones_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
             abrirDevoluciones();
         }
 
@@ -629,6 +652,12 @@ namespace PuntoVenta.Desktop
 
         private void btnReimprimirUltimoCorteCajero_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             ERP.Business.CorteCajaBusiness.imprimirCorteCajero(puntoVentaContext.sucursalId, puntoVentaContext.cajaId, puntoVentaContext.usuarioId);
         }
 
@@ -654,6 +683,12 @@ namespace PuntoVenta.Desktop
 
         private void uiMenuReimprimirCorteSupervisor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             frmAdminPass oForm = new frmAdminPass();
 
             oForm.StartPosition = FormStartPosition.CenterScreen;
@@ -675,6 +710,11 @@ namespace PuntoVenta.Desktop
 
         private void mnuMaizMaseca_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
             frmAdminPass oForm = new frmAdminPass();
 
             oForm.StartPosition = FormStartPosition.CenterScreen;
@@ -749,6 +789,12 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
+
             frmRepartosTortillaCaptura frmo = new frmRepartosTortillaCaptura();
             frmo.puntoVentaContext = this.puntoVentaContext;
             frmo.StartPosition = FormStartPosition.CenterScreen;

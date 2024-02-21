@@ -111,6 +111,7 @@
     <Compile Include="SucursalBusiness.cs" />
     <Compile Include="Tools\BasculaLectura.cs" />
     <Compile Include="Tools\HttpRequestTool.cs" />
+    <Compile Include="Tools\NetworkUtil.cs" />
     <Compile Include="Tools\TimeTools.cs" />
     <Compile Include="UtilsBusiness.cs" />
     <Compile Include="VentasBusiness.cs" />
