@@ -60,7 +60,7 @@
             this.textBox1,
             this.textBox2,
             this.textBox3});
-            this.detail.Height = 0.1666666F;
+            this.detail.Height = 0.1562499F;
             this.detail.Name = "detail";
             // 
             // textBox1
@@ -113,7 +113,7 @@
             this.label2,
             this.label3,
             this.label4});
-            this.groupHeader1.Height = 0.46F;
+            this.groupHeader1.Height = 0.4808334F;
             this.groupHeader1.Name = "groupHeader1";
             // 
             // label1
@@ -125,7 +125,7 @@
             this.label1.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label1.Text = "DENOMINACIONES";
             this.label1.Top = 0F;
-            this.label1.Width = 2.687F;
+            this.label1.Width = 2.563F;
             // 
             // label2
             // 
@@ -158,7 +158,7 @@
             this.label4.Style = "font-size: 8.25pt; font-weight: bold; ddo-char-set: 0";
             this.label4.Text = "TOTAL";
             this.label4.Top = 0.26F;
-            this.label4.Width = 0.937F;
+            this.label4.Width = 0.8130001F;
             // 
             // groupFooter1
             // 
@@ -173,7 +173,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.96875F;
+            this.PrintWidth = 2.84375F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);

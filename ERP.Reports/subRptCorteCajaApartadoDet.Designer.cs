@@ -44,7 +44,6 @@
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -67,7 +66,7 @@
             this.textBox1,
             this.textBox2,
             this.textBox3});
-            this.detail.Height = 0.1666666F;
+            this.detail.Height = 0.1770833F;
             this.detail.Name = "detail";
             this.detail.Format += new System.EventHandler(this.detail_Format);
             // 
@@ -131,7 +130,7 @@
             this.label1.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label1.Text = "INGRESOS POR APARTADO";
             this.label1.Top = 0F;
-            this.label1.Width = 2.822F;
+            this.label1.Width = 2.432F;
             // 
             // label2
             // 
@@ -180,8 +179,8 @@
             // 
             this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label5,
-            this.textBox4,
-            this.line1});
+            this.textBox4});
+            this.groupFooter1.Height = 0.1979167F;
             this.groupFooter1.Name = "groupFooter1";
             // 
             // label5
@@ -211,19 +210,6 @@
             this.textBox4.Top = 0F;
             this.textBox4.Width = 0.7500001F;
             // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 0.136F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.208F;
-            this.line1.Width = 2.754F;
-            this.line1.X1 = 0.136F;
-            this.line1.X2 = 2.89F;
-            this.line1.Y1 = 0.208F;
-            this.line1.Y2 = 0.208F;
-            // 
             // subRptCorteCajaApartadoDet
             // 
             this.MasterReport = false;
@@ -236,7 +222,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.958333F;
+            this.PrintWidth = 2.770833F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
@@ -276,6 +262,5 @@
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
         private GrapeCity.ActiveReports.SectionReportModel.Label label5;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
     }
 }

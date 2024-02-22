@@ -44,7 +44,6 @@
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -67,7 +66,7 @@
             this.textBox1,
             this.textBox2,
             this.textBox3});
-            this.detail.Height = 0.1875F;
+            this.detail.Height = 0.1666667F;
             this.detail.Name = "detail";
             // 
             // textBox1
@@ -117,7 +116,7 @@
             this.label2,
             this.label3,
             this.label4});
-            this.reportHeader1.Height = 0.365F;
+            this.reportHeader1.Height = 0.3545834F;
             this.reportHeader1.Name = "reportHeader1";
             // 
             // label1
@@ -129,7 +128,7 @@
             this.label1.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label1.Text = "GASTOS";
             this.label1.Top = 0F;
-            this.label1.Width = 2.656F;
+            this.label1.Width = 2.281F;
             // 
             // label2
             // 
@@ -178,8 +177,8 @@
             // 
             this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label5,
-            this.textBox4,
-            this.line1});
+            this.textBox4});
+            this.groupFooter1.Height = 0.1875F;
             this.groupFooter1.Name = "groupFooter1";
             // 
             // label5
@@ -209,19 +208,6 @@
             this.textBox4.Top = 0F;
             this.textBox4.Width = 0.849F;
             // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 0.1021664F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.229F;
-            this.line1.Width = 2.754F;
-            this.line1.X1 = 0.1021664F;
-            this.line1.X2 = 2.856167F;
-            this.line1.Y1 = 0.229F;
-            this.line1.Y2 = 0.229F;
-            // 
             // subRptGastos
             // 
             this.MasterReport = false;
@@ -231,7 +217,7 @@
             this.PageSettings.Margins.Top = 0F;
             this.PageSettings.PaperHeight = 11F;
             this.PageSettings.PaperWidth = 8.5F;
-            this.PrintWidth = 2.958333F;
+            this.PrintWidth = 2.729166F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
@@ -271,6 +257,5 @@
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
         private GrapeCity.ActiveReports.SectionReportModel.Label label5;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
     }
 }

@@ -215,7 +215,7 @@ namespace ERP.Common.Pedido
                         puntoVentaContext.sucursalId,
                         puntoVentaContext.usuarioId,
                         puntoVentaContext.cajaId, lstPedido, formasPago, new List<ValeFPModel>(), pedido.PedidoId,
-                        false, false);
+                        false, false,null,true);
 
                     if (error.Length > 0)
                     {

@@ -110,12 +110,12 @@ namespace ERP.Business
         }
 
 
-        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId,int sucursalId)
+        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId,int sucursalId,bool nube=false)
         {
             cat_basculas_configuracion result = null;
             try
             {
-                ERPProdEntities oContext = new ERPProdEntities();
+                ERPProdEntities oContext = new ERPProdEntities(nube);
                
 
                 string hardwareId = EquipoComputoBusiness.GetProcessorID();
@@ -412,12 +412,12 @@ namespace ERP.Business
 
         public static doc_basculas_bitacora InsertBitacora(int BasculaId,int SucursalId,
             int UsuarioId,decimal Cantidad,
-            int? TipoBasculaBitacoraId,int? productoId,int? pedidoDetalleId, ERPProdEntities oContext, int? ventaId=null)
+            int? TipoBasculaBitacoraId,int? productoId,int? pedidoDetalleId, ERPProdEntities oContext, int? ventaId=null,bool nube=false)
         {
             doc_basculas_bitacora entityNew = new doc_basculas_bitacora();
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(nube);
 
                 entityNew.Id = (oContext.doc_basculas_bitacora.Max(m => (int?)m.Id) ?? 0) + 1;
                 entityNew.BasculaId = BasculaId;

@@ -179,7 +179,7 @@ namespace ERPv1.Catalogos
                    uiIncluirExistencias.Checked,
                    uiImprimirMediaCarta.Checked,
                    uiSolicitarComanda.Checked,
-                   uiGiro.SelectedItem.ToString(),
+                   uiGiro.SelectedItem == null ? "EST" : uiGiro.SelectedItem.ToString(),
                    uiPedidoAnticipoPorc.Value,
                    this.uiPedidoPolitica.EditValue == null ? null : (int?)(this.uiPedidoPolitica.EditValue)
 

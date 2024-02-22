@@ -33,15 +33,14 @@
             this.textBox1 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox2 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
             this.textBox3 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             this.pageFooter = new GrapeCity.ActiveReports.SectionReportModel.PageFooter();
             this.reportHeader1 = new GrapeCity.ActiveReports.SectionReportModel.ReportHeader();
             this.label1 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label3 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.label4 = new GrapeCity.ActiveReports.SectionReportModel.Label();
-            this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
             this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
+            this.reportFooter1 = new GrapeCity.ActiveReports.SectionReportModel.ReportFooter();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -62,9 +61,8 @@
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.textBox1,
             this.textBox2,
-            this.textBox3,
-            this.line1});
-            this.detail.Height = 0.198F;
+            this.textBox3});
+            this.detail.Height = 0.1771667F;
             this.detail.Name = "detail";
             // 
             // textBox1
@@ -101,19 +99,6 @@
             this.textBox3.Top = 0F;
             this.textBox3.Width = 0.428F;
             // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 2.531F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.179F;
-            this.line1.Width = 0.2810011F;
-            this.line1.X1 = 2.531F;
-            this.line1.X2 = 2.812001F;
-            this.line1.Y1 = 0.179F;
-            this.line1.Y2 = 0.179F;
-            // 
             // pageFooter
             // 
             this.pageFooter.Height = 0F;
@@ -139,7 +124,7 @@
             this.label1.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label1.Text = "EXISTENCIAS";
             this.label1.Top = 0F;
-            this.label1.Width = 2.687F;
+            this.label1.Width = 2.5F;
             // 
             // label2
             // 
@@ -174,11 +159,6 @@
             this.label4.Top = 0.316F;
             this.label4.Width = 0.4898336F;
             // 
-            // reportFooter1
-            // 
-            this.reportFooter1.Height = 0F;
-            this.reportFooter1.Name = "reportFooter1";
-            // 
             // label5
             // 
             this.label5.DataField = "NombreSucursal";
@@ -189,7 +169,12 @@
             this.label5.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label5.Text = "";
             this.label5.Top = 0.158F;
-            this.label5.Width = 2.687F;
+            this.label5.Width = 2.5F;
+            // 
+            // reportFooter1
+            // 
+            this.reportFooter1.Height = 0F;
+            this.reportFooter1.Name = "reportFooter1";
             // 
             // subRptProductoExistencias
             // 
@@ -203,7 +188,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.958333F;
+            this.PrintWidth = 2.8125F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.detail);
@@ -237,7 +222,6 @@
         private GrapeCity.ActiveReports.SectionReportModel.Label label2;
         private GrapeCity.ActiveReports.SectionReportModel.Label label3;
         private GrapeCity.ActiveReports.SectionReportModel.Label label4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
         private GrapeCity.ActiveReports.SectionReportModel.Label label5;
     }
 }

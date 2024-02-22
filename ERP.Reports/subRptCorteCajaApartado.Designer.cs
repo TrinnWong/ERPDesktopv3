@@ -42,7 +42,6 @@
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.label2 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.label3)).BeginInit();
@@ -113,7 +112,7 @@
             this.label3.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label3.Text = "APARTADOS";
             this.label3.Top = 0F;
-            this.label3.Width = 2.75F;
+            this.label3.Width = 2.547F;
             // 
             // label5
             // 
@@ -151,8 +150,8 @@
             // 
             this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label2,
-            this.textBox4,
-            this.line1});
+            this.textBox4});
+            this.groupFooter1.Height = 0.1770834F;
             this.groupFooter1.Name = "groupFooter1";
             // 
             // label2
@@ -182,19 +181,6 @@
             this.textBox4.Top = -1.862645E-09F;
             this.textBox4.Width = 1.334F;
             // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 0.1050414F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.229F;
-            this.line1.Width = 2.754F;
-            this.line1.X1 = 0.1050414F;
-            this.line1.X2 = 2.859042F;
-            this.line1.Y1 = 0.229F;
-            this.line1.Y2 = 0.229F;
-            // 
             // subRptCorteCajaApartado
             // 
             this.MasterReport = false;
@@ -203,7 +189,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.964083F;
+            this.PrintWidth = 2.828666F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
@@ -240,6 +226,5 @@
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
         private GrapeCity.ActiveReports.SectionReportModel.Label label2;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
     }
 }

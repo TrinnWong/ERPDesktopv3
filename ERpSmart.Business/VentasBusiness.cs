@@ -36,14 +36,15 @@ namespace ERP.Business
        int pedidoOrdenId,
        bool cortesia=false,
        bool precioEmpleado = false,
-       int? empleadoId=null
+       int? empleadoId=null,
+       bool contextNube=false
        )
         {
             string error = "";
             ERPProdEntities oContext;
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(contextNube);
                 oContext.Database.CommandTimeout = 300;
                
                 // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
@@ -103,7 +104,7 @@ namespace ERP.Business
 
                     #region Báscula Bitácora
                     cat_basculas_configuracion configBascula = null;
-                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId);
+                    configBascula = ERP.Business.BasculasBusiness.GetConfiguracionPCLocal(usuarioId, sucursalId,true);
                     if (productos.Where(w => w.tieneBascula).Count() > 0)
                     {
                         
@@ -121,7 +122,7 @@ namespace ERP.Business
                                     itemProducto.productoId,
                                     null,
                                     oContext,
-                                    int.Parse(pVentaId.Value.ToString())
+                                    int.Parse(pVentaId.Value.ToString()),true
                                     );
                             }
                         }

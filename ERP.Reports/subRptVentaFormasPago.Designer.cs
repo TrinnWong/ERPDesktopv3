@@ -51,7 +51,7 @@
             this.detail.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label2,
             this.textBox1});
-            this.detail.Height = 0.148F;
+            this.detail.Height = 0.1375833F;
             this.detail.Name = "detail";
             // 
             // label2

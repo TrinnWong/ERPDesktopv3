@@ -44,7 +44,6 @@
             this.groupFooter2 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -67,7 +66,7 @@
             this.textBox1,
             this.textBox2,
             this.textBox3});
-            this.detail.Height = 0.1585833F;
+            this.detail.Height = 0.1794166F;
             this.detail.Name = "detail";
             // 
             // textBox1
@@ -120,7 +119,7 @@
             this.label1.Style = "font-size: 8.25pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label1.Text = "RETIROS";
             this.label1.Top = 0F;
-            this.label1.Width = 2.552F;
+            this.label1.Width = 2.457F;
             // 
             // groupHeader1
             // 
@@ -163,7 +162,7 @@
             this.label4.Style = "font-size: 8.25pt; font-weight: bold; ddo-char-set: 0";
             this.label4.Text = "MONTO";
             this.label4.Top = 0.2F;
-            this.label4.Width = 0.6670001F;
+            this.label4.Width = 0.5720001F;
             // 
             // groupFooter1
             // 
@@ -179,8 +178,8 @@
             // 
             this.groupFooter2.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label5,
-            this.textBox4,
-            this.line1});
+            this.textBox4});
+            this.groupFooter2.Height = 0.1770833F;
             this.groupFooter2.Name = "groupFooter2";
             // 
             // label5
@@ -210,19 +209,6 @@
             this.textBox4.Top = 0.021F;
             this.textBox4.Width = 0.75F;
             // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 0.1125834F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.229F;
-            this.line1.Width = 2.754F;
-            this.line1.X1 = 0.1125834F;
-            this.line1.X2 = 2.866584F;
-            this.line1.Y1 = 0.229F;
-            this.line1.Y2 = 0.229F;
-            // 
             // subRptRetirosList
             // 
             this.MasterReport = false;
@@ -231,7 +217,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.979167F;
+            this.PrintWidth = 2.854167F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.groupHeader2);
@@ -272,6 +258,5 @@
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter2;
         private GrapeCity.ActiveReports.SectionReportModel.Label label5;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
     }
 }

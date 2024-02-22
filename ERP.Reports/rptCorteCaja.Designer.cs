@@ -142,12 +142,12 @@
             // 
             this.subRepFoto.CloseBorder = false;
             this.subRepFoto.Height = 0.753F;
-            this.subRepFoto.Left = 0.07300001F;
+            this.subRepFoto.Left = 0.094F;
             this.subRepFoto.Name = "subRepFoto";
             this.subRepFoto.Report = null;
             this.subRepFoto.ReportName = "";
             this.subRepFoto.Top = 0F;
-            this.subRepFoto.Width = 2.835F;
+            this.subRepFoto.Width = 2.656F;
             // 
             // detail
             // 
@@ -242,7 +242,7 @@
             this.subReport2,
             this.subReport3,
             this.subReport4});
-            this.groupHeader1.Height = 5.415F;
+            this.groupHeader1.Height = 5.435833F;
             this.groupHeader1.Name = "groupHeader1";
             this.groupHeader1.Format += new System.EventHandler(this.groupHeader1_Format);
             // 
@@ -250,12 +250,12 @@
             // 
             this.subFormasPago.CloseBorder = false;
             this.subFormasPago.Height = 0.438F;
-            this.subFormasPago.Left = 0.062F;
+            this.subFormasPago.Left = 0.094F;
             this.subFormasPago.Name = "subFormasPago";
             this.subFormasPago.Report = null;
             this.subFormasPago.ReportName = "subReport1";
             this.subFormasPago.Top = 3.562F;
-            this.subFormasPago.Width = 2.833F;
+            this.subFormasPago.Width = 2.667F;
             // 
             // label1
             // 
@@ -267,7 +267,7 @@
             this.label1.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.label1.Text = "label1";
             this.label1.Top = 0F;
-            this.label1.Width = 2.833F;
+            this.label1.Width = 2.697F;
             // 
             // label2
             // 
@@ -279,7 +279,7 @@
             this.label2.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.label2.Text = "label1";
             this.label2.Top = 0.4F;
-            this.label2.Width = 2.833002F;
+            this.label2.Width = 2.697F;
             // 
             // label4
             // 
@@ -291,7 +291,7 @@
             this.label4.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.label4.Text = "label1";
             this.label4.Top = 0.2F;
-            this.label4.Width = 2.833002F;
+            this.label4.Width = 2.697F;
             // 
             // label5
             // 
@@ -302,7 +302,7 @@
             this.label5.Style = "font-size: 9pt; font-weight: bold; text-align: center; ddo-char-set: 0";
             this.label5.Text = "CORTE DE CAJA";
             this.label5.Top = 0.8000001F;
-            this.label5.Width = 2.833F;
+            this.label5.Width = 2.708F;
             // 
             // label6
             // 
@@ -380,7 +380,7 @@
             this.label12.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label12.Text = "label1";
             this.label12.Top = 1F;
-            this.label12.Width = 1.32F;
+            this.label12.Width = 1.133F;
             // 
             // label13
             // 
@@ -392,7 +392,7 @@
             this.label13.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label13.Text = "label1";
             this.label13.Top = 1.148F;
-            this.label13.Width = 1.32F;
+            this.label13.Width = 1.144F;
             // 
             // label14
             // 
@@ -404,7 +404,7 @@
             this.label14.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label14.Text = "label1";
             this.label14.Top = 1.327F;
-            this.label14.Width = 1.32F;
+            this.label14.Width = 1.133F;
             // 
             // label15
             // 
@@ -416,7 +416,7 @@
             this.label15.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label15.Text = "label1";
             this.label15.Top = 1.475F;
-            this.label15.Width = 1.31F;
+            this.label15.Width = 1.144F;
             // 
             // label16
             // 
@@ -428,7 +428,7 @@
             this.label16.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label16.Text = "label1";
             this.label16.Top = 1.623F;
-            this.label16.Width = 1.31F;
+            this.label16.Width = 1.144F;
             // 
             // label17
             // 
@@ -440,7 +440,7 @@
             this.label17.Style = "font-size: 8.25pt; text-align: left; ddo-char-set: 0";
             this.label17.Text = "label1";
             this.label17.Top = 1.771F;
-            this.label17.Width = 1.32F;
+            this.label17.Width = 1.133F;
             // 
             // label20
             // 
@@ -477,16 +477,16 @@
             // 
             // line1
             // 
-            this.line1.Height = 0.0009999275F;
+            this.line1.Height = 0F;
             this.line1.Left = 0.07300001F;
             this.line1.LineWeight = 1F;
             this.line1.Name = "line1";
             this.line1.Top = 2.937F;
-            this.line1.Width = 2.77F;
+            this.line1.Width = 2.552F;
             this.line1.X1 = 0.07300001F;
-            this.line1.X2 = 2.843F;
+            this.line1.X2 = 2.625F;
             this.line1.Y1 = 2.937F;
-            this.line1.Y2 = 2.938F;
+            this.line1.Y2 = 2.937F;
             // 
             // textBox3
             // 
@@ -497,7 +497,7 @@
             this.textBox3.Style = "font-size: 8.25pt; text-align: center; ddo-char-set: 0";
             this.textBox3.Text = "textBox3";
             this.textBox3.Top = 0.6F;
-            this.textBox3.Width = 2.833F;
+            this.textBox3.Width = 2.697F;
             // 
             // textBox5
             // 
@@ -529,12 +529,12 @@
             // 
             this.label19.Height = 0.1480004F;
             this.label19.HyperLink = null;
-            this.label19.Left = 0.03299999F;
+            this.label19.Left = 0.063F;
             this.label19.Name = "label19";
             this.label19.Style = "font-size: 8.25pt; font-weight: bold; text-align: right; ddo-char-set: 0";
             this.label19.Text = "TOTAL GENERAL:";
             this.label19.Top = 2.773F;
-            this.label19.Width = 1.541F;
+            this.label19.Width = 1.511F;
             // 
             // textBox8
             // 
@@ -649,12 +649,12 @@
             // 
             this.subReport2.CloseBorder = false;
             this.subReport2.Height = 0.438F;
-            this.subReport2.Left = 0.062F;
+            this.subReport2.Left = 0.094F;
             this.subReport2.Name = "subReport2";
             this.subReport2.Report = null;
             this.subReport2.ReportName = "subReport1";
             this.subReport2.Top = 4.062F;
-            this.subReport2.Width = 2.833F;
+            this.subReport2.Width = 2.667F;
             // 
             // subReport3
             // 
@@ -665,7 +665,7 @@
             this.subReport3.Report = null;
             this.subReport3.ReportName = "subRptCorteCajaVentasExisProducto";
             this.subReport3.Top = 4.562F;
-            this.subReport3.Width = 2.833F;
+            this.subReport3.Width = 2.685F;
             // 
             // subReport4
             // 
@@ -676,7 +676,7 @@
             this.subReport4.Report = null;
             this.subReport4.ReportName = "subReport1";
             this.subReport4.Top = 2.984222F;
-            this.subReport4.Width = 2.833F;
+            this.subReport4.Width = 2.6675F;
             // 
             // groupFooter1
             // 
@@ -698,7 +698,7 @@
             this.subVales,
             this.subRetiros,
             this.subReport1});
-            this.groupFooter1.Height = 6.645721F;
+            this.groupFooter1.Height = 6.676971F;
             this.groupFooter1.Name = "groupFooter1";
             this.groupFooter1.Format += new System.EventHandler(this.groupFooter1_Format);
             // 
@@ -711,7 +711,7 @@
             this.subDigito.Report = null;
             this.subDigito.ReportName = "subReport1";
             this.subDigito.Top = 5.125F;
-            this.subDigito.Width = 2.894F;
+            this.subDigito.Width = 2.707F;
             // 
             // subGastos
             // 
@@ -723,7 +723,7 @@
             this.subGastos.ReportName = "subReport1";
             this.subGastos.Top = 0.7820005F;
             this.subGastos.Visible = false;
-            this.subGastos.Width = 2.884F;
+            this.subGastos.Width = 2.696F;
             // 
             // subCancelaciones
             // 
@@ -735,7 +735,7 @@
             this.subCancelaciones.ReportName = "subReport1";
             this.subCancelaciones.Top = 1.241001F;
             this.subCancelaciones.Visible = false;
-            this.subCancelaciones.Width = 2.894F;
+            this.subCancelaciones.Width = 2.706F;
             // 
             // pageBreak1
             // 
@@ -756,7 +756,7 @@
             this.subDenom.ReportName = "subReport1";
             this.subDenom.Top = 2.159F;
             this.subDenom.Visible = false;
-            this.subDenom.Width = 2.884F;
+            this.subDenom.Width = 2.696F;
             // 
             // subExistencias
             // 
@@ -768,40 +768,40 @@
             this.subExistencias.ReportName = "subReport1";
             this.subExistencias.Top = 5.663001F;
             this.subExistencias.Visible = false;
-            this.subExistencias.Width = 2.894F;
+            this.subExistencias.Width = 2.717F;
             // 
             // subDescuentos
             // 
             this.subDescuentos.CloseBorder = false;
             this.subDescuentos.Height = 0.4590001F;
-            this.subDescuentos.Left = 0.05300001F;
+            this.subDescuentos.Left = 0.05299997F;
             this.subDescuentos.Name = "subDescuentos";
             this.subDescuentos.Report = null;
             this.subDescuentos.ReportName = "subReport1";
-            this.subDescuentos.Top = 2.618001F;
-            this.subDescuentos.Width = 2.874F;
+            this.subDescuentos.Top = 2.618F;
+            this.subDescuentos.Width = 2.697F;
             // 
             // subDevoluciones
             // 
             this.subDevoluciones.CloseBorder = false;
             this.subDevoluciones.Height = 0.4590001F;
-            this.subDevoluciones.Left = 0.053F;
+            this.subDevoluciones.Left = 0.042F;
             this.subDevoluciones.Name = "subDevoluciones";
             this.subDevoluciones.Report = null;
             this.subDevoluciones.ReportName = "subReport1";
-            this.subDevoluciones.Top = 3.129F;
-            this.subDevoluciones.Width = 2.874F;
+            this.subDevoluciones.Top = 3.077F;
+            this.subDevoluciones.Width = 2.697F;
             // 
             // subApartados
             // 
             this.subApartados.CloseBorder = false;
             this.subApartados.Height = 0.4590001F;
-            this.subApartados.Left = 0.034F;
+            this.subApartados.Left = 0.053F;
             this.subApartados.Name = "subApartados";
             this.subApartados.Report = null;
             this.subApartados.ReportName = "subReport1";
             this.subApartados.Top = 3.625F;
-            this.subApartados.Width = 2.893F;
+            this.subApartados.Width = 2.697F;
             // 
             // subApartadosDetalle
             // 
@@ -813,7 +813,7 @@
             this.subApartadosDetalle.ReportName = "subReport1";
             this.subApartadosDetalle.Top = 0.323F;
             this.subApartadosDetalle.Visible = false;
-            this.subApartadosDetalle.Width = 2.894F;
+            this.subApartadosDetalle.Width = 2.696F;
             // 
             // label21
             // 
@@ -844,16 +844,16 @@
             // 
             // line2
             // 
-            this.line2.Height = 0F;
+            this.line2.Height = 0.013F;
             this.line2.Left = 0.063F;
             this.line2.LineWeight = 1F;
             this.line2.Name = "line2";
-            this.line2.Top = 0.2F;
-            this.line2.Width = 2.78F;
+            this.line2.Top = 0.187F;
+            this.line2.Width = 2.499F;
             this.line2.X1 = 0.063F;
-            this.line2.X2 = 2.843F;
+            this.line2.X2 = 2.562F;
             this.line2.Y1 = 0.2F;
-            this.line2.Y2 = 0.2F;
+            this.line2.Y2 = 0.187F;
             // 
             // subReimpresiones
             // 
@@ -864,7 +864,7 @@
             this.subReimpresiones.Report = null;
             this.subReimpresiones.ReportName = "subReport1";
             this.subReimpresiones.Top = 4.125F;
-            this.subReimpresiones.Width = 2.893F;
+            this.subReimpresiones.Width = 2.707F;
             // 
             // subVales
             // 
@@ -875,7 +875,7 @@
             this.subVales.Report = null;
             this.subVales.ReportName = "subReport1";
             this.subVales.Top = 4.625F;
-            this.subVales.Width = 2.894F;
+            this.subVales.Width = 2.696F;
             // 
             // subRetiros
             // 
@@ -886,7 +886,7 @@
             this.subRetiros.Report = null;
             this.subRetiros.ReportName = "subReport1";
             this.subRetiros.Top = 1.700001F;
-            this.subRetiros.Width = 2.884F;
+            this.subRetiros.Width = 2.696F;
             // 
             // subReport1
             // 
@@ -896,9 +896,9 @@
             this.subReport1.Name = "subReport1";
             this.subReport1.Report = null;
             this.subReport1.ReportName = "subReport1";
-            this.subReport1.Top = 6.166F;
+            this.subReport1.Top = 6.125F;
             this.subReport1.Visible = false;
-            this.subReport1.Width = 2.894F;
+            this.subReport1.Width = 2.717F;
             // 
             // rptCorteCaja
             // 
@@ -912,7 +912,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 4F;
-            this.PrintWidth = 3.02F;
+            this.PrintWidth = 2.790833F;
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);
             this.Sections.Add(this.detail);

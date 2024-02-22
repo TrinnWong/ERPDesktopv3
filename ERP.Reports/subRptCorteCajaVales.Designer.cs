@@ -204,7 +204,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.960833F;
+            this.PrintWidth = 2.825416F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.detail);

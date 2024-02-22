@@ -3112,14 +3112,14 @@ namespace ERP.Business
                             }
                         }
 
+                        dbContextTransaction.Commit();
 
                         // Eliminar los registros exportados de la base de datos local
                         if (listaCargosDetalle.Count() > 0)
                         {
                             this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_cargos_detalle WHERE CargoDetalleId IN ({0})", string.Join(",", listaCargosDetalle.Select(r => r.CargoDetalleId))));
 
-                        }
-                        
+                        }                        
                         if(listaPedidosCargos.Count() > 0)
                         {
                             this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_cargos WHERE PedidoCargoId IN ({0})", string.Join(",", listaPedidosCargos.Select(r => r.PedidoCargoId))));
@@ -3156,7 +3156,7 @@ namespace ERP.Business
 
                         }
 
-                        dbContextTransaction.Commit();
+                        
                     }
                     catch (Exception ex)
                     {

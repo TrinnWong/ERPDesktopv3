@@ -66,7 +66,7 @@
             this.textBox1,
             this.textBox2,
             this.textBox3});
-            this.detail.Height = 0.21875F;
+            this.detail.Height = 0.2291667F;
             this.detail.Name = "detail";
             // 
             // textBox1
@@ -220,7 +220,7 @@
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PageSettings.PaperName = "Custom paper";
             this.PageSettings.PaperWidth = 3F;
-            this.PrintWidth = 2.96875F;
+            this.PrintWidth = 2.78125F;
             this.Sections.Add(this.reportHeader1);
             this.Sections.Add(this.pageHeader);
             this.Sections.Add(this.groupHeader1);

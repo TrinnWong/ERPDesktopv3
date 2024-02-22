@@ -44,7 +44,6 @@
             this.groupFooter1 = new GrapeCity.ActiveReports.SectionReportModel.GroupFooter();
             this.label5 = new GrapeCity.ActiveReports.SectionReportModel.Label();
             this.textBox4 = new GrapeCity.ActiveReports.SectionReportModel.TextBox();
-            this.line1 = new GrapeCity.ActiveReports.SectionReportModel.Line();
             ((System.ComponentModel.ISupportInitialize)(this.textBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox3)).BeginInit();
@@ -178,8 +177,7 @@
             // 
             this.groupFooter1.Controls.AddRange(new GrapeCity.ActiveReports.SectionReportModel.ARControl[] {
             this.label5,
-            this.textBox4,
-            this.line1});
+            this.textBox4});
             this.groupFooter1.Name = "groupFooter1";
             // 
             // label5
@@ -208,19 +206,6 @@
             this.textBox4.Text = "textBox4";
             this.textBox4.Top = 0F;
             this.textBox4.Width = 0.6690002F;
-            // 
-            // line1
-            // 
-            this.line1.Height = 0F;
-            this.line1.Left = 0.1073749F;
-            this.line1.LineWeight = 1F;
-            this.line1.Name = "line1";
-            this.line1.Top = 0.229F;
-            this.line1.Width = 2.754F;
-            this.line1.X1 = 0.1073749F;
-            this.line1.X2 = 2.861375F;
-            this.line1.Y1 = 0.229F;
-            this.line1.Y2 = 0.229F;
             // 
             // subRptCancelaciones
             // 
@@ -271,6 +256,5 @@
         private GrapeCity.ActiveReports.SectionReportModel.GroupFooter groupFooter1;
         private GrapeCity.ActiveReports.SectionReportModel.Label label5;
         private GrapeCity.ActiveReports.SectionReportModel.TextBox textBox4;
-        private GrapeCity.ActiveReports.SectionReportModel.Line line1;
     }
 }

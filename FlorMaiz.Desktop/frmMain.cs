@@ -789,6 +789,21 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            frmPuntoVenta frmo1 = frmPuntoVenta.GetInstance();
+
+            if (!frmo1.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo1.MdiParent = this;
+                frmo1.puntoVentaContext = this.puntoVentaContext;
+                frmo1.WindowState = FormWindowState.Maximized;
+                frmo1.Show();
+            }
+            else
+            {
+                frmo1.inicializar();
+            }
+
             if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
             {
                 ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");

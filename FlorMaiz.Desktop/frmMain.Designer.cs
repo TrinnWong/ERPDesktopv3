@@ -59,6 +59,7 @@
             this.mnuMaizMaseca = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
+            this.uiToolsBitacora = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -69,13 +70,12 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.uiRibTools = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
             this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
-            this.uiRibTools = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.uiToolsBitacora = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -350,6 +350,14 @@
             this.uiRepartoExpress.Name = "uiRepartoExpress";
             this.uiRepartoExpress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
             // 
+            // uiToolsBitacora
+            // 
+            this.uiToolsBitacora.Caption = "Bitácora Excepciones";
+            this.uiToolsBitacora.Id = 30;
+            this.uiToolsBitacora.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiToolsBitacora.ImageOptions.Image")));
+            this.uiToolsBitacora.Name = "uiToolsBitacora";
+            this.uiToolsBitacora.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiToolsBitacora_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -433,6 +441,20 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
+            // uiRibTools
+            // 
+            this.uiRibTools.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6});
+            this.uiRibTools.Name = "uiRibTools";
+            this.uiRibTools.Text = "Herramientas";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.uiSincronizar);
+            this.ribbonPageGroup6.ItemLinks.Add(this.uiToolsBitacora);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -455,30 +477,8 @@
             // uiTimerSincroniza
             // 
             this.uiTimerSincroniza.Enabled = true;
-            this.uiTimerSincroniza.Interval = 60000;
+            this.uiTimerSincroniza.Interval = 120000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
-            // 
-            // uiRibTools
-            // 
-            this.uiRibTools.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6});
-            this.uiRibTools.Name = "uiRibTools";
-            this.uiRibTools.Text = "Herramientas";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.uiSincronizar);
-            this.ribbonPageGroup6.ItemLinks.Add(this.uiToolsBitacora);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
-            // 
-            // uiToolsBitacora
-            // 
-            this.uiToolsBitacora.Caption = "Bitácora Excepciones";
-            this.uiToolsBitacora.Id = 30;
-            this.uiToolsBitacora.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiToolsBitacora.ImageOptions.Image")));
-            this.uiToolsBitacora.Name = "uiToolsBitacora";
-            this.uiToolsBitacora.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiToolsBitacora_ItemClick);
             // 
             // frmMain
             // 
