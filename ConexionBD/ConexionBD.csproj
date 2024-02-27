@@ -3415,7 +3415,6 @@
     <Content Include="Versiones\2022.06.01\99_09121 [p_punto_venta_validar_sesion].sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Versiones\2023.06.01\01 p_rpt_sucursales_precios.sql" />
     <Content Include="Versiones\99_REC\00 p_cat_configuracion_rec_upd.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3754,6 +3753,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Pedidos\" />
+    <Folder Include="Versiones\2023.06.01\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Models\ERP.Models.csproj">
