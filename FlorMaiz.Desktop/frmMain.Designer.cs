@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.uiRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.uiMenuNuevaVenta = new DevExpress.XtraBars.BarButtonItem();
@@ -74,8 +73,9 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
-            this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
+            this.timerToCheckNetwork = new System.Windows.Forms.Timer();
+            this.uiTimerSincroniza = new System.Windows.Forms.Timer();
+            this.uiRepartoDevoluciones = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,9 +112,10 @@
             this.mnuMaizMaseca,
             this.barButtonItem13,
             this.uiRepartoExpress,
-            this.uiToolsBitacora});
+            this.uiToolsBitacora,
+            this.uiRepartoDevoluciones});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 31;
+            this.uiRibbonControl.MaxItemId = 32;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -370,6 +371,7 @@
             this.uiRibbonPageControl.ItemLinks.Add(this.uiMenuNuevaVenta);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem1);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoExpress);
+            this.uiRibbonPageControl.ItemLinks.Add(this.uiRepartoDevoluciones);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem4);
             this.uiRibbonPageControl.ItemLinks.Add(this.barButtonItem3);
             this.uiRibbonPageControl.ItemLinks.Add(this.uiDevoluciones);
@@ -480,6 +482,14 @@
             this.uiTimerSincroniza.Interval = 120000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
             // 
+            // uiRepartoDevoluciones
+            // 
+            this.uiRepartoDevoluciones.Caption = "Reparto Devoluciones";
+            this.uiRepartoDevoluciones.Id = 31;
+            this.uiRepartoDevoluciones.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiRepartoDevoluciones.ImageOptions.Image")));
+            this.uiRepartoDevoluciones.Name = "uiRepartoDevoluciones";
+            this.uiRepartoDevoluciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiRepartoDevoluciones_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,5 +558,6 @@
         private DevExpress.XtraBars.BarButtonItem uiToolsBitacora;
         private DevExpress.XtraBars.Ribbon.RibbonPage uiRibTools;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem uiRepartoDevoluciones;
     }
 }

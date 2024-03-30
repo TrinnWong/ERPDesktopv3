@@ -84,7 +84,9 @@ namespace ERP.Business
         {
             fletes=-2,
             comisiones=-3,
-            cocimiento=-999
+            cocimiento=-999,
+            tortilla=1,
+            masa=2
         }
 
         public enum tipoDescuento

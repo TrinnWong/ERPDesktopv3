@@ -491,6 +491,12 @@
     <Compile Include="Pedido\frmRepartosTortillaCaptura.Designer.cs">
       <DependentUpon>frmRepartosTortillaCaptura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedido\PedidoDevolucionVentasDirectas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedido\PedidoDevolucionVentasDirectas.Designer.cs">
+      <DependentUpon>PedidoDevolucionVentasDirectas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Precios\frmPreciosEspeciales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1085,6 +1091,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pedido\frmRepartosTortillaCaptura.resx">
       <DependentUpon>frmRepartosTortillaCaptura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedido\PedidoDevolucionVentasDirectas.resx">
+      <DependentUpon>PedidoDevolucionVentasDirectas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Precios\frmPreciosEspeciales.resx">
       <DependentUpon>frmPreciosEspeciales.cs</DependentUpon>

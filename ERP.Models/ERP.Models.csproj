@@ -72,6 +72,7 @@
     <Compile Include="Mesas\MesaComboBoxModel.cs" />
     <Compile Include="Pago\PagoOnlineParamModel.cs" />
     <Compile Include="PartialView\PartialParameterViewModel.cs" />
+    <Compile Include="Pedidos\DevolucionVentaDirectaMasaTortilla.cs" />
     <Compile Include="Pedidos\PedidoConfiguracionViewModel.cs" />
     <Compile Include="Pedidos\PedidoDetalleModel.cs" />
     <Compile Include="Platillos\PlatilloPVModel.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Usuario\UsuarioModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\ERP.Models.Pedidos.PedidoDevolucionVentaDirectaMasaTortilla.datasource" />
     <None Include="Properties\DataSources\ERP.Models.ProductoSobrante.ProductoSobranteModel.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -853,5 +853,14 @@ namespace PuntoVenta.Desktop
                 frmo.Show();
             }
         }
+
+        private void uiRepartoDevoluciones_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Common.Pedido.PedidoDevolucionVentasDirectas oForm = new PedidoDevolucionVentasDirectas();
+
+            oForm.puntoVentaContext = this.puntoVentaContext;
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+            oForm.ShowDialog();
+        }
     }
 }
