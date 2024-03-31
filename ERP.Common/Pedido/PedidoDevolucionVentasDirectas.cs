@@ -17,6 +17,7 @@ namespace ERP.Common.Pedido
     {
         int err = 0;
         DateTime fechaActual;
+
         List<Models.Pedidos.PedidoDevolucionVentaDirectaMasaTortilla> lstDevoluciones;
         private void PedidoDevolucionVentasDirectas_Load(object sender, EventArgs e)
         {
