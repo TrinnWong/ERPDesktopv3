@@ -190,7 +190,7 @@ namespace ERP.Common.Pedido
                 PedidoOrdenBusiness oPedido = new PedidoOrdenBusiness();
 
                 pedido = oPedido.GuardarPedido(pedido, ERP.Business.Enumerados.tipoPedido.PedidoTelefono,
-                   lstPedido, puntoVentaContext.usuarioId, puntoVentaContext.sucursalId, ref error);
+                   lstPedido, puntoVentaContext.usuarioId, puntoVentaContext.sucursalId, ref error,false,true);
 
                 if(error.Length == 0)
                 {

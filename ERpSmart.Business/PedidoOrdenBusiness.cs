@@ -1670,7 +1670,10 @@ namespace ConexionBD
             List<ProductoModel0> lstProductos,
             int usuarioId,
             int sucursalId,
-            ref string error)
+            
+            ref string error,
+            bool permitirSinDetalle = false,
+            bool guardarNube=false)
         {
             error = "";
 
@@ -1686,7 +1689,7 @@ namespace ConexionBD
                 {
                     error = "El cliente es requerido";                    
                 }
-                if(lstProductos.Count() == 0)
+                if(lstProductos.Count() == 0 && !permitirSinDetalle)
                 {
                     error = error + "| No hay productos en el listado";
                 }
@@ -1696,7 +1699,7 @@ namespace ConexionBD
                     return pedidoParam;
                 }
                 #endregion
-                using (ERPProdEntities oContext = new ERPProdEntities())
+                using (ERPProdEntities oContext = new ERPProdEntities(guardarNube))
                 {
                     using (var dbContextTransaction = oContext.Database.BeginTransaction())
                     {
@@ -1728,14 +1731,14 @@ namespace ConexionBD
                                 pedido.Folio = ObtenerFolio(tipoPedido, sucursalId);
                                 pedido.Impuestos = 0;
                                 pedido.MotivoCancelacion = null;
-                                pedido.Notas = "";
+                                pedido.Notas = pedidoParam.Notas == null ? "" : pedidoParam.Notas;
                                 pedido.Para = "";
                                 pedido.Subtotal = lstProductos.Sum(s => s.total);
                                 pedido.SucursalCobroId = sucursalId;
                                 pedido.SucursalId = sucursalId;
                                 pedido.TipoPedidoId = (int)tipoPedido;
                                 pedido.Total = lstProductos.Sum(s => s.total);
-                                pedido.VentaId = null;
+                                pedido.VentaId = pedidoParam.VentaId;
                                 
                                 oContext.doc_pedidos_orden.Add(pedido);
                                 oContext.SaveChanges();

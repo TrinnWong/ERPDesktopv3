@@ -525,13 +525,13 @@ namespace ERP.Business
 
 
         
-        public static ResultAPIModel CalcularSaldos_Static(ERPProdEntities oContext,int cargoId, int cargoDetalleId)
+        public static ResultAPIModel CalcularSaldos_Static(ERPProdEntities oContext,int cargoId, int cargoDetalleId,bool usarNube=false)
         {
             ResultAPIModel result = new ResultAPIModel();
 
             try
             {
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(usarNube);
                 using (TransactionScope scope = new TransactionScope())
                 {
                     

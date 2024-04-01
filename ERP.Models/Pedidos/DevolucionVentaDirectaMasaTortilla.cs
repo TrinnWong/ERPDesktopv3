@@ -10,12 +10,12 @@ namespace ERP.Models.Pedidos
     {
         public long ventaId { get; set; }
         public string folio { get; set; }
+        public int pedidoId { get; set; }
         public int clienteId { get; set; }
         public string cliente { get; set; }
         public DateTime fecha { get; set; }
         public decimal devolucionTortilla { get; set; }
         public decimal devolucionMasa { get; set; }
-
         public decimal precioTortilla{get;set;}
         public decimal precioMasa { get; set; }
     }
