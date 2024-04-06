@@ -1935,7 +1935,7 @@ namespace ConexionBD
                     }
                 }
 
-               ERP.Business.CargoBusiness.CalcularSaldos_Static(oContext, entityCargo.CargoId, 0);
+               ERP.Business.CargoBusiness.CalcularSaldos_Static(oContext, entityCargo.CargoId, 0,guardarNube);
 
             }
             catch (Exception ex)

@@ -37,6 +37,8 @@ namespace ERP.Console.Task
                         SincronizacionBusiness oSincorinizar = new SincronizacionBusiness();
                         System.Console.WriteLine("Linea 38");
                         oSincorinizar.ExportANube();
+                        
+                       
 
 
                     }

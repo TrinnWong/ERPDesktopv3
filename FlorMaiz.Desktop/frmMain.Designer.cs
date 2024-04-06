@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.uiRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.uiMenuNuevaVenta = new DevExpress.XtraBars.BarButtonItem();
@@ -59,6 +60,7 @@
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.uiRepartoExpress = new DevExpress.XtraBars.BarButtonItem();
             this.uiToolsBitacora = new DevExpress.XtraBars.BarButtonItem();
+            this.uiRepartoDevoluciones = new DevExpress.XtraBars.BarButtonItem();
             this.uiRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.uiRibbonPageControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCorteCaja = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -73,9 +75,8 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.timerToCheckNetwork = new System.Windows.Forms.Timer();
-            this.uiTimerSincroniza = new System.Windows.Forms.Timer();
-            this.uiRepartoDevoluciones = new DevExpress.XtraBars.BarButtonItem();
+            this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
+            this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,6 +360,14 @@
             this.uiToolsBitacora.Name = "uiToolsBitacora";
             this.uiToolsBitacora.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiToolsBitacora_ItemClick);
             // 
+            // uiRepartoDevoluciones
+            // 
+            this.uiRepartoDevoluciones.Caption = "Reparto Devoluciones";
+            this.uiRepartoDevoluciones.Id = 31;
+            this.uiRepartoDevoluciones.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiRepartoDevoluciones.ImageOptions.Image")));
+            this.uiRepartoDevoluciones.Name = "uiRepartoDevoluciones";
+            this.uiRepartoDevoluciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiRepartoDevoluciones_ItemClick);
+            // 
             // uiRibbonPage
             // 
             this.uiRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -479,16 +488,8 @@
             // uiTimerSincroniza
             // 
             this.uiTimerSincroniza.Enabled = true;
-            this.uiTimerSincroniza.Interval = 120000;
+            this.uiTimerSincroniza.Interval = 60000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
-            // 
-            // uiRepartoDevoluciones
-            // 
-            this.uiRepartoDevoluciones.Caption = "Reparto Devoluciones";
-            this.uiRepartoDevoluciones.Id = 31;
-            this.uiRepartoDevoluciones.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiRepartoDevoluciones.ImageOptions.Image")));
-            this.uiRepartoDevoluciones.Name = "uiRepartoDevoluciones";
-            this.uiRepartoDevoluciones.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiRepartoDevoluciones_ItemClick);
             // 
             // frmMain
             // 

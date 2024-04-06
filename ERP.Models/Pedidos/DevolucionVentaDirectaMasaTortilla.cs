@@ -18,5 +18,9 @@ namespace ERP.Models.Pedidos
         public decimal devolucionMasa { get; set; }
         public decimal precioTortilla{get;set;}
         public decimal precioMasa { get; set; }
+        public decimal cantidadVentaTortilla { get; set; }
+        public decimal cantidadVentaMasa { get; set; }
+
+
     }
 }

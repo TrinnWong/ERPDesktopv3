@@ -1629,7 +1629,11 @@ namespace PuntoVenta.Desktop
             {
                 LoadClientes();
 
-                uiCliente.EditValue = oForm.cliente.ClienteId;
+                if(oForm.cliente != null)
+                {
+                    uiCliente.EditValue = oForm.cliente.ClienteId;
+                }
+                
             }
         }
 

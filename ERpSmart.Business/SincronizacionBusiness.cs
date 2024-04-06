@@ -21,7 +21,7 @@ namespace ERP.Business
         ERPProdEntities contextLocal;
         EntityConnectionStringBuilder builder1;
         EntityConnectionStringBuilder builder2;
-        int sucursalId = 0;
+        public int sucursalId = 0;
         int err;
         public List<SincronizaResultadoModel> lstResultado;
         //public SincronizacionBusiness()
@@ -49,6 +49,9 @@ namespace ERP.Business
 
             lstResultado = new List<SincronizaResultadoModel>();
 
+            var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
+            sucursalId = cuenta.ClaveSucursal ?? 0;
+
         }
 
         private void LoadContext()
@@ -62,7 +65,11 @@ namespace ERP.Business
             try
             {
                 var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
-                sucursalId = cuenta.ClaveSucursal??0;
+                if (sucursalId == 0)
+                {
+                   
+                    sucursalId = cuenta.ClaveSucursal ?? 0;
+                }
 
                 List<cat_empresas> lstEmpresasOri = contextNube.cat_empresas.ToList();
                 List<cat_cajas> lstCajasOri = contextNube.cat_cajas.ToList();
@@ -133,7 +140,7 @@ namespace ERP.Business
                 ImportProductosPrincipales(lstProductosPrincipales);
                 ImportProductosPrecios(ref contextLocal, lstProductosPrecioOri);
                 ImportSucursalesProductos(ref contextLocal, lstSucursalesProductos);
-                ImportClientes(ref contextLocal, lstClientes);
+                ImportClientes();
                 ImportClientesProductosPrecios(lstClientesProductosPrecos);
                 ImportPreciosEspeciales(ref contextLocal, lstPreciosEspeciales, lstPreciosEspecialesDetalle);
                 ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
@@ -143,8 +150,12 @@ namespace ERP.Business
                 ImportCatConfiguracionTicketVenta();
 
 
-                //Actualizar ultimo Folio en BD LOCAL               
-                sucursalId = cuenta.ClaveSucursal ?? 0;
+                //Actualizar ultimo Folio en BD LOCAL
+                if(sucursalId == 0)
+                {
+                    sucursalId = cuenta.ClaveSucursal ?? 0;
+                }
+                
 
                 sis_preferencias_sucursales entityPreferencia = this.contextLocal.sis_preferencias_sucursales
                     .Where(w => w.sis_preferencias.Preferencia == "PV-Local" && w.SucursalId == sucursalId).FirstOrDefault();
@@ -1263,13 +1274,14 @@ namespace ERP.Business
             }
         }
 
-        public bool ImportClientes(ref ERPProdEntities context, List<cat_clientes> lstClientes)
+        public bool ImportClientes()
         {
+            List<cat_clientes> lstClientes = contextNube.cat_clientes.Where(w => w.SucursalBaseId == sucursalId).ToList();
             try
             {
                 foreach (cat_clientes itemCliente in lstClientes)
                 {
-                    cat_clientes clienteSinc = context.cat_clientes
+                    cat_clientes clienteSinc = this.contextLocal.cat_clientes
                         .Where(w => w.ClienteId == itemCliente.ClienteId)
                         .FirstOrDefault();
 
@@ -1309,7 +1321,7 @@ namespace ERP.Business
                         clienteSinc.pass = itemCliente.pass;
 
                         // Actualizar otras propiedades según sea necesario
-                        context.SaveChanges();
+                        this.contextLocal.SaveChanges();
                     }
                     else
                     {
@@ -1349,8 +1361,8 @@ namespace ERP.Business
                         clienteSinc.pass = itemCliente.pass;
 
                         // Puedes asignar otras propiedades según sea necesario
-                        context.cat_clientes.Add(clienteSinc);
-                        context.SaveChanges();
+                        this.contextLocal.cat_clientes.Add(clienteSinc);
+                        this.contextLocal.SaveChanges();
                     }
                 }
 
@@ -2426,9 +2438,13 @@ namespace ERP.Business
             {
                 this.ExportGastos();
                 this.ExportRetiros();
+
                 this.ExportMaizMasecaRendimiento();
                 this.ExportProductosSobrantesRegistro();
                 this.ExportPedidosOrden_Ventas();
+                this.ExportClientes();
+
+            
                 return "";
             }
             catch (Exception ex)
@@ -3200,6 +3216,113 @@ namespace ERP.Business
                 return false;
             }
         }
+
+        public bool ExportClientes()
+        {
+            try
+            {
+                List<cat_clientes> listaClientes = contextLocal.cat_clientes.ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
+                {
+                    try
+                    {
+                        foreach (cat_clientes cliente in listaClientes)
+                        {
+                            cat_clientes exists = contextNube.cat_clientes.FirstOrDefault(c => c.Nombre == cliente.Nombre && c.Telefono == cliente.Telefono);
+
+                            if (exists == null)
+                            {
+                                exists = new cat_clientes
+                                {
+                                    // Asignar los valores del cliente local al cliente en la nube
+                                    // Aquí debes mapear correctamente los campos según la estructura de tu base de datos en la nube
+                                    ClienteId = (this.contextNube.cat_clientes.Max(m => (int?)m.ClienteId) ?? 0) + 1,
+                                    Nombre = cliente.Nombre,
+                                    RFC = cliente.RFC,
+                                    Calle = cliente.Calle,
+                                    NumeroExt = cliente.NumeroExt,
+                                    NumeroInt = cliente.NumeroInt,
+                                    Colonia = cliente.Colonia,
+                                    CodigoPostal = cliente.CodigoPostal,
+                                    EstadoId = cliente.EstadoId,
+                                    MunicipioId = cliente.MunicipioId,
+                                    PaisId = cliente.PaisId,
+                                    Telefono = cliente.Telefono,
+                                    Telefono2 = cliente.Telefono2,
+                                    TipoClienteId = cliente.TipoClienteId,
+                                    DiasCredito = cliente.DiasCredito,
+                                    LimiteCredito = cliente.LimiteCredito,
+                                    AntecedenteId = cliente.AntecedenteId,
+                                    CreditoDisponible = cliente.CreditoDisponible,
+                                    SaldoGlobal = cliente.SaldoGlobal,
+                                    Activo = cliente.Activo,
+                                    ClienteEspecial = cliente.ClienteEspecial,
+                                    ClienteGral = cliente.ClienteGral,
+                                    PrecioId = cliente.PrecioId,
+                                    GiroId = cliente.GiroId,
+                                    GiroNegocioId = cliente.GiroNegocioId,
+                                    ApellidoPaterno = cliente.ApellidoPaterno,
+                                    ApellidoMaterno = cliente.ApellidoMaterno,
+                                    UUID = cliente.UUID,
+                                    KeyClient = cliente.KeyClient,
+                                    EmpleadoId = cliente.EmpleadoId,
+                                    Clave = cliente.Clave,
+                                    SucursalBaseId = cliente.SucursalBaseId,
+                                    pass = cliente.pass
+                                };
+
+                                contextNube.cat_clientes.Add(exists);
+                            }
+                        }
+
+                        contextNube.SaveChanges();
+
+
+                      
+
+                        dbContextTransaction.Commit();
+
+
+                        if (listaClientes.Count > 0)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_clientes_productos_precios"));
+
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM cat_clientes WHERE  ClienteId IN ({0})", string.Join(",", listaClientes.Select(r => r.ClienteId))));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportClientes",
+                                                              ex);
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                        return false;
+                    }
+
+                }
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportClientes",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
+
 
         public void ImportarExportar()
         {

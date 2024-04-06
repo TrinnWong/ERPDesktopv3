@@ -45,26 +45,57 @@ namespace ERP.Common.Pedido
 
                 this.fechaActual = this.fechaActual.AddDays(-1);
 
-               this.lstDevoluciones =  oContext.doc_ventas_detalle.Where( w=>
-                        w.doc_ventas.ClienteId != null &&
-                        w.doc_ventas.Activo == true && 
-                        w.doc_ventas.SucursalId == puntoVentaContext.sucursalId &&
-                        DbFunctions.TruncateTime(w.doc_ventas.Fecha) >= DbFunctions.TruncateTime(fechaActual) &&
-                        (w.ProductoId == (int)ERP.Business.Enumerados.productosSistema.tortilla || w.ProductoId == (int)ERP.Business.Enumerados.productosSistema.masa) &&
-                        w.doc_ventas.doc_pedidos_orden.Count()==0 )
-                 .Select(s=> new PedidoDevolucionVentaDirectaMasaTortilla() { 
-                      cliente = s.doc_ventas.cat_clientes.Nombre,
-                       clienteId = s.doc_ventas.ClienteId??0,
-                        devolucionMasa = 0,
-                        devolucionTortilla = 0,
-                         fecha = s.doc_ventas.Fecha,
-                          folio = s.doc_ventas.Folio,
-                           precioMasa = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.masa ? s.PrecioUnitario : 0,
-                           precioTortilla = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.tortilla ? s.PrecioUnitario : 0,
-                            ventaId = s.VentaId,
-                            pedidoId = 0
+                this.lstDevoluciones = oContext.doc_ventas_detalle.Where(w =>
+                    w.doc_ventas.ClienteId != null &&
+                    w.doc_ventas.Activo == true &&
+                    w.doc_ventas.SucursalId == puntoVentaContext.sucursalId &&
+                    DbFunctions.TruncateTime(w.doc_ventas.Fecha) >= DbFunctions.TruncateTime(fechaActual) &&
+                    (w.ProductoId == (int)ERP.Business.Enumerados.productosSistema.tortilla || w.ProductoId == (int)ERP.Business.Enumerados.productosSistema.masa) &&
+                    w.doc_ventas.doc_pedidos_orden.Count() == 0)
+               .Select(s => new PedidoDevolucionVentaDirectaMasaTortilla()
+               {
+                   cliente = s.doc_ventas.cat_clientes.Nombre,
+                   clienteId = s.doc_ventas.ClienteId ?? 0,
+                   devolucionMasa = 0,
+                   devolucionTortilla = 0,
+                   fecha = s.doc_ventas.Fecha,
+                   folio = s.doc_ventas.Folio,
+                   precioMasa = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.masa ? s.PrecioUnitario : 0,
+                   precioTortilla = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.tortilla ? s.PrecioUnitario : 0,
+                   ventaId = s.VentaId,
+                   pedidoId = 0,
+                   cantidadVentaMasa = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.masa ? s.Cantidad ??0 : 0,
+                   cantidadVentaTortilla = s.ProductoId == (int)ERP.Business.Enumerados.productosSistema.tortilla ? s.Cantidad ?? 0 : 0
 
-                 }).ToList();
+               }).ToList();
+
+                this.lstDevoluciones = this.lstDevoluciones
+                    .GroupBy(s => new
+                    {
+                        s.cliente,
+                        s.clienteId,
+                        s.fecha,
+                        s.folio,
+                        s.ventaId
+                    }
+                    )
+                      .Select(group => new PedidoDevolucionVentaDirectaMasaTortilla()
+                      {
+                          cliente = group.Key.cliente,
+                          clienteId = group.Key.clienteId,
+                          devolucionMasa = 0,
+                          devolucionTortilla = 0,
+                          fecha = group.Key.fecha,
+                          folio = group.Key.folio,
+                          precioMasa = group.Max(s => s.precioMasa),
+                          precioTortilla = group.Max(s => s.precioTortilla),
+                          ventaId = group.Key.ventaId,
+                          pedidoId = 0,
+                          cantidadVentaMasa = group.Sum(s=> s.cantidadVentaMasa),
+                          cantidadVentaTortilla = group.Sum(s => s.cantidadVentaTortilla)
+                      }).ToList();
+                ;
+
 
                 uiGrid.DataSource = this.lstDevoluciones;
                 uiGridView.ExpandAllGroups();
@@ -89,6 +120,26 @@ namespace ERP.Common.Pedido
         {
             try
             {
+                foreach (var item in ((List<ERP.Models.Pedidos.PedidoDevolucionVentaDirectaMasaTortilla>)uiGrid.DataSource).ToList())
+                {
+                    if(item.devolucionMasa <0 || item.devolucionTortilla < 0)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("No se permiten cantidades menoras a 0");
+                        uiGuardar.Enabled = true;
+                        uiCancelar.Enabled = true;
+                        return;
+                    }
+
+                    if (item.devolucionMasa > item.cantidadVentaMasa || item.devolucionTortilla > item.cantidadVentaTortilla)
+                    {
+                        ERP.Utils.MessageBoxUtil.ShowWarning("No se puede devolver una cantidad mayor a la venta");
+                        uiGuardar.Enabled = true;
+                        uiCancelar.Enabled = true;
+                        return;
+                    }
+                } 
+
+
                 if(XtraMessageBox.Show("Aviso","¿Estás seguro(a) de continuar?, ya no será  posible modifica la información para las ventas modificadas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 {
                     uiGuardar.Enabled = true;

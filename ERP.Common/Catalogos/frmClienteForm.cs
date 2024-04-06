@@ -1,4 +1,5 @@
 ﻿using ConexionBD;
+using ERP.Business;
 using ERP.Common.Base;
 using System;
 using System.Collections.Generic;
@@ -85,9 +86,30 @@ namespace ERP.Common.Catalogos
                     oContext.cat_clientes.Add(entityCliente);
 
                     oContext.SaveChanges();
+
+
+                    if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId,
+                        this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                    {
+                        #region importar información de la nube
+                        SincronizacionBusiness oSinc = new SincronizacionBusiness();
+                        oSinc.sucursalId = puntoVentaContext.sucursalId;
+                        oSinc.ExportClientes();
+                        oSinc = new SincronizacionBusiness();
+                        oSinc.sucursalId = puntoVentaContext.sucursalId;
+                        oSinc.ImportClientes();
+                        #endregion
+                    }
+                    else
+                    {
+                        cliente = entityCliente;
+                    }
+
+
+
                 }
 
-                cliente = entityCliente;
+               
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
