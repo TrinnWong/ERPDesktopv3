@@ -52,7 +52,7 @@ namespace ConexionBD
                 context.esSupervisor = false;
                 context.sucursalId = 1;
                 context.usuarioId = entity.IdUsuario;
-                context.giroPuntoVenta = entityConf.Giro;
+                context.giroPuntoVenta = entityConf == null ? "" : entityConf.Giro ?? "";
                 
 
             }

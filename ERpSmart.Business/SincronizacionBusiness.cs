@@ -24,6 +24,7 @@ namespace ERP.Business
         public int sucursalId = 0;
         int err;
         public List<SincronizaResultadoModel> lstResultado;
+        public bool enableSinc = false;
         //public SincronizacionBusiness()
         //{
         //    sisCuenta = new SisCuentaBusiness();
@@ -36,21 +37,26 @@ namespace ERP.Business
        
         public SincronizacionBusiness()
         {
-            System.Console.WriteLine("Linea SincronizacionBusiness 39");
-            string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
-            System.Console.WriteLine("Linea SincronizacionBusiness 41");
-            sisCuenta = new SisCuentaBusiness();
-            System.Console.WriteLine("Linea SincronizacionBusiness 43");
-            builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
-            System.Console.WriteLine("Linea SincronizacionBusiness 45");
-            builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
-            System.Console.WriteLine("Linea SincronizacionBusiness 47");
-            LoadContext();
+            if (ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
+            {
+                enableSinc = true;
+                System.Console.WriteLine("Linea SincronizacionBusiness 39");
+                string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
+                System.Console.WriteLine("Linea SincronizacionBusiness 41");
+                sisCuenta = new SisCuentaBusiness();
+                System.Console.WriteLine("Linea SincronizacionBusiness 43");
+                builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
+                System.Console.WriteLine("Linea SincronizacionBusiness 45");
+                builder2 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdEntities"].ConnectionString);
+                System.Console.WriteLine("Linea SincronizacionBusiness 47");
+                LoadContext();
 
-            lstResultado = new List<SincronizaResultadoModel>();
+                lstResultado = new List<SincronizaResultadoModel>();
 
-            var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
-            sucursalId = cuenta.ClaveSucursal ?? 0;
+                var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
+                sucursalId = cuenta.ClaveSucursal ?? 0;
+            }
+          
 
         }
 
@@ -62,6 +68,10 @@ namespace ERP.Business
 
         public string ImportarALocal()
         {
+            if (!enableSinc)
+            {
+                return "";
+            }
             try
             {
                 var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
