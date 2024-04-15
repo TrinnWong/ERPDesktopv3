@@ -3233,6 +3233,8 @@ namespace ERP.Business
             {
                 List<cat_clientes> listaClientes = contextLocal.cat_clientes.ToList();
 
+               
+
                 using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
@@ -3286,13 +3288,14 @@ namespace ERP.Business
                             }
                         }
 
+                        System.Console.WriteLine("Clientes -Inicio contextNube.SaveChanges()");
                         contextNube.SaveChanges();
 
 
-                      
 
+                        System.Console.WriteLine("Clientes -Inicio dbContextTransaction.Commit()");
                         dbContextTransaction.Commit();
-
+                        System.Console.WriteLine("Clientes -Fin dbContextTransaction.Commit()");
 
                         if (listaClientes.Count > 0)
                         {
@@ -3308,6 +3311,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportClientes",
                                                               ex);
+                        System.Console.WriteLine(String.Format("{0}-{1}-{2}",ex.Message,ex.StackTrace, ex.InnerException.Message));
                         lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
                         return false;
