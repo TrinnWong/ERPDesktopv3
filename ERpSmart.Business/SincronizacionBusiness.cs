@@ -119,6 +119,10 @@ namespace ERP.Business
                 List<cat_productos_principales> lstProductosPrincipales = contextNube.cat_productos_principales.Where(W => W.SucursalId == 1).ToList();
                 List<doc_productos_sobrantes_config> lstProductosSobrantesConfig = contextNube.doc_productos_sobrantes_config.ToList();
 
+                //this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_clientes_productos_precios"));
+
+                //this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM cat_clientes"));
+
 
                 ImportEmpresas(ref contextLocal, lstEmpresasOri);
                 ImportSucursales(ref contextLocal, sucursalOri);
@@ -151,7 +155,7 @@ namespace ERP.Business
                 ImportProductosPrecios(ref contextLocal, lstProductosPrecioOri);
                 ImportSucursalesProductos(ref contextLocal, lstSucursalesProductos);
                 ImportClientes();
-                ImportClientesProductosPrecios(lstClientesProductosPrecos);
+                ImportClientesProductosPrecios();
                 ImportPreciosEspeciales(ref contextLocal, lstPreciosEspeciales, lstPreciosEspecialesDetalle);
                 ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
                 ImportCatBasculas();
@@ -1617,11 +1621,12 @@ namespace ERP.Business
         }
 
 
-        public bool ImportClientesProductosPrecios(List<doc_clientes_productos_precios> lstClientesProductosPrecios)
+        public bool ImportClientesProductosPrecios()
         {
+            List<doc_clientes_productos_precios> lstClientesProductosPrecos = contextNube.doc_clientes_productos_precios.Where(W => W.cat_clientes.SucursalBaseId == this.sucursalId).ToList();
             try
             {
-                foreach (doc_clientes_productos_precios itemClienteProductoPrecio in lstClientesProductosPrecios)
+                foreach (doc_clientes_productos_precios itemClienteProductoPrecio in lstClientesProductosPrecos)
                 {
                     doc_clientes_productos_precios clienteProductoPrecioSinc = this.contextLocal.doc_clientes_productos_precios
                         .Where(w => w.ClienteProductoPrecioId == itemClienteProductoPrecio.ClienteProductoPrecioId)
@@ -3232,7 +3237,7 @@ namespace ERP.Business
             try
             {
                 List<cat_clientes> listaClientes = contextLocal.cat_clientes.ToList();
-
+                bool eliminar = false;
                
 
                 using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
@@ -3245,6 +3250,7 @@ namespace ERP.Business
 
                             if (exists == null)
                             {
+                                eliminar = true;
                                 exists = new cat_clientes
                                 {
                                     // Asignar los valores del cliente local al cliente en la nube
@@ -3285,6 +3291,8 @@ namespace ERP.Business
                                 };
 
                                 contextNube.cat_clientes.Add(exists);
+
+
                             }
                         }
 
@@ -3297,11 +3305,13 @@ namespace ERP.Business
                         dbContextTransaction.Commit();
                         System.Console.WriteLine("Clientes -Fin dbContextTransaction.Commit()");
 
-                        if (listaClientes.Count > 0)
+                        if (listaClientes.Count > 0 && eliminar)
                         {
                             this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_clientes_productos_precios"));
 
                             this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM cat_clientes WHERE  ClienteId IN ({0})", string.Join(",", listaClientes.Select(r => r.ClienteId))));
+
+                            this.ImportarALocal();
                         }
                     }
                     catch (Exception ex)

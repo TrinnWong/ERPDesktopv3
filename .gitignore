@@ -1,6 +1,7 @@
 ################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
+/ERP.Console.Task/bin/Debug
 /.vs/ERPv1/v15/Server/sqlite3/db.lock
 /PuntoVenta/obj/Debug/PuntoVenta.csprojAssemblyReference.cache
 /PuntoVenta/obj/Debug/PuntoVenta.csproj.CoreCompileInputs.cache
@@ -71,4 +72,3 @@
 /FlorMaiz.Desktop/bin/Debug
 /ConexionBD/obj/Debug
 /ERP.Console.Task/bin/Debug
-
