@@ -35,6 +35,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.uiBuscarTexto = new DevExpress.XtraEditors.TextEdit();
             this.uiCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.uiAceptar = new DevExpress.XtraEditors.SimpleButton();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
@@ -143,10 +144,10 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.uiBuscarTexto = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiBuscarTexto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catproductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).BeginInit();
@@ -156,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiBuscarTexto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,13 +175,22 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // uiBuscarTexto
+            // 
+            this.uiBuscarTexto.Location = new System.Drawing.Point(162, 12);
+            this.uiBuscarTexto.Name = "uiBuscarTexto";
+            this.uiBuscarTexto.Size = new System.Drawing.Size(936, 20);
+            this.uiBuscarTexto.StyleController = this.layoutControl1;
+            this.uiBuscarTexto.TabIndex = 7;
+            this.uiBuscarTexto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiBuscarTexto_KeyUp);
+            // 
             // uiCancelar
             // 
             this.uiCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiCancelar.ImageOptions.Image")));
             this.uiCancelar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiCancelar.Location = new System.Drawing.Point(558, 289);
+            this.uiCancelar.Location = new System.Drawing.Point(557, 297);
             this.uiCancelar.Name = "uiCancelar";
-            this.uiCancelar.Size = new System.Drawing.Size(534, 40);
+            this.uiCancelar.Size = new System.Drawing.Size(541, 38);
             this.uiCancelar.StyleController = this.layoutControl1;
             this.uiCancelar.TabIndex = 6;
             this.uiCancelar.Text = "CANCELAR";
@@ -191,9 +200,9 @@
             // 
             this.uiAceptar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiAceptar.ImageOptions.Image")));
             this.uiAceptar.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.uiAceptar.Location = new System.Drawing.Point(18, 289);
+            this.uiAceptar.Location = new System.Drawing.Point(12, 297);
             this.uiAceptar.Name = "uiAceptar";
-            this.uiAceptar.Size = new System.Drawing.Size(534, 40);
+            this.uiAceptar.Size = new System.Drawing.Size(541, 38);
             this.uiAceptar.StyleController = this.layoutControl1;
             this.uiAceptar.TabIndex = 5;
             this.uiAceptar.Text = "OK";
@@ -202,13 +211,13 @@
             // uiGrid
             // 
             this.uiGrid.DataSource = this.catproductosBindingSource;
-            this.uiGrid.Location = new System.Drawing.Point(18, 50);
+            this.uiGrid.Location = new System.Drawing.Point(12, 36);
             this.uiGrid.MainView = this.uiGridView;
             this.uiGrid.Name = "uiGrid";
             this.uiGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repBtnAdd,
             this.repositoryItemButtonEdit1});
-            this.uiGrid.Size = new System.Drawing.Size(1074, 233);
+            this.uiGrid.Size = new System.Drawing.Size(1086, 257);
             this.uiGrid.TabIndex = 4;
             this.uiGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.uiGridView});
@@ -319,6 +328,10 @@
             this.coldoc_produccion});
             this.uiGridView.GridControl = this.uiGrid;
             this.uiGridView.Name = "uiGridView";
+            this.uiGridView.OptionsBehavior.Editable = false;
+            this.uiGridView.OptionsFind.AllowFindPanel = false;
+            this.uiGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.uiGridView_ValidateRow);
+            this.uiGridView.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.uiGridView_ValidatingEditor);
             // 
             // colProductoId
             // 
@@ -345,7 +358,7 @@
             this.colClave.OptionsColumn.AllowEdit = false;
             this.colClave.Visible = true;
             this.colClave.VisibleIndex = 1;
-            this.colClave.Width = 147;
+            this.colClave.Width = 135;
             // 
             // colDescripcion
             // 
@@ -354,7 +367,7 @@
             this.colDescripcion.OptionsColumn.AllowEdit = false;
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
-            this.colDescripcion.Width = 387;
+            this.colDescripcion.Width = 286;
             // 
             // colDescripcionCorta
             // 
@@ -363,7 +376,7 @@
             this.colDescripcionCorta.OptionsColumn.AllowEdit = false;
             this.colDescripcionCorta.Visible = true;
             this.colDescripcionCorta.VisibleIndex = 3;
-            this.colDescripcionCorta.Width = 395;
+            this.colDescripcionCorta.Width = 206;
             // 
             // colFechaAlta
             // 
@@ -667,15 +680,23 @@
             // 
             // colcat_marcas1
             // 
-            this.colcat_marcas1.FieldName = "cat_marcas1";
+            this.colcat_marcas1.Caption = "Marca";
+            this.colcat_marcas1.FieldName = "cat_marcas.Descripcion";
             this.colcat_marcas1.Name = "colcat_marcas1";
             this.colcat_marcas1.OptionsColumn.AllowEdit = false;
+            this.colcat_marcas1.Visible = true;
+            this.colcat_marcas1.VisibleIndex = 4;
+            this.colcat_marcas1.Width = 180;
             // 
             // colcat_subfamilias
             // 
-            this.colcat_subfamilias.FieldName = "cat_subfamilias";
+            this.colcat_subfamilias.Caption = "Subfamilia";
+            this.colcat_subfamilias.FieldName = "cat_subfamilias.Descripcion";
             this.colcat_subfamilias.Name = "colcat_subfamilias";
             this.colcat_subfamilias.OptionsColumn.AllowEdit = false;
+            this.colcat_subfamilias.Visible = true;
+            this.colcat_subfamilias.VisibleIndex = 5;
+            this.colcat_subfamilias.Width = 192;
             // 
             // colcat_unidadesmed
             // 
@@ -750,6 +771,7 @@
             this.colAdd.Name = "colAdd";
             this.colAdd.Visible = true;
             this.colAdd.VisibleIndex = 0;
+            this.colAdd.Width = 69;
             // 
             // colcat_productos_existencias
             // 
@@ -949,45 +971,36 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.uiGrid;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1080, 239);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1090, 261);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.uiAceptar;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 271);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 285);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(540, 46);
+            this.layoutControlItem2.Size = new System.Drawing.Size(545, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.uiCancelar;
-            this.layoutControlItem3.Location = new System.Drawing.Point(540, 271);
+            this.layoutControlItem3.Location = new System.Drawing.Point(545, 285);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(540, 46);
+            this.layoutControlItem3.Size = new System.Drawing.Size(545, 42);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // uiBuscarTexto
-            // 
-            this.uiBuscarTexto.Location = new System.Drawing.Point(168, 18);
-            this.uiBuscarTexto.Name = "uiBuscarTexto";
-            this.uiBuscarTexto.Size = new System.Drawing.Size(924, 26);
-            this.uiBuscarTexto.StyleController = this.layoutControl1;
-            this.uiBuscarTexto.TabIndex = 7;
-            this.uiBuscarTexto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiBuscarTexto_KeyUp);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.uiBuscarTexto;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1080, 32);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1090, 24);
             this.layoutControlItem4.Text = "Buscar por Descripción/Código";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(145, 13);
             // 
@@ -1004,6 +1017,7 @@
             this.Load += new System.EventHandler(this.frmProductosBusqueda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiBuscarTexto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catproductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiGridView)).EndInit();
@@ -1013,7 +1027,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uiBuscarTexto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 

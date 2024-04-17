@@ -72,3 +72,8 @@
 /ConexionBD/obj/Debug
 /ERP.Console.Task/bin/Debug
 
+/ConexionBD/bin/Debug
+/ERP.Common/bin/Debug
+/ERP.Console.Task/obj/Debug
+/ERP.Utils/bin/Debug
+/ERpSmart.Business/bin/Debug
