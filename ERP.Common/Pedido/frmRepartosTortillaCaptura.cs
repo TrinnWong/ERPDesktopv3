@@ -224,13 +224,13 @@ namespace ERP.Common.Pedido
                     }
                     else
                     {
-                        oContext = new ERPProdEntities();
+                        oContext = new ERPProdEntities(true);
                         //ASEGURARSE QUE EL PEDIDO TENGA VENTA LIGADA                    
                         ERP.Reports.rptPedidoDevolucion oTicketPedido = new ERP.Reports.rptPedidoDevolucion();
 
 
                         ERP.Common.Reports.ReportViewer oViewerPedido = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
-                        oContext = new ERPProdEntities();
+                        oContext = new ERPProdEntities(true);
                         oTicketPedido.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
 
                         oViewerPedido.ShowTicket(oTicketPedido);
