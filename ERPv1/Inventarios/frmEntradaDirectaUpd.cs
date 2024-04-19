@@ -665,7 +665,7 @@ namespace ERPv1.Inventarios
             if (e.KeyCode == Keys.F3)
             {
                 ERP.Common.Productos.frmProductosBusqueda oForm = new ERP.Common.Productos.frmProductosBusqueda();
-
+                oForm.puntoVentaContext = this.puntoVentaContext;
                 var resultDialog = oForm.ShowDialog();
 
                 if (resultDialog == DialogResult.OK)
