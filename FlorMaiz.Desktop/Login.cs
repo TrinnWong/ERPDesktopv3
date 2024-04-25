@@ -29,6 +29,10 @@ namespace TacosAna.Desktop
         public Login()
         {
             InitializeComponent();
+           
+        }
+
+        private void loadForm() {
             oSistema = new Sistema();
 
             string error = oSistema.actualizarVersion(false);
@@ -50,6 +54,7 @@ namespace TacosAna.Desktop
             oContext = new ERPProdEntities();
             oLogin = new ConexionBD.LoginCaja();
         }
+
 
         private void llenarSucursalesUsuario()
         {
@@ -426,6 +431,8 @@ namespace TacosAna.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
+            this.Show();
+            this.loadForm();
             welcome = new BarraCargarForms();
             this.lblVersion.Text = Sistema.ObtenVersion();
             uiUsuario.Select();

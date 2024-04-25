@@ -489,7 +489,7 @@
             // uiTimerSincroniza
             // 
             this.uiTimerSincroniza.Enabled = true;
-            this.uiTimerSincroniza.Interval = 60000;
+            this.uiTimerSincroniza.Interval = 300000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
             // 
             // frmMain

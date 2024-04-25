@@ -48,7 +48,7 @@ namespace ERP.Business
                 oContext.Database.CommandTimeout = 300;
                
                 // Utilizamos el nivel de aislamiento ReadCommitted para mejorar la concurrencia.
-                var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted,
+                var transactionOptions = new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted,
                     Timeout = TimeSpan.FromMinutes(5)
                 };
 

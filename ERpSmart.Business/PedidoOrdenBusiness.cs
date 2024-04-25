@@ -1701,7 +1701,7 @@ namespace ConexionBD
                 #endregion
                 using (ERPProdEntities oContext = new ERPProdEntities(guardarNube))
                 {
-                    using (var dbContextTransaction = oContext.Database.BeginTransaction())
+                    using (var dbContextTransaction = oContext.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                     {
                         try
                         {

@@ -166,7 +166,7 @@ namespace ERP.Common.Inventarios
                 using (oContext = new ERPProdEntities(true))
                 {
 
-                    using (var dbContextTransaction = oContext.Database.BeginTransaction())
+                    using (var dbContextTransaction = oContext.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                     {
                         try
                         {
