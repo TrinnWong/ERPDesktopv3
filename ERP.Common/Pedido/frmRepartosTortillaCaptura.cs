@@ -224,54 +224,68 @@ namespace ERP.Common.Pedido
                     }
                     else
                     {
-                        oContext = new ERPProdEntities(true);
-                        //ASEGURARSE QUE EL PEDIDO TENGA VENTA LIGADA                    
-                        ERP.Reports.rptPedidoDevolucion oTicketPedido = new ERP.Reports.rptPedidoDevolucion();
 
-
-                        ERP.Common.Reports.ReportViewer oViewerPedido = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
-                        oContext = new ERPProdEntities(true);
-                        oTicketPedido.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
-
-                        oViewerPedido.ShowTicket(oTicketPedido);
-
-                        #region registrar mov Bascula
-
-                        #endregion
                         oContext = new ERPProdEntities();
-                        cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
-                        if (uiTotal.Value >= (entity.MontoImpresionTicket ?? 0))
+                        int cajaId = 0;
+                        if(oContext.cat_cajas_impresora.Where(w=> w.CajaId == this.puntoVentaContext.cajaId).Count() == 0)
                         {
-                            if (entity.ImprimirTicketMediaCarta == true)
+                            ERP.Utils.MessageBoxUtil.ShowWarning("NO SE ENCONTRÓ CONFIGURACIÓN DE IMPRESORA");
+                        }
+                        else
+                        {
+                            oContext = new ERPProdEntities(true);
+                            //ASEGURARSE QUE EL PEDIDO TENGA VENTA LIGADA                    
+                            ERP.Reports.rptPedidoDevolucion oTicketPedido = new ERP.Reports.rptPedidoDevolucion();
+
+
+                            ERP.Common.Reports.ReportViewer oViewerPedido = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
+                            oContext = new ERPProdEntities(true);
+                            oTicketPedido.DataSource = oContext.p_rpt_pedido_orden_sel(pedido.PedidoId).ToList();
+
+                            oViewerPedido.ShowTicket(oTicketPedido);
+
+                            #region registrar mov Bascula
+
+                            #endregion
+                            oContext = new ERPProdEntities();
+                            cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
+
+                            if (uiTotal.Value >= (entity.MontoImpresionTicket ?? 0))
                             {
-                                ERP.Reports.rptVentaTicket_CartaM oTicket1 = new ERP.Reports.rptVentaTicket_CartaM();
+                                if (entity.ImprimirTicketMediaCarta == true)
+                                {
+                                    ERP.Reports.rptVentaTicket_CartaM oTicket1 = new ERP.Reports.rptVentaTicket_CartaM();
 
 
-                                ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
+                                    ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
 
-                                oTicket1.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
+                                    oTicket1.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
 
-                                oViewer.ShowTicket(oTicket1);
+                                    oViewer.ShowTicket(oTicket1);
+                                }
+                                else
+                                {
+                                    ERP.Reports.rptVentaTicket oTicket2 = new ERP.Reports.rptVentaTicket();
+
+
+                                    ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
+
+                                    oTicket2.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
+
+                                    oViewer.ShowTicket(oTicket2);
+                                }
+
+
+                                //oViewer.Show();
                             }
-                            else
-                            {
-                                ERP.Reports.rptVentaTicket oTicket2 = new ERP.Reports.rptVentaTicket();
 
-
-                                ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
-
-                                oTicket2.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
-
-                                oViewer.ShowTicket(oTicket2);
-                            }
-
-
-                            //oViewer.Show();
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
                         }
 
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+
+                       
 
                     }
                 }
