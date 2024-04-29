@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using static ERP.Business.Enumerados;
@@ -74,6 +75,8 @@ namespace ERP.Business
                 
             }
         }
+
+
 
         public static sis_bitacora_general GuardaBitacoraGeneral(string accion,int susucursalId, object entity, int usuarioid)
         {

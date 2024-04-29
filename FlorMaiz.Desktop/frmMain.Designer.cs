@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.uiRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.uiMenuNuevaVenta = new DevExpress.XtraBars.BarButtonItem();
@@ -74,8 +75,8 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.timerToCheckNetwork = new System.Windows.Forms.Timer();
-            this.uiTimerSincroniza = new System.Windows.Forms.Timer();
+            this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
+            this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,7 @@
             this.uiToolsBitacora,
             this.uiRepartoDevoluciones});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
+            this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiRibbonControl.MaxItemId = 32;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -126,7 +128,7 @@
             this.uiRibTools,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1191, 52);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1389, 65);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -487,16 +489,17 @@
             // uiTimerSincroniza
             // 
             this.uiTimerSincroniza.Enabled = true;
-            this.uiTimerSincroniza.Interval = 180000;
+            this.uiTimerSincroniza.Interval = 240000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 509);
+            this.ClientSize = new System.Drawing.Size(1389, 626);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
