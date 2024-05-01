@@ -14,32 +14,32 @@ namespace ConexionBD
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using System.Data.Entity.Core.EntityClient;
     using System.Configuration;
+    using System.Data.Entity.Core.EntityClient;
 
     public partial class ERPProdEntities : DbContext
     {
         public ERPProdEntities()
-            : base("name=ERPProdEntities")
+               : base("name=ERPProdEntities")
         {
-            
+
         }
 
         public ERPProdEntities(bool cloud)
            : base("name=ERPProdEntities")
         {
             if (cloud)
-            {              
-                if(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
+            {
+                if (ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
                 {
                     EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
 
                     this.Database.Connection.ConnectionString = builder1.ProviderConnectionString;
                 }
-                
+
 
             }
-            
+
         }
 
         public ERPProdEntities(string sc)
