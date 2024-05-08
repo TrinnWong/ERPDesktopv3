@@ -56,6 +56,7 @@ namespace PuntoVenta.Desktop
         bool imprimirTicket = false;
         bool pesoInteligenteLecturaLocal = false;
         bool desvincularBascula = false;
+        bool esLocal = false;
         public static frmPuntoVenta GetInstance()
         {
             if (_instance == null) _instance = new frmPuntoVenta();
@@ -148,6 +149,11 @@ namespace PuntoVenta.Desktop
                    this.puntoVentaContext.sucursalId, "UsarPesoInteligente", this.puntoVentaContext.usuarioId, ref error))
                 {
                     abrirTareaBascula();
+                }
+
+                if (ERP.Business.PreferenciaBusiness.AplicaPreferencia(this.puntoVentaContext.empresaId, this.puntoVentaContext.sucursalId, "PV-Local", this.puntoVentaContext.usuarioId))
+                {
+                    esLocal = true;
                 }
 
                 HabilitarBasculaSiNo();
@@ -823,7 +829,7 @@ namespace PuntoVenta.Desktop
                 puntoVentaContext.sucursalId, 
                 puntoVentaContext.usuarioId, 
                 puntoVentaContext.cajaId, lstProductos, formasPago, new List<ValeFPModel>(), pedido.PedidoId,
-                Convert.ToInt32(uiTipoCortesia.EditValue) == 1 ? true : false, Convert.ToInt32(uiTipoCortesia.EditValue) == 2 ? true : false);
+                Convert.ToInt32(uiTipoCortesia.EditValue) == 1 ? true : false, Convert.ToInt32(uiTipoCortesia.EditValue) == 2 ? true : false,null,!this.esLocal);
 
             if (error.Length > 0)
             {
