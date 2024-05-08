@@ -3157,7 +3157,7 @@ namespace ConexionBD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_Result>("p_rpt_productos_existencias", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pFechaHastaParameter, pClaveIniParameter, pClaveFinParameter);
         }
     
-        public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento)
+        public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento, string pTipo)
         {
             var pSucursalIdParameter = pSucursalId.HasValue ?
                 new ObjectParameter("pSucursalId", pSucursalId) :
@@ -3182,8 +3182,13 @@ namespace ConexionBD
             var pDescuentoParameter = pDescuento.HasValue ?
                 new ObjectParameter("pDescuento", pDescuento) :
                 new ObjectParameter("pDescuento", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_valuo_Result>("p_rpt_productos_existencias_valuo", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pDescuentoParameter);
+
+
+            var pTipoParameter = pTipo != null ?
+              new ObjectParameter("pTipo", pTipo) :
+              new ObjectParameter("pTipo", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_valuo_Result>("p_rpt_productos_existencias_valuo", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pDescuentoParameter, pTipoParameter);
         }
     
         public virtual ObjectResult<p_rpt_retiro_ticket_Result> p_rpt_retiro_ticket(Nullable<int> pRetiroId)

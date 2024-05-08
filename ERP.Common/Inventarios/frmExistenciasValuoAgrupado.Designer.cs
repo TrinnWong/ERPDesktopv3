@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiRadioTipo = new System.Windows.Forms.RadioButton();
+            this.uiRadioTipo1 = new System.Windows.Forms.RadioButton();
             this.uiDescuento = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +54,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panelSup.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDescuento)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +81,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.uiDescuento);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.groupBox1);
@@ -94,6 +99,39 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1209, 100);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiRadioTipo);
+            this.groupBox2.Controls.Add(this.uiRadioTipo1);
+            this.groupBox2.Location = new System.Drawing.Point(731, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(400, 38);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tipo";
+            // 
+            // uiRadioTipo
+            // 
+            this.uiRadioTipo.AutoSize = true;
+            this.uiRadioTipo.Location = new System.Drawing.Point(216, 12);
+            this.uiRadioTipo.Name = "uiRadioTipo";
+            this.uiRadioTipo.Size = new System.Drawing.Size(168, 17);
+            this.uiRadioTipo.TabIndex = 1;
+            this.uiRadioTipo.Text = "Costo u. compra/Precio Venta";
+            this.uiRadioTipo.UseVisualStyleBackColor = true;
+            // 
+            // uiRadioTipo1
+            // 
+            this.uiRadioTipo1.AutoSize = true;
+            this.uiRadioTipo1.Checked = true;
+            this.uiRadioTipo1.Location = new System.Drawing.Point(29, 12);
+            this.uiRadioTipo1.Name = "uiRadioTipo1";
+            this.uiRadioTipo1.Size = new System.Drawing.Size(163, 17);
+            this.uiRadioTipo1.TabIndex = 0;
+            this.uiRadioTipo1.TabStop = true;
+            this.uiRadioTipo1.Text = "Costo u. compra/Costo prom.";
+            this.uiRadioTipo1.UseVisualStyleBackColor = true;
             // 
             // uiDescuento
             // 
@@ -314,6 +352,8 @@
             this.panelSup.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDescuento)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -344,5 +384,8 @@
         private System.Windows.Forms.NumericUpDown uiDescuento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton uiRadioTipo;
+        private System.Windows.Forms.RadioButton uiRadioTipo1;
     }
 }

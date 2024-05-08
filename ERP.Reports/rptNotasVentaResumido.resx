@@ -117,41 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox1.OutputFormat" xml:space="preserve">&#xD;
-    <value>dd-MM-yyyy</value>&#xD;
+  <data name="textBox1.OutputFormat" xml:space="preserve">
+    <value>dd-MM-yyyy</value>
   </data>
-  <data name="textBox2.OutputFormat" xml:space="preserve">&#xD;
-    <value>dd-MM-yyyy</value>&#xD;
+  <data name="textBox2.OutputFormat" xml:space="preserve">
+    <value>dd-MM-yyyy</value>
   </data>
-  <data name="textBox4.OutputFormat" xml:space="preserve">&#xD;
-    <value>dd-MMM-yyyy</value>&#xD;
+  <data name="textBox4.OutputFormat" xml:space="preserve">
+    <value>dd-MMM-yyyy</value>
   </data>
-  <data name="textBox7.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox7.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox8.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox8.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox9.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox9.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox10.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox10.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox11.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox11.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox12.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox12.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox14.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox14.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox15.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox15.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
-  <data name="textBox16.OutputFormat" xml:space="preserve">&#xD;
-    <value>$#,##0.00</value>&#xD;
+  <data name="textBox16.OutputFormat" xml:space="preserve">
+    <value>$#,##0.00</value>
   </data>
   <metadata name="$this.ScriptEditorPositionForUndo" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>

@@ -10479,6 +10479,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
           <Parameter Name="pClaveSubfamilia" Type="int" Mode="In" />
           <Parameter Name="pSoloConExistencia" Type="bit" Mode="In" />
           <Parameter Name="pDescuento" Type="decimal" Mode="In" />
+          <Parameter Name="pTipo" Type="varchar" Mode="In" />
         </Function>
         <Function Name="p_rpt_productos_importacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pUUID" Type="uniqueidentifier" Mode="In" />
@@ -20486,6 +20487,7 @@ advertencia 6035: La relación 'FK_Carrito_CarritoDetalle' tiene columnas que no
             <Parameter Name="pClaveSubfamilia" Mode="In" Type="Int32" />
             <Parameter Name="pSoloConExistencia" Mode="In" Type="Boolean" />
             <Parameter Name="pDescuento" Mode="In" Type="Decimal" />
+            <Parameter Name="pTipo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="p_rpt_retiro_ticket" ReturnType="Collection(ERPProdModel.p_rpt_retiro_ticket_Result)">
           <Parameter Name="pRetiroId" Mode="In" Type="Int32" />
