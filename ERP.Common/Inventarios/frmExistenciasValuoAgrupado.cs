@@ -100,15 +100,16 @@ namespace ERP.Common.Inventarios
             int linea = uiLinea.SelectedValue == null ? 0 : int.Parse(uiLinea.SelectedValue.ToString());
             int familia = uiFamilia.SelectedValue == null ? 0 : int.Parse(uiFamilia.SelectedValue.ToString());
             int subFamilia = uiSubfamilia.SelectedValue == null ? 0 : int.Parse(uiSubfamilia.SelectedValue.ToString());
+            string tipo = uiRadioTipo1.Checked ? "1" : uiRadioTipo.Checked ? "2" : "1";
 
-            rptExistenciasValuoCarta oCorte = new rptExistenciasValuoCarta(uiLineaG.Checked, uiFamiliaG.Checked, uiSubfamiliaG.Checked, uiProguctoG.Checked);
+            rptExistenciasValuoCarta oCorte = new rptExistenciasValuoCarta(uiLineaG.Checked, uiFamiliaG.Checked, uiSubfamiliaG.Checked, uiProguctoG.Checked, tipo);
             ReportViewer oViewer = new ReportViewer();
 
             int sucursalId = int.Parse(uiSucursal.SelectedValue.ToString());
 
+           
 
-
-            oCorte.DataSource = oContext.p_rpt_productos_existencias_valuo(sucursalId, linea, familia, subFamilia, uiSoloExistencia.Checked,uiDescuento.Value).ToList();
+            oCorte.DataSource = oContext.p_rpt_productos_existencias_valuo(sucursalId, linea, familia, subFamilia, uiSoloExistencia.Checked,uiDescuento.Value, tipo).ToList();
             oViewer.ShowPreview(oCorte);
         }
 

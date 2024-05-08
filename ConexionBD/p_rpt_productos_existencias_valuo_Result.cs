@@ -28,5 +28,7 @@ namespace ConexionBD
         public Nullable<decimal> Descuento { get; set; }
         public Nullable<decimal> PrecioConDescuento { get; set; }
         public Nullable<decimal> ExistenciaDescValuada { get; set; }
+
+
     }
 }

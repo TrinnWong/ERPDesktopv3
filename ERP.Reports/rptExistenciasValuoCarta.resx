@@ -132,30 +132,6 @@
   <data name="textBox12.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
-  <data name="textBox4.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
-  </data>
-  <data name="textBox8.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox9.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox11.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox12.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox13.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox1.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
-  </data>
-  <data name="textBox5.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
   <data name="textBox13.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
@@ -174,15 +150,6 @@
   <data name="textBox14.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
-  <data name="textBox2.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
-  </data>
-  <data name="textBox6.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox14.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
   <data name="textBox15.OutputFormat" xml:space="preserve">
     <value>$#,##0.00</value>
   </data>
@@ -190,24 +157,6 @@
     <value>$#,##0.00</value>
   </data>
   <data name="textBox3.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
-  </data>
-  <data name="textBox15.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox7.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox3.OutputFormat" xml:space="preserve">
-    <value>#,##0.00</value>
-  </data>
-  <data name="textBox18.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox17.OutputFormat" xml:space="preserve">
-    <value>$#,##0.00</value>
-  </data>
-  <data name="textBox16.OutputFormat" xml:space="preserve">
     <value>#,##0.00</value>
   </data>
   <data name="textBox18.OutputFormat" xml:space="preserve">

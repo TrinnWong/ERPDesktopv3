@@ -355,7 +355,7 @@
             this.textBox12.Style = "font-size: 8.25pt; text-align: right; ddo-char-set: 0";
             this.textBox12.Text = "textBox1";
             this.textBox12.Top = 0F;
-            this.textBox12.Width = 0.704F;
+            this.textBox12.Width = 0.8160005F;
             // 
             // pageFooter
             // 
