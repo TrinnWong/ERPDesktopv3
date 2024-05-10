@@ -136,8 +136,12 @@ namespace ERP.Business.Tools
                 portBascula.Write("P");
                 string value = portBascula.ReadExisting();
 
+                
+
                 value = value.Replace("Kg", "").Replace("+", "").Replace("KG", "").Replace("kg", "");
 
+                value = value.Trim();
+                value = value.Replace(" ", "");
                 decimal.TryParse(value, out peso);
 
                 if (peso == 0 && ceroCount <= 1)

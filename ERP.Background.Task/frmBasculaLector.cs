@@ -95,6 +95,7 @@ namespace ERP.Background.Task
             {
                 oContext = new ERPProdEntities();
                 Random rd = new Random();
+                string pesoRef = "";
                 if (basculaControlador == null)
                     return;
                 try

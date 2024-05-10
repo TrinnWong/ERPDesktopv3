@@ -629,6 +629,7 @@ namespace PuntoVenta.Desktop
                         //gcMonedas.Enabled = false;
                         cerrarBascula();
                         uiPesoVal.ReadOnly = false;
+                        uiPesoVal.EditValue = -666666;
                         //uiPesoVal.EditValue = 1;
                     }
                 }
@@ -1104,15 +1105,33 @@ namespace PuntoVenta.Desktop
                 }               
                 
                 buscarProducto();
-                uiPesoVal.EditValue = uiPesoVal.Value > 1 ? uiPesoVal.Value : (productoSeleccionado==null ? new cat_productos() : productoSeleccionado).ProdVtaBascula == true ? 0 : 1;
+
                 mostrarProducto();
+
+                if (uiPesoVal.Value == -666666M)
+                {
+                    uiPesoVal.EditValue = 1;
+                 
+                }
+                uiPesoVal.EditValue = uiPesoVal.Value > 1 ? uiPesoVal.Value : (productoSeleccionado==null ? new cat_productos() : productoSeleccionado).ProdVtaBascula == true ? 0 : 1;
+
+           
+                
                 uiPesoVal.Focus();
                 uiPesoVal.SelectAll();
+
+               
 
                 if(productoSeleccionado!= null)
                 {
                     if (productoSeleccionado.ProdVtaBascula == false)
                     {
+                        if (uiPesoVal.Value <= 0)
+                        {
+                            ERP.Utils.MessageBoxUtil.ShowError("La  cantidad no puede ser menor o igual a cero");
+                            return;
+                        }
+
                         CalcularMontoProducto();
                         agregarProducto();
                     }

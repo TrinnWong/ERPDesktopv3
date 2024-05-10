@@ -84,6 +84,7 @@ namespace ERP.Background.Task
             try
             {
                 Random rd = new Random();
+                string pesoStr = "";
                 if (basculaControlador == null)
                     return;
                 try
@@ -100,6 +101,8 @@ namespace ERP.Background.Task
 
                     peso = basculaControlador.ObtenPeso();
                     uiPeso.Value = peso;
+
+                    uiMemo.Text = String.Format("Info báscula:{0}", pesoStr);
 
                     #region Guardar peso del producto
                     var pesoProducto = new PesoProducto()
