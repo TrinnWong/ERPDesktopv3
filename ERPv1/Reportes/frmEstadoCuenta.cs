@@ -176,13 +176,58 @@ namespace ERPv1.Reportes
                 rowIni++;
                 rowIni++;
 
+                //Encabezado 
+                using (ExcelRange titulos = workSheet.Cells[String.Format("A{0}:G{0}", rowIni)])
+                {
+                    titulos.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    titulos.Style.Fill.BackgroundColor.SetColor(System.Drawing.ColorTranslator.FromHtml("#203764"));
+                    titulos.Style.Font.Bold = true;
+                    titulos.Style.Font.Color.SetColor(System.Drawing.ColorTranslator.FromHtml("#FFFFFF"));
+                    titulos.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                }
+
+                workSheet.Column(1).Width = 20;
+                workSheet.Column(2).Width = 20;
+                workSheet.Column(3).Width = 40;
+                workSheet.Column(4).Width = 25;
+                workSheet.Column(5).Width = 20;
+                workSheet.Column(6).Width = 20;
+                workSheet.Column(7).Width = 20;
+                workSheet.Cells[String.Format("A{0}", rowIni)].Value = "Tipo";
+                workSheet.Cells[String.Format("B{0}", rowIni)].Value = "Fecha";
+                workSheet.Cells[String.Format("C{0}", rowIni)].Value = "Sucursal";
+                workSheet.Cells[String.Format("D{0}", rowIni)].Value = "Movimiento";
+                workSheet.Cells[String.Format("E{0}", rowIni)].Value = "Detalle Movimiento";
+                workSheet.Cells[String.Format("F{0}", rowIni)].Value = "Total";
+                workSheet.Cells[String.Format("G{0}", rowIni)].Value = "Cargo/Abono";
+
 
                 foreach (var itemCompra in compras)
                 {
+                    workSheet.Cells[String.Format("A{0}", rowIni)].Value = itemCompra.Tipo;
+                    workSheet.Cells[String.Format("B{0}", rowIni)].Value = itemCompra.Fecha.ToString("dd-MMM-yyyy").ToLower();
+                    workSheet.Cells[String.Format("C{0}", rowIni)].Value = itemCompra.Sucursal;
+                    workSheet.Cells[String.Format("D{0}", rowIni)].Value = itemCompra.Movimiento;
                     workSheet.Cells[String.Format("E{0}", rowIni)].Value = itemCompra.DetalleMovimiento;
                     workSheet.Cells[String.Format("F{0}", rowIni)].Value = string.Format("{0:C2}", itemCompra.Total);
+                    workSheet.Cells[String.Format("G{0}", rowIni)].Value = (itemCompra.CargoAbono ?? false) ? "Abono" : "Cargo";
                     rowIni++;
                 }
+
+
+                //Encabezado 
+                using (ExcelRange titulos = workSheet.Cells[String.Format("E{0}:F{0}", rowIni)])
+                {
+                    titulos.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    titulos.Style.Fill.BackgroundColor.SetColor(System.Drawing.ColorTranslator.FromHtml("#203764"));
+                    titulos.Style.Font.Bold = true;
+                    titulos.Style.Font.Color.SetColor(System.Drawing.ColorTranslator.FromHtml("#FFFFFF"));
+                    titulos.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                }
+
+                workSheet.Cells[String.Format("E{0}", rowIni)].Value = String.Format("Total");
+                workSheet.Cells[String.Format("F{0}", rowIni)].Value = string.Format("{0:C2}", compras.Sum(s => s.Total));
+                rowIni++;
 
                 // Mostrar el diálogo de guardado
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
