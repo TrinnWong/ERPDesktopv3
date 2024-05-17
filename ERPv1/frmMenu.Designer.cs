@@ -164,6 +164,7 @@
             this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.máximosYMínimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -654,6 +655,7 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCatProductos,
             this.productosEdiciónToolStripMenuItem,
+            this.máximosYMínimosToolStripMenuItem,
             this.preciosToolStripMenuItem,
             this.configuraciónProducciónToolStripMenuItem,
             this.promocionesToolStripMenuItem,
@@ -1361,6 +1363,13 @@
             this.pictureBox1.Visible = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // máximosYMínimosToolStripMenuItem
+            // 
+            this.máximosYMínimosToolStripMenuItem.Name = "máximosYMínimosToolStripMenuItem";
+            this.máximosYMínimosToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
+            this.máximosYMínimosToolStripMenuItem.Text = "Máximos y mínimos";
+            this.máximosYMínimosToolStripMenuItem.Click += new System.EventHandler(this.máximosYMínimosToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1526,6 +1535,7 @@
         private System.Windows.Forms.ToolStripMenuItem entradaPorDevolucionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosSucursalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferenciasPorEmpresaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem máximosYMínimosToolStripMenuItem;
     }
 }
 

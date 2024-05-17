@@ -1629,5 +1629,21 @@ namespace ERPv1
         {
 
         }
+
+        private void máximosYMínimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMaximosMinimosUpd frmo = frmMaximosMinimosUpd.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.MdiParent = this;
+                frmo.StartPosition = FormStartPosition.CenterScreen;
+                frmo.WindowState = FormWindowState.Maximized;
+                frmo.Show();
+            }
+        }
     }
 }
