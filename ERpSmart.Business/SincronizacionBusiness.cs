@@ -3098,7 +3098,7 @@ namespace ERP.Business
                             {
                                 doc_ventas_detalle itemVentaDetalleSPNEW = new doc_ventas_detalle();
 
-                                itemVentaDetalleSPNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
+                               
                                 itemVentaDetalleSPNEW.Cantidad = itemVentaDetalleSP.Cantidad;
                                 itemVentaDetalleSPNEW.CargoAdicionalId = itemVentaDetalleSP.CargoAdicionalId;
                                 itemVentaDetalleSPNEW.CargoDetalleId = itemVentaDetalleSP.CargoDetalleId;
@@ -3117,7 +3117,7 @@ namespace ERP.Business
                                 itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
                                 itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
                                 itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
-
+                                itemVentaDetalleSPNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
 
                                 this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
                                 this.contextNube.SaveChanges();

@@ -116,7 +116,6 @@
             this.uiToolsBitacora,
             this.uiRepartoDevoluciones});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiRibbonControl.MaxItemId = 32;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -128,7 +127,7 @@
             this.uiRibTools,
             this.ribbonPage3});
             this.uiRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.uiRibbonControl.Size = new System.Drawing.Size(1389, 65);
+            this.uiRibbonControl.Size = new System.Drawing.Size(1191, 52);
             this.uiRibbonControl.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // uiMenuNuevaVenta
@@ -494,12 +493,11 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1389, 626);
+            this.ClientSize = new System.Drawing.Size(1191, 509);
             this.Controls.Add(this.uiRibbonControl);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "PUNTO DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
