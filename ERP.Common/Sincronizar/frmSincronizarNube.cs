@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -68,15 +69,23 @@ namespace ERP.Common.Sincronizar
 
         private void uiExportar_Click(object sender, EventArgs e)
         {
+            if (Process.GetProcessesByName("ERP.Console.Task").Count() == 0)
+            {
 
-            this.uiGrid.DataSource = null;
-            oFormLoading.Show();
-            oSincronizar.lstResultado = new List<SincronizaResultadoModel>();
-            this.uiSincronizar.Enabled = false;
-            oSincronizar.ExportANube();
-            this.uiGrid.DataSource = oSincronizar.lstResultado.OrderByDescending(O => O.Detalle);
-            this.uiSincronizar.Enabled = true;
-            oFormLoading.Hide();
+                this.uiGrid.DataSource = null;
+                oFormLoading.Show();
+                oSincronizar.lstResultado = new List<SincronizaResultadoModel>();
+                this.uiSincronizar.Enabled = false;
+                oSincronizar.ExportANube();
+                this.uiGrid.DataSource = oSincronizar.lstResultado.OrderByDescending(O => O.Detalle);
+                this.uiSincronizar.Enabled = true;
+                oFormLoading.Hide();
+            }
+            else
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("Se está  ejecutando un proceso de sincronización en segundo plano, intente en 1 minuto mas");
+            }
+            
         }
 
         private void uiImportar_Click(object sender, EventArgs e)

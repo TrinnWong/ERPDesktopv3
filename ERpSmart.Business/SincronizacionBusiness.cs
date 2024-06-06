@@ -15,7 +15,7 @@ namespace ERP.Business
 {
     public class SincronizacionBusiness
     {
-        
+        private static readonly object lockObj = new object();
         public SisCuentaBusiness sisCuenta;
         ERPProdEntities contextNube;
         ERPProdEntities contextLocal;
@@ -2821,6 +2821,9 @@ namespace ERP.Business
         {
             try
             {
+
+                
+
                 List<doc_cargos> listaCargos = this.contextLocal.doc_cargos.ToList();
                 List<doc_cargos_detalle> listaCargosDetalle = this.contextLocal.doc_cargos_detalle.ToList();
                 List<doc_pedidos_orden> listaPedidosOrden = this.contextLocal.doc_pedidos_orden.ToList();
@@ -2828,9 +2831,13 @@ namespace ERP.Business
                 List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.ToList();
                 List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.ToList();
                 List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.ToList();
+                List<doc_ventas_detalle> nuevosDetalles = new List<doc_ventas_detalle>();
                 List<long> lstVentasFormaPago = new List<long>();
-                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
-                {
+                long ventaDetalleIdKey = 0;
+                long ventaIdKey = 0;
+                int rango = 200;
+                //using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
+                //{
                     try
                     {
                         DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
@@ -2843,7 +2850,7 @@ namespace ERP.Business
                             {
                                 exists = new doc_pedidos_orden
                                 {
-                                    PedidoId = (this.contextNube.doc_pedidos_orden.Max(m => (int?)m.PedidoId) ?? 0) + 1,
+                                    PedidoId = (this.contextNube.doc_pedidos_orden.Max(m => (int?)m.PedidoId) ?? 0) + 3,
                                     SucursalId = pedidoOrden.SucursalId,
                                     ComandaId = pedidoOrden.ComandaId,
                                     PorcDescuento = pedidoOrden.PorcDescuento,
@@ -2888,7 +2895,7 @@ namespace ERP.Business
                                         doc_cargos itemCargoNew = new doc_cargos();
 
                                         itemCargoNew.Activo = itemCargo.Activo;
-                                        itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
+                                        
                                         itemCargoNew.ClienteId = itemCargo.ClienteId;
                                         itemCargoNew.CreadoPor = itemCargo.CreadoPor;
                                         itemCargoNew.CredoEl = fechaHoraServidor;
@@ -2898,6 +2905,7 @@ namespace ERP.Business
                                         itemCargoNew.Saldo = itemCargo.Saldo;
                                         itemCargoNew.SucursalId = itemCargo.SucursalId;
                                         itemCargoNew.Total = itemCargo.Total;
+                                        itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
 
                                         this.contextNube.doc_cargos.Add(itemCargoNew);
                                         this.contextNube.SaveChanges();
@@ -2905,7 +2913,7 @@ namespace ERP.Business
                                         {
                                             doc_cargos_detalle itemCargoDetalleNEW = new doc_cargos_detalle();
 
-                                            itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
+                                            
                                             itemCargoDetalleNEW.CargoId = itemCargoNew.ClienteId;
                                             itemCargoDetalleNEW.CreadoEl = fechaHoraServidor;
                                             itemCargoDetalleNEW.Descuento = itemCargoDetalle.Descuento;
@@ -2915,8 +2923,9 @@ namespace ERP.Business
                                             itemCargoDetalleNEW.Saldo = itemCargoDetalle.Saldo;
                                             itemCargoDetalleNEW.Subtotal = itemCargoDetalle.Subtotal;
                                             itemCargoDetalleNEW.Total = itemCargoDetalle.Total;
+                                            itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
 
-                                            this.contextNube.doc_cargos_detalle.Add(itemCargoDetalleNEW);
+                                        this.contextNube.doc_cargos_detalle.Add(itemCargoDetalleNEW);
                                             this.contextNube.SaveChanges();
                                         }
 
@@ -2925,8 +2934,9 @@ namespace ERP.Business
                                         itemPedidoCargNEW.CargoId = itemCargo.CargoId;
                                         itemPedidoCargNEW.CreadoEl = fechaHoraServidor;
                                         itemPedidoCargNEW.CreadoPor = itemPedidoCArgo.CreadoPor;
-                                        itemPedidoCargNEW.PedidoCargoId = (this.contextNube.doc_pedidos_cargos.Max(m => (int?)m.PedidoCargoId) ?? 0) + 1;
+                                       
                                         itemPedidoCargNEW.PedidoId = exists.PedidoId;
+                                        itemPedidoCargNEW.PedidoCargoId = (this.contextNube.doc_pedidos_cargos.Max(m => (int?)m.PedidoCargoId) ?? 0) + 1;
 
                                         this.contextNube.doc_pedidos_cargos.Add(itemPedidoCargNEW);
                                         this.contextNube.SaveChanges();
@@ -2954,7 +2964,7 @@ namespace ERP.Business
                                     itemPedidoOrdenDetalleNEW.Impuestos = itemPedidoOrdenDetalle.Impuestos;
                                     itemPedidoOrdenDetalleNEW.Notas = itemPedidoOrdenDetalle.Notas;
                                     itemPedidoOrdenDetalleNEW.Parallevar = itemPedidoOrdenDetalle.Parallevar;
-                                    itemPedidoOrdenDetalleNEW.PedidoDetalleId = (this.contextNube.doc_pedidos_orden_detalle.Max(m=> (int?)m.PedidoDetalleId)??0)+1;
+                                   
                                     itemPedidoOrdenDetalleNEW.PedidoId = exists.PedidoId;
                                     itemPedidoOrdenDetalleNEW.PorcDescuento = itemPedidoOrdenDetalle.PorcDescuento;
                                     itemPedidoOrdenDetalleNEW.PrecioUnitario = itemPedidoOrdenDetalle.PrecioUnitario;
@@ -2963,7 +2973,8 @@ namespace ERP.Business
                                     itemPedidoOrdenDetalleNEW.TasaIVA = itemPedidoOrdenDetalle.TasaIVA;
                                     itemPedidoOrdenDetalleNEW.TipoDescuentoId = itemPedidoOrdenDetalle.TipoDescuentoId;
                                     itemPedidoOrdenDetalleNEW.Total = itemPedidoOrdenDetalle.Total;
-                                   
+                                    itemPedidoOrdenDetalleNEW.PedidoDetalleId = (this.contextNube.doc_pedidos_orden_detalle.Max(m => (int?)m.PedidoDetalleId) ?? 0) + 1;
+
                                     this.contextNube.doc_pedidos_orden_detalle.Add(itemPedidoOrdenDetalleNEW);
                                     this.contextNube.SaveChanges();
                                 }
@@ -2971,11 +2982,13 @@ namespace ERP.Business
                                 //INSERTAR doc_venta
                                 doc_ventas itemVenta = listaVentas.Where(w=> w.VentaId == pedidoOrden.VentaId).FirstOrDefault();
 
-                                if(itemVenta != null)
+
+                                ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId)+ rango;
+                                if (itemVenta != null)
                                 {
                                     doc_ventas itemVentaNEW = new doc_ventas();
 
-                                    itemVentaNEW.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId) ?? 0) + 1;
+                                   
                                     itemVentaNEW.Activo = itemVenta.Activo;
                                     itemVentaNEW.CajaId = itemVenta.CajaId;
                                     itemVentaNEW.Cambio = itemVenta.Cambio;
@@ -3001,18 +3014,35 @@ namespace ERP.Business
                                     itemVentaNEW.TotalVenta = itemVenta.TotalVenta;
                                     itemVentaNEW.UsuarioCancelacionId = itemVenta.UsuarioCancelacionId;
                                     itemVentaNEW.UsuarioCreacionId = itemVenta.UsuarioCreacionId;
-                                    
+                                    itemVentaNEW.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                                    ventaIdKey++;
 
                                     this.contextNube.doc_ventas.Add(itemVentaNEW);
 
                                     this.contextNube.SaveChanges();
 
+                                    foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVenta.doc_ventas_formas_pago)
+                                    {
+                                        doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
+
+                                        itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
+                                        itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
+                                        itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
+                                        itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
+                                        itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
+                                        itemVentaFormaPagoNEW.VentaId = itemVentaNEW.VentaId;
+
+                                        this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
+                                        this.contextNube.SaveChanges();
+
+                                    }
+
                                     //INSERTAR VENTA DETALLE
                                     foreach (doc_ventas_detalle itemVentaDetalle in listaVentasDetalle.Where(W=> W.VentaId == itemVenta.VentaId))
                                     {
                                         doc_ventas_detalle itemVentaDetalleNEW = new doc_ventas_detalle();
-
-                                        itemVentaDetalleNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
+                                       
+                                            
                                         itemVentaDetalleNEW.Cantidad = itemVentaDetalle.Cantidad;
                                         itemVentaDetalleNEW.CargoAdicionalId = itemVentaDetalle.CargoAdicionalId;
                                         itemVentaDetalleNEW.CargoDetalleId = itemVentaDetalle.CargoDetalleId;
@@ -3031,27 +3061,14 @@ namespace ERP.Business
                                         itemVentaDetalleNEW.Total = itemVentaDetalle.Total;
                                         itemVentaDetalleNEW.UsuarioCreacionId = itemVentaDetalle.UsuarioCreacionId;
                                         itemVentaDetalleNEW.VentaId = itemVentaNEW.VentaId;
+                                        itemVentaDetalleNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
 
-
+                                        nuevosDetalles.Add(itemVentaDetalleNEW);
                                         this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleNEW);
                                         this.contextNube.SaveChanges();
                                     }
 
-                                    foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVenta.doc_ventas_formas_pago)
-                                    {
-                                        doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
-
-                                        itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
-                                        itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                                        itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
-                                        itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
-                                        itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
-                                        itemVentaFormaPagoNEW.VentaId = itemVentaNEW.VentaId;
-
-                                        this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
-                                        this.contextNube.SaveChanges();
-
-                                    }
+                                    
                                 }
 
                             }
@@ -3060,11 +3077,16 @@ namespace ERP.Business
 
 
                         //VENTAS SIN PEDIDO
+                        if (ventaIdKey == 0)
+                        {
+                            ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
+                        }
+
                         foreach (doc_ventas itemVentaSP in listaVentas.Where(w=> w.doc_pedidos_orden.Where(s1=>s1.PedidoId > 0).Count() ==0))
                         {
                             doc_ventas itemVentaNEWSP = new doc_ventas();
 
-                            itemVentaNEWSP.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId) ?? 0) + 1;
+                           
                             itemVentaNEWSP.Activo = itemVentaSP.Activo;
                             itemVentaNEWSP.CajaId = itemVentaSP.CajaId;
                             itemVentaNEWSP.Cambio = itemVentaSP.Cambio;
@@ -3090,9 +3112,32 @@ namespace ERP.Business
                             itemVentaNEWSP.TotalVenta = itemVentaSP.TotalVenta;
                             itemVentaNEWSP.UsuarioCancelacionId = itemVentaSP.UsuarioCancelacionId;
                             itemVentaNEWSP.UsuarioCreacionId = itemVentaSP.UsuarioCreacionId;
+                            itemVentaNEWSP.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                            ventaIdKey++;
 
                             this.contextNube.doc_ventas.Add(itemVentaNEWSP);
                             this.contextNube.SaveChanges();
+
+                            foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
+                            {
+                                doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
+
+                                itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
+                                itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
+                                itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
+                                itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
+                                itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
+                                itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
+
+                                this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
+                                this.contextNube.SaveChanges();
+
+                                lstVentasFormaPago.Add(itemVentaFormaPago.VentaId);
+
+                            }
+
+                           
+                          
 
                             foreach (doc_ventas_detalle itemVentaDetalleSP in listaVentasDetalle.Where(w=> w.VentaId== itemVentaSP.VentaId))
                             {
@@ -3117,33 +3162,52 @@ namespace ERP.Business
                                 itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
                                 itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
                                 itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
-                                itemVentaDetalleSPNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
+                                itemVentaDetalleSPNEW.VentaDetalleId = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 2;
 
+                                nuevosDetalles.Add(itemVentaDetalleSPNEW);
                                 this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
                                 this.contextNube.SaveChanges();
-                            }
 
-                            
-                            foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
+
+                            if (itemVentaDetalleSP != null)
                             {
-                                doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
-
-                                itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
-                                itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                                itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
-                                itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
-                                itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
-                                itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
-
-                                this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
-                                this.contextNube.SaveChanges();
-
-                                lstVentasFormaPago.Add(itemVentaFormaPago.VentaId);
+                                this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_detalle WHERE VentaDetalleId IN ({0})", itemVentaDetalleSP.VentaDetalleId.ToString()));
 
                             }
+
+
                         }
 
-                        dbContextTransaction.Commit();
+
+
+
+                        if (itemVentaSP != null)
+                        {
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
+                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
+
+                        }
+
+
+
+                    }
+
+                        //long ventaDetalleMin = nuevosDetalles.Min(m => m.VentaDetalleId);
+
+                        //if(this.contextNube.doc_ventas_detalle.FirstOrDefault(f=> f.VentaDetalleId == (ventaDetalleMin - 1))!= null)
+                        //{
+                        //    long ventaDetalleMax = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 5;
+
+                        //    nuevosDetalles.ForEach(f =>
+                        //    {
+                        //        f.VentaDetalleId = ventaDetalleMax;
+                        //        ventaDetalleMax++;
+                        //    });
+                        //}
+
+                     
+
+                        //dbContextTransaction.Commit();
 
                         // Eliminar los registros exportados de la base de datos local
                         if (listaCargosDetalle.Count() > 0)
@@ -3191,7 +3255,7 @@ namespace ERP.Business
                     }
                     catch (Exception ex)
                     {
-                        dbContextTransaction.Rollback();
+                        //dbContextTransaction.Rollback();
                         err = ERP.Business.SisBitacoraBusiness.Insert(1,
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
@@ -3200,7 +3264,7 @@ namespace ERP.Business
 
                         return false;
                     }
-                }
+                //}
 
                 //Actualizar ultimo Folio en BD LOCAL
                 var cuenta = sisCuenta.ObtieneArchivoConfiguracionCuenta();
