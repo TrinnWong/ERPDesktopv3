@@ -92,6 +92,8 @@ namespace ERPv1
                 cambioDePrecioIndividualToolStripMenuItem.Visible = false;
 
             }
+
+            
         }
 
         private void frmMenu_FormClosed(object sender, FormClosedEventArgs e)
