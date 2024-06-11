@@ -3157,7 +3157,6 @@ namespace ConexionBD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_Result>("p_rpt_productos_existencias", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pFechaHastaParameter, pClaveIniParameter, pClaveFinParameter);
         }
     
-        public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento,string pTipo)
         public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento, string pTipo)
         {
             var pSucursalIdParameter = pSucursalId.HasValue ?

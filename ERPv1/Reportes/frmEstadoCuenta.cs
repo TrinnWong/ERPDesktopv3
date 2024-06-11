@@ -263,7 +263,7 @@ namespace ERPv1.Reportes
             try
             {
                 oContext = new ERPProdEntities();
-                lstResult = oContext.p_rpt_estado_cuenta_detalle(Convert.ToInt32(uiSucursal.EditValue),"all", uiDel.DateTime, uiAl.DateTime,1).ToList();
+                lstResult = oContext.p_rpt_estado_cuenta_detalle(Convert.ToInt32(uiSucursal.EditValue),"all", uiDel.DateTime, uiAl.DateTime,this.puntoVentaContext.usuarioId).ToList();
 
                 uiGrid.DataSource = lstResult;
 
