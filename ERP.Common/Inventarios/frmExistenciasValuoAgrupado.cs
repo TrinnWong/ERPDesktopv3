@@ -109,7 +109,7 @@ namespace ERP.Common.Inventarios
 
            
 
-            oCorte.DataSource = oContext.p_rpt_productos_existencias_valuo(sucursalId, linea, familia, subFamilia, uiSoloExistencia.Checked,uiDescuento.Value, tipo).ToList();
+            oCorte.DataSource = oContext.p_rpt_productos_existencias_valuo(sucursalId, linea, familia, subFamilia, uiSoloExistencia.Checked, uiDescuento.Value, tipo).ToList();
             oViewer.ShowPreview(oCorte);
         }
 

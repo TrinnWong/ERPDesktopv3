@@ -48,7 +48,7 @@ namespace ERPv1.Catalogos
                 int empresaId = this.puntoVentaContext.empresaId;
                 oContext = new ERPProdEntities();
 
-                cat_configuracion entity = oContext.cat_configuracion.Where(w => w.ConfiguradorId == 1).FirstOrDefault();
+                cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
                 cat_configuracion_restaurante entityRestaurante = oContext.cat_configuracion_restaurante.Where(w => w.Id == 1).FirstOrDefault();
 

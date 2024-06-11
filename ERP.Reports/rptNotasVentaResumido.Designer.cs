@@ -571,7 +571,7 @@
             this.textBox16.Style = "text-align: right";
             this.textBox16.SummaryGroup = "groupHeader1";
             this.textBox16.SummaryRunning = GrapeCity.ActiveReports.SectionReportModel.SummaryRunning.Group;
-            this.textBox16.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.SubTotal;
+            this.textBox16.SummaryType = GrapeCity.ActiveReports.SectionReportModel.SummaryType.GrandTotal;
             this.textBox16.Text = "textBox3";
             this.textBox16.Top = 0F;
             this.textBox16.Width = 0.823F;

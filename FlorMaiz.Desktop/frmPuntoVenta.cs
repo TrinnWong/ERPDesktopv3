@@ -1114,10 +1114,13 @@ namespace PuntoVenta.Desktop
                  
                 }
                 uiPesoVal.EditValue = uiPesoVal.Value > 1 ? uiPesoVal.Value : (productoSeleccionado==null ? new cat_productos() : productoSeleccionado).ProdVtaBascula == true ? 0 : 1;
+                mostrarProducto();
 
-           
+                if((productoSeleccionado == null ? new cat_productos() : productoSeleccionado).ProdVtaBascula??false)
+                {
+                    uiPesoVal.Focus();
+                }
                 
-                uiPesoVal.Focus();
                 uiPesoVal.SelectAll();
 
                
@@ -2123,6 +2126,16 @@ namespace PuntoVenta.Desktop
                 ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
 
             }
+        }
+
+        private void uiClave_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+           
         }
     }
 }

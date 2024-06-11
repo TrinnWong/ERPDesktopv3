@@ -1,4 +1,5 @@
 ﻿using ConexionBD;
+using DevExpress.XtraEditors;
 using ERP.Common.Base;
 using ERP.Common.Reports;
 using ERP.Reports;
@@ -345,6 +346,40 @@ namespace ERPv1.Gastos
         private void repBtnPrint_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             SeleccionarEImprimir();
+        }
+
+        private void repBtnDelete2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                if (XtraMessageBox.Show("¿Está seguro de eliminar el  gasto?", "Avso", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                var row = ((doc_gastos)uiGridView.GetRow(uiGridView.FocusedRowHandle));
+
+                if(row!= null)
+                {
+                    doc_gastos gastoEliminar = oContext.doc_gastos
+                        .Where(w => w.GastoId == row.GastoId).FirstOrDefault();
+
+                    oContext.doc_gastos.Remove(gastoEliminar);
+                    oContext.SaveChanges();
+
+                    this.LoadGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                err = ERP.Business.SisBitacoraBusiness.Insert(this.puntoVentaContext.usuarioId,
+                                   "ERP",
+                                   this.Name,
+                                   ex);
+                ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+            }
         }
     }
 }

@@ -378,10 +378,14 @@ namespace ERPv1.Inventarios
                 uiFolio.Text = entity.Consecutivo.ToString();
                 uiFecha.Value = entity.FechaMovimiento;
                 uiSucursalOrigen.SelectedValue = entity.SucursalId;
-               // uiSucursalDestino.SelectedValue = entity.SucursalDestinoId;
+                // uiSucursalDestino.SelectedValue = entity.SucursalDestinoId;
                 //uiFechaCancelacion.Value = entity.FechaCancelacion ?? DateTime.Now;
 
-                lstMovs = entity.doc_inv_movimiento_detalle
+                List<doc_inv_movimiento_detalle> entitDetalle = new List<doc_inv_movimiento_detalle>();
+                entitDetalle = oContext.doc_inv_movimiento_detalle
+                        .Where(w => w.MovimientoId == idForm).ToList();
+
+                lstMovs = entitDetalle
                     .Select(
                         s => new MovimientoInventarioProductoModel()
                         {
@@ -665,7 +669,7 @@ namespace ERPv1.Inventarios
             if (e.KeyCode == Keys.F3)
             {
                 ERP.Common.Productos.frmProductosBusqueda oForm = new ERP.Common.Productos.frmProductosBusqueda();
-
+                oForm.puntoVentaContext = this.puntoVentaContext;
                 var resultDialog = oForm.ShowDialog();
 
                 if (resultDialog == DialogResult.OK)

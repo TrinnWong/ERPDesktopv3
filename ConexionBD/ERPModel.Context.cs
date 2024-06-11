@@ -14,32 +14,32 @@ namespace ConexionBD
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using System.Data.Entity.Core.EntityClient;
     using System.Configuration;
+    using System.Data.Entity.Core.EntityClient;
 
     public partial class ERPProdEntities : DbContext
     {
         public ERPProdEntities()
-            : base("name=ERPProdEntities")
+               : base("name=ERPProdEntities")
         {
-            
+
         }
 
         public ERPProdEntities(bool cloud)
            : base("name=ERPProdEntities")
         {
             if (cloud)
-            {              
-                if(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
+            {
+                if (ConfigurationManager.ConnectionStrings["ERPProdCloudMater"] != null)
                 {
                     EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ERPProdCloudMater"].ConnectionString);
 
                     this.Database.Connection.ConnectionString = builder1.ProviderConnectionString;
                 }
-                
+
 
             }
-            
+
         }
 
         public ERPProdEntities(string sc)
@@ -3158,6 +3158,7 @@ namespace ConexionBD
         }
     
         public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento,string pTipo)
+        public virtual ObjectResult<p_rpt_productos_existencias_valuo_Result> p_rpt_productos_existencias_valuo(Nullable<int> pSucursalId, Nullable<int> pClaveLinea, Nullable<int> pClaveFamilia, Nullable<int> pClaveSubfamilia, Nullable<bool> pSoloConExistencia, Nullable<decimal> pDescuento, string pTipo)
         {
             var pSucursalIdParameter = pSucursalId.HasValue ?
                 new ObjectParameter("pSucursalId", pSucursalId) :
@@ -3183,11 +3184,12 @@ namespace ConexionBD
                 new ObjectParameter("pDescuento", pDescuento) :
                 new ObjectParameter("pDescuento", typeof(decimal));
 
-            var pTipoParameter = pTipo != null ?
-               new ObjectParameter("pTipo", pTipo) :
-               new ObjectParameter("pTipo", typeof(string));
 
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_valuo_Result>("p_rpt_productos_existencias_valuo", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pDescuentoParameter,pTipoParameter);
+            var pTipoParameter = pTipo != null ?
+              new ObjectParameter("pTipo", pTipo) :
+              new ObjectParameter("pTipo", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<p_rpt_productos_existencias_valuo_Result>("p_rpt_productos_existencias_valuo", pSucursalIdParameter, pClaveLineaParameter, pClaveFamiliaParameter, pClaveSubfamiliaParameter, pSoloConExistenciaParameter, pDescuentoParameter, pTipoParameter);
         }
     
         public virtual ObjectResult<p_rpt_retiro_ticket_Result> p_rpt_retiro_ticket(Nullable<int> pRetiroId)

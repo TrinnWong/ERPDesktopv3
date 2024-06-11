@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -45,7 +46,7 @@
             this.uiBotonPedidosApp = new DevExpress.XtraEditors.SimpleButton();
             this.uiSoloMostrarClientesSucursal = new DevExpress.XtraEditors.CheckEdit();
             this.uiFormaPago = new DevExpress.XtraEditors.LookUpEdit();
-            this.catformaspagoBindingSource = new System.Windows.Forms.BindingSource();
+            this.catformaspagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiBuscarPedido = new DevExpress.XtraEditors.SimpleButton();
             this.uiGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.uiClienteAgregar = new DevExpress.XtraEditors.SimpleButton();
@@ -96,7 +97,7 @@
             this.uiTotal = new DevExpress.XtraEditors.SpinEdit();
             this.uiPagar = new DevExpress.XtraEditors.SimpleButton();
             this.uiGrid = new DevExpress.XtraGrid.GridControl();
-            this.productoModelBindingSource = new System.Windows.Forms.BindingSource();
+            this.productoModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.uiRepEliminar = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -194,8 +195,8 @@
             this.layoutControlItem67 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem63 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem52 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.uiTimerPedidosApp = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uiTimerPedidosApp = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiRgVincularBascula.Properties)).BeginInit();
@@ -577,6 +578,7 @@
             this.uiClave.Size = new System.Drawing.Size(90, 20);
             this.uiClave.StyleController = this.layoutControl1;
             this.uiClave.TabIndex = 53;
+            this.uiClave.EditValueChanged += new System.EventHandler(this.uiClave_EditValueChanged);
             this.uiClave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.uiClave_KeyUp);
             this.uiClave.Leave += new System.EventHandler(this.uiClave_Leave);
             // 
@@ -613,7 +615,7 @@
             this.uiPrecioProducto.Properties.EditFormat.FormatString = "c2";
             this.uiPrecioProducto.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.uiPrecioProducto.Properties.ReadOnly = true;
-            this.uiPrecioProducto.Size = new System.Drawing.Size(175, 30);
+            this.uiPrecioProducto.Size = new System.Drawing.Size(175, 40);
             this.uiPrecioProducto.StyleController = this.layoutControl1;
             this.uiPrecioProducto.TabIndex = 51;
             // 
@@ -1290,6 +1292,7 @@
             this.uiGridView.OptionsMenu.ShowFooterItem = true;
             this.uiGridView.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.Hidden;
             this.uiGridView.OptionsView.ShowGroupPanel = false;
+            this.uiGridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.uiGridView_ValidateRow);
             // 
             // gridColumn1
             // 
@@ -1539,7 +1542,7 @@
             this.uiMontoManual.Properties.EditFormat.FormatString = "c2";
             this.uiMontoManual.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.uiMontoManual.Properties.ReadOnly = true;
-            this.uiMontoManual.Size = new System.Drawing.Size(212, 30);
+            this.uiMontoManual.Size = new System.Drawing.Size(212, 40);
             this.uiMontoManual.StyleController = this.layoutControl1;
             this.uiMontoManual.TabIndex = 10;
             this.uiMontoManual.EditValueChanged += new System.EventHandler(this.uiMontoManual_EditValueChanged);
@@ -1567,7 +1570,7 @@
             this.uiPesoVal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.uiPesoVal.Properties.EditFormat.FormatString = "n3";
             this.uiPesoVal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.uiPesoVal.Size = new System.Drawing.Size(178, 30);
+            this.uiPesoVal.Size = new System.Drawing.Size(178, 40);
             this.uiPesoVal.StyleController = this.layoutControl1;
             this.uiPesoVal.TabIndex = 9;
             this.uiPesoVal.EditValueChanged += new System.EventHandler(this.uiPesoVal_EditValueChanged);

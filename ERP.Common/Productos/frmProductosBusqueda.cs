@@ -37,25 +37,30 @@ namespace ERP.Common.Productos
                 if (!(cargarEnInicio==null ? false: (bool)cargarEnInicio) && !cargado)
                     return;
 
-                var lstProds = DataBucket.GetProductosMemory(false)
-                    .Where(w =>
-                    (w.Descripcion.Contains(texto) || w.CodigoBarras == texto || w.Clave == texto) &&
-                    w.ProductoId > 0 && w.Estatus == true &&
-                (w.ProdParaVenta == soloParaVenta || !soloParaVenta))
-                    .OrderBy(o => o.Descripcion);
+                string[] filtroSplit = texto.Split(',');
 
-                
+                List<cat_productos> result = new List<cat_productos>();
+                texto = texto == null ? "" : texto;
+                result = DataBucket.GetProductosMemory(false)
+                  .Where(w =>
+                         (w.Descripcion.Contains(texto) || w.Clave.Contains(texto) || w.CodigoBarras.Contains(texto) || w.cat_marcas.Descripcion.Contains(texto) || w.cat_subfamilias.Descripcion.Contains(texto) || texto == "") &&
+                             w.ProductoId > 0 && w.Estatus == true &&
+                            (w.ProdParaVenta == soloParaVenta || !soloParaVenta))
+                          .OrderBy(o => o.Descripcion).ToList();
+
+
+
 
                 if (soloProductosSucursal)
                 {
                     int[] idsProdSucursal = oContext.cat_sucursales_productos.Where(w => w.SucursalId == sucursalFiltro)
                         .Select(s => s.ProductoId).ToArray();
 
-                    uiGrid.DataSource = lstProds.Where(w => idsProdSucursal.Contains(w.ProductoId));
+                    uiGrid.DataSource = result.Where(w => idsProdSucursal.Contains(w.ProductoId));
                 }
                 else
                 {
-                    uiGrid.DataSource = lstProds;
+                    uiGrid.DataSource = result;
                 }
 
             }
@@ -132,6 +137,16 @@ namespace ERP.Common.Productos
                 LoadGrid();
             }
             
+        }
+
+        private void uiGridView_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            e.Valid = true;
+        }
+
+        private void uiGridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            e.Valid = true;
         }
     }
 }
