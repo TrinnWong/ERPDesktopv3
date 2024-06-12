@@ -58,7 +58,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sucursal";
             // 
@@ -67,7 +67,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(53, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 15);
+            this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Caja";
             // 
@@ -80,13 +80,14 @@
             this.uiCaja.Size = new System.Drawing.Size(259, 21);
             this.uiCaja.TabIndex = 3;
             this.uiCaja.ValueMember = "Clave";
+            this.uiCaja.SelectedIndexChanged += new System.EventHandler(this.uiCaja_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(53, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 15);
+            this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Del";
             // 
@@ -102,7 +103,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(53, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 15);
+            this.label4.Size = new System.Drawing.Size(16, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Al";
             // 
@@ -128,7 +129,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(44, 81);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Cajero";
             // 
