@@ -34,9 +34,14 @@ namespace ERP.Common.Reports
         private void llenarComboCajero()
         {
             int cajaId = uiCaja.SelectedValue == null ? 0 :
-                int.Parse(uiCaja.SelectedValue.ToString());
+                 int.Parse(uiCaja.SelectedValue.ToString());
+            List<cat_usuarios> lstUsuario = oContext.cat_usuarios.Where(w => (w.cat_cajas.Clave == cajaId || cajaId == 0) && w.cat_cajas != null).ToList();
+            if (cajaId == 0)
+            {
+                lstUsuario = lstUsuario.Where(w => w.cat_cajas.Sucursal != null && w.cat_cajas.Sucursal == puntoVentaContext.sucursalId).ToList();
 
-            List<cat_usuarios> lstUsuario = oContext.cat_usuarios.ToList();
+            }
+
             lstUsuario.Add(
                     new cat_usuarios()
                     {
@@ -138,6 +143,11 @@ namespace ERP.Common.Reports
         private void frmRptVentasVendedor_Load(object sender, EventArgs e)
         {
             cargarCombos();
+        }
+
+        private void uiCaja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarComboCajero();
         }
     }
 }
