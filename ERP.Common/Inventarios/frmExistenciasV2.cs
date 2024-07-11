@@ -28,7 +28,7 @@ namespace ERP.Common.Inventarios
         public frmExistenciasV2()
         {
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
         }
 
         private void LlenarGrid()

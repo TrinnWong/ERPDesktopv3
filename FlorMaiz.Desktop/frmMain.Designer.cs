@@ -77,6 +77,7 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.timerToCheckNetwork = new System.Windows.Forms.Timer(this.components);
             this.uiTimerSincroniza = new System.Windows.Forms.Timer(this.components);
+            this.uiConsultaInventario = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.uiRibbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,9 +115,10 @@
             this.barButtonItem13,
             this.uiRepartoExpress,
             this.uiToolsBitacora,
-            this.uiRepartoDevoluciones});
+            this.uiRepartoDevoluciones,
+            this.uiConsultaInventario});
             this.uiRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.uiRibbonControl.MaxItemId = 32;
+            this.uiRibbonControl.MaxItemId = 33;
             this.uiRibbonControl.Name = "uiRibbonControl";
             this.uiRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.uiRibbonPage,
@@ -427,6 +429,7 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.uiConsultaInventario);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem12);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDesperdicioMasa);
@@ -488,8 +491,16 @@
             // uiTimerSincroniza
             // 
             this.uiTimerSincroniza.Enabled = true;
-            this.uiTimerSincroniza.Interval = 240000;
+            this.uiTimerSincroniza.Interval = 600000;
             this.uiTimerSincroniza.Tick += new System.EventHandler(this.uiTimerSincroniza_Tick);
+            // 
+            // uiConsultaInventario
+            // 
+            this.uiConsultaInventario.Caption = "Consulta de  Inventario";
+            this.uiConsultaInventario.Id = 32;
+            this.uiConsultaInventario.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("uiConsultaInventario.ImageOptions.Image")));
+            this.uiConsultaInventario.Name = "uiConsultaInventario";
+            this.uiConsultaInventario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.uiConsultaInventario_ItemClick);
             // 
             // frmMain
             // 
@@ -560,5 +571,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage uiRibTools;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem uiRepartoDevoluciones;
+        private DevExpress.XtraBars.BarButtonItem uiConsultaInventario;
     }
 }

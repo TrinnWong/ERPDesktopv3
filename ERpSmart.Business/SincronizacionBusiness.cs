@@ -3068,7 +3068,9 @@ namespace ERP.Business
                                         this.contextNube.SaveChanges();
                                     }
 
-                                    
+                                    this.contextNube.p_venta_afecta_inventario((int)itemVentaNEW.VentaId, itemVentaNEW.SucursalId);
+
+
                                 }
 
                             }
@@ -3178,15 +3180,15 @@ namespace ERP.Business
 
                         }
 
+                            this.contextNube.p_venta_afecta_inventario((int)itemVentaNEWSP.VentaId, itemVentaNEWSP.SucursalId);
 
 
+                            if (itemVentaSP != null)
+                            {
+                                this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
+                                this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
 
-                        if (itemVentaSP != null)
-                        {
-                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
-                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
-
-                        }
+                            }
 
 
 

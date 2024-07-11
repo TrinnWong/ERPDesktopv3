@@ -54,8 +54,8 @@ namespace ERP.Common.Inventarios
                     oContext.doc_inventario_captura.Add(entityNew);
                     oContext.SaveChanges();
                 }
-                
 
+                LoadGrid();
                 Limpiar();
                 
 

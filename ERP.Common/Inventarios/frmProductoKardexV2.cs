@@ -28,12 +28,12 @@ namespace ERP.Common.Inventarios
         public frmProductoKardexV2()
         {
             InitializeComponent();
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
         }
 
         private void buscar()
         {
-            oContext = new ERPProdEntities();
+            oContext = new ERPProdEntities(true);
 
             try
             {

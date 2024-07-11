@@ -821,15 +821,11 @@ namespace PuntoVenta.Desktop
         {
             try
             {
-                if (Process.GetProcessesByName("ERP.Console.Task").Count() == 0)
-                {
-                  
-                    Process p = new Process();
-                    ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Console.Task.exe");
+                Process p = new Process();
+                ProcessStartInfo psi = new ProcessStartInfo(@"ERP.Console.Task.exe");
 
-                    p.StartInfo = psi;
-                    p.Start();
-                }
+                p.StartInfo = psi;
+                p.Start();
             }
             catch (Exception ex)
             {
@@ -861,6 +857,20 @@ namespace PuntoVenta.Desktop
             oForm.puntoVentaContext = this.puntoVentaContext;
             oForm.StartPosition = FormStartPosition.CenterScreen;
             oForm.ShowDialog();
+        }
+
+        private void uiConsultaInventario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+         
+            frmExistenciasV2 frmo = frmExistenciasV2.GetInstance();
+
+            if (!frmo.Visible)
+            {
+                //frmo = new frmPuntoVenta();
+                frmo.MdiParent = this;
+                frmo.puntoVentaContext = this.puntoVentaContext;
+                frmo.Show();
+            }
         }
     }
 }
