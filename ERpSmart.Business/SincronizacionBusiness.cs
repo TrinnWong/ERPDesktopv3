@@ -756,8 +756,7 @@ namespace ERP.Business
 
                 foreach (cat_productos itemProducto in lstProductosOri)
                 {
-                    cat_productos productosSinc = context.cat_productos
-                        .AsNoTracking()
+                    cat_productos productosSinc = context.cat_productos                        
                         .Where(w => w.ProductoId == itemProducto.ProductoId).FirstOrDefault();
 
                     if (productosSinc != null)
@@ -1106,7 +1105,6 @@ namespace ERP.Business
                 foreach (cat_sucursales_productos itemSucursalProducto in lstSucursalesProductos)
                 {
                     cat_sucursales_productos sucursalProductoSinc = context.cat_sucursales_productos
-                        .AsNoTracking()
                         .Where(w => w.SucursalId == itemSucursalProducto.SucursalId && w.ProductoId == itemSucursalProducto.ProductoId)
                         .FirstOrDefault();
 
