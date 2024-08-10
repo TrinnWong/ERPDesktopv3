@@ -17,7 +17,7 @@ namespace ConexionBD
 
         public static string ObtenVersion()
         {
-            return "versión:2024.07.08";
+            return "versión:2024.08.10";
         }
         public string actualizarVersion(bool recortado)
         {

@@ -25,7 +25,7 @@ namespace ConexionBD
         public int MovimientoDetalleId { get; set; }
         public int MovimientoId { get; set; }
         public int ProductoId { get; set; }
-        public short Consecutivo { get; set; }
+        public int Consecutivo { get; set; }
         public Nullable<decimal> Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal Importe { get; set; }
