@@ -45,7 +45,7 @@ namespace ERP.Common.Traspasos
         {
             try
             {
-                oContext = new ConexionBD.ERPProdEntities();
+                oContext = new ConexionBD.ERPProdEntities(true);
 
                 int sucursalOrigenId = this.puntoVentaContext.sucursalId;
 
@@ -124,7 +124,7 @@ namespace ERP.Common.Traspasos
             {
                 lstProductosTraspaso = new List<ProductoInventarioModel>();
                 basculaControlador = new BasculaLectura(this.puntoVentaContext);
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 lstProductos = oContext
                     .cat_productos
                     .Where(w => w.Estatus == true && 
@@ -386,7 +386,7 @@ namespace ERP.Common.Traspasos
                     
                     lstMovsDetalle.Add(entityMovDet);
                 }
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 ResultAPIModel result= ERP.Business.InventarioBusiness
                     .GuardarTraspaso(ref entityMov, lstMovsDetalle, puntoVentaContext.usuarioId, puntoVentaContext.empresaId,
                     oContext);

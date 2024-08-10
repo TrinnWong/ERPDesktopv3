@@ -370,7 +370,7 @@ namespace ERPv1.Inventarios
             {
                 oContext = new ERPProdEntities();
 
-                doc_inv_movimiento entity = oContext.doc_inv_movimiento.Where(w => w.MovimientoId == idForm).FirstOrDefault();
+                doc_inv_movimiento entity = oContext.doc_inv_movimiento.AsNoTracking().Where(w => w.MovimientoId == idForm).FirstOrDefault();
 
                 obtenerEstatus(entity);
                 habilitarBotones(entity);

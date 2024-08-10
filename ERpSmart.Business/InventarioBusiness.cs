@@ -828,7 +828,7 @@ namespace ERP.Business
             ResultAPIModel result = new ResultAPIModel();
             try
             {
-                using (oContext = new ERPProdEntities())
+                using (oContext = new ERPProdEntities(true))
                 {
                     using (var dbContextTransaction = oContext.Database.BeginTransaction())
                     {

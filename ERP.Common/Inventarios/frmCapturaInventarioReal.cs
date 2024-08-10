@@ -34,7 +34,7 @@ namespace ERP.Common.Inventarios
         {
             InitializeComponent();
 
-            oContext = new ConexionBD.ERPProdEntities();
+            oContext = new ConexionBD.ERPProdEntities(true);
         }
 
         private void uiGuardar_Click(object sender, EventArgs e)

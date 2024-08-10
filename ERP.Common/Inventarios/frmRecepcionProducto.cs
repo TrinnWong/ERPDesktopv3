@@ -125,7 +125,7 @@ namespace ERP.Common.Inventarios
                 
                 lstProductosTraspaso = new List<ProductoInventarioModel>();
                 basculaControlador = new BasculaLectura(this.puntoVentaContext);
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
 
                 if(oContext.doc_sucursales_productos_recepcion.Where(w=> w.SucursalId == puntoVentaContext.sucursalId).Count() > 0)
                 {
@@ -507,7 +507,7 @@ namespace ERP.Common.Inventarios
 
                     lstMovsDetalle.Add(entityMovDet);
                 }
-                oContext = new ERPProdEntities();
+                oContext = new ERPProdEntities(true);
                 
                 using (TransactionScope scope = new TransactionScope())
                 {
@@ -717,7 +717,7 @@ namespace ERP.Common.Inventarios
 
         private void bsucarProducto()
         {
-            ERPProdEntities oContext = new ERPProdEntities();
+            ERPProdEntities oContext = new ERPProdEntities(true);
             productoSelecionado = oContext.cat_productos
                 .Where(W => W.Clave == uiClave.Text || W.CodigoBarras == uiClave.Text).FirstOrDefault();
 

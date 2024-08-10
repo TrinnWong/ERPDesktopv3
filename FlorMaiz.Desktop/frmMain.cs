@@ -478,6 +478,11 @@ namespace PuntoVenta.Desktop
 
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
             frmCapturaInventarioReal frmo = frmCapturaInventarioReal.GetInstance();
 
             if (!frmo.Visible)
@@ -532,6 +537,11 @@ namespace PuntoVenta.Desktop
 
         private void uiTraspasos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
+            }
             frmTraspasosSalidaLite frmo = frmTraspasosSalidaLite.GetInstance();
 
             if (!frmo.Visible)
@@ -570,31 +580,55 @@ namespace PuntoVenta.Desktop
 
         private void uiEntradaDirecta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
-            if (!frmo.Visible)
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
             {
-                frmo.MdiParent = this;
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.StartPosition = FormStartPosition.CenterScreen;
-                frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaDirecta;
-                frmo.Show();
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
             }
+
+          
+
+            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaDirecta;
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.ShowDialog();
+            //if (!frmo.Visible)
+            //{
+            //    frmo.MdiParent = this;
+            //    frmo.puntoVentaContext = this.puntoVentaContext;
+            //    frmo.StartPosition = FormStartPosition.CenterScreen;
+            //    frmo.WindowState = FormWindowState.Maximized;
+            //    frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.entradaDirecta;
+            //    frmo.Show();
+            //}
         }
 
         private void uiSalidaDirecta_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
-            if (!frmo.Visible)
+            if (!ERP.Business.Tools.NetworkUtil.ValidateInternet())
             {
-                frmo.MdiParent = this;
-                frmo.puntoVentaContext = this.puntoVentaContext;
-                frmo.StartPosition = FormStartPosition.CenterScreen;
-                frmo.StartPosition = FormStartPosition.CenterScreen;
-                frmo.WindowState = FormWindowState.Maximized;
-                frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.ajustePorSalida;
-                frmo.Show();
+                ERP.Utils.MessageBoxUtil.ShowWarning("SE REQUIERE INTERNET PARA CONTINUAR");
+                return;
             }
+
+            
+
+            frmRecepcionProducto frmo = frmRecepcionProducto.GetInstance();
+            frmo.StartPosition = FormStartPosition.CenterScreen;
+            frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.ajustePorSalida;
+            frmo.puntoVentaContext = this.puntoVentaContext;
+            frmo.ShowDialog();
+            //if (!frmo.Visible)
+            //{
+            //    frmo.MdiParent = this;
+            //    frmo.puntoVentaContext = this.puntoVentaContext;
+            //    frmo.StartPosition = FormStartPosition.CenterScreen;
+            //    frmo.StartPosition = FormStartPosition.CenterScreen;
+            //    frmo.WindowState = FormWindowState.Maximized;
+            //    frmo.tipoMovimiento = ConexionBD.Enumerados.tipoMovsInventario.ajustePorSalida;
+            //    frmo.Show();
+            //}
         }
 
         private void uiSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
