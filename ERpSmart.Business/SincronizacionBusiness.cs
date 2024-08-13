@@ -160,7 +160,7 @@ namespace ERP.Business
                 ImportProductosSobrantesConfig(lstProductosSobrantesConfig);
                 ImportCatBasculas();
                 ImportCatEquiposComputo();
-                ImportCatBasculasConfiguracion();
+                //ImportCatBasculasConfiguracion();
                 ImportCatConfiguracionTicketVenta();
 
 
@@ -2268,40 +2268,45 @@ namespace ERP.Business
                         .Where(w => w.EquipoComputoId == itemConfiguracion.EquipoComputoId)
                         .FirstOrDefault();
 
-                    if (configuracionSinc != null)
+                    if (itemConfiguracion != null)
                     {
-                        // Actualizar propiedades existentes
-                        configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
-                        configuracionSinc.PortName = itemConfiguracion.PortName;
-                        configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
-                        configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
-                        configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
-                        configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
-                        //configuracionSinc.ModificadoEl = DateTime.Now;
-                        //configuracionSinc.ModificadoPor = itemConfiguracion.ModificadoPor;
+                        if (configuracionSinc != null)
+                        {
+                            // Actualizar propiedades existentes
+                            configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
+                            configuracionSinc.PortName = itemConfiguracion.PortName;
+                            configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
+                            configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
+                            configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
+                            configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
+                            //configuracionSinc.ModificadoEl = DateTime.Now;
+                            //configuracionSinc.ModificadoPor = itemConfiguracion.ModificadoPor;
 
-                        // Actualizar otras propiedades según sea necesario
-                        contextLocal.SaveChanges();
-                    }
-                    else
-                    {
-                        // Crear nueva configuración
-                        configuracionSinc = new cat_basculas_configuracion();
-                        configuracionSinc.EquipoComputoId = itemConfiguracion.EquipoComputoId;
-                        configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
-                        configuracionSinc.PortName = itemConfiguracion.PortName;
-                        configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
-                        configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
-                        configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
-                        configuracionSinc.CreadoEl = DateTime.Now;
-                        configuracionSinc.CreadoPor = itemConfiguracion.CreadoPor;
-                        configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
-                        configuracionSinc.SucursalId = itemConfiguracion.SucursalId;
+                            // Actualizar otras propiedades según sea necesario
+                            contextLocal.SaveChanges();
+                        }
+                        else
+                        {
+                            // Crear nueva configuración
+                            configuracionSinc = new cat_basculas_configuracion();
+                            configuracionSinc.EquipoComputoId = itemConfiguracion.EquipoComputoId;
+                            configuracionSinc.BasculaId = itemConfiguracion.BasculaId;
+                            configuracionSinc.PortName = itemConfiguracion.PortName;
+                            configuracionSinc.BaudRate = itemConfiguracion.BaudRate;
+                            configuracionSinc.ReadBufferSize = itemConfiguracion.ReadBufferSize;
+                            configuracionSinc.WriteBufferSize = itemConfiguracion.WriteBufferSize;
+                            configuracionSinc.CreadoEl = DateTime.Now;
+                            configuracionSinc.CreadoPor = itemConfiguracion.CreadoPor;
+                            configuracionSinc.PesoDefault = itemConfiguracion.PesoDefault;
+                            configuracionSinc.SucursalId = itemConfiguracion.SucursalId;
 
-                        // Puedes asignar otras propiedades según sea necesario
-                        contextLocal.cat_basculas_configuracion.Add(configuracionSinc);
-                        contextLocal.SaveChanges();
+                            // Puedes asignar otras propiedades según sea necesario
+                            contextLocal.cat_basculas_configuracion.Add(configuracionSinc);
+                            contextLocal.SaveChanges();
+                        }
                     }
+
+                   
                 }
 
                 lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuración de Basculas", Exitoso = true, Detalle = "" });
