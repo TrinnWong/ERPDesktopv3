@@ -29,6 +29,7 @@ using ERPv1.Reportes;
 using ERP.Common.CorteCaja;
 using ERP.Common.Sucursales;
 using ERPv1.Gastos;
+using ERP.Common.Seguridad;
 
 namespace ERPv1
 {
@@ -1630,6 +1631,23 @@ namespace ERPv1
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void encriptadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdminPass oForm = new frmAdminPass();
+
+            oForm.StartPosition = FormStartPosition.CenterScreen;
+            oForm.ShowDialog();
+
+            if (oForm.DialogResult == DialogResult.OK)
+            {
+                Encriptador.frmEncripta frm = new Encriptador.frmEncripta();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+            }
+
+            
         }
     }
 }

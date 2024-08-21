@@ -110,6 +110,7 @@
     <Compile Include="SisCuentaBusiness.cs" />
     <Compile Include="SucursalBusiness.cs" />
     <Compile Include="Tools\BasculaLectura.cs" />
+    <Compile Include="Tools\CryptoHelper.cs" />
     <Compile Include="Tools\HttpRequestTool.cs" />
     <Compile Include="Tools\NetworkUtil.cs" />
     <Compile Include="Tools\TimeTools.cs" />

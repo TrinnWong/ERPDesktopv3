@@ -404,6 +404,12 @@
     <Compile Include="Empleados\frmEmpleadosDescuentos.Designer.cs">
       <DependentUpon>frmEmpleadosDescuentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Encriptador\frmEncripta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encriptador\frmEncripta.Designer.cs">
+      <DependentUpon>frmEncripta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ERPDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -871,6 +877,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados\frmEmpleadosDescuentos.resx">
       <DependentUpon>frmEmpleadosDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encriptador\frmEncripta.resx">
+      <DependentUpon>frmEncripta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioSesion.resx">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>

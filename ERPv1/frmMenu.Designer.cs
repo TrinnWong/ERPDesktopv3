@@ -164,6 +164,7 @@
             this.timerMinimos = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.encriptadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1280,7 +1281,8 @@
             // 
             this.toolStripDropDownButton5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.respaldosToolStripMenuItem,
-            this.bitácoraDeExcepcionesToolStripMenuItem});
+            this.bitácoraDeExcepcionesToolStripMenuItem,
+            this.encriptadorToolStripMenuItem});
             this.toolStripDropDownButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton5.Image")));
             this.toolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton5.Name = "toolStripDropDownButton5";
@@ -1360,6 +1362,13 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // encriptadorToolStripMenuItem
+            // 
+            this.encriptadorToolStripMenuItem.Name = "encriptadorToolStripMenuItem";
+            this.encriptadorToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.encriptadorToolStripMenuItem.Text = "Encriptador";
+            this.encriptadorToolStripMenuItem.Click += new System.EventHandler(this.encriptadorToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -1526,6 +1535,7 @@
         private System.Windows.Forms.ToolStripMenuItem entradaPorDevolucionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosSucursalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferenciasPorEmpresaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encriptadorToolStripMenuItem;
     }
 }
 
