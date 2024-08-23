@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,27 @@ namespace ConexionBD
        
         public CadenaConexion()
         {
+            string path = Directory.GetCurrentDirectory();
+            bool exists = File.Exists(path + @"\\mssql.txt");
+
+            if (exists)
+            {
+                string sc = File.ReadAllText(path + @"\\mssql.txt");
+                sc = Utilerias.CryptoHelper.Decrypt(sc);
+
+                var efConnectionString2 = sc;
+                var builder2 = new EntityConnectionStringBuilder(efConnectionString2);
+                var regularConnectionString2 = builder2.ProviderConnectionString;
+
+                sqlCon = new SqlConnection(regularConnectionString2);
+
+                string localMasterCS = $"Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True";
+
+                sqlLocalMaster = new SqlConnection(localMasterCS);
+
+                return;
+
+            }
 
             string directorioRaiz = AppDomain.CurrentDomain.BaseDirectory;
 

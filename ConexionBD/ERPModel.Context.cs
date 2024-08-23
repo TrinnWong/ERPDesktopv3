@@ -16,14 +16,15 @@ namespace ConexionBD
     using System.Linq;
     using System.Data.Entity.Core.EntityClient;
     using System.Configuration;
+    using System.IO;
 
     public partial class ERPProdEntities : DbContext
     {
         public ERPProdEntities()
             : base("name=ERPProdEntities")
         {
-            
-        }
+            this.SetConnectionLocal();
+       }
 
         public ERPProdEntities(bool cloud)
            : base("name=ERPProdEntities")
@@ -36,8 +37,16 @@ namespace ConexionBD
 
                     this.Database.Connection.ConnectionString = builder1.ProviderConnectionString;
                 }
-                
+                else
+                {
+                    this.SetConnectionLocal();
+                }
 
+
+            }
+            else
+            {
+                this.SetConnectionLocal();
             }
             
         }
@@ -46,6 +55,25 @@ namespace ConexionBD
            : base("name=ERPProdEntities")
         {
             this.Database.Connection.ConnectionString = sc;
+        }
+
+        private void SetConnectionLocal()
+        {
+           
+            string path = Directory.GetCurrentDirectory();
+            bool exists = File.Exists(path + @"\\mssql.txt");
+
+            if (exists)
+            {
+                string sc = File.ReadAllText(path + @"\\mssql.txt");
+                sc = Utilerias.CryptoHelper.Decrypt(sc);
+                if (this.Database.Connection != null)
+                {
+                    EntityConnectionStringBuilder builder1 = new EntityConnectionStringBuilder(sc);
+                    this.Database.Connection.ConnectionString = builder1.ProviderConnectionString; ;
+                }
+
+            }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

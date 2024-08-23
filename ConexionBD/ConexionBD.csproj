@@ -1173,6 +1173,7 @@
     <Compile Include="Usuarios.cs" />
     <Compile Include="UsuarioSistemaInterface.cs" />
     <Compile Include="Utilerias\ComboBox.cs" />
+    <Compile Include="Utilerias\CryptoHerlper.cs" />
     <Compile Include="Utilerias\Resultado.cs" />
     <Compile Include="Utilerias\Utileria.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -1228,6 +1229,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ERPModel.edmx</DependentUpon>
       <LastGenOutput>ERPModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="mssql.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SystemForms.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -140,7 +140,7 @@ namespace ERPv1
                 cat_usuarios oUsuario = oContext.cat_usuarios.Where(w => w.NombreUsuario == usuario).FirstOrDefault();
                 if (usuario == "admin")
                 {
-                    uiSucursal.DataSource = oContext.cat_sucursales.ToList();
+                    uiSucursal.DataSource = oContext.cat_sucursales.Where(w=> w.Estatus == true).ToList();
                 }
                 else
                 {
@@ -149,8 +149,7 @@ namespace ERPv1
                         if (oUsuario != null)
                         {
                             uiSucursal.DataSource = oContext.cat_sucursales
-                                .Where(w=> w.cat_usuarios_sucursales
-                                .Where(s1=> s1.UsuarioId == oUsuario.IdUsuario).Count() >0).ToList();
+                                .Where(w=> w.cat_usuarios_sucursales.Where(s1=> s1.UsuarioId == oUsuario.IdUsuario).Count() >0 && w.Estatus == true).ToList();
                         }
                         else
                         {
