@@ -53,7 +53,7 @@ namespace ERPv1
                     if (!frmo.Visible)
                     {
                         frmo.puntoVentaContext = oerpContext;
-                        frmo.Text = "SISTEMA ERP [" + oerpContext.nombreSucursal.Trim() + "][" + usuario.Trim() + "]";
+                        frmo.Text = "SISTEMA ERP [" + oerpContext.nombreSucursal.Trim() + "][" + usuario.Trim() + "]"+"["+Sistema.ObtenerServidorNombre()+"]";
                         frmo.Show();
                     }
                 }
@@ -106,7 +106,8 @@ namespace ERPv1
                 //}
 
                 string error = oSistema.actualizarVersion(false);
-                this.lblVersion.Text = Sistema.ObtenVersion();
+                this.lblVersion.Text = String.Format("{0} {1}", Sistema.ObtenVersion(),Sistema.ObtenerServidorNombre()) ;
+
                 if (error.Length > 0)
                 {
                     MessageBox.Show("Ocurrió un error al actualizar la versión del sistema, por favor avise al administrador. Puede seguir utilizando la aplicación" + error

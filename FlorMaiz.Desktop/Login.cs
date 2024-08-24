@@ -170,7 +170,7 @@ namespace TacosAna.Desktop
                     oMenu.puntoVentaContext = new ConexionBD.Models.PuntoVentaContext();
                     oMenu.puntoVentaContext = puntoVentaContext;
 
-                    oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]";
+                    oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]"+"["+Sistema.ObtenerServidorNombre()+"]";
                     oMenu.Show();
                     this.Hide();
 
@@ -396,7 +396,7 @@ namespace TacosAna.Desktop
                 {
                     puntoVentaContext.usarTareaBascula = false;
                 }
-                oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]";
+                oMenu.Text = "Sistema de Punto de Venta " + "[Usuario:" + entityUsu.NombreUsuario + "]" + "[Sucursal:" + entitySuc.NombreSucursal + "]" + "[" +Sistema.ObtenerServidorNombre()+"]";
                 oMenu.Show();
 
                 return;

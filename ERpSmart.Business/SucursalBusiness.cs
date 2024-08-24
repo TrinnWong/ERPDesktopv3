@@ -1,6 +1,8 @@
 ﻿using ConexionBD;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +42,35 @@ namespace ERP.Business
             }
 
             return null;
+        }
+
+
+        public string ObtenerServidorNombre()
+        {
+            string servidorNombre = string.Empty;
+
+            ERPProdEntities oContext = new ERPProdEntities();
+
+            using (SqlConnection connection = new SqlConnection(oContext.Database.Connection.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand("p_obtener_servidor_nombre", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    try
+                    {
+                        connection.Open();
+                        servidorNombre = command.ExecuteScalar()?.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de excepciones
+                        Console.WriteLine("Error al ejecutar el procedimiento almacenado: " + ex.Message);
+                    }
+                }
+            }
+
+            return servidorNombre;
         }
     }
 }
