@@ -47,7 +47,13 @@ namespace ConexionBD
 
             try
             {
-                using (TransactionScope scope = new TransactionScope())
+                var transactionOptions = new TransactionOptions
+                {
+                    IsolationLevel = IsolationLevel.ReadUncommitted,
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
+
+                using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
                 {
                    if(clienteId==0)
                     {
