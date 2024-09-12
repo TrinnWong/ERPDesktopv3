@@ -61,8 +61,8 @@ namespace ERP.Common.Reports
                 InitializeComponent();
 
                 oContext = new ERPProdEntities();
-                cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
-                cat_cajas_impresora entityImpresora = oContext.cat_cajas_impresora
+                cat_configuracion entity = ERP.Business.DataMemory.DataBucket.GetCatConfiguracion(false).FirstOrDefault();
+                cat_cajas_impresora entityImpresora = ERP.Business.DataMemory.DataBucket.GetCajasImpresoras(false)
                     .Where(w => w.CajaId == cajaId).FirstOrDefault();
 
                 printerName = entityImpresora.cat_impresoras.NombreRed;

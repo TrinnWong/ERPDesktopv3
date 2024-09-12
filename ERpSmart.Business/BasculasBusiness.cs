@@ -118,9 +118,9 @@ namespace ERP.Business
                 ERPProdEntities oContext = new ERPProdEntities(nube);
                
 
-                string hardwareId = EquipoComputoBusiness.GetProcessorID();
+                string hardwareId = ERP.Business.DataMemory.DataBucket.GetHardwareId(false);
 
-                result = oContext.cat_basculas_configuracion
+                result = ERP.Business.DataMemory.DataBucket.GetCatBasculasConfiguracion(false)
                     .Where(w=> w.cat_equipos_computo.HardwareID == hardwareId && w.SucursalId == sucursalId).FirstOrDefault();
                     
 
