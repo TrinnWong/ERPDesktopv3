@@ -1,6 +1,7 @@
 ﻿using ConexionBD;
 using ConexionBD.Models;
 using ERP.Common.Reports;
+using ERP.Common.Seguridad;
 using ERP.Reports;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,31 @@ namespace ERP.Common.Dialogos
 
         private void uiOk_Click(object sender, EventArgs e)
         {
-            uiOk.Enabled = false;            
-            guardar();
+            ERPProdEntities oContext = new ERPProdEntities();
+
+            cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();           
+
+            if (entity.RetiroReqClaveSup ?? false)
+            {
+                frmAdminPass oForm = new frmAdminPass();
+
+                oForm.StartPosition = FormStartPosition.CenterScreen;
+                oForm.ShowDialog();
+
+                if (oForm.DialogResult == DialogResult.OK)
+                {
+                    uiOk.Enabled = false;
+                    guardar();
+                }
+            }
+            else
+            {
+                uiOk.Enabled = false;
+                guardar();
+            }
+
+           
+       
         }
 
         private void uiCancelar_Click(object sender, EventArgs e)

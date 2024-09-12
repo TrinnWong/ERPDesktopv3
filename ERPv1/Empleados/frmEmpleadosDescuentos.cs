@@ -139,6 +139,7 @@ namespace ERPv1.Clientes
             try
             {
                 int productoId = Convert.ToInt32(uiProducto.EditValue);
+                int id = (entityUpd == null ? 0 : entityUpd.Id);
                 if (uiPrecio.Value > 
                     ERP.Business.ProductoBusiness
                     .ObtenerPrecio(productoId, 
@@ -168,9 +169,9 @@ namespace ERPv1.Clientes
 
                
 
-                if(oContext.doc_empleados_productos_descuentos
-                    .Where(w=> w.EmpleadoId == clienteId && w.ProductoId == productoId
-                    &&w.Id != entityUpd.Id
+                if(
+                    oContext.doc_empleados_productos_descuentos
+                    .Where(w=> w.ProductoId == productoId && w.Id != id
                     ).Count() > 0 
                 )
                 {
@@ -310,15 +311,13 @@ namespace ERPv1.Clientes
                 {
                     var entityUpd2 = (p_empleados_productos_descuentos_grd_Result)uiGridView.GetRow(uiGridView.FocusedRowHandle);
 
-                    entityUpd = new doc_empleados_productos_descuentos() {
-                          Id = entityUpd2.Id
-                    };
+                    entityUpd = oContext.doc_empleados_productos_descuentos.FirstOrDefault(f => f.Id == entityUpd2.Id);
 
                     if (entityUpd != null)
                     {
                         int Id = entityUpd.Id;
 
-                        oContext.doc_empleados_productos_descuentos.Remove(new doc_empleados_productos_descuentos {  Id=Id});
+                        oContext.doc_empleados_productos_descuentos.Remove(entityUpd);
                         oContext.SaveChanges();
 
                         ERP.Utils.MessageBoxUtil.ShowOk();
