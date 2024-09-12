@@ -56,8 +56,7 @@ namespace TacosAna.Desktop
                 }
 
                 if (
-                    uiFecha.DateTime.Date == fechaActual.Date &&
-                    uiHora.Time.TimeOfDay <= fechaActual.TimeOfDay
+                    uiFecha.DateTime.Date < fechaActual.Date 
                     )
                 {
                     XtraMessageBox.Show("La hora debe de ser mayor a la hora actual", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
