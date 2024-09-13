@@ -110,7 +110,7 @@ namespace ERP.Business
         }
 
 
-        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId,int sucursalId,bool nube=false)
+        public static    cat_basculas_configuracion GetConfiguracionPCLocal(int usuarioId,int sucursalId,bool nube=false,bool reload=false)
         {
             cat_basculas_configuracion result = null;
             try
@@ -118,9 +118,9 @@ namespace ERP.Business
                 ERPProdEntities oContext = new ERPProdEntities(nube);
                
 
-                string hardwareId = ERP.Business.DataMemory.DataBucket.GetHardwareId(false);
+                string hardwareId = ERP.Business.DataMemory.DataBucket.GetHardwareId(reload);
 
-                result = ERP.Business.DataMemory.DataBucket.GetCatBasculasConfiguracion(false)
+                result = ERP.Business.DataMemory.DataBucket.GetCatBasculasConfiguracion(reload)
                     .Where(w=> w.cat_equipos_computo.HardwareID == hardwareId && w.SucursalId == sucursalId).FirstOrDefault();
                     
 

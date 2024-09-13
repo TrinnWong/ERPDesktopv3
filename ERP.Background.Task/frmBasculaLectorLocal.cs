@@ -67,7 +67,7 @@ namespace ERP.Background.Task
                 puntoVentaContext.empresaId = Convert.ToInt32(fileValues[0]);
                 puntoVentaContext.sucursalId = Convert.ToInt32(fileValues[1]);
                 puntoVentaContext.usuarioId = 1;
-                basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId);
+                basculaConfiguracion = Business.BasculasBusiness.GetConfiguracionPCLocal(puntoVentaContext.usuarioId,puntoVentaContext.sucursalId,true);
                 oBascula = new BasculasBusiness(puntoVentaContext.sucursalId);
                 basculaControlador = new BasculaLectura(basculaConfiguracion,puntoVentaContext);
                this.TXThdid.Text = EquipoComputoBusiness.GetProcessorID();
