@@ -38,10 +38,8 @@ namespace ERP.Common.PuntoVenta
 
             if (oVenta != null)
             {
-                string serie = oVenta.Serie;
-
-                uiTicket.Text = (serie == null ? "" : serie) +
-                    oVenta.VentaId;
+                
+                uiTicket.Text = oVenta.Folio;
 
 
             }

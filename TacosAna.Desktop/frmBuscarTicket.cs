@@ -127,7 +127,7 @@ namespace TacosAna.Desktop
                     {
                         if (frmPuntoVenta.GetInstance().Visible)
                         {
-                            frmPuntoVenta.GetInstance().obtenerVenta(ventaId);
+                            frmPuntoVenta.GetInstance().obtenerVenta(ventaId,true);
                         }
                     }
                     if (uiReimprimir.Checked)

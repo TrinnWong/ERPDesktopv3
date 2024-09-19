@@ -2398,7 +2398,7 @@ namespace TacosAna.Desktop
             }
         }
 
-        public void obtenerVenta(int _ventaId)
+        public void obtenerVenta(int _ventaId,bool verTickets = false)
         {
             try
             {
@@ -2411,7 +2411,7 @@ namespace TacosAna.Desktop
 
                     lstPedido = new List<PedidoDetalleModel>();
                     uiFactura.Checked = venta.Facturar??false;
-                    if(venta.doc_pedidos_orden.Count == 0)
+                    if (venta.doc_pedidos_orden.Count == 0 || verTickets)
                     {
                         foreach (var item in venta.doc_ventas_detalle)
                         {
@@ -2442,13 +2442,14 @@ namespace TacosAna.Desktop
                         grProducto.DataSource = lstPedido;
                         grProducto.Refresh();
                         gvProducto.RefreshData();
-                        
+
                         CalcularTotales();
                     }
                     else
                     {
                         obtenerCuenta(venta.doc_pedidos_orden.FirstOrDefault().PedidoId);
                     }
+
 
                     DisableAll();
                     frmMenuRestTA.GetInstance().EnableMenu(true, false, true, true, true);
