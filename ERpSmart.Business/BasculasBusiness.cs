@@ -116,13 +116,14 @@ namespace ERP.Business
             try
             {
                 ERPProdEntities oContext = new ERPProdEntities();
-               
 
-                string hardwareId = EquipoComputoBusiness.GetProcessorID();
 
-                result = oContext.cat_basculas_configuracion
-                    .Where(w=> w.cat_equipos_computo.HardwareID == hardwareId && w.SucursalId == sucursalId).FirstOrDefault();
-                    
+                string hardwareId = ERP.Business.DataMemory.DataBucket.GetHardwareId(false);
+
+                result = ERP.Business.DataMemory.DataBucket.GetCatBasculasConfiguracion(false)
+                     .Where(w => w.cat_equipos_computo.HardwareID == hardwareId && w.SucursalId == sucursalId).FirstOrDefault();
+
+
 
             }
             catch (Exception ex)

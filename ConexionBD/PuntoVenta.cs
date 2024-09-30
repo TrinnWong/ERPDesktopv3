@@ -63,17 +63,7 @@ namespace ConexionBD
 
                     DateTime fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
 
-                    /**************Validar que no existan tickets con fechas inconsistentes*******************/
-                    if (
-                        oContext.doc_ventas
-                        .Where(
-                            w => DbFunctions.TruncateTime(fechaActual) < DbFunctions.TruncateTime(w.Fecha)
-                            ).Count() > 0
-                        )
-                    {
-                        error = "No es posible generar el ticket, ya que se detectó una inconsitencia con la fecha del ticket";
-                        return error;
-                    }
+                    /**************Validar que no existan tickets con fechas inconsistentes*******************/                   
 
                     oContext.p_InsertarVenta(pVentaId, folio, fechaActual, clienteId, descuentoVentaSiNo, porcDescuentoVenta, montoDescuentoVenta, descuentoEnPartidas,
                        montoDescuentoVenta + descuentoEnPartidas, impuestos, subTotal, totalVenta, totalRecibido, cambio, true, usuarioId, DateTime.Now, null, null,sucursalId,cajaId,pedidoOrdenId,Facturar,empleadoId);

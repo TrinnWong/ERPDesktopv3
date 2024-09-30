@@ -18,6 +18,12 @@ namespace ERP.Business.DataMemory
         public static cat_impresoras entityImpresoraComanda;
         public static cat_impresoras entityImpresoraCaja;
         public static cat_configuracion entityConfiguracion;
+        //Mejoras de  impresión
+        public static List<cat_configuracion> lstConfiguraciones;
+        public static List<cat_cajas_impresora> lstCajasImpresoras;
+        public static List<cat_basculas_configuracion> lstCatBasculasConfiguracion;
+        public static string hardwareId;
+
         public static List<cat_productos>  GetProductosMemory(bool refresh)
         {
             
@@ -162,6 +168,48 @@ namespace ERP.Business.DataMemory
             return entityImpresoraComanda;
         }
 
+        public static List<cat_configuracion> GetCatConfiguracion(bool refresh)
+        {
+            if (lstConfiguraciones == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+                lstConfiguraciones = oContext.cat_configuracion
+                    .ToList();
+            }
+            return lstConfiguraciones;
+        }
+
+        public static List<cat_cajas_impresora> GetCajasImpresoras(bool refresh)
+        {
+            if (lstCajasImpresoras == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+                lstCajasImpresoras = oContext.cat_cajas_impresora
+                    .ToList();
+            }
+            return lstCajasImpresoras;
+        }
+
+        public static List<cat_basculas_configuracion> GetCatBasculasConfiguracion(bool refresh)
+        {
+            if (lstCatBasculasConfiguracion == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+                lstCatBasculasConfiguracion = oContext.cat_basculas_configuracion
+                    .ToList();
+            }
+            return lstCatBasculasConfiguracion;
+        }
+
+        public static string GetHardwareId(bool refresh)
+        {
+            if (hardwareId == null || refresh)
+            {
+                hardwareId = EquipoComputoBusiness.GetProcessorID();
+            }
+            return hardwareId;
+        }
+
         public static void ClearData()
         {
             lstProductos = null;
@@ -169,6 +217,10 @@ namespace ERP.Business.DataMemory
             lstClientesProductosPrecios = null;
             entityImpresoraCaja = null;
             entityImpresoraComanda = null;
+            lstConfiguraciones = null;
+            lstCajasImpresoras = null;
+            hardwareId = null;
+            lstCatBasculasConfiguracion = null;
         }
 
         public static void LoadAll()
@@ -177,6 +229,10 @@ namespace ERP.Business.DataMemory
             GetProductosProduccionMemory(true, tipoProductoProduccion.TODO);
             GetClientesProductosPrecios(true);           
             GetFamiliasMemory(true);
+            GetCatConfiguracion(true);
+            GetCajasImpresoras(true);
+            GetHardwareId(true);
+            GetCatBasculasConfiguracion(true);
         }
     }
 }
