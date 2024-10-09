@@ -80,6 +80,10 @@ namespace TacosAna.Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!ERP.Business.Tools.NetworkTool.ConexionInternetSiNo(true))
+            {
+                return;
+            }
             entrar();
            
         }

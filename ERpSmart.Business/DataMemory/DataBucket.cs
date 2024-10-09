@@ -22,6 +22,8 @@ namespace ERP.Business.DataMemory
         public static List<cat_configuracion> lstConfiguraciones;
         public static List<cat_cajas_impresora> lstCajasImpresoras;
         public static List<cat_basculas_configuracion> lstCatBasculasConfiguracion;
+        public static List<cat_productos_precios> lstProductosPrecios;
+
         public static string hardwareId;
 
         public static List<cat_productos>  GetProductosMemory(bool refresh)
@@ -210,6 +212,17 @@ namespace ERP.Business.DataMemory
             return hardwareId;
         }
 
+        public static List<cat_productos_precios> GetProductosPrecios(bool refresh)
+        {
+            if (lstProductosPrecios == null || refresh)
+            {
+                ERPProdEntities oContext = new ERPProdEntities();
+                lstProductosPrecios = oContext.cat_productos_precios
+                    .ToList();
+            }
+            return lstProductosPrecios;
+        }
+
         public static void ClearData()
         {
             lstProductos = null;
@@ -221,6 +234,7 @@ namespace ERP.Business.DataMemory
             lstCajasImpresoras = null;
             hardwareId = null;
             lstCatBasculasConfiguracion = null;
+            lstProductosPrecios = null;
         }
 
         public static void LoadAll()
@@ -233,6 +247,7 @@ namespace ERP.Business.DataMemory
             GetCajasImpresoras(true);
             GetHardwareId(true);
             GetCatBasculasConfiguracion(true);
+            GetProductosPrecios(true);
         }
     }
 }

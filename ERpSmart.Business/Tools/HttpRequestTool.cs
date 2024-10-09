@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -194,6 +195,35 @@ namespace ERP.Business.Tools
             }
 
             return result;
+        }
+    }
+
+    public class NetworkTool
+    {
+
+       
+
+        public static bool ConexionInternetSiNo(bool showMessage=false)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.com");
+                request.Timeout = 600; 
+                request.Method = "HEAD"; 
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
+            }
+            catch (WebException)
+            {
+                if (showMessage)
+                {
+                    ERP.Utils.MessageBoxUtil.ShowWarning("NO HAY INTERNET. Por favor intente de nuevo");
+                }
+                return false;
+            }
         }
     }
 }

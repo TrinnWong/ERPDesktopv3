@@ -47,6 +47,12 @@ namespace TacosAna.Desktop
 
             try
             {
+                if (!ERP.Business.Tools.NetworkTool.ConexionInternetSiNo(true))
+                {
+                    
+                    return;
+                }
+
                 DateTime fechaActual = oContext.p_GetDateTimeServer().FirstOrDefault().Value;
 
                 if (uiFecha.DateTime.Date < fechaActual.Date)

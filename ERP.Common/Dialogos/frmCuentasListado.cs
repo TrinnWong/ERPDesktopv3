@@ -35,7 +35,9 @@ namespace ERP.Common.Dialogos
                 int sucursalID = puntoVentaContext.sucursalId;
                 List<CuentaPendienteViewModel> lst = oContext
                     .doc_pedidos_orden
-                    .Where(w => w.SucursalId == sucursalID && 
+                    .Where(w => 
+                        (w.Notas??"") != "" &&
+                        w.SucursalId == sucursalID && 
                         (
                             w.Activo == true &&
                             (w.VentaId == null &&  (w.Cancelada??false) == false && soloPendientes)

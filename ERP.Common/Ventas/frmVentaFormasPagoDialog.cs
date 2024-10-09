@@ -279,7 +279,8 @@ namespace ERP.Common.Procesos
         #endregion
 
         private void uiPagar_Click(object sender, EventArgs e)
-        {
+        {     
+
             if (pagar())
             {
                 this.Close();

@@ -528,7 +528,6 @@
             // 
             // uiRevisarRed
             // 
-            this.uiRevisarRed.Enabled = true;
             this.uiRevisarRed.Interval = 10000;
             this.uiRevisarRed.Tick += new System.EventHandler(this.uiRevisarRed_Tick);
             // 

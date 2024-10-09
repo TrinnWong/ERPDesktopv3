@@ -212,8 +212,7 @@ namespace ConexionBD
                             int productoId = itemDet.ProductoId;
 
 
-                            cat_productos_precios precio = oContext.cat_productos_precios
-                                .Where(w => w.IdProducto == productoId &&
+                            cat_productos_precios precio = ERP.Business.DataMemory.DataBucket.GetProductosPrecios(false).Where(w => w.IdProducto == productoId &&
                                 w.IdPrecio == (int)Enumerados.precios.publicoGral
                                 ).FirstOrDefault();
 

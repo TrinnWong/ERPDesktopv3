@@ -1665,6 +1665,12 @@ namespace TacosAna.Desktop
 
                     if(resultDailog == DialogResult.OK)
                     {
+
+                        if (!ERP.Business.Tools.NetworkTool.ConexionInternetSiNo(true))
+                        {
+                            return;
+                        }
+
                         abrirCajon();
                         retiroAcumulado = retiroAcumulado + lstPedido.Sum(s => s.total);
                         this.lstFormasPago = oFormasPago.lstFormasPago;
@@ -1674,6 +1680,7 @@ namespace TacosAna.Desktop
 
                         ConfirmarPago();
 
+                       
                         aplicarRetiroAutomatico();
                     }
                     else {
@@ -3167,6 +3174,13 @@ namespace TacosAna.Desktop
 
         private void ConfirmarPago()
         {
+            bool respuestaImpresion = false;
+            if (!ERP.Business.Tools.NetworkTool.ConexionInternetSiNo(true))
+            {
+                button51.Enabled = true;
+                return;
+            }
+
             int empleadoId = Convert.ToInt32(uiEmpleado.EditValue);
 
             int? clienteId = empleadoId == 0 ? null : (int?)oContext.rh_empleados
@@ -3349,21 +3363,19 @@ namespace TacosAna.Desktop
                 }
                 else
                 {
-
+                    //Sección de impresión
                     
                     cat_configuracion entity =entityConfiguracion;
 
                     if (pedido.TipoPedidoId == (int)ERP.Business.Enumerados.tipoPedido.PedidoClienteMayoreo || pedido.TipoPedidoId == null)
                     {
                         imprimirComanda(pedidoId);
-                    }
-
-                    
+                    }                    
 
                     if (lstPedido.Sum(s => s.total) >= (entity.MontoImpresionTicket ?? 0))
-                    {                        
+                    {
 
-                        imprimirTicket((int)ventaId);   
+                        imprimirTicket((int)ventaId);
 
                     }
 
@@ -3383,64 +3395,30 @@ namespace TacosAna.Desktop
         {
             try
             {
-                ERP.Reports.TacosAna.rptVentaTicket oTicket2 = new ERP.Reports.TacosAna.rptVentaTicket(ventaId);
-
-                
-
-                //ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(puntoVentaContext.sucursalId,this.puntoVentaContext.cajaId,false);
-
-                oTicket2.DataSource = oContext.p_rpt_VentaTicket(ventaId).ToList();
-
-                //oViewer.ShowTicket(oTicket2);
+                 ERP.Reports.TacosAna.rptVentaTicket oTicket2 = new ERP.Reports.TacosAna.rptVentaTicket();                       
 
 
+                        ERP.Common.Reports.ReportViewer oViewer = new ERP.Common.Reports.ReportViewer(this.puntoVentaContext.cajaId);
 
-                // Configura la impresora
-                PrinterSettings printerSettings = new PrinterSettings();
-                printerSettings.PrinterName = ERP.Business.DataMemory.DataBucket.entityImpresoraCaja.NombreRed;
-                //printerSettings.DefaultPageSettings.PaperSize = new PaperSize("Custom", 800, 32767); // 80mm x 32767mm (altura máxima)
+                        oTicket2.DataSource = oContext.p_rpt_VentaTicket((int?)ventaId).ToList();
 
-                // Crea un objeto PrintDocument
-                PrintDocument printDocument = new PrintDocument();
-                printDocument.PrinterSettings = printerSettings;
-
-                // Asocia el informe con el PrintDocument
-                oTicket2.Run();
-                printDocument.PrintPage += (sender, e) =>
-                {
-                    e.HasMorePages = false; // Establece esto en false para imprimir una sola página
-
-                    oTicket2.Document.Print(false);
-
-                };
-
-                // Imprime el informe
-                printDocument.Print();
+                        oViewer.ShowTicket(oTicket2);
 
                
 
             }
             catch (Exception ex)
             {
-
-                err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
-                               "ERP",
-                               this.Name,
-                               ex);
-
                 //Si hubo un error al reimprimir , REINTENTAR
-                if (XtraMessageBox.Show("¿REINTENTAR REIMPRIMIR TICKET?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (XtraMessageBox.Show("VENTA REGISTRADA. ¿REIMPRIMIR TICKET?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     imprimirTicket(ventaId);
                 }
-                else
-                {
-                    ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
-                }
+               
             }
         }
 
-        private void imprimirComanda(int pedidoId)
+        private bool imprimirComanda(int pedidoId)
         {
             try
             {
@@ -3456,28 +3434,29 @@ namespace TacosAna.Desktop
                 else
                 {
                     oReport.Print(entityImpresoraComanda.NombreRed);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                err = ERP.Business.SisBitacoraBusiness.Insert(frmMenuRestTA.GetInstance().puntoVentaContext.usuarioId,
-                              "ERP",
-                              this.Name,
-                              ex);
-
-                //Si hubo un error al reimprimir , REINTENTAR
-                if (XtraMessageBox.Show("¿REINTENTAR REIMPRIMIR COMANDA?","Aviso", MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
-                {
-                    imprimirComanda(pedidoId);
-                }
-                else
-                {
-                    ERP.Utils.MessageBoxUtil.ShowErrorBita(err);
+                    oReport.Dispose();
+                 
                 }
 
                 
-               
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {                        
+
+                //Si hubo un error al reimprimir , REINTENTAR
+                if (XtraMessageBox.Show("VENTA REGISTRADA. ¿REIMPRIMIR COMANDA?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    imprimirComanda(pedidoId);
+                }
+                
+
+                return false;
+
+
+
             }
         }
 
@@ -3686,6 +3665,14 @@ namespace TacosAna.Desktop
 
         private void button51_Click(object sender, EventArgs e)
         {
+         
+
+            if(this.lstPedido.Count() == 0)
+            {
+                ERP.Utils.MessageBoxUtil.ShowWarning("NO HAY PRODUCTOS AGREGADOS");
+                return;
+            }
+
             cobrar();
         }
 

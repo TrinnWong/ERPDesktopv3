@@ -51,6 +51,21 @@ namespace ERP.Reports.TacosAna
 
         }
 
+        public rptVentaTicket(int _ventaId, cat_configuracion entityConf)
+        {
+            ventaId = _ventaId;
+
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
+            desglozarMonto = entityConf.DesgloceMontoTicket ?? false;
+            giro = entityConf.Giro;
+
+
+
+        }
+
         private void rptVentaTicket_ReportStart(object sender, EventArgs e)
         {
            
