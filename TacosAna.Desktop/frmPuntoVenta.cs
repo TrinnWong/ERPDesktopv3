@@ -1656,6 +1656,7 @@ namespace TacosAna.Desktop
                 uiEnter.Enabled = true;
                 if (cobrando && !cobrandoAnticipo)
                 {
+                    this.button51.Enabled = false;
                     frmVentaFormasPagoDialog oFormasPago = new frmVentaFormasPagoDialog();
 
                     oFormasPago.lstFormasPago = this.lstFormasPago;
@@ -1684,6 +1685,7 @@ namespace TacosAna.Desktop
                         aplicarRetiroAutomatico();
                     }
                     else {
+                        this.button51.Enabled = true;
                         cobrandoCalc();
                     }
 
