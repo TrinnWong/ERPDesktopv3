@@ -1,0 +1,598 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dotmim.Sync.Sqlite</name>
+    </assembly>
+    <members>
+        <member name="T:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.EnsureDatabaseAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.EnsureTableAsync(System.String,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.GetAllTablesAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.GetHelloAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.GetTableAsync(System.String,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.ExistsTableAsync(System.String,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.DropsTableIfExistsAsync(System.String,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.Builders.SQLiteDatabaseBuilder.RenameTableAsync(System.String,System.String,System.String,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteDbMetadata">
+            <summary>
+            Sqlite database metadata.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetDbType(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetOwnerDbType(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetOwnerDbTypeFromDbType(Dotmim.Sync.SyncColumn)">
+            <summary>
+            Gets the owner db type from a sync column.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetSqliteType(Dotmim.Sync.SyncColumn)">
+            <summary>
+            Gets a sqlite type from a sync column.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetType(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetMaxLength(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetPrecisionAndScale(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetPrecision(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.IsSupportingScale(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.IsNumericType(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.IsTextType(Dotmim.Sync.SyncColumn)">
+            <summary>
+            Check if the column is a text type.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.IsValid(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.IsReadonly(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteDbMetadata.GetCompatibleColumnTypeDeclarationString(Dotmim.Sync.SyncColumn,System.String)">
+            <summary>
+            Gets a compatible column definition.
+            </summary>
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteObjectNames">
+            <summary>
+            Sqlite object names.
+            </summary>
+        </member>
+        <member name="F:Dotmim.Sync.Sqlite.SqliteObjectNames.LeftQuote">
+            <summary>
+            Gets the left quote.
+            </summary>
+        </member>
+        <member name="F:Dotmim.Sync.Sqlite.SqliteObjectNames.RightQuote">
+            <summary>
+            Gets the right quote.
+            </summary>
+        </member>
+        <member name="F:Dotmim.Sync.Sqlite.SqliteObjectNames.TimestampValue">
+            <summary>
+            Gets the timestamp sqlite generation query.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableDescription">
+            <summary>
+            Gets the table description.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.ScopeInfo">
+            <summary>
+            Gets the scope info.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableName">
+            <summary>
+            Gets the parsed tracking table name, wihtout any quotes characters.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableNormalizedFullName">
+            <summary>
+            Gets the parsed normalized tracking table full name.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableNormalizedShortName">
+            <summary>
+            Gets the parsed normalized tracking table short name.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableQuotedFullName">
+            <summary>
+            Gets the parsed quoted tracking table full name.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableQuotedShortName">
+            <summary>
+            Gets the parsed quoted tracking table short name.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TrackingTableSchemaName">
+            <summary>
+            Gets the parsed tracking table schema name. if empty, "dbo" is returned.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableName">
+            <summary>
+            Gets the parsed table name, without any quotes characters.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableNormalizedFullName">
+            <summary>
+            Gets the parsed normalized table full name (with schema, if any).
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableNormalizedShortName">
+            <summary>
+            Gets the parsed normalized table short name (without schema, if any).
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableQuotedFullName">
+            <summary>
+            Gets the parsed quoted table full name (with schema, if any).
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableQuotedShortName">
+            <summary>
+            Gets the parsed quoted table short name (without schema, if any).
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteObjectNames.TableSchemaName">
+            <summary>
+            Gets the parsed table schema name. if empty, "dbo" is returned.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.GetCommandName(Dotmim.Sync.Builders.DbCommandType,Dotmim.Sync.SyncFilter)">
+            <summary>
+            Get a command string from the command type.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.GetTriggerCommandName(Dotmim.Sync.Builders.DbTriggerType)">
+            <summary>
+            Get a trigger command name from the object type.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.#ctor(Dotmim.Sync.SyncTable,Dotmim.Sync.ScopeInfo,System.Boolean)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteObjectNames" />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.SetDefaultNames">
+            <summary>
+            Set the default stored procedures names.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.CreateFilterCustomJoins(Dotmim.Sync.SyncFilter)">
+            <summary>
+            Create all custom joins from within a filter.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.CreateFilterWhereSide(Dotmim.Sync.SyncFilter,System.Boolean)">
+            <summary>
+            Create all side where criteria from within a filter.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteObjectNames.CreateFilterCustomWheres(Dotmim.Sync.SyncFilter)">
+            <summary>
+            Create all custom wheres from witing a filter.
+            </summary>
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteScopeBuilder">
+            <summary>
+            Sqlite scope builder.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteScopeBuilder.ScopeInfoTableNames">
+            <summary>
+            Gets the scope info table names.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteScopeBuilder.ScopeInfoClientTableNames">
+            <summary>
+            Gets the scope info client table names.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.#ctor(System.String)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteScopeBuilder" />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetParsedScopeInfoTableNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetParsedScopeInfoClientTableNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetLocalTimestampCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetExistsScopeInfoTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetExistsScopeInfoClientTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetExistsScopeInfoCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetExistsScopeInfoClientCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetCreateScopeInfoTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetCreateScopeInfoClientTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetAllScopeInfosCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetAllScopeInfoClientsCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetDeleteScopeInfoCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetDeleteScopeInfoClientCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetScopeInfoCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetScopeInfoClientCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetInsertScopeInfoCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetInsertScopeInfoClientCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetUpdateScopeInfoCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetUpdateScopeInfoClientCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetSaveScopeInfoCommand(System.Boolean,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            Gets the save scope info command.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetSaveScopeInfoClientCommand(System.Boolean,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            Gets the save scope info client command.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetDropScopeInfoTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteScopeBuilder.GetDropScopeInfoClientTableCommand(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteTableBuilder">
+            <summary>
+            The SqlBuilder class is the Sql implementation of DbBuilder class.
+            In charge of creating tracking table, stored proc, triggers and adapters.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteTableBuilder.SqliteObjectNames">
+            <summary>
+            Gets the SqliteObjectNames.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteTableBuilder.SqliteDbMetadata">
+            <summary>
+            Gets the SqliteDbMetadata.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.#ctor(Dotmim.Sync.SyncTable,Dotmim.Sync.ScopeInfo,System.Boolean)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteTableBuilder" />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetParsedColumnNames(Dotmim.Sync.SyncColumn)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetParsedTableNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetParsedTrackingTableNames">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetCreateSchemaCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetCreateTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsSchemaCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetDropTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsStoredProcedureCommandAsync(Dotmim.Sync.Builders.DbStoredProcedureType,Dotmim.Sync.SyncFilter,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetCreateStoredProcedureCommandAsync(Dotmim.Sync.Builders.DbStoredProcedureType,Dotmim.Sync.SyncFilter,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetDropStoredProcedureCommandAsync(Dotmim.Sync.Builders.DbStoredProcedureType,Dotmim.Sync.SyncFilter,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetCreateTrackingTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetDropTrackingTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsTrackingTableCommandAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsTriggerCommandAsync(Dotmim.Sync.Builders.DbTriggerType,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetCreateTriggerCommandAsync(Dotmim.Sync.Builders.DbTriggerType,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetDropTriggerCommandAsync(Dotmim.Sync.Builders.DbTriggerType,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetColumnsAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetRelationsAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetPrimaryKeysAsync(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetExistsColumnCommandAsync(System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetAddColumnCommandAsync(System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTableBuilder.GetDropColumnCommandAsync(System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteManagementUtils">
+            <summary>
+            Sqlite Management Utils.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.GetAllTablesAsync(Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Get all Tables.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.GetTableAsync(System.String,Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Get all rows from a table.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.RenameTableAsync(System.String,System.String,Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Rename a table.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.GetColumnsForTableAsync(System.String,Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Get all columns for a table.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.GetPrimaryKeysForTableAsync(Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction,System.String)">
+            <summary>
+            Get all primary keys for a table.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.GetRelationsForTableAsync(Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction,System.String)">
+            <summary>
+            Get relations for a table.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.DropTableIfExistsAsync(System.String,Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Drop a table if it exists.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.DropTriggerIfExistsAsync(Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction,System.String)">
+            <summary>
+            Drop a trigger if it exists.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.TableExistsAsync(System.String,Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction)">
+            <summary>
+            Check if a table exists.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.TriggerExistsAsync(Microsoft.Data.Sqlite.SqliteConnection,Microsoft.Data.Sqlite.SqliteTransaction,System.String)">
+            <summary>
+            Check if a trigger exists.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.JoinOneTablesOnParametersValues(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Returns a string that joins two tables on parameters values.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.JoinTwoTablesOnClause(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Returns a join table on clause.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.WhereColumnAndParameters(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Returns a string that joins columns on a where clause.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteManagementUtils.WhereColumnIsNull(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Returns a string that joins columns on null.
+            </summary>
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteSyncAdapter">
+            <summary>
+            Sqlite sync adapter.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncAdapter.SupportsOutputParameters">
+            <inheritdoc />
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncAdapter.SqliteObjectNames">
+            <summary>
+            Gets or sets the SqliteObjectNames.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.#ctor(Dotmim.Sync.SyncTable,Dotmim.Sync.ScopeInfo,System.Boolean)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteSyncAdapter"/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.GetParsedColumnNames(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.GetTableBuilder">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.GetCommand(Dotmim.Sync.SyncContext,Dotmim.Sync.Builders.DbCommandType,Dotmim.Sync.SyncFilter)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.AddCommandParameterValue(Dotmim.Sync.SyncContext,System.Data.Common.DbParameter,System.Object,System.Data.Common.DbCommand,Dotmim.Sync.Builders.DbCommandType)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.EnsureCommandParametersValues(Dotmim.Sync.SyncContext,System.Data.Common.DbCommand,Dotmim.Sync.Builders.DbCommandType,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncAdapter.ExecuteBatchCommandAsync(Dotmim.Sync.SyncContext,System.Data.Common.DbCommand,System.Guid,System.Collections.Generic.IEnumerable{Dotmim.Sync.SyncRow},Dotmim.Sync.SyncTable,Dotmim.Sync.SyncTable,System.Nullable{System.Int64},System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteSyncProvider">
+            <summary>
+            Sqlite sync provider.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetMetadata">
+            <inheritdoc />
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.ConnectionString">
+            <inheritdoc />
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.ConstraintsLevelAction">
+            <inheritdoc />
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.CanBeServerProvider">
+            <summary>
+            Gets a value indicating whether sQLIte does not support to be a server side.
+            Reason 1 : Can't easily insert / update batch with handling conflict
+            Reason 2 : Can't filter rows (based on filterclause).
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.DisableSqlFiltersGeneration">
+            <summary>
+            Gets or sets a value indicating whether SQL filters generation is disabled.
+            When set to <c>true</c>, SQL filters will not be generated during command creation.
+            </summary>
+            <value>
+              <c>true</c> if SQL filters generation is disabled; otherwise, <c>false</c>.
+              The default value is <c>true</c>.
+            </value>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetProviderTypeName">
+            <inheritdoc />
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.ProviderType">
+            <summary>
+            Gets the provider type.
+            </summary>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.ShortProviderType">
+            <summary>
+            Gets the short provider type.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetShortProviderTypeName">
+            <inheritdoc />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.#ctor">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteSyncProvider" />
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.#ctor(System.IO.FileInfo)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteSyncProvider"/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.#ctor(Microsoft.Data.Sqlite.SqliteConnectionStringBuilder)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteSyncProvider"/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.#ctor(System.String)">
+            <inheritdoc cref="T:Dotmim.Sync.Sqlite.SqliteSyncProvider"/>
+        </member>
+        <member name="P:Dotmim.Sync.Sqlite.SqliteSyncProvider.FilePath">
+            <summary>
+            Gets the file path extracted from the connection string.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.ShouldRetryOn(System.Exception)">
+            <summary>
+            Gets a chance to make a retry if the error is a transient error.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetDatabaseName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.EnsureSyncException(Dotmim.Sync.SyncException)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.CreateConnection">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetScopeBuilder(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetSyncAdapter(Dotmim.Sync.SyncTable,Dotmim.Sync.ScopeInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteSyncProvider.GetDatabaseBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="T:Dotmim.Sync.Sqlite.SqliteTransientExceptionDetector">
+            <summary>
+                Detects the exceptions caused by SQL Server transient failures.
+            </summary>
+        </member>
+        <member name="M:Dotmim.Sync.Sqlite.SqliteTransientExceptionDetector.ShouldRetryOn(Microsoft.Data.Sqlite.SqliteException)">
+            <summary>
+                Detects the exceptions caused by SQL Server transient failures.
+            </summary>
+        </member>
+    </members>
+</doc>

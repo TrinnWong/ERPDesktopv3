@@ -770,6 +770,7 @@ namespace TacosAna.Desktop
         }
         private void LimpiarBotones()
         {
+            this.button51.Enabled = true;
             cantidadPaquetesInicial = 0;
             limiteMaxGuisoSeleccionValidar = false;
             limiteMaxGuisoSeleccion = 3;

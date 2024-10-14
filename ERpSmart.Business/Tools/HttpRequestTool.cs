@@ -207,6 +207,8 @@ namespace ERP.Business.Tools
         {
             try
             {
+                
+                
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.com");
                 request.Timeout = 2000; 
                 request.Method = "HEAD"; 

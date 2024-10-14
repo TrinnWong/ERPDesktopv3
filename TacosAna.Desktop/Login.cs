@@ -38,19 +38,19 @@ namespace TacosAna.Desktop
             oSistema = new Sistema();
           
 
-            string error = oSistema.actualizarVersion(false);
+            //string error = oSistema.actualizarVersion(false);
 
-            if (error.Length > 0)
-            {
-                MessageBox.Show(
-                    "Ocurrió un error al actualizar la versión del sistema, por favor avise al administrador. Puede seguir utilizando la aplicación"
-                    + error
-                    , "ERROR"
-                    , MessageBoxButtons.OK
-                    , MessageBoxIcon.Error);
+            //if (error.Length > 0)
+            //{
+            //    MessageBox.Show(
+            //        "Ocurrió un error al actualizar la versión del sistema, por favor avise al administrador. Puede seguir utilizando la aplicación"
+            //        + error
+            //        , "ERROR"
+            //        , MessageBoxButtons.OK
+            //        , MessageBoxIcon.Error);
 
-                return;
-            }
+            //    return;
+            //}
 
             oContext = new ERPProdEntities();
             oLogin = new ConexionBD.LoginCaja();

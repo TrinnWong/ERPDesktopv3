@@ -1,4 +1,6 @@
 ﻿using ConexionBD;
+using Dotmim.Sync;
+using Dotmim.Sync.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -639,7 +641,7 @@ namespace ERP.Business
             }
         }
 
-
+    
 
 
     }
