@@ -98,6 +98,8 @@
     <Compile Include="SDK\Usuario.cs" />
     <Compile Include="Seguridad\LoginModel.cs" />
     <Compile Include="Sincronizacion\InventarioMovimientoRelacion.cs" />
+    <Compile Include="Sincronizacion\SincLocalBitacoraModel.cs" />
+    <Compile Include="Sincronizacion\SincronizaResultadoModel.cs" />
     <Compile Include="Sincronizacion\VentaRelacionModel.cs" />
     <Compile Include="Subfamilias\SubfamiliaPVModel.cs" />
     <Compile Include="Sucursal\SucursalModel.cs" />

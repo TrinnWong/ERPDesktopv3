@@ -1094,5 +1094,12 @@ namespace TacosAna.Desktop
                 WebRequest = null;
             }
         }
+
+        private void bbSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Business.SincronizacionBusiness oSinc = new ERP.Business.SincronizacionBusiness();
+
+            oSinc.ExportANube();
+        }
     }
 }
