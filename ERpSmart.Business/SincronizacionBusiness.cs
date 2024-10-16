@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -2456,12 +2457,15 @@ namespace ERP.Business
             try
             {
                 this.ExportGastos();
-                //this.ExportRetiros();
 
-                //this.ExportMaizMasecaRendimiento();
-                //this.ExportProductosSobrantesRegistro();
-                //this.ExportPedidosOrden_Ventas();
+                this.ExportRetiros();
+
+                this.ExportMaizMasecaRendimiento();
+                this.ExportProductosSobrantesRegistro();
+                this.ExportPedidosOrden_Ventas();
                 //this.ExportClientes();
+
+                this.ExportCorteCaja();
 
 
                 return "";
@@ -2858,16 +2862,24 @@ namespace ERP.Business
         {
             try
             {
+                string scope = Guid.NewGuid().ToString();
+                int[] idsExcluirCargos = exec_p_sinc_local_bitacora_sel("doc_cargos").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirCargosDetalle = exec_p_sinc_local_bitacora_sel("doc_cargos_detalle").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirPedidosOrden = exec_p_sinc_local_bitacora_sel("doc_pedidos_orden").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirPedidosOrdenDetalle = exec_p_sinc_local_bitacora_sel("doc_pedidos_orden_detalle").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirPedidosCargos = exec_p_sinc_local_bitacora_sel("doc_pedidos_cargos").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirVentas = exec_p_sinc_local_bitacora_sel("doc_ventas").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirVentasDetalle = exec_p_sinc_local_bitacora_sel("doc_ventas_detalle").Select(s => s.RecordSyncId).ToArray();
+                int[] idsExcluirVentasFormasPago = exec_p_sinc_local_bitacora_sel("doc_ventas_formas_pago").Select(s => s.RecordSyncId).ToArray();
 
 
-
-                List<doc_cargos> listaCargos = this.contextLocal.doc_cargos.ToList();
-                List<doc_cargos_detalle> listaCargosDetalle = this.contextLocal.doc_cargos_detalle.ToList();
-                List<doc_pedidos_orden> listaPedidosOrden = this.contextLocal.doc_pedidos_orden.ToList();
-                List<doc_pedidos_cargos> listaPedidosCargos = this.contextLocal.doc_pedidos_cargos.ToList();
-                List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.ToList();
-                List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.ToList();
-                List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.ToList();
+                List<doc_cargos> listaCargos = this.contextLocal.doc_cargos.Where(w=> !idsExcluirCargos.Contains(w.CargoId)).ToList();
+                List<doc_cargos_detalle> listaCargosDetalle = this.contextLocal.doc_cargos_detalle.Where(w => !idsExcluirCargosDetalle.Contains(w.CargoDetalleId)).ToList();
+                List<doc_pedidos_orden> listaPedidosOrden = this.contextLocal.doc_pedidos_orden.Where(w => !idsExcluirPedidosOrden.Contains(w.PedidoId)).ToList();
+                List<doc_pedidos_cargos> listaPedidosCargos = this.contextLocal.doc_pedidos_cargos.Where(w => !idsExcluirPedidosCargos.Contains(w.PedidoCargoId)).ToList();
+                List<doc_pedidos_orden_detalle> listaPedidosOrdenDetalle = this.contextLocal.doc_pedidos_orden_detalle.Where(w => !idsExcluirPedidosOrdenDetalle.Contains(w.PedidoDetalleId)).ToList();
+                List<doc_ventas> listaVentas = this.contextLocal.doc_ventas.Where(w => !idsExcluirVentas.Contains((int)w.VentaId)).ToList();
+                List<doc_ventas_detalle> listaVentasDetalle = this.contextLocal.doc_ventas_detalle.Where(w => !idsExcluirVentasDetalle.Contains((int)w.VentaDetalleId)).ToList();
                 List<doc_ventas_detalle> nuevosDetalles = new List<doc_ventas_detalle>();
                 List<long> lstVentasFormaPago = new List<long>();
                 long ventaDetalleIdKey = 0;
@@ -2875,436 +2887,395 @@ namespace ERP.Business
                 int rango = 200;
                 using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
-                try
-                {
-                    DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
-
-                    foreach (doc_pedidos_orden pedidoOrden in listaPedidosOrden)
+                    try
                     {
-                        doc_pedidos_orden exists = null;
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
 
-                        if (exists == null)
+                        foreach (doc_pedidos_orden pedidoOrden in listaPedidosOrden)
                         {
-                            exists = new doc_pedidos_orden
+                            doc_pedidos_orden exists = null;
+
+                            if (exists == null)
                             {
-                                PedidoId = (this.contextNube.doc_pedidos_orden.Max(m => (int?)m.PedidoId) ?? 0) + 3,
-                                SucursalId = pedidoOrden.SucursalId,
-                                ComandaId = null,// pedidoOrden.ComandaId,
-                                PorcDescuento = pedidoOrden.PorcDescuento,
-                                Subtotal = pedidoOrden.Subtotal,
-                                Descuento = pedidoOrden.Descuento,
-                                Impuestos = pedidoOrden.Impuestos,
-                                Total = pedidoOrden.Total,
-                                ClienteId = pedidoOrden.ClienteId,
-                                MotivoCancelacion = pedidoOrden.MotivoCancelacion,
-                                Activo = pedidoOrden.Activo,
-                                CreadoEl = fechaHoraServidor,
-                                CreadoPor = pedidoOrden.CreadoPor,
-                                Personas = pedidoOrden.Personas,
-                                FechaApertura = pedidoOrden.FechaApertura,
-                                FechaCierre = pedidoOrden.FechaCierre,
-                                //VentaId = pedidoOrden.VentaId,
-                                Cancelada = pedidoOrden.Cancelada,
-                                FechaCancelacion = pedidoOrden.FechaCancelacion,
-                                CanceladoPor = pedidoOrden.CanceladoPor,
-                                UberEats = pedidoOrden.UberEats,
-                                Para = pedidoOrden.Para,
-                                Notas = pedidoOrden.Notas,
-                                //CargoId = pedidoOrden.CargoId,
-                                CajaId = pedidoOrden.CajaId,
-                                TipoPedidoId = pedidoOrden.TipoPedidoId,
-                                Folio = pedidoOrden.Folio,
-                                Facturar = pedidoOrden.Facturar,
-                                SucursalCobroId = pedidoOrden.SucursalCobroId,
-                                Credito = pedidoOrden.Credito
-                            };
-
-                            this.contextNube.doc_pedidos_orden.Add(exists);
-                            this.contextNube.SaveChanges();
-
-                            //CREAR EL CARGO EN LA NUBE
-                            foreach (var itemPedidoCArgo in pedidoOrden.doc_pedidos_cargos)
-                            {
-                                doc_cargos itemCargo = itemPedidoCArgo.doc_cargos;
-
-                                if (itemCargo != null)
+                                exists = new doc_pedidos_orden
                                 {
-                                    doc_cargos itemCargoNew = new doc_cargos();
+                                    PedidoId = (this.contextNube.doc_pedidos_orden.Max(m => (int?)m.PedidoId) ?? 0) + 3,
+                                    SucursalId = pedidoOrden.SucursalId,
+                                    ComandaId = null,// pedidoOrden.ComandaId,
+                                    PorcDescuento = pedidoOrden.PorcDescuento,
+                                    Subtotal = pedidoOrden.Subtotal,
+                                    Descuento = pedidoOrden.Descuento,
+                                    Impuestos = pedidoOrden.Impuestos,
+                                    Total = pedidoOrden.Total,
+                                    ClienteId = pedidoOrden.ClienteId,
+                                    MotivoCancelacion = pedidoOrden.MotivoCancelacion,
+                                    Activo = pedidoOrden.Activo,
+                                    CreadoEl = fechaHoraServidor,
+                                    CreadoPor = pedidoOrden.CreadoPor,
+                                    Personas = pedidoOrden.Personas,
+                                    FechaApertura = pedidoOrden.FechaApertura,
+                                    FechaCierre = pedidoOrden.FechaCierre,
+                                    //VentaId = pedidoOrden.VentaId,
+                                    Cancelada = pedidoOrden.Cancelada,
+                                    FechaCancelacion = pedidoOrden.FechaCancelacion,
+                                    CanceladoPor = pedidoOrden.CanceladoPor,
+                                    UberEats = pedidoOrden.UberEats,
+                                    Para = pedidoOrden.Para,
+                                    Notas = pedidoOrden.Notas,
+                                    //CargoId = pedidoOrden.CargoId,
+                                    CajaId = pedidoOrden.CajaId,
+                                    TipoPedidoId = pedidoOrden.TipoPedidoId,
+                                    Folio = pedidoOrden.Folio,
+                                    Facturar = pedidoOrden.Facturar,
+                                    SucursalCobroId = pedidoOrden.SucursalCobroId,
+                                    Credito = pedidoOrden.Credito
+                                };
 
-                                    itemCargoNew.Activo = itemCargo.Activo;
+                                this.contextNube.doc_pedidos_orden.Add(exists);
+                                this.contextNube.SaveChanges();
 
-                                    itemCargoNew.ClienteId = itemCargo.ClienteId;
-                                    itemCargoNew.CreadoPor = itemCargo.CreadoPor;
-                                    itemCargoNew.CredoEl = fechaHoraServidor;
-                                    itemCargoNew.Descripcion = itemCargo.Descripcion;
-                                    itemCargoNew.Descuento = itemCargo.Descuento;
-                                    itemCargoNew.ProductoId = itemCargo.ProductoId;
-                                    itemCargoNew.Saldo = itemCargo.Saldo;
-                                    itemCargoNew.SucursalId = itemCargo.SucursalId;
-                                    itemCargoNew.Total = itemCargo.Total;
-                                    itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
+                                exec_p_sinc_local_bitacora_ins("doc_pedidos_orden", pedidoOrden.PedidoId, scope);
 
-                                    this.contextNube.doc_cargos.Add(itemCargoNew);
-                                    this.contextNube.SaveChanges();
-                                    foreach (doc_cargos_detalle itemCargoDetalle in listaCargosDetalle.Where(w => w.CargoId == itemCargo.CargoId))
+                                //CREAR EL CARGO EN LA NUBE
+                                foreach (var itemPedidoCArgo in pedidoOrden.doc_pedidos_cargos)
+                                {
+                                    doc_cargos itemCargo = itemPedidoCArgo.doc_cargos;
+
+                                    if (itemCargo != null)
                                     {
-                                        doc_cargos_detalle itemCargoDetalleNEW = new doc_cargos_detalle();
+                                        doc_cargos itemCargoNew = new doc_cargos();
 
+                                        itemCargoNew.Activo = itemCargo.Activo;
 
-                                        itemCargoDetalleNEW.CargoId = itemCargoNew.ClienteId;
-                                        itemCargoDetalleNEW.CreadoEl = fechaHoraServidor;
-                                        itemCargoDetalleNEW.Descuento = itemCargoDetalle.Descuento;
-                                        itemCargoDetalleNEW.FechaCargo = itemCargoDetalle.FechaCargo;
-                                        itemCargoDetalleNEW.FechaPago = itemCargoDetalle.FechaPago;
-                                        itemCargoDetalleNEW.Impuestos = itemCargoDetalle.Impuestos;
-                                        itemCargoDetalleNEW.Saldo = itemCargoDetalle.Saldo;
-                                        itemCargoDetalleNEW.Subtotal = itemCargoDetalle.Subtotal;
-                                        itemCargoDetalleNEW.Total = itemCargoDetalle.Total;
-                                        itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
+                                        itemCargoNew.ClienteId = itemCargo.ClienteId;
+                                        itemCargoNew.CreadoPor = itemCargo.CreadoPor;
+                                        itemCargoNew.CredoEl = fechaHoraServidor;
+                                        itemCargoNew.Descripcion = itemCargo.Descripcion;
+                                        itemCargoNew.Descuento = itemCargo.Descuento;
+                                        itemCargoNew.ProductoId = itemCargo.ProductoId;
+                                        itemCargoNew.Saldo = itemCargo.Saldo;
+                                        itemCargoNew.SucursalId = itemCargo.SucursalId;
+                                        itemCargoNew.Total = itemCargo.Total;
+                                        itemCargoNew.CargoId = (this.contextNube.doc_cargos.Max(m => (int?)m.CargoId) ?? 0) + 1;
 
-                                        this.contextNube.doc_cargos_detalle.Add(itemCargoDetalleNEW);
+                                        this.contextNube.doc_cargos.Add(itemCargoNew);
                                         this.contextNube.SaveChanges();
+
+                                        exec_p_sinc_local_bitacora_ins("doc_cargos", itemCargo.CargoId, scope);
+
+                                        foreach (doc_cargos_detalle itemCargoDetalle in listaCargosDetalle.Where(w => w.CargoId == itemCargo.CargoId))
+                                        {
+                                            doc_cargos_detalle itemCargoDetalleNEW = new doc_cargos_detalle();
+
+
+                                            itemCargoDetalleNEW.CargoId = itemCargoNew.ClienteId;
+                                            itemCargoDetalleNEW.CreadoEl = fechaHoraServidor;
+                                            itemCargoDetalleNEW.Descuento = itemCargoDetalle.Descuento;
+                                            itemCargoDetalleNEW.FechaCargo = itemCargoDetalle.FechaCargo;
+                                            itemCargoDetalleNEW.FechaPago = itemCargoDetalle.FechaPago;
+                                            itemCargoDetalleNEW.Impuestos = itemCargoDetalle.Impuestos;
+                                            itemCargoDetalleNEW.Saldo = itemCargoDetalle.Saldo;
+                                            itemCargoDetalleNEW.Subtotal = itemCargoDetalle.Subtotal;
+                                            itemCargoDetalleNEW.Total = itemCargoDetalle.Total;
+                                            itemCargoDetalleNEW.CargoDetalleId = (this.contextNube.doc_cargos_detalle.Max(m => (int?)m.CargoDetalleId) ?? 0) + 1;
+
+                                            this.contextNube.doc_cargos_detalle.Add(itemCargoDetalleNEW);
+                                            this.contextNube.SaveChanges();
+
+                                            exec_p_sinc_local_bitacora_ins("doc_cargos_detalle", itemCargoDetalleNEW.CargoDetalleId, scope);
+                                        }
+
+                                        doc_pedidos_cargos itemPedidoCargNEW = new doc_pedidos_cargos();
+
+                                        itemPedidoCargNEW.CargoId = itemCargo.CargoId;
+                                        itemPedidoCargNEW.CreadoEl = fechaHoraServidor;
+                                        itemPedidoCargNEW.CreadoPor = itemPedidoCArgo.CreadoPor;
+
+                                        itemPedidoCargNEW.PedidoId = exists.PedidoId;
+                                        itemPedidoCargNEW.PedidoCargoId = (this.contextNube.doc_pedidos_cargos.Max(m => (int?)m.PedidoCargoId) ?? 0) + 1;
+
+                                        this.contextNube.doc_pedidos_cargos.Add(itemPedidoCargNEW);
+                                        this.contextNube.SaveChanges();
+
+                                        exec_p_sinc_local_bitacora_ins("doc_pedidos_cargos", itemPedidoCArgo.PedidoCargoId, scope);
+
+                                    }
+                                }
+
+                                //INSERTAR doc_pedidos_orden_detalle
+                                foreach (doc_pedidos_orden_detalle itemPedidoOrdenDetalle in listaPedidosOrdenDetalle.Where(w => w.PedidoId == pedidoOrden.PedidoId))
+                                {
+                                    doc_pedidos_orden_detalle itemPedidoOrdenDetalleNEW = new doc_pedidos_orden_detalle();
+
+                                    itemPedidoOrdenDetalleNEW.Cancelado = itemPedidoOrdenDetalle.Cancelado;
+                                    itemPedidoOrdenDetalleNEW.Cantidad = itemPedidoOrdenDetalle.Cantidad;
+                                    itemPedidoOrdenDetalleNEW.CantidadDevolucion = itemPedidoOrdenDetalle.CantidadDevolucion;
+                                    itemPedidoOrdenDetalleNEW.CantidadOriginal = itemPedidoOrdenDetalle.CantidadOriginal;
+                                    itemPedidoOrdenDetalleNEW.CargoAdicionalId = itemPedidoOrdenDetalle.CargoAdicionalId;
+                                    itemPedidoOrdenDetalleNEW.CargoAdicionalMonto = itemPedidoOrdenDetalle.CargoAdicionalMonto;
+                                    itemPedidoOrdenDetalleNEW.ComandaId = null;// itemPedidoOrdenDetalle.ComandaId;
+                                    itemPedidoOrdenDetalleNEW.CreadoEl = fechaHoraServidor;
+                                    itemPedidoOrdenDetalleNEW.CreadoPor = itemPedidoOrdenDetalle.CreadoPor;
+                                    itemPedidoOrdenDetalleNEW.Descripcion = itemPedidoOrdenDetalle.Descripcion;
+                                    itemPedidoOrdenDetalleNEW.Descuento = itemPedidoOrdenDetalle.Descuento;
+                                    itemPedidoOrdenDetalleNEW.Impreso = itemPedidoOrdenDetalle.Impreso;
+                                    itemPedidoOrdenDetalleNEW.Impuestos = itemPedidoOrdenDetalle.Impuestos;
+                                    itemPedidoOrdenDetalleNEW.Notas = itemPedidoOrdenDetalle.Notas;
+                                    itemPedidoOrdenDetalleNEW.Parallevar = itemPedidoOrdenDetalle.Parallevar;
+
+                                    itemPedidoOrdenDetalleNEW.PedidoId = exists.PedidoId;
+                                    itemPedidoOrdenDetalleNEW.PorcDescuento = itemPedidoOrdenDetalle.PorcDescuento;
+                                    itemPedidoOrdenDetalleNEW.PrecioUnitario = itemPedidoOrdenDetalle.PrecioUnitario;
+                                    itemPedidoOrdenDetalleNEW.ProductoId = itemPedidoOrdenDetalle.ProductoId;
+                                    itemPedidoOrdenDetalleNEW.PromocionCMId = itemPedidoOrdenDetalle.PromocionCMId;
+                                    itemPedidoOrdenDetalleNEW.TasaIVA = itemPedidoOrdenDetalle.TasaIVA;
+                                    itemPedidoOrdenDetalleNEW.TipoDescuentoId = itemPedidoOrdenDetalle.TipoDescuentoId;
+                                    itemPedidoOrdenDetalleNEW.Total = itemPedidoOrdenDetalle.Total;
+                                    itemPedidoOrdenDetalleNEW.PedidoDetalleId = (this.contextNube.doc_pedidos_orden_detalle.Max(m => (int?)m.PedidoDetalleId) ?? 0) + 1;
+
+                                    this.contextNube.doc_pedidos_orden_detalle.Add(itemPedidoOrdenDetalleNEW);
+                                    this.contextNube.SaveChanges();
+
+                                    exec_p_sinc_local_bitacora_ins("doc_pedidos_orden_detalle", itemPedidoOrdenDetalle.PedidoDetalleId, scope);
+                                }
+
+                                //INSERTAR doc_venta
+                                doc_ventas itemVenta = listaVentas.Where(w => w.VentaId == pedidoOrden.VentaId).FirstOrDefault();
+
+
+                                ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
+                                if (itemVenta != null)
+                                {
+                                    doc_ventas itemVentaNEW = new doc_ventas();
+
+
+                                    itemVentaNEW.Activo = itemVenta.Activo;
+                                    itemVentaNEW.CajaId = itemVenta.CajaId;
+                                    itemVentaNEW.Cambio = itemVenta.Cambio;
+                                    itemVentaNEW.ClienteId = itemVenta.ClienteId;
+                                    itemVentaNEW.DescuentoEnPartidas = itemVenta.DescuentoEnPartidas;
+                                    itemVentaNEW.DescuentoVentaSiNo = itemVenta.DescuentoVentaSiNo;
+                                    itemVentaNEW.EmpleadoId = itemVenta.EmpleadoId;
+                                    itemVentaNEW.Facturar = itemVenta.Facturar;
+                                    itemVentaNEW.Fecha = fechaHoraServidor;
+                                    itemVentaNEW.FechaCancelacion = itemVenta.FechaCancelacion;
+                                    itemVentaNEW.FechaCreacion = fechaHoraServidor;
+                                    itemVentaNEW.Folio = itemVenta.Folio;
+                                    itemVentaNEW.Impuestos = itemVenta.Impuestos;
+                                    itemVentaNEW.MontoDescuentoVenta = itemVenta.MontoDescuentoVenta;
+                                    itemVentaNEW.MotivoCancelacion = itemVenta.MotivoCancelacion;
+                                    itemVentaNEW.PorcDescuentoVenta = itemVenta.PorcDescuentoVenta;
+                                    itemVentaNEW.Rec = itemVenta.Rec;
+                                    itemVentaNEW.Serie = itemVenta.Serie;
+                                    itemVentaNEW.SubTotal = itemVenta.SubTotal;
+                                    itemVentaNEW.SucursalId = itemVenta.SucursalId;
+                                    itemVentaNEW.TotalDescuento = itemVenta.TotalDescuento;
+                                    itemVentaNEW.TotalRecibido = itemVenta.TotalRecibido;
+                                    itemVentaNEW.TotalVenta = itemVenta.TotalVenta;
+                                    itemVentaNEW.UsuarioCancelacionId = itemVenta.UsuarioCancelacionId;
+                                    itemVentaNEW.UsuarioCreacionId = itemVenta.UsuarioCreacionId;
+                                    itemVentaNEW.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                                    ventaIdKey++;
+
+                                    this.contextNube.doc_ventas.Add(itemVentaNEW);
+
+                                    this.contextNube.SaveChanges();
+
+
+                                    exec_p_sinc_local_bitacora_ins("doc_ventas", (int)itemVenta.VentaId, scope);
+
+                                    foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVenta.doc_ventas_formas_pago)
+                                    {
+                                        doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
+
+                                        itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
+                                        itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
+                                        itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
+                                        itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
+                                        itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
+                                        itemVentaFormaPagoNEW.VentaId = itemVentaNEW.VentaId;
+
+                                        this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
+                                        this.contextNube.SaveChanges();
+
+
+                                       
+
                                     }
 
-                                    doc_pedidos_cargos itemPedidoCargNEW = new doc_pedidos_cargos();
+                                    //INSERTAR VENTA DETALLE
+                                    foreach (doc_ventas_detalle itemVentaDetalle in listaVentasDetalle.Where(W => W.VentaId == itemVenta.VentaId))
+                                    {
+                                        doc_ventas_detalle itemVentaDetalleNEW = new doc_ventas_detalle();
 
-                                    itemPedidoCargNEW.CargoId = itemCargo.CargoId;
-                                    itemPedidoCargNEW.CreadoEl = fechaHoraServidor;
-                                    itemPedidoCargNEW.CreadoPor = itemPedidoCArgo.CreadoPor;
 
-                                    itemPedidoCargNEW.PedidoId = exists.PedidoId;
-                                    itemPedidoCargNEW.PedidoCargoId = (this.contextNube.doc_pedidos_cargos.Max(m => (int?)m.PedidoCargoId) ?? 0) + 1;
+                                        itemVentaDetalleNEW.Cantidad = itemVentaDetalle.Cantidad;
+                                        itemVentaDetalleNEW.CargoAdicionalId = itemVentaDetalle.CargoAdicionalId;
+                                        itemVentaDetalleNEW.CargoDetalleId = itemVentaDetalle.CargoDetalleId;
+                                        itemVentaDetalleNEW.Descripcion = itemVentaDetalle.Descripcion;
+                                        itemVentaDetalleNEW.Descuento = itemVentaDetalle.Descuento;
+                                        itemVentaDetalleNEW.FechaCreacion = fechaHoraServidor;
+                                        itemVentaDetalleNEW.Impuestos = itemVentaDetalle.Impuestos;
+                                        itemVentaDetalleNEW.ParaLlevar = itemVentaDetalle.ParaLlevar;
+                                        itemVentaDetalleNEW.ParaMesa = itemVentaDetalle.ParaMesa;
+                                        itemVentaDetalleNEW.PorcDescuneto = itemVentaDetalle.PorcDescuneto;
+                                        itemVentaDetalleNEW.PrecioUnitario = itemVentaDetalle.PrecioUnitario;
+                                        itemVentaDetalleNEW.ProductoId = itemVentaDetalle.ProductoId;
+                                        itemVentaDetalleNEW.PromocionCMId = itemVentaDetalle.PromocionCMId;
+                                        itemVentaDetalleNEW.TasaIVA = itemVentaDetalle.TasaIVA;
+                                        itemVentaDetalleNEW.TipoDescuentoId = itemVentaDetalle.TipoDescuentoId;
+                                        itemVentaDetalleNEW.Total = itemVentaDetalle.Total;
+                                        itemVentaDetalleNEW.UsuarioCreacionId = itemVentaDetalle.UsuarioCreacionId;
+                                        itemVentaDetalleNEW.VentaId = itemVentaNEW.VentaId;
+                                        itemVentaDetalleNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
 
-                                    this.contextNube.doc_pedidos_cargos.Add(itemPedidoCargNEW);
-                                    this.contextNube.SaveChanges();
+                                        nuevosDetalles.Add(itemVentaDetalleNEW);
+                                        this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleNEW);
+                                        this.contextNube.SaveChanges();
+
+                                        exec_p_sinc_local_bitacora_ins("doc_ventas_detalle", (int)itemVentaDetalle.VentaDetalleId, scope);
+                                    }
+
+                                    this.contextNube.p_venta_afecta_inventario((int)itemVentaNEW.VentaId, itemVentaNEW.SucursalId);
+
 
                                 }
+
                             }
 
-                            //INSERTAR doc_pedidos_orden_detalle
-                            foreach (doc_pedidos_orden_detalle itemPedidoOrdenDetalle in listaPedidosOrdenDetalle.Where(w => w.PedidoId == pedidoOrden.PedidoId))
-                            {
-                                doc_pedidos_orden_detalle itemPedidoOrdenDetalleNEW = new doc_pedidos_orden_detalle();
-
-                                itemPedidoOrdenDetalleNEW.Cancelado = itemPedidoOrdenDetalle.Cancelado;
-                                itemPedidoOrdenDetalleNEW.Cantidad = itemPedidoOrdenDetalle.Cantidad;
-                                itemPedidoOrdenDetalleNEW.CantidadDevolucion = itemPedidoOrdenDetalle.CantidadDevolucion;
-                                itemPedidoOrdenDetalleNEW.CantidadOriginal = itemPedidoOrdenDetalle.CantidadOriginal;
-                                itemPedidoOrdenDetalleNEW.CargoAdicionalId = itemPedidoOrdenDetalle.CargoAdicionalId;
-                                itemPedidoOrdenDetalleNEW.CargoAdicionalMonto = itemPedidoOrdenDetalle.CargoAdicionalMonto;
-                                itemPedidoOrdenDetalleNEW.ComandaId = null;// itemPedidoOrdenDetalle.ComandaId;
-                                itemPedidoOrdenDetalleNEW.CreadoEl = fechaHoraServidor;
-                                itemPedidoOrdenDetalleNEW.CreadoPor = itemPedidoOrdenDetalle.CreadoPor;
-                                itemPedidoOrdenDetalleNEW.Descripcion = itemPedidoOrdenDetalle.Descripcion;
-                                itemPedidoOrdenDetalleNEW.Descuento = itemPedidoOrdenDetalle.Descuento;
-                                itemPedidoOrdenDetalleNEW.Impreso = itemPedidoOrdenDetalle.Impreso;
-                                itemPedidoOrdenDetalleNEW.Impuestos = itemPedidoOrdenDetalle.Impuestos;
-                                itemPedidoOrdenDetalleNEW.Notas = itemPedidoOrdenDetalle.Notas;
-                                itemPedidoOrdenDetalleNEW.Parallevar = itemPedidoOrdenDetalle.Parallevar;
-
-                                itemPedidoOrdenDetalleNEW.PedidoId = exists.PedidoId;
-                                itemPedidoOrdenDetalleNEW.PorcDescuento = itemPedidoOrdenDetalle.PorcDescuento;
-                                itemPedidoOrdenDetalleNEW.PrecioUnitario = itemPedidoOrdenDetalle.PrecioUnitario;
-                                itemPedidoOrdenDetalleNEW.ProductoId = itemPedidoOrdenDetalle.ProductoId;
-                                itemPedidoOrdenDetalleNEW.PromocionCMId = itemPedidoOrdenDetalle.PromocionCMId;
-                                itemPedidoOrdenDetalleNEW.TasaIVA = itemPedidoOrdenDetalle.TasaIVA;
-                                itemPedidoOrdenDetalleNEW.TipoDescuentoId = itemPedidoOrdenDetalle.TipoDescuentoId;
-                                itemPedidoOrdenDetalleNEW.Total = itemPedidoOrdenDetalle.Total;
-                                itemPedidoOrdenDetalleNEW.PedidoDetalleId = (this.contextNube.doc_pedidos_orden_detalle.Max(m => (int?)m.PedidoDetalleId) ?? 0) + 1;
-
-                                this.contextNube.doc_pedidos_orden_detalle.Add(itemPedidoOrdenDetalleNEW);
-                                this.contextNube.SaveChanges();
-                            }
-
-                            //INSERTAR doc_venta
-                            doc_ventas itemVenta = listaVentas.Where(w => w.VentaId == pedidoOrden.VentaId).FirstOrDefault();
+                        }
 
 
+                        //VENTAS SIN PEDIDO
+                        if (ventaIdKey == 0)
+                        {
                             ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
-                            if (itemVenta != null)
+                        }
+
+                        foreach (doc_ventas itemVentaSP in listaVentas.Where(w => w.doc_pedidos_orden.Where(s1 => s1.PedidoId > 0).Count() == 0))
+                        {
+                            doc_ventas itemVentaNEWSP = new doc_ventas();
+
+
+                            itemVentaNEWSP.Activo = itemVentaSP.Activo;
+                            itemVentaNEWSP.CajaId = itemVentaSP.CajaId;
+                            itemVentaNEWSP.Cambio = itemVentaSP.Cambio;
+                            itemVentaNEWSP.ClienteId = itemVentaSP.ClienteId;
+                            itemVentaNEWSP.DescuentoEnPartidas = itemVentaSP.DescuentoEnPartidas;
+                            itemVentaNEWSP.DescuentoVentaSiNo = itemVentaSP.DescuentoVentaSiNo;
+                            itemVentaNEWSP.EmpleadoId = itemVentaSP.EmpleadoId;
+                            itemVentaNEWSP.Facturar = itemVentaSP.Facturar;
+                            itemVentaNEWSP.Fecha = fechaHoraServidor;
+                            itemVentaNEWSP.FechaCancelacion = itemVentaSP.FechaCancelacion;
+                            itemVentaNEWSP.FechaCreacion = fechaHoraServidor;
+                            itemVentaNEWSP.Folio = itemVentaNEWSP.VentaId.ToString();
+                            itemVentaNEWSP.Impuestos = itemVentaSP.Impuestos;
+                            itemVentaNEWSP.MontoDescuentoVenta = itemVentaSP.MontoDescuentoVenta;
+                            itemVentaNEWSP.MotivoCancelacion = itemVentaSP.MotivoCancelacion;
+                            itemVentaNEWSP.PorcDescuentoVenta = itemVentaSP.PorcDescuentoVenta;
+                            itemVentaNEWSP.Rec = itemVentaSP.Rec;
+                            itemVentaNEWSP.Serie = itemVentaSP.Serie;
+                            itemVentaNEWSP.SubTotal = itemVentaSP.SubTotal;
+                            itemVentaNEWSP.SucursalId = itemVentaSP.SucursalId;
+                            itemVentaNEWSP.TotalDescuento = itemVentaSP.TotalDescuento;
+                            itemVentaNEWSP.TotalRecibido = itemVentaSP.TotalRecibido;
+                            itemVentaNEWSP.TotalVenta = itemVentaSP.TotalVenta;
+                            itemVentaNEWSP.UsuarioCancelacionId = itemVentaSP.UsuarioCancelacionId;
+                            itemVentaNEWSP.UsuarioCreacionId = itemVentaSP.UsuarioCreacionId;
+                            itemVentaNEWSP.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                            ventaIdKey++;
+
+                            this.contextNube.doc_ventas.Add(itemVentaNEWSP);
+                            this.contextNube.SaveChanges();
+
+                            exec_p_sinc_local_bitacora_ins("doc_ventas", (int)itemVentaSP.VentaId, scope);
+
+                            foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
                             {
-                                doc_ventas itemVentaNEW = new doc_ventas();
+                                doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
 
+                                itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
+                                itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
+                                itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
+                                itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
+                                itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
+                                itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
 
-                                itemVentaNEW.Activo = itemVenta.Activo;
-                                itemVentaNEW.CajaId = itemVenta.CajaId;
-                                itemVentaNEW.Cambio = itemVenta.Cambio;
-                                itemVentaNEW.ClienteId = itemVenta.ClienteId;
-                                itemVentaNEW.DescuentoEnPartidas = itemVenta.DescuentoEnPartidas;
-                                itemVentaNEW.DescuentoVentaSiNo = itemVenta.DescuentoVentaSiNo;
-                                itemVentaNEW.EmpleadoId = itemVenta.EmpleadoId;
-                                itemVentaNEW.Facturar = itemVenta.Facturar;
-                                itemVentaNEW.Fecha = fechaHoraServidor;
-                                itemVentaNEW.FechaCancelacion = itemVenta.FechaCancelacion;
-                                itemVentaNEW.FechaCreacion = fechaHoraServidor;
-                                itemVentaNEW.Folio = itemVenta.Folio;
-                                itemVentaNEW.Impuestos = itemVenta.Impuestos;
-                                itemVentaNEW.MontoDescuentoVenta = itemVenta.MontoDescuentoVenta;
-                                itemVentaNEW.MotivoCancelacion = itemVenta.MotivoCancelacion;
-                                itemVentaNEW.PorcDescuentoVenta = itemVenta.PorcDescuentoVenta;
-                                itemVentaNEW.Rec = itemVenta.Rec;
-                                itemVentaNEW.Serie = itemVenta.Serie;
-                                itemVentaNEW.SubTotal = itemVenta.SubTotal;
-                                itemVentaNEW.SucursalId = itemVenta.SucursalId;
-                                itemVentaNEW.TotalDescuento = itemVenta.TotalDescuento;
-                                itemVentaNEW.TotalRecibido = itemVenta.TotalRecibido;
-                                itemVentaNEW.TotalVenta = itemVenta.TotalVenta;
-                                itemVentaNEW.UsuarioCancelacionId = itemVenta.UsuarioCancelacionId;
-                                itemVentaNEW.UsuarioCreacionId = itemVenta.UsuarioCreacionId;
-                                itemVentaNEW.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
-                                ventaIdKey++;
-
-                                this.contextNube.doc_ventas.Add(itemVentaNEW);
-
+                                this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
                                 this.contextNube.SaveChanges();
 
-                                foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVenta.doc_ventas_formas_pago)
-                                {
-                                    doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
+                                lstVentasFormaPago.Add(itemVentaFormaPago.VentaId);
 
-                                    itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
-                                    itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                                    itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
-                                    itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
-                                    itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
-                                    itemVentaFormaPagoNEW.VentaId = itemVentaNEW.VentaId;
-
-                                    this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
-                                    this.contextNube.SaveChanges();
-
-                                }
-
-                                //INSERTAR VENTA DETALLE
-                                foreach (doc_ventas_detalle itemVentaDetalle in listaVentasDetalle.Where(W => W.VentaId == itemVenta.VentaId))
-                                {
-                                    doc_ventas_detalle itemVentaDetalleNEW = new doc_ventas_detalle();
-
-
-                                    itemVentaDetalleNEW.Cantidad = itemVentaDetalle.Cantidad;
-                                    itemVentaDetalleNEW.CargoAdicionalId = itemVentaDetalle.CargoAdicionalId;
-                                    itemVentaDetalleNEW.CargoDetalleId = itemVentaDetalle.CargoDetalleId;
-                                    itemVentaDetalleNEW.Descripcion = itemVentaDetalle.Descripcion;
-                                    itemVentaDetalleNEW.Descuento = itemVentaDetalle.Descuento;
-                                    itemVentaDetalleNEW.FechaCreacion = fechaHoraServidor;
-                                    itemVentaDetalleNEW.Impuestos = itemVentaDetalle.Impuestos;
-                                    itemVentaDetalleNEW.ParaLlevar = itemVentaDetalle.ParaLlevar;
-                                    itemVentaDetalleNEW.ParaMesa = itemVentaDetalle.ParaMesa;
-                                    itemVentaDetalleNEW.PorcDescuneto = itemVentaDetalle.PorcDescuneto;
-                                    itemVentaDetalleNEW.PrecioUnitario = itemVentaDetalle.PrecioUnitario;
-                                    itemVentaDetalleNEW.ProductoId = itemVentaDetalle.ProductoId;
-                                    itemVentaDetalleNEW.PromocionCMId = itemVentaDetalle.PromocionCMId;
-                                    itemVentaDetalleNEW.TasaIVA = itemVentaDetalle.TasaIVA;
-                                    itemVentaDetalleNEW.TipoDescuentoId = itemVentaDetalle.TipoDescuentoId;
-                                    itemVentaDetalleNEW.Total = itemVentaDetalle.Total;
-                                    itemVentaDetalleNEW.UsuarioCreacionId = itemVentaDetalle.UsuarioCreacionId;
-                                    itemVentaDetalleNEW.VentaId = itemVentaNEW.VentaId;
-                                    itemVentaDetalleNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId) ?? 0) + 1;
-
-                                    nuevosDetalles.Add(itemVentaDetalleNEW);
-                                    this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleNEW);
-                                    this.contextNube.SaveChanges();
-                                }
-
-                                this.contextNube.p_venta_afecta_inventario((int)itemVentaNEW.VentaId, itemVentaNEW.SucursalId);
-
+                               
 
                             }
 
-                        }
-
-                    }
-
-
-                    //VENTAS SIN PEDIDO
-                    if (ventaIdKey == 0)
-                    {
-                        ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
-                    }
-
-                    foreach (doc_ventas itemVentaSP in listaVentas.Where(w => w.doc_pedidos_orden.Where(s1 => s1.PedidoId > 0).Count() == 0))
-                    {
-                        doc_ventas itemVentaNEWSP = new doc_ventas();
-
-
-                        itemVentaNEWSP.Activo = itemVentaSP.Activo;
-                        itemVentaNEWSP.CajaId = itemVentaSP.CajaId;
-                        itemVentaNEWSP.Cambio = itemVentaSP.Cambio;
-                        itemVentaNEWSP.ClienteId = itemVentaSP.ClienteId;
-                        itemVentaNEWSP.DescuentoEnPartidas = itemVentaSP.DescuentoEnPartidas;
-                        itemVentaNEWSP.DescuentoVentaSiNo = itemVentaSP.DescuentoVentaSiNo;
-                        itemVentaNEWSP.EmpleadoId = itemVentaSP.EmpleadoId;
-                        itemVentaNEWSP.Facturar = itemVentaSP.Facturar;
-                        itemVentaNEWSP.Fecha = fechaHoraServidor;
-                        itemVentaNEWSP.FechaCancelacion = itemVentaSP.FechaCancelacion;
-                        itemVentaNEWSP.FechaCreacion = fechaHoraServidor;
-                        itemVentaNEWSP.Folio = itemVentaNEWSP.VentaId.ToString();
-                        itemVentaNEWSP.Impuestos = itemVentaSP.Impuestos;
-                        itemVentaNEWSP.MontoDescuentoVenta = itemVentaSP.MontoDescuentoVenta;
-                        itemVentaNEWSP.MotivoCancelacion = itemVentaSP.MotivoCancelacion;
-                        itemVentaNEWSP.PorcDescuentoVenta = itemVentaSP.PorcDescuentoVenta;
-                        itemVentaNEWSP.Rec = itemVentaSP.Rec;
-                        itemVentaNEWSP.Serie = itemVentaSP.Serie;
-                        itemVentaNEWSP.SubTotal = itemVentaSP.SubTotal;
-                        itemVentaNEWSP.SucursalId = itemVentaSP.SucursalId;
-                        itemVentaNEWSP.TotalDescuento = itemVentaSP.TotalDescuento;
-                        itemVentaNEWSP.TotalRecibido = itemVentaSP.TotalRecibido;
-                        itemVentaNEWSP.TotalVenta = itemVentaSP.TotalVenta;
-                        itemVentaNEWSP.UsuarioCancelacionId = itemVentaSP.UsuarioCancelacionId;
-                        itemVentaNEWSP.UsuarioCreacionId = itemVentaSP.UsuarioCreacionId;
-                        itemVentaNEWSP.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
-                        ventaIdKey++;
-
-                        this.contextNube.doc_ventas.Add(itemVentaNEWSP);
-                        this.contextNube.SaveChanges();
-
-                        foreach (doc_ventas_formas_pago itemVentaFormaPago in itemVentaSP.doc_ventas_formas_pago)
-                        {
-                            doc_ventas_formas_pago itemVentaFormaPagoNEW = new doc_ventas_formas_pago();
-
-                            itemVentaFormaPagoNEW.Cantidad = itemVentaFormaPago.Cantidad;
-                            itemVentaFormaPagoNEW.digitoVerificador = itemVentaFormaPago.digitoVerificador;
-                            itemVentaFormaPagoNEW.FechaCreacion = fechaHoraServidor;
-                            itemVentaFormaPagoNEW.FormaPagoId = itemVentaFormaPago.FormaPagoId;
-                            itemVentaFormaPagoNEW.UsuarioCreacionId = itemVentaFormaPago.UsuarioCreacionId;
-                            itemVentaFormaPagoNEW.VentaId = itemVentaNEWSP.VentaId;
-
-                            this.contextNube.doc_ventas_formas_pago.Add(itemVentaFormaPagoNEW);
-                            this.contextNube.SaveChanges();
-
-                            lstVentasFormaPago.Add(itemVentaFormaPago.VentaId);
-
-                        }
 
 
 
-
-                        foreach (doc_ventas_detalle itemVentaDetalleSP in listaVentasDetalle.Where(w => w.VentaId == itemVentaSP.VentaId))
-                        {
-                            doc_ventas_detalle itemVentaDetalleSPNEW = new doc_ventas_detalle();
-
-
-                            itemVentaDetalleSPNEW.Cantidad = itemVentaDetalleSP.Cantidad;
-                            itemVentaDetalleSPNEW.CargoAdicionalId = itemVentaDetalleSP.CargoAdicionalId;
-                            itemVentaDetalleSPNEW.CargoDetalleId = itemVentaDetalleSP.CargoDetalleId;
-                            itemVentaDetalleSPNEW.Descripcion = itemVentaDetalleSP.Descripcion;
-                            itemVentaDetalleSPNEW.Descuento = itemVentaDetalleSP.Descuento;
-                            itemVentaDetalleSPNEW.FechaCreacion = fechaHoraServidor;
-                            itemVentaDetalleSPNEW.Impuestos = itemVentaDetalleSP.Impuestos;
-                            itemVentaDetalleSPNEW.ParaLlevar = itemVentaDetalleSP.ParaLlevar;
-                            itemVentaDetalleSPNEW.ParaMesa = itemVentaDetalleSP.ParaMesa;
-                            itemVentaDetalleSPNEW.PorcDescuneto = itemVentaDetalleSP.PorcDescuneto;
-                            itemVentaDetalleSPNEW.PrecioUnitario = itemVentaDetalleSP.PrecioUnitario;
-                            itemVentaDetalleSPNEW.ProductoId = itemVentaDetalleSP.ProductoId;
-                            itemVentaDetalleSPNEW.PromocionCMId = itemVentaDetalleSP.PromocionCMId;
-                            itemVentaDetalleSPNEW.TasaIVA = itemVentaDetalleSP.TasaIVA;
-                            itemVentaDetalleSPNEW.TipoDescuentoId = itemVentaDetalleSP.TipoDescuentoId;
-                            itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
-                            itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
-                            itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
-                            itemVentaDetalleSPNEW.VentaDetalleId = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 2;
-
-                            nuevosDetalles.Add(itemVentaDetalleSPNEW);
-                            this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
-                            this.contextNube.SaveChanges();
-
-
-                            if (itemVentaDetalleSP != null)
+                            foreach (doc_ventas_detalle itemVentaDetalleSP in listaVentasDetalle.Where(w => w.VentaId == itemVentaSP.VentaId))
                             {
-                                this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_detalle WHERE VentaDetalleId IN ({0})", itemVentaDetalleSP.VentaDetalleId.ToString()));
+                                doc_ventas_detalle itemVentaDetalleSPNEW = new doc_ventas_detalle();
+
+
+                                itemVentaDetalleSPNEW.Cantidad = itemVentaDetalleSP.Cantidad;
+                                itemVentaDetalleSPNEW.CargoAdicionalId = itemVentaDetalleSP.CargoAdicionalId;
+                                itemVentaDetalleSPNEW.CargoDetalleId = itemVentaDetalleSP.CargoDetalleId;
+                                itemVentaDetalleSPNEW.Descripcion = itemVentaDetalleSP.Descripcion;
+                                itemVentaDetalleSPNEW.Descuento = itemVentaDetalleSP.Descuento;
+                                itemVentaDetalleSPNEW.FechaCreacion = fechaHoraServidor;
+                                itemVentaDetalleSPNEW.Impuestos = itemVentaDetalleSP.Impuestos;
+                                itemVentaDetalleSPNEW.ParaLlevar = itemVentaDetalleSP.ParaLlevar;
+                                itemVentaDetalleSPNEW.ParaMesa = itemVentaDetalleSP.ParaMesa;
+                                itemVentaDetalleSPNEW.PorcDescuneto = itemVentaDetalleSP.PorcDescuneto;
+                                itemVentaDetalleSPNEW.PrecioUnitario = itemVentaDetalleSP.PrecioUnitario;
+                                itemVentaDetalleSPNEW.ProductoId = itemVentaDetalleSP.ProductoId;
+                                itemVentaDetalleSPNEW.PromocionCMId = itemVentaDetalleSP.PromocionCMId;
+                                itemVentaDetalleSPNEW.TasaIVA = itemVentaDetalleSP.TasaIVA;
+                                itemVentaDetalleSPNEW.TipoDescuentoId = itemVentaDetalleSP.TipoDescuentoId;
+                                itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
+                                itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
+                                itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
+                                itemVentaDetalleSPNEW.VentaDetalleId = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 2;
+
+                                nuevosDetalles.Add(itemVentaDetalleSPNEW);
+                                this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
+                                this.contextNube.SaveChanges();
+
+
+                                exec_p_sinc_local_bitacora_ins("doc_ventas_detalle", (int)itemVentaDetalleSPNEW.VentaDetalleId, scope);
 
                             }
 
-
-                        }
-
-                        this.contextNube.p_venta_afecta_inventario((int)itemVentaNEWSP.VentaId, itemVentaNEWSP.SucursalId);
+                            this.contextNube.p_venta_afecta_inventario((int)itemVentaNEWSP.VentaId, itemVentaNEWSP.SucursalId);
 
 
-                        if (itemVentaSP != null)
+                        }                         
+                        
+
+                        dbContextTransaction.Commit();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        try
                         {
-                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
-                            this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", itemVentaSP.VentaId.ToString()));
-
+                            exec_p_sinc_local_bitacora_del("", scope);
+                        }
+                        catch (Exception)
+                        {
                         }
 
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
+                                                                      ex);
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
 
-
+                        return false;
                     }
-
-                    //long ventaDetalleMin = nuevosDetalles.Min(m => m.VentaDetalleId);
-
-                    //if(this.contextNube.doc_ventas_detalle.FirstOrDefault(f=> f.VentaDetalleId == (ventaDetalleMin - 1))!= null)
-                    //{
-                    //    long ventaDetalleMax = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 5;
-
-                    //    nuevosDetalles.ForEach(f =>
-                    //    {
-                    //        f.VentaDetalleId = ventaDetalleMax;
-                    //        ventaDetalleMax++;
-                    //    });
-                    //}
-
-
-
-                   
-
-                    // Eliminar los registros exportados de la base de datos local
-                    if (listaCargosDetalle.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_cargos_detalle WHERE CargoDetalleId IN ({0})", string.Join(",", listaCargosDetalle.Select(r => r.CargoDetalleId))));
-
-                    }
-                    if (listaPedidosCargos.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_cargos WHERE PedidoCargoId IN ({0})", string.Join(",", listaPedidosCargos.Select(r => r.PedidoCargoId))));
-
-                    }
-                    if (listaPedidosOrdenDetalle.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_orden_detalle WHERE PedidoDetalleId IN ({0})", string.Join(",", listaPedidosOrdenDetalle.Select(r => r.PedidoDetalleId))));
-
-                    }
-                    if (listaPedidosOrden.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_pedidos_orden WHERE PedidoId IN ({0})", string.Join(",", listaPedidosOrden.Select(r => r.PedidoId))));
-
-                    }
-                    if (lstVentasFormaPago.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_formas_pago WHERE VentaId IN ({0})", string.Join(",", lstVentasFormaPago.Select(r => r))));
-
-                    }
-                    if (listaCargos.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_cargos WHERE CargoId IN ({0})", string.Join(",", listaCargos.Select(r => r.CargoId))));
-
-                    }
-                    if (listaVentasDetalle.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas_detalle WHERE VentaDetalleId IN ({0})", string.Join(",", listaVentasDetalle.Select(r => r.VentaDetalleId))));
-
-                    }
-                    if (listaVentas.Count() > 0)
-                    {
-                        this.contextLocal.Database.ExecuteSqlCommand(String.Format("DELETE FROM doc_ventas WHERE VentaId IN ({0})", string.Join(",", listaVentas.Select(r => r.VentaId))));
-
-                    }
-
-                    dbContextTransaction.Commit();
-
-
-                }
-                catch (Exception ex)
-                {
-                    dbContextTransaction.Rollback();
-                    err = ERP.Business.SisBitacoraBusiness.Insert(1,
-                                                                  "ERP",
-                                                                  "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
-                                                                  ex);
-                    lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
-
-                    return false;
-                }
                 }
 
                 //Actualizar ultimo Folio en BD LOCAL
@@ -3337,6 +3308,139 @@ namespace ERP.Business
             }
         }
 
+        public bool ExportCorteCaja()
+        {
+            try
+            {
+                string scope = Guid.NewGuid().ToString();
+                int[] idsExcluirCorte = exec_p_sinc_local_bitacora_sel("doc_corte_caja").Select(s => s.RecordSyncId).ToArray();
+                List<doc_corte_caja> listaCorteCaja = contextLocal.doc_corte_caja.Where(w => !idsExcluirCorte.Contains(w.CorteCajaId)).ToList();
+               
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
+                {
+                    try
+                    {
+                        foreach (var itemCorteCaja in listaCorteCaja)
+                        {
+
+                            doc_ventas ventaLocalIni = this.contextLocal.doc_ventas.Where(w => w.VentaId == itemCorteCaja.VentaIniId).FirstOrDefault();
+                            doc_ventas ventaLocalFin = this.contextLocal.doc_ventas.Where(w => w.VentaId == itemCorteCaja.VentaFinId).FirstOrDefault();
+                            doc_corte_caja corteCajaNew = new doc_corte_caja();
+
+
+                            corteCajaNew.CajaId = itemCorteCaja.CajaId;
+                            corteCajaNew.CorteCajaId = this.contextNube.doc_corte_caja.Max(m => m.CorteCajaId) + 1;
+                            corteCajaNew.CreadoEl = itemCorteCaja.CreadoEl;
+                            corteCajaNew.CreadoPor = itemCorteCaja.CreadoPor;
+                            corteCajaNew.FechaApertura = itemCorteCaja.FechaApertura;
+                            corteCajaNew.FechaCorte = itemCorteCaja.FechaCorte;
+                            corteCajaNew.TotalCorte = itemCorteCaja.TotalCorte;
+                            corteCajaNew.TotalEgresos = itemCorteCaja.TotalEgresos;
+                            corteCajaNew.TotalIngresos = itemCorteCaja.TotalIngresos;
+                            corteCajaNew.VentaIniId = this.contextNube.doc_ventas.Where(w=> w.SucursalId == ventaLocalIni.SucursalId && w.Folio == ventaLocalIni.Folio && DbFunctions.TruncateTime(w.Fecha)  == DbFunctions.TruncateTime(ventaLocalIni.Fecha)   ).FirstOrDefault().VentaId;
+                            corteCajaNew.VentaFinId = this.contextNube.doc_ventas.Where(w => w.SucursalId == ventaLocalFin.SucursalId && w.Folio == ventaLocalFin.Folio && DbFunctions.TruncateTime(w.Fecha) == DbFunctions.TruncateTime(ventaLocalFin.Fecha)).FirstOrDefault().VentaId; ;
+
+                            this.contextNube.doc_corte_caja.Add(corteCajaNew);
+                            this.contextNube.SaveChanges();
+
+                            exec_p_sinc_local_bitacora_ins("doc_corte_caja", itemCorteCaja.CorteCajaId, scope);
+
+                            doc_corte_caja_egresos corteCajaEgresosNew = new doc_corte_caja_egresos();
+
+                            //EGRESOS
+                            if (itemCorteCaja.doc_corte_caja_egresos!= null)
+                            {
+                                corteCajaEgresosNew.CorteCajaId = corteCajaNew.CorteCajaId;
+                                corteCajaEgresosNew.Gastos = itemCorteCaja.doc_corte_caja_egresos.Gastos;
+
+                                this.contextNube.doc_corte_caja_egresos.Add(corteCajaEgresosNew);
+                                this.contextNube.SaveChanges();
+
+                                exec_p_sinc_local_bitacora_ins("doc_corte_caja_egresos", itemCorteCaja.CorteCajaId, scope);
+
+                            }
+
+                            foreach (var itemCorteCajaDenominaciones in itemCorteCaja.doc_corte_caja_denominaciones)
+                            {
+                                doc_corte_caja_denominaciones corteCajaDenominacionesNew = new doc_corte_caja_denominaciones();
+
+                                corteCajaDenominacionesNew.Cantidad = itemCorteCajaDenominaciones.Cantidad;
+                                corteCajaDenominacionesNew.CorteCajaId = corteCajaNew.CorteCajaId;
+                                corteCajaDenominacionesNew.CreadoEl = itemCorteCajaDenominaciones.CreadoEl;
+                                corteCajaDenominacionesNew.CreadoPor = itemCorteCajaDenominaciones.CreadoPor;
+                                corteCajaDenominacionesNew.DenominacionId = itemCorteCajaDenominaciones.DenominacionId;
+                                corteCajaDenominacionesNew.Total = itemCorteCajaDenominaciones.Total;
+                                corteCajaDenominacionesNew.Valor = itemCorteCajaDenominaciones.Valor;
+
+                                this.contextNube.doc_corte_caja_denominaciones.Add(corteCajaDenominacionesNew);
+                                this.contextNube.SaveChanges();
+
+                                exec_p_sinc_local_bitacora_ins("doc_corte_caja_denominaciones", itemCorteCaja.CorteCajaId, scope);
+                            }
+
+                            foreach (var itemCorteCajaFP in itemCorteCaja.doc_corte_caja_fp)
+                            {
+                                doc_corte_caja_fp corteCajaFPNew = new doc_corte_caja_fp();
+
+                                corteCajaFPNew.CorteCajaId = corteCajaNew.CorteCajaId;
+                                corteCajaFPNew.CreadoEl = itemCorteCajaFP.CreadoEl;
+                                corteCajaFPNew.FormaPagoId = itemCorteCajaFP.FormaPagoId;
+                                corteCajaFPNew.Total = itemCorteCajaFP.Total;
+
+                                this.contextNube.doc_corte_caja_fp.Add(corteCajaFPNew);
+                                this.contextNube.SaveChanges();
+
+                                exec_p_sinc_local_bitacora_ins("doc_corte_caja_fp", itemCorteCaja.CorteCajaId, scope);
+
+                            }
+                            
+
+
+
+                        }
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        try
+                        {
+                            exec_p_sinc_local_bitacora_del("", scope);
+                        }
+                        catch (Exception)
+                        {
+                        }
+
+                        dbContextTransaction.Rollback();
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportCorteCaja",
+                                                              ex);
+                        System.Console.WriteLine(String.Format("{0}-{1}-{2}", ex.Message, ex.StackTrace, ex.InnerException.Message));
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                        return false;
+                    }
+                }
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportCorteCaja",
+                                                              ex);
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
         public bool ExportClientes()
         {
             try
