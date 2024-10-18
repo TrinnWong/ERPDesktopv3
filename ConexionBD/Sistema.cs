@@ -29,42 +29,42 @@ namespace ConexionBD
                 string root = AppDomain.CurrentDomain.BaseDirectory;
                 string script = "";
 
-                #region master
+                //#region master
 
-                try
-                {
-                    #region crear usuarios
-                  ServerConnection connMaster = new ServerConnection(oStringConnection.sqlConMaster);
-                    Server serverMaster = new Server(connMaster);
-                    string[] archivosMaster = null;
+                //try
+                //{
+                //    #region crear usuarios
+                //  ServerConnection connMaster = new ServerConnection(oStringConnection.sqlConMaster);
+                //    Server serverMaster = new Server(connMaster);
+                //    string[] archivosMaster = null;
 
-                    archivosMaster = recortado ?  System.IO.Directory.GetFiles(@"Versiones\00Master_REC\"):
-                        System.IO.Directory.GetFiles(@"Versiones\00Master\");
+                //    archivosMaster = recortado ?  System.IO.Directory.GetFiles(@"Versiones\00Master_REC\"):
+                //        System.IO.Directory.GetFiles(@"Versiones\00Master\");
 
 
-                    foreach (var a in archivosMaster)
-                    {
-                        try
-                        {
-                            script = File.ReadAllText(root + a.ToString());
-                            serverMaster.ConnectionContext.ExecuteNonQuery(script);
+                //    foreach (var a in archivosMaster)
+                //    {
+                //        try
+                //        {
+                //            script = File.ReadAllText(root + a.ToString());
+                //            serverMaster.ConnectionContext.ExecuteNonQuery(script);
 
-                            File.Delete(root + a.ToString());
+                //            File.Delete(root + a.ToString());
 
-                        }
-                        catch (Exception ex)
-                        {
-                        }
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //        }
                        
-                    }
-                    #endregion
-                }
-                catch (Exception ex)
-                {
+                //    }
+                //    #endregion
+                //}
+                //catch (Exception ex)
+                //{
 
                    
-                }
-                #endregion
+                //}
+                //#endregion
 
 
 

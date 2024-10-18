@@ -2466,7 +2466,7 @@ namespace ERP.Business
                 //this.ExportClientes();
 
                 this.ExportCorteCaja();
-
+                this.ExportDeclaracionFondoInicial();
 
                 return "";
             }
@@ -2884,7 +2884,7 @@ namespace ERP.Business
                 List<long> lstVentasFormaPago = new List<long>();
                 long ventaDetalleIdKey = 0;
                 long ventaIdKey = 0;
-                int rango = 200;
+                int rango = 1;
                 using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
                 {
                     try
@@ -3043,7 +3043,7 @@ namespace ERP.Business
                                 doc_ventas itemVenta = listaVentas.Where(w => w.VentaId == pedidoOrden.VentaId).FirstOrDefault();
 
 
-                                ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
+                                ventaIdKey = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId)??0) + rango;
                                 if (itemVenta != null)
                                 {
                                     doc_ventas itemVentaNEW = new doc_ventas();
@@ -3074,7 +3074,7 @@ namespace ERP.Business
                                     itemVentaNEW.TotalVenta = itemVenta.TotalVenta;
                                     itemVentaNEW.UsuarioCancelacionId = itemVenta.UsuarioCancelacionId;
                                     itemVentaNEW.UsuarioCreacionId = itemVenta.UsuarioCreacionId;
-                                    itemVentaNEW.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                                    itemVentaNEW.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId)??0) + rango;
                                     ventaIdKey++;
 
                                     this.contextNube.doc_ventas.Add(itemVentaNEW);
@@ -3149,7 +3149,7 @@ namespace ERP.Business
                         //VENTAS SIN PEDIDO
                         if (ventaIdKey == 0)
                         {
-                            ventaIdKey = this.contextNube.doc_ventas.Max(m => m.VentaId) + rango;
+                            ventaIdKey = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId)??0) + rango;
                         }
 
                         foreach (doc_ventas itemVentaSP in listaVentas.Where(w => w.doc_pedidos_orden.Where(s1 => s1.PedidoId > 0).Count() == 0))
@@ -3182,7 +3182,7 @@ namespace ERP.Business
                             itemVentaNEWSP.TotalVenta = itemVentaSP.TotalVenta;
                             itemVentaNEWSP.UsuarioCancelacionId = itemVentaSP.UsuarioCancelacionId;
                             itemVentaNEWSP.UsuarioCreacionId = itemVentaSP.UsuarioCreacionId;
-                            itemVentaNEWSP.VentaId = this.contextNube.doc_ventas.Max(m => m.VentaId) + 2;
+                            itemVentaNEWSP.VentaId = (this.contextNube.doc_ventas.Max(m => (int?)m.VentaId)??0) + rango;
                             ventaIdKey++;
 
                             this.contextNube.doc_ventas.Add(itemVentaNEWSP);
@@ -3236,7 +3236,7 @@ namespace ERP.Business
                                 itemVentaDetalleSPNEW.Total = itemVentaDetalleSP.Total;
                                 itemVentaDetalleSPNEW.UsuarioCreacionId = itemVentaDetalleSP.UsuarioCreacionId;
                                 itemVentaDetalleSPNEW.VentaId = itemVentaNEWSP.VentaId;
-                                itemVentaDetalleSPNEW.VentaDetalleId = this.contextNube.doc_ventas_detalle.Max(m => m.VentaDetalleId) + 2;
+                                itemVentaDetalleSPNEW.VentaDetalleId = (this.contextNube.doc_ventas_detalle.Max(m => (int?)m.VentaDetalleId)??0) + rango;
 
                                 nuevosDetalles.Add(itemVentaDetalleSPNEW);
                                 this.contextNube.doc_ventas_detalle.Add(itemVentaDetalleSPNEW);
@@ -3330,7 +3330,7 @@ namespace ERP.Business
 
 
                             corteCajaNew.CajaId = itemCorteCaja.CajaId;
-                            corteCajaNew.CorteCajaId = this.contextNube.doc_corte_caja.Max(m => m.CorteCajaId) + 1;
+                            corteCajaNew.CorteCajaId = (this.contextNube.doc_corte_caja.Max(m => (int?)m.CorteCajaId)??0) + 1;
                             corteCajaNew.CreadoEl = itemCorteCaja.CreadoEl;
                             corteCajaNew.CreadoPor = itemCorteCaja.CreadoPor;
                             corteCajaNew.FechaApertura = itemCorteCaja.FechaApertura;
@@ -3559,6 +3559,98 @@ namespace ERP.Business
             }
         }
 
+
+        public bool ExportDeclaracionFondoInicial()
+        {
+            try
+            {
+                string scope = Guid.NewGuid().ToString();
+                int[] idsExcluir = exec_p_sinc_local_bitacora_sel("doc_declaracion_fondo_inicial").Select(s => s.RecordSyncId).ToArray();
+                List<doc_declaracion_fondo_inicial> listaDeclaracionFondoInicial = this.contextLocal.doc_declaracion_fondo_inicial.Where(w => !idsExcluir.Contains(w.DeclaracionFondoId)).ToList();
+
+                using (var dbContextTransaction = contextNube.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
+                {
+                    try
+                    {
+                        DateTime fechaHoraServidor = contextNube.p_GetDateTimeServer().FirstOrDefault().Value;
+
+                        foreach (doc_declaracion_fondo_inicial declaracionFI in listaDeclaracionFondoInicial)
+                        {
+                            int? corteCajaNube=null;
+                            if (declaracionFI.doc_corte_caja != null)
+                            {
+                                var corteCajaLocal = declaracionFI.doc_corte_caja;
+                                corteCajaNube = this.contextNube.doc_corte_caja.Where(w => w.CajaId == corteCajaLocal.CajaId && w.CreadoPor == corteCajaLocal.CreadoPor &&
+                                DbFunctions.TruncateTime(w.CreadoEl) == DbFunctions.TruncateTime(corteCajaLocal.CreadoEl) && w.TotalCorte == corteCajaLocal.TotalCorte && 
+                                w.TotalEgresos == corteCajaLocal.TotalEgresos).Max(m=> (int?)m.CorteCajaId);
+                            }
+
+                            doc_declaracion_fondo_inicial exists = new doc_declaracion_fondo_inicial
+                            {
+                                DeclaracionFondoId = (this.contextNube.doc_declaracion_fondo_inicial.Max(m => (int?)m.DeclaracionFondoId) ?? 0) + 1,
+                                CreadoEl = declaracionFI.CreadoEl,
+                                CreadoPor = declaracionFI.CreadoPor,
+                                CajaId = declaracionFI.CajaId,
+                                SucursalId = declaracionFI.SucursalId,
+                                CorteCajaId = corteCajaNube,
+                                Total = declaracionFI.Total
+                               
+                            };
+
+                            this.contextNube.doc_declaracion_fondo_inicial.Add(exists);
+                            this.contextNube.SaveChanges();
+
+                            exec_p_sinc_local_bitacora_ins("doc_declaracion_fondo_inicial", declaracionFI.DeclaracionFondoId, scope);
+                        }
+
+
+
+
+                        dbContextTransaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            exec_p_sinc_local_bitacora_del("doc_declaracion_fondo_inicial", scope);
+                        }
+                        catch (Exception)
+                        {
+                        }
+
+                        dbContextTransaction.Rollback();
+
+
+                        err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                                      "ERP",
+                                                                      "ERP.Business.SincronizacionBusiness.ExportRetiros",
+                                                                      ex);
+
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                        return false;
+                    }
+                }
+
+
+
+
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = true, Detalle = "" });
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                err = ERP.Business.SisBitacoraBusiness.Insert(1,
+                                                              "ERP",
+                                                              "ERP.Business.SincronizacionBusiness.ExportRetiros",
+                                                              ex);
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+
+                return false;
+            }
+        }
 
         public void ImportarExportar()
         {

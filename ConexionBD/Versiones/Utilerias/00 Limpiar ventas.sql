@@ -2,6 +2,12 @@ BEGIN TRAN
 
 BEGIN TRY
 
+delete doc_cargos
+delete doc_cargos_detalle
+delete doc_productos_sobrantes_registro
+delete doc_maiz_maseca_rendimiento
+delete doc_declaracion_fondo_inicial
+delete [dbo].[sinc_local_bitacora]
 delete doc_corte_caja_ventas
 delete [dbo].[doc_pedidos_orden_detalle_impresion]
 DELETE doc_pagos_cancelaciones

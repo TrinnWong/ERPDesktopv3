@@ -857,6 +857,12 @@
       <DependentUpon>frmAdminPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\SeguridadCommon.cs" />
+    <Compile Include="Sincronizacion\frmSincronizacionProcessDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sincronizacion\frmSincronizacionProcessDialog.Designer.cs">
+      <DependentUpon>frmSincronizacionProcessDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\frmCuentaConfigSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1264,6 +1270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmAdminPass.resx">
       <DependentUpon>frmAdminPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sincronizacion\frmSincronizacionProcessDialog.resx">
+      <DependentUpon>frmSincronizacionProcessDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\frmCuentaConfigSistema.resx">
       <DependentUpon>frmCuentaConfigSistema.cs</DependentUpon>

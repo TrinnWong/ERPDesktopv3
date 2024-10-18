@@ -64,6 +64,7 @@
             this.uiMenuMaxMinConfig = new DevExpress.XtraBars.BarButtonItem();
             this.uiMenuAjusteInventario = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbSincronizar = new DevExpress.XtraBars.BarButtonItem();
             this.rbComanda = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbCuentas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbCuenta = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -80,7 +81,7 @@
             this.rbSesion = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.uiRevisarRed = new System.Windows.Forms.Timer(this.components);
-            this.bbSincronizar = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             rpgTickets = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -152,9 +153,10 @@
             this.uiMenuMaxMinConfig,
             this.uiMenuAjusteInventario,
             this.barButtonItem1,
-            this.bbSincronizar});
+            this.bbSincronizar,
+            this.barButtonItem2});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 35;
+            this.ribbonControl1.MaxItemId = 36;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbComanda,
@@ -406,6 +408,14 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
+            // bbSincronizar
+            // 
+            this.bbSincronizar.Caption = "Exportar";
+            this.bbSincronizar.Id = 34;
+            this.bbSincronizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbSincronizar.ImageOptions.Image")));
+            this.bbSincronizar.Name = "bbSincronizar";
+            this.bbSincronizar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbSincronizar_ItemClick);
+            // 
             // rbComanda
             // 
             this.rbComanda.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -526,6 +536,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCerrarSesion);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbSincronizar);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Sesión";
             // 
@@ -534,13 +545,13 @@
             this.uiRevisarRed.Interval = 10000;
             this.uiRevisarRed.Tick += new System.EventHandler(this.uiRevisarRed_Tick);
             // 
-            // bbSincronizar
+            // barButtonItem2
             // 
-            this.bbSincronizar.Caption = "Sincronizar";
-            this.bbSincronizar.Id = 34;
-            this.bbSincronizar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbSincronizar.ImageOptions.Image")));
-            this.bbSincronizar.Name = "bbSincronizar";
-            this.bbSincronizar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbSincronizar_ItemClick);
+            this.barButtonItem2.Caption = "Import";
+            this.barButtonItem2.Id = 35;
+            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // frmMenuRestTA
             // 
@@ -612,5 +623,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private System.Windows.Forms.Timer uiRevisarRed;
         private DevExpress.XtraBars.BarButtonItem bbSincronizar;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

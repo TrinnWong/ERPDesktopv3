@@ -1097,9 +1097,14 @@ namespace TacosAna.Desktop
 
         private void bbSincronizar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ERP.Business.SincronizacionBusiness oSinc = new ERP.Business.SincronizacionBusiness();
+            ERP.Common.Sincronizacion.frmSincronizacionProcessDialog oForm = new ERP.Common.Sincronizacion.frmSincronizacionProcessDialog("export");
+            oForm.ShowDialog();
+        }
 
-            oSinc.ExportANube();
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ERP.Common.Sincronizacion.frmSincronizacionProcessDialog oForm = new ERP.Common.Sincronizacion.frmSincronizacionProcessDialog("import");
+            oForm.ShowDialog();
         }
     }
 }

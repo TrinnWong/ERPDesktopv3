@@ -14,6 +14,7 @@ using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -477,20 +478,25 @@ namespace TacosAna.Desktop
 
         private void Login_Load(object sender, EventArgs e)
         {
-        //    if (Licencia.ValidarLicencia())
-        //    {
-        //        oContext = new ERPProdEntities();
+            //    if (Licencia.ValidarLicencia())
+            //    {
+            //        oContext = new ERPProdEntities();
 
-        //        oSistema = new Sistema();
+            //        oSistema = new Sistema();
 
-        //        //Importar Información Master
-        //        SincronizacionBusiness oSinc = new SincronizacionBusiness();
-        //        oSinc.Importar();
-        //    }
-        //    else
-        //    {
-        //        Application.Exit();
-        //    }
+            //        //Importar Información Master
+            //        SincronizacionBusiness oSinc = new SincronizacionBusiness();
+            //        oSinc.Importar();
+            //    }
+            //    else
+            //    {
+            //        Application.Exit();
+            //    }
+
+            ERP.Common.Sincronizacion.frmSincronizacionProcessDialog oForm = new ERP.Common.Sincronizacion.frmSincronizacionProcessDialog();
+            oForm.ShowDialog();
+            //Thread.Sleep(2000);
+            //oForm.Sincronizar();
 
         }
 

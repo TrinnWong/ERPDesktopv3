@@ -137,7 +137,11 @@ namespace ERP.Common.PuntoVenta
 
                 if (MessageBox.Show("¿Está seguro(a) de generar el CORTE DE CAJA?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    
+
+
+                    ERP.Common.Sincronizacion.frmSincronizacionProcessDialog oForm = new ERP.Common.Sincronizacion.frmSincronizacionProcessDialog("export");
+                    oForm.ShowDialog();
+
                     oContext = new ERPProdEntities();
                     cat_configuracion entity = oContext.cat_configuracion.FirstOrDefault();
 
