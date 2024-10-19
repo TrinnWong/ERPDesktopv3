@@ -31,6 +31,7 @@ namespace ERP.Common.Sincronizacion
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.uiError = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -54,11 +55,20 @@ namespace ERP.Common.Sincronizacion
             this.label2.TabIndex = 1;
             this.label2.Text = "No cierre esta ventana";
             // 
+            // uiError
+            // 
+            this.uiError.Location = new System.Drawing.Point(55, 103);
+            this.uiError.Multiline = true;
+            this.uiError.Name = "uiError";
+            this.uiError.Size = new System.Drawing.Size(486, 236);
+            this.uiError.TabIndex = 2;
+            // 
             // frmSincronizacionProcessDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 178);
+            this.ClientSize = new System.Drawing.Size(601, 351);
+            this.Controls.Add(this.uiError);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
@@ -78,5 +88,6 @@ namespace ERP.Common.Sincronizacion
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox uiError;
     }
 }

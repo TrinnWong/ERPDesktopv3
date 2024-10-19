@@ -13,6 +13,7 @@ namespace ERP.Common.Sincronizacion
 {
     public partial class frmSincronizacionProcessDialog : Form
     {
+        ERP.Business.SincronizacionBusiness oSinc;
         string tipo = "";
         bool allowClose = false;
         public frmSincronizacionProcessDialog(string _tipo=null)
@@ -30,7 +31,7 @@ namespace ERP.Common.Sincronizacion
         public void Sincronizar()
         {
             
-            ERP.Business.SincronizacionBusiness oSinc = new Business.SincronizacionBusiness();
+           oSinc = new Business.SincronizacionBusiness();
 
             oSinc.ImportarALocal();
             oSinc.ExportANube();
@@ -41,7 +42,7 @@ namespace ERP.Common.Sincronizacion
         public void Import()
         {
 
-            ERP.Business.SincronizacionBusiness oSinc = new Business.SincronizacionBusiness();
+             oSinc = new Business.SincronizacionBusiness();
 
             oSinc.ImportarALocal();
            
@@ -52,7 +53,7 @@ namespace ERP.Common.Sincronizacion
         public void Export()
         {
 
-            ERP.Business.SincronizacionBusiness oSinc = new Business.SincronizacionBusiness();
+            oSinc = new Business.SincronizacionBusiness();
 
             oSinc.ExportANube();
 
@@ -88,7 +89,30 @@ namespace ERP.Common.Sincronizacion
                     this.Export();
                 }
 
+               
+               
+
+            }); 
+            
+            await Task.Run(() =>
+            {
+                if (this.oSinc.lstResultado.Where(w => !w.Exitoso).Count() > 0)
+                {
+                    foreach (var item in this.oSinc.lstResultado)
+                    {
+                        uiError.Invoke((Action)(() =>
+                        {
+                            uiError.Text += item.Detalle + "\n";
+                        }));
+                    }
+                }
+                if (this.oSinc.lstResultado.Where(w => !w.Exitoso).Count() > 0)
+                {
+                    Thread.Sleep(5000);
+                }
             });
+
+           
             this.Close();
         }
     }

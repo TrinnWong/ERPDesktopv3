@@ -287,7 +287,7 @@ namespace ERP.Business
                                                              "ERP.Business.SincronizacionBusiness.ImportConfiguraciones",
                                                              ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuraciones", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuraciones", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
                 connection.Close();
                 // Manejo de errores
                 return false;
@@ -343,7 +343,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportCajas",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
                 return false;
             }
         }
@@ -392,7 +392,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportEmpresas",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Empresas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Empresas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -475,7 +475,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportSucursales",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -542,7 +542,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportUsuarios",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -587,7 +587,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportUsuariosSucursales",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Usuarios Sucursales", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -636,7 +636,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportLineas",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Líneas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Líneas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -691,7 +691,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportFamilias",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Familias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Familias", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -744,7 +744,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportSubFamilias",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Subfamilias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Subfamilias", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -858,7 +858,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportProductos",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Productos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Productos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -912,7 +912,7 @@ namespace ERP.Business
                                                           "ERP",
                                                           "ERP.Business.SincronizacionBusiness.ImportProductosPrecios",
                                                           ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
 
@@ -960,7 +960,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposCajas",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Cajas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1035,7 +1035,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportEmpleados",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Empleados", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Empleados", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1094,7 +1094,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPuestos",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Puestos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Puestos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1135,7 +1135,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportSucursalesProductos",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos por Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos por Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1184,7 +1184,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportMarcas",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Marcas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Marcas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1239,7 +1239,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportUnidadesMed",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Unidades de Medida", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Unidades de Medida", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1282,7 +1282,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPrecios",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Precio", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Precio", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1390,7 +1390,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportClientes",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1451,7 +1451,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ImportPreciosEspeciales",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios Especiales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Precios Especiales", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1506,7 +1506,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferencias",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Preferencias", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Preferencias", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1560,7 +1560,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferenciasEmpresa",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Empresa", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Empresa", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1614,7 +1614,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportPreferenciasSucursales",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Preferencias-Sucursal", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1669,7 +1669,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportClientesProductosPrecios",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos-Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos-Precios", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1717,7 +1717,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportProductosPrincipales",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Principales", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Principales", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1777,7 +1777,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportFormasPago",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Formas Pago", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Formas Pago", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
 
                 return false;
@@ -1827,7 +1827,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposPedido",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos Pedido", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos Pedido", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1897,7 +1897,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportTiposMovimientoInventario",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Movimiento de Inventario", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo Tipos de Movimiento de Inventario", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -1948,7 +1948,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportConceptos",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Conceptos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Conceptos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2001,7 +2001,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportCentroCostos",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Centro Costos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Centro Costos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2068,7 +2068,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportGastos",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Tipos de Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2126,7 +2126,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportProductosSobrantesConfig",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Sobrantes - Configuración", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Productos Sobrantes - Configuración", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2185,7 +2185,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportDenominaciones",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Denominaciones", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Denominaciones", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2252,7 +2252,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportBasculas",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2323,7 +2323,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportBasculasConfiguracion",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuración de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Configuración de Basculas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2382,7 +2382,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportEquiposComputo",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Equipos de Cómputo", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Equipos de Cómputo", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2444,7 +2444,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ImportConfiguracionTicketVenta",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Configuración Ticket de Venta", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Importar", Entidad = "Catálogo de Configuración Ticket de Venta", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2546,7 +2546,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportGastos",
                                                               ex);
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -2567,7 +2567,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportGastos",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Gastos", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2637,7 +2637,7 @@ namespace ERP.Business
                                                                       "ERP.Business.SincronizacionBusiness.ExportRetiros",
                                                                       ex);
 
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -2657,7 +2657,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportRetiros",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2731,7 +2731,7 @@ namespace ERP.Business
                                                                       "ERP.Business.SincronizacionBusiness.ExportMaizMasecaRendimiento",
                                                                       ex);
 
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -2750,7 +2750,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportMaizMasecaRendimiento",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Maiz Maseca Rendimiento", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -2830,7 +2830,7 @@ namespace ERP.Business
                                                                       "ERP.Business.SincronizacionBusiness.ExportProductosSobrantesRegistro",
                                                                       ex);
 
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -2851,7 +2851,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportProductosSobrantesRegistro",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Producto Sobrante", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -3272,7 +3272,7 @@ namespace ERP.Business
                                                                       "ERP",
                                                                       "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
                                                                       ex);
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -3302,7 +3302,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportPedidosOrden",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Pedidos y Ventas", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -3418,7 +3418,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportCorteCaja",
                                                               ex);
                         System.Console.WriteLine(String.Format("{0}-{1}-{2}", ex.Message, ex.StackTrace, ex.InnerException.Message));
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -3436,7 +3436,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportCorteCaja",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Corte de Caja", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -3534,7 +3534,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportClientes",
                                                               ex);
                         System.Console.WriteLine(String.Format("{0}-{1}-{2}", ex.Message, ex.StackTrace, ex.InnerException.Message));
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -3553,7 +3553,7 @@ namespace ERP.Business
                                                               "ERP.Business.SincronizacionBusiness.ExportClientes",
                                                               ex);
 
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Clientes", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
@@ -3626,7 +3626,7 @@ namespace ERP.Business
                                                                       "ERP.Business.SincronizacionBusiness.ExportRetiros",
                                                                       ex);
 
-                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                        lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                         return false;
                     }
@@ -3646,7 +3646,7 @@ namespace ERP.Business
                                                               "ERP",
                                                               "ERP.Business.SincronizacionBusiness.ExportRetiros",
                                                               ex);
-                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0}", err.ToString()) });
+                lstResultado.Add(new SincronizaResultadoModel() { Tipo = "Exportar", Entidad = "Retiros", Exitoso = false, Detalle = String.Format("Bitácora error:{0} {1}", err.ToString(),ex.Message) });
 
                 return false;
             }
